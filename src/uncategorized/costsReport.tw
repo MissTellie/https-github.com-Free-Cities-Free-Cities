@@ -1,0 +1,252 @@
+:: Costs Report
+
+<<set $nextButton to "Back to Main">>\
+<<set $nextLink to "Main">>\
+\
+//Your weekly costs are as follows.//
+<<nobr>>
+
+<<if $girls is 3>>
+	Since you are accustomed to luxury, your __personal living expenses__ are ¤<<print ($girls*(250+($economy*500)))>>.
+<<elseif $girls is 2>>
+	Since you are used to living well, your __personal living expenses__ are ¤<<print ($girls*(250+($economy*500)))>>.
+<<else>>
+	Since you are used to a fairly normal life, your __personal living expenses__ are ¤<<print ($girls*(250+($economy*500)))>>.
+<</if>>
+
+<<if $mercenaries > 0>>
+	<<if $PC.career is "mercenary">>
+	<br>__Mercenary__ expenses: ¤<<print ($mercenaries*500)>> //Reduced by your @@color:springgreen;mercenary contacts@@//
+	<<else>>
+	<br>__Mercenary__ expenses: ¤<<print ($mercenaries*1000)>>
+	<</if>>
+<</if>>
+<<if $brothel > 0>>
+	<<set $seed to 0>>
+	<<if $brothel > 0>>
+		<<set $seed to $brothelAdsSpending>>
+	<</if>>
+	<br>__Brothel__ maintenance: ¤<<print ($brothel*$facilityCost)+(0.2*$brothelUpgradeDrugs*$brothel*$facilityCost)>>
+<</if>>
+<<if $club > 0>>
+	<<set $seed to 0>>
+	<<if $club > 0>>
+		<<set $seed to $clubAdsSpending>>
+	<</if>>
+	<br>__Club__ maintenance: ¤<<print ($club*$facilityCost)+(0.2*$clubUpgradePDAs*$club*$facilityCost)>>
+<</if>>
+<<if $arcade > 0>>
+	<br>__Arcade__ maintenance: ¤<<print (0.5*$arcade*$facilityCost)+(0.2*$arcadeUpgradeInjectors*$arcade*$facilityCost)+(0.2*$arcadeUpgradeCollectors*$arcade*$facilityCost)>>
+<</if>>
+<<if $dairy > 0>>
+	<br>__Dairy__ maintenance: ¤<<print ($dairy*$facilityCost)+(0.2*$dairyFeedersUpgrade*$dairy*$facilityCost)+(0.1*$dairyPregUpgrade*$dairy*$facilityCost)>>
+	<<if $bioreactorsXY+$bioreactorsXX+$bioreactorsHerm+$bioreactorsBarren > 0>>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;Additional maintenance for milking machines upgraded with biological components: ¤<<print ($bioreactorsXY+$bioreactorsXX+$bioreactorsHerm+$bioreactorsBarren)*100>>
+	<</if>>
+<</if>>
+<<if $collectionFacility > 0>>
+	<br>__Collection Facility__ maintenance: ¤<<print ($collectionFacility*$facilityCost)+(0.2*$dairyStimulatorsUpgrade*$collectionFacility*$facilityCost)+(0.2*$collectionFacilityUpgradeMilkers*$collectionFacility*$facilityCost)>>
+<</if>>
+<<if ($servantsQuarters > 0) && ($servantsQuartersUpgradeMonitoring > 0)>>
+	<br>__Servants' Quarters__ maintenance: ¤<<print (0.2*$servantsQuartersUpgradeMonitoring*$servantsQuarters*$facilityCost)>>
+<</if>>
+<<if ($masterSuiteUpgradePregnancy == 1)>>
+	<br>__Master Suite__ maintenance: ¤<<print ((500*$masterSuiteUpgradePregnancy) + (1000*$masterSuitePregnancyFertilitySupplements))>>
+<</if>>
+<<if $FSSpending != 0>>
+	<br>__Society Shaping__ expenses: ¤$FSSpending
+<</if>>
+<<if $Recruiter != 0>>
+	<br>__Recruiting__ expenses: ¤250
+<</if>>
+<<if $TSS.schoolPresent == 1>>
+	<br>__The Slavegirl School__ branch campus upkeep: ¤1000
+<</if>>
+<<if $GRI.schoolPresent == 1>>
+	<br>__Growth Research Institute__ subsidiary lab upkeep: ¤1000
+<</if>>
+<<if $SCP.schoolPresent == 1>>
+	<br>__St. Claver Preparatory__ branch campus upkeep: ¤1000
+<</if>>
+<<if $LDE.schoolPresent == 1>>
+	<br>__L'Encole des Enculees__ branch campus upkeep: ¤1000
+<</if>>
+<<if $TGA.schoolPresent == 1>>
+	<br>__The Gymnasium-Academy__ branch campus upkeep: ¤1000
+<</if>>
+<<if ($TFS.schoolPresent == 1) && (($PC.dick == 0) || ($PC.vagina == 0) || ($PC.boobs == 0))>>
+	<br>__The Futanari Sisters__ community upkeep: ¤1000
+<</if>>
+<<if $TSS.subsidize != 0>>
+	<br>__The Slavegirl School__ branch campus influence: ¤1000
+<</if>>
+<<if $GRI.subsidize != 0>>
+	<br>__Growth Research Institute__ subsidiary lab influence: ¤1000
+<</if>>
+<<if $SCP.subsidize != 0>>
+	<br>__St. Claver Preparatory__ branch campus influence: ¤1000
+<</if>>
+<<if $LDE.subsidize != 0>>
+	<br>__L'Encole des Enculees__ branch campus influence: ¤1000
+<</if>>
+<<if $TGA.subsidize != 0>>
+	<br>__The Gymnasium-Academy__ branch campus influence: ¤1000
+<</if>>
+<<if $TFS.subsidize != 0>>
+	<br>__The Futanari Sisters__ community influence: ¤1000
+<</if>>
+
+<<if $alwaysSubsidizeGrowth == 1>>
+	<br>Weekly arcology growth subsidy: ¤$policyCost
+<</if>>
+<<if $alwaysSubsidizeRep == 1>>
+	<br>Weekly self-promotion budget: $policyCost
+<</if>>
+
+<<if $ProImmigrationCash == 1>>
+	<br>Pro-immigration promotion budget: $policyCost
+<</if>>
+<<if $AntiEnslavementCash == 1>>
+	<br>Anti-enslavement charity budget: $policyCost
+<</if>>
+
+<<if $CoursingAssociation == 1>>
+	<br>Coursing Association membership: ¤1000
+<</if>>
+
+<<set $girlsCosts to 0>>
+<br>
+
+<<for $i to 0; $i < $slaves.length; $i++>>
+	<<set $individualCosts to 0>>
+	''$slaves[$i].slaveName'':
+	<<if $slaves[$i].livingRules is "luxurious">>
+	<<if $slaves[$i].relationship >= 4>>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;Living expenses: ¤<<print ($rulesCost*3)>>
+		<<set $individualCosts += ($rulesCost*3)>>
+	<<else>>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;Living expenses: ¤<<print ($rulesCost*4)>>
+		<<set $individualCosts += ($rulesCost*4)>>
+	<</if>>
+	<<elseif $slaves[$i].livingRules is "normal">>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;Living expenses: ¤<<print ($rulesCost*2)>>
+		<<set $individualCosts += ($rulesCost*2)>>
+	<<else>>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;Living expenses: ¤<<print ($rulesCost)>>
+		<<set $individualCosts += $rulesCost>>
+	<</if>>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;Basic slave food cost: ¤<<print $foodCost*4>>
+	<<set $individualCosts += $foodCost*4>>
+	<<switch $slaves[$i].diet>>
+	<<case "fattening" "muscle building">>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;Heavy diet: ¤<<print $foodCost>>
+		<<set $individualCosts += $foodCost>>
+	<<case "restricted" "slimming">>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;Light diet: //reduced by// ¤<<print $foodCost>>
+		<<set $individualCosts -= $foodCost>>
+	<</switch>>
+	<<if $slaves[$i].weight > 50>>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;Caloric adjustment for heavy weight: ¤<<print $foodCost>>
+		<<set $individualCosts += $foodCost>>
+	<<elseif $slaves[$i].weight < -50>>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;Caloric adjustment for light weight: //reduced by// ¤<<print $foodCost>>
+		<<set $individualCosts -= $foodCost>>
+	<</if>>
+	<<if $slaves[$i].lactation > 0>>
+	<<set $individualCosts += $foodCost>>
+	<<if $slaves[$i].lactation > 0>>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;Food to support
+		<<if $slaves[$i].lactation > 1>>heavy<<else>>natural<</if>> lactation from
+		<<if Math.trunc($slaves[$i].boobs/10000) > 2>>absurd udders<<elseif Math.trunc($slaves[$i].boobs/10000) > 1>>enormous boobs<<else>>reasonable breasts<</if>>:
+		¤<<print $foodCost*$slaves[$i].lactation*(1+Math.trunc($slaves[$i].boobs/10000))>>
+		<<set $individualCosts += $foodCost*$slaves[$i].lactation*(1+Math.trunc($slaves[$i].boobs/10000))>>
+	<</if>>
+	<</if>>
+	<<if $slaves[$i].preg > 5>>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;Extra feeding to support pregnancy: ¤<<print $foodCost*$slaves[$i].pregType>>
+		<<set $individualCosts += $foodCost*$slaves[$i].pregType>>
+	<</if>>
+	<<if $boobAccessibility != 1>>
+	<<if ($slaves[$i].boobs > 7500)>>
+	<<if ($slaves[$i].assignment != "work in the dairy") || ($dairyRestraintsSetting < 2)>>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;Increased living expenses due to inconveniently huge boobs: ¤50
+		<<set $individualCosts += 50>>
+	<</if>>
+	<</if>>
+	<</if>>
+	<<if !canSee($slaves[$i])>>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;Increased living expenses due to lack of sight: ¤50
+		<<set $individualCosts += 50>>
+	<<elseif $slaves[$i].eyes <= -1>>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;Increased living expenses due to poor vision: ¤25
+		<<set $individualCosts += 25>>
+	<<elseif ($slaves[$i].eyewear is "blurring glasses") || ($slaves[$i].eyewear is "blurring contacts")>>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;Increased living expenses due to blurred vision: ¤25
+		<<set $individualCosts += 25>>
+	<</if>>
+	<<if ($slaves[$i].amp != 0)>>
+	  <<if ($slaves[$i].amp == 1)>>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;Increased living expenses due to limblessness: ¤$rulesCost
+		<<set $individualCosts += $rulesCost>>
+	  <<else>>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;Increased living expenses due to prosthetics: ¤<<print $rulesCost/2>>
+		<<set $individualCosts += $rulesCost/2>>
+	  <</if>>
+	<<elseif !canWalk($slaves[$i])>>
+	  <br>&nbsp;&nbsp;&nbsp;&nbsp;Increased living expenses due to immobility: ¤<<print $rulesCost>>
+	  <<set $individualCosts += $rulesCost>>
+	<</if>>
+	<<if $slaves[$i].boobs > 10000>>
+	<<if $slaves[$i].boobsImplantType == 1>>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;Maintenance cost for oversized string implants: ¤50
+		<<set $individualCosts += 50>>
+	<</if>>
+	<</if>>
+	<<if $slaves[$i].butt > 10>>
+	<<if $slaves[$i].buttImplantType == 1>>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;Maintenance cost for oversized string implants: ¤50
+		<<set $individualCosts += 50>>
+	<</if>>
+	<</if>>
+	<<if $slaves[$i].preg > 25>>
+	<<if $slaves[$i].universalRulesBirthing == 1>>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;Coverage cost for daily pregnancy scanning: ¤50
+		<<set $individualCosts += 50>>
+	<</if>>
+	<</if>>
+	<<if $CitizenRetirement == 1>>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;Retirement account payments: ¤250
+	<<set $individualCosts += 250>>
+	<</if>>
+	<<if ($slaves[$i].drugs != "no drugs")>>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;Standard drugs: ¤<<print ($drugsCost*2)>>
+		<<set $individualCosts += ($drugsCost*2)>>
+	<</if>>
+	<<if ($slaves[$i].curatives > 0)>>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;Health drugs: ¤<<print $drugsCost+($slaves[$i].curatives*$drugsCost)>>
+		<<set $individualCosts += $drugsCost+($slaves[$i].curatives*$drugsCost)>>
+	<</if>>
+	<<if ($slaves[$i].aphrodisiacs > 0)>>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;Aphrodisiacs: ¤<<print ($drugsCost*$slaves[$i].aphrodisiacs)>>
+		<<set $individualCosts += $drugsCost*$slaves[$i].aphrodisiacs>>
+	<</if>>
+	<<if ($slaves[$i].hormones != 0)>>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;Hormones: ¤<<print (Math.trunc($drugsCost*Math.abs($slaves[$i].hormones)*0.5))>>
+		<<set $individualCosts += Math.trunc($drugsCost*Math.abs($slaves[$i].hormones)*0.5)>>
+	<</if>>
+	<<if ($slaves[$i].preg == -1) && isFertile($slaves[$i])>>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;Contraceptives: ¤<<print (Math.trunc($drugsCost*0.5))>>
+		<<set $individualCosts += Math.trunc($drugsCost*0.5)>>
+	<</if>>
+	<<if ($studio == 1)>>
+	<<if ($slaves[$i].pornFameSpending > 0)>>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;Publicity: ¤$slaves[$i].pornFameSpending
+		<<set $individualCosts += $slaves[$i].pornFameSpending>>
+	<</if>>
+	<</if>>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__Total__: ¤<<print ($individualCosts)>>
+	<<set $girlsCosts += $individualCosts>>
+	<br>
+<</for>>
+
+<</nobr>>
