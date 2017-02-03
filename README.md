@@ -9,9 +9,9 @@ There are two methods of acquiring Free Cities:
 
 ### Compiling (Windows x86_64)
 
-1. Open PowerShell or Command Prompt.
-2. Use cd to change to the Free Cities directory.
-3. Run '.\compile.bat'
+1. Navigate to the Free Cities directory.
+2. Run compile.bat by double clicking the icon.
+3. If no errors are reported, the compilation was a success.
 4. The game will be compiled into a .html file in the Free Cities\bin directory.
 5. Open the .html file with your web browser.
 
