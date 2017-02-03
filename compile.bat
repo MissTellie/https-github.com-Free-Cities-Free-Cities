@@ -7,3 +7,4 @@
 
 CALL "%~dp0devTools\tweeGo\tweego.exe" -o "%~dp0bin/FC.html" "%~dp0src\config\start.tw"
 ECHO Done
+PAUSE
