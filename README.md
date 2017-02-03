@@ -3,9 +3,9 @@ A text-only slave management game. (18+)
 
 ## Downloading The Game
 
-There are two methods of acquiring Free Cities:
-1. Download the latest compiled release; either from the [Blog](https://freecitiesblog.blogspot.com/), or from the [Releases](https://github.com/Free-Cities/Free-Cities/releases) page.
-2. Cloning this repository and manually compiling the game (see below).
+There are two methods of acquiring Free Cities:  
+1. Download the latest compiled release; either from the [Blog](https://freecitiesblog.blogspot.com/), or from the [Releases](https://github.com/Free-Cities/Free-Cities/releases) page.  
+2. Cloning this repository and manually compiling the game (see below).  
 
 ### Compiling (Windows x86_64)
 
