@@ -1,0 +1,106 @@
+:: Remove activeSlave
+
+<<silently>>
+
+<<for $x to 0; $x < $slaves.length; $x++>>
+<<if $activeSlave.ID == $slaves[$x].ID>>
+	<<for $y to 0; $y < $slaves.length; $y++>>
+		<<if $activeSlave.ID is $slaves[$y].pregSource>>
+			<<set $slaves[$y].pregSource to 0>>
+		<</if>>
+	<</for>>
+	<<if $activeSlave.relation != 0>>
+		<<for $y to 0; $y < $slaves.length; $y++>>
+			<<if $slaves[$y].ID is $activeSlave.relationTarget>>
+				<<set $slaves[$y].relation to 0>>
+				<<set $slaves[$y].relationTarget to 0>>
+				<<break>>
+			<</if>>
+		<</for>>
+	<</if>>
+	<<if $activeSlave.relationship > 0>>
+		<<for $y to 0; $y < $slaves.length; $y++>>
+			<<if $slaves[$y].ID is $activeSlave.relationshipTarget>>
+				<<set $slaves[$y].relationship to 0>>
+				<<set $slaves[$y].relationshipTarget to 0>>
+				<<break>>
+			<</if>>
+		<</for>>
+	<</if>>
+	<<if $activeSlave.rivalry != 0>>
+		<<for $y to 0; $y < $slaves.length; $y++>>
+			<<if $slaves[$y].ID is $activeSlave.rivalryTarget>>
+				<<set $slaves[$y].rivalry to 0>>
+				<<set $slaves[$y].rivalryTarget to 0>>
+				<<break>>
+			<</if>>
+		<</for>>
+	<</if>>
+	<<if $activeSlave.ID is $Recruiter.ID>>
+		<<set $Recruiter to 0>>
+	<</if>>
+	<<if $activeSlave.ID is $HeadGirl.ID>>
+		<<set $HeadGirl to 0>>
+	<</if>>
+	<<if $activeSlave.ID is $Bodyguard.ID>>
+		<<set $Bodyguard to 0>>
+	<</if>>
+	<<if $activeSlave.ID is $Lurcher.ID>>
+		<<set $Lurcher to 0>>
+	<</if>>
+	<<if $activeSlave.ID is $retiree.ID>>
+		<<set $retiree to 0>>
+	<</if>>
+	<<if $fighterIDs.contains($activeSlave.ID)>>
+	<<for $z to 0; $z < $fighterIDs.length; $z++>>
+	<<if $activeSlave.ID == $fighterIDs[$z]>>
+		<<set $dump to $fighterIDs.pluck([$z], [$z])>>
+		<<set $z -= 1>>
+	<</if>>
+	<</for>>
+	<</if>>
+	<<if $activeSlave.ID is $fighterTwo.ID>>
+		<<set $fighterTwo to 0>>
+	<</if>>
+	<<if $activeSlave.ID is $Madam.ID>>
+		<<set $Madam to 0>>
+	<</if>>
+	<<if $activeSlave.ID is $DJ.ID>>
+		<<set $DJ to 0>>
+	<</if>>
+	<<if $activeSlave.ID is $Milkmaid.ID>>
+		<<set $Milkmaid to 0>>
+	<</if>>
+	<<if $activeSlave.ID is $Schoolteacher.ID>>
+		<<set $Schoolteacher to 0>>
+	<</if>>
+	<<if $activeSlave.ID is $Attendant.ID>>
+		<<set $Attendant to 0>>
+	<</if>>
+	<<if $activeSlave.ID is $Nurse.ID>>
+		<<set $Nurse to 0>>
+	<</if>>
+	<<if $activeSlave.ID is $Collectrix.ID>>
+		<<set $Collectrix to 0>>
+	<</if>>
+	<<if $activeSlave.ID is $Stewardess.ID>>
+		<<set $Stewardess to 0>>
+	<</if>>
+	<<if $activeSlave.ID is $Wardeness.ID>>
+		<<set $Wardeness to 0>>
+	<</if>>
+	<<if $activeSlave.ID is $Concubine.ID>>
+		<<set $Concubine to 0>>
+	<</if>>
+
+	<<if $activeSlave.ID is $personalAttention>>
+		<<set $personalAttention to "business">>
+	<</if>>
+
+	<<set $dump to $slaves.pluck([$x], [$x])>>
+	/*<<set $x -= 1>>*/
+	<<break>>
+<</if>>
+<</for>>
+
+<</silently>>
