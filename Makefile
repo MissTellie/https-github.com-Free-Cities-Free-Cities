@@ -1,7 +1,23 @@
-all: ./src/config/start.tw FC.html
+PYTHON?= python
+ifeq (${MAKE_HOST}, x86_64-unknown-cygwin)
+	TWEEGOBIN?= tweego.exe
+else
+	TWEEGOBIN?= tweego
+endif
 
-./src/config/start.tw: $(shell find src -type d)
-	python ./devTools/scripts/includes_linux.py
+SRCDIR?= src
+STARTFILE?= $(SRCDIR)/config/start.tw
+FCTARG?= bin/FC.html
+GENINCLUDES?=  ./devTools/scripts/includes_linux.py
+all: $(FCTARG)
 
-FC.html: $(shell find src -type f)
-	./devTools/tweeGo/tweego -o ./bin/FC.html ./src/config/start.tw
+$(STARTFILE):	$(SRCDIR)/config/start.tw.proto $(GENINCLUDES) \
+		$(shell find ${SRCDIR} -type d -print)
+	$(PYTHON) $(GENINCLUDES) $< $@ $(SRCDIR)
+
+$(FCTARG): $(STARTFILE) $(shell find ${SRCDIR} -type f -name \*.tw -print)
+	./devTools/tweeGo/$(TWEEGOBIN) -o $(FCTARG) $(STARTFILE)
+
+clean:
+	-$(RM) $(STARTFILE) $(FCTARG)
+
