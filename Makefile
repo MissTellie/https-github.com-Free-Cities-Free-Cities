@@ -8,7 +8,7 @@ endif
 SRCDIR?= src
 STARTFILE?= $(SRCDIR)/config/start.tw
 FCTARG?= bin/FC.html
-GENINCLUDES?=  ./devTools/scripts/includes_linux.py
+GENINCLUDES?=  ./devTools/scripts/includes.py
 all: $(FCTARG)
 
 $(STARTFILE):	$(SRCDIR)/config/start.tw.proto $(GENINCLUDES) \

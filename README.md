@@ -17,7 +17,7 @@ There are two methods of acquiring Free Cities:
 
 ### Compiling (Linux x86_64)
 
-Ensure that Python 2 is installed (Updating scripts to 3).
+Ensure that Python (2 or 3) is installed.
 
 1. Open your terminal emulator.
 2. Use cd to change to the Free Cities directory.
