@@ -20,4 +20,3 @@ $(FCTARG): $(STARTFILE) $(shell find ${SRCDIR} -type f -name \*.tw -print)
 
 clean:
 	-$(RM) $(STARTFILE) $(FCTARG)
-
