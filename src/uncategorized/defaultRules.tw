@@ -1,5 +1,7 @@
 :: Default Rules [nobr]
 
+<<if $activeSlave.fuckdoll == 0>>
+
 <<for _r to 0; _r < $defaultRules.length; _r++>>
 	<<set _currentRule to $defaultRules[_r]>>
 	<<if !ruleApplied($activeSlave, _currentRule.ID)>>
@@ -373,6 +375,8 @@ is now _currentRule.hLength cm long.
 <</if>>
 <</if>>
 
+<</if>> /* CLOSES FUCKDOLL CHECK */
+
 <<if (_currentRule.growth isnot "no default setting")>>
 <<if ($activeSlave.indentureRestrictions < 2)>>
 <<if (_currentRule.growth is "girlish")>>
@@ -553,7 +557,9 @@ is now _currentRule.hLength cm long.
 <</if>>
 <</if>>
 <</if>>
-<</if>>
+<</if
+
+<<if $activeSlave.fuckdoll == 0>>
 
 <<if (_currentRule.livingRules isnot "no default setting")>>
 <<if ($activeSlave.fetish is "mindbroken")>>
@@ -627,6 +633,8 @@ is now _currentRule.hLength cm long.
  	<br>$activeSlave.slaveName's typical reward has been updated to _currentRule.standardReward.
  <</if>>
 <</if>>
+
+<</if>> /* CLOSES FUCKDOLL CHECK */
 
 <<if (_currentRule.diet isnot "no default setting")>>
 	<<if ($activeSlave.boobs >= 1600) && ($activeSlave.muscles <= 5) && ($activeSlave.amp != 1) && ((_currentRule.muscles is "no default setting") || (_currentRule.muscles == 0))>>
@@ -818,6 +826,8 @@ is now _currentRule.hLength cm long.
 	<</if>>
 	<</if>>
 <</if>>
+
+<<if $activeSlave.fuckdoll == 0>>
 
 <<if (_currentRule.nipplesPiercing == 0)>>
 <<if $activeSlave.nipplesPiercing != 0>>
@@ -1208,6 +1218,8 @@ is now _currentRule.hLength cm long.
 <</if>>
 <</if>>
 <</if>>
+
+<</if>> /* CLOSES FUCKDOLL CHECK */
 
 <<if (_currentRule.pornFameSpending isnot "no default setting")>>
 <<if ($activeSlave.devotion > 95)>>

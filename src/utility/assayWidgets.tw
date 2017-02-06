@@ -2,7 +2,26 @@
 
 <<widget "Beauty">>
 
+<<modScore $args[0]>>
+<<if $modScore > 15 || ($piercingScore > 8 && $tatScore > 5)>>
+	<<set $modded += 1>>
+<<elseif $args[0].corsetPiercing == 0 && $piercingScore < 3 && $tatScore < 2>>
+	<<set $unmodded += 1>>
+<</if>>
+<<if $args[0].vagina is -1>>
+	<<set $XY += 1>>
+<<else>>
+	<<set $XX += 1>>
+<</if>>
+<<if $args[0].age >= 30>>
+	<<set $old += 1>>
+<<else>>
+	<<set $young += 1>>
+<</if>>
+
 <<set $beauty to 0>>
+
+<<if $slaves[$i].fuckdoll == 0>> /* NOT A FUCKDOLL */
 
 <<set $beauty += 150 - ($args[0].age*3) + (5*$args[0].ageImplant) + (Math.min($args[0].health,100)/5) + (2*$args[0].waist) - ($args[0].muscles/30) +($args[0].lips/10) + (6*$args[0].face) +(1.5*$args[0].butt) - (3*$args[0].dick) - (2*$args[0].balls) + ($args[0].clit) + (($args[0].height-160)/10) + ($args[0].voice) + (3*$args[0].intelligence) + ($args[0].entertainSkill/10) + ($args[0].whoreSkill/10) + (2*$args[0].hips)>>
 
@@ -43,6 +62,134 @@
 <<elseif $args[0].faceShape is "cute">>
 	<<set $beauty += 4>>
 <</if>>
+
+<<if $args[0].brand != 0>>
+	<<if $rep > 10000>>
+	<<set $beauty += 1>>
+	<<elseif $rep < 5000>>
+	<<set $beauty -= 1>>
+	<</if>>
+<</if>>
+
+<<if $args[0].minorInjury != 0>>
+	<<set $beauty -= 2>>
+<</if>>
+
+<<if $args[0].cSec == 1>>
+	<<set $beauty -= 2>>
+<</if>>
+
+<<if $args[0].nails > 0>><<set $beauty += 1>><</if>>
+<<if $args[0].makeup > 0>><<set $beauty += 1>><</if>>
+
+<<if ($arcologies[0].FSTransformationFetishist > 20) || ($arcologies[0].FSDegradationist > 20)>>
+	<<if $modScore > 15 || ($piercingScore > 8 && $tatScore > 5)>>
+	<<set $beauty += 8+($modScore*0.25)>>
+	<<elseif $modScore > 7>>
+	<<set $beauty += $modScore-7>>
+	<</if>>
+<<elseif ($arcologies[0].FSBodyPurist > 20) || ($arcologies[0].FSPaternalist > 20)>>
+	<<if $modScore <= 7>>
+	<<set $beauty += 10>>
+	<<else>>
+	<<set $beauty += 15-$modScore>>
+	<</if>>
+<<else>>
+	<<if $modScore <= 7>>
+	<<set $beauty += $modScore>>
+	<<elseif $modScore > 15 || ($piercingScore > 8 && $tatScore > 5)>>
+	<<set $beauty += 11>>
+	<<else>>
+	<<set $beauty += 7+(0.5*($modScore-7))>>
+	<</if>>
+<</if>>
+
+<<if $arcologies[0].FSSupremacist != "unset">>
+<<if $args[0].race != $arcologies[0].FSSupremacistRace>>
+	<<set $beauty += ($arcologies[0].FSSupremacist/30)+$arcologies[0].FSSupremacistLawME>>
+<</if>>
+<</if>>
+<<if $arcologies[0].FSSubjugationist != "unset">>
+<<if $args[0].race is $arcologies[0].FSSubjugationistRace>>
+	<<set $beauty += ($arcologies[0].FSSubjugationist/20)+$arcologies[0].FSSubjugationistLawME>>
+<</if>>
+<</if>>
+<<if $arcologies[0].FSEdoRevivalist != "unset">>
+<<if ($args[0].nationality is "Japanese") || ($args[0].nationality is "Edo Revivalist")>>
+	<<set $beauty += ($arcologies[0].FSEdoRevivalist/20)>>
+<</if>>
+<</if>>
+<<if $arcologies[0].FSChineseRevivalist != "unset">>
+<<if ($args[0].nationality is "Chinese") || ($args[0].nationality is "Chinese Revivalist")>>
+	<<set $beauty += ($arcologies[0].FSChineseRevivalist/20)>>
+<</if>>
+<</if>>
+
+<<if $args[0].race is "white">>
+	<<set $beauty += 4>>
+<<elseif $args[0].race is "surgically altered to look white">>
+	<<set $beauty += 2>>
+<</if>>
+
+<<if $args[0].age >= 30>>
+	<<if $arcologies[0].FSYouthPreferentialist != "unset">>
+		<<set $beauty -= ($arcologies[0].FSYouthPreferentialist/30)+$arcologies[0].FSYouthPreferentialistLaw>>
+	<<elseif $arcologies[0].FSMaturityPreferentialist != "unset">>
+		<<set $beauty += ($arcologies[0].FSMaturityPreferentialist/20)+$arcologies[0].FSMaturityPreferentialistLaw>>
+	<</if>>
+<<else>>
+	<<if $arcologies[0].FSMaturityPreferentialist != "unset">>
+		<<set $beauty -= ($arcologies[0].FSMaturityPreferentialist/30)-$arcologies[0].FSMaturityPreferentialistLaw>>
+	<<elseif $arcologies[0].FSYouthPreferentialist != "unset">>
+		<<set $beauty += ($arcologies[0].FSYouthPreferentialist/20)-$arcologies[0].FSYouthPreferentialistLaw>>
+	<</if>>
+<</if>>
+
+<<if ($args[0].markings != "none")>>
+	<<if ($args[0].markings is "beauty mark")>>
+	<<if ($args[0].face > 1)>>
+		<<set $beauty += 2>>
+	<<elseif ($args[0].face < 1)>>
+		<<set $beauty -= 2>>
+	<</if>>
+	<<elseif ($args[0].markings is "birthmark")>>
+	<<if ($args[0].prestige > 0)>>
+		<<set $beauty += 2>>
+	<<else>>
+		<<set $beauty -= 2>>
+	<</if>>
+	<<else>>
+	<<if ($args[0].skin is "pale") || ($args[0].skin is "fair")>>
+		<<set $beauty += 1>>
+		<<if ($args[0].hColor is "red")>>
+		<<set $beauty += 1>>
+		<</if>>
+	<</if>>
+	<</if>>
+<</if>>
+
+<<if $entertainmentCareers.contains($args[0].career)>>
+	<<set $beauty += 1>>
+<<elseif ($week-$args[0].weekAcquired >= 20) && ($args[0].entertainSkill >= 100)>>
+	<<set $beauty += 1>>
+<</if>>
+
+<<if $seeAge == 1>>
+<<if $args[0].age == 18>>
+	<<set $beauty += 1>>
+	<<if $args[0].birthWeek == 0>>
+	<<set $beauty += 0.8*$beauty>>
+	<<elseif $args[0].birthWeek < 4>>
+	<<set $beauty += 0.1*$beauty>>
+	<</if>>
+<</if>>
+<</if>>
+	
+<<else>> /* FUCKDOLL */
+
+<<set $beauty += 50 + (2*$args[0].waist) - ($args[0].muscles/30) +($args[0].lips/10) + (3*$args[0].face) +(1.5*$args[0].butt) - (3*$args[0].dick) - (2*$args[0].balls) + ($args[0].clit) + (($args[0].height-160)/10) + (2*$args[0].hips)>>
+	
+<</if>> /* CLOSES FUCKDOLL CHECK */
 
 <<if ($arcologies[0].FSTransformationFetishist > 20) || ($arcologies[0].FSAssetExpansionist > 20)>>
 	<<if $args[0].boobs <= 500>>
@@ -194,54 +341,6 @@
 	<</if>>
 <</if>>
 
-<<if $args[0].brand != 0>>
-	<<if $rep > 10000>>
-	<<set $beauty += 1>>
-	<<elseif $rep < 5000>>
-	<<set $beauty -= 1>>
-	<</if>>
-<</if>>
-
-<<if $args[0].minorInjury != 0>>
-	<<set $beauty -= 2>>
-<</if>>
-
-<<if $args[0].cSec == 1>>
-	<<set $beauty -= 2>>
-<</if>>
-
-<<if $args[0].nails > 0>><<set $beauty += 1>><</if>>
-<<if $args[0].makeup > 0>><<set $beauty += 1>><</if>>
-
-<<modScore $args[0]>>
-<<if ($arcologies[0].FSTransformationFetishist > 20) || ($arcologies[0].FSDegradationist > 20)>>
-	<<if $modScore > 15 || ($piercingScore > 8 && $tatScore > 5)>>
-	<<set $beauty += 8+($modScore*0.25)>>
-	<<elseif $modScore > 7>>
-	<<set $beauty += $modScore-7>>
-	<</if>>
-<<elseif ($arcologies[0].FSBodyPurist > 20) || ($arcologies[0].FSPaternalist > 20)>>
-	<<if $modScore <= 7>>
-	<<set $beauty += 10>>
-	<<else>>
-	<<set $beauty += 15-$modScore>>
-	<</if>>
-<<else>>
-	<<if $modScore <= 7>>
-	<<set $beauty += $modScore>>
-	<<elseif $modScore > 15 || ($piercingScore > 8 && $tatScore > 5)>>
-	<<set $beauty += 11>>
-	<<else>>
-	<<set $beauty += 7+(0.5*($modScore-7))>>
-	<</if>>
-<</if>>
-
-<<if $modScore > 15 || ($piercingScore > 8 && $tatScore > 5)>>
-	<<set $modded += 1>>
-<<elseif $args[0].corsetPiercing == 0 && $piercingScore < 3 && $tatScore < 2>>
-	<<set $unmodded += 1>>
-<</if>>
-
 <<if ($arcologies[0].FSGenderRadicalist > 20) || ($arcologies[0].FSSlimnessEnthusiast > 20)>>
 	<<if $args[0].hips < 0>>
 	<<set $beauty += Math.abs($args[0].hips)>>
@@ -288,27 +387,6 @@
 	<<set $beauty += ($args[0].muscles*($arcologies[0].FSPhysicalIdealist/40))>>
 <</if>>
 <</if>>
-<<if $arcologies[0].FSSupremacist != "unset">>
-<<if $args[0].race != $arcologies[0].FSSupremacistRace>>
-	<<set $beauty += ($arcologies[0].FSSupremacist/30)+$arcologies[0].FSSupremacistLawME>>
-<</if>>
-<</if>>
-<<if $arcologies[0].FSSubjugationist != "unset">>
-<<if $args[0].race is $arcologies[0].FSSubjugationistRace>>
-	<<set $beauty += ($arcologies[0].FSSubjugationist/20)+$arcologies[0].FSSubjugationistLawME>>
-<</if>>
-<</if>>
-<<if $arcologies[0].FSEdoRevivalist != "unset">>
-<<if ($args[0].nationality is "Japanese") || ($args[0].nationality is "Edo Revivalist")>>
-	<<set $beauty += ($arcologies[0].FSEdoRevivalist/20)>>
-<</if>>
-<</if>>
-<<if $arcologies[0].FSChineseRevivalist != "unset">>
-<<if ($args[0].nationality is "Chinese") || ($args[0].nationality is "Chinese Revivalist")>>
-	<<set $beauty += ($arcologies[0].FSChineseRevivalist/20)>>
-<</if>>
-<</if>>
-
 <<if $arcologies[0].FSGenderRadicalistLawFuta != 0>>
 <<if $arcologies[0].FSGenderRadicalistLawFuta == 1>>
 	<<if $args[0].dick > 0>>
@@ -333,38 +411,6 @@
 	<</if>>
 	<</if>>
 <</if>>
-<</if>>
-
-<<if $args[0].race is "white">>
-	<<set $beauty += 4>>
-<<elseif $args[0].race is "surgically altered to look white">>
-	<<set $beauty += 2>>
-<</if>>
-
-<<if $args[0].prestige > 0>>
-	<<set $beauty to $beauty+($beauty*$args[0].prestige*0.1)>>
-<</if>>
-
-<<if $args[0].vagina is -1>>
-	<<set $XY += 1>>
-<<else>>
-	<<set $XX += 1>>
-<</if>>
-
-<<if $args[0].age >= 30>>
-	<<if $arcologies[0].FSYouthPreferentialist != "unset">>
-		<<set $beauty -= ($arcologies[0].FSYouthPreferentialist/30)+$arcologies[0].FSYouthPreferentialistLaw>>
-	<<elseif $arcologies[0].FSMaturityPreferentialist != "unset">>
-		<<set $beauty += ($arcologies[0].FSMaturityPreferentialist/20)+$arcologies[0].FSMaturityPreferentialistLaw>>
-	<</if>>
-	<<set $old += 1>>
-<<else>>
-	<<if $arcologies[0].FSMaturityPreferentialist != "unset">>
-		<<set $beauty -= ($arcologies[0].FSMaturityPreferentialist/30)-$arcologies[0].FSMaturityPreferentialistLaw>>
-	<<elseif $arcologies[0].FSYouthPreferentialist != "unset">>
-		<<set $beauty += ($arcologies[0].FSYouthPreferentialist/20)-$arcologies[0].FSYouthPreferentialistLaw>>
-	<</if>>
-	<<set $young += 1>>
 <</if>>
 
 <<if ($args[0].butt > 4) && ($args[0].boobs > 800)>>
@@ -420,35 +466,6 @@
 	<</if>>
 <</if>>
 
-<<if ($args[0].markings != "none")>>
-	<<if ($args[0].markings is "beauty mark")>>
-	<<if ($args[0].face > 1)>>
-		<<set $beauty += 2>>
-	<<elseif ($args[0].face < 1)>>
-		<<set $beauty -= 2>>
-	<</if>>
-	<<elseif ($args[0].markings is "birthmark")>>
-	<<if ($args[0].prestige > 0)>>
-		<<set $beauty += 2>>
-	<<else>>
-		<<set $beauty -= 2>>
-	<</if>>
-	<<else>>
-	<<if ($args[0].skin is "pale") || ($args[0].skin is "fair")>>
-		<<set $beauty += 1>>
-		<<if ($args[0].hColor is "red")>>
-		<<set $beauty += 1>>
-		<</if>>
-	<</if>>
-	<</if>>
-<</if>>
-
-<<if $entertainmentCareers.contains($args[0].career)>>
-	<<set $beauty += 1>>
-<<elseif ($week-$args[0].weekAcquired >= 20) && ($args[0].entertainSkill >= 100)>>
-	<<set $beauty += 1>>
-<</if>>
-
 <<if $args[0].amp == 0>>
 <<elseif $args[0].amp == 1>>
 	<<set $beauty -= 3>>
@@ -456,17 +473,6 @@
 <<elseif $args[0].amp is -5>>
 <<else>>
 	<<set $beauty -= 2>>
-<</if>>
-
-<<if $seeAge == 1>>
-<<if $args[0].age == 18>>
-	<<set $beauty += 1>>
-	<<if $args[0].birthWeek == 0>>
-	<<set $beauty += 0.8*$beauty>>
-	<<elseif $args[0].birthWeek < 4>>
-	<<set $beauty += 0.1*$beauty>>
-	<</if>>
-<</if>>
 <</if>>
 
 <<if $arcologies[0].FSGenderFundamentalistLawBeauty + $arcologies[0].FSGenderRadicalistLawBeauty > 0>>
@@ -483,6 +489,10 @@
 <</if>>
 <</if>>
 <</if>>
+<</if>>
+
+<<if $args[0].prestige > 0>>
+	<<set $beauty to $beauty+($beauty*$args[0].prestige*0.1)>>
 <</if>>
 
 <<if $beauty < 1>>
@@ -516,6 +526,8 @@
 	<<set $FResult += ($analUseWeight/$seed)*($args[0].analSkill/30)>>
 <</if>>
 <</if>>
+
+<<if $slaves[$i].fuckdoll == 0>> /* NOT A FUCKDOLL */
 
 <<if $args[0].relation != 0>>
 	<<for $j to 0; $j < $slaves.length; $j++>>
@@ -552,8 +564,6 @@
 	<</if>>
 	<</for>>
 <</if>>
-
-<<set $FResult += $args[0].aphrodisiacs*2>>
 
 <<if ($args[0].clitPiercing > 2)>>
 	<<set $FResult += 1>>
@@ -595,25 +605,10 @@
 	<<set $FResult += 2>>
 <</if>>
 
-<<if ($args[0].lactation > 0)>>
-	<<set $FResult += 1>>
-<</if>>
-
 <<if $whoreCareers.contains($args[0].career)>>
 	<<set $FResult += 1>>
 <<elseif ($args[0].oralCount + $args[0].analCount + $args[0].vaginalCount + $args[0].mammaryCount + $args[0].penetrativeCount > 1000)>>
 	<<set $FResult += 1>>
-<</if>>
-
-<<if $seeAge == 1>>
-<<if $args[0].age == 18>>
-	<<set $FResult += 1>>
-	<<if $args[0].birthWeek == 0>>
-	<<set $FResult += 0.5*$FResult>>
-	<<elseif $args[0].birthWeek < 4>>
-	<<set $FResult += 0.1*$FResult>>
-	<</if>>
-<</if>>
 <</if>>
 
 <<if !canSee($args[0])>>
@@ -630,22 +625,6 @@
 	<<set $FResult -= 1>>
 <</if>>
 
-<<if ($args[0].fetish is "mindbroken")>>
-	<<set $FResult = Math.trunc($FResult*0.4)>>
-<<else>>
-	<<set $FResult = Math.trunc($FResult*0.7)>>
-<</if>>
-
-<<if $args[0].amp == 0>>
-<<elseif $args[0].amp == 1>>
-	<<set $FResult -= 2>>
-<<elseif $args[0].amp is -2>>
-<<elseif $args[0].amp is -5>>
-<<else>>
-	<<set $FResult -= 1>>
-<</if>>
-
-
 <<if $arcologies[0].FSEgyptianRevivalist != "unset">>
 	<<if ndef $racialVarieties>>
 	<<set $racialVarieties to []>>
@@ -659,6 +638,44 @@
 	<<if $seed == 0>>
 	<<set $racialVarieties.push($args[0].race)>>
 	<</if>>
+<</if>>
+	
+<<else>> /* FUCKDOLL */
+
+<<set $FResult += $args[0].fuckdoll/10>>
+	
+<</if>> /* CLOSES FUCKDOLL CHECK */
+
+<<set $FResult += $args[0].aphrodisiacs*2>>
+
+<<if ($args[0].lactation > 0)>>
+	<<set $FResult += 1>>
+<</if>>
+
+<<if $seeAge == 1>>
+<<if $args[0].age == 18>>
+	<<set $FResult += 1>>
+	<<if $args[0].birthWeek == 0>>
+	<<set $FResult += 0.5*$FResult>>
+	<<elseif $args[0].birthWeek < 4>>
+	<<set $FResult += 0.1*$FResult>>
+	<</if>>
+<</if>>
+<</if>>
+
+<<if ($args[0].fetish is "mindbroken")>>
+	<<set $FResult = Math.trunc($FResult*0.4)>>
+<<else>>
+	<<set $FResult = Math.trunc($FResult*0.7)>>
+<</if>>
+
+<<if $args[0].amp == 0>>
+<<elseif $args[0].amp == 1>>
+	<<set $FResult -= 2>>
+<<elseif $args[0].amp is -2>>
+<<elseif $args[0].amp is -5>>
+<<else>>
+	<<set $FResult -= 1>>
 <</if>>
 
 <<if $FResult < 2>>
@@ -918,9 +935,9 @@
 <</if>>
 
 <<if $args[0].births >= 5>>
-	<<set $desc to $desc + "broodmother">>
+	<<set $desc to $desc + " broodmother">>
 <<elseif $args[0].births >= 2>>
-	<<set $desc to $desc + "breeder">>
+	<<set $desc to $desc + " breeder">>
 <</if>>
 
 <<if $args[0].indenture > -1>>
@@ -929,6 +946,10 @@
 
 <<if $args[0].preg > 10>>
 	<<set $desc to "pregnant " + $desc>>
+<</if>>
+
+<<if $args[0].fuckdoll > 0>>
+	<<set $desc to $desc + " fuckdoll">>
 <</if>>
 
 <</widget>>
