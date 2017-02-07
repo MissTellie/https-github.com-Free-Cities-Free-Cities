@@ -243,7 +243,7 @@ Invite prominent citizens to a wedding (This will cost ¤10000):
 	<</replace>>
 <</click>> //This will involve the slave having sex with a very large number of citizens//
 <</if>>
-<<if ($eventSlave.ovaries == 1) && ($eventSlave.preg > -2) && ($eventSlave.preg < 1) && ($PC.dick == 1)>>
+<<if isFertile($eventSlave) && ($PC.dick == 1)>>
 <br>&nbsp;&nbsp;&nbsp;&nbsp;<<click "Impregnation ceremony">>
 	<<replace "#result2">>
 	You order $assistantName to invite deserving citizens to a ceremony for a fertile slave being married to a slaveowner, and to make the arrangements. The wedding will take place during the upcoming week.

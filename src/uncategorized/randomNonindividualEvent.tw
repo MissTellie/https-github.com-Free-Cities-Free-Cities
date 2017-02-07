@@ -15,6 +15,9 @@
 
 <<set $seed to 0>>
 <<set $eventSlave to $slaves.random()>>
+
+<<if $eventSlave.fuckdoll == 0>>
+
 <<if $nicknamesAllowed == 1>>
 <<if $eventSlave.assignment != "be confined in the arcade">>
 <<set $toSearch to $eventSlave.slaveName.toLowerCase();>>
@@ -55,6 +58,8 @@
 <</if>>
 <</if>>
 <</if>>
+
+<</if>> /* CLOSES FUCKDOLL CHECK */
 
 <<set $legendaryFacility to 1>>
 <<if $legendaryWhoreID != 0>>
@@ -163,14 +168,6 @@
 <</if>>
 <</if>>
 <</for>>
-
-/*<<display "Twin Check">>
-
-<<if ($alphaTwin.anus > 0) && ($betaTwin.anus > 0) && ($alphaTwin.devotion > 50) && ($betaTwin.devotion > 50)>>
-	<<set $events.push("RE devoted twins")>>
-<</if>>*/
-
-/* Fetish Interest Events */
 
 <<set $buttslutID to 0>>
 <<set $cumslutID to 0>>
@@ -378,7 +375,7 @@
 
 <<if ($Bodyguard != 0)>>
 
-	<<set $events.push("PE pit fight invite")>>
+	/*<<set $events.push("PE pit fight invite")>>*/
 
 	<<if ($Bodyguard.combatSkill != 0)>>
 		<<set $PESSevent.push("bodyguard bedtime")>>

@@ -1,14 +1,12 @@
 :: Default Rules [nobr]
 
 <<for _r to 0; _r < $defaultRules.length; _r++>>
-	<<set _currentRule to $defaultRules[_r]>>
-	<<if !ruleApplied($activeSlave, _currentRule.ID)>>
-		<<continue>>
-	<</if>>
+<<set _currentRule to $defaultRules[_r]>>
+<<if !ruleApplied($activeSlave, _currentRule.ID)>><<continue>><</if>>
+<<if (def _currentRule.facility) && (_currentRule.facility.length > 1) and !ruleAppliedToSlaveFacility(_currentRule, $activeSlave)>><<continue>><</if>>
 
-	<<if (def _currentRule.facility) && (_currentRule.facility.length > 1) and !ruleAppliedToSlaveFacility(_currentRule, $activeSlave)>>
-		<<continue>>
-	<</if>>
+<<if $activeSlave.fuckdoll == 0>>
+
 <<if (_currentRule.choosesOwnAssignment == 1)>>
  <<if ($activeSlave.choosesOwnAssignment == 0)>>
  <<if ($activeSlave.assignmentVisible == 1)>>
@@ -373,6 +371,8 @@ is now _currentRule.hLength cm long.
 <</if>>
 <</if>>
 
+<</if>> /* CLOSES FUCKDOLL CHECK */
+
 <<if (_currentRule.growth isnot "no default setting")>>
 <<if ($activeSlave.indentureRestrictions < 2)>>
 <<if (_currentRule.growth is "girlish")>>
@@ -555,6 +555,8 @@ is now _currentRule.hLength cm long.
 <</if>>
 <</if>>
 
+<<if $activeSlave.fuckdoll == 0>>
+
 <<if (_currentRule.livingRules isnot "no default setting")>>
 <<if ($activeSlave.fetish is "mindbroken")>>
 	<<if ($activeSlave.livingRules isnot "spare")>>
@@ -600,18 +602,18 @@ is now _currentRule.hLength cm long.
 <</if>>
 
 <<if (_currentRule.releaseRules isnot "no default setting")>>
-<<if (_currentRule.releaseRules is "restrictive")>>
-<<SexualRelease $activeSlave>>
-<<else>>
-	<<set $release to 1>>
-<</if>>
-<<if ($activeSlave.fetish is "mindbroken") && ($activeSlave.releaseRules isnot "permissive")>>
-	<<set $activeSlave.releaseRules to "permissive">>
-	<br>Since $activeSlave.slaveName is mindbroken her masturbation rules have been set to permissive.
-<<elseif ($release != 0) && ($activeSlave.releaseRules isnot _currentRule.releaseRules)>>
-  <<set $activeSlave.releaseRules to _currentRule.releaseRules>>
-  <br>$activeSlave.slaveName's masturbation rules have been set to _currentRule.releaseRules.
-<</if>>
+	<<if (_currentRule.releaseRules is "restrictive")>>
+	<<SexualRelease $activeSlave>>
+	<<else>>
+		<<set $release to 1>>
+	<</if>>
+	<<if ($activeSlave.fetish is "mindbroken") && ($activeSlave.releaseRules isnot "permissive")>>
+		<<set $activeSlave.releaseRules to "permissive">>
+		<br>Since $activeSlave.slaveName is mindbroken her masturbation rules have been set to permissive.
+	<<elseif ($release != 0) && ($activeSlave.releaseRules isnot _currentRule.releaseRules)>>
+	  <<set $activeSlave.releaseRules to _currentRule.releaseRules>>
+	  <br>$activeSlave.slaveName's masturbation rules have been set to _currentRule.releaseRules.
+	<</if>>
 <</if>>
 
 <<if (_currentRule.standardPunishment isnot "no default setting")>>
@@ -627,6 +629,8 @@ is now _currentRule.hLength cm long.
  	<br>$activeSlave.slaveName's typical reward has been updated to _currentRule.standardReward.
  <</if>>
 <</if>>
+
+<</if>> /* CLOSES FUCKDOLL CHECK */
 
 <<if (_currentRule.diet isnot "no default setting")>>
 	<<if ($activeSlave.boobs >= 1600) && ($activeSlave.muscles <= 5) && ($activeSlave.amp != 1) && ((_currentRule.muscles is "no default setting") || (_currentRule.muscles == 0))>>
@@ -818,6 +822,8 @@ is now _currentRule.hLength cm long.
 	<</if>>
 	<</if>>
 <</if>>
+
+<<if $activeSlave.fuckdoll == 0>>
 
 <<if (_currentRule.nipplesPiercing == 0)>>
 <<if $activeSlave.nipplesPiercing != 0>>
@@ -1208,6 +1214,8 @@ is now _currentRule.hLength cm long.
 <</if>>
 <</if>>
 <</if>>
+
+<</if>> /* CLOSES FUCKDOLL CHECK */
 
 <<if (_currentRule.pornFameSpending isnot "no default setting")>>
 <<if ($activeSlave.devotion > 95)>>
