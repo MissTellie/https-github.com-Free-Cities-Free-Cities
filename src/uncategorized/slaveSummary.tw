@@ -2,9 +2,6 @@
 
 <<set _Pass to passage()>>
 <<for _i to 0;_i < $slaves.length;_i++>>
-	<<if ($slaves[_i].devotion >= 100)>>
-		<<set $slaves[_i].accent = 1>>
-	<</if>>
 <<set _Slave to $slaves[_i]>>
 <<switch _Pass>>
 <<case "Main">>
@@ -507,10 +504,6 @@
 	<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if $seeImages == 1>><<SlaveImage $slaves[_i] 1 $seeMainFetishes>><</if>><<print "[[_Slave.slaveName|Slave Interact][$activeSlave to $slaves[" + _i + "]]]">>
 <</switch>>
 
-<<if _Slave.age < 18>><<set _Slave.age to 18>><</if>>
-
-<<set _Slave.energy to Math.clamp(_Slave.energy, 0, 100)>>
-
 <<if _Slave.devotion > 100>>
 	<<if _Slave.trust < -95>>
 		<<set _Slave.trust = -100>>
@@ -541,6 +534,7 @@
 <<set _Slave.trust = Math.trunc(_Slave.trust)>>
 <<set _Slave.devotion = Math.trunc(_Slave.devotion)>>
 <<set _Slave.health = Math.trunc(_Slave.health)>>
+
 <<set $slaves[_i] to _Slave>>
 
 will
@@ -565,37 +559,37 @@ will
 <<else>>
 	Fucktoy |
 <</if>>
-<<if (_Slave.assignment != "be a servant") && (_Slave.fucktoy == 0)>>
+<<if (_Slave.assignment != "be a servant") && (_Slave.fuckdoll == 0)>>
 	<<if ((_Slave.devotion >= -20) || ((_Slave.trust < -20) && (_Slave.devotion >= -50)) || (_Slave.trust < -50)) and canWalk(_Slave) and canWalk(_Slave)>>
 		<<print "[[House Servant|Servant Workaround][$activeSlave to $slaves[" + _i + "]]]">> |
 	<</if>>
 <<else>>
 	Servant |
 <</if>>
-<<if (_Slave.assignment != "take classes") && (_Slave.fucktoy == 0)>>
+<<if (_Slave.assignment != "take classes") && (_Slave.fuckdoll == 0)>>
 	<<if ((_Slave.devotion >= -20) || ((_Slave.trust < -20) && (_Slave.devotion >= -50)) || (_Slave.trust < -50)) && (_Slave.fetish != "mindbroken") && (_Slave.intelligenceImplant != 1)>>
 		<<print "[[Classes|Classes Workaround][$activeSlave to $slaves[" + _i + "]]]">> |
 	<</if>>
 <<else>>
 	Classes |
 <</if>>
-<<if (_Slave.assignment != "stay confined") && (_Slave.fucktoy == 0)>>
+<<if (_Slave.assignment != "stay confined") && (_Slave.fuckdoll == 0)>>
 	<<print "[[Confinement|Confinement Workaround][$activeSlave to $slaves[" + _i + "]]]">> |
 <<else>>
 	Confinement |
 <</if>>
-<<if (_Slave.assignment != "whore") && (_Slave.fucktoy == 0)>>
+<<if (_Slave.assignment != "whore") && (_Slave.fuckdoll == 0)>>
 	<<print "[[Whore|Whore Workaround][$activeSlave to $slaves[" + _i + "]]]">> |
 <<else>>
 	Whore |
 <</if>>
-<<if (_Slave.assignment != "serve the public") && (_Slave.fucktoy == 0)>>
+<<if (_Slave.assignment != "serve the public") && (_Slave.fuckdoll == 0)>>
 	<<print "[[Public Servant|Public Servant Workaround][$activeSlave to $slaves[" + _i + "]]]">> |
 <<else>>
 	Public Servant |
 <</if>>
 <<if (_Slave.lactation > 0) || (_Slave.balls > 0)>>
-<<if (_Slave.assignment != "get milked") && (_Slave.fucktoy == 0)>>
+<<if (_Slave.assignment != "get milked") && (_Slave.fuckdoll == 0)>>
 	<<print "[[Milking|Milking Workaround][$activeSlave to $slaves[" + _i + "]]]">> |
 <<else>>
 	Milking |

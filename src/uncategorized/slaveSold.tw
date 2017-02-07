@@ -1,6 +1,6 @@
 :: Slave Sold [nobr]
 
-<<set $nextButton to "Back to Main", $nextLink to "Main", $returnTo to "Main, $showEncyclopedia to 1, $encyclopedia to "Personal Assistant">>
+<<set $nextButton to "Back to Main", $nextLink to "Main", $returnTo to "Main", $showEncyclopedia to 1, $encyclopedia to "Personal Assistant">>
 
 <<set $display to 0>>
 
@@ -9,6 +9,7 @@
 		<<if $slaves[$j].ID is $activeSlave.relationTarget>>
 		<<if $slaves[$j].fetish != "mindbroken">>
 			$slaves[$j].slaveName is @@color:mediumorchid;grieved@@ that you are selling her $activeSlave.relation.
+			<br><br>
 			<<set $slaves[$j].devotion -= 20>>
 			<<set $display to 1>>
 			<<break>>
@@ -21,6 +22,7 @@
 		<<if $slaves[$j].ID is $activeSlave.relationshipTarget>>
 		<<if $slaves[$j].fetish != "mindbroken">>
 			$slaves[$j].slaveName is @@color:mediumorchid;grieved@@ that you are selling her best source of comfort and companionship in a life of bondage.
+			<br><br>
 			<<set $slaves[$j].devotion -= $slaves[$j].relationship>>
 			<<set $display to 1>>
 			<<break>>
@@ -29,6 +31,7 @@
 	<</for>>
 <<elseif $activeSlave.relationship is -3>>
 	Selling one of your slave wives is @@color:red;socially unacceptable.@@ In addition, your other devoted slaves are @@color:gold;worried@@ that you may not respect their status.
+	<br><br>
 	<<set $rep -= 200>>
 	<<set $display to 1>>
 	<<for $j to 0; $j < $slaves.length; $j++>>
@@ -42,6 +45,7 @@
 		<<if $slaves[$j].ID is $activeSlave.rivalryTarget>>
 		<<if $slaves[$j].fetish != "mindbroken">>
 			$slaves[$j].slaveName is @@color:hotpink;pleased@@ that she won't have to see her rival any more.
+			<br><br>
 			<<set $slaves[$j].devotion += $slaves[$j].rivalry*0.3>>
 			<<set $display to 1>>
 			<<break>>
@@ -49,8 +53,6 @@
 		<</if>>
 	<</for>>
 <</if>>
-
-<br>
 
 <<set $seed to 0>>
 <<switch $buyer>>

@@ -21,7 +21,7 @@
 
 <<set $beauty to 0>>
 
-<<if $slaves[$i].fuckdoll == 0>> /* NOT A FUCKDOLL */
+<<if $args[0].fuckdoll == 0>> /* NOT A FUCKDOLL */
 
 <<set $beauty += 150 - ($args[0].age*3) + (5*$args[0].ageImplant) + (Math.min($args[0].health,100)/5) + (2*$args[0].waist) - ($args[0].muscles/30) +($args[0].lips/10) + (6*$args[0].face) +(1.5*$args[0].butt) - (3*$args[0].dick) - (2*$args[0].balls) + ($args[0].clit) + (($args[0].height-160)/10) + ($args[0].voice) + (3*$args[0].intelligence) + ($args[0].entertainSkill/10) + ($args[0].whoreSkill/10) + (2*$args[0].hips)>>
 
@@ -527,7 +527,7 @@
 <</if>>
 <</if>>
 
-<<if $slaves[$i].fuckdoll == 0>> /* NOT A FUCKDOLL */
+<<if $args[0].fuckdoll == 0>> /* NOT A FUCKDOLL */
 
 <<if $args[0].relation != 0>>
 	<<for $j to 0; $j < $slaves.length; $j++>>
