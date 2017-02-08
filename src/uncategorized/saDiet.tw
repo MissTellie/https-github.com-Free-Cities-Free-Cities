@@ -87,49 +87,6 @@
 			<</if>>
 		<</if>>
 	<</if>>
-	<<if ($slaves[$i].dietMilk > 0)>>
-		<<if ($slaves[$i].sexualFlaw != "breast growth")>>
-			<<if ($slaves[$i].fetish != "pregnancy")>>
-				<<if ($slaves[$i].dietMilk == 2)>>
-					<<if ($cockFeeder == 0)>>
-						Despite her food being entirely based on human milk with nutritional supplements, she manages to choke down enough that she doesn't get sick from malnourishment.
-						<<set _weightGain to 6>>
-						<<set _assetLoss to 4>>
-						<<set $slaves[$i].devotion -= 2>>
-					<<else>>
-						The phallic feeders inject her food directly into her stomach, helping her get her prescribed servings so that her weight loss is safe and consistent. However, the unmistakable taste of human milk she burps up afterward @@color:mediumorchid;nauseates@@ and @@color:gold;unnerves@@ her. 
-						<<set _weightLoss to 5>>
-						<<set _assetLoss to 5>>
-						<<set $slaves[$i].devotion -= 3>>
-						<<set $slaves[$i].trust -= 1>>
-					<</if>>
-				<<elseif ($slaves[$i].dietMilk == 1)>>
-					<<if ($cockFeeder == 0)>>
-						Despite having human milk added to her food, she manages to keep it down this week, @@color:mediumorchid;but it's a struggle.@@
-						<<set _weightLoss to 5>>
-						<<set _assetLoss to 5>>
-						<<set $slaves[$i].devotion -= 2>>
-					<<else>>
-						The phallic feeders inject her food directly into her stomach, helping her get her prescribed servings so that her weight loss is safe and consistent. However, the thought of being force fed food containing large amounts of breast milk @@color:mediumorchid;disturbs her.@@
-						<<set _weightLoss to 5>>
-						<<set _assetLoss to 5>>
-						<<set $slaves[$i].devotion -= 3>>
-					<</if>>
-				<</if>>
-			<<elseif $slaves[$i].fetishKnown == 1>>
-				She <<if $slaves[$i].fetishStrength < 60 >> is used to drinking milk<<else>>loves drinking milk<</if>>, so she <<if $slaves[$i].behavioralFlaw is "gluttonous">>desperately <</if>>laps up every drop of the <<if $slaves[$i].dietMilk == 2>>nutritionally supplemented breast milk<<else>>breast milk supplemented food<</if>> she's given to eat, especially because her servings are small.
-				<<if $slaves[$i].fetishStrength < 95>>
-					<<if $slaves[$i].dietMilk == 2>>
-						The high concentration of milk in her food @@color:lightcoral;further@@ <<if $slaves[$i].fetishStrength < 60>>@@color:lightcoral;habituates@@<<else>>@@color:lightcoral;endears@@<</if>>@@color:lightcoral; her to the corruption of normal pregnancy and motherhood.@@
-						<<set $slaves[$i].fetishStrength += 2>>
-					<<elseif $slaves[$i].dietMilk == 1>>
-						Having milk added to her food makes her <<if $slaves[$i].fetishStrength < 60>>@@color:lightcoral;accept perversion of normal pregnancy.@@<<else>>@@color:lightcoral;even hornier for anything related to pregnancy.@@<</if>>
-						<<set $slaves[$i].fetishStrength += 1>>
-					<</if>>
-				<</if>>
-			<</if>>
-		<</if>>
-	<</if>>
 <<else>> /* For Devotion Higher than 20 */
 	<<if $slaves[$i].sexualFlaw is "cum addict">>
 		<<if $slaves[$i].dietCum == 2>>
@@ -480,24 +437,23 @@
 		<</if>>
 	<</if>>
 	<</if>>
-	<<else>>
-		<<if ($slaves[$i].fetishKnown == 0)>>
-		<<if ($slaves[$i].fetish != "cumslut")>>
-		She is @@color:mediumorchid;nauseated@@ by the large amounts of ejaculate in her diet.
-		<<set $slaves[$i].devotion -= 2>>
-		<<if $slaves[$i].weight >= -95>>
-			She has trouble keeping her disgusting food down; she loses weight.
-			<<set $slaves[$i].weight -= 5>>
-			<<if ($slaves[$i].boobs-$slaves[$i].boobsImplant >= 200)>>
-				@@color:orange;Her breasts get a little smaller.@@
-				<<set $slaves[$i].boobs -= 50>>
-			<<elseif ($slaves[$i].butt > 1)>>
-				@@color:orange;Her butt gets a little smaller.@@
-				<<set $slaves[$i].butt -= 1>>
-			<</if>>
+<<else>>
+	<<if ($slaves[$i].fetishKnown == 0)>>
+	<<if ($slaves[$i].fetish != "cumslut")>>
+	She is @@color:mediumorchid;nauseated@@ by the large amounts of ejaculate in her diet.
+	<<set $slaves[$i].devotion -= 2>>
+	<<if $slaves[$i].weight >= -95>>
+		She has trouble keeping her disgusting food down; she loses weight.
+		<<set $slaves[$i].weight -= 5>>
+		<<if ($slaves[$i].boobs-$slaves[$i].boobsImplant >= 200)>>
+			@@color:orange;Her breasts get a little smaller.@@
+			<<set $slaves[$i].boobs -= 50>>
+		<<elseif ($slaves[$i].butt > 1)>>
+			@@color:orange;Her butt gets a little smaller.@@
+			<<set $slaves[$i].butt -= 1>>
 		<</if>>
-		<</if>>
-		<</if>>
+	<</if>>
+	<</if>>
 	<</if>>
 <</if>>
 
@@ -506,6 +462,7 @@
 <<if ($slaves[$i].diet is "restricted")>> /* Weight Loss */
 	The ports in Fuckdoll suits allow total dietary control, and it's barely aware it's being @@color:orange;slimmed down.@@
 	<<set $slaves[$i].weight -= 9>>
+	<<if random(1,2) <= 1>>
 		<<if random(1,2) <= 1>>
 			@@color:orange;Its breasts get a little smaller.@@
 			<<set $slaves[$i].boobs -= 50>>
@@ -560,7 +517,7 @@
 		<<set $slaves[$i].weight -= 2>>
 	<</if>>
 	The stress of forced exercise is trivial compared to everything else it experiences, and it's unaffected mentally.
-<<elseif ($slaves[$i].diet is "slimming")>> /* Muscle Loss *
+<<elseif ($slaves[$i].diet is "slimming")>> /* Muscle Loss */
 	Fuckdoll suits can force their inhabitants to work out until they drop.
 	<<if $slaves[$i].muscles <= 10>>
 		It has finally @@color:lime;lost all visible musculature.@@
