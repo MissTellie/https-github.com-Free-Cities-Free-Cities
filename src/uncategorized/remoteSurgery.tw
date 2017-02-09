@@ -1309,7 +1309,7 @@ The prosthesis facility has constructed $possessive prosthetic limbs.
 <</if>>
 <<if ($activeSlave.heels == 0) && ($seeExtreme == 1)>>
 	<<if $activeSlave.indentureRestrictions < 1>>
-	[[Alter tendons so that $pronoun cannot walk in anything but very high heels|Surgery Degradation][$activeSlave.heels to 1,$activeSlave.shoes to "heels",$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType to "heels"]]
+	[["Alter tendons so that " + $pronoun + " cannot walk in anything but very high heels"|Surgery Degradation][$activeSlave.heels to 1,$activeSlave.shoes to "heels",$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType to "heels"]]
 	<</if>>
 <</if>>
 <<if ($activeSlave.heels == 1)>>
