@@ -1281,25 +1281,37 @@
  Call as <<RandomizeAttraction>>
 %/
 <<widget "RandomizeAttraction">>
-<<set $activeSlave.attrXX = Math.trunc(random(0,100)+(($activeSlave.energy-50)/10))>>
-<<set $activeSlave.attrXY = Math.trunc(random(0,100)+(($activeSlave.energy-50)/10))>>
+
+<<set _attraction = Math.clamp($activeSlave.energy*2, 60, 180), _sexuality = random(0,100)>>
 <<if $activeSlave.balls > 0>>
-	<<set $activeSlave.attrXY -= random(0,10)>>
-	<<set $activeSlave.attrXX += random(0,10)>>
-<</if>>
-<<if $activeSlave.ovaries > 0>>
-	<<set $activeSlave.attrXY += random(0,10)>>
-	<<set $activeSlave.attrXX -= random(0,10)>>
-<</if>>
-<<if $activeSlave.attrXY + $activeSlave.attrXX > random(50,200)>>
-	<<if $activeSlave.attrXY > $activeSlave.attrXX>>
-		<<set $activeSlave.attrXX -= random(0,$activeSlave.attrXY)>>
+	<<if _sexuality > 90>>
+		<<set $activeSlave.attrXY = Math.clamp(_attraction, 0, 100)>>
+		<<set _attraction -= $activeSlave.attrXY>>
+		<<set $activeSlave.attrXX = Math.clamp(_attraction, 0, 100)>>
+	<<elseif _sexuality > 70>>
+		<<set $activeSlave.attrXY = Math.clamp(_attraction+random(-5,5), 0, 100)>>
+		<<set $activeSlave.attrXX = Math.clamp(_attraction+random(-5,5), 0, 100)>>
 	<<else>>
-		<<set $activeSlave.attrXY -= random(0,$activeSlave.attrXX)>>
+		<<set $activeSlave.attrXX = Math.clamp(_attraction, 0, 100)>>
+		<<set _attraction -= $activeSlave.attrXX>>
+		<<set $activeSlave.attrXY = Math.clamp(_attraction, 0, 100)>>
+	<</if>>
+<<else>
+	<<if _sexuality > 90>>
+		<<set $activeSlave.attrXX = Math.clamp(_attraction, 0, 100)>>
+		<<set _attraction -= $activeSlave.attrXX>>
+		<<set $activeSlave.attrXY = Math.clamp(_attraction, 0, 100)>>
+	<<elseif _sexuality > 60>>
+		<<set $activeSlave.attrXY = Math.clamp(_attraction+random(-5,5), 0, 100)>>
+		<<set $activeSlave.attrXX = Math.clamp(_attraction+random(-5,5), 0, 100)>>
+	<<else>>
+		<<set $activeSlave.attrXY = Math.clamp(_attraction, 0, 100)>>
+		<<set _attraction -= $activeSlave.attrXY>>
+		<<set $activeSlave.attrXX = Math.clamp(_attraction, 0, 100)>>
 	<</if>>
 <</if>>
-<<set $activeSlave.attrXX = Math.clamp($activeSlave.attrXX, 0, 100)>>
-<<set $activeSlave.attrXY = Math.clamp($activeSlave.attrXX, 0, 100)>>
+<<set $activeSlave.attrXX = Math.clamp($activeSlave.attrXX+random(-5,5), 0, 100), $activeSlave.attrXY = Math.clamp($activeSlave.attrXY+random(-5,5), 0, 100)>>
+
 <</widget>>
 
 /%

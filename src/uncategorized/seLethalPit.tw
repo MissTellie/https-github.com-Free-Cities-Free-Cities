@@ -146,7 +146,7 @@ You review the rules - the combatants will use their choice of swords, and the f
 
 <<nobr>>
 
-<<Deadliness $fighterTwo>
+<<Deadliness $fighterTwo>>
 <<set $fighterTwoDeadliness to $deadliness>>
 
 <<if $fighterTwo.fetish is "mindbroken">>
@@ -285,7 +285,7 @@ In any case, both of the slaves have been dosed with aggression enhancers and in
 		<<set $rep += 500>>
 	<</if>>
 <<elseif !canSee(_winner)>>
-	_winner.slaveName centers herself and hones in on _loser.slaveName's rapid breath. She readies herself, knowing she has a single chance to live. With heavy steps, _loser.slaveName rushes her, fully prepared to slaughter the helpless combatent. _winner.slaveName gambles everything on a single high slash, a slash that cut _loser.slaveName's undefended neck wide open. _winner.slaveName collapses to the ground, fully aware of _loser.slaveName's final gurgles, and the sword @@color:red;firmly planted in her side@@. She lived this time, barely, but she doubts she can do it again.
+	_winner.slaveName centers herself and hones in on _loser.slaveName's rapid breath. She readies herself, knowing she has a single chance to live. With heavy steps, _loser.slaveName rushes her, fully prepared to slaughter the helpless combatant. _winner.slaveName gambles everything on a single high slash, a slash that cut _loser.slaveName's undefended neck wide open. _winner.slaveName collapses to the ground, fully aware of _loser.slaveName's final gurgles, and the sword @@color:red;firmly planted in her side@@. She lived this time, barely, but she doubts she can do it again.
 	<<set _winner.health -= 80>>
 	<<if $pitAudience is "paid">>
 		The audience is awestruck by the blind girl's triumph, and your @@color:yellowgreen;cut of the betting@@ is enormous.
@@ -295,10 +295,10 @@ In any case, both of the slaves have been dosed with aggression enhancers and in
 		<<set $rep += 2000>>
 	<</if>>
 <<elseif !canSee(_loser)>>
-	_winner.slaveName sighs at _loser.slaveName's random slashing and calmly struts around the panicing slave. In one quick swoop, she buries her blade in _loser.slaveName's back, ending the poor girl's flailing.
+	_winner.slaveName sighs at _loser.slaveName's random slashing and calmly struts around the panicking slave. In one quick swoop, she buries her blade in _loser.slaveName's back, ending the poor girl's flailing.
 	<<set _winner.health -= 80>>
 	<<if $pitAudience is "paid">>
-		The audience found the fight embarrasing, and your @@color:yellowgreen;cut of the betting@@ is pitiful.
+		The audience found the fight embarrassing, and your @@color:yellowgreen;cut of the betting@@ is pitiful.
 		<<set $cash += 40>>
 	<<elseif $pitAudience is "free">>
 		The audience is @@color:red;annoyed@@ by this waste of a fight.
