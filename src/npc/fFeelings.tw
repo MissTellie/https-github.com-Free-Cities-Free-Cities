@@ -1623,7 +1623,7 @@ My favorite part of my body is
 	<</if>>
 <</if>>
 
-<<if ($activeSlave.relationship != 0)>>
+<<if ($activeSlave.relationship > 0)>>
 <<set _SL = $slaves.length>>
 <<for _j = 0; _j < _SL; _j++>>
 	<<if $slaves[_j].ID == $activeSlave.relationshipTarget>>
