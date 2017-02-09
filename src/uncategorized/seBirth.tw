@@ -6,7 +6,7 @@
 <<for $i to 0; $i < $slaves.length; $i++>>
 <<if $slaves[$i].labor is 1>>
 
-
+<<SlavePronouns $slaves[$i]>>
 
 <<set $humiliation to 0>>
 <<set $suddenBirth to 1>>
@@ -105,7 +105,7 @@
 <<set $suddenBirth -= ($slaves[$i].intelligence + $slaves[$i].intelligenceImplant)>>
 /* end calcs */
 
-
+<<if $slaves[$i].fuckdoll == 0>>
 
 <<if $slaves[$i].assignment != "work in the dairy">>
 
@@ -166,7 +166,20 @@
   <</if>>
 <</if>> /* close cow birth */
 
-
+<<else>> /*fuckdoll birth */
+	<<if $universalRulesCSec == 1>>
+		<<set csec = 1>>
+		$slaves[$i].slaveName's suit's systems alert that it is ready to give birth; it is taken to the remote surgery to have its child<<if $slaves[$i].pregType > 1>>ren<</if>> extracted and for it to be cleaned up.
+	<<elseif $universalRulesBirthing == 1>>
+		$slaves[$i].slaveName's suit's systems alert that it is ready to give birth. It is taken to the remote surgery to have its child<<if $slaves[$i].pregType > 1>>ren<</if>> extracted and for it to be cleaned up.
+	<<elseif $birthDamage > 10>>
+		<<set csec = 1>>
+		$slaves[$i].slaveName's suit's systems alert that it is ready to give birth. Since it fails to qualify as a birthing model, it is quickly taken to the remote surgery to have its child<<if $slaves[$i].pregType > 1>>ren<</if>> extracted and to be cleaned up.
+	<<else>>
+		$slaves[$i].slaveName's suit's systems alert you that it is ready to give birth. You carefully pose it as it labors on binging its child<<if $slaves[$i].pregType > 1>>ren<</if>> into the world and sit back to enjoy yourself as its <<if $slaves[$i].pregType > 1>>first<</if>> baby starts to crown. Once both it and yourself are fnished, you send its offspring off and it to the autosurgery for cleaning.
+	<</if>>
+	It barely comprehends what has happened, nor will it realize when another child is concieved in it.
+<</if>> /* close fuckdoll birth */
 
 <<if $slaves[$i].assignment is "work in the dairy" and $dairyPregSetting > 0>>
 
@@ -221,7 +234,7 @@ Childbirth has @@color:lime;stretched out her vagina.@@
 
 <br>
 <br>
-She was given @@color:orange;a cesarean section@@ due to health concerns. From her womb,
+$pronounCaps was given @@color:orange;a cesarean section@@ due to health concerns. From $possessive womb,
 <<if $slaves[$i].pregType <= 1>>
   a single baby,
 <<elseif $slaves[$i].pregType is 5>>
@@ -241,7 +254,7 @@ your arcology's eager citizens,
 <<elseif $slaves[$i].pregSource == 0>>
 an unknown father,
 <<elseif $slaves[$i].ID is $daddy.ID>>
-her own curiosity over if she could fuck herself,
+$possessive own curiosity over if $pronoun could fuck <<print $possessive>>self,
 <<else>>
 $daddy's virile cock and balls,
 <</if>>
@@ -251,9 +264,10 @@ entered the world.
 
 <br>
 <br>
-Since her vagina was spared from childbirth, @@color:lime;it retained its tightness.@@
+Since $possessive vagina was spared from childbirth, @@color:lime;it retained its tightness.@@
 
 <<if $slaves[$i].fetish != "mindbroken">>
+<<if $slaves[$i].fuckdoll == 0>>
 <br>
 <<if ($slaves[$i].devotion) < 20 && (($week-$slaves[$i].weekAcquired) >= $slaves[$i].weekAcquired) && ($slaves[$i].pregSource == -1)>>
 <br>
@@ -274,7 +288,7 @@ Since her vagina was spared from childbirth, @@color:lime;it retained its tightn
 	<<set $slaves[$i].trust -= 10>>
 <</if>>
 <</if>>
-
+<</if>>
 
 
 <<set _tmp to lastPregRule($slaves[$i], $defaultRules)>>
@@ -289,7 +303,7 @@ Since her vagina was spared from childbirth, @@color:lime;it retained its tightn
 <<set $slaves[$i].pregSource to 0>>
 <<set $csec to 0>>
 
-<<else>>
+<<else>> /* normal birth */
 
 <<for $j to 0; $j < $slaves.length; $j++>>
 	<<if $slaves[$i].pregSource is $slaves[$j].ID>>
@@ -303,21 +317,21 @@ Since her vagina was spared from childbirth, @@color:lime;it retained its tightn
 <br>
 	Giving birth in such a manner was completely humiliating,
 	<<if $slaves[$i].fetish is "humiliation">>
-		and a complete turn on to her. Her humiliation fetish @@color:lightcoral;strengthens@@ as she eagerly fantasizes about giving birth in public again.
+		and a complete turn on to $object. $possessiveCap humiliation fetish @@color:lightcoral;strengthens@@ as $pronoun eagerly fantasizes about giving birth in public again.
 		<<set $slaves[$i].fetishStrength += 4>>
 	<<elseif $slaves[$i].fetish is "none" or $slaves[$i].fetishStrength <= 60>>
-		and a curious experience to her. <<if random(1,5) == 1>>@@color:lightcoral;She has developed a humiliation fetish.@@<<set $slaves[$i].fetish to "humiliation">><<else>>She hopes to never repeat it.<</if>>
+		and a curious experience to $object. <<if random(1,5) == 1>>@@color:lightcoral;$possessiveCap has developed a humiliation fetish.@@<<set $slaves[$i].fetish to "humiliation">><<else>>$pronounCap hopes to never repeat it.<</if>>
 	<<elseif $slaves[$i].devotion <= 20>>
-		and completely devastating to her image of herself. The experience @@color:hotpink;habituates her@@ to cruelties of slavery.
+		and completely devastating to $possessive image of herself. The experience @@color:hotpink;habituates $object@@ to cruelties of slavery.
 		<<set $slaves[$i].devotion += 5>>
 	<<else>>
-		and she hopes to never undergo it again.
+		and $pronoun hopes to never undergo it again.
 	<</if>>
 <</if>>
 
 <br>
 <br>
-She @@color:orange;gave birth@@
+$pronounCap @@color:orange;gave birth@@
 <<if $slaves[$i].pregType <= 1>>
   to a single baby,
 <<elseif $slaves[$i].pregType is 5>>
@@ -337,7 +351,7 @@ your arcology's eager citizens.
 <<elseif $slaves[$i].pregSource == 0>>
 an unknown father.
 <<elseif $slaves[$i].ID is $daddy.ID>>
-her own curiosity over if she could fuck herself.
+$possessive own curiosity over if $pronoun could fuck <<print $possessive>>self.
 <<else>>
 $daddy's virile cock and balls.
 <</if>>
@@ -348,77 +362,77 @@ $daddy's virile cock and balls.
 <br>
 <<if $slaves[$i].births == 0>>
 <br>
-	Her inexperience @@color:red;complicated her first birth@@.
+	$possessiveCap inexperience @@color:red;complicated $possessive first birth@@.
 <</if>>
 <<if $slaves[$i].vagina < 2>>
 <br>
-	Her tight vagina @@color:red;hindered her baby's birth@@.
+	$possessiveCap tight vagina @@color:red;hindered $possessive baby's birth@@.
 <</if>>
 <<if $slaves[$i].vaginaLube == 0>>
 <br>
-	Her dry vagina made pushing her child out @@color:red;painful@@.
+	$possessiveCap dry vagina made pushing $possessive child out @@color:red;painful@@.
 <</if>>
 <<if $slaves[$i].hips < 0>>
 <br>
-	Her narrow hips made birth @@color:red;troublesome@@.
+	$possessiveCap narrow hips made birth @@color:red;troublesome@@.
 <</if>>
 <<if $slaves[$i].weight < -95>>
 <br>
-	Her very thin body @@color:red;was nearly incapable of birthing her child@@.
+	$possessiveCap very thin body @@color:red;was nearly incapable of birthing $possessive child@@.
 <<elseif $slaves[$i].weight <= -30>>
 <br>
-	Her thin body was @@color:red;ill-suited for childbirth@@.
+	$possessiveCap thin body was @@color:red;ill-suited $possessive childbirth@@.
 <</if>>
 <<if $slaves[$i].health < -20>>
 <br>
-	Her poor health made laboring @@color:red;exhausting@@.
+	$possessiveCap poor health made laboring @@color:red;exhausting@@.
 <</if>>
 <<if $slaves[$i].tired > 0>>
 <br>
-	She was so tired, she @@color:red;lacked the energy to effectively push@@.
+	$pronounCap was so tired, $pronoun @@color:red;lacked the energy to effectively push@@.
 <</if>>
 <<if $slaves[$i].vagina >= 2 or $slaves[$i].vaginaLube > 0 or $slaves[$i].births > 0 or $slaves[$i].hips > 0 or $nurseCareers.contains($slaves[$i].career) or $slaves[$i].intelligenceImplant > 0>>
 <br>However:
 <<if $slaves[$i].vagina >= 2>>
 <br>
-	Her @@color:green;loose vagina@@ made birthing her child easier.
+	$possessiveCap @@color:green;loose vagina@@ made birthing $possessive child easier.
 <</if>>
 <<if $slaves[$i].vaginaLube > 0>>
 <br>
-	Her @@color:green;moist vagina@@ hastened her child's birth.
+	$possessiveCap @@color:green;moist vagina@@ hastened $possessive child's birth.
 <</if>>
 <<if $slaves[$i].births > 0>>
 <br>
-	She has @@color:green;given birth before@@, so she knows just what to do.
+	$pronounCap has @@color:green;given birth before@@, so $pronoun knows just what to do.
 <</if>>
 <<if $slaves[$i].hips > 0>>
 <br>
-	Her @@color:green;wide hips@@ greatly aided childbirth.
+	$possessiveCap @@color:green;wide hips@@ greatly aided childbirth.
 <</if>>
 <<if $nurseCareers.contains($slaves[$i].career)>>
 <br>
-	Thanks to her @@color:green;previous career@@, childbirth went smoothly.
+	Thanks to $possessive @@color:green;previous career@@, childbirth went smoothly.
 <</if>>
 <<if $slaves[$i].intelligenceImplant > 0>>
 <br>
-	She was @@color:green;taught how to handle birth@@ in class.
+	$pronounCap was @@color:green;taught how to handle birth@@ in class.
 <</if>>
 <</if>>
 
 <br>
 <br>
-All in all,
 <<if $slaves[$i].assignment != "work in the dairy" && $csec == 0>>
+All in all,
 <<if $birthDamage > 15>>
-	childbirth was @@color:red;horrifically difficult for her and nearly claimed her life@@.
+	childbirth was @@color:red;horrifically difficult for $object and nearly claimed $possessive life@@.
 <<elseif $birthDamage > 10>>
-	childbirth was extremely difficult for her and @@color:red;greatly damaged her health@@.
+	childbirth was extremely difficult for $object and @@color:red;greatly damaged $possessive health@@.
 <<elseif $birthDamage > 5>>
-	childbirth was difficult for her and @@color:red;damaged her health@@.
+	childbirth was difficult for $object and @@color:red;damaged $possessive health@@.
 <<elseif $birthDamage > 0>>
-	childbirth was painful for her, though not abnormally so, and @@color:red;damaged her health@@.
+	childbirth was painful for $object, though not abnormally so, and @@color:red;damaged $possessive health@@.
 <<else>>
-	childbirth was @@color:green;no problem@@ for her.
+	childbirth was @@color:green;no problem@@ for $object.
 <</if>>
 <<if $birthDamage > 0>>
 <<set $slaves[$i].health -= Math.round(($birthDamage/2)*10)>>
@@ -428,22 +442,23 @@ All in all,
 <br>
 <br>
 <<if ($slaves[$i].vagina < 0)>> /* you somehow got a pregnant slave with no vagina catch */
-Childbirth has @@color:lime;has torn her a gaping vagina.@@
+Childbirth has @@color:lime;has torn $object a gaping vagina.@@
 <<elseif ($slaves[$i].vagina == 0)>> /* please stop selling me pregnant virgins, neighbor gender fundamentalist arcology */
-Childbirth has @@color:lime;ruined her virgin vagina.@@
+Childbirth has @@color:lime;ruined $possessive virgin vagina.@@
 <<elseif ($slaves[$i].vagina == 1)>>
-Childbirth has @@color:lime;greatly stretched out her vagina.@@
+Childbirth has @@color:lime;greatly stretched out $possessive vagina.@@
 <<elseif ($slaves[$i].vagina == 2)>>
-Childbirth has @@color:lime;stretched out her vagina.@@
+Childbirth has @@color:lime;stretched out $possessive vagina.@@
 <<elseif ($slaves[$i].vagina is 3)>>
-Her vagina was loose enough to not be stretched by childbirth.
+$possessiveCap vagina was loose enough to not be stretched by childbirth.
 <<elseif ($slaves[$i].vagina < 6)>>
-Childbirth stood no chance of stretching her gaping vagina.
+Childbirth stood no chance of stretching $possessive gaping vagina.
 <<else>>
-Childbirth has @@color:lime;stretched out her vagina.@@
+Childbirth has @@color:lime;stretched out $possessive vagina.@@
 <</if>>
 
 <<if $slaves[$i].fetish != "mindbroken">>
+<<if $slaves[$i].fuckdoll == 0>>
 <br>
 <<if ($slaves[$i].devotion) < 20 && (($week-$slaves[$i].weekAcquired) >= $slaves[$i].weekAcquired) && ($slaves[$i].pregSource == -1)>>
 <br>
@@ -462,6 +477,7 @@ Childbirth has @@color:lime;stretched out her vagina.@@
 <br>
 	She @@color:gold;fears@@ for the future of her children.
 	<<set $slaves[$i].trust -= 10>>
+<</if>>
 <</if>>
 <</if>>
 
@@ -492,7 +508,7 @@ Childbirth has @@color:lime;stretched out her vagina.@@
 
 <<if $slaves[$i].health <= -100>>
 	<br><br>
-	While attempting to recover, $slaves[$i].slaveName @@color:red;passes away@@ from complications. Her body was fatally damaged during childbirth, but her offspring is healthy, so her legacy will carry on.
+	While attempting to recover, $slaves[$i].slaveName @@color:red;passes away@@ from complications. $possessiveCap body was fatally damaged during childbirth, but $possessive offspring is healthy, so $possessive legacy will carry on.
 	<<set $activeSlave = $slaves[$i]>>
 	<<display "Remove activeSlave">>
 	<<set $slaveDead to 1>>
