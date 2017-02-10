@@ -1863,9 +1863,7 @@ Hormones for geldings:
 <<replace #diet>>
 Slave diets:
 
-<<if $currentRule.diet is "cum">>
-	''cum-based, for perversion.''
-<<elseif $currentRule.diet == 30>>
+<<if $currentRule.diet == 30>>
 	''designed to keep slaves plush.''
 <<elseif $currentRule.diet == 0>>
 	''designed for average weight.''
@@ -1878,8 +1876,7 @@ Slave diets:
 <</if>>
 <</replace>>
 <<replace #dietsupport>>
-<<if $currentRule.diet isnot "no default setting">>
-
+<<if $currentRule.diet isnot "no default setting">>	
 <br>&nbsp;&nbsp;&nbsp;&nbsp;Diet support for growth drugs:
 <<if $currentRule.dietGrowthSupport == 1>>
 	''on.''
@@ -1891,11 +1888,28 @@ Slave diets:
 	<<set $currentRule.dietGrowthSupport to 1>>
 	<<RAChangeDiet>>
 <</click>>
-|
+| 
 <<click "Off">>
 	<<set $currentRule.dietGrowthSupport to 0>>
 	<<RAChangeDiet>>
 <</click>>
+<</if>>
+<</replace>>
+<<replace #dietBase>>
+Diet Base:
+
+<<if $currentRule.dietCum == 2>>
+	''Cum-Based.''
+<<elseif (($currentRule.dietCum == 1) && ($currentRule.dietMilk == 0))>>
+	''Cum Added.''
+<<elseif (($currentRule.dietCum == 0) && ($currentRule.dietMilk == 1))>>
+	''Milk Added.''
+<<elseif (($currentRule.dietCum == 1) && ($currentRule.dietMilk == 1))>>
+	''Cum & Milk Added.''
+<<elseif ($currentRule.dietMilk == 2)>>
+	''Milk Based.''
+<<elseif (($currentRule.dietCum == 0) && ($currentRule.dietMilk == 0))>>
+	''Normal Diet.''
 <</if>>
 <</replace>>
 <</widget>>

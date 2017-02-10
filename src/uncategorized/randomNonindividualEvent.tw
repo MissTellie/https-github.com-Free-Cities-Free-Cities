@@ -643,6 +643,7 @@
 
 <<for $i to 0; $i < $slaves.length; $i++>>
 	<<if $slaves[$i].recruiter != 0>>
+	<<if $slaves[$i].fuckdoll == 0>>
 	<<if ($slaves[$i].devotion > 50)>>
 	<<if ($slaves[$i].relation == 0)>>
 	<<if canWalk($slaves[$i])>>
@@ -655,6 +656,7 @@
 			<</if>>
 		<</for>>
 		<<if $seed != 1>><<set $slaves[$i].recruiter to 0>><</if>>
+	<</if>>
 	<</if>>
 	<</if>>
 	<</if>>
