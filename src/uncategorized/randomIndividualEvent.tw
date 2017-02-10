@@ -629,9 +629,9 @@
 <</if>>
 <</if>>
 
-<<if ($eventSlave.diet is "cum")>>
-<<if ($eventSlave.devotion < 50)>>
-<<if (($eventSlave.fetish != "cumslut") && ($eventSlave.fetish != "masochist")) || ($eventSlave.fetishKnown == 0)>>
+<<if ($eventSlave.dietCum > 0)>>
+<<if ($eventSlave.devotion < 20)>>
+<<if (($eventSlave.fetish != "cumslut") && ($eventSlave.fetish != "masochist")  && ($eventSlave.fetishStrength < 60)) || ($eventSlave.fetishKnown == 0)>>
   <<set $RESSTRevent.push("retching cum feeding")>>
 <</if>>
 <</if>>
@@ -648,6 +648,28 @@
 <<if ($toSearch.indexOf("surgically") is -1)>>
 <<if ($eventSlave.indentureRestrictions < 1)>>
   <<set $RESSTRevent.push("subjugation blues")>>
+<</if>>
+<</if>>
+<</if>>
+<</if>>
+<</if>>
+<</if>>
+<</if>>
+<</if>>
+<</if>>
+
+<<if ($eventSlave.accent < 3)>>
+<<if ($eventSlave.dietCum > 0)>>
+<<if ($eventSlave.diet is "fattening")>>
+<<if ($eventSlave.trust > -50)>>
+<<if ($eventSlave.fetish != "cumslut")>>
+<<if ($eventSlave.weight < -30)>>
+<<if ($eventSlave.health > -80)>>
+<<if ($eventSlave.behavioralFlaw != "anorexic")>>
+<<if ($eventSlave.sexualFlaw != "self hating")>>
+<<if ($eventSlave.fetishStrength <= 60) or ($eventSlave.fetishKnown != 1)>>
+  <<set $RESSTRevent.push("too thin for cum diet")>>
+<</if>>
 <</if>>
 <</if>>
 <</if>>

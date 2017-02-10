@@ -1602,6 +1602,83 @@ Slave diets:
 
 <br>
 
+<span id = "dietBase">
+Diet Base:
+
+<<if ($currentRule.dietCum == 2)>>
+	''slaves' diets are heavily based on cum.''
+<<elseif (($currentRule.dietCum == 1) && ($currentRule.dietMilk == 0))>>
+	''cum is added to slaves' diets.''
+<<elseif (($currentRule.dietCum == 1) && ($currentRule.dietMilk == 1))>>
+	''both cum and human milk are added to slaves' diets.''
+<<elseif (($currentRule.dietCum == 0) && ($currentRule.dietMilk == 1))>>
+	''human milk is added to slaves' diets.''
+<<elseif ($currentRule.dietMilk == 2)>>
+	''slaves' diets are heavily based on human milk.''
+<<elseif (($currentRule.dietMilk == 0) && ($currentRule.dietCum == 0))>>
+	''slaves' diets do not include cum or human milk.''
+<<else>>
+	''no default setting.''
+<</if>>
+</span>
+
+<<click "no default setting">>
+	<<set $currentRule.dietCum to "no default setting">>
+	<<RAChangeDiet>>
+	<<RAChangeSave>>
+	<<RAChangeApply>>
+<</click>>
+|
+<<click "Normal Diet">>
+	<<set $currentRule.dietCum to 0>>
+	<<set $currentRule.dietMilk to 0>>
+	<<RAChangeDiet>>
+	<<RAChangeSave>>
+	<<RAChangeApply>>
+<</click>>
+|
+<<click "Cum Added">>
+	<<set $currentRule.dietCum to 1>>
+	<<set $currentRule.dietMilk to 0>>
+	<<RAChangeDiet>>
+	<<RAChangeSave>>
+	<<RAChangeApply>>
+<</click>>
+|
+<<click "Milk Added">>
+	<<set $currentRule.dietCum to 0>>
+	<<set $currentRule.dietMilk to 1>>
+	<<RAChangeDiet>>
+	<<RAChangeSave>>
+	<<RAChangeApply>>
+<</click>>
+|
+<<click "Cum & Milk Added">>
+	<<set $currentRule.dietCum to 1>>
+	<<set $currentRule.dietMilk to 1>>
+	<<RAChangeDiet>>
+	<<RAChangeSave>>
+	<<RAChangeApply>>
+<</click>>
+|
+<<click "Cum-Based">>
+	<<set $currentRule.dietCum to 2>>
+	<<set $currentRule.dietMilk to 0>>
+	<<RAChangeDiet>>
+	<<RAChangeSave>>
+	<<RAChangeApply>>
+<</click>>
+|
+<<click "Milk Based">>
+	<<set $currentRule.dietCum to 0>>
+	<<set $currentRule.dietMilk to 2>>
+	<<RAChangeDiet>>
+	<<RAChangeSave>>
+	<<RAChangeApply>>
+<</click>>
+
+<br>
+
 <span id = "muscles">
 Muscles:
 
