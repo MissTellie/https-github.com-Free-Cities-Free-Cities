@@ -817,27 +817,27 @@ is now _currentRule.hLength cm long.
 	<<elseif ((_currentRule.dietCum is 0) && (_currentRule.dietMilk is 0))>>
 		<<if ($activeSlave.dietCum != 0)>>
 			<<set $activeSlave.dietCum to 0>>
-			<<set $activeslave.dietMilk to 0>>
+			<<set $activeSlave.dietMilk to 0>>
 			<br>$activeSlave.slaveName has been put on a diet that does not include cum or human milk.
 		<<elseif ($activeSlave.dietMilk != 0)>>
 			<<set $activeSlave.dietCum to 0>>
-			<<set $activeslave.dietMilk to 0>>
+			<<set $activeSlave.dietMilk to 0>>
 			<br>$activeSlave.slaveName has been put on a diet that does not include cum or human milk.
 		<</if>>
 	<<elseif ((_currentRule.dietCum is 0) && (_currentRule.dietMilk is 1))>>
 		<<if ($activeSlave.dietCum != 0)>>
 			<<set $activeSlave.dietCum to 0>>
-			<<set $activeslave.dietMilk to 1>>
+			<<set $activeSlave.dietMilk to 1>>
 			<br>$activeSlave.slaveName has been put on a diet that includes human milk.
 		<<elseif ($activeSlave.dietMilk != 1)>>
 			<<set $activeSlave.dietCum to 0>>
-			<<set $activeslave.dietMilk to 1>>
+			<<set $activeSlave.dietMilk to 1>>
 			<br>$activeSlave.slaveName has been put on a diet that includes human milk.
 		<</if>>
 	<<elseif (_currentRule.dietMilk is 2)>>
 		<<if ($activeSlave.dietMilk != 2)>>
 			<<set $activeSlave.dietCum to 0>>
-			<<set $activeslave.dietMilk to 2>>
+			<<set $activeSlave.dietMilk to 2>>
 			<br>$activeSlave.slaveName has been put on a diet heavily based on human milk.
 		<</if>>
 	<</if>>

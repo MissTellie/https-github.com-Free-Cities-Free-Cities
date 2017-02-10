@@ -2695,7 +2695,7 @@ $pronounCap's got a
 	<<elseif ($activeSlave.devotion > 50)>>
 		As a devoted sex slave, $pronoun has no trouble keeping herself hard for $object <<if def $PC.customTitle>>$PC.customTitle<<elseif $PC.title != 0>>Master<<else>>Mistress<</if>>.
 	<<elseif ($activeSlave.devotion > 20)>>
-		As an obedient sex slave, $pronoun does $possessive best to keep $possessiveself hard for $object <<if def $PC.customTitle>>$PC.customTitle<<elseif $PC.title != 0>>Master<<else>>Mistress<</if>>.
+		As an obedient sex slave, $pronoun does $possessive best to keep <<print $possessive>>self hard for $object <<if def $PC.customTitle>>$PC.customTitle<<elseif $PC.title != 0>>Master<<else>>Mistress<</if>>.
 	<<elseif ($activeSlave.dick > 1)>>
 		Judging by the softness of $possessive dick, $pronoun doesn't find $possessive situation arousing.
 	<</if>>
