@@ -1166,11 +1166,11 @@
 	<</if>>
 <</switch>>
 
-<<if $activeSlave.ID eq $slaves[$i].ID>>
+<<if $activeSlave.ID == $slaves[$i].ID>>
 	<<set $slaves[$i] to $activeSlave>>
 <<else>>
 <<for _I to 0;_I < $slaves.length;_I++>>
-	<<if $activeSlave.ID eq $slaves[_I].ID>>
+	<<if $activeSlave.ID == $slaves[_I].ID>>
 	<<set $slaves[_I] to $activeSlave>>
 	<<break>>
 	<</if>>
