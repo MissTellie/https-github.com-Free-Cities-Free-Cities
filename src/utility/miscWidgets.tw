@@ -272,14 +272,13 @@
  Call as <<SlaveInteractImpreg>>
 %/
 <<widget "SlaveInteractImpreg">>
-<<replace #impreg>>
+<<#impreg>>
 	<<if canGetPregnant($activeSlave)>>
 		<<if ($PC.dick != 0)>>
 		| <<click "Impregnate her yourself">><<replace "#miniscene">><<display "FPCImpreg">><br>&nbsp;&nbsp;&nbsp;&nbsp;<</replace>><<SlaveInteractImpreg>><<SlaveInteractFertility>><</click>>
 		<</if>>
 	| [[Use another slave to impregnate her|FSlaveImpreg]]
 	<</if>>
-<</replace>>
 <</widget>>
 
 /%
