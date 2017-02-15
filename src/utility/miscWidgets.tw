@@ -1397,10 +1397,11 @@ $args[2]: icon UI Display for vector art, 1 for on.
 <</if>>
 <<if $args[0].fuckdoll != 0>>
 	<<print "<object type='image/svg+xml' data=" + _folderLoc + "/outfit/boob " +_boobSize +" latex.svg'" + "/></object>">>
+	<<if $args[0].lactation > 0>><<print "<object type='image/svg+xml' data=" + _imgSkinLoc + "/boob " +_boobSize + " areola.svg'" + "/></object>">><</if>>
 <<else>>
 	<<print "<object type='image/svg+xml' data=" + _imgSkinLoc + "/boob " +_boobSize +".svg'" + "/></object>">>
+	<<print "<object type='image/svg+xml' data=" + _imgSkinLoc + "/boob " +_boobSize + " areola.svg'" + "/></object>">>
 <</if>>
-<<print "<object type='image/svg+xml' data=" + _imgSkinLoc + "/boob " +_boobSize + " areola.svg'" + "/></object>">>
 <<if$args[0].nipplesPiercing ==1>>
 	<<print "<object type='image/svg+xml' data=" + _folderLoc + "/body/addon/boob " +_boobSize +" piercing.svg'" + "/></object>">>
 <<elseif$args[0].nipplesPiercing ==2>>
