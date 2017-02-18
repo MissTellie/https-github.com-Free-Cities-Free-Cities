@@ -1960,13 +1960,13 @@ $pronounCap's got a
 
 <<if ($activeSlave.vagina > -1)>>
 	<<if ($activeSlave.anusPiercing == 1)>>
-		$pronounCap has a simple piercing between $possessive pussy and $possessive asshole<<if $activeSlave.fuckdoll > 0>> which helps keep the strip of material between its holes in place<</if>>.
+		$pronounCap has a simple piercing between $possessive pussy and $possessive asshole<<if $activeSlave.fuckdoll > 0>> which helps keep the strip of material <<if $activeSlave.vagina > -1>>between its holes<<else>>below its rear hole<</if>> in place<</if>>.
 	<<elseif ($activeSlave.anusPiercing is 2)>>
-		$pronounCap has a big ring between $possessive pussy and $possessive asshole<<if $activeSlave.fuckdoll > 0>>, which helps keep the strip of material between its holes in place,<</if>> and studs in all around $possessive anus.
+		$pronounCap has a big ring between $possessive pussy and $possessive asshole<<if $activeSlave.fuckdoll > 0>>, which helps keep the strip of material <<if $activeSlave.vagina > -1>>between its holes<<else>>below its rear hole<</if>> in place,<</if>> and studs in all around $possessive anus.
 	<</if>>
 <<else>>
 	<<if ($activeSlave.anusPiercing == 1)>>
-		$pronounCap has a simple perianal piercing between the base of $possessive dick and $possessive girly butthole<<if $activeSlave.fuckdoll > 0>> which helps keep the strip of material between its holes in place<</if>>.
+		$pronounCap has a simple perianal piercing between the base of $possessive dick and $possessive girly butthole<<if $activeSlave.fuckdoll > 0>> which helps keep the strip of material <<if $activeSlave.vagina > -1>>between its holes<<else>>below its rear hole<</if>> in place<</if>>.
 	<<elseif ($activeSlave.anusPiercing is 2)>>
 		$pronounCap has a big ring between the base of $possessive dick and $possessive girly butthole, which has studs all around it.
 	<</if>>
@@ -2063,7 +2063,7 @@ $pronounCap's got a
 				$possessiveCap ballsack have its own uncomfortably tight pouch in the suit.
 			<</if>>
 		<<else>>
-			soft cock<<if $activeSlave.scrotum > 0>> and balls are<<else>>is<</if>> trapped up against her abdomen, under the Fuckdoll suit's protective material.
+			soft cock<<if $activeSlave.scrotum > 0>> and balls are<<else>>is<</if>> trapped up against its abdomen, under the Fuckdoll suit's protective material.
 		<</if>>
 	<</if>>
 	<<if $activeSlave.vagina > -1>>
@@ -2991,13 +2991,15 @@ $pronounCap's got a
 <</if>>
 
 <<if $activeSlave.fuckdoll > 0>>
-	$possessiveCap front hole
-	<<if $activeSlave.fuckdoll <= 45>>
-		is mostly useful when it's restrained for rape.
-	<<else>>
-		will massage <<if $PC.dick == 1>>cocks<<else>>anything<</if>> placed inside it on command.
-		<<if $activeSlave.fuckdoll <= 85>>
-			$pronounCap is even capable of riding <<if $PC.dick == 1>>dick<<else>>a strap-on<</if>>.
+	<<if $activeSlave.vagina > 0>>
+		$possessiveCap front hole
+		<<if $activeSlave.fuckdoll <= 45>>
+			is mostly useful when it's restrained for rape.
+		<<else>>
+			will massage <<if $PC.dick == 1>>cocks<<else>>anything<</if>> placed inside it on command.
+			<<if $activeSlave.fuckdoll <= 85>>
+				$pronounCap is even capable of riding <<if $PC.dick == 1>>dick<<else>>a strap-on<</if>>.
+			<</if>>
 		<</if>>
 	<</if>>
 <<else>>

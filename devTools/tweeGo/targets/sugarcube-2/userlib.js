@@ -167,6 +167,21 @@ window.canAchieveErection = function(slave) {
 	}
 };
 
+window.canPenetrate = function(slave) {
+	if (!slave) {
+		return null;
+	} else if (canAchieveErection(slave) == false) {
+		return false;
+	} else if (slave.dickAccessory == "chastity") {
+		return false;
+	} else if (slave.dickAccessory == "combined chastity") {
+		return false;
+	} else if (slave.dick > 7) {
+		return false;
+	}
+	return true;
+};
+
 window.canSee = function(slave) {
 	if (!slave) {
 		return null;

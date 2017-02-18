@@ -7,21 +7,25 @@
 
 <<if $activeSlave == 0>>
 	<<for $i to 0; $i < $slaves.length; $i++>>
-		<<if ($slaves[$i].assignment is "serve the public")>>
-			<<set $activeSlave to $slaves[$i]>>
-			<<break>>
+		<<if $slaves[$i].fetish != "mindbroken">>
+		<<if $slaves[$i].fuckdoll == 0>>
+			<<if ($slaves[$i].assignment is "serve the public")>>
+				<<set $activeSlave to $slaves[$i]>>
+				<<break>>
+			<</if>>
+			<<if ($slaves[$i].assignment is "serve in the club")>>
+				<<set $activeSlave to $slaves[$i]>>
+				<<break>>
+			<</if>>
+			<<if ($slaves[$i].assignment is "whore")>>
+				<<set $activeSlave to $slaves[$i]>>
+				<<break>>
+			<</if>>
+			<<if ($slaves[$i].assignment is "work in the brothel")>>
+				<<set $activeSlave to $slaves[$i]>>
+				<<break>>
+			<</if>>
 		<</if>>
-		<<if ($slaves[$i].assignment is "serve in the club")>>
-			<<set $activeSlave to $slaves[$i]>>
-			<<break>>
-		<</if>>
-		<<if ($slaves[$i].assignment is "whore")>>
-			<<set $activeSlave to $slaves[$i]>>
-			<<break>>
-		<</if>>
-		<<if ($slaves[$i].assignment is "work in the brothel")>>
-			<<set $activeSlave to $slaves[$i]>>
-			<<break>>
 		<</if>>
 	<</for>>
 	<<if $activeSlave == 0>>
