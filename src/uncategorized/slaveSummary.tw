@@ -1529,6 +1529,13 @@ Release rules: _Slave.releaseRules.
 <</if>>
 @@
 @@color:pink;
+<<if (_Slave.waist > 1)>>
+	Wst++
+<<elseif (_Slave.waist == 1)>>
+	Wst+
+<</if>>
+@@
+@@color:pink;
 <<if (_Slave.boobsImplant == 0) && (_Slave.buttImplant == 0) && (_Slave.waist < 2) && (_Slave.lipsImplant == 0) && (_Slave.faceImplant < 2)>>
 	Natr
 <<else>>
@@ -1722,6 +1729,13 @@ _Slave.faceShape face.
 <<elseif _Slave.butt <= 1>>
 	Disproportionately small butt.
 <</if>>
+<</if>>
+@@
+@@color:pink;
+<<if (_Slave.waist > 1)>>
+	Unnaturally narrow waist.
+<<elseif (_Slave.waist == 1)>>
+	Narrow waist.
 <</if>>
 @@
 @@color:pink;
