@@ -4,7 +4,7 @@ A text-only slave management game. (18+)
 ## Downloading The Game
 
 There are two methods of acquiring Free Cities:  
-1. Download the latest compiled release; either from the [Blog](https://freecitiesblog.blogspot.com/), or from the [Releases](https://github.com/Free-Cities/Free-Cities/releases) page.  
+1. Downloading the latest compiled release from the [Blog](https://freecitiesblog.blogspot.com/).  
 2. Cloning this repository and manually compiling the game (see below).  
 
 ### Compiling (Windows x86_64)
@@ -17,18 +17,23 @@ There are two methods of acquiring Free Cities:
 
 ### Compiling (Linux x86_64)
 
-Ensure that Python (2 or 3) is installed.
-
 1. Open your terminal emulator.
 2. Use cd to change to the Free Cities directory.
-3. Run 'make'.
-4. The game will be compiled into a .html file in the Free Cities/bin directory.
-5. Open the .html file with your web browser.
+3. Ensure that the compile script is executable ('chmod +x ./compile' if not).
+5. Run './compile'.
+6. The game will be compiled into a .html file in the Free Cities/bin directory.
+7. Open the .html file with your web browser.
+
+### Notes
+
+* On Windows, compile.bat and compile_debug.bat perform the same functions. The only difference between the two is that compile.bat will exit automatically, while compile_debug.bat will wait for a keypress before exiting. The latter is useful when checking for TweeGo error output, while the former saves you a keypress (as TweeGo errors are rare unless you make a mistake). Use whichever one you prefer.
+
+* The compiler assumes that you will be working on a 64 bit Operating System. As such, the tools here will not work on 32 bit systems. If someone actually requires a 32 bit build of the compiler, email Spaghetti Code at the address below.
 
 ## Contacts
 [FC Dev](https://github.com/freecitiesdev) - Project Owner and Lead Developer.  
 For questions regarding the game itself, contributing, or other project-related questions, please contact FC Dev at **freecitiesdev [at] gmail.com**.
 
-[Spaghetti Code](https://github.com/ObstacleCorpse) - Developer and Repository Maintainer.  
-For questions regarding the compiler, or contributor related help with Git, please contact Spaghetti Code at **spaghetticode [at] cock.li**.  
+[Spaghetti Code](https://github.com/ObstacleCorpse) - Repository Maintainer.  
+For questions regarding the compiler, or contributor related help with Git, please contact Spaghetti Code at **spaghetticode [at] cock.li** or the /dgg/ discord.  
 Hours of availability: 0600U - 2100U.
