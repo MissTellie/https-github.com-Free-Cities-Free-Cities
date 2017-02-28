@@ -22,9 +22,6 @@ The household liquidator is offering a set of siblings for sale. As usual, you w
 <<set $activeSlave.relation to "sister">>
 <<set $activeSlave.relationTarget to $activeSlave.ID + 1000>>
 
-<<if ($universalRulesNewSlavesRA == 1) && ($autoRulesAssistant != 0)>>
-	<<AutoRulesActivate 1>>
-<</if>>
 <<slaveCost $activeSlave>>
 
 <</nobr>>\
@@ -33,7 +30,7 @@ The price is ¤<<print $slaveCost*3>>.
 
 <<nobr>>
 <<if $cash >= $slaveCost*3>>
-	[[Buy their slave contract|Siblings Workaround][$cash -= $slaveCost*3,$olderSister to $activeSlave, $slaves.push($olderSister),$nextButton to "Continue",$nextLink to "AS Dump",$returnTo to "Main"]]
+	[[Buy their slave contract|Siblings Workaround][$cash -= $slaveCost*3,$nextButton to "Continue",$nextLink to "AS Dump",$returnTo to "Main"]]
 <<else>>
 	//You lack the necessary funds to buy these slaves.//
 <</if>>
@@ -66,9 +63,6 @@ The household liquidator is offering a mother and her daughter for sale. As usua
 <<set $activeSlave.relation to "mother">>
 <<set $activeSlave.relationTarget to $activeSlave.ID + 1000>>
 
-<<if ($universalRulesNewSlavesRA == 1) && ($autoRulesAssistant != 0)>>
-	<<AutoRulesActivate 1>>
-<</if>>
 <<slaveCost $activeSlave>>
 <<if $slavesSeen > $slaveMarketLimit>><<set $slaveCost += Math.trunc($slaveCost*(($slavesSeen-$slaveMarketLimit)*0.1))>><</if>>
 
@@ -78,7 +72,7 @@ The price is ¤<<print $slaveCost*3>>.<<if $slavesSeen > $slaveMarketLimit>> You
 
 <<nobr>>
 <<if $cash >= $slaveCost*3>>
-	[[Buy their slave contract|Mother Daughter Workaround][$cash -= $slaveCost*3,$mother to $activeSlave, $slaves.push($mother),$nextButton to "Continue",$nextLink to "AS Dump",$returnTo to "Main"]]
+	[[Buy their slave contract|Mother Daughter Workaround][$cash -= $slaveCost*3,"Continue",$nextLink to "AS Dump",$returnTo to "Main"]]
 <<else>>
 	//You lack the necessary funds to buy these slaves.//
 <</if>>
@@ -106,9 +100,6 @@ The household liquidator is offering something special: twins. The markup is hug
 <<set $activeSlave.health = random(-50,20)>>
 <<set $activeSlave.relation to "twin">>
 <<set $activeSlave.relationTarget to $activeSlave.ID + 1000>>
-<<if ($universalRulesNewSlavesRA == 1) && ($autoRulesAssistant != 0)>>
-	<<AutoRulesActivate 1>>
-<</if>>
 <<slaveCost $activeSlave>>
 
 <</nobr>>\
@@ -117,7 +108,7 @@ The price is ¤<<print $slaveCost*4>>.<<if $slavesSeen > $slaveMarketLimit>> You
 
 <<nobr>>
 <<if $cash >= $slaveCost*4>>
-	[[Buy their slave contract|Twins Workaround][$cash -= $slaveCost*4,$alphaTwin to $activeSlave, $slaves.push($alphaTwin),$nextButton to "Continue",$nextLink to "AS Dump",$returnTo to "Main"]]
+	[[Buy their slave contract|Twins Workaround][$cash -= $slaveCost*4,$nextButton to "Continue",$nextLink to "AS Dump",$returnTo to "Main"]]
 <<else>>
 	//You lack the necessary funds to buy these slaves.//
 <</if>>

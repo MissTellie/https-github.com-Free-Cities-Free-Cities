@@ -324,14 +324,20 @@ serves you this week.
 <<else>>
 
 	<<if $slaves[$i].fuckdoll > 0>>
-		You keep with you all week, using it as your personal sex toy. When you're not using it, it <<if $activeSlave.amp > 0>>rests<<else>>stands<</if>> nearby, waiting silently.
+		You keep $object with you all week, using it as your personal sex toy. When you're not using it, it <<if $activeSlave.amp > 0>>rests<<else>>stands<</if>> nearby, waiting silently.
 		<<set $slaves[$i].trust += 4>>
 		<<set $seed to random(3,5)>>
 		<<set $slaves[$i].oralCount += $seed>>
 		<<set $oralTotal += $seed>>
-		<<set $slaves[$i].analCount += $seed>>
-		<<set $analTotal += $seed>>
-		
+		<<if canDoVaginal($slaves[$i])>>
+			<<set $slaves[$i].vaginalCount += $seed>>
+			<<set $vaginalTotal += $seed>>
+		<</if>>
+		<<if canDoAnal($slaves[$i])>>
+			<<set $slaves[$i].analCount += $seed>>
+			<<set $analTotal += $seed>>
+		<</if>>
+
 	<<elseif ($slaves[$i].anus == 0) && ($slaves[$i].vagina == 0)>>
 		Since you haven't yet decided to sell or take $possessive virginity or $possessive tight little anus, you let $object please you with $possessive mouth. $pronounCap is @@color:mediumaquamarine;duly grateful@@ you let $object keep $possessive innocence for another week, though $possessive throat gets a little sore doing the work of three holes.
 		<<set $slaves[$i].trust += 1>>
@@ -339,48 +345,58 @@ serves you this week.
 		<<set $slaves[$i].oralCount += $seed>>
 		<<set $oralTotal += $seed>>
 
-	<<elseif ($slaves[$i].vagina == 0)>>
+	<<elseif ($slaves[$i].vagina == 0) && canDoVaginal($slaves[$i])>>
 		Since you haven't yet decided to sell or take $possessive virginity, but $pronoun's taken it up the ass, you let $object be your anal whore. $pronounCap is @@color:mediumaquamarine;duly grateful@@ you let $possessive keep $possessive innocence for another week, though $possessive butt gets a little sore.
 		<<set $slaves[$i].trust += 1>>
 		<<set $seed to random(5,10)>>
 		<<set $slaves[$i].analCount += $seed>>
 		<<set $analTotal += $seed>>
 
-	<<elseif ($slaves[$i].anus == 0)>>
-		Since you haven't yet decided to sell or take $possessive tight little anus, you let $object confine $possessive efforts to $possessive <<if ($slaves[$i].vagina != -1) && ($slaves[$i].vaginalAccessory != "chastity belt")>>pussy and <</if>>mouth. $pronounCap is @@color:mediumaquamarine;duly grateful@@ you let $object put off taking it up the butt another week.
+	<<elseif ($slaves[$i].anus == 0) && canDoAnal($slaves[$i])>>
+		Since you haven't yet decided to sell or take $possessive tight little anus, you let $object confine $possessive efforts to $possessive <<if canDoVaginal($slaves[$i])>>pussy and <</if>>mouth. $pronounCap is @@color:mediumaquamarine;duly grateful@@ you let $object put off taking it up the butt another week.
 		<<set $slaves[$i].trust += 1>>
 		<<set $seed to random(5,10)>>
 		<<set $slaves[$i].oralCount += $seed>>
 		<<set $oralTotal += $seed>>
-		<<if ($slaves[$i].vagina != -1) && ($slaves[$i].vaginalAccessory != "chastity belt")>>
+		<<if canDoVaginal($slaves[$i])>>
 			<<set $slaves[$i].vaginalCount += $seed>>
 			<<set $vaginalTotal += $seed>>
 		<</if>>
 
 	<<elseif !canWalk($slaves[$i])>>
-		You carry $object around with you all week, using $object as your personal sex toy and bedwarmer. <<if ($slaves[$i].amp == 1)>>Without arms and legs<<elseif canWalk($slaves[$i]) is -2>>Immobilized by $possessive own tits<</if>>, $pronoun is your @@color:hotpink;helpless sexual appliance@@ and is @@color:mediumaquamarine;forced to trust you.@@
+		You carry $object around with you all week, using $object as your personal sex toy and bedwarmer. <<if ($slaves[$i].amp == 1)>>Without arms and legs<<elseif $slaves[$i].heels == 1>>Immobilized by $possessive clipped heels<<else>>Immobilized by $possessive own tits<</if>>, $pronoun is your @@color:hotpink;helpless sexual appliance@@ and is @@color:mediumaquamarine;forced to trust you.@@
 		<<set $slaves[$i].trust += 4>>
 		<<set $seed to random(3,5)>>
 		<<set $slaves[$i].oralCount += $seed>>
 		<<set $oralTotal += $seed>>
-		<<set $slaves[$i].analCount += $seed>>
-		<<set $analTotal += $seed>>
+		<<if canDoAnal($slaves[$i])>>
+			<<set $slaves[$i].analCount += $seed>>
+			<<set $analTotal += $seed>>
+		<</if>>
+		<<if canDoVaginal($slaves[$i])>>
+			<<set $slaves[$i].vaginalCount += $seed>>
+			<<set $vaginalTotal += $seed>>
+		<</if>>
 
 	<<elseif ($slaves[$i].devotion > 50)>>
 		$pronounCap devotedly accompanies you all week, keeping $possessive
-		<<if ($slaves[$i].vagina is -1)>>
+		<<if canDoAnal($slaves[$i]) && canDoVaginal($slaves[$i])>>
+			mouth, vagina and asshole
+		<<elseif ($slaves[$i].vagina is -1)>>
 			mouth and asshole
-		<<elseif ($slaves[$i].vaginalAccessory is "chastity belt")>>
+		<<elseif ($slaves[$i].vaginalAccessory is "chastity belt") || ($slaves[$i].vaginalAccessory is "combined chastity") && canDoAnal($slaves[$i])>>
 			mouth and, since $possessive pussy is covered by $possessive chastity belt, asshole
 		<<else>>
-			mouth, pussy, and asshole
+			mouth
 		<</if>>
 		available for you at all times.
 		<<if ($slaves[$i].dick != 0) && canAchieveErection($slaves[$i])>>
-			Every time $possessive beloved <<if def $PC.customTitle>>$PC.customTitle<<elseif $PC.title != 0>>Master<<else>>Mistress<</if>> fucks $object $pronoun gets a hardon.
-		<<elseif ($slaves[$i].dick != 0)>>
+			Every time $possessive beloved <<if def $PC.customTitle>>$PC.customTitle<<elseif $PC.title != 0>>Master<<else>>Mistress<</if>> fucks $object, $pronoun gets a hardon.
+		<<elseif ($slaves[$i].dick != 0) && canDoAnal($slaves[$i])>>
 			$pronounCap doesn't get a hardon as you use $object, but $pronoun comes from the prostate stimulation when $possessive beloved <<if def $PC.customTitle>>$PC.customTitle<<elseif $PC.title != 0>>Master<<else>>Mistress<</if>> uses $possessive butt.
-		<<else>>
+		<<elseif ($slaves[$i].dick != 0) && canDoVaginal($slaves[$i])>>
+			$pronounCap doesn't get a hardon as you use $object, but $pronoun comes from the prostate stimulation when $possessive beloved <<if def $PC.customTitle>>$PC.customTitle<<elseif $PC.title != 0>>Master<<else>>Mistress<</if>> uses $possessive pussy.
+			<<else>>
 			$pronounCap comes indecently hard whenever $possessive beloved <<if def $PC.customTitle>>$PC.customTitle<<elseif $PC.title != 0>>Master<<else>>Mistress<</if>> uses $possessive body.
 		<</if>>
 			<<if ($fuckSlaves <= $PC.sexualEnergy/2)>>
@@ -399,21 +415,25 @@ serves you this week.
 		<<set $seed to random(3,5)>>
 		<<set $slaves[$i].oralCount += $seed>>
 		<<set $oralTotal += $seed>>
-		<<set $slaves[$i].analCount += $seed>>
-		<<set $analTotal += $seed>>
-		<<if ($slaves[$i].vagina != -1) && ($slaves[$i].vaginalAccessory != "chastity belt")>>
+		<<if canDoAnal($slaves[$i])>>
+			<<set $slaves[$i].analCount += $seed>>
+			<<set $analTotal += $seed>>
+		<</if>>
+		<<if canDoVaginal($slaves[$i])>>
 			<<set $slaves[$i].vaginalCount += $seed>>
 			<<set $vaginalTotal += $seed>>
 		<</if>>
 
 	<<elseif ($slaves[$i].devotion > 20)>>
 		Whenever you feel the need, you use whichever of $possessive
-		<<if ($slaves[$i].vagina is -1)>>
+		<<if canDoAnal($slaves[$i]) && canDoVaginal($slaves[$i])>>
+			mouth, vagina and asshole
+		<<elseif ($slaves[$i].vagina is -1)>>
 			mouth and asshole
-		<<elseif ($slaves[$i].vaginalAccessory is "chastity belt")>>
+		<<elseif ($slaves[$i].vaginalAccessory is "chastity belt") || ($slaves[$i].vaginalAccessory is "combined chastity") && canDoAnal($slaves[$i])>>
 			mouth and, since $possessive pussy is covered by $possessive chastity belt, asshole
 		<<else>>
-			mouth, pussy, and asshole
+			mouth
 		<</if>>
 		seem most appealing at the moment, since $pronoun's up for anything.
 		<<if ($slaves[$i].dick != 0) && canAchieveErection($slaves[$i])>>
@@ -435,21 +455,25 @@ serves you this week.
 		<<set $seed to random(3,5)>>
 		<<set $slaves[$i].oralCount += $seed>>
 		<<set $oralTotal += $seed>>
-		<<set $slaves[$i].analCount += $seed>>
-		<<set $analTotal += $seed>>
-		<<if ($slaves[$i].vagina != -1) && ($slaves[$i].vaginalAccessory != "chastity belt")>>
+		<<if canDoAnal($slaves[$i])>>
+			<<set $slaves[$i].analCount += $seed>>
+			<<set $analTotal += $seed>>
+		<</if>>
+		<<if canDoVaginal($slaves[$i])>>
 			<<set $slaves[$i].vaginalCount += $seed>>
 			<<set $vaginalTotal += $seed>>
 		<</if>>
 
 	<<elseif ($slaves[$i].trust < -20)>>
 		$pronounCap is afraid of you and does $possessive best to offer you $possessive
-		<<if ($slaves[$i].vagina is -1)>>
+		<<if canDoAnal($slaves[$i]) && canDoVaginal($slaves[$i])>>
+			mouth, vagina and asshole
+		<<elseif ($slaves[$i].vagina is -1)>>
 			mouth and asshole
-		<<elseif ($slaves[$i].vaginalAccessory is "chastity belt")>>
+		<<elseif ($slaves[$i].vaginalAccessory is "chastity belt") || ($slaves[$i].vaginalAccessory is "combined chastity") && canDoAnal($slaves[$i])>>
 			mouth and, since $possessive pussy is covered by $possessive chastity belt, asshole
 		<<else>>
-			mouth, pussy, and asshole
+			mouth
 		<</if>>
 		to save herself from worse treatment than mere rape.
 		<<if ($slaves[$i].dick != 0) && canAchieveErection($slaves[$i])>>
@@ -468,21 +492,25 @@ serves you this week.
 		<<set $seed to random(3,5)>>
 		<<set $slaves[$i].oralCount += $seed>>
 		<<set $oralTotal += $seed>>
-		<<set $slaves[$i].analCount += $seed>>
-		<<set $analTotal += $seed>>
-		<<if ($slaves[$i].vagina != -1) && ($slaves[$i].vaginalAccessory != "chastity belt")>>
+		<<if canDoAnal($slaves[$i])>>
+			<<set $slaves[$i].analCount += $seed>>
+			<<set $analTotal += $seed>>
+		<</if>>
+		<<if canDoVaginal($slaves[$i])>>
 			<<set $slaves[$i].vaginalCount += $seed>>
 			<<set $vaginalTotal += $seed>>
 		<</if>>
 
 	<<else>>
 		Whenever you feel the need, you grab $object and use whichever of $possessive
-		<<if ($slaves[$i].vagina is -1)>>
+		<<if canDoAnal($slaves[$i]) && canDoVaginal($slaves[$i])>>
+			mouth, vagina and asshole
+		<<elseif ($slaves[$i].vagina is -1)>>
 			mouth and asshole
-		<<elseif ($slaves[$i].vaginalAccessory is "chastity belt")>>
+		<<elseif ($slaves[$i].vaginalAccessory is "chastity belt") || ($slaves[$i].vaginalAccessory is "combined chastity") && canDoAnal($slaves[$i])>>
 			mouth and, since $possessive pussy is covered by $possessive chastity belt, asshole
 		<<else>>
-			mouth, pussy, and asshole
+			mouth
 		<</if>>
 		seem most appealing at the moment.
 		<<if ($slaves[$i].dick != 0)>>
@@ -506,7 +534,11 @@ serves you this week.
 		<<set $oralTotal += $seed>>
 		<<set $slaves[$i].analCount += $seed>>
 		<<set $analTotal += $seed>>
-		<<if ($slaves[$i].vagina != -1) && ($slaves[$i].vaginalAccessory != "chastity belt")>>
+		<<if canDoAnal($slaves[$i])>>
+			<<set $slaves[$i].analCount += $seed>>
+			<<set $analTotal += $seed>>
+		<</if>>
+		<<if canDoVaginal($slaves[$i])>>
 			<<set $slaves[$i].vaginalCount += $seed>>
 			<<set $vaginalTotal += $seed>>
 		<</if>>
@@ -520,10 +552,10 @@ serves you this week.
 	<<if ($slaves[$i].oralSkill < 100)>>
 		After a lot of time spent with <<if $PC.dick == 1>>your dick in $possessive mouth<<else>>$possessive mouth on your cunt<</if>>, $possessive oral skill improves.
 		<<OralSkillIncrease $slaves[$i]>>
-	<<elseif ($slaves[$i].vaginalSkill < 100) && ($slaves[$i].vagina > 0) && ($slaves[$i].vaginalAccessory != "chastity belt")>>
+	<<elseif ($slaves[$i].vaginalSkill < 100) && ($slaves[$i].vagina > 0) && canDoVaginal($slaves[$i])>>
 		After a lot of time spent getting fucked, $possessive vaginal skill improves.
 		<<VaginalSkillIncrease $slaves[$i]>>
-	<<elseif ($slaves[$i].analSkill < 100) && ($slaves[$i].anus != 0)>>
+	<<elseif ($slaves[$i].analSkill < 100) && ($slaves[$i].anus != 0) && canDoAnal($slaves[$i])>>
 		After a lot of time spent taking it up the ass, $possessive anal skill improves.
 		<<AnalSkillIncrease $slaves[$i]>>
 	<</if>>

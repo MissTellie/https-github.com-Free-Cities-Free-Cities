@@ -93,18 +93,30 @@
 	<<set $activeSlave.eyes to -1>>
 <</if>>
 
-<<if $startingGirlsNationality == 0>>
+<<if $fixedNationality == 0>>
 	<<set $activeSlave.nationality to $nationalities.random()>>
 <<else>>
-	<<set $activeSlave.nationality to $startingGirlsNationality>>
+	<<set $activeSlave.nationality to $fixedNationality>>
 <</if>>
-<<display "New Slave Race Nationality and Name">>
+<<NationalityToRace>>
+
 <<if ($activeSlave.intelligenceImplant == 1)>>
 <<if ($activeSlave.accent >= 3)>>
 <<if (3+$activeSlave.intelligence) > random(0,6)>>
 	<<set $activeSlave.accent -= 1>>
 <</if>>
 <</if>>
+<</if>>
+
+<<set $seed to 4+$activeSlave.intelligence+$activeSlave.intelligenceImplant>>
+<<if "American" is $activeSlave.nationality>>
+	<<set $seed += 2>>
+<<elseif ["Canadian", "Israeli", "Japanese", "Korean", "Irish", "Icelandic", "Finnish", "Swiss", "Danish", "Norwegian", "Austrian", "Slovak", "Dutch", "Belgian", "Czech", "Portuguese", "Hungarian", "Portuguese", "Estonian", "Polish", "Lithuanian", "Romanian", "German", "Swedish", "French", "Italian", "Spanish", "British", "Australian", "a New Zealander"].contains($activeSlave.nationality)>>
+<<else>>
+	<<set $seed -= 2>>
+<</if>>
+<<if random(1,$seed) == 1>>
+	<<set $activeSlave.teeth to "crooked">>
 <</if>>
 
 <<if $activeSlave.race is "black">>
@@ -299,11 +311,7 @@
 	<<set $activeSlave.anusTat to "bleached">>
 <</if>>
 
-<<if $arcologies[0].FSSupremacistLawME == 1>>
-	<<if $activeSlave.race is $arcologies[0].FSSupremacistRace>>
-		<<goto "Generate XY Slave">>
-	<</if>>
-<<elseif passage() == "Slave Markets">>
+<<if passage() == "Slave Markets">>
 	<<if $slaveMarket == "corporate">>
 	<<if ($captureUpgradeRace != "unselected") && ($captureUpgradeRace != "none")>>
 	<<if $activeSlave.race != $captureUpgradeRace>>

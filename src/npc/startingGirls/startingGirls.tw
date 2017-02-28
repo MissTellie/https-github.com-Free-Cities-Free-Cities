@@ -40,7 +40,7 @@
 	<</if>>
 	<<set $activeSlave.relationTarget = $activeSlave.ID>>
 	<</if>>
-	<<display "Nationality to Name">>
+	<<NationalityToName>>
 	<<set $activeSlave.slaveName = $activeSlave.birthName>>
 	<<set $activeSlave.ID = $IDNumber>>
 	<<set $IDNumber += 1>>
@@ -56,7 +56,7 @@
 	<</if>>
 	<<set $startingGirlCopied = 0>>
 <<elseif $archetyped == 1>>
-	<<display "Nationality to Name">>
+	<<NationalityToName>>
 	<<set $activeSlave.slaveName = $activeSlave.birthName>>
 	<<set $archetyped = 0>>
 <</if>>
@@ -143,7 +143,7 @@ __You are customizing this slave:__
 <</click>>
 
 | <<click "Randomize name">>
-<<display "Nationality to Name">>
+<<NationalityToName>>
 <<set $activeSlave.slaveName = $activeSlave.birthName>>
 <<SaleDescription>>
 <<StartingGirlsCost>>
@@ -152,7 +152,7 @@ __You are customizing this slave:__
 | [[More customization options]]
 
 | <<click "Start over with a random slave">>
-<<set $startingGirlsNationality = $nationalities.random()>>
+<<set $fixedNationality = $nationalities.random()>>
 <<StartingGirlsWorkaround>>
 <<StartingGirlsRefresh>>
 <<SaleDescription>>
@@ -1167,7 +1167,7 @@ XY attraction:
 	//You lack the necessary funds to add this slave.//
 <</if>>
 <br>&nbsp;&nbsp;&nbsp;&nbsp;
-[[Discard this slave and continue to the arcology|Acquisition]]
+[[Discard this slave and continue|Acquisition]]
 </span>
 
 <br><br>
@@ -1175,7 +1175,7 @@ __Archetypes:__&nbsp;&nbsp;&nbsp;&nbsp;//Convenient combinations of slave attrib
 <br>&nbsp;&nbsp;&nbsp;&nbsp;
 <<click "Irish Rose">>
 	<<set $archetyped = 1>>
-	<<set $activeSlave.nationality = "Irish", $startingGirlsNationality = "Irish">>
+	<<set $activeSlave.nationality = "Irish", $fixedNationality = "Irish">>
 	<<StartingGirlsWorkaround>>
 	<<StartingGirlsRefresh>>
 	<<set $activeSlave.race = "white", $activeSlave.eyeColor = "green", $activeSlave.skin = "fair", $activeSlave.hColor = "red", $activeSlave.pubicHColor = "red", $activeSlave.markings = "heavily freckled">>
@@ -1187,7 +1187,7 @@ __Archetypes:__&nbsp;&nbsp;&nbsp;&nbsp;//Convenient combinations of slave attrib
 <<click "Cali Girl">>
 	<<set $archetyped = 1>>
 	<<set $activeSlave.nationality = "American">>
-	<<set $startingGirlsNationality = "American">>
+	<<set $fixedNationality = "American">>
 	<<StartingGirlsWorkaround>>
 	<<StartingGirlsRefresh>>
 	<<set $activeSlave.eyeColor = "blue", $activeSlave.skin = "tanned", $activeSlave.hColor = "blonde", $activeSlave.pubicHColor = "blonde", $activeSlave.markings = "none", $activeSlave.height = 190, $activeSlave.face = 3, $activeSlave.muscles = 20, $activeSlave.weight = -20>>
@@ -1242,7 +1242,7 @@ __Start over by selecting a nationality:__
 
 <<print "
 <<click _nation>>
-	<<set $startingGirlsNationality to $basenationalities[" + _i + "]>>
+	<<set $fixedNationality to $basenationalities[" + _i + "]>>
 	<<StartingGirlsWorkaround>>
 	<<StartingGirlsRefresh>>
 	<<SaleDescription>>
