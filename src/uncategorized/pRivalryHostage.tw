@@ -28,7 +28,7 @@
 <<set $activeSlave.relation to 0>>
 <<set $activeSlave.relationTarget to 0>>
 <<if $arcologies[0].FSSupremacistRace != 0>><<set $activeSlave.race to $arcologies[0].FSSupremacistRace>><</if>>
-<<display "Nationality to Name">>
+<<NationalityToName>>
 <<set $activeSlave.slaveName to $activeSlave.birthName>>
 
 <<set $activeSlave.age to Number($activeSlave.age)>>

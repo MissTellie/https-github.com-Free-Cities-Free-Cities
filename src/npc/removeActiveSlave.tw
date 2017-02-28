@@ -92,11 +92,15 @@
 	<<if $activeSlave.ID is $Concubine.ID>>
 		<<set $Concubine to 0>>
 	<</if>>
-
 	<<if $activeSlave.ID is $personalAttention>>
 		<<set $personalAttention to "business">>
 	<</if>>
-
+	<<for _d to 0; _d < $slavesOriginal.length; _d++>>
+		<<if $slavesOriginal[_d].ID is $activeSlave.ID>>
+			<<set $dump to $slavesOriginal.pluck([_d], [_d])>>
+			<<break>>
+		<</if>>
+	<</for>>
 	<<set $dump to $slaves.pluck([$x], [$x])>>
 	<<break>>
 <</if>>

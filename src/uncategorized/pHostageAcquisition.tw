@@ -7,7 +7,7 @@
 <<set $hostageRescued to 0>>
 <<set $activeSlave to $hostage>>
 <<set $activeSlave.ID += 55555>>
-<<set $slaves.push($activeSlave)>>
+<<AddSlave $activeSlave>>
 
 $activeSlave.slaveName, once
 <<switch $PC.career>>

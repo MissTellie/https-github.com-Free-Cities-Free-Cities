@@ -342,7 +342,7 @@ For the first time, you receive a direct call from your rival. You pictured the 
 	<<set $activeSlave.age to random(25,42)>>
 	<<if $activeSlave.age > 35>><<set $activeSlave.ageImplant to 1>><</if>>
 	<<set $activeSlave.pubicHStyle to "waxed">>
-	<<set $slaves.push($activeSlave)>>
+	<<AddSlave $activeSlave>>
 	<<display "New Slave Intro">>
 	<</replace>>
 <</click>>

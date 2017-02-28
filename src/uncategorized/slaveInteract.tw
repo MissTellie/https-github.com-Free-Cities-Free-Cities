@@ -186,8 +186,12 @@
 <br><br>
 __Rules Assistant__
 //<<click "Apply Rules Assistant to this slave">>
-<<AutoRulesActivate 1>>
-<<goto "Slave Interact">><</click>>//
+	<<silently>>
+	<<display "Check Auto Rules Activate">>
+	<<display "Default Rules">>
+	<</silently>>
+	<<goto "Slave Interact">>
+<</click>>//
 <br>&nbsp;&nbsp;&nbsp;
 <<if $activeSlave.useRulesAssistant != 0>>
 ''Subject'' to the rules assistant. [[Exempt her|Slave Interact][$activeSlave.useRulesAssistant to 0]]

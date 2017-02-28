@@ -40,19 +40,14 @@
 <<if ($activeSlave.relation == 0)>>
 <<if random(1,100) <= 5>>
 	<<set $activeSlave.recruiter to "twin">>
-	<<set $recruiters.push($activeSlave)>>
 <<elseif ($activeSlave.age > 32) && ($activeSlave.vagina != 0) && (random(1,100) <= 41)>>
 	<<set $activeSlave.recruiter to "mother">>
-	<<set $recruiters.push($activeSlave)>>
 <<elseif ($activeSlave.age < 24) && (random(1,100) <= 40)>>
 	<<set $activeSlave.recruiter to "daughter">>
-	<<set $recruiters.push($activeSlave)>>
 <<elseif ($activeSlave.age < 43) && (random(1,100) <= 20)>>
 	<<set $activeSlave.recruiter to "older sister">>
-	<<set $recruiters.push($activeSlave)>>
 <<elseif ($activeSlave.age < 25) && ($activeSlave.age > 18) && (random(1,100) <= 20)>>
 	<<set $activeSlave.recruiter to "young sister">>
-	<<set $recruiters.push($activeSlave)>>
 <</if>>
 <</if>>
 <</if>>
@@ -365,7 +360,7 @@ The legalities completed, ''__@@color:pink;$activeSlave.slaveName@@__'' <<if ($a
 <<set $gingering to 0>>
 
 <<if $autoRulesAssistant == 0>>
- <br>
+	<br>
 	<span id="rules">
 	<<click "Apply default rules">>
 	<<replace "#rules">>
@@ -376,10 +371,6 @@ The legalities completed, ''__@@color:pink;$activeSlave.slaveName@@__'' <<if ($a
 	//Will not apply many cosmetic and surgical options since she is not obedient//
 	<</if>>
 	</span>
-<<else>>
-	<<if ($universalRulesNewSlavesRA == 1)>>
-		<<AutoRulesActivate 1>>
-	<</if>>
 <</if>>
 
 <br><br>
