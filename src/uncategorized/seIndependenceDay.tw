@@ -165,8 +165,10 @@ In the Free Cities, Independence Day falls on the day when the Free City achieve
 		You reference your background as an arcology engineer, cleverly making it obvious that you know this huge building down to its very bones.
 	<<elseif $PC.career is "medicine">>
 		You share an impressive anecdote from your background as a surgeon; the moral of the story is that you can be trusted with a delicate operation.
-	<<else>>
+	<<elseif $PC.career is "celebrity">>
 		You share a hilarious anecdote from your background as a celebrity, one which the old world tabloids never did learn about, until now.
+	<<else>>
+		You cast yourself as one of the leading citizens of the Free Cities, from the beginning.
 	<</if>>
 	Transitioning to the future, you supply fresh fuel for rumors about how you managed to acquire the arcology by expressing confidence that
 	<<if $PC.rumor is "wealth">>
