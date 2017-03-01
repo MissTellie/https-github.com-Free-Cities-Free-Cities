@@ -172,21 +172,21 @@ __Society__
 	<</if>>
 <</if>>
 
-<<if $PAPublic == 1>>
-	<<set _seed1 = 0, _seed2 = 0>>
-	<<if $arcologies[0].FSSupremacist != "unset">>
-	<<if ($assistantAppearance is "businesswoman") || ($assistantAppearance is "shemale")>>
+<<if $PAPublic == 1 && $assistantAppearance != "normal">>
+<<set _seed1 = 0, _seed2 = 0>>
+<<if $arcologies[0].FSSupremacist != "unset">>
+	<<if ($assistantAppearance is "amazon") || ($assistantAppearance is "monstergirl")>>
 	 <<set $arcologies[0].FSSupremacist += 0.1*$FSSingleSlaveRep>>
 	 <<set _seed1 = 1>>
 	<</if>>
-	<</if>>
-	<<if $arcologies[0].FSSubjugationist != "unset">>
-	<<if ($assistantAppearance is "businesswoman") || ($assistantAppearance is "shemale")>>
+<</if>>
+<<if $arcologies[0].FSSubjugationist != "unset">>
+	<<if ($assistantAppearance is "businesswoman") || ($assistantAppearance is "amazon")>>
 	 <<set $arcologies[0].FSSubjugationist += 0.1*$FSSingleSlaveRep>>
 	 <<set _seed1 = 1>>
 	<</if>>
-	<</if>>
-	<<if $arcologies[0].FSGenderRadicalist != "unset">>
+<</if>>
+<<if $arcologies[0].FSGenderRadicalist != "unset">>
 	<<if ($assistantAppearance is "monstergirl") || ($assistantAppearance is "shemale")>>
 	 <<set $arcologies[0].FSGenderRadicalist += 0.1*$FSSingleSlaveRep>>
 	 <<set _seed1 = 1>>
@@ -195,8 +195,8 @@ __Society__
 	 <<set $arcologies[0].FSGenderRadicalist += 0.1*$FSSingleSlaveRep>>
 	 <<set _seed2 = 2>>
 	<</if>>
-	<</if>>
-	<<if $arcologies[0].FSGenderFundamentalist != "unset">>
+<</if>>
+<<if $arcologies[0].FSGenderFundamentalist != "unset">>
 	<<if ($assistantAppearance is "schoolgirl") || ($assistantAppearance is "goddess")>>
 	 <<set $arcologies[0].FSGenderFundamentalist += 0.1*$FSSingleSlaveRep>>
 	 <<set _seed1 = 1>>
@@ -205,8 +205,8 @@ __Society__
 	 <<set $arcologies[0].FSGenderFundamentalist += 0.1*$FSSingleSlaveRep>>
 	 <<set _seed2 = 2>>
 	<</if>>
-	<</if>>
-	<<if $arcologies[0].FSPaternalist != "unset">>
+<</if>>
+<<if $arcologies[0].FSPaternalist != "unset">>
 	<<if ($assistantAppearance is "schoolgirl") || ($assistantAppearance is "goddess")>>
 	 <<set $arcologies[0].FSPaternalist += 0.1*$FSSingleSlaveRep>>
 	 <<set _seed1 = 1>>
@@ -215,8 +215,8 @@ __Society__
 	 <<set $arcologies[0].FSPaternalist += 0.1*$FSSingleSlaveRep>>
 	 <<set _seed2 = 2>>
 	<</if>>
-	<</if>>
-	<<if $arcologies[0].FSDegradationist != "unset">>
+<</if>>
+<<if $arcologies[0].FSDegradationist != "unset">>
 	<<if ($assistantAppearance is "monstergirl") || ($assistantAppearance is "businesswoman")>>
 	 <<set $arcologies[0].FSDegradationist += 0.1*$FSSingleSlaveRep>>
 	 <<set _seed1 = 1>>
@@ -225,9 +225,9 @@ __Society__
 	 <<set $arcologies[0].FSDegradationist += 0.1*$FSSingleSlaveRep>>
 	 <<set _seed2 = 2>>
 	<</if>>
-	<</if>>
-	<<if $arcologies[0].FSBodyPurist != "unset">>
-	<<if ($assistantAppearance is "schoolgirl") || ($assistantAppearance is "goddess")>>
+<</if>>
+<<if $arcologies[0].FSBodyPurist != "unset">>
+	<<if ($assistantAppearance is "amazon") || ($assistantAppearance is "goddess")>>
 	 <<set $arcologies[0].FSBodyPurist += 0.1*$FSSingleSlaveRep>>
 	 <<set _seed1 = 1>>
 	<</if>>
@@ -235,8 +235,8 @@ __Society__
 	 <<set $arcologies[0].FSBodyPurist += 0.1*$FSSingleSlaveRep>>
 	 <<set _seed2 = 2>>
 	<</if>>
-	<</if>>
-	<<if $arcologies[0].FSTransformationFetishist != "unset">>
+<</if>>
+<<if $arcologies[0].FSTransformationFetishist != "unset">>
 	<<if ($assistantAppearance is "businesswoman") || ($assistantAppearance is "shemale")>>
 	 <<set $arcologies[0].FSTransformationFetishist += 0.1*$FSSingleSlaveRep>>
 	 <<set _seed1 = 1>>
@@ -245,8 +245,8 @@ __Society__
 	 <<set $arcologies[0].FSTransformationFetishist += 0.1*$FSSingleSlaveRep>>
 	 <<set _seed2 = 2>>
 	<</if>>
-	<</if>>
-	<<if $arcologies[0].FSMaturityPreferentialist != "unset">>
+<</if>>
+<<if $arcologies[0].FSMaturityPreferentialist != "unset">>
 	<<if ($assistantAppearance is "businesswoman") || ($assistantAppearance is "goddess")>>
 	 <<set $arcologies[0].FSMaturityPreferentialist += 0.1*$FSSingleSlaveRep>>
 	 <<set _seed1 = 1>>
@@ -255,8 +255,8 @@ __Society__
 	 <<set $arcologies[0].FSMaturityPreferentialist += 0.1*$FSSingleSlaveRep>>
 	 <<set _seed2 = 2>>
 	<</if>>
-	<</if>>
-	<<if $arcologies[0].FSYouthPreferentialist != "unset">>
+<</if>>
+<<if $arcologies[0].FSYouthPreferentialist != "unset">>
 	<<if ($assistantAppearance is "schoolgirl") || ($assistantAppearance is "shemale")>>
 	 <<set $arcologies[0].FSYouthPreferentialist += 0.1*$FSSingleSlaveRep>>
 	 <<set _seed1 = 1>>
@@ -265,8 +265,8 @@ __Society__
 	 <<set $arcologies[0].FSYouthPreferentialist += 0.1*$FSSingleSlaveRep>>
 	 <<set _seed2 = 2>>
 	<</if>>
-	<</if>>
-	<<if $arcologies[0].FSSlimnessEnthusiast != "unset">>
+<</if>>
+<<if $arcologies[0].FSSlimnessEnthusiast != "unset">>
 	<<if ($assistantAppearance is "schoolgirl") || ($assistantAppearance is "shemale")>>
 	 <<set $arcologies[0].FSSlimnessEnthusiast += 0.1*$FSSingleSlaveRep>>
 	 <<set _seed1 = 1>>
@@ -275,9 +275,9 @@ __Society__
 	 <<set $arcologies[0].FSSlimnessEnthusiast += 0.1*$FSSingleSlaveRep>>
 	 <<set _seed2 = 2>>
 	<</if>>
-	<</if>>
-	<<if $arcologies[0].FSAssetExpansionist != "unset">>
-	<<if ($assistantAppearance is "goddess") || ($assistantAppearance is "shemale")>>
+<</if>>
+<<if $arcologies[0].FSAssetExpansionist != "unset">>
+	<<if ($assistantAppearance is "businesswoman") || ($assistantAppearance is "shemale")>>
 	 <<set $arcologies[0].FSAssetExpansionist += 0.1*$FSSingleSlaveRep>>
 	 <<set _seed1 = 1>>
 	<</if>>
@@ -285,9 +285,9 @@ __Society__
 	 <<set $arcologies[0].FSAssetExpansionist += 0.1*$FSSingleSlaveRep>>
 	 <<set _seed2 = 2>>
 	<</if>>
-	<</if>>
-	<<if $arcologies[0].FSPastoralist != "unset">>
-	<<if ($assistantAppearance is "businesswoman") || ($assistantAppearance is "goddess")>>
+<</if>>
+<<if $arcologies[0].FSPastoralist != "unset">>
+	<<if ($assistantAppearance is "shemale") || ($assistantAppearance is "goddess")>>
 	 <<set $arcologies[0].FSPastoralist += 0.1*$FSSingleSlaveRep>>
 	 <<set _seed1 = 1>>
 	<</if>>
@@ -295,9 +295,9 @@ __Society__
 	 <<set $arcologies[0].FSPastoralist += 0.1*$FSSingleSlaveRep>>
 	 <<set _seed2 = 2>>
 	<</if>>
-	<</if>>
-	<<if $arcologies[0].FSPhysicalIdealist != "unset">>
-	<<if ($assistantAppearance is "amazon") || ($assistantAppearance is "monstergirl")>>
+<</if>>
+<<if $arcologies[0].FSPhysicalIdealist != "unset">>
+	<<if ($assistantAppearance is "amazon") || ($assistantAppearance is "shemale")>>
 	 <<set $arcologies[0].FSPhysicalIdealist += 0.1*$FSSingleSlaveRep>>
 	 <<set _seed1 = 1>>
 	<</if>>
@@ -305,8 +305,8 @@ __Society__
 	 <<set $arcologies[0].FSPhysicalIdealist += 0.1*$FSSingleSlaveRep>>
 	 <<set _seed2 = 2>>
 	<</if>>
-	<</if>>
-	<<if $arcologies[0].FSChattelReligionist != "unset">>
+<</if>>
+<<if $arcologies[0].FSChattelReligionist != "unset">>
 	<<if ($assistantAppearance is "goddess") || ($assistantAppearance is "monstergirl")>>
 	 <<set $arcologies[0].FSChattelReligionist += 0.1*$FSSingleSlaveRep>>
 	 <<set _seed1 = 1>>
@@ -315,9 +315,9 @@ __Society__
 	 <<set $arcologies[0].FSChattelReligionist += 0.1*$FSSingleSlaveRep>>
 	 <<set _seed2 = 2>>
 	<</if>>
-	<</if>>
-	<<if $arcologies[0].FSRomanRevivalist != "unset">>
-	<<if ($assistantAppearance is "amazon") || ($assistantAppearance is "goddess")>>
+<</if>>
+<<if $arcologies[0].FSRomanRevivalist != "unset">>
+	<<if ($assistantAppearance is "amazon") || ($assistantAppearance is "businesswoman")>>
 	 <<set $arcologies[0].FSRomanRevivalist += 0.1*$FSSingleSlaveRep>>
 	 <<set _seed1 = 1>>
 	<</if>>
@@ -325,9 +325,9 @@ __Society__
 	 <<set $arcologies[0].FSRomanRevivalist += 0.1*$FSSingleSlaveRep>>
 	 <<set _seed2 = 2>>
 	<</if>>
-	<</if>>
-	<<if $arcologies[0].FSEgyptianRevivalist != "unset">>
-	<<if ($assistantAppearance is "amazon") || ($assistantAppearance is "monstergirl")>>
+<</if>>
+<<if $arcologies[0].FSEgyptianRevivalist != "unset">>
+	<<if ($assistantAppearance is "goddess") || ($assistantAppearance is "monstergirl")>>
 	 <<set $arcologies[0].FSEgyptianRevivalist += 0.1*$FSSingleSlaveRep>>
 	 <<set _seed1 = 1>>
 	<</if>>
@@ -335,9 +335,9 @@ __Society__
 	 <<set $arcologies[0].FSEgyptianRevivalist += 0.1*$FSSingleSlaveRep>>
 	 <<set _seed2 = 2>>
 	<</if>>
-	<</if>>
-	<<if $arcologies[0].FSEdoRevivalist != "unset">>
-	<<if ($assistantAppearance is "goddess") || ($assistantAppearance is "monstergirl")>>
+<</if>>
+<<if $arcologies[0].FSEdoRevivalist != "unset">>
+	<<if ($assistantAppearance is "amazon") || ($assistantAppearance is "monstergirl")>>
 	 <<set $arcologies[0].FSEdoRevivalist += 0.1*$FSSingleSlaveRep>>
 	 <<set _seed1 = 1>>
 	<</if>>
@@ -345,9 +345,9 @@ __Society__
 	 <<set $arcologies[0].FSEdoRevivalist += 0.1*$FSSingleSlaveRep>>
 	 <<set _seed2 = 2>>
 	<</if>>
-	<</if>>
-	<<if $arcologies[0].FSArabianRevivalist != "unset">>
-	<<if ($assistantAppearance is "businesswoman") || ($assistantAppearance is "monstergirl")>>
+<</if>>
+<<if $arcologies[0].FSArabianRevivalist != "unset">>
+	<<if ($assistantAppearance is "businesswoman") || ($assistantAppearance is "schoolgirl")>>
 	 <<set $arcologies[0].FSArabianRevivalist += 0.1*$FSSingleSlaveRep>>
 	 <<set _seed1 = 1>>
 	<</if>>
@@ -355,9 +355,9 @@ __Society__
 	 <<set $arcologies[0].FSArabianRevivalist += 0.1*$FSSingleSlaveRep>>
 	 <<set _seed2 = 2>>
 	<</if>>
-	<</if>>
-	<<if $arcologies[0].FSChineseRevivalist != "unset">>
-	<<if ($assistantAppearance is "businesswoman") || ($assistantAppearance is "monstergirl")>>
+<</if>>
+<<if $arcologies[0].FSChineseRevivalist != "unset">>
+	<<if ($assistantAppearance is "schoolgirl") || ($assistantAppearance is "monstergirl")>>
 	 <<set $arcologies[0].FSChineseRevivalist += 0.1*$FSSingleSlaveRep>>
 	 <<set _seed1 = 1>>
 	<</if>>
@@ -365,12 +365,12 @@ __Society__
 	 <<set $arcologies[0].FSChineseRevivalist += 0.1*$FSSingleSlaveRep>>
 	 <<set _seed2 = 2>>
 	<</if>>
-	<</if>>
-	<<if _seed2 == 2>>
-	With her $assistantAppearance appearance, $assistantName's public visibility meshes well with society.
-	<<elseif _seed1 == 1>>
-	With her $assistantFSAppearance $assistantAppearance appearance,  $assistantName's public visibility meshes very well with society.
-	<</if>>
+<</if>>
+<<if _seed2 == 2>>
+With her $assistantFSAppearance $assistantAppearance appearance, $assistantName's public visibility meshes very well with society.
+<<elseif _seed1 == 1>>
+With her $assistantAppearance appearance, $assistantName's public visibility meshes well with society.
+<</if>>
 <</if>>
 
 <<if ($arcologies[0].FSSupremacistSMR + $arcologies[0].FSSubjugationistSMR + $arcologies[0].FSGenderRadicalistSMR + $arcologies[0].FSGenderFundamentalistSMR + $arcologies[0].FSPaternalistSMR + $arcologies[0].FSDegradationistSMR + $arcologies[0].FSBodyPuristSMR + $arcologies[0].FSTransformationFetishistSMR + $arcologies[0].FSYouthPreferentialistSMR + $arcologies[0].FSMaturityPreferentialistSMR + $arcologies[0].FSSlimnessEnthusiastSMR + $arcologies[0].FSAssetExpansionistSMR + $arcologies[0].FSPastoralistSMR + $arcologies[0].FSPhysicalIdealistSMR + $arcologies[0].FSChattelReligionistSMR + $arcologies[0].FSRomanRevivalistSMR + $arcologies[0].FSEgyptianRevivalistSMR + $arcologies[0].FSEdoRevivalistSMR + $arcologies[0].FSArabianRevivalistSMR + $arcologies[0].FSChineseRevivalistSMR) > 0>>
