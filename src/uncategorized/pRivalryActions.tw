@@ -2506,7 +2506,7 @@ You remind yourself that success in this conflict will not be defined by the tra
 	<<set $rivalryPower += 5>>
 	<</replace>>
 <</click>>
-<<if ($PC.career = "mercenary") || ($PC.career = "arcology owner")>>
+<<if ($PC.career == "mercenary") || ($PC.career == "arcology owner")>>
 <<if $mercenaries >= 3>>
 <br><<click "Your peers will tolerate an attack if it's covert">>
 	<<replace "#result">>
