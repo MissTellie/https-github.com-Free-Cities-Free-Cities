@@ -8,13 +8,13 @@ __Society__
 <</if>>
 
 <<if ($FSGotRepCreditOne != 1)>>
-<<if ($rep > 4000)>>
+<<if ($rep > 6000)>>
 	@@color:yellow;Your reputation is so solid that $arcologies[0].name's society is ready to begin accepting a second societal direction.@@
 	<<set $FSGotRepCreditOne = 1, $FSCredits += 1>>
 <</if>>
 <</if>>
 <<if ($FSGotRepCreditTwo != 1)>>
-<<if ($rep > 8000)>>
+<<if ($rep > 9000)>>
 	@@color:yellow;Your reputation is so solid that $arcologies[0].name's society is ready to begin accepting a third societal direction.@@
 	<<set $FSGotRepCreditTwo = 1, $FSCredits += 1>>
 <</if>>
@@ -26,7 +26,7 @@ __Society__
 <</if>>
 <</if>>
 <<if ($FSGotRepCreditFour != 1)>>
-<<if ($rep > 16000)>>
+<<if ($rep > 15000)>>
 	@@color:yellow;Your reputation is so unparalleled that $arcologies[0].name's society is ready to begin accepting a fifth and final societal direction.@@
 	<<set $FSGotRepCreditFour = 1, $FSCredits += 1>>
 <</if>>
