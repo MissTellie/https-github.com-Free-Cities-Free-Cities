@@ -1,6 +1,6 @@
 :: Acquisition [nobr]
 
-<<if $saveImported == 1>><<set $startingValue to 5000>><<else>><<set $startingValue to 25000>><</if>>
+<<if $saveImported == 1>><<set _valueOwed to 5000>><<else>><<set _valueOwed to 50000>><</if>>
 
 You've done it.
 <br><br>
@@ -16,41 +16,41 @@ The previous owner seems to have left in something of a hurry.
 <<elseif ($targetArcology.type != "New") && ($targetArcology.type != "Multiculturalist")>>
 	<<switch $targetArcology.type>>
 	<<case "Supremacist">>
-		They kept a personal stable of fearful $arcologies[0].FSSupremacistRace sex slaves, but their sexual training is incomplete.
+		They kept a personal stable of fearful $arcologies[0].FSSupremacistRace sex slaves, but their sexual training is incomplete. Several of them are still here.
 	<<case "Subjugationist">>
-		They made it a special goal to enslave and whore out as many $arcologies[0].FSSubjugationistRace people as possible.
+		They made it a special goal to enslave and whore out as many $arcologies[0].FSSubjugationistRace people as possible. Several of them are still here.
 	<<case "GenderRadicalist">>
-		They were in the process of building a stable of pretty young shemale whores. They're are all very attracted to men, and skilled at pleasing them.
+		They were in the process of building a stable of pretty young shemale whores. Several of them are still here. They're are all very attracted to men, and skilled at pleasing them.
 	<<case "GenderFundamentalist">>
-		They kept a personal stable of slaves for breeding purposes. They've been kept pregnant, and work as servants when they aren't being bred.
+		They kept a personal stable of slaves for breeding purposes. Several of them are still here. They've been kept pregnant, and work as servants when they aren't being bred.
 	<<case "Paternalist">>
-		Their slaves were all very well treated. They were allowed to work as maids, and weren't even forced to have sex.
+		Their slaves were all very well treated. Several of them are still here. They were allowed to work as maids, and weren't even forced to have sex.
 	<<case "Degradationist">>
-		Their personal slaves were all Fuckdolls, slaves who have been permanently encased in advanced latex suits and converted into living sex toys.
+		Their personal slaves were all Fuckdolls, slaves who have been permanently encased in advanced latex suits and converted into living sex toys. Several of them are still here.
 	<<case "AssetExpansionist">>
-		They kept a collection of bejeweled boobs for company, but they focused on breast expansion to the exclusion the slaves' emotional training.
+		They kept a collection of bejeweled boobs for company, but they focused on breast expansion to the exclusion the slaves' emotional training. Several of them are still here.
 	<<case "SlimnessEnthusiast">>
-		They kept a harem of slim, pretty girls, and treated them very well. They should be very trusting of a new owner.
+		They kept a harem of slim, pretty girls, and treated them very well. Several of them are still here. They should be very trusting of a new owner.
 	<<case "TransformationFetishist">>
-		They were just putting the finishing touches on a planned brothel's worth of surgically enhanced whores. The slaves are already used to prostitution.
+		They were just putting the finishing touches on a planned brothel's worth of surgically enhanced whores. Several of them are still here. They are already used to prostitution.
 	<<case "BodyPurist">>
-		Their slaves were trained for sexual use, but their health, fitness, and natural appearance were the main priorities.
+		Their slaves were trained for sexual use, but their health, fitness, and natural appearance were the main priorities. Several of them are still here.
 	<<case "MaturityPreferentialist">>
-		They preferred to keep their MILFs as scantily clad servants. The slaves aren't all happy to be sex objects, but they're used to it.
+		They preferred to keep their MILFs as scantily clad servants. Several of them are still here. They aren't all happy to be sex objects, but they're used to it.
 	<<case "YouthPreferentialist">>
-		They treated their young slaves very well. Virgins have been carefully preserved, but have learned to use their mouths through experience.
+		They treated their young slaves very well. Several of them are still here. Virgins have been carefully preserved, but have learned to use their mouths through experience.
 	<<case "Pastoralist">>
-		Their herd of cow girls was progressing nicely, though more progress had been made on milk production than on training.
+		Their herd of cow girls was progressing nicely, though more progress had been made on milk production than on training. Several of them are still here.
 	<<case "PhysicalIdealist">>
-		Their slaves worked as prostitutes, but mostly to fund a program of muscle building for all of them, which was nearing completion.
+		Their slaves worked as prostitutes, but mostly to fund a program of muscle building for all of them, which was nearing completion. Several of them are still here.
 	<<case "ChattelReligionist">>
-		They were recruiting a stable of slave whores by targeting people with religious complexes that made them particularly vulnerable to recruitment.
+		They were recruiting a stable of slave whores by targeting people with religious complexes that made them particularly vulnerable to recruitment. Several of them are still here.
 	<<case "RomanRevivalist">>
 		The only one of their slaves left is the bodyguard. She should be very willing to transfer her loyalty to you, as her new owner.
 	<<case "EgyptianRevivalist">>
 		They kept a harem of beautiful slave girls, who have been well-treated and well-trained. They should be very willing to serve you in turn.
 	<<case "EdoRevivalist">>
-		They put considerable effort into creating modern slave geisha, elegant Japanese slaves who were assigned to serve the public.
+		They put considerable effort into creating modern slave geisha, elegant Japanese slaves who were assigned to serve the public. Several of them are still here.
 	<<case "ArabianRevivalist">>
 		They trained slaves personally, and never kept slaves for very long. The slaves they left are all partway through being trained.
 	<<case "ChineseRevivalist">>
@@ -58,21 +58,18 @@ The previous owner seems to have left in something of a hurry.
 	<<default>>
 		ERROR: bad arcology type
 	<</switch>>
-	Several of them are still here.
 <<else>>
 	They could not get all of their personal effects away. Since they <<if $targetArcology.type == "Multiculturalist">>tried to sample different kinds of sexual slavery<<else>>did not have the time in control of the arcology to develop a specific stable of sex slaves<</if>>, their slaves were quite varied.
 <</if>>
 
 <<set $heroSlaves to $heroSlaves.shuffle()>>
-<<set $seed to 0>>
+<<set _valueGiven to 0>>
 <<if $cheatMode == 1>>
 	<<display [[Cheatmode Database]]>>
 <<elseif $saveImported == 1>>
 <<elseif ($targetArcology.type != "New") && ($targetArcology.type != "Multiculturalist")>>
-	<<for $j to 0; $j < $heroSlaves.length; $j++>>
-	<<if $startingValue - $seed <= 5000>>
-		<<break>>
-	<</if>>
+	<<for $j to 0; $j < 5; $j++>>
+	<<if _valueOwed - _valueGiven <= 5000>><<break>><</if>>
 	<<switch $targetArcology.type>>
 	<<case "Supremacist">>
 		<<set $arcologies[0].FSSupremacistLawME = 1>><<display "Generate New Slave">><<set $arcologies[0].FSSupremacistLawME = 0>>
@@ -80,7 +77,7 @@ The previous owner seems to have left in something of a hurry.
 		<<set $activeSlave.beauty = random(1,3)>>
 		<<set $activeSlave.oralSkill = random(15,35), $activeSlave.analSkill = random(15,35)>>
 		<<if $activeSlave.vagina > -1>>
-			<<if $activeSlave.vagina = 0>><<set $activeSlave.vagina++>><</if>>
+			<<if $activeSlave.vagina == 0>><<set $activeSlave.vagina++>><</if>>
 			<<set $activeSlave.vaginalSkill = random(15,35)>>
 		<</if>>
 		<<set $activeSlave.entertainSkill = random(15,35)>>
@@ -92,7 +89,7 @@ The previous owner seems to have left in something of a hurry.
 		<<set $activeSlave.beauty = random(1,3)>>
 		<<set $activeSlave.oralSkill = random(15,35), $activeSlave.analSkill = random(15,35)>>
 		<<if $activeSlave.vagina > -1>>
-			<<if $activeSlave.vagina = 0>><<set $activeSlave.vagina++>><</if>>
+			<<if $activeSlave.vagina == 0>><<set $activeSlave.vagina++>><</if>>
 			<<set $activeSlave.vaginalSkill = random(15,35)>>
 		<</if>>
 		<<set $activeSlave.whoreSkill = random(15,35)>>
@@ -117,7 +114,7 @@ The previous owner seems to have left in something of a hurry.
 		<<set $activeSlave.age = random(18,25)>>
 		<<set $activeSlave.preg = random(1,35), $activeSlave.lactation = 1>>
 		<<if $activeSlave.vagina > -1>>
-			<<if $activeSlave.vagina = 0>><<set $activeSlave.vagina++>><</if>>
+			<<if $activeSlave.vagina == 0>><<set $activeSlave.vagina++>><</if>>
 			<<set $activeSlave.vaginalSkill = random(15,35)>>
 		<</if>>
 		<<set $activeSlave.clothes = "a nice maid outfit", $activeSlave.collar = "tight steel", $activeSlave.shoes = "flats">>
@@ -157,7 +154,7 @@ The previous owner seems to have left in something of a hurry.
 		<<set $activeSlave.weight = random(15,90)>>
 		<<set $activeSlave.oralSkill = random(15,35), $activeSlave.analSkill = 0, $activeSlave.anus = 0>>
 		<<if $activeSlave.vagina > -1>>
-			<<if $activeSlave.vagina = 0>><<set $activeSlave.vagina++>><</if>>
+			<<if $activeSlave.vagina == 0>><<set $activeSlave.vagina++>><</if>>
 			<<set $activeSlave.vaginalSkill = random(15,35)>>
 		<</if>>
 		<<set $activeSlave.entertainSkill = random(15,35)>>
@@ -172,7 +169,7 @@ The previous owner seems to have left in something of a hurry.
 		<<set $activeSlave.weight = random(-25,-15)>>
 		<<set $activeSlave.oralSkill = random(15,35), $activeSlave.analSkill = 0, $activeSlave.anus = 0>>
 		<<if $activeSlave.vagina > -1>>
-			<<if $activeSlave.vagina = 0>><<set $activeSlave.vagina++>><</if>>
+			<<if $activeSlave.vagina == 0>><<set $activeSlave.vagina++>><</if>>
 			<<set $activeSlave.vaginalSkill = random(15,35)>>
 		<</if>>
 		<<set $activeSlave.entertainSkill = random(15,35)>>
@@ -192,7 +189,7 @@ The previous owner seems to have left in something of a hurry.
 		<<set $activeSlave.weight = random(-25,-15)>>
 		<<set $activeSlave.oralSkill = random(15,35), $activeSlave.analSkill = random(15,35)>>
 		<<if $activeSlave.vagina > -1>>
-			<<if $activeSlave.vagina = 0>><<set $activeSlave.vagina++>><</if>>
+			<<if $activeSlave.vagina == 0>><<set $activeSlave.vagina++>><</if>>
 			<<set $activeSlave.vaginalSkill = random(15,35)>>
 		<</if>>
 		<<set $activeSlave.clothes = "a string bikini", $activeSlave.collar = "shock punishment", $activeSlave.shoes = "extreme heels">>
@@ -205,7 +202,7 @@ The previous owner seems to have left in something of a hurry.
 		<<set $activeSlave.muscle = random(10,25)>>
 		<<set $activeSlave.oralSkill = random(15,35), $activeSlave.analSkill = random(15,35)>>
 		<<if $activeSlave.vagina > -1>>
-			<<if $activeSlave.vagina = 0>><<set $activeSlave.vagina++>><</if>>
+			<<if $activeSlave.vagina == 0>><<set $activeSlave.vagina++>><</if>>
 			<<set $activeSlave.vaginalSkill = random(15,35)>>
 		<</if>>
 		<<set $activeSlave.clothes = "a nice maid outfit", $activeSlave.collar = "pretty jewelry", $activeSlave.shoes = "heels">>
@@ -220,7 +217,7 @@ The previous owner seems to have left in something of a hurry.
 		<<set $activeSlave.weight = random(-5,90)>>
 		<<set $activeSlave.oralSkill = random(15,35), $activeSlave.analSkill = random(15,35)>>
 		<<if $activeSlave.vagina > -1>>
-			<<if $activeSlave.vagina = 0>><<set $activeSlave.vagina++>><</if>>
+			<<if $activeSlave.vagina == 0>><<set $activeSlave.vagina++>><</if>>
 			<<set $activeSlave.vaginalSkill = random(15,35)>>
 		<</if>>
 		<<SoftenBehavioralFlaw $activeSlave>>
@@ -253,7 +250,7 @@ The previous owner seems to have left in something of a hurry.
 		<<set $activeSlave.muscles = random(50,100)>>
 		<<set $activeSlave.oralSkill = random(15,35), $activeSlave.analSkill = random(15,35)>>
 		<<if $activeSlave.vagina > -1>>
-			<<if $activeSlave.vagina = 0>><<set $activeSlave.vagina++>><</if>>
+			<<if $activeSlave.vagina == 0>><<set $activeSlave.vagina++>><</if>>
 			<<set $activeSlave.vaginalSkill = random(15,35)>>
 		<</if>>
 		<<set $activeSlave.whoreSkill = random(15,35)>>
@@ -262,7 +259,7 @@ The previous owner seems to have left in something of a hurry.
 	<<case "ChattelReligionist">>
 		<<display "Generate New Slave">>
 		<<set $activeSlave.devotion = random(55,65), $activeSlave.trust = random(55,65), $activeSlave.health = random(0,15)>>
-		<<if $activeSlave.vagina = 0>><<set $activeSlave.vagina++>><</if>>
+		<<if $activeSlave.vagina == 0>><<set $activeSlave.vagina++>><</if>>
 		<<set $activeSlave.whoreSkill = random(10,20)>>
 		<<set $activeSlave.behavioralFlaw = "none", $activeSlave.behavioralQuirk = "sinful">>
 		<<set $activeSlave.clothes = "a chattel habit", $activeSlave.collar = "heavy gold", $activeSlave.shoes = "flats">>
@@ -284,7 +281,7 @@ The previous owner seems to have left in something of a hurry.
 		<<set $activeSlave.beauty = random(1,3)>>
 		<<set $activeSlave.oralSkill = random(15,35), $activeSlave.analSkill = random(15,35)>>
 		<<if $activeSlave.vagina > -1>>
-			<<if $activeSlave.vagina = 0>><<set $activeSlave.vagina++>><</if>>
+			<<if $activeSlave.vagina == 0>><<set $activeSlave.vagina++>><</if>>
 			<<set $activeSlave.vaginalSkill = random(15,35)>>
 		<</if>>
 		<<set $activeSlave.entertainSkill = random(15,35)>>
@@ -321,36 +318,35 @@ The previous owner seems to have left in something of a hurry.
 		<<set $activeSlave.intelligence = 3, $activeSlave.intelligenceImplant = 1>>
 		<<set $activeSlave.oralSkill = 100, $activeSlave.analSkill = 100>>
 		<<if $activeSlave.vagina > -1>>
-			<<if $activeSlave.vagina = 0>><<set $activeSlave.vagina++>><</if>>
+			<<if $activeSlave.vagina == 0>><<set $activeSlave.vagina++>><</if>>
 			<<set $activeSlave.vaginalSkill = 100>>
 		<</if>>
 		<<set $activeSlave.entertainSkill = 100, $activeSlave.whoreSkill = 100>>
-		<<softenBehavioralFlaw>>
-		<<softenSexualFlaw>>
+		<<SoftenBehavioralFlaw $activeSlave>>
+		<<SoftenSexualFlaw $activeSlave>>
 		<<set $activeSlave.clothes = "a slutty quipao", $activeSlave.collar = "pretty jewelry", $activeSlave.shoes = "heels">>
 		<<set $activeSlave.assignment = "be your Head Girl", $HeadGirl = $activeSlave>>
 	<<default>>
 		ERROR: bad arcology type
 	<</switch>>
-	<<set $activeSlave.origin = "You acquired her along with the arcology.">>
-	<<set $activeSlave.career = "a slave">>
+	<<set $activeSlave.origin = "You acquired her along with the arcology.", $activeSlave.career = "a slave">>
 	<<slaveCost $activeSlave>>
-	<<set $seed = Math.trunc($seed+$slaveCost, 0, $startingValue)>>
+	<<set _valueGiven += $slaveCost>>
 	<<AddSlave $activeSlave>>
 	<</for>>
 <<else>>
 	<<for $j to 0; $j < $heroSlaves.length; $j++>>
-	<<if $startingValue - $seed <= 5000>>
+	<<if _valueOwed - _valueGiven <= 5000>>
 		<<break>>
 	<</if>>
 	<<set $activeSlave to $heroSlaves[$j]>>
 	<<slaveCost $activeSlave>>
-	<<if $seed + $slaveCost < $startingValue*2>>
+	<<if _valueGiven + $slaveCost < _valueOwed*2>>
 		<<set $activeSlave.pubicHColor to $activeSlave.hColor>>
 		<<set $activeSlave.pubicHStyle = "waxed">>
 		<<set $activeSlave.oldDevotion to $activeSlave.devotion>>
 		<<set $activeSlave.oldTrust to $activeSlave.trust>>
-		<<set $seed += $slaveCost>>
+		<<set _valueGiven += $slaveCost>>
 		<<AddSlave $activeSlave>>
 		<<if $activeSlave.fetish is "mindbroken">>
 			$activeSlave.slaveName is, sadly, not mentally competent, and is wandering through the penthouse at the moment.
@@ -388,9 +384,9 @@ The previous owner seems to have left in something of a hurry.
 	<</if>>
 	<</for>>
 <</if>>
-<<if $startingValue - $seed > 0>>
-	There are some valuables present, worth ¤<<print $startingValue - $seed>>.
-	<<set $cash += $startingValue - $seed>>
+<<if _valueOwed-_valueGiven > 0>>
+	There are some valuables present, worth ¤<<print _valueOwed-_valueGiven>>.
+	<<set $cash += _valueOwed-_valueGiven>>
 <</if>>
 //
 
