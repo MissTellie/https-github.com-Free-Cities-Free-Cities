@@ -14,6 +14,7 @@
 	<<set $cellblockSlaves += 1>>
 	<<silently>>
 	<<display [[SA stay confined]]>>
+	<<display "SA diet">>
 	<<display "SA long term effects">>
 	<</silently>>
 	<<if ($slaves[$i].devotion <= 20)>>
@@ -149,7 +150,17 @@
 
 <<elseif ($Wardeness != 0) && ($slaves[$i].ID is $Wardeness.ID)>>
 	<<silently>>
+	<<if $slaves[$i].choosesOwnClothes == 1>>
+	<<display "SA chooses own clothes">>
+	<<if ($slaves[$i].devotion <= 20)>>
+		<<set $slaves[$i].devotion -= 5>>
+	<<else>>
+		<<set $slaves[$i].devotion += 1>>
+	<</if>>
+	<</if>>
+	<<display "SA diet">>
 	<<display "SA long term effects">>
+	<<display "SA drugs">>
 	<<display "SA relationships">>
 	<<display "SA rivalries">>
 	<</silently>>
@@ -275,7 +286,50 @@
 	<</if>>
 	<</if>>
 
-<<elseif ($Wardeness != 0)>>
+	<<for $i to 0; $i < $slaves.length; $i++>>
+	<<if ($slaves[$i].ID is $Wardeness.ID)>>
+	<br><br>
+	<<if $showEWD == 0>>
+		''__@@color:pink;$slaves[$i].slaveName@@__'' is serving as the Wardeness in $cellblockName.
+	<<else>>
+		''__@@color:pink;$slaves[$i].slaveName@@__'' is serving as the Wardeness in $cellblockName.
+		<<if $slaves[$i].choosesOwnClothes == 1>>
+		<<display "SA chooses own clothes">>
+		<</if>>
+		<<display "SA diet">>
+		<<display "SA long term effects">>
+		<<display "SA drugs">>
+		<<display "SA relationships">>
+		<<display "SA rivalries">>
+		<br>
+		<<display "SA devotion">>
+		<br>
+	<</if>>
+	<</if>>
+	<</for>>
+
+	<<for $i to 0; $i < $slaves.length; $i++>>
+	<<if ($slaves[$i].assignment is "be confined in the cellblock")>>
+	<br>
+	<<if $showEWD == 0>>
+		''__@@color:pink;$slaves[$i].slaveName@@__'' is confined in $cellblockName.
+	<<else>>
+		''__@@color:pink;$slaves[$i].slaveName@@__''
+		<<display [[SA stay confined]]>>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;
+		<<display "SA diet">>
+		<<display "SA long term effects">>
+		<<display "SA drugs">>
+		<<display "SA relationships">>
+		<<display "SA rivalries">>
+		<br>
+		<<display "SA devotion">>
+		<br>
+	<</if>>
+	<</if>>
+	<</for>>
+
+	<<elseif ($Wardeness != 0)>>
 	''$cellblockNameCaps is empty'' except for $Wardeness.slaveName, the wardeness.
 	<<set $seed to random(1,10)+((5-$cellblockSlaves)*(random(150,170)+($idleBonus*10)))>>
 	<<set $cash += $seed>>
