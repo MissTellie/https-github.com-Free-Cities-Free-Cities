@@ -338,6 +338,28 @@
 	<<set $cash += $seed>>
 	Since she doesn't have anyone to break, she works on citizens' slaves, earning @@color:yellowgreen;¤$seed.@@
 
+	<<for $i to 0; $i < $slaves.length; $i++>>
+	<<if ($slaves[$i].ID is $Wardeness.ID)>>
+	<br><br>
+	<<if $showEWD == 0>>
+		''__@@color:pink;$slaves[$i].slaveName@@__'' is serving as the Wardeness in $cellblockName.
+	<<else>>
+		''__@@color:pink;$slaves[$i].slaveName@@__'' is serving as the Wardeness in $cellblockName.
+		<<if $slaves[$i].choosesOwnClothes == 1>>
+		<<display "SA chooses own clothes">>
+		<</if>>
+		<<display "SA diet">>
+		<<display "SA long term effects">>
+		<<display "SA drugs">>
+		<<display "SA relationships">>
+		<<display "SA rivalries">>
+		<br>
+		<<display "SA devotion">>
+		<br>
+	<</if>>
+	<</if>>
+	<</for>>
+
 <<else>>
 	''$cellblockNameCaps is empty.''
 <</if>>
