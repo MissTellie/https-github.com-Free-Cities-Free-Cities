@@ -63,7 +63,7 @@
 			<<set $slaves[$i].fetishStrength = 50>>
 		<</if>>
 		<<if $slaves[$i].sexualFlaw != "none">>
-			It's trained to perform throuigh mechanical obedience, @@color:green;utterly destroying its sexual deficiencies.@@
+			It's trained to perform thorough mechanical obedience, @@color:green;utterly destroying its sexual deficiencies.@@
 			<<set $slaves[$i].sexualFlaw = "none">>
 		<</if>>
 	<<elseif $slaves[$i].fuckdoll <= 75>>
@@ -1218,9 +1218,11 @@ and ($slaves[$i].clothes != "a slutty qipao") and ($slaves[$i].clothes != "restr
 <<if $slaves[$i].fetishKnown == 1>>
 <<if ($slaves[$i].fetish != "none")>>
 <<if $slaves[$i].fetishStrength <= 95>>
-	<<if $slaves[$i].devotion+$slaves[$i].trust > 150>>
+	<<if $slaves[$i].devotion > 50>>
+	<<if $slaves[$i].trust > 50>>
 		She has the confidence to pursue what pleases her, @@color:lightcoral;increasing her kinkiness.@@
 		<<set $slaves[$i].fetishStrength += 4>>
+	<</if>>
 	<</if>>
 <</if>>
 <<if $slaves[$i].fetishStrength > 5>>

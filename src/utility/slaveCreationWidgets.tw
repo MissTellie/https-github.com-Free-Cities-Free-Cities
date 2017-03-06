@@ -647,28 +647,26 @@
 			<<if $activeSlave.indenture >= 0>>
 				<<set $activeSlave.indenture = Math.clamp($activeSlave.indenture, 26, 208)>>
 			<</if>>
-			<<set $activeSlave.height = Math.clamp($activeSlave.height, 85, 274)>>
+			<<set $activeSlave.height = Math.clamp($activeSlave.height, 91, 274)>>
 			<<set $activeSlave.boobs = Math.clamp($activeSlave.boobs, 0, 10000)>>
 			<<set $activeSlave.boobs = Number($activeSlave.boobs)>>
 			<<set $activeSlave.boobs = Math.trunc($activeSlave.boobs/50)*50>>
 			<<set $slaveWithoutBonuses = $activeSlave>>
+			<<slaveCost $activeSlave>>
+			<<set $cash -= $slaveCost>>
 			<<goto "RG AS Dump">>
 		<</click>>
 		//This will apply your @@color:springgreen;career bonus@@ to her:
 		<<if $PC.career is "capitalist">>
 			one free level of @@color:cyan;prostitution skill.@@
 		<<elseif $PC.career is "mercenary">>
-			@@color:mediumaquamarine;+2 trust.@@
+			@@color:mediumaquamarine;+10 trust.@@
 		<<elseif $PC.career is "slaver">>
-			@@color:hotpink;+2 devotion.@@
+			@@color:hotpink;+10 devotion.@@
 		<<elseif $PC.career is "medicine">>
 			free @@color:lime;basic implants.@@
 		<<elseif $PC.career is "celebrity">>
 			one free level of @@color:cyan;entertainment skill.@@
-		<<elseif $PC.career is "escort">>
-			two free levels of @@color:cyan;sex skills@@, one free level of @@color:cyan;prostitution skill@@, and one free level of @@color:cyan;entertainment skill.@@
-		<<elseif $PC.career is "servant">>
-			@@color:mediumaquamarine;+1 trust@@ and @@color:hotpink;+1 devotion.@@
 		<<elseif $PC.career is "wealth">>
 			two free levels of @@color:cyan;sex skills.@@
 		<<else>>
@@ -688,6 +686,8 @@
 			<<set $activeSlave.boobs = Number($activeSlave.boobs)>>
 			<<set $activeSlave.boobs = Math.trunc($activeSlave.boobs/50)*50>>
 			<<set $slaveWithoutBonuses = $activeSlave>>
+			<<slaveCost $activeSlave>>
+			<<set $cash -= $slaveCost>>
 			<<goto "RG AS Dump">>
 		<</click>>
 	<<else>>
@@ -700,19 +700,22 @@
 			<<if $activeSlave.indenture >= 0>>
 				<<set $activeSlave.indenture = Math.clamp($activeSlave.indenture, 26, 208)>>
 			<</if>>
-			<<set $activeSlave.height = Math.clamp($activeSlave.height, 85, 274)>>
+			<<set $activeSlave.height = Math.clamp($activeSlave.height, 91, 274)>>
 			<<set $activeSlave.boobs = Math.clamp($activeSlave.boobs, 0, 10000)>>
 			<<set $activeSlave.boobs = Number($activeSlave.boobs)>>
 			<<set $activeSlave.boobs = Math.trunc($activeSlave.boobs/50)*50>>
 			<<set $slaveWithoutBonuses = $activeSlave>>
+			<<slaveCost $activeSlave>>
+			<<set $cash -= $slaveCost>>
 			<<goto "RG AS Dump">>
 		<</click>>
 		<br>
 	<</if>>
 <<else>>
-	//You lack the necessary funds to add this slave.//
+	<br>//You lack the necessary funds to add this slave.//
 <</if>>
-<br>&nbsp;&nbsp;&nbsp;&nbsp;[[Discard this slave and continue|Acquisition]]
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+[[Discard this slave and continue|Acquisition]]
 <</replace>>
 <</widget>>
 

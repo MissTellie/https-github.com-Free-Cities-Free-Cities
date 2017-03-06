@@ -23,22 +23,24 @@
 <</if>>
 
 <<if $startingGirlCopied == 1>>
-	<<if $activeSlave.relation != 0>>
-	<<if $activeSlave.relation is "sister">>
-		<<set $activeSlave.relation = "sister">>
-		<<set $activeSlave.age -= 5>>
-		<<set $activeSlave.age += random(0,10)>>
-		<<set $activeSlave.birthWeek = 0>>
-	<<elseif $activeSlave.relation is "mother">>
-		<<set $activeSlave.relation = "daughter">>
-		<<set $activeSlave.age -= random(16,24)>>
-		<<set $activeSlave.birthWeek = 0>>
-	<<elseif $activeSlave.relation is "daughter">>
-		<<set $activeSlave.relation = "mother">>
-		<<set $activeSlave.age += random(16,24)>>
-		<<set $activeSlave.birthWeek = 0>>
-	<</if>>
-	<<set $activeSlave.relationTarget = $activeSlave.ID>>
+	<<set _tempSlave = clone($activeSlave)>>
+	<<set $activeSlave = $slaveWithoutBonuses>>
+	<<if _tempSlave.relation != 0>>
+		<<if _tempSlave.relation is "sister">>
+			<<set $activeSlave.relation = "sister">>
+			<<set $activeSlave.age -= 5>>
+			<<set $activeSlave.age += random(0,10)>>
+			<<set $activeSlave.birthWeek = 0>>
+		<<elseif _tempSlave.relation is "mother">>
+			<<set $activeSlave.relation = "daughter">>
+			<<set $activeSlave.age -= random(16,24)>>
+			<<set $activeSlave.birthWeek = 0>>
+		<<elseif _tempSlave.relation is "daughter">>
+			<<set $activeSlave.relation = "mother">>
+			<<set $activeSlave.age += random(16,24)>>
+			<<set $activeSlave.birthWeek = 0>>
+		<</if>>
+		<<set $activeSlave.relationTarget = _tempSlave.ID>>
 	<</if>>
 	<<NationalityToName>>
 	<<set $activeSlave.slaveName = $activeSlave.birthName>>
@@ -1093,8 +1095,9 @@ XY attraction:
 <<click "Judgemental">><<set $activeSlave.sexualFlaw = "judgemental">><<replace "#sexualFlaw">>@@color:red;$activeSlave.sexualFlaw.@@<</replace>><<StartingGirlsCost>><</click>> |
 <<click "Sexually idealistic">><<set $activeSlave.sexualFlaw = "idealistic">><<replace "#sexualFlaw">>@@color:red;$activeSlave.sexualFlaw.@@<</replace>><<StartingGirlsCost>><</click>>
 
-<br><br>
+<br>
 <span id="finalize">
+<<slaveCost $activeSlave>>
 <<if $cash >= $slaveCost>>
 	<<if $PC.career != "engineer">>
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -1171,7 +1174,7 @@ XY attraction:
 		<br>
 	<</if>>
 <<else>>
-	//You lack the necessary funds to add this slave.//
+	<br>//You lack the necessary funds to add this slave.//
 <</if>>
 <br>&nbsp;&nbsp;&nbsp;&nbsp;
 [[Discard this slave and continue|Acquisition]]
