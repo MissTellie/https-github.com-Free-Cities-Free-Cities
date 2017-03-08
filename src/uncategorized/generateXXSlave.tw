@@ -98,9 +98,9 @@
 <<else>>
 	<<set $activeSlave.nationality to $fixedNationality>>
 <</if>>
-<<NationalityToRace>>
-<<NationalityToName>>
-<<NationalityToAccent>>
+<<NationalityToRace $activeSlave>>
+<<NationalityToName $activeSlave>>
+<<NationalityToAccent $activeSlave>>
 
 <<if ($activeSlave.intelligenceImplant == 1)>>
 <<if ($activeSlave.accent >= 3)>>
@@ -243,22 +243,6 @@
 	<<set $activeSlave.face to either(-3,-2,-1,-1,0,0,0,1,1,1,1,2,2,2)>>
 <</if>>
 <<set $activeSlave.faceShape to either("androgynous", "cute", "sensual", "exotic", "normal", "normal")>>
-
-<<if $useFSNames == 0>>
-	<<set $activeSlave.slaveName to $activeSlave.birthName>>
-<<elseif $arcologies[0].FSChattelReligionist > 20>>
-	<<set $activeSlave.slaveName to $chattelReligionistSlaveNames.random()>>
-<<elseif $arcologies[0].FSRomanRevivalist > 20>>
-	<<set $activeSlave.slaveName to $romanSlaveNames.random()>>
-<<elseif $arcologies[0].FSEgyptianRevivalist > 20>>
-	<<set $activeSlave.slaveName to $ancientEgyptianSlaveNames.random()>>
-<<elseif $arcologies[0].FSEdoRevivalist > 20>>
-	<<set $activeSlave.slaveName to $edoSlaveNames.random()>>
-<<elseif $arcologies[0].FSDegradationist != "unset">>
-	<<display "Degrading Name">>
-<<else>>
-	<<set $activeSlave.slaveName to $activeSlave.birthName>>
-<</if>>
 
 <<if ($weightAffectsAssets != 0)>>
 	<<if $activeSlave.weight < -10 and $activeSlave.butt > 1>>
