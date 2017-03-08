@@ -69,8 +69,10 @@
 	<<elseif $slaves[$i].fuckdoll <= 75>>
 		This week it @@color:green;begins to learn more advanced commands@@ from its suit. It is taught a command that instructs it to take a more active role in penetrative sex. When that command is given, it must fuck itself against any <<if $PC.dick == 1>>cocks<<else>>phalli<</if>> that are currently inside it, as hard as it possibly can.
 		<<if $slaves[$i].fetish != "none">>
+		<<if $slaves[$i].fetish != "mindbroken">>
 			It @@color:pink;no longer retains any sexual preferences@@ at all. It just wants to be penetrated.
 			<<set $slaves[$i].fetish = "none", $slaves[$i].fetishStrength = 0>>
+		<</if>>
 		<</if>>
 		<<if $slaves[$i].intelligence > 1>>
 			It was once highly intelligent, but total concentration of all its mental abilities on simple tonal commands @@color:red;dulls its intelligence.@@
