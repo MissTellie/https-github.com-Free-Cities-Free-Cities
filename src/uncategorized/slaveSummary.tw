@@ -547,7 +547,7 @@ will
 <</if>>
 
 <<if $displayAssignments == 1>>
-<<if passage() is "Main">>
+<<if _Pass is "Main">>
 <<if (_Slave.ID != $HeadGirl.ID) && (_Slave.ID != $Recruiter.ID) && (_Slave.ID != $Bodyguard.ID)>>
 <<if _Slave.assignment != "rest">>
 	<<print "[[Rest|Rest Workaround][$activeSlave to $slaves[" + _i + "]]]">> |
@@ -1151,10 +1151,6 @@ Release rules: _Slave.releaseRules.
 <<elseif $abbreviateNationality is 2>>
 ''@@color:tan;
 <<switch _Slave.nationality>>
-<<case "American" "Canadian" "Puerto Rican" "Cuban" "Haitian" "Jamaican" "Mexican" "Peruvian" "Venezuelan" "Bolivian" "Guatemalan" "Brazilian" "Argentinian" "Chilean" "Colombian" "Egyptian" "Turkish" "Iranian" "Armenian" "Israeli" "Saudi" "Moroccan" "Nigerian" "Kenyan" "Zimbabwean" "Ugandan" "Tanzanian" "Ghanan" "Congolese" "Ethiopian" "South African" "Chinese" "Korean" "Japanese" "Thai" "Vietnamese" "Indonesian" "Filipina" "Burmese" "Nepalese" "Uzbek" "Afghan" "Algerian" "Libyan" "Tunisian" "Lebanese" "Jordanian" "Emirati" "Omani" "Malian" "Sudanese" "Yemeni" "Iraqi" "Indian" "Malaysian" "Kazakh" "Pakistani" "Bangladeshi" "Russian" "Ukrainian" "Irish" "Icelandic" "Finnish" "Swiss" "Danish" "Norwegian" "Austrian" "Slovak" "Dutch" "Belgian" "Czech" "Serbian" "Portuguese" "Hungarian" "Estonian" "Polish" "Lithuanian" "Romanian"  "German" "Swedish" "French" "Italian"  "Greek" "Spanish" "British" "Australian" "a New Zealander">>
-	_Slave.nationality.
-<<case "Ancient Egyptian Revivalist" "Ancient Chinese Revivalist" "Edo Revivalist" "Roman Revivalist" "Arabian Revivalist">>
-	_Slave.nationality.
 <<case "slave" "none" "">>
 	Stateless.
 <<default>>
@@ -3094,5 +3090,5 @@ _Slave.faceShape face.
 	<<print "[[Match them|Matchmaking][$subSlave to $slaves[" + _i + "]]]">>
 <</switch>>
 <</for>>
-<<set $activeSlave to {}>>
-<<set _Slave to {}>>
+<<set $activeSlave to 0>>
+<<set _Slave to 0>>
