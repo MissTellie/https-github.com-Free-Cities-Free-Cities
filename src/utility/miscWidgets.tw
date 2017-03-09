@@ -1107,7 +1107,6 @@
 	<</if>>
 	<</if>>
 <</if>>
-
 <<if $args[0].age > 35>>
 	<<if $args[0].face < 2>>
 	<<if $args[0].analSkill <= 30>>
@@ -1115,21 +1114,17 @@
 	<</if>>
 	<</if>>
 <</if>>
-
 <<if $args[0].attrXY <= 60>>
 	<<if $args[0].attrXX > 60>>
 		<<set $REOrientationCheckinIDs.push($args[0].ID)>>
 	<</if>>
 <</if>>
-
 <<if $args[0].face < 0>>
 	<<set $REUglyCheckinIDs.push($args[0].ID)>>
 <</if>>
-
 <<if $args[0].anus < 2>>
 	<<set $REButtholeCheckinIDs.push($args[0].ID)>>
 <</if>>
-
 <<if $args[0].boobs < 800>>
 	<<set $REReductionCheckinIDs.push($args[0].ID)>>
 <</if>>
@@ -1138,8 +1133,10 @@
 <<if $universalRulesNewSlavesRA == 1>>
 <<if $autoRulesAssistant != 0>>
 	<<silently>>
+	<<set $activeSlave = $args[0]>>
 	<<display "Check Auto Rules Activate">>
 	<<display "Default Rules">>
+	<<set $args[0] = $activeSlave>>
 	<</silently>>
 <</if>>
 <</if>>
