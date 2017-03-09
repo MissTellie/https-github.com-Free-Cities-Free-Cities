@@ -278,36 +278,110 @@
 <</if>>
 <</if>>
 
-<<if ($brothel > 0)>>
-	<<display "Brothel Report">>
+
+/* Accordion 000-250-006 */
+ <<if ($brothel > 0)>>
+    <<if $useAccordion == 1>>
+        <button class="passage-brothel-report accordion">''$brothelNameCaps Report''</button>
+    <<else>>
+        ''$brothelNameCaps Report''
+        <hr style="margin:0">
+    <</if>>
+    <<display "Brothel Report" "div">>
 <</if>>
+
 <<if ($club > 0)>>
-	<<display "Club Report">>
+    <<if $useAccordion == 1>>
+        <button class="passage-club-report accordion">''$clubNameCaps Report''</button>
+    <<else>>
+        ''$clubNameCaps Report''
+        <hr style="margin:0">
+    <</if>>
+    <<display "Club Report" "div">>
 <</if>>
+
 <<if ($arcade > 0)>>
-	<<display "Arcade Report">>
+    <<if $useAccordion == 1>>
+        <button class="passage-arcade-report accordion">''$arcadeNameCaps Report''</button>
+    <<else>>
+        ''$arcadenameCaps Report''
+        <hr style="margin:0">
+    <</if>>
+	<<display "Arcade Report" "div">>
 <</if>>
+
 <<if ($dairy > 0)>>
-	<<display "Dairy Report">>
+    <<if $useAccordion == 1>>
+        <button class="passage-dairy-report accordion">''$dairyNameCaps Report''</button>
+    <<else>>
+        ''$dairyNameCaps Report''
+        <hr style="margin:0">
+    <</if>>
+    <<display "Dairy Report" "div">>
 <</if>>
+
 <<if ($servantsQuarters > 0)>>
-	<<display "Servants' Quarters Report">>
+    <<if $useAccordion == 1>>
+        <button class="passage-servants-quarters-report accordion">''$servantsQuartersNameCaps Quarters Report''</button>
+    <<else>>
+        ''$servantsQuartersNameCaps Report''
+        <hr style="margin:0">
+    <</if>>
+    <<display "Servants' Quarters Report" "div">>
 <</if>>
+
 <<if ($schoolroom > 0)>>
-	<<display "Schoolroom Report">>
+    <<if $useAccordion == 1>>
+        <button class="passage-schoolroom-report accordion">''$schoolroomNameCaps Report''</button>
+    <<else>>
+        ''$schoolroomNameCaps Report''
+        <hr style="margin:0">
+    <</if>>
+	<<display "Schoolroom Report" "div">>
 <</if>>
+
 <<if ($spa > 0)>>
-	<<display "Spa Report">>
+    <<if $useAccordion == 1>>
+        <button class="passage-spa-report accordion">''$spaNameCaps Report''</button>
+    <<else>>
+        ''$spaNameCaps Report''
+        <hr style="margin:0">
+    <</if>>
+	<<display "Spa Report" "div">>
 <</if>>
+
 <<if ($clinic > 0)>>
-	<<display "Clinic Report">>
+    <<if $useAccordion == 1>>
+        <button class="passage-clinic-report accordion">''$clinicNameCaps Report''</button>
+    <<else>>
+        ''$clinicNameCaps Report''
+        <hr style="margin:0">
+    <</if>>
+    <<display "Clinic Report" "div">>
 <</if>>
+
 <<if ($cellblock > 0)>>
-	<<display "Cellblock Report">>
+    <<if $useAccordion == 1>>
+        <button class="passage-cellblock-report accordion">''$cellblockNameCaps Report''</button>
+    <<else>>
+        ''$cellblockNameCaps Report''
+        <hr style="margin:0">
+    <</if>>
+    <<display "Cellblock Report" "div">>
 <</if>>
+
 <<if ($masterSuite > 0)>>
-	<<display "Master Suite Report">>
+    <<if $useAccordion == 1>>
+        <button class="passage-master-suite-report accordion">''$masterSuiteNameCaps Report''</button>
+    <<else>>
+        ''$masterSuiteNameCaps Report''
+        <hr style="margin:0">
+    <</if>>
+	<<display "Master Suite Report" "div">>
 <</if>>
+<br />
+<br />
+/* Accordion 000-250-006 */
 
 <<if $slavesVisible > 0>>
 __''Penthouse Report''__<br>
