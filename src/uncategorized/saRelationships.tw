@@ -1,7 +1,7 @@
 :: SA relationships [nobr]
 
 <<if $slaves[$i].fuckdoll == 0>>
-	<<set _SL = $slaves.length, _SlaveI = $slaves[$i], _SlaveJ = null, _J = -1, _K = -1>>
+	<<set _SL = $slaves.length, _SlaveI = $slaves[$i], _SlaveJ = null, _J = -1, _K = -1, drop = 0>>
 	<<if _SlaveI.relationship == 0>>
 		<<if (_SlaveI.devotion + _SlaveI.trust > 75) && (random(1, 3) == 1)>>
 			_SlaveI.slaveName is quite devoted to you, and trusts both you and her place as a slave. Since she does not have a strong relationship with another slave,
@@ -212,6 +212,7 @@
 				<</if>>
 			<</if>>
 		<</if>>
+		<<set _drop = 1>>
 	<</if>>
 	<<if (_SlaveI.relationship > 0) || (_SlaveI.relation > 0)>>
 		<<for _j to 0; _j < _SL; _j++>>
@@ -226,7 +227,7 @@
 			<</if>>
 		<</for>>
 	<</if>>
-	<<if _SlaveI.relationship != 0>>	/% RELATIONSHIP IS NOT 0; NOW ON TO ONGOING RELATIONSHIPS %/
+	<<if (_SlaveI.relationship != 0) && (_drop == 0)>>	/% RELATIONSHIP IS NOT 0; NOW ON TO ONGOING RELATIONSHIPS %/
 		/% Game change due to possible bug clears rivalry only if between SlaveI and SlaveJ if they are the rivals. So delete this one or the other one just below %/
 		<<if (_SlaveI.rivalry != 0 && _SlaveJ != null)>>
 			<<if _SlaveI.rivalryTarget == _SlaveI.relationshipTarget>>
