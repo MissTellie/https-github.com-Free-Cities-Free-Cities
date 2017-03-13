@@ -303,7 +303,7 @@ and
 <<if $activeSlave.ageImplant == 1>>
   she's
   <<if ($activeSlave.birthWeek >= 52) && ($seeAge == 1)>>
-	going to turn <<print >> this week,
+	going to turn <<print $activeSlave.age + 1>> this week,
   <<elseif $showAgeDetail == 1>>
 	$activeSlave.age years old,
   <<else>>
