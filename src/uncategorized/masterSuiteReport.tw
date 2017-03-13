@@ -2,26 +2,26 @@
 
 ''Master Suite Report''<hr style="margin:0">
 
-<<set $legendaryAbolitionistID = 0, $masterSuiteAverageEnergy = 0, $masterSuiteSlaves = 0, _masterSuiteAverageCum = 0, _masterSuiteAverageDick = 0, _masterSuiteAverageDom = 0, _masterSuiteAverageMilk = 0, _masterSuiteAveragePreg = 0, _masterSuiteAverageSadism = 0, _masterSuitePregnantSlaves = 0, _SL = $slaves.length, _CCB = -1>>
+<<set $legendaryAbolitionistID = 0, $masterSuiteAverageEnergy = 0, $masterSuiteSlaves = 0, _masterSuiteAverageCum = 0, _masterSuiteAverageDick = 0, _masterSuiteAverageDom = 0, _masterSuiteAverageMilk = 0, _masterSuiteAveragePreg = 0, _masterSuiteAverageSadism = 0, _masterSuitePregnantSlaves = 0, _masterSuitePregnantSlavesMultiple = 0, _SL = $slaves.length, _CCB = -1>>
 
-<<for _i to 0; _i < _SL; _i++>>
+<<for _i = 0; _i < _SL; _i++>>
 <<if ($slaves[_i].assignment is "serve in the master suite") || ($slaves[_i].assignment is "be your Concubine")>>
 	<<if $seeImages == 1>><<SlaveArt $slaves[_i] 0 0>><</if>>
 	<<set $masterSuiteSlaves += 1, $masterSuiteAverageEnergy += $slaves[_i].energy>>
 	<<if $masterSuiteUpgradeLuxury == 2>>
 	<<if canAchieveErection($slaves[_i])>>
-		<<set $masterSuiteAverageCum += $slaves[_i].balls, $masterSuiteAverageDick += $slaves[_i].dick>>
+		<<set _masterSuiteAverageCum += $slaves[_i].balls, _masterSuiteAverageDick += $slaves[_i].dick>>
 	<</if>>
-	<<set $masterSuiteAverageMilk += $slaves[_i].lactation*($slaves[_i].boobs-$slaves[_i].boobsImplant)>>
-	<<set $masterSuiteAveragePreg += $slaves[_i].preg>>
+	<<set _masterSuiteAverageMilk += $slaves[_i].lactation*($slaves[_i].boobs-$slaves[_i].boobsImplant)>>
+	<<set _masterSuiteAveragePreg += $slaves[_i].preg>>
 	<<if $slaves[_i].fetish is "dom">>
-		<<set $masterSuiteAverageDom += $slaves[_i].fetishStrength>>
+		<<set _masterSuiteAverageDom += $slaves[_i].fetishStrength>>
 	<<elseif $slaves[_i].fetish is "submissive">>
-		<<set $masterSuiteAverageDom -= $slaves[_i].fetishStrength>>
+		<<set _masterSuiteAverageDom -= $slaves[_i].fetishStrength>>
 	<<elseif $slaves[_i].fetish is "sadist">>
-		<<set $masterSuiteAverageSadism += $slaves[_i].fetishStrength>>
+		<<set _masterSuiteAverageSadism += $slaves[_i].fetishStrength>>
 	<<elseif $slaves[_i].fetish is "masochist">>
-		<<set $masterSuiteAverageSadism -= $slaves[_i].fetishStrength>>
+		<<set _masterSuiteAverageSadism -= $slaves[_i].fetishStrength>>
 	<</if>>
 	<</if>>
 	<<if ($legendaryAbolitionistID == 0) && ($slaves[_i].devotion > 95) && ($slaves[_i].prestige == 0)>>
@@ -35,12 +35,12 @@
 <<if ($masterSuiteSlaves > 0)>>
 
 <<set $masterSuiteAverageEnergy to $masterSuiteAverageEnergy/$masterSuiteSlaves>>
-<<set $masterSuiteAverageMilk to $masterSuiteAverageMilk/$masterSuiteSlaves>>
-<<set $masterSuiteAverageCum to $masterSuiteAverageCum/$masterSuiteSlaves>>
-<<set $masterSuiteAverageDick to $masterSuiteAverageDick/$masterSuiteSlaves>>
-<<set $masterSuiteAveragePreg to $masterSuiteAveragePreg/$masterSuiteSlaves>>
-<<set $masterSuiteAverageDom to $masterSuiteAverageDom/$masterSuiteSlaves>>
-<<set $masterSuiteAverageSadism to $masterSuiteAverageSadism/$masterSuiteSlaves>>
+<<set _masterSuiteAverageMilk to _masterSuiteAverageMilk/$masterSuiteSlaves>>
+<<set _masterSuiteAverageCum to _masterSuiteAverageCum/$masterSuiteSlaves>>
+<<set _masterSuiteAverageDick to _masterSuiteAverageDick/$masterSuiteSlaves>>
+<<set _masterSuiteAveragePreg to _masterSuiteAveragePreg/$masterSuiteSlaves>>
+<<set _masterSuiteAverageDom to _masterSuiteAverageDom/$masterSuiteSlaves>>
+<<set _masterSuiteAverageSadism to _masterSuiteAverageSadism/$masterSuiteSlaves>>
 
 <<if $seeImages == 1>><br style="clear:both" /><</if>>
 ''There <<if ($masterSuiteSlaves == 1)>>is one slave<<else>>are $masterSuiteSlaves slaves<</if>>
@@ -50,7 +50,7 @@ seeing to your pleasure in the master suite.'' Such sexual opulence @@color:gree
 	<<set $repGain += 0.2*$masterSuiteSlaves*$FSSingleSlaveRep*($arcologies[0].FSEgyptianRevivalist/$FSLockinLevel)>>
 	<<set $arcologies[0].FSEgyptianRevivalist += 0.01*$masterSuiteSlaves*$FSSingleSlaveRep>>
 <</if>>
-<<if ($masterSuitePregnantSlaves >= 1)>>
+<<if (_masterSuitePregnantSlaves >= 1)>>
 	The suite is supporting the pregnancies of the slaves
 	<<if ($masterSuitePregnancyFertilityDrugs == 1)>>
 		within, and is providing them with fertility drugs
@@ -81,10 +81,10 @@ The level of sexual energy in the suite is
 	<<else>>
 	relatively normal; the girls lounging in the fuckpit get each other off when they feel like it.
 	<</if>>
-	<<if $masterSuiteAverageCum > 4>>
+	<<if _masterSuiteAverageCum > 4>>
 	Unless it's right after an automated cleaning, everything in the fuckpit is spattered with cum.
 	<</if>>
-	<<if $masterSuiteAverageMilk > 4000>>
+	<<if _masterSuiteAverageMilk > 4000>>
 	There's so much lactation going on that the lowest level of the fuckpit is a pool of milk.
 	<</if>>
 <<else>>
@@ -92,7 +92,7 @@ The level of sexual energy in the suite is
 <</if>>
 <</if>>
 
-<<for _i to 0; _i < _SL; _i++>>
+<<for _i = 0; _i < _SL; _i++>>
 <<if ($slaves[_i].assignment is "serve in the master suite") || ($slaves[_i].assignment is "be your Concubine")>>
 <<set $i = _i>>
 <<silently>><<display "SA please you">><</silently>>
@@ -173,7 +173,7 @@ The level of sexual energy in the suite is
 		<<set _Verb = $slaves[_i].slaveName>>
 	<</if>>
 	<<fetishChangeChance $slaves[_i]>>
-	<<if ($masterSuiteAverageMilk > 2000) && ($fetishChangeChance > random(0,50))>>
+	<<if (_masterSuiteAverageMilk > 2000) && ($fetishChangeChance > random(0,50))>>
 	<<if $slaves[_i].fetish is "boobs">>
 		<<if $verboseDescriptions == 1>>Her<<else>>$slaves[_i].slaveName's<</if>> @@color:lightcoral;boob fetish is strengthened@@ by the constant availability of milky nipples for her to play with.
 		<<set $slaves[_i].fetishStrength += 4>>
@@ -181,7 +181,7 @@ The level of sexual energy in the suite is
 		<<if $verboseDescriptions == 1>>She<<else>>$slaves[_i].slaveName<</if>> @@color:lightcoral;acquires a boob fetish@@ after spending a lot of time in the fuckpit drinking from her fellow fucktoys' tits.
 		<<set $slaves[_i].fetish to "boobs", $slaves[_i].fetishStrength = 65>>
 	<</if>>
-	<<elseif ($masterSuiteAverageDick > 3) && ($slaves[_i].anus > 0) && ($fetishChangeChance > random(0,50))>>
+	<<elseif (_masterSuiteAverageDick > 3) && ($slaves[_i].anus > 0) && ($fetishChangeChance > random(0,50))>>
 	_Verb
 	<<if $slaves[_i].fetish is "buttslut">>
 		@@color:lightcoral;sinks farther into anal pleasure,@@ since she spends her time in the fuckpit with at least one of the many available cocks up her butt.
@@ -190,7 +190,7 @@ The level of sexual energy in the suite is
 		@@color:lightcoral;acquires an anal fetish@@ after helplessly orgasming at the mercy of your many fucktoys eager to shove their big stiff penises up her ass.
 		<<set $slaves[_i].fetish to "buttslut", $slaves[_i].fetishStrength = 65>>
 	<</if>>
-	<<elseif ($masterSuiteAverageCum > 3) && ($fetishChangeChance > random(0,50))>>
+	<<elseif (_masterSuiteAverageCum > 3) && ($fetishChangeChance > random(0,50))>>
 	_Verb
 	<<if $slaves[_i].fetish is "cumslut">>
 		@@color:lightcoral;sinks farther into cum addiction,@@ since she spends her time in the fuckpit eagerly sucking down ejaculate, straight from the many sources.
@@ -199,7 +199,7 @@ The level of sexual energy in the suite is
 		@@color:lightcoral;acquires an oral fixation@@ after orally servicing your many fucktoys eager to blow their loads down her throat.
 		<<set $slaves[_i].fetish to "cumslut", $slaves[_i].fetishStrength = 65>>
 	<</if>>
-	<<elseif ($masterSuiteAveragePreg > 10) && ($fetishChangeChance > random(0,50))>>
+	<<elseif (_masterSuiteAveragePreg > 10) && ($fetishChangeChance > random(0,50))>>
 	_Verb
 	<<if $slaves[_i].fetish is "pregnancy">>
 		@@color:lightcoral;sinks farther into pregnancy obession,@@ since she never wants for a pregnant girl to make love to.
@@ -208,7 +208,7 @@ The level of sexual energy in the suite is
 		@@color:lightcoral;acquires an pregnancy fetish,@@ since many of her sexual partners in the fuckpit are heavily pregnant.
 		<<set $slaves[_i].fetish to "pregnancy", $slaves[_i].fetishStrength = 65>>
 	<</if>>
-	<<elseif ($masterSuiteAverageDom < 50) && ($fetishChangeChance > random(0,50))>>
+	<<elseif (_masterSuiteAverageDom < 50) && ($fetishChangeChance > random(0,50))>>
 	_Verb
 	<<if $slaves[_i].fetish is "dom">>
 		@@color:lightcoral;becomes more dominant,@@ since there are so many subs in the fuckpit who beg her to fuck them hard.
@@ -217,7 +217,7 @@ The level of sexual energy in the suite is
 		@@color:lightcoral;becomes sexually dominant@@ after having fun satisfying the many submissive fucktoys in the fuckpit who beg her to top them.
 		<<set $slaves[_i].fetish to "dom", $slaves[_i].fetishStrength = 65>>
 	<</if>>
-	<<elseif ($masterSuiteAverageDom > 50) && ($fetishChangeChance > random(0,50))>>
+	<<elseif (_masterSuiteAverageDom > 50) && ($fetishChangeChance > random(0,50))>>
 	_Verb
 	<<if $slaves[_i].fetish is "submissive">>
 		@@color:lightcoral;becomes even more submissive,@@ since there are so many doms in the fuckpit that she's often used by more than one at once.
@@ -226,7 +226,7 @@ The level of sexual energy in the suite is
 		@@color:lightcoral;becomes sexually submissive@@ after the many dominant slaves in the fuckpit hold her down and use her for their pleasure.
 		<<set $slaves[_i].fetish to "sub", $slaves[_i].fetishStrength = 65>>
 	<</if>>
-	<<elseif ($masterSuiteAverageSadism < 50) && ($fetishChangeChance > random(0,50))>>
+	<<elseif (_masterSuiteAverageSadism < 50) && ($fetishChangeChance > random(0,50))>>
 	_Verb
 	<<if $slaves[_i].fetish is "sadist">>
 		@@color:lightcoral;becomes more sadistic,@@ since there are so many girls in the fuckpit who will do anything for her if she'll only spank them.
@@ -235,7 +235,7 @@ The level of sexual energy in the suite is
 		@@color:lightcoral;becomes a bit of a sadist@@ after she notices that so many of her fellow fucktoys cum harder if she gives them a good slap.
 		<<set $slaves[_i].fetish to "sadist", $slaves[_i].fetishStrength = 65>>
 	<</if>>
-	<<elseif ($masterSuiteAverageSadism > 50) && ($fetishChangeChance > random(0,50))>>
+	<<elseif (_masterSuiteAverageSadism > 50) && ($fetishChangeChance > random(0,50))>>
 	<<if $slaves[_i].fetish is "masochist">>
 		<<if $verboseDescriptions == 1>>Her<<else>>$slaves[_i].slaveName's<</if>> @@color:lightcoral;pain addiction deepens,@@ since the fuckpit is full of ladies happy to fuck her while she screams.
 		<<set $slaves[_i].fetishStrength += 4>>
@@ -250,12 +250,32 @@ The level of sexual energy in the suite is
 <</if>>
 
 <<if $verboseDescriptions == 1>>
+	<<if $slaves[_i].choosesOwnClothes == 1>>
+	<<display "SA chooses own clothes">>
+	<<if ($slaves[_i].devotion <= 20)>>
+		<<set $slaves[_i].devotion -= 5>>
+	<<else>>
+		<<set $slaves[_i].devotion += 1>>
+	<</if>>
+	<</if>>
+	<<display "SA diet">>
 	<<display "SA long term effects">>
+	<<display "SA drugs">>
 	<<display "SA relationships">>
 	<<display "SA rivalries">>
 <<else>>
 	<<silently>>
+	<<if $slaves[_i].choosesOwnClothes == 1>>
+	<<display "SA chooses own clothes">>
+	<<if ($slaves[_i].devotion <= 20)>>
+		<<set $slaves[_i].devotion -= 5>>
+	<<else>>
+		<<set $slaves[_i].devotion += 1>>
+	<</if>>
+	<</if>>
+	<<display "SA diet">>
 	<<display "SA long term effects">>
+	<<display "SA drugs">>
 	<<display "SA relationships">>
 	<<display "SA rivalries">>
 	<</silently>>
@@ -278,10 +298,10 @@ The level of sexual energy in the suite is
 	/* We don't know they're pregnant for a month or so by game logic */
 	<<if ($slaves[_i].preg >= 4)>>
 	/* Once we know they're knocked up, get the counter going. */
-	<<set $masterSuitePregnantSlaves += 1>>
+	<<set _masterSuitePregnantSlaves += 1>>
 	/* Don't know about twins/triplets etc until 10 weeks. Once we do, get the counter going */
 	<<if ($slaves[_i].pregType > 1) && ($slaves[_i].preg >= 10)>>
-		<<set $masterSuitePregnantSlavesMultiple += 1>>
+		<<set _masterSuitePregnantSlavesMultiple += 1>>
 	<</if>>
 	/* If they're preggo and in the upgraded suite, give them extra devotion. More if they're being given lighter duties. */
 	<<if ($slaves[_i].devotion <= 100)>>
