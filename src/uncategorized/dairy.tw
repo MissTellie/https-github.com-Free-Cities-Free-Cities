@@ -47,7 +47,7 @@
 	<<if $dairyPregSettingChanged == 1>>
 		<<for _i to 0; _i < $slaves.length; _i++>>
 		<<if ($slaves[_i].assignment is "work in the dairy") && ($slaves[_i].vagina > -1) && ($slaves[_i].vagina < 3)>>
-			<<set $slaves[_i].assignment to "rest", $slaves[_i].assignmentVisible to 1>>
+			<<set $slaves[_i].assignment to "rest", $slaves[_i].assignmentVisible to 1, $dairySlaves-->>
 			$slaves[_i].slaveName's milking machine ejects her, since it cannot fit the mandated dildo into her tight cunt.
 		<</if>>
 		<</for>>
@@ -70,8 +70,7 @@
 	<<if $dairyStimulatorsSettingChanged == 1>>
 		<<for _i to 0; _i < $slaves.length; _i++>>
 		<<if ($slaves[_i].assignment is "work in the dairy") && ($slaves[_i].anus < 3)>>
-			<<set $slaves[_i].assignment to "rest">>
-			<<set $slaves[_i].assignmentVisible to 1>>
+			<<set $slaves[_i].assignment to "rest", $slaves[_i].assignmentVisible to 1, $dairySlaves-->>
 			$slaves[_i].slaveName's milking machine ejects her, since it cannot fit its massive anal dildo up her tight asshole.
 		<</if>>
 		<</for>>
@@ -97,8 +96,7 @@
 		<<if $dairyRestraintsSetting == 1>>
 			<<for _i to 0; _i < $slaves.length; _i++>>
 			<<if ($slaves[_i].assignment is "work in the dairy") && ($slaves[_i].indentureRestrictions >= 2)>>
-				<<set $slaves[_i].assignment to "rest">>
-				<<set $slaves[_i].assignmentVisible to 1>>
+				<<set $slaves[_i].assignment to "rest", $slaves[_i].assignmentVisible to 1, $dairySlaves-->>
 				$slaves[_i].slaveName's milking machine declines to restrain her, since she is encoded as an indentured servant protected from restraint for milking.
 			<</if>>
 			<</for>>
@@ -111,8 +109,7 @@
 		<<if $dairyRestraintsSetting == 1>>
 			<<for _i to 0; _i < $slaves.length; _i++>>
 			<<if ($slaves[_i].assignment is "work in the dairy") && ($slaves[_i].indentureRestrictions >= 1)>>
-				<<set $slaves[_i].assignment to "rest">>
-				<<set $slaves[_i].assignmentVisible to 1>>
+				<<set $slaves[_i].assignment to "rest", $slaves[_i].assignmentVisible to 1, $dairySlaves-->>
 				$slaves[_i].slaveName's milking machine declines to restrain her, since she is encoded as an indentured servant protected from being restrained for milking.
 			<</if>>
 			<</for>>

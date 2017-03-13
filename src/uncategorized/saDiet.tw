@@ -521,6 +521,22 @@
 	<</if>>
 <</if>>
 
+<<if $revealFoodEffects == 1>>
+	She knows that every meal of the liquid slave food she <<if $cockFeeder == 1>>sucks down<<else>>eats<</if>> makes it less and less likely that she'll ever survive without it,
+	<<if $slaves[$i].devotion > 50>>
+		but she actually @@color:mediumaquamarine;takes a kind of comfort@@ in knowing that she'll always be a slave.
+		<<set $slaves[$i].trust++>>
+	<<elseif $slaves[$i].devotion > 20>>
+		but since she's been broken to slavery, she does her best not to think about it.
+	<<elseif $slaves[$i].devotion > -20>>
+		and though she does her best not to think about it, it sometimes makes her @@color:gold;cry herself to sleep.@@
+		<<set $slaves[$i].trust-->>
+	<<else>>
+		knowledge that fills her with @@color:gold;fear@@ and @@color:mediumorchid;horror@@ every time she thinks about it.
+		<<set $slaves[$i].trust--,$slaves[$i].devotion-->>
+	<</if>>
+<</if>>
+
 <<else>> /* FUCKDOLL DIETS */
 
 <<if ($slaves[$i].diet is "restricted")>> /* Weight Loss */
