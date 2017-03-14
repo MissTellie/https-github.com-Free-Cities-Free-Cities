@@ -1,14 +1,6 @@
 :: Arcade Report [nobr]
 
-
-<<set $milked to 0>>
-<<set $cockmilked to 0>>
-<<set $implanted to 0>>
-<<set $arcadeSlaves to 0>>
-<<set $profits to 0>>
-
 <<set $arcadeSlaves = 0, $implanted = 0, _cockmilked = 0, _milked = 0, _profits = 0, _SL = $slaves.length>>
-
 
 <<for _i to 0; _i < _SL; _i++>>
 	<<if ($slaves[_i].assignment != "be confined in the arcade")>><<continue>><</if>>
