@@ -16,7 +16,7 @@ There are sturdy leather seats placed strategically throughout your penthouse. T
 <br><br>
 One of them slows as she goes by, however. Looking up, you see that it's <span id="name"><<print "[[$activeSlave.slaveName|Long Slave Description][$nextLink to passage(), $eventDescription to 1]]">></span>. <<if canTalk($activeSlave)>>"Hi <<Master>>," she says flirtily. "That look<<s>> like a really comfortable <<s>>eat. Can I <<s>>it down and re<<s>>t for a little while?"<<else>>She greets you properly, but adds a flirtiness to her gestures, and asks if she can sit down and rest on the comfortable seat for a little while.<</if>> She is not pointing at the soft leather cushion next to you: she's pointing at your crotch.
 <br><br>
-You're nude, a consequence of <<if $Concubine != 0>>recent activities involving $Concubine.slaveName<<else>>recent unrelated activities<</if>>. <<if $PC.dick == 1>>Your formidable dick is three quarters hard,<<else>>Nute, that is, all except for the strap-on you were just using and haven't taken off yet,<</if>> and $activeSlave.slaveName is pointing right at it. She knows exactly what she's asking for and gives her <<if $activeSlave.hips > 0>>broad<<elseif $activeSlave.hips > -1>>trim<<else>>narrow<</if>> hips a little wiggle to make it even more abundantly clear.
+You're nude, a consequence of <<if $Concubine != 0>>recent activities involving $Concubine.slaveName<<else>>recent unrelated activities<</if>>. <<if $PC.dick == 1>>Your formidable dick is three quarters hard,<<else>>Nude, that is, all except for the strap-on you were just using and haven't taken off yet,<</if>> and $activeSlave.slaveName is pointing right at it. She knows exactly what she's asking for and gives her <<if $activeSlave.hips > 0>>broad<<elseif $activeSlave.hips > -1>>trim<<else>>narrow<</if>> hips a little wiggle to make it even more abundantly clear.
 <<if ($eventSlave.dickAccessory == "chastity")>>
 	Her poor dick is visibly straining against the restrictive chastity belt she's wearing.
 <<elseif canAchieveErection($activeSlave)>>
@@ -96,7 +96,7 @@ The $slaveTitle wants it badly.
 				<<set _fucked = 1>>
 			<<case "pregnancy">>
 				<<if $canDoVaginal($activeSlave) && ($activeSlave.vagina > 0)>>
-					turns around and lovingly lowers her pussy onto you. <<if $PC.dick == 1>><<if $activeSlave.preg > 0>>She's already pregnant, so this isn't a direct satisfaction of her impregnation fetish, but being fucked while pregnant is almost as good as far as she's concerned.<<elseif cangGetPregnant($activeSlave)>>This might be the moment she gets pregnant, and she's quivering with anticipations.<<else>>She knows she isn't fertile, but she's good at fantasizing.<</if>><<else>>Your strap-on might not be able to impregnate anyone, but she's good at fantasizing.<</if>> She rides you hungrily,
+					turns around and lovingly lowers her pussy onto you. <<if $PC.dick == 1>><<if $activeSlave.preg > 0>>She's already pregnant, so this isn't a direct satisfaction of her impregnation fetish, but being fucked while pregnant is almost as good as far as she's concerned.<<elseif canGetPregnant($activeSlave)>>This might be the moment she gets pregnant, and she's quivering with anticipations.<<else>>She knows she isn't fertile, but she's good at fantasizing.<</if>><<else>>Your strap-on might not be able to impregnate anyone, but she's good at fantasizing.<</if>> She rides you hungrily,
 					<<set $activeSlave.vaginalCount++, $vaginalTotal++>>
 					<<set _fucked = 1>>
 				<</if>>
@@ -119,7 +119,7 @@ The $slaveTitle wants it badly.
 		<<if _fucked == 1>>
 			and after you've <<if $PC.dick == 1>>cum<<else>>climaxed<</if>>, she @@color:mediumaquamarine;thanks you trustingly,@@ happy she's still allowed a sexy choice with you now and then.
 		<<else>>
-			<<if $activeSlave.fetishKnown == 1>>She can't really think of how to accomodate the situation to her own preferred approach to sex,<<else>>She isn't well versed in how her own sexual needs might fit into the situation,<</if>> so she just services you like a good girl. She turns around and sits on <<if $PC.dick == 1>>your cock<<else>>the phallus<</if>>,
+			<<if $activeSlave.fetishKnown == 1>>She can't really think of how to accommodate the situation to her own preferred approach to sex,<<else>>She isn't well versed in how her own sexual needs might fit into the situation,<</if>> so she just services you like a good girl. She turns around and sits on <<if $PC.dick == 1>>your cock<<else>>the phallus<</if>>,
 			<<if $canDoVaginal($activeSlave) && ($activeSlave.vagina > 0)>>
 				squatting to bounce her cunt up and down on it.
 				<<set $activeSlave.vaginalCount++, $vaginalTotal++>>
@@ -127,7 +127,7 @@ The $slaveTitle wants it badly.
 				squatting to bounce her butthole up and down on it.
 				<<set $activeSlave.analCount++, $analTotal++>>
 			<<else>>
-				putting it between her thighs for some intercrural sex, since her <<if $activeSlave.vagina > -1>>holes arent<<else>>hole isn't<</if>> appropriate.
+				putting it between her thighs for some intercrural sex, since her <<if $activeSlave.vagina > -1>>holes aren't<<else>>hole isn't<</if>> appropriate.
 				<<set $activeSlave.oralCount++, $oralTotal++>>
 			<</if>>
 			When she's gotten you off, she @@color:mediumaquamarine;thanks you trustingly.@@ Even though she wasn't able to figure out how to seat herself in a really satisfactorily sexy way, she's glad you gave her some agency.
@@ -138,7 +138,7 @@ The $slaveTitle wants it badly.
 <br><<click "Have her service you while you work">>
 	<<replace "#name">>$activeSlave.slaveName<</replace>>
 	<<replace "#result">>
-		You order her to sit on your <<if $PC.dick == 1>>dick<<else>>strap-on<</if>> and get you off like a good girl, and not to disturb you while you're working. She <<if canTalk($activeSlave)>>shuts up immediately<<else>>obediently drops her hands to her sides and stops communicating with them<</if>>, and approaches you carefully. Meanwhile, you go back to your tablet, ignoring her completely. She gingerly straddles your legs, positioning her inimate areas directly over the pointing head of <<if $PC.dick == 1>>your erection<<else>>the phallus<</if>>. Deciding that she shouldn't use her hands to guide it, she lowers herself slowly,
+		You order her to sit on your <<if $PC.dick == 1>>dick<<else>>strap-on<</if>> and get you off like a good girl, and not to disturb you while you're working. She <<if canTalk($activeSlave)>>shuts up immediately<<else>>obediently drops her hands to her sides and stops communicating with them<</if>>, and approaches you carefully. Meanwhile, you go back to your tablet, ignoring her completely. She gingerly straddles your legs, positioning her intimate areas directly over the pointing head of <<if $PC.dick == 1>>your erection<<else>>the phallus<</if>>. Deciding that she shouldn't use her hands to guide it, she lowers herself slowly,
 		<<if $canDoVaginal($activeSlave) && ($activeSlave.vagina > 0)>>
 			breathing a little harder as she feels its head spread her pussylips and then slide inside her.
 			<<set $activeSlave.vaginalCount++, $vaginalTotal++>>

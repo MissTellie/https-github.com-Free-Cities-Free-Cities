@@ -595,14 +595,14 @@ She is able to smartly <<if $arcologies[0].FSPaternalist != "unset">>answer<<els
 	<<if $slaves[$i].intelligence >= 1 && $HeadGirl != 0 && $Bodyguard != 0 && $HGSuite > 0>>
 		<<if (($HeadGirl.entertainSkill/30)+$HeadGirl.intelligenceImplant+$HeadGirl.prestige) >= 4>>
 			<<if $Bodyguard.prestige >= 1>>
-			She deferentially chronicles the administration of your Imperial household by Head Girl $HeadGirl.Name and Bodyguard $Bodyguard.name. The piece explains points of Chinese Revivalist protocol where new slaves or visitors to the Forbidden Penthouse might inadvertently stumble.
+			She deferentially chronicles the administration of your Imperial household by Head Girl $HeadGirl.slaveName and Bodyguard $Bodyguard.slaveName. The piece explains points of Chinese Revivalist protocol where new slaves or visitors to the Forbidden Penthouse might inadvertently stumble.
 			<<else>>
-			She interviews your Head Girl about points of protocol and household administration for broadcast to the arcology. Your Bodyguard, $Bodyguard.name, is not accustomed to fame and prefers to remain off-screen.
+			She interviews your Head Girl about points of protocol and household administration for broadcast to the arcology. Your Bodyguard, $Bodyguard.slaveName, is not accustomed to fame and prefers to remain off-screen.
 			<</if>>
 		<<elseif $HeadGirl.intelligenceImplant < 1>>
 		She edits a documentary broadcast about the Revivalist protocols that drive your household, and in the process uncovers small but annoying lapses due to the Head Girl's lack of formal education.
 		<<else>>
-		She broadcasts a documentary about life inside your Imperial Chinese household, but the Head Girl's segment comes out flat: $HeadGirl.name needs more experience working in front of a camera.
+		She broadcasts a documentary about life inside your Imperial Chinese household, but the Head Girl's segment comes out flat: $HeadGirl.slaveName needs more experience working in front of a camera.
 		<</if>>
 	<<elseif $HeadGirl == 0 || $Bodyguard == 0>>
 	She can't document the benefits of your Imperial Chinese administration because of unfilled posts in its leadership.
