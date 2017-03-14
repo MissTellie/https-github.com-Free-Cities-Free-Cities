@@ -1313,7 +1313,7 @@ consequences.
 	<</if>>
 	<<else>>
 		<<if ($activeSlave.assignment == "serve in the master suite")>>
-			<<display "Rules Facility Remove">>
+			<<include "Rules Facility Remove">>
 		<</if>>
 	<</if>>
 <<case "clinic">>
@@ -1329,7 +1329,7 @@ consequences.
 	<</if>>
 	<<else>>
 		<<if ($activeSlave.assignment == "get treatment in the clinic")>>
-			<<display "Rules Facility Remove">>
+			<<include "Rules Facility Remove">>
 		<</if>>
 	<</if>>
 <<case "spa">>
@@ -1345,7 +1345,7 @@ consequences.
 	<</if>>
 	<<else>>
 		<<if ($activeSlave.assignment == "rest in the spa")>>
-			<<display "Rules Facility Remove">>
+			<<include "Rules Facility Remove">>
 		<</if>>
 	<</if>>
 <<case "brothel">>
@@ -1361,7 +1361,7 @@ consequences.
 	<</if>>
 	<<else>>
 		<<if ($activeSlave.assignment == "work in the brothel")>>
-			<<display "Rules Facility Remove">>
+			<<include "Rules Facility Remove">>
 		<</if>>
 	<</if>>
 <<case "club">>
@@ -1377,7 +1377,7 @@ consequences.
 	<</if>>
 	<<else>>
 		<<if ($activeSlave.assignment == "serve in the club")>>
-			<<display "Rules Facility Remove">>
+			<<include "Rules Facility Remove">>
 		<</if>>
 	<</if>>
 <<case "dairy">>
@@ -1400,22 +1400,22 @@ consequences.
 	<</if>>
 		<<else>>
 			<<if ($activeSlave.assignment == "work in the dairy")>>
-				<<display "Rules Facility Remove">>
+				<<include "Rules Facility Remove">>
 			<</if>>
 		<</if>>
 		<<else>>
 			<<if ($activeSlave.assignment == "work in the dairy")>>
-				<<display "Rules Facility Remove">>
+				<<include "Rules Facility Remove">>
 			<</if>>
 		<</if>>
 		<<else>>
 			<<if ($activeSlave.assignment == "work in the dairy")>>
-				<<display "Rules Facility Remove">>
+				<<include "Rules Facility Remove">>
 			<</if>>
 		<</if>>
 		<<else>>
 			<<if ($activeSlave.assignment == "work in the dairy")>>
-				<<display "Rules Facility Remove">>
+				<<include "Rules Facility Remove">>
 			<</if>>
 		<</if>>
 	<</if>>
@@ -1433,7 +1433,7 @@ consequences.
 	<</if>>
 	<<else>>
 		<<if ($activeSlave.assignment == "work as a servant")>>
-			<<display "Rules Facility Remove">>
+			<<include "Rules Facility Remove">>
 		<</if>>
 	<</if>>
 <<case "schoolroom">>
@@ -1450,12 +1450,12 @@ consequences.
 	<</if>>
 	<<else>>
 		<<if ($activeSlave.assignment == "learn in the schoolroom")>>
-			<<display "Rules Facility Remove">>
+			<<include "Rules Facility Remove">>
 		<</if>>
 	<</if>>
 	<<else>>
 		<<if ($activeSlave.assignment == "learn in the schoolroom")>>
-			<<display "Rules Facility Remove">>
+			<<include "Rules Facility Remove">>
 		<</if>>
 	<</if>>
 <<case "cellblock">>
@@ -1471,7 +1471,7 @@ consequences.
 		<</if>>
 	<<else>>
 		<<if ($activeSlave.assignment == "be confined in the cellblock")>>
-			<<display "Rules Facility Remove">>
+			<<include "Rules Facility Remove">>
 		<</if>>
 	<</if>>
 <</switch>>

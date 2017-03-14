@@ -13,7 +13,7 @@
 
 <<if $recruit is "female recruit">>
 
-<<display "Generate XX Slave">>
+<<include "Generate XX Slave">>
 <<set $activeSlave.origin to "She offered herself to you as a slave to escape a life of boredom.">>
 <<set $activeSlave.career to "a party girl">>
 <<set $activeSlave.devotion = random(25,45)>>
@@ -39,7 +39,7 @@ Your head girl sends you a discreet message that she may have found a slave for 
 
 <<elseif $recruit is "male recruit">>
 
-<<display "Generate XY Slave">>
+<<include "Generate XY Slave">>
 <<set $activeSlave.origin to "She offered herself to you as a slave to escape a life of boredom.">>
 <<set $activeSlave.career to "a party girl">>
 <<set $activeSlave.devotion = random(25,45)>>
@@ -63,7 +63,7 @@ Your head girl sends you a discreet message that she may have found a slave for 
 
 <<elseif $recruit is "whore recruit">>
 
-<<display "Generate XX Slave">>
+<<include "Generate XX Slave">>
 <<set $activeSlave.origin to "She offered herself to you as a slave to escape the hard life of a free whore.">>
 <<set $activeSlave.career to "a prostitute">>
 <<set $activeSlave.devotion = random(25,45)>>
@@ -99,7 +99,7 @@ Your head girl sends you a discreet message that she may have found a slave for 
 
 <<elseif $recruit is "female debtor">>
 
-<<display "Generate XX Slave">>
+<<include "Generate XX Slave">>
 <<set $activeSlave.origin to "She was enslaved after she fell into debt to you.">>
 <<set $activeSlave.devotion = random(-45,-25)>>
 <<set $activeSlave.trust = random(-15,0)>>
@@ -108,7 +108,7 @@ One of the tenants in your arcology has not paid rent in some time. In the Free 
 
 <<elseif $recruit is "male debtor">>
 
-<<display "Generate XY Slave">>
+<<include "Generate XY Slave">>
 <<set $activeSlave.origin to "You turned her into a slave girl after she fell into debt to you.">>
 <<set $activeSlave.devotion = random(-45,-25)>>
 <<set $activeSlave.trust = random(-15,0)>>
@@ -123,7 +123,7 @@ One of the tenants in your arcology has not paid rent in some time. In the Free 
 
 <<elseif $recruit is "desperate preg">>
 
-<<display "Generate XX Slave">>
+<<include "Generate XX Slave">>
 <<set $activeSlave.origin to "She sold herself into slavery out of fear that life on the streets was endangering her pregnancy.">>
 <<set $activeSlave.devotion = random(0,15)>>
 <<set $activeSlave.trust = random(0,15)>>
@@ -143,7 +143,7 @@ A young woman comes to your penthouse for an interview. You accepted her request
 
 <<elseif $recruit is "desperate milf">>
 
-<<display "Generate New Slave">>
+<<include "Generate New Slave">>
 <<set $activeSlave.origin to "She sold herself into slavery to escape life on the streets.">>
 <<set $activeSlave.devotion = random(0,15)>>
 <<set $activeSlave.trust = random(0,15)>>
@@ -160,7 +160,7 @@ A middle-aged woman comes to your penthouse for an interview. She's clearly unwe
 
 <<elseif $recruit is "tg addict">>
 
-<<display "Generate XY Slave">>
+<<include "Generate XY Slave">>
 <<set $activeSlave.origin to "You tricked her into enslavement, manipulating her based on her surgical addiction.">>
 <<set $activeSlave.devotion = random(-75,-60)>>
 <<set $activeSlave.trust = random(-15,0)>>
@@ -183,7 +183,7 @@ One of your tenants asks for an interview. He's an effeminate young man; it seem
 <<elseif $recruit is "school sale">>
 
 <<set $encyclopedia to "Slave Schools">>
-<<display "Generate XX Slave">>
+<<include "Generate XX Slave">>
 <<set $activeSlave.origin to "She was raised in a radical slave school that treated her with drugs and surgery from a very young age.">>
 <<set $activeSlave.career to "a slave">>
 <<set $activeSlave.devotion = random(25,45)>>
@@ -219,7 +219,7 @@ She hikes up her skirt and spins around slowly. "The drugs also made my butt big
 <<elseif $recruit is "school trap">>
 
 <<set $encyclopedia to "Slave Schools">>
-<<display "Generate XY Slave">>
+<<include "Generate XY Slave">>
 <<set $activeSlave.origin to "She was raised in a radical slave school that treated her from a very young age, up to the point that she never experienced male puberty.">>
 <<set $activeSlave.career to "a slave">>
 <<set $activeSlave.devotion = random(25,45)>>
@@ -255,7 +255,7 @@ She hikes up her skirt and spins around slowly, displaying a petite, half-hard c
 
 <<elseif $recruit is "handsome PC">>
 
-<<display "Generate New Slave">>
+<<include "Generate New Slave">>
 <<set $activeSlave.origin to "She asked to be enslaved out of naive infatuation with you.">>
 <<set $activeSlave.devotion = random(25,30)>>
 <<set $activeSlave.trust = random(-15,-10)>>
@@ -278,7 +278,7 @@ After a short while, your assistant whispers in your earpiece, <<if $assistant =
 
 <<elseif $recruit is "womanly PC">>
 
-<<display "Generate XX Slave">>
+<<include "Generate XX Slave">>
 <<set $activeSlave.origin to "She asked to be enslaved in the hope you'd treat a fellow woman well.">>
 <<set $activeSlave.devotion = random(10,15)>>
 <<set $activeSlave.trust = random(-15,-10)>>
@@ -306,7 +306,7 @@ After a short while, your assistant whispers in your earpiece, <<if $assistant =
 
 <<elseif $recruit is "shemale PC">>
 
-<<display "Generate XY Slave">>
+<<include "Generate XY Slave">>
 <<set $activeSlave.origin to "She asked to be enslaved since she felt you were her only hope of becoming a prettier woman.">>
 <<set $activeSlave.devotion = random(10,15)>>
 <<set $activeSlave.trust = random(-15,-10)>>
@@ -345,7 +345,7 @@ After a short while, your assistant whispers in your earpiece, <<if $assistant =
 
 <<elseif $recruit is "female SD">>
 
-<<display "Generate XX Slave">>
+<<include "Generate XX Slave">>
 <<set $activeSlave.origin to "She got into debt for damaging someone's property during a student protest and you bought out her debt.">>
 <<set $activeSlave.devotion = random(-25,0)>>
 <<set $activeSlave.trust = random(-20,-5)>>
@@ -381,7 +381,7 @@ Given the damage to an expensive classic car and the meager balance of her bank 
 
 <<elseif $recruit is "male SD">>
 
-<<display "Generate XY Slave">>
+<<include "Generate XY Slave">>
 <<set $activeSlave.origin to "She got into debt for damaging someone's property during a student protest and you bought out her debt.">>
 <<set $activeSlave.devotion = random(-30,-5)>>
 <<set $activeSlave.trust = random(-25,-5)>>
@@ -419,7 +419,7 @@ Given the damage to an expensive classic car and the meager balance of his bank 
 
 <<elseif $recruit is "female SE">>
 
-<<display "Generate XX Slave">>
+<<include "Generate XX Slave">>
 <<set $activeSlave.origin to "She enslaved herself to be with a man she loved, only to be sold to you afterward.">>
 <<set $activeSlave.devotion = random(-30,-5)>>
 <<set $activeSlave.trust = random(-25,-5)>>
@@ -456,7 +456,7 @@ The situation does yield a few business opportunities too, as not all of the guy
 
 <<elseif $recruit is "MTF SE">>
 
-<<display "Generate XY Slave">>
+<<include "Generate XY Slave">>
 <<set $activeSlave.origin to "She (formerly he) enslaved herself to be with a man she loved, only to be sold to you afterward.">>
 <<set $activeSlave.devotion = random(-30,-5)>>
 <<set $activeSlave.trust = random(-25,-5)>>
@@ -494,7 +494,7 @@ It isn't just all natural females either, as a few men also jumped on the bandwa
 
 <<elseif $recruit is "DG SE">>
 
-<<display "Generate XY Slave">>
+<<include "Generate XY Slave">>
 <<set $activeSlave.origin to "She (formerly he) enslaved herself to be with a man she loved, only to be sold to you afterward.">>
 <<set $activeSlave.devotion = random(-30,-5)>>
 <<set $activeSlave.trust = random(-25,-5)>>
@@ -531,7 +531,7 @@ It isn't just all natural females either, as a few men also jumped on the bandwa
 
 <<elseif $recruit is "gang leader">>
 
-<<display "Generate XY Slave">>
+<<include "Generate XY Slave">>
 <<set $activeSlave.origin to "She was given to you by criminals as 'tribute', after which you transformed the overthrown (male) leader of their rival gang.">>
 <<set $activeSlave.devotion = random(-70,-40)>>
 <<set $activeSlave.trust = random(-20,-5)>>
@@ -571,7 +571,7 @@ The signal is cut suddenly, and just a few moments later, your assistant flags a
 
 <<elseif $recruit is "DG runaway">>
 
-<<display "Generate XY Slave">>
+<<include "Generate XY Slave">>
 <<set $activeSlave.origin to "She was a runaway slave captured by a gang outside your arcology. You bought her cheap after she was harshly used by them.">>
 <<set $activeSlave.devotion = random(0,25)>>
 <<set $activeSlave.trust = -20>>
@@ -616,7 +616,7 @@ After the fighting died down, they found a dickgirl inside the compound, harshly
 
 <<elseif $recruit is "herm runaway">>
 
-<<display "Generate XY Slave">>
+<<include "Generate XY Slave">>
 <<set $activeSlave.origin to "She was a runaway slave captured by a gang outside your arcology. You bought her cheap after she was harshly used by them.">>
 <<set $activeSlave.devotion = random(0,25)>>
 <<set $activeSlave.trust = -20>>
@@ -661,7 +661,7 @@ After the fighting died down, they found a woman inside the compound, harshly us
 
 <<elseif $recruit is "female runaway">>
 
-<<display "Generate XX Slave">>
+<<include "Generate XX Slave">>
 <<set $activeSlave.origin to "She was a runaway slave captured by a gang outside your arcology. You bought her cheap after she was harshly used by them.">>
 <<set $activeSlave.devotion = random(0,25)>>
 <<set $activeSlave.trust = -20>>
@@ -704,7 +704,7 @@ After the fighting died down, your men found a woman inside the compound, harshl
 
 <<elseif $recruit is "CCS angel">>
 
-<<display "Generate XX Slave">>
+<<include "Generate XX Slave">>
 <<set $activeSlave.origin to "She was the private slave of a con artist cult leader before he had to abandon her and flee.">>
 <<set $activeSlave.devotion = random(25,50)>>
 <<set $activeSlave.trust = random(25,50)>>
@@ -755,7 +755,7 @@ The young woman is best described as being 'angelic', in a stereotypical Western
 
 <<elseif $recruit is "CCS DA">>
 
-<<display "Generate XX Slave">>
+<<include "Generate XX Slave">>
 <<set $activeSlave.origin to "She was the private slave of a con artist cult leader before he had to abandon her and flee.">>
 <<set $activeSlave.devotion = random(-45,15)>>
 <<set $activeSlave.trust = random(25,50)>>
@@ -806,7 +806,7 @@ The young woman is best described as being 'angelic', in a stereotypical Western
 
 <<elseif $recruit is "racer DG chaser">>
 
-<<display "Generate XY Slave">>
+<<include "Generate XY Slave">>
 <<set $activeSlave.origin to "She was a dickgirl chaser in the slave races before being sold to you.">>
 <<set $activeSlave.prestige to 1>>
 <<set $activeSlave.prestigeDesc to "Many people remember her from the slave-girl races where she slammed her cock into countless runners' pussies after catching them.">>
@@ -848,7 +848,7 @@ As fate has it, the person calling is the owner of the local race-track, wanting
 
 <<elseif $recruit is "racer loser">>
 
-<<display "Generate XX Slave">>
+<<include "Generate XX Slave">>
 <<set $activeSlave.origin to "She was a virgin runner in the slave races before being sold to you.">>
 <<set $activeSlave.prestige to 1>>
 <<set $activeSlave.prestigeDesc to "After her short but very promising slave racing career, during which she made it through several competitions as a virgin, many people fondly remember fantasizing about taking her.">>
@@ -893,7 +893,7 @@ As fate has it, the person calling is the owner of the local race-track, wanting
 
 <<elseif $recruit is "racer winner">>
 
-<<display "Generate XX Slave">>
+<<include "Generate XX Slave">>
 <<set $activeSlave.origin to "She was a famous virgin runner in the slave races before being sold to you.">>
 <<set $activeSlave.prestige to 2>>
 <<set $activeSlave.prestigeDesc to "For years, she delighted the watchers of slave girl racing with winning competition after competition with her virginity intact.">>
@@ -937,7 +937,7 @@ As fate has it, the person calling is the owner of the local race-track, wanting
 
 <<elseif $recruit is "repo housekeeper">>
 
-<<display "Generate XX Slave">>
+<<include "Generate XX Slave">>
 <<set $activeSlave.origin to "She was the housekeeper and fucktoy of a frat house before being collected by repo-men and sold to you.">>
 <<set $activeSlave.devotion = random(25,50)>>
 <<set $activeSlave.trust = random(25,50)>>
@@ -976,7 +976,7 @@ The current sale offer by the company was taken from a college frat-house - appa
 
 <<elseif $recruit is "repo nanny">>
 
-<<display "Generate XX Slave">>
+<<include "Generate XX Slave">>
 <<set $activeSlave.origin to "She was a nanny before being sold to you.">>
 <<set $activeSlave.devotion = random(25,50)>>
 <<set $activeSlave.trust = random(-50,-25)>>
@@ -1015,7 +1015,7 @@ The current sale offer by the company was taken from a businesswoman's apartment
 
 <<elseif $recruit is "farm cow">>
 
-<<display "Generate XX Slave">>
+<<include "Generate XX Slave">>
 <<set $activeSlave.origin to "She was a milk cow in the stable of a slave-holding farmer before being sold to you.">>
 <<set $activeSlave.devotion = random(25,50)>>
 <<set $activeSlave.trust = random(25,50)>>
@@ -1055,7 +1055,7 @@ From the looks of all the brochures and extra information included, the associat
 
 <<elseif $recruit is "farm bull">>
 
-<<display "Generate XY Slave">>
+<<include "Generate XY Slave">>
 <<set $activeSlave.origin to "She was a breeding bull in the stable of a slave-holding farmer before being sold to you.">>
 <<set $activeSlave.devotion = random(25,50)>>
 <<set $activeSlave.trust = random(25,50)>>
@@ -1096,7 +1096,7 @@ From the looks of all the brochures and extra information included, the associat
 
 <<elseif $recruit is "farm virgin cow">>
 
-<<display "Generate XX Slave">>
+<<include "Generate XX Slave">>
 <<set $activeSlave.origin to "She was a virgin cow in the stable of a slave-holding farmer before being sold to you.">>
 <<set $activeSlave.devotion = random(25,50)>>
 <<set $activeSlave.trust = random(25,50)>>
@@ -1135,7 +1135,7 @@ From the looks of all the brochures and extra information included, the associat
 
 <<elseif $recruit is "orphan rebellious female">>
 
-<<display "Generate XX Slave">>
+<<include "Generate XX Slave">>
 <<set $activeSlave.origin to "She was in an orphanage until reaching maturity, at which point she was sold to you.">>
 <<set $activeSlave.devotion = random(-45,-25)>>
 <<set $activeSlave.trust = random(-25,0)>>
@@ -1173,7 +1173,7 @@ Knowing what's coming, the teachers in the facility do train their pupils accord
 
 <<elseif $recruit is "orphan femboy">>
 
-<<display "Generate XY Slave">>
+<<include "Generate XY Slave">>
 <<set $activeSlave.origin to "She was in an orphanage until reaching maturity, at which point she was sold to you.">>
 <<set $activeSlave.devotion = random(10,40)>>
 <<set $activeSlave.trust = random(-25,0)>>
@@ -1214,7 +1214,7 @@ Knowing what's coming, the teachers in the facility do train their pupils accord
 
 <<elseif $recruit is "captured teen">>
 
-<<display "Generate XX Slave">>
+<<include "Generate XX Slave">>
 <<set $activeSlave.origin to "She was the spoiled daughter of a wealthy old world businessman, who was captured and sold to you.">>
 <<set $activeSlave.devotion = -20>>
 <<set $activeSlave.trust = 0>>
@@ -1264,7 +1264,7 @@ At any rate, she's a fine capture. And unsurprisingly, they want to get rid of h
 
 <<else>>
 
-<<display "Generate XX Slave">>
+<<include "Generate XX Slave">>
 <<set $activeSlave.origin to "She sold herself into slavery to pay her immigration costs.">>
 <<set $activeSlave.devotion = random(-45,-25)>>
 <<set $activeSlave.trust = random(-15,0)>>
@@ -1300,12 +1300,12 @@ Your desk flags a video message as having potential. It's a desperate refugee fr
 <</nobr>>
 
 <<set $saleDescription to 1>>\
-<<display "Long Slave Description">>\
+<<include "Long Slave Description">>\
 <<set $saleDescription to 0>>\
 
 <span id="result">
 <<if $cash >= $contractCost>>\
-<<click "Enslave her">>
+<<link "Enslave her">>
 	<<AddSlave $activeSlave>>
 	<<set $cash -= $contractCost>>
 	<<replace "#result">>
@@ -1379,9 +1379,9 @@ Your desk flags a video message as having potential. It's a desperate refugee fr
 	<</if>>
 	<</nobr>>
 	<<set $nextLink to "AS Dump">>\
-	<<display "New Slave Intro">>
+	<<include "New Slave Intro">>
 	<</replace>>
-<</click>>
+<</link>>
 <<if ($recruit is "school sale")>>\
 <<elseif ($recruit is "school trap")>>\
 <<elseif ($recruit is "female SE")>>\
@@ -1398,9 +1398,9 @@ Your desk flags a video message as having potential. It's a desperate refugee fr
 <<elseif $recruit is "orphan rebellious female">>\
 <<elseif $recruit is "orphan femboy">>\
 <<else>>\
-<<click "Sell her immediately">>
+<<link "Sell her immediately">>
 	<<set $cash += $slaveCost>>
-	<<display "Remove activeSlave">>
+	<<include "Remove activeSlave">>
 	<<replace "#result">>
 	<<nobr>>
 	<<if $recruit is "female recruit">>
@@ -1442,7 +1442,7 @@ Your desk flags a video message as having potential. It's a desperate refugee fr
 	<</if>>
 	<</nobr>>
 	<</replace>>
-<</click>> //This will bring in ¤$slaveCost.//
+<</link>> //This will bring in ¤$slaveCost.//
 <</if>>\
 <<else>>\
 	//You lack the necessary funds to enslave her.//

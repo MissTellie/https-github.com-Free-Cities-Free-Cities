@@ -87,31 +87,31 @@ Attractiveness and Sexual scores are
 
 <span id="result">
 <<if ndef $PC.customTitle>>
-	<<click "Set a custom title for slaves to address you">>
+	<<link "Set a custom title for slaves to address you">>
 		<<replace "#result">>
 			Custom title: <<textbox "$PC.customTitle" $PC.customTitle>>
-			<<click "Apply">>
+			<<link "Apply">>
 				<<replace "#result">>
 					Your title is now $PC.customTitle.
 					<<set $PC.customTitleLisp to $PC.customTitle, $PC.customTitleLisp to $PC.customTitleLisp.replace("ss", "th"), $PC.customTitleLisp to $PC.customTitleLisp.replace("S", "Th"), $PC.customTitleLisp to $PC.customTitleLisp.replace("s", "th")>>
 				<</replace>>
-			<</click "">>
+			<</link "">>
 		<</replace>>
-	<</click "">>
+	<</link "">>
 <<else>>
 	Your custom title is <<textbox "$PC.customTitle" $PC.customTitle>>
-	<<click "Apply">>
+	<<link "Apply">>
 		<<replace "#result">>
 			Your title is now $PC.customTitle.
 			<<set $PC.customTitleLisp to $PC.customTitle, $PC.customTitleLisp to $PC.customTitleLisp.replace("ss", "th"), $PC.customTitleLisp to $PC.customTitleLisp.replace("S", "Th"), $PC.customTitleLisp to $PC.customTitleLisp.replace("s", "th")>>
 		<</replace>>
-	<</click "">> |
-	<<click "Stop using a custom title">>
+	<</link "">> |
+	<<link "Stop using a custom title">>
 		<<replace "#result">>
 			You stop using a custom title
 			<<set $PC.customTitle to undefined>>
 			<<set $PC.customTitleLisp to undefined>>
 		<</replace>>
-	<</click "">>
+	<</link "">>
 <</if>>
 </span>

@@ -13,9 +13,9 @@
 	<<if $seeImages == 1>><<SlaveArt $slaves[_NR] 0 0>><</if>>
 	<<silently>>
 	<<set $i = _NR>>
-	<<display "SA long term effects">>
-	<<display "SA relationships">>
-	<<display "SA rivalries">>
+	<<include "SA long term effects">>
+	<<include "SA relationships">>
+	<<include "SA rivalries">>
 	<</silently>>
 	<<if ($slaves[_NR].health < 100)>>
 	<<set $slaves[_NR].health += 20>>
@@ -50,10 +50,10 @@
 	<<set $clinicSlaves++>>
 	<<silently>>
 	<<set $i = _i>>
-	<<display "SA rest">>
-	<<display "SA long term effects">>
-	<<display "SA relationships">>
-	<<display "SA rivalries">>
+	<<include "SA rest">>
+	<<include "SA long term effects">>
+	<<include "SA relationships">>
+	<<include "SA rivalries">>
 	<</silently>>
 	<<set $slaves[_i].health += 10 + ($curativeUpgrade * 10)>>
 	<<if $slaves[_i].health > 100>>

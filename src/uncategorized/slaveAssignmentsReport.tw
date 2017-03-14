@@ -287,7 +287,7 @@
         ''$brothelNameCaps Report''
         <hr style="margin:0">
     <</if>>
-    <<display "Brothel Report" "div">>
+    <<include "Brothel Report" "div">>
 <</if>>
 
 <<if ($club > 0)>>
@@ -297,7 +297,7 @@
         ''$clubNameCaps Report''
         <hr style="margin:0">
     <</if>>
-    <<display "Club Report" "div">>
+    <<include "Club Report" "div">>
 <</if>>
 
 <<if ($arcade > 0)>>
@@ -307,7 +307,7 @@
         ''$arcadeNameCaps Report''
         <hr style="margin:0">
     <</if>>
-	<<display "Arcade Report" "div">>
+	<<include "Arcade Report" "div">>
 <</if>>
 
 <<if ($dairy > 0)>>
@@ -317,7 +317,7 @@
         ''$dairyNameCaps Report''
         <hr style="margin:0">
     <</if>>
-    <<display "Dairy Report" "div">>
+    <<include "Dairy Report" "div">>
 <</if>>
 
 <<if ($servantsQuarters > 0)>>
@@ -327,7 +327,7 @@
         ''$servantsQuartersNameCaps Report''
         <hr style="margin:0">
     <</if>>
-    <<display "Servants' Quarters Report" "div">>
+    <<include "Servants' Quarters Report" "div">>
 <</if>>
 
 <<if ($schoolroom > 0)>>
@@ -337,7 +337,7 @@
         ''$schoolroomNameCaps Report''
         <hr style="margin:0">
     <</if>>
-	<<display "Schoolroom Report" "div">>
+	<<include "Schoolroom Report" "div">>
 <</if>>
 
 <<if ($spa > 0)>>
@@ -347,7 +347,7 @@
         ''$spaNameCaps Report''
         <hr style="margin:0">
     <</if>>
-	<<display "Spa Report" "div">>
+	<<include "Spa Report" "div">>
 <</if>>
 
 <<if ($clinic > 0)>>
@@ -357,7 +357,7 @@
         ''$clinicNameCaps Report''
         <hr style="margin:0">
     <</if>>
-    <<display "Clinic Report" "div">>
+    <<include "Clinic Report" "div">>
 <</if>>
 
 <<if ($cellblock > 0)>>
@@ -367,7 +367,7 @@
         ''$cellblockNameCaps Report''
         <hr style="margin:0">
     <</if>>
-    <<display "Cellblock Report" "div">>
+    <<include "Cellblock Report" "div">>
 <</if>>
 
 <<if ($masterSuite > 0)>>
@@ -377,7 +377,7 @@
         ''$masterSuiteNameCaps Report''
         <hr style="margin:0">
     <</if>>
-	<<display "Master Suite Report" "div">>
+	<<include "Master Suite Report" "div">>
 <</if>>
 <br />
 <br />
@@ -388,18 +388,18 @@ __''Penthouse Report''__<br>
 <<for $i to 0; $i < $slaves.length; $i++>>
 <<if $slaves[$i].assignmentVisible == 1>>
 	<<if $slaves[$i].assignment is "be your Head Girl">>
-		<<display "Full Report">>
+		<<include "Full Report">>
 		<<set _iTemp to $i>>
 		<<for $i to 0; $i < $slaves.length; $i++>>
 			<<if $slaves[$i].assignment is "live with your Head Girl">>
 			<<set $HGRelease to 1>>
-			<br><br><<display "SA live with HG">>
+			<br><br><<include "SA live with HG">>
 			<<break>>
 			<</if>>
 		<</for>>
 		<<set $i to _iTemp>>
 	<<else>>
-		<<display "Full Report">>
+		<<include "Full Report">>
 	<</if>>
 	<<if ($rulesAssistantAuto == 1)>>
 		<<if ($slaves[$i].useRulesAssistant == 1)>>
@@ -412,8 +412,8 @@ __''Penthouse Report''__<br>
 			<</for>>
 			<<if (_rulesapplied == true)>>
 				<<set $activeSlave to $slaves[$i]>>
-				<<display "Check Auto Rules Activate">>
-				<<display "Default Rules">>
+				<<include "Check Auto Rules Activate">>
+				<<include "Default Rules">>
 				<<set $slaves[$i] to $activeSlave>>
 			<</if>>
 		<</if>>
@@ -431,8 +431,8 @@ __''Penthouse Report''__<br>
 			<</for>>
 			<<if (_rulesapplied == true)>>
 				<<set $activeSlave to $slaves[$i]>>
-				<<display "Check Auto Rules Activate">>
-				<<display "Default Rules">>
+				<<include "Check Auto Rules Activate">>
+				<<include "Default Rules">>
 				<<set $slaves[$i] to $activeSlave>>
 			<</if>>
 		<</if>>

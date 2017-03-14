@@ -7,7 +7,7 @@
 <<case "Main">>
 	<<if (_Slave.choosesOwnClothes == 1) && (_Slave.clothes is "choosing her own clothes")>>
 		<<set $i to _i>>
-		<<silently>><<display "SA chooses own clothes">><</silently>>
+		<<silently>><<include "SA chooses own clothes">><</silently>>
 		<<set _Slave to $slaves[_i]>>
 	<</if>>
 	<<if _Slave.assignmentVisible != 1>><<continue>><</if>>
