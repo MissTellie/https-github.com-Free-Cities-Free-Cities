@@ -141,7 +141,7 @@
 		<<else>>
 			<<if $plot == 1>><<goto "Nonrandom Event">><<else>><<goto "Random Nonindividual Event">><</if>>
 		<</if>>
-	<<elseif $nicaeaInvolvement != -1>>
+	<<elseif $nicaeaInvolvement >= 0>>
 		<<set $nicaeaRollA = random(-1,0), $nicaeaRollB = random(-1,0), $nicaeaRollC = random(-1,0)>>
 		<<set $nicaeaFocus = either("owners", "slaves")>>
 		<<set $nicaeaAssignment = either("whore", "serve the public", "please you")>>
