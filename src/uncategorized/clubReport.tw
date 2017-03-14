@@ -116,7 +116,7 @@ $DJ.slaveName is performing as the DJ.<<if $DJ.relationship is -3>>  She tries h
 	<<if ($clubSlaves+$slavesGettingHelp < 5)>>
 	<<for $i to 0; $i < $slaves.length; $i++>>
 	<<if ($slaves[$i].ID is $DJ.ID)>>
-	<<silently>><<display "SA serve the public">><</silently>>
+	<<silently>><<include "SA serve the public">><</silently>>
 	<<set $repGain += Math.trunc(($beauty*$FResult)*(1+(0.003*$slaves[$i].entertainSkill))*0.1*0.5)>>
 	Since she doesn't have enough sluts in $clubName to make it worthwhile for her to be on stage 24/7, she spends her extra time time slutting it up herself. She has sex with $beauty citizens, @@color:green;pleasing them immensely,@@ since it's more appealing to fuck the DJ than some club slut.
 	<<break>>
@@ -247,43 +247,43 @@ $DJ.slaveName is performing as the DJ.<<if $DJ.relationship is -3>>  She tries h
 		<</if>>
 		''__@@color:pink;$slaves[$i].slaveName@@__'' is performing as the DJ in the club.<br>
 		<<silently>>
-		<<display [[SA serve the public]]>>
+		<<include [[SA serve the public]]>>
 		<<if $slaves[$i].choosesOwnClothes == 1>>
-		<<display "SA chooses own clothes">>
+		<<include "SA chooses own clothes">>
 		<<if ($slaves[$i].devotion <= 20)>>
 			<<set $slaves[$i].devotion -= 5>>
 		<<else>>
 			<<set $slaves[$i].devotion += 1>>
 		<</if>>
 		<</if>>
-		<<display "SA diet">>
-		<<display "SA long term effects">>
-		<<display "SA drugs">>
-		<<display "SA relationships">>
-		<<display "SA rivalries">>
-		<<display "SA devotion">>
+		<<include "SA diet">>
+		<<include "SA long term effects">>
+		<<include "SA drugs">>
+		<<include "SA relationships">>
+		<<include "SA rivalries">>
+		<<include "SA devotion">>
 		<</silently>>
 	<<else>>
 		<<if ($legendaryEntertainerID == 0) && ($slaves[$i].prestige == 0) && ($slaves[$i].entertainSkill >= 100) && ($slaves[$i].devotion > 50) && ($slaves[$i].prestige == 0)>>
 		<<set $legendaryEntertainerID to $slaves[$i].ID>>
 		<</if>>
 		''__@@color:pink;$slaves[$i].slaveName@@__'' is performing as the DJ in the club.
-		<<display [[SA serve the public]]>>
+		<<include [[SA serve the public]]>>
 		<<if $slaves[$i].choosesOwnClothes == 1>>
-		<<display "SA chooses own clothes">>
+		<<include "SA chooses own clothes">>
 		<<if ($slaves[$i].devotion <= 20)>>
 			<<set $slaves[$i].devotion -= 5>>
 		<<else>>
 			<<set $slaves[$i].devotion += 1>>
 		<</if>>
 		<</if>>
-		<<display "SA diet">>
-		<<display "SA long term effects">>
-		<<display "SA drugs">>
-		<<display "SA relationships">>
-		<<display "SA rivalries">>
+		<<include "SA diet">>
+		<<include "SA long term effects">>
+		<<include "SA drugs">>
+		<<include "SA relationships">>
+		<<include "SA rivalries">>
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;
-		<<display "SA devotion">>
+		<<include "SA devotion">>
 		<br><br>
 	<</if>>
 <</if>>
@@ -301,44 +301,44 @@ $DJ.slaveName is performing as the DJ.<<if $DJ.relationship is -3>>  She tries h
 		<</if>>
 		''__@@color:pink;$slaves[$i].slaveName@@__'' is serving in the club.<br>
 		<<silently>>
-		<<display [[SA serve the public]]>>
+		<<include [[SA serve the public]]>>
 		<<if $slaves[$i].choosesOwnClothes == 1>>
-		<<display "SA chooses own clothes">>
+		<<include "SA chooses own clothes">>
 		<<if ($slaves[$i].devotion <= 20)>>
 			<<set $slaves[$i].devotion -= 5>>
 		<<else>>
 			<<set $slaves[$i].devotion += 1>>
 		<</if>>
 		<</if>>
-		<<display "SA diet">>
-		<<display "SA long term effects">>
-		<<display "SA drugs">>
-		<<display "SA relationships">>
-		<<display "SA rivalries">>
-		<<display "SA devotion">>
+		<<include "SA diet">>
+		<<include "SA long term effects">>
+		<<include "SA drugs">>
+		<<include "SA relationships">>
+		<<include "SA rivalries">>
+		<<include "SA devotion">>
 		<</silently>>
 	<<else>>
 		<<if ($legendaryEntertainerID == 0) && ($slaves[$i].prestige == 0) && ($slaves[$i].entertainSkill >= 100) && ($slaves[$i].devotion > 50) && ($slaves[$i].prestige == 0)>>
 		<<set $legendaryEntertainerID to $slaves[$i].ID>>
 		<</if>>
 		''__@@color:pink;$slaves[$i].slaveName@@__''
-		<<display [[SA serve the public]]>>
+		<<include [[SA serve the public]]>>
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;
 		<<if $slaves[$i].choosesOwnClothes == 1>>
-		<<display "SA chooses own clothes">>
+		<<include "SA chooses own clothes">>
 		<<if ($slaves[$i].devotion <= 20)>>
 			<<set $slaves[$i].devotion -= 5>>
 		<<else>>
 			<<set $slaves[$i].devotion += 1>>
 		<</if>>
 		<</if>>
-		<<display "SA diet">>
-		<<display "SA long term effects">>
-		<<display "SA drugs">>
-		<<display "SA relationships">>
-		<<display "SA rivalries">>
+		<<include "SA diet">>
+		<<include "SA long term effects">>
+		<<include "SA drugs">>
+		<<include "SA relationships">>
+		<<include "SA rivalries">>
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;
-		<<display "SA devotion">>
+		<<include "SA devotion">>
 		<br><br>
 	<</if>>
 <</if>>

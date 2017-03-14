@@ -4,7 +4,7 @@
 
 <<if $expired == 1>>
 	<<set $expiree to 0>>
-	<<display "Remove activeSlave">>
+	<<include "Remove activeSlave">>
 	<<for $i to 0; $i < $slaves.length; $i++>>
 	<<if $slaves[$i].indenture == 0>>
 		<<set $expiree to $slaves[$i]>>
@@ -16,7 +16,7 @@
 
 <<if $retired == 1>>
 	<<set $retiree to 0>>
-	<<display "Remove activeSlave">>
+	<<include "Remove activeSlave">>
 	<<for $i to 0; $i < $slaves.length; $i++>>
 	<<if $slaves[$i].indenture < 0>>
 	<<if $slaves[$i].age >= $retirementAge>>

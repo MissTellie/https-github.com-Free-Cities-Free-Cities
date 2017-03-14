@@ -12,7 +12,7 @@ You check to see if any especially prestigious slaves are on auction. <<if $pres
 <<if (random(0,99) < $seeDicks)>><<set $seed to random(100,170)>><<elseif $seeDicks > 0>><<set $seed to random(1,170)>><<else>><<set $seed to random(1,100)>><</if>>
 
 <<if $seed <= 10>>
-	<<display "Generate XX Slave">>
+	<<include "Generate XX Slave">>
 	<<set $activeSlave.origin to "You bought her at auction.">>
 	<<set $activeSlave.prestige to 1>>
 	<<set $activeSlave.prestigeDesc to "She was once a noted adult film star, and was sold into slavery by her unscrupulous managers.">>
@@ -52,7 +52,7 @@ You check to see if any especially prestigious slaves are on auction. <<if $pres
 	<<set $activeSlave.customDesc to "She has seen and done almost everything sexually possible, on camera.">>
 
 <<elseif $seed <= 20>>
-	<<display "Generate XX Slave">>
+	<<include "Generate XX Slave">>
 	<<set $activeSlave.origin to "You bought her at auction.">>
 	<<set $activeSlave.prestige to 1>>
 	<<set $activeSlave.prestigeDesc to "She was once the young trophy wife of a powerful man in the old world, but he sold her into slavery in revenge for her infidelity.">>
@@ -88,7 +88,7 @@ You check to see if any especially prestigious slaves are on auction. <<if $pres
 	<<set $activeSlave.customTat to "Her ex-husband's name is prettily tattooed on her left arm, but a black line has been subsequently tattooed across it.">>
 
 <<elseif $seed <= 30>>
-	<<display "Generate XX Slave">>
+	<<include "Generate XX Slave">>
 	<<set $activeSlave.origin to "You bought her at auction.">>
 	<<set $activeSlave.prestige to 1>>
 	<<set $activeSlave.prestigeDesc to "She was once expected to become a major sports star, but flamed out due to injury and was recently enslaved due to debt.">>
@@ -120,7 +120,7 @@ You check to see if any especially prestigious slaves are on auction. <<if $pres
 	<<set $activeSlave.customDesc to "She's not particularly bright, and enjoys solving problems with physical force.">>
 
 <<elseif $seed <= 40>>
-	<<display "Generate XX Slave">>
+	<<include "Generate XX Slave">>
 	<<set $activeSlave.origin to "You bought her at auction.">>
 	<<set $activeSlave.prestige to 1>>
 	<<set $activeSlave.prestigeDesc to "She was once a rising young model, but apparently someone decided to take a shortcut in cashing in on her great beauty.">>
@@ -147,7 +147,7 @@ You check to see if any especially prestigious slaves are on auction. <<if $pres
 	<<set $activeSlave.customDesc to "She moves with the practiced grace of someone who unconsciously still pictures herself on the runway.">>
 
 <<elseif $seed <= 50>>
-	<<display "Generate XX Slave">>
+	<<include "Generate XX Slave">>
 	<<set $activeSlave.origin to "You bought her at auction.">>
 	<<set $activeSlave.prestige to 1>>
 	<<set $activeSlave.prestigeDesc to "She is a natural albino, and was quickly enslaved due to the great demand for physically unusual specimens.">>
@@ -163,7 +163,7 @@ You check to see if any especially prestigious slaves are on auction. <<if $pres
 	<<set $activeSlave.customDesc to "Her eyes are unsettling; though her irises are a pale grey color, in some lights the whole eye takes on a red cast.">>
 
 <<elseif $seed <= 60>>
-	<<display "Generate XX Slave">>
+	<<include "Generate XX Slave">>
 	<<set $activeSlave.origin to "You bought her at auction.">>
 	<<set $activeSlave.prestige to 2>>
 	<<set $activeSlave.prestigeDesc to "She is one of the longest legally-enslaved persons in the world, having been a slave for 15 years. She has spent almost all that time working as a slave prostitute, and has been heavily modified to keep her productive.">>
@@ -211,7 +211,7 @@ You check to see if any especially prestigious slaves are on auction. <<if $pres
 	<<set $activeSlave.customTat to "'50,000 Served!' is tattooed across her back.">>
 
 <<elseif $seed <= 70>>
-	<<display "Generate XX Slave">>
+	<<include "Generate XX Slave">>
 	<<set $activeSlave.origin to "You bought her at auction.">>
 	<<set $activeSlave.prestige to 2>>
 	<<set $activeSlave.prestigeDesc to "She was once a B-list actress, but fell on hard times and drug addiction and was recently enslaved due to debt.">>
@@ -245,7 +245,7 @@ You check to see if any especially prestigious slaves are on auction. <<if $pres
 	<<set $activeSlave.customDesc to "She sometimes forgets herself and acts as though she were still a coming celebrity.">>
 
 <<elseif $seed <= 80>>
-	<<display "Generate XX Slave">>
+	<<include "Generate XX Slave">>
 	<<set $activeSlave.origin to "You bought her at auction.">>
 	<<set $activeSlave.prestige to 2>>
 	<<set $activeSlave.prestigeDesc to "She was once a rising old world politician, but was forced to flee from the increasingly dangerous politics common in a stressed world, and was subsequently enslaved.">>
@@ -274,7 +274,7 @@ You check to see if any especially prestigious slaves are on auction. <<if $pres
 	<<set $activeSlave.customDesc to "Her face is still recognizable as that which once graced a million campaign posters.">>
 
 <<elseif $seed <= 90>>
-	<<display "Generate XX Slave">>
+	<<include "Generate XX Slave">>
 	<<set $activeSlave.origin to "You bought her at auction.">>
 	<<set $activeSlave.prestige to 3>>
 	<<set $activeSlave.prestigeDesc to "She was born a daughter of royalty, but her family was overthrown when she was still young. She is a graduate cum laude of the world's most renowned slave school.">>
@@ -303,7 +303,7 @@ You check to see if any especially prestigious slaves are on auction. <<if $pres
 	<<set $activeSlave.customDesc to "Her recognizable face marks her as a descendant of an overthrown royal family.">>
 
 <<elseif $seed <= 100>>
-	<<display "Generate XX Slave">>
+	<<include "Generate XX Slave">>
 	<<set $activeSlave.origin to "You bought her at auction.">>
 	<<set $activeSlave.prestige to 3>>
 	<<set $activeSlave.prestigeDesc to "She was once an arcology owner like you, but lost a Free Cities power struggle and was enslaved. An object lesson in the need to stay vigilant.">>
@@ -360,7 +360,7 @@ You check to see if any especially prestigious slaves are on auction. <<if $pres
 	<<set $activeSlave.customTat to "'ARCOLOGY OWNER' is tattooed across her forehead.">>
 
 <<elseif $seed <= 110>>
-	<<display "Generate XY Slave">>
+	<<include "Generate XY Slave">>
 	<<set $activeSlave.origin to "You bought her at auction.">>
 	<<set $activeSlave.prestige to 1>>
 	<<set $activeSlave.prestigeDesc to "She is a natural-born hermaphrodite. She was enslaved as an adult and subjected to treatment to upgrade both her halves to full functionality.">>
@@ -388,7 +388,7 @@ You check to see if any especially prestigious slaves are on auction. <<if $pres
 	<<set $activeSlave.customDesc to "She has had a very difficult time adjusting to her unusual biology.">>
 
 <<elseif $seed <= 110>>
-	<<display "Generate XX Slave">>
+	<<include "Generate XX Slave">>
 	<<set $activeSlave.origin to "You bought her at auction.">>
 	<<set $activeSlave.prestige to 1>>
 	<<set $activeSlave.prestigeDesc to "She is a natural-born hermaphrodite. She received treatment to ensure both her halves would be fully functional from an early age.">>
@@ -420,7 +420,7 @@ You check to see if any especially prestigious slaves are on auction. <<if $pres
 	<<set $activeSlave.customDesc to "She is very comfortable with her unusual biology.">>
 
 <<elseif $seed <= 125>>
-	<<display "Generate XY Slave">>
+	<<include "Generate XY Slave">>
 	<<set $activeSlave.origin to "You bought her at auction.">>
 	<<set $activeSlave.prestige to 1>>
 	<<set $activeSlave.prestigeDesc to "She was once a noted adult film star, and was sold into slavery by her unscrupulous managers.">>
@@ -462,7 +462,7 @@ You check to see if any especially prestigious slaves are on auction. <<if $pres
 	<<set $activeSlave.customDesc to "She has seen and done almost everything sexually possible, on camera.">>
 
 <<elseif $seed <= 130>>
-	<<display "Generate XY Slave">>
+	<<include "Generate XY Slave">>
 	<<set $activeSlave.origin to "You bought her at auction.">>
 	<<set $activeSlave.prestige to 1>>
 	<<set $activeSlave.prestigeDesc to "She was once the young trophy husband of a powerful woman in the old world, but she sold her into slavery in revenge for her infidelities.">>
@@ -488,7 +488,7 @@ You check to see if any especially prestigious slaves are on auction. <<if $pres
 	<<set $activeSlave.customTat to "Her ex-wife's name is prettily tattooed on her left arm, but a black line has been subsequently tattooed across it.">>
 
 <<elseif $seed <= 135>>
-	<<display "Generate XY Slave">>
+	<<include "Generate XY Slave">>
 	<<set $activeSlave.origin to "You bought her at auction.">>
 	<<set $activeSlave.prestige to 1>>
 	<<set $activeSlave.prestigeDesc to "She was once expected to become a major sports star, but flamed out due to injury and was recently enslaved due to debt.">>
@@ -516,7 +516,7 @@ You check to see if any especially prestigious slaves are on auction. <<if $pres
 	<<set $activeSlave.customDesc to "She's not particularly bright, and enjoys solving problems with physical force.">>
 
 <<elseif $seed <= 140>>
-	<<display "Generate XY Slave">>
+	<<include "Generate XY Slave">>
 	<<set $activeSlave.origin to "You bought her at auction.">>
 	<<set $activeSlave.prestige to 1>>
 	<<set $activeSlave.prestigeDesc to "She was once a rising young model, but apparently someone decided to take a shortcut in cashing in on her great beauty.">>
@@ -545,7 +545,7 @@ You check to see if any especially prestigious slaves are on auction. <<if $pres
 	<<set $activeSlave.customDesc to "She moves with the practiced grace of someone who unconsciously still pictures herself on the runway.">>
 
 <<elseif $seed <= 145>>
-	<<display "Generate XY Slave">>
+	<<include "Generate XY Slave">>
 	<<set $activeSlave.origin to "You bought her at auction.">>
 	<<set $activeSlave.prestige to 1>>
 	<<set $activeSlave.prestigeDesc to "She is a natural albino, and was quickly enslaved due to the great demand for physically unusual specimens.">>
@@ -560,7 +560,7 @@ You check to see if any especially prestigious slaves are on auction. <<if $pres
 	<<set $activeSlave.customDesc to "Her eyes are unsettling; though her irises are a pale grey color, in some lights the whole eye takes on a red cast.">>
 
 <<elseif $seed <= 150>>
-	<<display "Generate XY Slave">>
+	<<include "Generate XY Slave">>
 	<<set $activeSlave.origin to "You bought her at auction.">>
 	<<set $activeSlave.prestige to 2>>
 	<<set $activeSlave.prestigeDesc to "She is one of the longest legally-enslaved persons in the world, having been a slave for 15 years. She has spent almost all that time working as a slave prostitute, and has been heavily modified to keep her productive.">>
@@ -610,7 +610,7 @@ You check to see if any especially prestigious slaves are on auction. <<if $pres
 	<<set $activeSlave.customTat to "'50,000 Served!' is tattooed across her back.">>
 
 <<elseif $seed <= 155>>
-	<<display "Generate XY Slave">>
+	<<include "Generate XY Slave">>
 	<<set $activeSlave.origin to "You bought her at auction.">>
 	<<set $activeSlave.prestige to 2>>
 	<<set $activeSlave.prestigeDesc to "She was once a B-list actress, but fell on hard times and drug addiction and was recently enslaved due to debt.">>
@@ -642,7 +642,7 @@ You check to see if any especially prestigious slaves are on auction. <<if $pres
 	<<set $activeSlave.customDesc to "She sometimes forgets herself and acts as though she were still a coming celebrity.">>
 
 <<elseif $seed <= 160>>
-	<<display "Generate XY Slave">>
+	<<include "Generate XY Slave">>
 	<<set $activeSlave.origin to "You bought her at auction.">>
 	<<set $activeSlave.prestige to 2>>
 	<<set $activeSlave.prestigeDesc to "She was once a rising old world politician, but was forced to flee from the increasingly dangerous politics common in a stressed world, and was subsequently enslaved.">>
@@ -667,7 +667,7 @@ You check to see if any especially prestigious slaves are on auction. <<if $pres
 	<<set $activeSlave.customDesc to "Her face is still recognizable as that which once graced a million campaign posters.">>
 
 <<elseif $seed <= 165>>
-	<<display "Generate XY Slave">>
+	<<include "Generate XY Slave">>
 	<<set $activeSlave.origin to "You bought her at auction.">>
 	<<set $activeSlave.prestige to 3>>
 	<<set $activeSlave.prestigeDesc to "She was born a child of royalty, but her family was overthrown when she was still young. She is a graduate cum laude of the world's most renowned slave school.">>
@@ -699,7 +699,7 @@ You check to see if any especially prestigious slaves are on auction. <<if $pres
 	<<set $activeSlave.customDesc to "Her recognizable face marks her as a descendant of an overthrown royal family.">>
 
 <<elseif $seed <= 170>>
-	<<display "Generate XY Slave">>
+	<<include "Generate XY Slave">>
 	<<set $activeSlave.origin to "You bought her at auction.">>
 	<<set $activeSlave.prestige to 3>>
 	<<set $activeSlave.prestigeDesc to "She was once an arcology owner like you, but lost a Free Cities power struggle and was enslaved. An object lesson in the need to stay vigilant.">>
@@ -761,7 +761,7 @@ It will take ¤<<print $slaveCost>> to win the auction.
 
 <<set $saleDescription to 1>>\
 <<set $applyLaw to 1>>\
-<<display "Long Slave Description">>\
+<<include "Long Slave Description">>\
 <<set $saleDescription to 0>>\
 
 <</if>>

@@ -500,7 +500,7 @@ Childbirth has @@color:lime;stretched out $possessive vagina.@@
 <<else>>
 
 <<set $activeSlave = $slaves[$i]>>
-<<display "Remove activeSlave">>
+<<include "Remove activeSlave">>
 
 <</if>> /* closes slave died in cb */
 
@@ -510,7 +510,7 @@ Childbirth has @@color:lime;stretched out $possessive vagina.@@
 	<br><br>
 	While attempting to recover, $slaves[$i].slaveName @@color:red;passes away@@ from complications. $possessiveCap body was fatally damaged during childbirth, but $possessive offspring is healthy, so $possessive legacy will carry on.
 	<<set $activeSlave = $slaves[$i]>>
-	<<display "Remove activeSlave">>
+	<<include "Remove activeSlave">>
 	<<set $slaveDead to 1>>
 <</if>>
 

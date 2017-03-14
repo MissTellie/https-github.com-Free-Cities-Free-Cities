@@ -15,7 +15,7 @@ For the first time, you receive a direct call from your rival. You pictured the 
 
 <br><br>
 <span id="result">
-<<click "Accept">>
+<<link "Accept">>
 	<<replace "#result">>
 	You accept, magnanimous in victory. "I don't think I would have done that," your rival replies. "Thank you. When they write the book, I'll make sure you look good."
 	<<if $rivalrySet != 0>>
@@ -38,8 +38,8 @@ For the first time, you receive a direct call from your rival. You pictured the 
 		<<set $cash += random(100000,250000)>>
 	<</if>>
 	<</replace>>
-<</click>>
-<br><<click "Refuse">>
+<</link>>
+<br><<link "Refuse">>
 	<<replace "#result">>
 	You coldly decline. "That was a mistake," your rival replies, entering computer command.
 	<<if $rivalrySet != 0>>
@@ -57,13 +57,13 @@ For the first time, you receive a direct call from your rival. You pictured the 
 		<<if $hostageAnnounced == 1>>
 			<br><br>
 			<span id="result2">
-			<br><<click "Place a bounty of ¤10000 on your rival's psychological warfare tool">>
+			<br><<link "Place a bounty of ¤10000 on your rival's psychological warfare tool">>
 				<<replace "#result2">>
 				<<set $cash -= 10000>>
 				You make sure to post a bounty sufficient to ensure that $hostage.slaveName, your rival's psychological warfare tool, does not escape or go unrescued, depending on one's point of view. She is quickly picked out of the chaos of your rival's escape and delivered to you.
 				<<set $hostageRescued to 1>>
 				<</replace>>
-			<</click>>
+			<</link>>
 			</span>
 		<</if>>
 	<<else>>
@@ -71,8 +71,8 @@ For the first time, you receive a direct call from your rival. You pictured the 
 		<<set $cash -= random(10000,25000)>>
 	<</if>>
 	<</replace>>
-<</click>>
-<br><<click "Refuse, and place a bounty of ¤50000 on your rival's enslavement">>
+<</link>>
+<br><<link "Refuse, and place a bounty of ¤50000 on your rival's enslavement">>
 	<<replace "#result">>
 	<<set $nextLink to "AS Dump">>
 	You coldly decline. "That was a mistake," your rival replies, entering computer command.
@@ -91,13 +91,13 @@ For the first time, you receive a direct call from your rival. You pictured the 
 		<<if $hostageAnnounced == 1>>
 			<br><br>
 			<span id="result2">
-			<br><<click "Place a bounty of ¤10000 on your rival's psychological warfare tool">>
+			<br><<link "Place a bounty of ¤10000 on your rival's psychological warfare tool">>
 				<<replace "#result2">>
 				<<set $cash -= 10000>>
 				You make sure to post a bounty sufficient to ensure that $hostage.slaveName, your rival's psychological warfare tool, does not escape or go unrescued, depending on one's point of view. She is quickly picked out of the chaos of your rival's escape and delivered to you.
 				<<set $hostageRescued to 1>>
 				<</replace>>
-			<</click>>
+			<</link>>
 			</span>
 		<</if>>
 	<<else>>
@@ -123,7 +123,7 @@ For the first time, you receive a direct call from your rival. You pictured the 
 	Your bounty is quickly claimed, and you are treated to the delicious moment of finding your rival on her knees in front of you with a black bag over her head and her hands cuffed behind her. She's one of your slaves now, fundamentally no different than any other. Looking her over, the causes of her downfall are
 	<<if $seed is "expansionist shemale">>
 		immediately apparent: she's obviously been indulging in self-transformation to excess.
-		<<display "Generate XY Slave">>
+		<<include "Generate XY Slave">>
 		<<set $activeSlave.face to 3>>
 		<<set $activeSlave.faceImplant to 1>>
 		<<set $activeSlave.faceShape to "androgynous">>
@@ -156,7 +156,7 @@ For the first time, you receive a direct call from your rival. You pictured the 
 		<<set $activeSlave.hLength to 80>>
 	<<elseif $seed is "masculine">>
 		not immediately apparent: she's in good shape, if quite masculine.
-		<<display "Generate XY Slave">>
+		<<include "Generate XY Slave">>
 		<<set $activeSlave.face to 2>>
 		<<set $activeSlave.faceImplant to 0>>
 		<<set $activeSlave.faceShape to "masculine">>
@@ -184,7 +184,7 @@ For the first time, you receive a direct call from your rival. You pictured the 
 		<<set $activeSlave.hLength to 5>>
 	<<elseif $seed is "micropenis">>
 		immediately apparent: she's got a slavegirl's cock and balls, not an arcology owner's.
-		<<display "Generate XY Slave">>
+		<<include "Generate XY Slave">>
 		<<set $activeSlave.face to 2>>
 		<<set $activeSlave.faceImplant to 0>>
 		<<set $activeSlave.faceShape to "masculine">>
@@ -212,7 +212,7 @@ For the first time, you receive a direct call from your rival. You pictured the 
 		<<set $activeSlave.hLength to 5>>
 	<<elseif $seed is "bull dyke">>
 		not immediately apparent: though female, she's obviously no stranger to taking a dominant sexual role, to put it politely.
-		<<display "Generate XX Slave">>
+		<<include "Generate XX Slave">>
 		<<set $activeSlave.face to 2>>
 		<<set $activeSlave.faceImplant to 0>>
 		<<set $activeSlave.faceShape to "androgynous">>
@@ -245,7 +245,7 @@ For the first time, you receive a direct call from your rival. You pictured the 
 		<<set $activeSlave.hLength to 5>>
 	<<elseif $seed is "cow">>
 		immediately apparent: there's nothing wrong with having lactation and breast expansion fetishes, but applying them to oneself can be addictive.
-		<<display "Generate XX Slave">>
+		<<include "Generate XX Slave">>
 		<<set $activeSlave.face to 2>>
 		<<set $activeSlave.faceImplant to 0>>
 		<<set $activeSlave.faceShape to "cute">>
@@ -273,7 +273,7 @@ For the first time, you receive a direct call from your rival. You pictured the 
 		<<set $activeSlave.hLength to 5>>
 	  <<elseif $seed is "bimbo">>
 		immediately apparent: there's nothing wrong with having a bimbo fetish, but applying it to oneself can be addictive.
-		<<display "Generate XX Slave">>
+		<<include "Generate XX Slave">>
 		<<set $activeSlave.face to 3>>
 		<<set $activeSlave.faceImplant to 2>>
 		<<set $activeSlave.faceShape to "sensual">>
@@ -304,7 +304,7 @@ For the first time, you receive a direct call from your rival. You pictured the 
 		<<set $activeSlave.hLength to 80>>
 	  <<else>>
 		immediately apparent: she seems to have recently fallen into serious aphrodisiac addiction.
-		<<display "Generate XX Slave">>
+		<<include "Generate XX Slave">>
 		<<set $activeSlave.face to 3>>
 		<<set $activeSlave.faceImplant to 1>>
 		<<set $activeSlave.muscles = 0>>
@@ -343,7 +343,7 @@ For the first time, you receive a direct call from your rival. You pictured the 
 	<<if $activeSlave.age > 35>><<set $activeSlave.ageImplant to 1>><</if>>
 	<<set $activeSlave.pubicHStyle to "waxed">>
 	<<AddSlave $activeSlave>>
-	<<display "New Slave Intro">>
+	<<include "New Slave Intro">>
 	<</replace>>
-<</click>>
+<</link>>
 </span>

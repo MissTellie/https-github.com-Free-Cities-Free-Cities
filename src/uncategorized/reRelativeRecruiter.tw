@@ -224,7 +224,7 @@ She waits anxiously for your decision.
 <<elseif $arcologies[0].FSEdoRevivalist > 20>>
 	<<set $activeSlave.slaveName to $edoSlaveNames.random()>>
 <<elseif $arcologies[0].FSDegradationist != "unset">>
-	<<display "Degrading Name">>
+	<<include "Degrading Name">>
 <<else>>
 	<<set $activeSlave.slaveName to $activeSlave.birthName>>
 <</if>>
@@ -249,7 +249,7 @@ You look up the $activeSlave.relation. She costs ¤$slaveCost, a bargain, but yo
 
 <br><br>
 <span id="result">
-<<click "Buy her">>
+<<link "Buy her">>
 	<<AddSlave $activeSlave>>
 	<<set $cash -= $slaveCost>>
 	<<for $i to 0; $i < $slaves.length; $i++>>
@@ -263,7 +263,7 @@ You look up the $activeSlave.relation. She costs ¤$slaveCost, a bargain, but yo
 	<<replace "#result">>
 	You complete the legalities and biometric scanning quickly and without fuss. $activeSlave.slaveName arrives shortly. The two slaves remember each other only dimly - they parted a long time ago - but they embrace. The devoted $desc explains the situation and encourages her $activeSlave.relation to be a good slave to you. $activeSlave.slaveName looks a little fearful but clearly realizes that she's lucky to be here.
 	<<set $nextLink to "AS Dump">>
-	<<display "New Slave Intro">>
+	<<include "New Slave Intro">>
 	<</replace>>
-<</click>>
+<</link>>
 </span>

@@ -272,37 +272,37 @@
 		''__@@color:pink;$slaves[$i].slaveName@@__'' is serving as the Wardeness in $cellblockName.
 		<<silently>>
 		<<if $slaves[$i].choosesOwnClothes == 1>>
-		<<display "SA chooses own clothes">>
+		<<include "SA chooses own clothes">>
 		<<if ($slaves[$i].devotion <= 20)>>
 			<<set $slaves[$i].devotion -= 5>>
 		<<else>>
 			<<set $slaves[$i].devotion += 1>>
 		<</if>>
 		<</if>>
-		<<display "SA diet">>
-		<<display "SA long term effects">>
-		<<display "SA drugs">>
-		<<display "SA relationships">>
-		<<display "SA rivalries">>
-		<<display "SA devotion">>
+		<<include "SA diet">>
+		<<include "SA long term effects">>
+		<<include "SA drugs">>
+		<<include "SA relationships">>
+		<<include "SA rivalries">>
+		<<include "SA devotion">>
 		<</silently>>
 	<<else>>
 		''__@@color:pink;$slaves[$i].slaveName@@__'' is serving as the Wardeness in $cellblockName.
 		<<if $slaves[$i].choosesOwnClothes == 1>>
-		<<display "SA chooses own clothes">>
+		<<include "SA chooses own clothes">>
 		<<if ($slaves[$i].devotion <= 20)>>
 			<<set $slaves[$i].devotion -= 5>>
 		<<else>>
 			<<set $slaves[$i].devotion += 1>>
 		<</if>>
 		<</if>>
-		<<display "SA diet">>
-		<<display "SA long term effects">>
-		<<display "SA drugs">>
-		<<display "SA relationships">>
-		<<display "SA rivalries">>
+		<<include "SA diet">>
+		<<include "SA long term effects">>
+		<<include "SA drugs">>
+		<<include "SA relationships">>
+		<<include "SA rivalries">>
 		<br>
-		<<display "SA devotion">>
+		<<include "SA devotion">>
 		<br>
 	<</if>>
 	<</if>>
@@ -314,25 +314,25 @@
 	<<if $showEWD == 0>>
 		''__@@color:pink;$slaves[$i].slaveName@@__'' is confined in $cellblockName.
 		<<silently>>
-		<<display [[SA stay confined]]>>
-		<<display "SA diet">>
-		<<display "SA long term effects">>
-		<<display "SA drugs">>
-		<<display "SA relationships">>
-		<<display "SA rivalries">>
-		<<display "SA devotion">>
+		<<include [[SA stay confined]]>>
+		<<include "SA diet">>
+		<<include "SA long term effects">>
+		<<include "SA drugs">>
+		<<include "SA relationships">>
+		<<include "SA rivalries">>
+		<<include "SA devotion">>
 		<</silently>>
 	<<else>>
 		''__@@color:pink;$slaves[$i].slaveName@@__''
-		<<display [[SA stay confined]]>>
+		<<include [[SA stay confined]]>>
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;
-		<<display "SA diet">>
-		<<display "SA long term effects">>
-		<<display "SA drugs">>
-		<<display "SA relationships">>
-		<<display "SA rivalries">>
+		<<include "SA diet">>
+		<<include "SA long term effects">>
+		<<include "SA drugs">>
+		<<include "SA relationships">>
+		<<include "SA rivalries">>
 		<br>
-		<<display "SA devotion">>
+		<<include "SA devotion">>
 		<br>
 	<</if>>
 	<</if>>
@@ -351,37 +351,37 @@
 		''__@@color:pink;$slaves[$i].slaveName@@__'' is serving as the Wardeness in $cellblockName.
 		<<silently>>
 		<<if $slaves[$i].choosesOwnClothes == 1>>
-		<<display "SA chooses own clothes">>
+		<<include "SA chooses own clothes">>
 		<<if ($slaves[$i].devotion <= 20)>>
 			<<set $slaves[$i].devotion -= 5>>
 		<<else>>
 			<<set $slaves[$i].devotion += 1>>
 		<</if>>
 		<</if>>
-		<<display "SA diet">>
-		<<display "SA long term effects">>
-		<<display "SA drugs">>
-		<<display "SA relationships">>
-		<<display "SA rivalries">>
-		<<display "SA devotion">>
+		<<include "SA diet">>
+		<<include "SA long term effects">>
+		<<include "SA drugs">>
+		<<include "SA relationships">>
+		<<include "SA rivalries">>
+		<<include "SA devotion">>
 		<</silently>>
 	<<else>>
 		''__@@color:pink;$slaves[$i].slaveName@@__'' is serving as the Wardeness in $cellblockName.
 		<<if $slaves[$i].choosesOwnClothes == 1>>
-		<<display "SA chooses own clothes">>
+		<<include "SA chooses own clothes">>
 		<<if ($slaves[$i].devotion <= 20)>>
 			<<set $slaves[$i].devotion -= 5>>
 		<<else>>
 			<<set $slaves[$i].devotion += 1>>
 		<</if>>
 		<</if>>
-		<<display "SA diet">>
-		<<display "SA long term effects">>
-		<<display "SA drugs">>
-		<<display "SA relationships">>
-		<<display "SA rivalries">>
+		<<include "SA diet">>
+		<<include "SA long term effects">>
+		<<include "SA drugs">>
+		<<include "SA relationships">>
+		<<include "SA rivalries">>
 		<br>
-		<<display "SA devotion">>
+		<<include "SA devotion">>
 		<br>
 	<</if>>
 	<</if>>
