@@ -1,9 +1,10 @@
 :: SE nicaea preparation [nobr]
 
-<<set $nextLink to "Scheduled Event", $nextButton to "Continue">>
+<<if $plot == 1>><<set $nextLink to "Nonrandom Event">><<else>><<set $nextLink to "Random Nonindividual Event">><</if>>
+<<set $nextButton to "Continue">>
 <<set $nicaeaPreparation = 0>>
 
-<<if $nicaeaInvolvement == 1>>
+<<if $nicaeaInvolvement == -1>>
 
 Your vigorous opposition to a religious council to establish an agreed upon creed for Chattel Religionism has been successful, but not without cost. The furious controversy @@color:red;cost you friends and damaged your reputation@@ among those of your religious peers who wanted to see Chattel Religionists draw closer together, and as happens in controversies as heated as this, the influence and reputation you gain from those who agree with you doesn't match what you lose among those who think you're standing in the way of progress. Furthermore, not all of your citizens agreed with you, either. A few citizens of consequence have actually left $arcologies[0].name over it, @@color:red;damaging its economic prosperity.@@ Also, Chattel Religionists have had a serious disagreement here for the first time. @@color:red;Full acceptance of slaveowning theocracy in your arcology has been set back.@@ A majority of your citizens still approve and participate, but it will take time to rebuild.
 <<set $rep -= 4000, $arcologies[0].prosperity -= 5, $arcologies[0].FSChattelReligionist *= 0.6>>
