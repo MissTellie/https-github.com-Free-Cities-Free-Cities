@@ -177,6 +177,7 @@
 		<<set $slaves[$i].fetishStrength += 4>>
 	<</if>>
 	<</if>>
+	<<set $wardeness = $slaves[$i]>>
 <</if>>
 <</for>>
 
@@ -305,6 +306,7 @@
 		<<include "SA devotion">>
 		<br>
 	<</if>>
+	<<set $wardeness = $slaves[$i]>>
 	<</if>>
 	<</for>>
 
@@ -314,7 +316,7 @@
 	<<if $showEWD == 0>>
 		''__@@color:pink;$slaves[$i].slaveName@@__'' is confined in $cellblockName.
 		<<silently>>
-		<<include [[SA stay confined]]>>
+		<<include "SA stay confined">>
 		<<include "SA diet">>
 		<<include "SA long term effects">>
 		<<include "SA drugs">>
@@ -323,8 +325,8 @@
 		<<include "SA devotion">>
 		<</silently>>
 	<<else>>
-		''__@@color:pink;$slaves[$i].slaveName@@__''
-		<<include [[SA stay confined]]>>
+		''__@@color:pink;$slaves[$i].slaveName@@__'' is confined in $cellblockName.
+		<<include "SA stay confined">>
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;
 		<<include "SA diet">>
 		<<include "SA long term effects">>
@@ -384,6 +386,7 @@
 		<<include "SA devotion">>
 		<br>
 	<</if>>
+	<<set $wardeness = $slaves[$i]>>
 	<</if>>
 	<</for>>
 
