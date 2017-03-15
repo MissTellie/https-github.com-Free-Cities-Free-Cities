@@ -139,6 +139,7 @@
 		<<if $nicaeaInvolvement != 0>>
 			<<goto "SE nicaea preparation">>
 		<<else>>
+			<<set $nicaeaPreparation = 0>>
 			<<if $plot == 1>><<goto "Nonrandom Event">><<else>><<goto "Random Nonindividual Event">><</if>>
 		<</if>>
 	<<elseif $nicaeaInvolvement >= 0>>

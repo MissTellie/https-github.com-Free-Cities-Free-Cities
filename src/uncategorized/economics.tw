@@ -332,11 +332,11 @@ On formal occasions, you are announced as $PCTitle.
 	<<if $nicaeaAchievement == "slaves">>
 		<<if $slaves.length > 50>>
 			@@color:green;strongly approve@@ of the large
-			<<set $rep += 2*$FSSingleSlaveRep*($arcologies[0].FSRomanRevivalist/$FSLockinLevel)>>
+			<<set $rep += 2*$FSSingleSlaveRep*($arcologies[0].FSChattelReligionist/$FSLockinLevel)>>
 			<<set $arcologies[0].FSChattelReligionist += 0.1*$FSSingleSlaveRep>>
 		<<elseif $slaves.length > 20>>
 			@@color:green;approve@@ of the good 
-			<<set $rep += $FSSingleSlaveRep*($arcologies[0].FSRomanRevivalist/$FSLockinLevel)>>
+			<<set $rep += $FSSingleSlaveRep*($arcologies[0].FSChattelReligionist/$FSLockinLevel)>>
 			<<set $arcologies[0].FSChattelReligionist += 0.05*$FSSingleSlaveRep>>
 		<<elseif $slaves.length > 20>>
 			are not impressed by the 
@@ -345,11 +345,11 @@ On formal occasions, you are announced as $PCTitle.
 	<<elseif $nicaeaAchievement == "devotion">>
 		<<if $averageDevotion > 80>>
 			@@color:green;strongly approve@@ of the worshipfulness
-			<<set $rep += 2*$FSSingleSlaveRep*($arcologies[0].FSRomanRevivalist/$FSLockinLevel)>>
+			<<set $rep += 2*$FSSingleSlaveRep*($arcologies[0].FSChattelReligionist/$FSLockinLevel)>>
 			<<set $arcologies[0].FSChattelReligionist += 0.1*$FSSingleSlaveRep>>
 		<<elseif $averageDevotion > 50>>
 			@@color:green;approve@@ of the devotion
-			<<set $rep += $FSSingleSlaveRep*($arcologies[0].FSRomanRevivalist/$FSLockinLevel)>>
+			<<set $rep += $FSSingleSlaveRep*($arcologies[0].FSChattelReligionist/$FSLockinLevel)>>
 			<<set $arcologies[0].FSChattelReligionist += 0.05*$FSSingleSlaveRep>>
 		<<elseif $slaves.length > 20>>
 			are not impressed by the devotion
@@ -358,11 +358,11 @@ On formal occasions, you are announced as $PCTitle.
 	<<else>>
 		<<if $averageTrust > 50>>
 			@@color:green;strongly approve@@ of the great trust your slaves place in you.
-			<<set $rep += 2*$FSSingleSlaveRep*($arcologies[0].FSRomanRevivalist/$FSLockinLevel)>>
+			<<set $rep += 2*$FSSingleSlaveRep*($arcologies[0].FSChattelReligionist/$FSLockinLevel)>>
 			<<set $arcologies[0].FSChattelReligionist += 0.1*$FSSingleSlaveRep>>
 		<<elseif $averageTrust > 20>>
 			@@color:green;approve@@ of the trust your slaves place in you.
-			<<set $rep += $FSSingleSlaveRep*($arcologies[0].FSRomanRevivalist/$FSLockinLevel)>>
+			<<set $rep += $FSSingleSlaveRep*($arcologies[0].FSChattelReligionist/$FSLockinLevel)>>
 			<<set $arcologies[0].FSChattelReligionist += 0.05*$FSSingleSlaveRep>>
 		<<elseif $slaves.length > 20>>
 			are not impressed by fear many of your slaves feel towards you.

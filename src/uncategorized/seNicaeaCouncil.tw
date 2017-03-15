@@ -1,10 +1,12 @@
 :: SE nicaea council [nobr]
 
-<<set $nextLink to "Scheduled Event", $nextButton to "Continue">>
+<<if $plot == 1>><<set $nextLink to "Nonrandom Event">><<else>><<set $nextLink to "Random Nonindividual Event">><</if>>
+<<set $nextButton to "Continue">>
 <<set $nicaeaHeld = 1, $arcologies[0].FSChattelReligionistCreed = 1>>
 
 <<if $nicaeaInvolvement == 0>>
 
+<<set $arcologies[0].FSChattelReligionistCreed = 1>>
 The $nicaeaName is held in another arcology, without your involvement. Your abstention has weakened it. It authored a creed which the Council claims all good Chattel Religionists should subscribe. Most of it is uncontroversial, giving beliefs about slavery and faith that virtually all Chattel Religionists agree on. However, the new creed does purport to settle three major points of contention.
 <br><br>
 First, it emphasizes 
@@ -21,7 +23,7 @@ Second, one of the ways it states that free people can make their devotions is t
 	fuck a public slut. Not surprisingly, this will increase demand for public servants.
 <<else>>
 	have sex with one's slaves. This will likely increase respect for those that keep their own fucktoys.
-<</if>>.
+<</if>>
 <br><br>
 Third, the aspirational part of the creed for slaveowners focuses on
 <<if $nicaeaAchievement == "slaves">>
@@ -85,23 +87,23 @@ On the third question, some with seats on the Council think owning sex slaves is
 A majority of the Council currently supports deciding this question in favor of ''<<if $nicaeaAchievement == "slaves">>owning slaves<<else>>$nicaeaAchievement<</if>>.''
 <br>&nbsp;&nbsp;&nbsp;&nbsp;
 <<link "Support owning many slaves">>
-	<<set $nicaeaInfluence -= 1, $nicaeaRollB += 1>>
+	<<set $nicaeaInfluence -= 1, $nicaeaRollC += 1>>
 	<<if $nicaeaRollC > 0>><<set $nicaeaAchievement = "whore">><</if>>
 	<<goto "SE nicaea council">>
 <</link>>
 | <<link "Support trust">>
-	<<set $nicaeaInfluence -= 1, $nicaeaRollB += 1>>
+	<<set $nicaeaInfluence -= 1, $nicaeaRollC += 1>>
 	<<if $nicaeaRollC > 0>><<set $nicaeaAchievement = "trust">><</if>>
 	<<goto "SE nicaea council">>
 <</link>>
 | <<link "Support devotion">>
-	<<set $nicaeaInfluence -= 1, $nicaeaRollB += 1>>
+	<<set $nicaeaInfluence -= 1, $nicaeaRollC += 1>>
 	<<if $nicaeaRollC > 0>><<set $nicaeaAchievement = "devotion">><</if>>
 	<<goto "SE nicaea council">>
 <</link>>
 
 <br><br>
-[[Conclude the Council|SE nicaea council][$rep += $nicaeaInfluence*2000]] //This will let the currently prevailing views stand, and convert your remaining influence with the Council into general reputation//
+[[Conclude the Council|SE nicaea council][$nicaeaInfluence = 0, $rep += $nicaeaInfluence*2000]] //This will let the currently prevailing views stand, and convert your remaining influence with the Council into general reputation//
 
 <<else>>
 
