@@ -15,19 +15,16 @@
 */
 
 postdisplay["doAccordionSet"] = function (content) {
-<<<<<<< Updated upstream
     if (variables().useAccordion === 1) {
         Array.prototype.slice.call(document.querySelectorAll(".macro-display"))
             .forEach(function (element) {
                 element.classList.add("accHidden");
             });
-=======
     if (variables().useAccordion == 1) {
         Array.prototype.slice.call(document.querySelectorAll('.macro-include'))
         .forEach(function(element) {
             element.classList.add('accHidden');
         });
->>>>>>> Stashed changes
     }
 }
 
