@@ -9,8 +9,15 @@
 <</if>>
 <</for>>
 <</if>>
-<<if _ATD >= 0>>
-	<<if $seeImages == 1>><<SlaveArt $slaves[_ATD] 0 0>><</if>>
+<<if _ATD >= 0>>	
+	/* 000-250-006 */
+	/* <<if $seeImages == 1>><<SlaveArt $slaves[$i] 0 0>><</if>> */
+	<<if $seeImages == 1>>
+		<div class="imageRef smlImg">
+			<<SlaveArt $slaves[_ATD] 0 0>>
+		</div>
+	<</if>>
+	/* 000-250-006 */
 	<<if ($slaves[_ATD].health < 100)>>
 	<<set $slaves[_ATD].health += 20>>
 	<</if>>
@@ -40,7 +47,14 @@
 
 <<for _i = 0; _i < _SL; _i++>>
 	<<if ($slaves[_i].assignment != "rest in the spa")>><<continue>><</if>>
-	<<if $seeImages == 1>><<SlaveArt $slaves[_i] 0 0>><</if>>
+	/* 000-250-006 */
+	/* <<if $seeImages == 1>><<SlaveArt $slaves[$i] 0 0>><</if>> */
+	<<if $seeImages == 1>>
+		<div class="imageRef smlImg">
+			<<SlaveArt $slaves[_i] 0 0>>
+		</div>
+	<</if>>
+	/* 000-250-006 */
 	<<set $spaSlaves++>>
 	<<if ($slaves[_i].devotion <= 60) && ($slaves[_i].trust < 60)>>
 	<<set $slaves[_i].devotion += 1, $slaves[_i].trust += 1>>
