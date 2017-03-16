@@ -30,6 +30,10 @@ There are two methods of acquiring Free Cities:
 
 * The compiler assumes that you will be working on a 64 bit Operating System. As such, the tools here will not work on 32 bit systems. If someone actually requires a 32 bit build of the compiler, email Spaghetti Code at the address below.
 
+### Receiving credit for contributions to FC
+
+* FC Dev does not credit contributors without explicit permission. If you make contributions via GitHub and would like to be listed in the comments, please contact FC Dev with the name you'd like to be credited as and a brief summary of what you did.
+
 ## Contacts
 [FC Dev](https://github.com/freecitiesdev) - Project Owner and Lead Developer.  
 For questions regarding the game itself, contributing, or other project-related questions, please contact FC Dev at **freecitiesdev [at] gmail.com**.
