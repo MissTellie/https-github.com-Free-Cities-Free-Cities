@@ -5,7 +5,15 @@
 <<if $subSlave == 0>>
 
 <<SlaveTitle $eventSlave>>
-<<if $seeImages == 1>><<SlaveArt $eventSlave 2 0>><</if>>
+
+/* 000-250-006 */
+/* <<if $seeImages == 1>><<SlaveArt $eventSlave 2 0>><</if>> */
+<<if $seeImages == 1>>
+    <div class="imageRef medImg">
+    <<SlaveArt $eventSlave 2 0>>
+</div>
+<</if>>
+/* 000-250-006 */
 
 You order $eventSlave.slaveName to come to your office. The <<if $eventSlave.relationship == -2>>worshipful<<else>>slutty<</if>> $desc arrives promptly, greets you correctly, and waits <<if $eventSlave.relationship == -2>>adoringly for a command<<else>>eagerly for you to fuck her<</if>>. You consider the situation carefully.
 <<if $eventSlave.relationship == -2>>
@@ -273,7 +281,17 @@ Despite her devotion and trust, she is still a slave, and probably knows that he
 
 <<else>>
 
-<<if $seeImages == 1>><<SlaveArt $eventSlave 2 0>><<SlaveArt $subSlave 2 0>><</if>>
+/* 000-250-006 */
+/* <<if $seeImages == 1>><<SlaveArt $eventSlave 2 0>><<SlaveArt $subSlave 2 0>><</if>> */
+<<if $seeImages == 1>>
+    <div class="imageRef medImg">
+    <<SlaveArt $eventSlave 2 0>>
+    </div>
+    <div class="imageRef medImg">
+    <<SlaveArt $subSlave 2 0>>
+    </div>
+<</if>>
+/* 000-250-006 */
 
 You decide to set $eventSlave.slaveName up with $subSlave.slaveName. Telling the former to wait, you have the latter hurry up to your office. When the <<if $eventSlave.relationship == -2>>slaves are waiting adoringly<<else>>sluts are waiting with barely concealed lust<</if>> in front of your desk together, you inform them of your decision.
 <<if $eventSlave.relationship == -2>>
