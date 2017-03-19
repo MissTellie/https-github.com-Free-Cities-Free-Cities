@@ -228,10 +228,5 @@
 
 <<else>>
 	''$clinicNameCaps is empty.''
-	<<if ($Nurse != 0)>>
-		<<set _seed to random(1,10)+((5-$clinicSlaves)*(random(150,170)+(_idleBonus*10)))>>
-		<<set $cash += _seed>>
-		Except for $Nurse.slaveName, the nurse. Since she doesn't have any of your slaves under her care to fill her time, the Clinic admits citizens' slaves, earning @@color:yellowgreen;¤_seed.@@
-	<</if>>
 <</if>>
 <br><br>
