@@ -172,7 +172,7 @@
 	&nbsp;&nbsp;&nbsp;&nbsp;<<if $brothelSlaves == 1>>''There is one slave whore working out of $brothelName.''<<else>>''There are $brothelSlaves slave whores working out of $brothelName.''<</if>>
 
 	/% stuff that does not need to be in the for loop %/
-	<<set _healthBonus = 0, _aphrod = 0>>
+	<<set _healthBonus = 0, _aphrod = $slaves[_i].aphrodisiacs>>
 	<<if ($brothelUpgradeDrugs == 1)>>
 		<<set _healthBonus += 3, _aphrod = 2>>
 	<</if>>
@@ -261,6 +261,7 @@
 	<<set _profits += $cash-$oldCash>>
 	<<include "SA relationships">>
 	<<include "SA rivalries">>
+	<<include "SA devotion">>
 	<</silently>>
 	<<if ($slaves[_i].health < -80)>>
 	<<set $slaves[_i].health += 20>>
