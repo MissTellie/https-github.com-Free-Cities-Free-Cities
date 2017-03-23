@@ -1,55 +1,54 @@
 :: Club Report [nobr]
 
-<<set $clubBonuses = 0, $clubSlaves = 0, $DJRepBonus = 0, $implanted = 0, $legendaryEntertainerID = 0, $modded = 0, $old = 0, $pure = 0, $slim = 0, $stacked = 0, $unmodded = 0, $XX = 0, $XY = 0, $young = 0, _DJFetish = 0, _SL = $slaves.length, _DJ = -1>>
+<<set $clubBonuses = 0, $DJRepBonus = 0, $implanted = 0, $legendaryEntertainerID = 0, $modded = 0, $old = 0, $pure = 0, $slim = 0, $stacked = 0, $unmodded = 0, $XX = 0, $XY = 0, $young = 0, _FLsFetish = 0, _DL = $ClubiIDs.length, $clubSlaves = _DL, _SL = $slaves.length, _FLs = -1>>
 
-<<for _i = 0; _i < _SL; _i++>>
-<<if ($slaves[_i].assignment is "serve in the club")>>
-	<<set $clubSlaves++>>
-<</if>>
+<<SlaveSort $ClubiIDs>>
+
 <<if $DJ != 0>>
-<<if $slaves[_i].ID == $DJ.ID>>
-	<<set _DJ = _i>>
-<</if>>
+<<for _FLs = 0; _FLs < _SL; _FLs++>>
+<<if $slaves[_FLs].ID == $DJ.ID>>
+<<break>>
 <</if>>
 <</for>>
+<</if>>
 
-<<if (_DJ > -1)>>
-<<if ($slaves[_DJ].health < -80)>>
-<<set $slaves[_DJ].health += 20>>
-<<elseif $slaves[_DJ].health < -40>>
-<<set $slaves[_DJ].health += 15>>
-<<elseif $slaves[_DJ].health < 0>>
-<<set $slaves[_DJ].health += 10>>
-<<elseif $slaves[_DJ].health < 90>>
-<<set $slaves[_DJ].health += 7>>
+<<if (_FLs > -1)>>
+<<if ($slaves[_FLs].health < -80)>>
+<<set $slaves[_FLs].health += 20>>
+<<elseif $slaves[_FLs].health < -40>>
+<<set $slaves[_FLs].health += 15>>
+<<elseif $slaves[_FLs].health < 0>>
+<<set $slaves[_FLs].health += 10>>
+<<elseif $slaves[_FLs].health < 90>>
+<<set $slaves[_FLs].health += 7>>
 <</if>>
-<<if $slaves[_DJ].devotion <= 60>>
-<<set $slaves[_DJ].devotion += 5>>
+<<if $slaves[_FLs].devotion <= 60>>
+<<set $slaves[_FLs].devotion += 5>>
 <</if>>
-<<if $slaves[_DJ].trust < 60>>
-<<set $slaves[_DJ].trust += 3>>
+<<if $slaves[_FLs].trust < 60>>
+<<set $slaves[_FLs].trust += 3>>
 <</if>>
-<<if $slaves[_DJ].fetishStrength <= 95>>
-<<if $slaves[_DJ].fetish != "humiliation">>
-	<<fetishChangeChance $slaves[_DJ]>>
+<<if $slaves[_FLs].fetishStrength <= 95>>
+<<if $slaves[_FLs].fetish != "humiliation">>
+	<<fetishChangeChance $slaves[_FLs]>>
 	<<if $fetishChangeChance > random(0,100)>>
-		<<set _DJFetish = 1, $slaves[_DJ].fetishKnown = 1, $slaves[_DJ].fetish = "humiliation">>
+		<<set _FLsFetish = 1, $slaves[_FLs].fetishKnown = 1, $slaves[_FLs].fetish = "humiliation">>
 	<</if>>
-<<elseif $slaves[_DJ].fetishKnown == 0>>
-	<<set _DJFetish = 1, $slaves[_DJ].fetishKnown = 1>>
+<<elseif $slaves[_FLs].fetishKnown == 0>>
+	<<set _FLsFetish = 1, $slaves[_FLs].fetishKnown = 1>>
 <<else>>
-	<<set _DJFetish = 2, $slaves[_DJ].fetishStrength += 4>>
+	<<set _FLsFetish = 2, $slaves[_FLs].fetishStrength += 4>>
 <</if>>
 <</if>>
-<<set $DJ = $slaves[_DJ], $i = _DJ>>
+<<set $DJ = $slaves[_FLs]>>
 &nbsp;&nbsp;&nbsp;&nbsp;$DJ.slaveName is performing as the DJ.
 <<if $DJ.relationship is -3>>
 	She tries her best to be your energetic, cheerful wife.
 	<<set $DJRepBonus += 0.1>>
 <</if>>
-<<if (_DJFetish == 1)>>
+<<if (_FLsFetish == 1)>>
 	She's expected to be the innovative, beautiful DJ spinning beats one minute, and come out of her booth to grind on the floor the next; she enjoys the interplay, and finds greater @@color:lightcoral;pleasure in exhibitionism.@@
-<<elseif (_DJFetish == 2)>>
+<<elseif (_FLsFetish == 2)>>
 	Every day she gets to enjoy hundreds of stares on her skin, and @@color:lightsalmon;becomes more of an exhibitionist.@@
 <</if>>
 <<if ($DJ.eyes == -2)>>
@@ -87,10 +86,9 @@
 	She has musical experience from her life before she was a slave, a grounding that gives her tracks actual depth.
 	<<set $DJRepBonus += 0.05>>
 <</if>>
-/% clubSlaves < 5 was here %/
 <</if>>
 
-<<if ($clubSlaves < 5) && (_DJ > -1)>>
+<<if ($clubSlaves < 5) && (_FLs > -1)>>
 	<<set $slavesGettingHelp = 0>>
 	<<if $universalRulesFacilityWork == 1>>
 	<<for _i = 0; _i < _SL; _i++>>
@@ -102,7 +100,7 @@
 	<<if ($clubSlaves+$slavesGettingHelp < 5)>>
 		<<Beauty $DJ>> /% Temporarily added it so vars like $slim, $XX, $XY get used right %/
 		<<FResult $DJ>> /% Not sure if this has to be added as well or not at the moment. %/
-		<<set $repGain += Math.trunc(($beauty*$FResult)*(1+(0.003*$slaves[_DJ].entertainSkill))*0.1*0.5)>>
+		<<set $repGain += Math.trunc(($beauty*$FResult)*(1+(0.003*$slaves[_FLs].entertainSkill))*0.1*0.5)>>
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;Since she doesn't have enough sluts in $clubName to make it worthwhile for her to be on stage 24/7, she spends her extra time time slutting it up herself. She has sex with $beauty citizens, @@color:green;pleasing them immensely,@@ since it's more appealing to fuck the DJ than some club slut.<br>
 	<</if>>
 <</if>>
@@ -111,8 +109,19 @@
 	<<set _possibleBonuses = 0>>
 	<<if $seeImages == 1>><br style="clear:both" /><</if>>
 	&nbsp;&nbsp;&nbsp;&nbsp;<<if ($clubSlaves == 1)>>''The one slave pleasing citizens in $clubName''<<else>>''The $clubSlaves slaves pleasing citizens in $clubName''<</if>> worked hard to @@color:green;increase your reputation@@ this week.
- <<for _i = 0; _i < _SL; _i++>>
-	<<if ($slaves[_i].assignment != "serve in the club")>><<continue>><</if>>
+<<for _dI = 0; _dI < _DL; _dI++>>
+	<<set _i = $ClubiIDs[_dI].Index>>
+	<<if $ClubiIDs[_dI].ID != $slaves[_i].ID>>
+		/% Slaves.ID and $ClubiIDs.ID's don't match-up so let's find her %/
+		<<for _x = 0; _x < _SL; _x++>>
+			<<if ($ClubiIDs[_dI].ID == $slaves[_x].ID)>>
+				/% Correct the Index %/
+				<<set $ClubiIDs[_dI].Index = _x, _i = _x>>
+				<<break>>
+			<</if>>
+		<</for>>
+	<</if>>
+	/% Onward bound as normal %/
 	<<if ($legendaryEntertainerID == 0) && ($slaves[_i].prestige == 0) && ($slaves[_i].entertainSkill >= 100) && ($slaves[_i].devotion > 50) && ($slaves[_i].prestige == 0)>>
 	<<set $legendaryEntertainerID = $slaves[_i].ID>>
 	<</if>>
@@ -206,12 +215,13 @@
 <</if>>
 
 <<if ($DJ != 0)>>
-	<<set $i = _DJ>>
-	<<if ($legendaryEntertainerID == 0) && ($slaves[_DJ].prestige == 0) && ($slaves[_DJ].entertainSkill >= 100) && ($slaves[_DJ].devotion > 50)>>
-		<<set $legendaryEntertainerID = $slaves[_DJ].ID>>
+	<<set $i = _FLs>>
+	<<if ($legendaryEntertainerID == 0) && ($slaves[_FLs].prestige == 0) && ($slaves[_FLs].entertainSkill >= 100) && ($slaves[_FLs].devotion > 50)>>
+		<<set $legendaryEntertainerID = $slaves[_FLs].ID>>
 	<</if>>
-	<br><br>''__@@color:pink;$slaves[_DJ].slaveName@@__'' is performing as the DJ in the club.
+	<br><br>''__@@color:pink;$slaves[_FLs].slaveName@@__'' is performing as the DJ in the club.
 	<<if $showEWD == 0>>
+		<br>
 		<<silently>>
 		<<if ($clubSlaves+$slavesGettingHelp < 5)>>
 		<<include "SA serve the public">>
@@ -233,10 +243,9 @@
 		<</silently>>
 	<<else>>
 		/* 000-250-006 */
-		/* <<if $seeImages == 1>><<SlaveArt $slaves[_DJ] 0 0>><</if>> */
 		<<if $seeImages == 1 && $imageChoice == 0>>
-		    <div class="imageRef tinyImg">
-		    <<SlaveArt $slaves[_DJ] 0 0>>
+		<div class="imageRef tinyImg">
+			<<SlaveArt $slaves[_FLs] 0 0>>
 		</div>
 		<</if>>
 		/* 000-250-006 */
@@ -260,13 +269,13 @@
 		<br><<include "SA devotion">>
 		<br><br>
 	<</if>>
-	<<set $DJ = $slaves[_DJ]>>
+	<<set $DJ = $slaves[_FLs]>>
 <</if>>
 
 <<if ($clubSlaves > 0)>>
 	<<if $showEWD == 0>>
-		<<for $i = 0; $i < _SL; $i++>>
-		<<if ($slaves[$i].assignment != "serve in the club")>><<continue>><</if>>
+		<<for _dI = 0; _dI < _DL; _dI++>>
+		<<set $i = $ClubiIDs[_dI].Index>>
 		''__@@color:pink;$slaves[$i].slaveName@@__'' is serving in the club.<br>
 		<<silently>>
 		<<include "SA serve the public">>
@@ -290,13 +299,12 @@
 		<<if ($DJ == 0)>>
 			<br><br>
 		<</if>>
-		<<for $i = 0; $i < _SL; $i++>>
-		<<if ($slaves[$i].assignment != "serve in the club")>><<continue>><</if>>
+		<<for _dI = 0; _dI < _DL; _dI++>>
+		<<set $i = $ClubiIDs[_dI].Index>>
 		/* 000-250-006 */
-		/* <<if $seeImages == 1>><<SlaveArt $slaves[$i] 0 0>><</if>> */
 		<<if $seeImages == 1 && $imageChoice == 0>>
-		    <div class="imageRef tinyImg">
-		    <<SlaveArt $slaves[$i] 0 0>>
+		<div class="imageRef tinyImg">
+			<<SlaveArt $slaves[$i] 0 0>>
 		</div>
 		<</if>>
 		/* 000-250-006 */
