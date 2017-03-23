@@ -1,72 +1,54 @@
 :: Brothel Report [nobr]
 
-<<set $brothelSlaves = 0, $implanted = 0, $legendaryWhoreID = 0, $madamCashBonus = 0, $modded = 0, $old = 0, $pure = 0, $slim = 0, $stacked = 0, $unmodded = 0, $XX = 0, $XY = 0, $young = 0, _madamFetish = 0, _profits = 0, _SL = $slaves.length, _MDM = -1>>
+<<set $implanted = 0, $legendaryWhoreID = 0, $madamCashBonus = 0, $modded = 0, $old = 0, $pure = 0, $slim = 0, $stacked = 0, $unmodded = 0, $XX = 0, $XY = 0, $young = 0, _FLsFetish = 0, _profits = 0, _SL = $slaves.length, _FLs = -1, _DL = $BrothiIDs.length, $brothelSlaves = _DL>>
 
-<<for _i = 0; _i < _SL; _i++>>
-<<if ($slaves[_i].assignment == "work in the brothel")>>
-	<<set $brothelSlaves++>>
-<</if>>
+<<SlaveSort $BrothiIDs>>
+
 <<if ($Madam != 0)>>
-<<if ($slaves[_i].ID == $Madam.ID)>>
-	<<set _MDM = _i>>
-<</if>>
+<<for _FLs = 0; _FLs < _SL; _FLs++>>
+<<if ($slaves[_FLs].ID == $Madam.ID)>>
+	<<break>>
 <</if>>
 <</for>>
+<</if>>
 
-<<if (_MDM > -1)>>
-	<<silently>>
-	<<set $i = _MDM>>
-	<<if $slaves[_MDM].choosesOwnClothes == 1>>
-	<<include "SA chooses own clothes">>
-	<<if ($slaves[_MDM].devotion <= 20)>>
-		<<set $slaves[_MDM].devotion -= 5>>
-	<<else>>
-		<<set $slaves[_MDM].devotion += 1>>
+<<if (_FLs > -1)>>
+	<<if ($slaves[_FLs].health < -80)>>
+	<<set $slaves[_FLs].health += 20>>
+	<<elseif $slaves[_FLs].health < -40>>
+	<<set $slaves[_FLs].health += 15>>
+	<<elseif $slaves[_FLs].health < 0>>
+	<<set $slaves[_FLs].health += 10>>
+	<<elseif $slaves[_FLs].health < 90>>
+	<<set $slaves[_FLs].health += 7>>
 	<</if>>
+	<<if $slaves[_FLs].devotion <= 45>>
+	<<set $slaves[_FLs].devotion += 5>>
 	<</if>>
-	<<include "SA diet">>
-	<<include "SA long term effects">>
-	<<include "SA drugs">>
-	<<include "SA relationships">>
-	<<include "SA rivalries">>
-	<<include "SA devotion">>
-	<</silently>>
-	<<if ($slaves[_MDM].health < -80)>>
-	<<set $slaves[_MDM].health += 20>>
-	<<elseif $slaves[_MDM].health < -40>>
-	<<set $slaves[_MDM].health += 15>>
-	<<elseif $slaves[_MDM].health < 0>>
-	<<set $slaves[_MDM].health += 10>>
-	<<elseif $slaves[_MDM].health < 90>>
-	<<set $slaves[_MDM].health += 7>>
+	<<if $slaves[_FLs].trust < 45>>
+	<<set $slaves[_FLs].trust += 5>>
 	<</if>>
-	<<if $slaves[_MDM].devotion <= 45>>
-	<<set $slaves[_MDM].devotion += 5>>
-	<</if>>
-	<<if $slaves[_MDM].trust < 45>>
-	<<set $slaves[_MDM].trust += 5>>
-	<</if>>
-	<<if $slaves[_MDM].fetishStrength <= 95>>
-	<<if $slaves[_MDM].fetish != "dom">>
-		<<fetishChangeChance $slaves[_MDM]>>
+	<<if $slaves[_FLs].fetishStrength <= 95>>
+	<<if $slaves[_FLs].fetish != "dom">>
+		<<fetishChangeChance $slaves[_FLs]>>
 		<<if $fetishChangeChance > random(0,100)>>
-			<<set _madamFetish = 1, $slaves[_MDM].fetishKnown = 1, $slaves[_MDM].fetish = "dom">>
+			<<set _FLsFetish = 1, $slaves[_FLs].fetishKnown = 1, $slaves[_FLs].fetish = "dom">>
 		<</if>>
-	<<elseif $slaves[_MDM].fetishKnown == 0>>
-		<<set _madamFetish = 1, $slaves[_MDM].fetishKnown = 1>>
+	<<elseif $slaves[_FLs].fetishKnown == 0>>
+		<<set _FLsFetish = 1, $slaves[_FLs].fetishKnown = 1>>
 	<<else>>
-		<<set _madamFetish = 2, $slaves[_MDM].fetishStrength += 4>>
+		<<set _FLsFetish = 2, $slaves[_FLs].fetishStrength += 4>>
 	<</if>>
 	<</if>>
-	<<set $Madam = $slaves[_MDM]>>
+	<<set $Madam = $slaves[_FLs]>>
 &nbsp;&nbsp;&nbsp;&nbsp;$Madam.slaveName is serving as the madam.
 <<if $Madam.relationship == -3>>
 	As your wife, she does her best to attract attention to your brothel.
 	<<set $madamCashBonus += 0.25>>
 <</if>>
-<<if (_madamFetish == 1)>>
+<<if (_FLsFetish == 1)>>
 	She isn't above sampling the merchandise herself; before long it's obvious to her girls that she @@color:lightcoral;really likes fucking them.@@
-<<elseif (_madamFetish == 2)>>
+<<elseif (_FLsFetish == 2)>>
 	She's careful that all of the whores under her supervision are all warmed up and ready to get fucked every morning, and she @@color:lightsalmon;becomes more dominant.@@
 <</if>>
 <<if ($Madam.whoreSkill <= 10)>>
@@ -100,16 +82,28 @@
 	Her turgid dick helps her manage the bitches.
 	<<set $madamCashBonus += 0.05>>
 <</if>>
-<<if $brothelSlaves > 0>>
-<<for _i = 0; _i < _SL; _i++>>
+<<if _DL > 0>>
+<<for _dI = 0; _dI < _DL; _dI++>>
+	<<set _i = $BrothiIDs[_dI].Index>>
+	<<if $BrothiIDs[_dI].ID != $slaves[_i].ID>>
+		/% Slaves.ID and $BrothiIDs.ID's don't match-up so let's find her %/
+		<<for _x = 0; _x < _SL; _x++>>
+			<<if ($BrothiIDs[_dI].ID == $slaves[_x].ID)>>
+				/% Correct the Index %/
+				<<set $BrothiIDs[_dI].Index = _x, _i = _x>>
+				<<break>>
+			<</if>>
+		<</for>>
+	<</if>>
+	/% Onward bound as normal %/
 	<<if ($slaves[_i].assignment != "work in the brothel")>><<continue>><</if>>
 	<<if $Madam.relationTarget == $slaves[_i].ID>>
 		She pays special attention to her $slaves[_i].relation, $slaves[_i].slaveName, making sure she is treated well and showing off her skills.
-		<<set $slaves[_i].trust += 1, $madamCashBonus += 0.05>>
+		<<set $slaves[_i].trust++, $madamCashBonus += 0.05>>
 	<</if>>
 	<<if $Madam.relationshipTarget == $slaves[_i].ID>>
 		She dotes over her <<if $Madam.relationship == 1>>friend<<elseif $Madam.relationship == 2>>best friend<<elseif $Madam.relationship == 3>>friend with benefits<<elseif $Madam.relationship == 4>>lover<<elseif $Madam.relationship == 5>>slave wife<</if>>, $slaves[_i].slaveName, making sure she is safe, but unfortunately driving potential costumers away from her.
-		<<set $slaves[_i].devotion += 1, $madamCashBonus -= 0.05>>
+		<<set $slaves[_i].devotion++, $madamCashBonus -= 0.05>>
 	<</if>>
 	<<if $Madam.rivalryTarget == $slaves[_i].ID>>
 		She forces her <<if $Madam.rivalry == 1>>growing rival<<elseif $Madam.rivalry == 2>>rival<<elseif $Madam.rivalry == 3>>bitter rival<</if>>, $slaves[_i].slaveName, to service all the men in the brothel.
@@ -125,7 +119,7 @@
 		<<set $slaves[_i].oralCount += 10, $oralTotal += 10>>
 		<<if $slaves[_i].publicCount>><<set $slaves[_i].publicCount += 10>><<else>><<set $slaves[_i].publicCount = 10>><</if>>
 		<<if random(1,100) > 65>>
-			<<set $slaves[_MDM].rivalry += 1, $Madam.rivalry += 1, $slaves[_i].rivalry += 1>>
+			<<set $slaves[_FLs].rivalry++, $Madam.rivalry++, $slaves[_i].rivalry++>>
 		<</if>>
 	<</if>>
 	<<if $slaves[_i].prestigeDesc == "She is a famed Free Cities whore, and commands top prices.">>
@@ -148,7 +142,7 @@
 <</if>>
 
 <<set $oldCash = $cash, _profits += $cash-$oldCash>>
-<<if ($brothelSlaves < 5)>>
+<<if (_DL < 5)>>
 	<<set $slavesGettingHelp = 0>>
 	<<if $universalRulesFacilityWork == 1>>
 	<<for _i to 0; _i < _SL; _i++>>
@@ -158,16 +152,18 @@
 	<</for>>
 	<</if>>
 	<<if ($brothelSlaves+$slavesGettingHelp < 5)>>
-	<<set $oldCash = $cash, $i = _MDM>>
+	<<set $oldCash = $cash, $i = _FLs>>
+	<<Beauty $Madam>>	/% Temporarily added it so vars like $slim, $XX, $XY get used right %/
+	<<FResult $Madam>>	/% Not sure if this has to be added as well or not at the moment. %/
 	<<silently>><<include "SA whore">><</silently>>
-	<<set $Madam = $slaves[_MDM], _seed = $cash-$oldCash, $cash += Math.trunc(0.5*_seed), _seed = Math.trunc(1.5*_seed), _profits += _seed>>
+	<<set $Madam = $slaves[_FLs], _seed = $cash-$oldCash, $cash += Math.trunc(0.5*_seed), _seed = Math.trunc(1.5*_seed), _profits += _seed>>
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;Since she doesn't have enough whores to manage to keep her busy, she sees $beauty customers herself (<<print Math.trunc($beauty/7)>> a day), earning you @@color:yellowgreen;¤_seed@@. She can charge more for her time, since many citizens find it erotic to fuck the Madam.
 	<</if>>
 <</if>>
 	<br>
 <</if>>
 
-<<if $brothelSlaves > 0>>
+<<if _DL > 0>>
 	<<if $seeImages == 1>><br style="clear:both" /><</if>>
 	&nbsp;&nbsp;&nbsp;&nbsp;<<if $brothelSlaves == 1>>''There is one slave whore working out of $brothelName.''<<else>>''There are $brothelSlaves slave whores working out of $brothelName.''<</if>>
 
@@ -179,27 +175,26 @@
 	<<if ($brothelUpgradeHealth == 1)>>
 		<<set _healthBonus += 10>>
 	<</if>>
-<<for _i = 0; _i < _SL; _i++>>
-	<<if ($slaves[_i].assignment != "work in the brothel")>><<continue>><</if>>
+<<for _dI = 0; _dI < _DL; _dI++>>
+	<<set _i = $BrothiIDs[_dI].Index>>
+	<<if $BrothiIDs[_dI].ID != $slaves[_i].ID>>
+		/% Slaves.ID and $BrothiIDs.ID's don't match-up so let's find her %/
+		<<for _x = 0; _x < _SL; _x++>>
+			<<if ($BrothiIDs[_dI].ID == $slaves[_x].ID)>>
+				/% Correct the Index %/
+				<<set $BrothiIDs[_dI].Index = _x, _i = _x>>
+				<<break>>
+			<</if>>
+		<</for>>
+	<</if>>
+	/% Onward bound as normal %/
 	<<if ($legendaryWhoreID == 0) && ($slaves[_i].whoreSkill >= 100) && ($slaves[_i].devotion > 50) && ($slaves[_i].prestige == 0)>>
 	<<set $legendaryWhoreID = $slaves[_i].ID>>
 	<</if>>
-	<<silently>>
-	<<set $i = _i>>
-	<<if $slaves[_i].choosesOwnClothes == 1>>
-		<<include "SA chooses own clothes">>
-		<<if ($slaves[_i].devotion <= 20)>>
-			<<set $slaves[_i].devotion -= 5>>
-		<<else>>
-			<<set $slaves[_i].devotion += 1>>
-		<</if>>
-	<</if>>
 	<<set $slaves[_i].health += _healthBonus, $slaves[_i].aphrodisiacs = _aphrod>>
-	<<include "SA diet">>
-	<<include "SA long term effects">>
-	<<include "SA drugs">>
+	<<Beauty $slaves[_i]>>	/% Temporarily added it so vars like $slim, $XX, $XY get used right %/
+	<<FResult $slaves[_i]>> /% Not sure if this has to be added as well or not at the moment. %/
 	<<set $oldCash = $cash>>
-	<<include "SA whore">>
 	<<if $brothelAdsSpending != 0>>
 	<<set _seed = 0>>
 	<<if $brothelAdsStacked == 1>>
@@ -259,10 +254,6 @@
 	<</if>>
 	<</if>>
 	<<set _profits += $cash-$oldCash>>
-	<<include "SA relationships">>
-	<<include "SA rivalries">>
-	<<include "SA devotion">>
-	<</silently>>
 	<<if ($slaves[_i].health < -80)>>
 	<<set $slaves[_i].health += 20>>
 	<<elseif $slaves[_i].health < -40>>
@@ -287,7 +278,7 @@
 
 	<<set $oldCash = $cash, _possibleBonuses = 0, _brothelBonuses = 0>>
 	<<if $brothelAdsSpending != 0>>
-	An ad campaign is supporting business there, and whores that match it make more ¤.
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;An ad campaign is supporting business there, and whores that match it make more ¤.
 	<</if>>
 	<<if ($arcologies[0].FSAssetExpansionist == "unset") && ($arcologies[0].FSSlimnessEnthusiast == "unset")>>
 	<<if ($brothelAdsSpending == 0) || ($brothelAdsStacked == 0)>>
@@ -343,18 +334,123 @@
 	<<set _profits += $cash-$oldCash>>
 	$brothelNameCaps makes you @@color:yellowgreen;¤_profits@@ this week.
 
-	<<if $brothel < $brothelSlaves>>
+	<<if $brothel < _DL>>
 	<<set $brothelSpots = 0>>
 	<<else>>
-	<<set $brothelSpots = $brothel - $brothelSlaves>>
+	<<set $brothelSpots = $brothel - _DL>>
 	<</if>>
 
 	<<if $brothelDecoration != "standard">>
 	$brothelNameCaps's customers enjoy @@color:green;fucking whores in $brothelDecoration surroundings.@@
 	<</if>>
+<</if>>
 
+<<if ($Madam != 0)>>
+	<<set $i = _FLs>>
+	<br><br>''__@@color:pink;$slaves[_FLs].slaveName@@__'' is serving as the madam.
+	<<if $showEWD == 0>>
+		<br>
+		<<silently>>
+		<<if $slaves[$i].choosesOwnClothes == 1>>
+		<<include "SA chooses own clothes">>
+		<<if ($slaves[$i].devotion <= 20)>>
+			<<set $slaves[$i].devotion -= 5>>
+		<<else>>
+			<<set $slaves[$i].devotion++>>
+		<</if>>
+		<</if>>
+		<<include "SA diet">>
+		<<include "SA long term effects">>
+		<<include "SA drugs">>
+		<<include "SA relationships">>
+		<<include "SA rivalries">>
+		<<include "SA devotion">>
+		<</silently>>
+	<<else>>
+		/* 000-250-006 */
+		<<if $seeImages == 1 && $imageChoice == 0>>
+		<div class="imageRef tinyImg">
+			<<SlaveArt $slaves[_FLs] 0 0>>
+		</div>
+		<</if>>
+		/* 000-250-006 */
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;
+		<<if $slaves[$i].choosesOwnClothes == 1>>
+		<<include "SA chooses own clothes">>
+		<<if ($slaves[$i].devotion <= 20)>>
+			<<set $slaves[$i].devotion -= 5>>
+		<<else>>
+			<<set $slaves[$i].devotion++>>
+		<</if>>
+		<</if>>
+		<<include "SA diet">>
+		<<include "SA long term effects">>
+		<<include "SA drugs">>
+		<<include "SA relationships">>
+		<<include "SA rivalries">>
+		<br><<include "SA devotion">>
+		<br><br>
+	<</if>>
+	<<set $Madam = $slaves[_FLs]>>
+<</if>>
+
+<<if ($brothelSlaves > 0)>>
+	<<if $showEWD == 0>>
+		<<for _dI = 0; _dI < _DL; _dI++>>
+		<<set $i = $BrothiIDs[_dI].Index>>
+		''__@@color:pink;$slaves[$i].slaveName@@__'' is working out of $brothelName.<br>
+		<<silently>>
+		<<include "SA whore">>
+		<<if $slaves[$i].choosesOwnClothes == 1>>
+		<<include "SA chooses own clothes">>
+		<<if ($slaves[$i].devotion <= 20)>>
+			<<set $slaves[$i].devotion -= 5>>
+		<<else>>
+			<<set $slaves[$i].devotion++>>
+		<</if>>
+		<</if>>
+		<<include "SA diet">>
+		<<include "SA long term effects">>
+		<<include "SA drugs">>
+		<<include "SA relationships">>
+		<<include "SA rivalries">>
+		<<include "SA devotion">>
+		<</silently>>
+		<</for>>
+	<<else>>
+		<<if ($Madam == 0)>>
+			<br><br>
+		<</if>>
+		<<for _dI = 0; _dI < _DL; _dI++>>
+		<<set $i = $BrothiIDs[_dI].Index>>
+		/* 000-250-006 */
+		<<if $seeImages == 1 && $imageChoice == 0>>
+		<div class="imageRef tinyImg">
+			<<SlaveArt $slaves[$i] 0 0>>
+		</div>
+		<</if>>
+		/* 000-250-006 */
+		''__@@color:pink;$slaves[$i].slaveName@@__'' is working out of $brothelName.
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;She <<include "SA whore">>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;
+		<<if $slaves[$i].choosesOwnClothes == 1>>
+		<<include "SA chooses own clothes">>
+		<<if ($slaves[$i].devotion <= 20)>>
+			<<set $slaves[$i].devotion -= 5>>
+		<<else>>
+			<<set $slaves[$i].devotion++>>
+		<</if>>
+		<</if>>
+		<<include "SA diet">>
+		<<include "SA long term effects">>
+		<<include "SA drugs">>
+		<<include "SA relationships">>
+		<<include "SA rivalries">>
+		<br><<include "SA devotion">>
+		<br><br>
+		<</for>>
+	<</if>>
 <<else>>
-	''$brothelNameCaps is empty''<<if (_MDM > -1)>> except for the Madam<</if>>.
+	''$brothelNameCaps is empty''<<if (_FLs > -1)>> except for the Madam<</if>>.<br><br>
 	<<set $brothelSpots = $brothel>>
 <</if>>
-<br><br>
