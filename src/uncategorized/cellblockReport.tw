@@ -1,6 +1,6 @@
 :: Cellblock Report [nobr]
 
-<<set $cellblockSlaves = 0, _brokenSlaves = 0, _devBonus = 0, _idleBonus = 0, _softenedQuirks = 0, _trustMalis = 0, _wardenessFetish = 0, _SL = $slaves.length, _WDS = -1>>
+<<set _brokenSlaves = 0, _devBonus = 0, _idleBonus = 0, _softenedQuirks = 0, _trustMalis = 0, _FLsFetish = 0, _DL = $CellBiIDs.length, $cellblockSlaves = _DL, _SL = $slaves.length, _FLs = -1>>
 
 /% No need to be in for loop %/
 <<if $cellblockDecoration != "standard">>
@@ -8,43 +8,43 @@
 <</if>>
 
 <<if ($Wardeness != 0)>>
-<<for _WDS = 0; _WDS < _SL; _WDS++>>
-<<if ($slaves[_WDS].ID == $Wardeness.ID)>>
+<<for _FLs = 0; _FLs < _SL; _FLs++>>
+<<if ($slaves[_FLs].ID == $Wardeness.ID)>>
 	<<break>>
 <</if>>
 <</for>>
 <</if>>
 
-<<if _WDS > -1>>
-	<<if ($slaves[_WDS].health < -80)>>
-	<<set $slaves[_WDS].health += 20>>
-	<<elseif ($slaves[_WDS].health < -40)>>
-	<<set $slaves[_WDS].health += 15>>
-	<<elseif ($slaves[_WDS].health < 0)>>
-	<<set $slaves[_WDS].health += 10>>
-	<<elseif ($slaves[_WDS].health < 90)>>
-	<<set $slaves[_WDS].health += 7>>
+<<if _FLs > -1>>
+	<<if ($slaves[_FLs].health < -80)>>
+	<<set $slaves[_FLs].health += 20>>
+	<<elseif ($slaves[_FLs].health < -40)>>
+	<<set $slaves[_FLs].health += 15>>
+	<<elseif ($slaves[_FLs].health < 0)>>
+	<<set $slaves[_FLs].health += 10>>
+	<<elseif ($slaves[_FLs].health < 90)>>
+	<<set $slaves[_FLs].health += 7>>
 	<</if>>
-	<<if ($slaves[_WDS].devotion <= 60)>>
-	<<set $slaves[_WDS].devotion += 2>>
+	<<if ($slaves[_FLs].devotion <= 60)>>
+	<<set $slaves[_FLs].devotion += 2>>
 	<</if>>
-	<<set $slaves[_WDS].devotion += _devBonus>>
-	<<if $slaves[_WDS].trust < 60>>
-	<<set $slaves[_WDS].trust += 3>>
+	<<set $slaves[_FLs].devotion += _devBonus>>
+	<<if $slaves[_FLs].trust < 60>>
+	<<set $slaves[_FLs].trust += 3>>
 	<</if>>
-	<<if $slaves[_WDS].fetishStrength <= 95>>
-	<<if $slaves[_WDS].fetish != "sadist">>
-		<<fetishChangeChance $slaves[_WDS]>>
+	<<if $slaves[_FLs].fetishStrength <= 95>>
+	<<if $slaves[_FLs].fetish != "sadist">>
+		<<fetishChangeChance $slaves[_FLs]>>
 		<<if $fetishChangeChance > random(0,100)>>
-			<<set _wardenessFetish = 1, $slaves[_WDS].fetishKnown = 1, $slaves[_WDS].fetish = "sadist">>
+			<<set _FLsFetish = 1, $slaves[_FLs].fetishKnown = 1, $slaves[_FLs].fetish = "sadist">>
 		<</if>>
-	<<elseif $slaves[_WDS].fetishKnown == 0>>
-		<<set _wardenessFetish = 1, $slaves[_WDS].fetishKnown = 1>>
+	<<elseif $slaves[_FLs].fetishKnown == 0>>
+		<<set _FLsFetish = 1, $slaves[_FLs].fetishKnown = 1>>
 	<<else>>
-		<<set _wardenessFetish = 2, $slaves[_WDS].fetishStrength += 4>>
+		<<set _FLsFetish = 2, $slaves[_FLs].fetishStrength += 4>>
 	<</if>>
 	<</if>>
-	<<set $Wardeness = $slaves[_WDS]>>
+	<<set $Wardeness = $slaves[_FLs]>>
 	<<if $wardenessCareers.contains($Wardeness.career)>>
 		<<set _devBonus++, _trustMalis++, _idleBonus++>>
 	<</if>>
@@ -67,9 +67,9 @@
 		<<set _devBonus++, _trustMalis++, _idleBonus++>>
 	<</if>>
 	&nbsp;&nbsp;&nbsp;&nbsp;$Wardeness.slaveName is serving as the wardeness.<<if $Wardeness.relationship == -3>> As your wife, she tries her best to break the disobedient slaves to your will.<</if>>
-	<<if (_wardenessFetish == 1)>>
+	<<if (_FLsFetish == 1)>>
 		One day she demands obedience. The next day she strikes a slave when it isn't given. The next, she seems more excited than embarrassed when beating a prisoner. Soon, she's looking for an excuse to punish. She's @@color:pink;become more of a sadist.@@
-	<<elseif (_wardenessFetish == 2)>>
+	<<elseif (_FLsFetish == 2)>>
 		Being not only allowed but encouraged to get off while punishing prisoners @@color:lightsalmon;deepens her sadism.@@
 	<</if>>
 	<<if $wardenessCareers.contains($Wardeness.career)>>
@@ -94,9 +94,20 @@
 	<</if>>
 <</if>>
 
-<<for _i = 0; _i < _SL; _i++>>
-	<<if ($slaves[_i].assignment != "be confined in the cellblock")>><<continue>><</if>>
-	<<set $cellblockSlaves++>>
+<<if _DL > 0>>
+<<for _dI = 0; _dI < _DL; _dI++>>
+	<<set _i = $CellBiIDs[_dI].Index>>
+	<<if $CellBiIDs[_dI].ID != $slaves[_i].ID>>
+		/% Slaves.ID and $CellBiIDs.ID's don't match-up so let's find her %/
+		<<for _x = 0; _x < _SL; _x++>>
+			<<if ($CellBiIDs[_dI].ID == $slaves[_x].ID)>>
+				/% Correct the Index %/
+				<<set $CellBiIDs[_dI].Index = _x, _i = _x>>
+				<<break>>
+			<</if>>
+		<</for>>
+	<</if>>
+	/% Onward bound as normal %/
 	<<if ($slaves[_i].devotion <= 20)>>
 	<<if ($slaves[_i].trust > -20)>>
 		<<set $slaves[_i].devotion -= 4, $slaves[_i].trust -= 4>>
@@ -171,7 +182,7 @@
 	<<if ($slaves[_i].devotion > 20) || (($slaves[_i].devotion >= -20) && ($slaves[_i].trust < -20)) || (($slaves[_i].devotion >= -50) && ($slaves[_i].trust < -50))>>
 		<<set $slaves[_i].assignment = "rest", $slaves[_i].assignmentVisible = 1, _brokenSlaves++, $cellblockSlaves-->>
 	<</if>>
-	<<if _WDS > -1>>
+	<<if _FLs > -1>>
 	<<if $Wardeness.relationTarget == $slaves[_i].ID>>
 		She spares no mercy for her $slaves[_i].relation, $slaves[_i].slaveName, making sure she understands her place.
 		<<set $slaves[_i].devotion++, $slaves[_i].trust-->>
@@ -181,20 +192,21 @@
 		<<set $slaves[_i].devotion++, $slaves[_i].trust -= 3>>
 		<<if random(1,100) >= 50>>
 		Her and $slaves[_i].slaveName's relationship has been shattered by these events.
-			<<set $Wardeness.relationship = 0, $Wardeness.relationshipTarget = 0, $slaves[_WDS].relationship = 0, $slaves[_WDS].relationshipTarget = 0, $slaves[_i].relationship = 0, $slaves[_i].relationshipTarget = 0>>
+			<<set $Wardeness.relationship = 0, $Wardeness.relationshipTarget = 0, $slaves[_FLs].relationship = 0, $slaves[_FLs].relationshipTarget = 0, $slaves[_i].relationship = 0, $slaves[_i].relationshipTarget = 0>>
 		<</if>>
 	<</if>>
 	<<if $Wardeness.rivalryTarget == $slaves[_i].ID>>
 		She greatly enjoys breaking her <<if $Wardeness.rivalry == 1>>growing rival<<elseif $Wardeness.rivalry == 2>>rival<<elseif $Wardeness.rivalry >= 3>>bitter rival<</if>>, $slaves[_i].slaveName's will.
 		<<set $slaves[_i].devotion++, $slaves[_i].trust -= 3>>
 		<<if random(1,100) > 30>>
-			<<set $Wardeness.rivalry++, $slaves[_WDS].rivalry++, $slaves[_i].rivalry++>>
+			<<set $Wardeness.rivalry++, $slaves[_FLs].rivalry++, $slaves[_i].rivalry++>>
 		<</if>>
 	<</if>>
 	<</if>>
 <</for>>
+<</if>>
 
-<<if ($cellblockSlaves < 5) && (_WDS > -1)>>
+<<if ($cellblockSlaves < 5) && (_FLs > -1)>>
 	<<set _seed to random(1,10)+((5-$cellblockSlaves)*(random(150,170)+(_idleBonus*10)))>>
 	<<set $cash += _seed>>
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;Since she doesn't have enough prisoners to manage to keep her busy, she works on citizens' slaves, earning @@color:yellowgreen;¤_seed.@@<br>
@@ -223,10 +235,11 @@
 	<</if>>
 <</if>>
 
-<<if _WDS > -1>>
-	<<set $i = _WDS>>
+<<if _FLs > -1>>
+	<<set $i = _FLs>>
 	<br><br>''__@@color:pink;$slaves[$i].slaveName@@__'' is serving as the Wardeness in $cellblockName.
 	<<if $showEWD == 0>>
+		<br>
 		<<silently>>
 		<<if $slaves[$i].choosesOwnClothes == 1>>
 		<<include "SA chooses own clothes">>
@@ -245,10 +258,9 @@
 		<</silently>>
 	<<else>>
 		/* 000-250-006 */
-		/* <<if $seeImages == 1>><<SlaveArt $slaves[_WDS] 0 0>><</if>> */
 		<<if $seeImages == 1 && $imageChoice == 0>>
 		    <div class="imageRef tinyImg">
-		    <<SlaveArt $slaves[_WDS] 0 0>>
+		    <<SlaveArt $slaves[_FLs] 0 0>>
 		</div>
 		<</if>>
 		/* 000-250-006 */
@@ -269,16 +281,13 @@
 		<br><<include "SA devotion">>
 		<br><br>
 	<</if>>
-	<<set $Wardeness = $slaves[_WDS]>>
+	<<set $Wardeness = $slaves[_FLs]>>
 <</if>>
 
 <<if ($cellblockSlaves > 0)>>
-	<<if _WDS == -1>>
-		 <br><br>
-	 <</if>>
-	<<for $i = 0; $i < _SL; $i++>>
-	<<if ($slaves[$i].assignment != "be confined in the cellblock")>><<continue>><</if>>
 	<<if $showEWD == 0>>
+		<<for _dI = 0; _dI < _DL; _dI++>>
+		<<set $i = $CellBiIDs[_dI].Index>>
 		''__@@color:pink;$slaves[$i].slaveName@@__'' is confined in $cellblockName.<br>
 		<<silently>>
 		<<include "SA stay confined">>
@@ -289,26 +298,33 @@
 		<<include "SA rivalries">>
 		<<include "SA devotion">>
 		<</silently>>
+		<</for>>
 	<<else>>
+		<<if _FLs == -1>>
+			 <br><br>
+		 <</if>>
+		<<for _dI = 0; _dI < _DL; _dI++>>
+		<<set $i = $CellBiIDs[_dI].Index>>
 		/* 000-250-006 */
-		/* <<if $seeImages == 1>><<SlaveArt $slaves[$i] 0 0>><</if>> */
 		<<if $seeImages == 1 && $imageChoice == 0>>
 		    <div class="imageRef tinyImg">
 		    <<SlaveArt $slaves[$i] 0 0>>
 		</div>
 		<</if>>
 		/* 000-250-006 */
-		''__@@color:pink;$slaves[$i].slaveName@@__'' is confined in $cellblockName.<br>
-		&nbsp;&nbsp;&nbsp;&nbsp;She<<include "SA stay confined">>
-		<br>&nbsp;&nbsp;&nbsp;&nbsp;<<include "SA diet">>
+		''__@@color:pink;$slaves[$i].slaveName@@__'' is confined in $cellblockName.
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;She <<include "SA stay confined">>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;
+		<<include "SA diet">>
 		<<include "SA long term effects">>
 		<<include "SA drugs">>
 		<<include "SA relationships">>
 		<<include "SA rivalries">>
 		<br><<include "SA devotion">>
 		<br><br>
+		<</for>>
 	<</if>>
 	<</for>>
 <<else>>
-	''$cellblockNameCaps is empty''<<if _WDS > -1>> except for the wardeness<</if>>.<br><br>
+	''$cellblockNameCaps is empty''<<if _FLs > -1>> except for the wardeness<</if>>.<br><br>
 <</if>>
