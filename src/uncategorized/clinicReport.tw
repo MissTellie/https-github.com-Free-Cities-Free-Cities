@@ -164,7 +164,7 @@
 	<</if>>
 	<<if ($slaves[_i].health >= 40)>>
 	<<if ($slaves[_i].chem <= 20) || ($clinicUpgradeFilters != 1)>>
-		<<set $slaves[_i].assignment = "rest", $slaves[_i].assignmentVisible = 1, _restedSlaves++>>
+		<<set $slaves[_i].assignment = "rest", $slaves[_i].assignmentVisible = 1, _restedSlaves++, _dump = $CliniciIds.pluck([_i], [_i]), $clinicSlaves--, _i--, DL-->>
 	<</if>>
 	<</if>>
 <</for>>
