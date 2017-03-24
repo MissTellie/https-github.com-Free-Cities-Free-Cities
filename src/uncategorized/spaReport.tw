@@ -230,7 +230,7 @@
 		<<set $slaves[_i].health += 3>>
 	<</if>>
 	<<if ($slaves[_i].health >= 20) && ($slaves[_i].trust > 60) && ($slaves[_i].devotion > 60) && $slaves[_i].fetish != "mindbroken">>
-		<<set $slaves[_i].assignment = "rest", $slaves[_i].assignmentVisible = 1, _restedSlaves++>>
+		<<set $slaves[_i].assignment = "rest", $slaves[_i].assignmentVisible = 1, _restedSlaves++, _dump = $SpaiIDs.pluck([_i], [_i]), $spaSlaves--, _i--, _DL-->>
 	<</if>>
 <</for>>
 <</if>>
