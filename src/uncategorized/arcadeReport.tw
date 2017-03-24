@@ -1,25 +1,40 @@
 :: Arcade Report [nobr]
 
-<<set _cockmilked = 0, _implanted = 0, _milked = 0, _profits = 0, _DL = $ArcadeiIDs.length, $arcadeSlaves = _DL, _SL = $slaves.length>>
+<<set _cockmilked = 0, _implanted = 0, _milked = 0,  _profits = 0, _DL = $ArcadeiIDs.length, $arcadeSlaves = _DL, _SL = $slaves.length>>
 
-<<SlaveSort $ArcadeiIDs>>
+<<if $arcadeSlaves > 0>>
+	&nbsp;&nbsp;&nbsp;&nbsp;<<if ($arcadeSlaves > 1)>>''There are $arcadeSlaves inmates confined in $arcadeName.''<<else>>''There is one inmate confined in $arcadeName.''<</if>>
+	<<if ($arcologies[0].FSDegradationist > 20)>>
+	<<if $arcologies[0].FSDegradationistLaw == 1>>
+		The tenants located near the arcade don't mind having it nearby, even though the crowd of menial slaves waiting their turn spills out into the hallway, 24 hours a day.
+	<<else>>
+		The tenants located near the arcade don't mind having it nearby.
+	<</if>>
+	<<elseif ($arcologies[0].FSPaternalist > 20)>>
+		Many of the better tenants located near the arcade consider it an @@color:red;intolerable@@ establishment to have nearby.
+	<<else>>
+		Some of the better tenants located near the arcade consider it an @@color:red;obnoxious@@ establishment to have nearby.
+	<</if>>
+	<<if $arcadeDecoration != "standard">>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;$arcadeNameCaps's customers enjoy @@color:green;getting off in $arcadeDecoration surroundings.@@
+	<</if>>
+	<br><br>
 
-<<if _DL > 0>>
-<<for _dI = 0; _dI < _DL; _dI++>>
+	<<SlaveSort $ArcadeiIDs>>
+	<<for _dI = 0; _dI < _DL; _dI++>>
 	<<set _i = $ArcadeiIDs[_dI].Index>>
 	<<if $ArcadeiIDs[_dI].ID != $slaves[_i].ID>>
 		/% Slaves.ID and $ArcadeiIDs.ID's don't match-up so let's find her %/
-		<<for _x = 0; _x < _SL; _x++>>
-			<<if ($ArcadeiIDs[_dI].ID == $slaves[_x].ID)>>
-				/% Correct the Index %/
-				<<set $ArcadeiIDs[_dI].Index = _x, _i = _x>>
-				<<break>>
-			<</if>>
+		<<for _i = 0; _i < _SL; _i++>>
+		<<if ($ArcadeiIDs[_dI].ID == $slaves[_i].ID)>>
+			/% Correct the Index %/
+			<<set $ArcadeiIDs[_dI].Index = _i>>
+			<<break>>
+		<</if>>
 		<</for>>
 	<</if>>
 	/% Onward bound as normal %/
 	<<set $oldCash = $cash, $i = _i>>
-	<<silently>>
 	<<if ($arcadeUpgradeInjectors == 1)>>
 		<<if ($slaves[_i].health < -60)>>
 			<<set $slaves[_i].health = -60>>
@@ -37,17 +52,38 @@
 		<</if>>
 		<<set $slaves[_i].trust -= 5>>
 	<</if>>
+	<<if $showEWD != 0>>
+		/* 000-250-006 */
+		<<if $seeImages == 1 && $imageChoice == 0>>
+		<div class="imageRef tinyImg">
+			<<SlaveArt $slaves[$i] 0 0>>
+		</div>
+		<</if>>
+		/* 000-250-006 */
+		''__@@color:pink;$slaves[$i].slaveName@@__'' is confined in the $arcadeNameCaps.
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;She <<include "SA work a glory hole">>
+	<<else>>
+		<<silently>>
+		<<include "SA work a glory hole">>
+		<</silently>>
+	<</if>>
 	<<if ($arcadeUpgradeCollectors > 0)>>
 	<<if ($slaves[_i].lactation < 2)>>
 		<<set $slaves[_i].lactation = 2, $slaves[_i].health -= 10, $cash -= $surgeryCost, _implanted++>>
 	<<elseif ($slaves[_i].lactation > 0) || ($slaves[_i].balls > 0)>>
-		<<include "SA get milked">>
+		<<if $showEWD != 0>>
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;She <<include "SA get milked">>
+		<<else>>
+			<<silently>>
+			<<include "SA get milked">>
+			<</silently>>
+		<</if>>
 		<<if ($slaves[_i].boobs < 2000)>>
-		<<set $slaves[_i].boobs += 100>>
+			<<set $slaves[_i].boobs += 100>>
 		<<elseif ($slaves[_i].boobs < 5000)>>
-		<<set $slaves[_i].boobs += 50>>
+			<<set $slaves[_i].boobs += 50>>
 		<<elseif ($slaves[_i].boobs < 10000)>>
-		<<set $slaves[_i].boobs += 25>>
+			<<set $slaves[_i].boobs += 25>>
 		<</if>>
 		<<if ($slaves[_i].balls > 0) && ($slaves[_i].balls < 6) && (random(1,100) > (40+(10*$slaves[_i].balls)))>>
 			<<set $slaves[_i].balls++>>
@@ -56,50 +92,57 @@
 			<<set $slaves[_i].dick++>>
 		<</if>>
 		<<if ($slaves[_i].lactation > 0)>>
-		<<set _milked++>>
+			<<set _milked++>>
 		<</if>>
 		<<if ($slaves[_i].balls > 0)>>
-		<<set _cockmilked++>>
+			<<set _cockmilked++>>
 		<</if>>
 	<</if>>
 	<</if>>
 	<<set _profits += $cash-$oldCash>>
-	<</silently>>
-<</for>>
-	<<if $seeImages == 1>><br style="clear:both" /><</if>>
-	&nbsp;&nbsp;&nbsp;&nbsp;<<if ($arcadeSlaves == 1)>>''There is one inmate confined in $arcadeName.''<<else>>''There are $arcadeSlaves inmates confined in $arcadeName.''<</if>>
+	<<if $showEWD != 0>>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;
+		<<include "SA drugs">>
+		<<include "SA diet">>
+		<<include "SA long term effects">>
+		<<include "SA relationships">>
+		<<include "SA rivalries">>
+		<br><<include "SA devotion">>
+		<br><br>
+	<<else>>
+		<<silently>>
+		<<include "SA drugs">>
+		<<include "SA diet">>
+		<<include "SA long term effects">>
+		<<include "SA relationships">>
+		<<include "SA rivalries">>
+		<<include "SA devotion">>
+		<</silently>>
+	<</if>>
+	<</for>>
+	&nbsp;&nbsp;&nbsp;&nbsp;
 	<<if _milked == 1>>
-	One of them is lactating and spends her time in $arcadeName being simultaneously milked and fucked.
+		One of them is lactating and spends her time in $arcadeName being simultaneously milked and fucked.
 	<<elseif _milked > 1>>
-	_milked of them are lactating and spend their time in $arcadeName being simultaneously milked and fucked.
+		_milked of them are lactating and spend their time in $arcadeName being simultaneously milked and fucked.
 	<</if>>
 	<<if _implanted == 1>>
-	One of them was not lactating, so she is implanted with long-acting lactation inducing drugs.
+		One of them was not lactating, so she was implanted with long-acting lactation inducing drugs, and it costs @@color:red;¤$surgeryCost@@.
 	<<elseif _implanted > 1>>
-	_implanted of them were not lactating, so they are implanted with long-acting lactation inducing drugs.
+		_implanted of them were not lactating, so they were implanted with long-acting lactation inducing drugs, and they cost @@color:red;¤<<print $surgeryCost*_implanted>>@@.
 	<</if>>
 	<<if _cockmilked == 1>>
-	One of them retains testicles and is brutally cockmilked as she is used.
+		One of them retains testicles and is brutally cockmilked as she is used.
 	<<elseif _cockmilked > 1>>
-	_cockmilked of them retain testicles and are brutally cockmilked as they are used.
+		_cockmilked of them retain testicles and are brutally cockmilked as they are used.
 	<</if>>
 	The arcade makes you @@color:yellowgreen;¤_profits@@ this week.
-	<<if ($arcologies[0].FSDegradationist > 20)>>
-	<<if $arcologies[0].FSDegradationistLaw == 1>>
-		The tenants located near the arcade don't mind having it nearby, even though the crowd of menial slaves waiting their turn spills out into the hallway, 24 hours a day.
-	<<else>>
-		The tenants located near the arcade don't mind having it nearby.
-	<</if>>
-	<<elseif ($arcologies[0].FSPaternalist > 20)>>
-	Many of the better tenants located near the arcade consider it an @@color:red;intolerable@@ establishment to have nearby.
-	<<set $repGain -= Math.trunc(_profits/20)>>
-	<<else>>
-	Some of the better tenants located near the arcade consider it an @@color:red;obnoxious@@ establishment to have nearby.
-	<<set $repGain -= Math.trunc(_profits/100)>>
-	<</if>>
 
-	<<if $arcadeDecoration != "standard">>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;$arcadeNameCaps's customers enjoy @@color:green;getting off in $arcadeDecoration surroundings.@@
+	<<if ($arcologies[0].FSDegradationist > 20)>>
+	<<elseif ($arcologies[0].FSPaternalist > 20)>>
+		<<set $repGain -= Math.trunc(_profits/20)>>
+	<<else>>
+		<<set $repGain -= Math.trunc(_profits/100)>>
 	<</if>>
 
 	<<if ($arcadeUpgradeFuckdolls == 1) && ($arcade < $arcadeSlaves)>>
@@ -133,46 +176,10 @@
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;$activeSlave.slaveName is low-quality and surplus to the needs of the arcade, so she has been converted into a Fuckdoll.
 		<<include "Remove activeSlave">>
 		<<if $activeSlave == 0>> /% if not zero then technically there was an error INVALID SLAVE %/
-			<<set $fuckdolls++>>
+			<<set $fuckdolls++, $arcadeSlaves-->>
 		<</if>>
-	<</if>>
-	<br><br>
-	<<if $showEWD == 0>>
-		<<for _dI = 0; _dI < _DL; _dI++>>
-		<<set $i = $ArcadeiIDs[_dI].Index>>
-		''__@@color:pink;$slaves[$i].slaveName@@__'' is confined in the $arcadeNameCaps.<br>
-		<<silently>>
-		<<include "SA work a glory hole">>
-		<<include "SA diet">>
-		<<include "SA long term effects">>
-		<<include "SA drugs">>
-		<<include "SA relationships">>
-		<<include "SA rivalries">>
-		<<include "SA devotion">>
-		<</silently>>
-		<</for>>
-	<<else>>
-		<<for _dI = 0; _dI < _DL; _dI++>>
-		<<set $i = $ArcadeiIDs[_dI].Index>>
-		/* 000-250-006 */
-		<<if $seeImages == 1 && $imageChoice == 0>>
-		<div class="imageRef tinyImg">
-			<<SlaveArt $slaves[$i] 0 0>>
-		</div>
-		<</if>>
-		/* 000-250-006 */
-		''__@@color:pink;$slaves[$i].slaveName@@__''  is confined in the $arcadeNameCaps.
-		<br>&nbsp;&nbsp;&nbsp;&nbsp;She <<include "SA work a glory hole">>
-		<br>&nbsp;&nbsp;&nbsp;&nbsp;
-		<<include "SA diet">>
-		<<include "SA long term effects">>
-		<<include "SA drugs">>
-		<<include "SA relationships">>
-		<<include "SA rivalries">>
-		<br><<include "SA devotion">>
-		<br><br>
-		<</for>>
 	<</if>>
 <<else>>
-	''$arcadeNameCaps is empty.''<br><br>
+	''$arcadeNameCaps is empty.''
 <</if>>
+<br><br>
