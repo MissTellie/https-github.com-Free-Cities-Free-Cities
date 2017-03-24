@@ -179,9 +179,6 @@
 	<<elseif ($slaves[_i].health < 100)>>
 	<<set $slaves[_i].health += 3>>
 	<</if>>
-	<<if ($slaves[_i].devotion > 20) || (($slaves[_i].devotion >= -20) && ($slaves[_i].trust < -20)) || (($slaves[_i].devotion >= -50) && ($slaves[_i].trust < -50))>>
-		<<set $slaves[_i].assignment = "rest", $slaves[_i].assignmentVisible = 1, _brokenSlaves++, $cellblockSlaves-->>
-	<</if>>
 	<<if _FLs > -1>>
 	<<if $Wardeness.relationTarget == $slaves[_i].ID>>
 		She spares no mercy for her $slaves[_i].relation, $slaves[_i].slaveName, making sure she understands her place.
@@ -202,6 +199,9 @@
 			<<set $Wardeness.rivalry++, $slaves[_FLs].rivalry++, $slaves[_i].rivalry++>>
 		<</if>>
 	<</if>>
+	<</if>>
+	<<if ($slaves[_i].devotion > 20) || (($slaves[_i].devotion >= -20) && ($slaves[_i].trust < -20)) || (($slaves[_i].devotion >= -50) && ($slaves[_i].trust < -50))>>
+		<<set $slaves[_i].assignment = "rest", $slaves[_i].assignmentVisible = 1, _brokenSlaves++, $cellblockSlaves--, _DL--, _dump = $CellBiIDs.pluck([_i], [_i]), _i-->>
 	<</if>>
 <</for>>
 <</if>>
