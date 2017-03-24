@@ -605,8 +605,7 @@ These products sell for @@color:yellowgreen;¤_profits@@.
 		<</if>>
 		<<set $activeSlave = $slaves[_i]>>
 		<<include "Remove activeSlave">>
-		<<set _SL = $slaves.length>>
-		<<set $dairySlaves = $DairyiIDs.length>>
+		<<set _DL = $DairyiIDs.length, $dairySlaves = _DL>>
 		<<break>>
 	<</if>>
 	<</for>>
