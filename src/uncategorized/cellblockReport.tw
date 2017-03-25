@@ -1,6 +1,6 @@
 :: Cellblock Report [nobr]
 
-<<set _brokenSlaves = 0, _devBonus = 0, _idleBonus = 0, _softenedQuirks = 0, _trustMalis = 0, _FLsFetish = 0, _DL = $CellBiIDs.length, $cellblockSlaves = _DL, _SL = $slaves.length, _FLs = -1>>
+<<set _brokenSlaves = 0, _idleBonus = 0, _softenedQuirks = 0, _trustMalis = 0, _FLsFetish = 0, _DL = $CellBiIDs.length, $cellblockSlaves = _DL, _SL = $slaves.length, _FLs = -1>>
 
 <<if $cellblockSlaves > 0>>
 <<for _dI = 0; _dI < _DL; _dI++>>
@@ -15,10 +15,13 @@
 	<</for>>
 <</if>>
 <</for>>
+<<SlaveSort $CellBiIDs>>
 <</if>>
 
 <<if $cellblockDecoration != "standard">>
-	<<set _devBonus++>>
+	<<set _devBonus = 1>>
+<<else>>
+	<<set _devBonus = 0>>
 <</if>>
 
 <<if ($Wardeness != 0)>>
@@ -122,16 +125,16 @@
 		<<set _seed to random(1,10)+((5-$cellblockSlaves)*(random(150,170)+(_idleBonus*10))), $cash += _seed>>
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;Since she doesn't have enough prisoners to manage to keep her busy, she works on citizens' slaves, earning @@color:yellowgreen;¤_seed.@@
 	<</if>>
-	<br>
+	<<if ($cellblockSlaves > 0)>><br><</if>>
 <</if>>
 
 <<if ($cellblockSlaves > 0)>>
 	&nbsp;&nbsp;&nbsp;&nbsp;<<if ($cellblockSlaves == 1)>>''One slave is being confined in $cellblockName until she is willing to obey.''<<else>>''$cellblockSlaves slaves are being confined in $cellblockName until they are willing to obey.''<</if>>
 <</if>>
-<br><br>
 
 <<if ($Wardeness != 0)>>
 	<<if $showEWD != 0>>
+		<br><br>
 		/* 000-250-006 */
 		<<if $seeImages == 1 && $imageChoice == 0>>
 		<div class="imageRef tinyImg">
@@ -155,7 +158,6 @@
 		<<include "SA relationships">>
 		<<include "SA rivalries">>
 		<br><<include "SA devotion">>
-		<br><br>
 	<<else>>
 		<<silently>>
 		<<if $slaves[$i].choosesOwnClothes == 1>>
@@ -235,10 +237,8 @@
 	<</if>>
 	<</if>>
 	<<set $slaves[_i].devotion += _devBonus, $slaves[_i].trust -= _trustMalis>>
-	<<if ($Wardeness != 0)>>
-		<<if ($Wardeness.sexualFlaw == "malicious") && ($slaves[_i].energy >= 2)>>
-			<<set $slaves[_i].energy -= 2>>
-		<</if>>
+	<<if ($Wardeness != 0) && ($Wardeness.sexualFlaw == "malicious") && ($slaves[_i].energy >= 2)>>
+		<<set $slaves[_i].energy -= 2>>
 	<</if>>
 	<<if ($slaves[_i].health < -80)>>
 	<<set $slaves[_i].health += 20>>
@@ -252,10 +252,11 @@
 	<<set $slaves[_i].health += 3>>
 	<</if>>
 	<<if ($slaves[_i].devotion > 20) || (($slaves[_i].devotion >= -20) && ($slaves[_i].trust < -20)) || (($slaves[_i].devotion >= -50) && ($slaves[_i].trust < -50))>>
-		<<set $slaves[_i].assignment = "rest", $slaves[_i].assignmentVisible = 1, _brokenSlaves++, $cellblockSlaves--, _DL--, _dump = $CellBiIDs.pluck([_i], [_i]), _i-->>
+		<<set $slaves[_i].assignment = "rest", $slaves[_i].assignmentVisible = 1, _brokenSlaves++, _dump = $CellBiIDs.pluck([_dI], [_dI]), $cellblockSlaves--, _DL--, _dI-->>
 		<<continue>> /% Stops slave from appearing in this summary and as resting in main at same time. %/
 	<</if>>
 	<<if $showEWD != 0>>
+		<br><br>
 		/* 000-250-006 */
 		<<if $seeImages == 1 && $imageChoice == 0>>
 		    <div class="imageRef tinyImg">
@@ -272,7 +273,6 @@
 		<<include "SA relationships">>
 		<<include "SA rivalries">>
 		<br><<include "SA devotion">>
-		<br><br>
 	<<else>>
 		<<silently>>
 		<<include "SA stay confined">>
@@ -285,6 +285,7 @@
 		<</silently>>
 	<</if>>
 <</for>>
+	&nbsp;&nbsp;&nbsp;&nbsp;<br><br>
 	<<if (_softenedQuirks > 0)>>
 		$cellblockName's advanced compliance systems successfully softened
 	<<if (_softenedQuirks == 1)>>
@@ -304,6 +305,5 @@
 	<</if>>
 	<</if>>
 <<else>>
-	''$cellblockNameCaps is empty''.
+	<br><br>''$cellblockNameCaps is empty''.<br><br>
 <</if>>
-<br><br>
