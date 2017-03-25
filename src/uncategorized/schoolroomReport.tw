@@ -11,13 +11,11 @@
 <</if>>
 
 <<if $Schoolteacher != 0>>
-<<for _FLs = 0; _FLs < _SL; _FLs++>>
-<<if $slaves[_FLs].ID == $Schoolteacher.ID>>
-	<<break>>
-<</if>>
-<</for>>
-<</if>>
-<<if _FLs != -1>>
+	<<for _FLs = 0; _FLs < _SL; _FLs++>>
+	<<if $slaves[_FLs].ID == $Schoolteacher.ID>>
+		<<break>>
+	<</if>>
+	<</for>>
 	<<if ($slaves[_FLs].health < -80)>>
 	<<set $slaves[_FLs].health += 20>>
 	<<elseif ($slaves[_FLs].health < -40)>>
@@ -46,7 +44,7 @@
 		<<set _FLsFetish = 2, $slaves[_FLs].fetishStrength += 4>>
 	<</if>>
 	<</if>>
-	<<set $Schoolteacher = $slaves[_FLs]>>
+	<<set $Schoolteacher = $slaves[_FLs], $i = _FLs>>
 	&nbsp;&nbsp;&nbsp;&nbsp;$Schoolteacher.slaveName is serving as your schoolteacher.<<if $Schoolteacher.relationship == -3>> As your wife, she tries her best to teach her pupils how to please you.<</if>>
 	<<if (_FLsFetish == 1)>>
 		She's allowed and even expected to use her students for her own sexual gratification, and in their own way her students are complicit, offering sexual favors for an easier time in the classroom. Before long, she's running a hungry eye over the tits and asses of new trainees; she now @@color:lightcoral;more dominant.@@
@@ -72,33 +70,9 @@
 		Her students want to be just like their beautiful teacher.
 		<<set _idleBonus++>>
 	<</if>>
-<</if>>
-
-<<if _DL > 0>>
-<<for _dI = 0; _dI < _DL; _dI++>>
+	<<if ($schoolroomSlaves > 0)>>
+	<<for _dI = 0; _dI < _DL; _dI++>>
 	<<set _i = $SchlRiIDs[_dI].Index>>
-	<<if $SchlRiIDs[_dI].ID != $slaves[_i].ID>>
-		/% Slaves.ID and $SchlRiIDs.ID's don't match-up so let's find her %/
-		<<for _x = 0; _x < _SL; _x++>>
-			<<if ($SchlRiIDs[_dI].ID == $slaves[_x].ID)>>
-				/% Correct the Index %/
-				<<set $SchlRiIDs[_dI].Index = _x, _i = _x>>
-				<<break>>
-			<</if>>
-		<</for>>
-	<</if>>
-	/% Onward bound as normal %/
-	<<set $slaves[_i].devotion += _devBonus>>
-	<<if ($slaves[_i].health < -80)>>
-	<<set $slaves[_i].health += 20>>
-	<<elseif ($slaves[_i].health < -40)>>
-	<<set $slaves[_i].health += 10>>
-	<<elseif ($slaves[_i].health < 0)>>
-	<<set $slaves[_i].health += 7>>
-	<<elseif ($slaves[_i].health < 90)>>
-	<<set $slaves[_i].health += 3>>
-	<</if>>
-	<<if ($Schoolteacher != 0)>>
 	<<if $Schoolteacher.relationTarget is $slaves[_i].ID>>
 		She makes sure to spend extra time teaching her $slaves[_i].relation, $slaves[_i].slaveName.
 		<<set $slaves[_i].trust++>>
@@ -114,46 +88,23 @@
 			<<set $Schoolteacher.rivalry++, $slaves[_FLs].rivalry++, $slaves[_i].rivalry++>>
 		<</if>>
 	<</if>>
+	<</for>>
 	<</if>>
-<</for>>
-<</if>>
-
-<<if ($schoolroomSlaves < 5) && (_FLs > -1)>>
-	<<set _seed to random(1,10)+((5-$schoolroomSlaves)*(random(150,170)+(_idleBonus*10)))>>
-	<<set $cash += _seed>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;Since she doesn't have enough students to occupy all her time, $schoolroomName takes in citizens' slaves on a contract basis and she teaches them too, earning @@color:yellowgreen;¤_seed.@@<br>
+	<<if ($schoolroomSlaves < 5)>>
+		<<set _seed to random(1,10)+((5-$schoolroomSlaves)*(random(150,170)+(_idleBonus*10)))>>
+		<<set $cash += _seed>>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;Since she doesn't have enough students to occupy all her time, $schoolroomName takes in citizens' slaves on a contract basis and she teaches them too, earning @@color:yellowgreen;¤_seed.@@<br>
+	<</if>>
+	<<if ($schoolroomSlaves > 0)>><br><</if>>
 <</if>>
 
 <<if ($schoolroomSlaves > 0)>>
-	<<if $seeImages == 1>><br style="clear:both" /><</if>>
 	&nbsp;&nbsp;&nbsp;&nbsp;<<if ($schoolroomSlaves == 1)>>''There is one slave studying in $schoolroomName.''<<else>>''There are $schoolroomSlaves slaves studying in $schoolroomName.''<</if>>
-	<<if $schoolroomDecoration != "standard">>
-	$schoolroomNameCaps's $schoolroomDecoration atmosphere @@color:hotpink;has a minor impact on the students.@@
-	<</if>>
 <</if>>
 
 <<if ($Schoolteacher != 0)>>
-	<<set $i = _FLs>>
-	<br><br>''__@@color:pink;$slaves[_FLs].slaveName@@__'' is serving as your schoolteacher.
-	<<if $showEWD == 0>>
-		<br>
-		<<silently>>
-		<<if $slaves[$i].choosesOwnClothes == 1>>
-		<<include "SA chooses own clothes">>
-		<<if ($slaves[$i].devotion <= 20)>>
-			<<set $slaves[$i].devotion -= 5>>
-		<<else>>
-			<<set $slaves[$i].devotion++>>
-		<</if>>
-		<</if>>
-		<<include "SA diet">>
-		<<include "SA long term effects">>
-		<<include "SA drugs">>
-		<<include "SA relationships">>
-		<<include "SA rivalries">>
-		<<include "SA devotion">>
-		<</silently>>
-	<<else>>
+	<<if $showEWD != 0>>
+		<br><br>''__@@color:pink;$slaves[_FLs].slaveName@@__'' is serving as your schoolteacher.
 		/* 000-250-006 */
 		<<if $seeImages == 1 && $imageChoice == 0>>
 		<div class="imageRef tinyImg">
@@ -177,17 +128,8 @@
 		<<include "SA rivalries">>
 		<br><<include "SA devotion">>
 		<br><br>
-	<</if>>
-	<<set $Schoolteacher = $slaves[_FLs]>>
-<</if>>
-
-<<if ($schoolroomSlaves > 0)>>
-	<<if $showEWD == 0>>
-		<<for _dI = 0; _dI < _DL; _dI++>>
-		<<set $i = $SchlRiIDs[_dI].Index>>
-		''__@@color:pink;$slaves[$i].slaveName@@__'' is studying in $schoolroomName.<br>
+	<<else>>
 		<<silently>>
-		<<include "SA take classes">>
 		<<if $slaves[$i].choosesOwnClothes == 1>>
 		<<include "SA chooses own clothes">>
 		<<if ($slaves[$i].devotion <= 20)>>
@@ -203,29 +145,61 @@
 		<<include "SA rivalries">>
 		<<include "SA devotion">>
 		<</silently>>
-		<</for>>
-	<<else>>
+	<</if>>
+	<<set $Schoolteacher = $slaves[_FLs]>>
+<</if>>
+
+<<if ($schoolroomSlaves > 0)>>
+	<<set _restedSlaves = 0>>
+<<for _dI = 0; _dI < _DL; _dI++>>
+	<<set _i = $SchlRiIDs[_dI].Index, $i = _i>>
+	<<set $slaves[_i].devotion += _devBonus>>
+	<<if ($slaves[_i].health < -80)>>
+	<<set $slaves[_i].health += 20>>
+	<<elseif ($slaves[_i].health < -40)>>
+	<<set $slaves[_i].health += 10>>
+	<<elseif ($slaves[_i].health < 0)>>
+	<<set $slaves[_i].health += 7>>
+	<<elseif ($slaves[_i].health < 90)>>
+	<<set $slaves[_i].health += 3>>
+	<</if>>
+	/% Education done? Has to be here before we run the SA's or there will be double entries for slave %/
+	<<if ($slaves[_i].intelligenceImplant == 1)>>
+	<<if ($slaves[_i].voice == 0) || ($slaves[_i].accent <= 1) || (($schoolroomUpgradeLanguage == 0) && ($slaves[_i].accent <= 2))>>
+	<<if ($slaves[_i].oralSkill > 30) || (($schoolroomUpgradeSkills == 0) && ($slaves[_i].oralSkill > 10))>>
+	<<if ($slaves[_i].whoreSkill > 30) || (($schoolroomUpgradeSkills == 0) && ($slaves[_i].whoreSkill > 10))>>
+	<<if ($slaves[_i].entertainSkill > 30) || (($schoolroomUpgradeSkills == 0) && ($slaves[_i].entertainSkill > 10))>>
+	<<if ($slaves[_i].analSkill > 10) || ($slaves[_i].anus < 1)>>
+	<<if ($slaves[_i].vaginalSkill > 10) || ($slaves[_i].vagina < 1)>>
+		<<set $slaves[_i].assignment = "rest", $slaves[_i].assignmentVisible = 1, _restedSlaves++, _dump = $SchlRiIDs.pluck([_dI], [_dI]), $schoolroomSlaves--, _dI--, _DL-->>
+		<<continue>>
+	<</if>>
+	<</if>>
+	<</if>>
+	<</if>>
+	<</if>>
+	<</if>>
+	<</if>>
+	<<if $showEWD != 0>>
 		<<if ($Schoolteacher == 0)>>
 			<br><br>
 		<</if>>
-		<<for _dI = 0; _dI < _DL; _dI++>>
-		<<set $i = $SchlRiIDs[_dI].Index>>
 		/* 000-250-006 */
 		<<if $seeImages == 1 && $imageChoice == 0>>
 		<div class="imageRef tinyImg">
-			<<SlaveArt $slaves[$i] 0 0>>
+			<<SlaveArt $slaves[_i] 0 0>>
 		</div>
 		<</if>>
 		/* 000-250-006 */
 		''__@@color:pink;$slaves[$i].slaveName@@__'' is studying in $schoolroomName.
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;She <<include "SA take classes">>
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;
-		<<if $slaves[$i].choosesOwnClothes == 1>>
+		<<if $slaves[_i].choosesOwnClothes == 1>>
 		<<include "SA chooses own clothes">>
 		<<if ($slaves[$i].devotion <= 20)>>
-			<<set $slaves[$i].devotion -= 5>>
+			<<set $slaves[_i].devotion -= 5>>
 		<<else>>
-			<<set $slaves[$i].devotion++>>
+			<<set $slaves[_i].devotion++>>
 		<</if>>
 		<</if>>
 		<<include "SA diet">>
@@ -235,8 +209,39 @@
 		<<include "SA rivalries">>
 		<br><<include "SA devotion">>
 		<br><br>
-		<</for>>
+	<<else>>
+		<<silently>>
+		<<include "SA take classes">>
+		<<if $slaves[_i].choosesOwnClothes == 1>>
+		<<include "SA chooses own clothes">>
+		<<if ($slaves[_i].devotion <= 20)>>
+			<<set $slaves[_i].devotion -= 5>>
+		<<else>>
+			<<set $slaves[_i].devotion++>>
+		<</if>>
+		<</if>>
+		<<include "SA diet">>
+		<<include "SA long term effects">>
+		<<include "SA drugs">>
+		<<include "SA relationships">>
+		<<include "SA rivalries">>
+		<<include "SA devotion">>
+		<</silently>>
+	<</if>>
+<</for>>
+	<<if (_restedSlaves > 0)>>
+		&nbsp;&nbsp;&nbsp;&nbsp;
+		<<if (_restedSlaves == 1)>>
+			One slave has
+		<<else>>
+			_restedSlaves slaves have
+		<</if>>
+		@@color:green;learned@@ all they can, and will be released from the schoolroom before the end of the week.
+	<</if>>
+	<<if $schoolroomDecoration != "standard">>
+		$schoolroomNameCaps's $schoolroomDecoration atmosphere @@color:hotpink;has a minor impact on the students.@@
 	<</if>>
 <<else>>
-	''$schoolroomNameCaps is empty.''<br><br>
+	''$schoolroomNameCaps is empty.''
 <</if>>
+<br><br>
