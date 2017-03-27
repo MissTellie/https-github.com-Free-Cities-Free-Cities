@@ -1144,6 +1144,11 @@
 
 <<set $slaves.push($args[0]), $slavesOriginal.push($args[0])>>
 
+<<switch $activeSlave.assignment>>
+<<case "work in the dairy" "be confined in the arcade">>
+	<<assginJob $activeSlave $activeSlave.assignment>>
+<</switch>>
+
 <</widget>>
 
 /%
