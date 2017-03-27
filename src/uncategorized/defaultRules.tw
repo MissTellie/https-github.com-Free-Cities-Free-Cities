@@ -1275,6 +1275,7 @@ consequences.
 <</if>>
 
 <<if !_exclude>>
+<<assginJob $activeSlave _currentRule.assignFacility>>
 <<switch _currentRule.assignFacility>>
 <<case "hgsuite">>
 	<<if ($activeSlave.indentureRestrictions <= 0)>>
