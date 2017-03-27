@@ -1,8 +1,7 @@
-:: Rules Facility Remove
-
-<<nobr>>
+:: Rules Facility Remove [nobr]
 
 <<if _currentRule.facilityRemove>>
+	<<removeJob $activeSlave _currentRule.assignFacility>>
 
 	<<switch _currentRule.assignFacility>>
 	<<case "brothel">>
@@ -103,5 +102,3 @@
 		<</if>>
 	<</switch>>
 <</if>>
-
-<</nobr>>
