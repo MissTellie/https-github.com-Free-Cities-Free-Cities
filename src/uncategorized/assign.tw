@@ -2,37 +2,20 @@
 
 <<set $activeSlave = $slaves[$i], _ID = $activeSlave.ID, _SL = $slaves.length>>
 
+<<assginJob $activeSlave $returnTo>>
 <<switch $returnTo>>
 <<case "Arcade">>
-	<<set $activeSlave.assignment = "be confined in the arcade", $activeSlave.clothes = "no clothing", $arcadeSlaves++, $ArcadeiIDs.push({ID: _ID, Index: $i})>>
-<<case "Head Girl Suite">>
-	<<set $activeSlave.assignment = "live with your Head Girl", $HGSuiteSlaves++, $HGSuiteiIDs.push({ID: _ID, Index: $i})>>
+	<<set $activeSlave.clothes = "no clothing">>
 <<case "Master Suite">>
-	<<set $activeSlave.assignment = "serve in the master suite", $masterSuiteSlaves++, $MastSiIDs.push({ID: _ID, Index: $i})>>
 	<<if $masterSuiteUpgradeLuxury > 1>>
 		<<set $activeSlave.livingRules = "luxurious">>
 	<<else>>
 		<<set $activeSlave.livingRules = "normal">>
 	<</if>>
-<<case "Clinic">>
-	<<set $activeSlave.assignment = "get treatment in the clinic", $clinicSlaves++, $CliniciIds.push({ID: _ID, Index: $i})>>
-<<case "Spa">>
-	<<set $activeSlave.assignment = "rest in the spa", $spaSlaves++, $SpaiIDs.push({ID: _ID, Index: $i})>>
-<<case "Schoolroom">>
-	<<set $activeSlave.assignment = "learn in the schoolroom", $schoolroomSlaves++, $SchlRiIDs.push({ID: _ID, Index: $i})>>
-<<case "Servants' Quarters">>
-	<<set $activeSlave.assignment = "work as a servant", $servantsQuartersSlaves++, $ServQiIDs.push({ID: _ID, Index: $i})>>
 <<case "Dairy">>
-	<<set $activeSlave.assignment = "work in the dairy", $dairySlaves++, $DairyiIDs.push({ID: _ID, Index: $i})>>
 	<<if $dairyRestraintsSetting > 1>>
 		<<set $activeSlave.collar = "none", $activeSlave.clothes = "no clothing", $activeSlave.buttplug = "none", $activeSlave.vaginalAccessory = "none">>
 	<</if>>
-<<case "Brothel">>
-	<<set $activeSlave.assignment = "work in the brothel", $brothelSlaves++, $BrothiIDs.push({ID: _ID, Index: $i})>>
-<<case "Club">>
-	<<set $activeSlave.assignment = "serve in the club", $clubSlaves++, $ClubiIDs.push({ID: _ID, Index: $i})>>
-<<case "Cellblock">>
-	<<set $activeSlave.assignment = "be confined in the cellblock", $cellblockSlaves++, $CellBiIDs.push({ID: _ID, Index: $i})>>
 <<case "Pit">>
 	<<set $fighterIDs.push(_ID)>>
 <<case "Coursing Association">>
@@ -44,24 +27,10 @@
 <<if $returnTo != "Master Suite">>
 	<<set $activeSlave.livingRules = "spare">>
 <</if>>
-<<set $activeSlave.assignmentVisible = 0, $activeSlave.choosesOwnAssignment = 0, $activeSlave.drugs = "no drugs", $activeSlave.releaseRules = "restrictive", $activeSlave.sentence = 0, $activeSlave.standardPunishment = "situational", $activeSlave.standardReward = "situational">>
 
-<<if _ID == $personalAttention>>
-	<<set $personalAttention = "business">>
-<</if>>
-
-<<if _ID == $HeadGirl.ID>>
-	<<set $HeadGirl = 0>>
-<</if>>
-<<if _ID == $Recruiter.ID>>
-	<<set $Recruiter = 0>>
-<</if>>
-<<if _ID == $Bodyguard.ID>>
-	<<set $Bodyguard = 0>>
-<</if>>
+<<set $activeSlave.drugs = "no drugs", $activeSlave.releaseRules = "restrictive", $activeSlave.sentence = 0, $activeSlave.standardPunishment = "situational", $activeSlave.standardReward = "situational">>
 
 <<set $slaves[$i] = $activeSlave>>
-<<if $slaves[$i].choosesOwnClothes == 1>><<include "SA chooses own clothes">><</if>>
 
 <<if ($showAssignToScenes != 1) || ($activeSlave.fetish == "mindbroken")>>
 	<<goto $returnTo>>
