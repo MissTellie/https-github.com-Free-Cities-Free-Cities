@@ -2,6 +2,7 @@
 
 <<set $activeSlave = $slaves[$i], _ID = $activeSlave.ID, _SL = $slaves.length>>
 
+<<removeJob $activeSlave $returnTo>>
 <<switch $returnTo>>
 <<case "Pit">>
 	<<for _i = 0; _i < $fighterIDs.length; _i++>>
@@ -12,99 +13,28 @@
 <<case "Coursing Association">>
 	<<set $Lurcher = 0>>
 <<case "Arcade">>
-	<<set _Tcount = $ArcadeiIDs.length>>
-	<<for _i = 0; _i < _Tcount; _i++>>
-		<<if _ID == $ArcadeiIDs[_i].ID>>
-			<<set _dump = $ArcadeiIDs.pluck([_i], [_i]), $arcadeSlaves--, $activeSlave.assignment = "work a glory hole">>
-			<<break>>
-		<</if>>
-	<</for>>
-<<case "Head Girl Suite">>
-	<<set _Tcount = $HGSuiteiIDs.length>>
-	<<for _i = 0; _i < _Tcount; _i++>>
-		<<if _ID == $HGSuiteiIDs[_i].ID>>
-			<<set _dump = $HGSuiteiIDs.pluck([_i], [_i]), $activeSlave.assignment = "rest", $HGSuiteSlaves-->>
-			<<break>>
-		<</if>>
-	<</for>>
+	<<set $activeSlave.assignment = "work a glory hole">>
 <<case "Master Suite">>
-	<<set _Tcount = $MastSiIDs.length>>
-	<<for _i = 0; _i < _Tcount; _i++>>
-		<<if _ID == $MastSiIDs[_i].ID>>
-			<<set _dump = $MastSiIDs.pluck([_i], [_i]), $masterSuiteSlaves--, $activeSlave.assignment = "please you">>
-			<<break>>
-		<</if>>
-	<</for>>
-<<case "Clinic">>
-	<<set _Tcount = $CliniciIds.length>>
-	<<for _i = 0; _i < _Tcount; _i++>>
-		<<if _ID == $CliniciIds[_i].ID>>
-			<<set _dump = $CliniciIds.pluck([_i], [_i]), $clinicSlaves--, $activeSlave.assignment = "rest">>
-			<<break>>
-		<</if>>
-	<</for>>
-<<case "Spa">>
-	<<set _Tcount = $SpaiIDs.length>>
-	<<for _i = 0; _i < _Tcount; _i++>>
-		<<if _ID == $SpaiIDs[_i].ID>>
-			<<set _dump = $SpaiIDs.pluck([_i], [_i]), $spaSlaves--, $activeSlave.assignment = "rest">>
-			<<break>>
-		<</if>>
-	<</for>>
+	<<set $activeSlave.assignment = "please you">>
 <<case "Cellblock">>
-	<<set _Tcount = $CellBiIDs.length>>
-	<<for _i = 0; _i < _Tcount; _i++>>
-		<<if _ID == $CellBiIDs[_i].ID>>
-			<<set _dump = $CellBiIDs.pluck([_i], [_i]), $cellblockSlaves--, $activeSlave.assignment = "stay confined">>
-			<<break>>
-		<</if>>
-	<</for>>
+	<<set $activeSlave.assignment = "stay confined">>
 <<case "Schoolroom">>
-	<<set _Tcount = $SchlRiIDs.length>>
-	<<for _i = 0; _i < _Tcount; _i++>>
-		<<if _ID == $SchlRiIDs[_i].ID>>
-			<<set _dump = $SchlRiIDs.pluck([_i], [_i]), $schoolroomSlaves--, $activeSlave.assignment = "take classes">>
-			<<break>>
-		<</if>>
-	<</for>>
+	<<set $activeSlave.assignment = "take classes">>
 <<case "Servants' Quarters">>
-	<<set _Tcount = $ServQiIDs.length>>
-	<<for _i = 0; _i < _Tcount; _i++>>
-		<<if _ID == $ServQiIDs[_i].ID>>
-			<<set _dump = $ServQiIDs.pluck([_i], [_i]), $servantsQuartersSlaves--, $activeSlave.assignment = "be a servant">>
-			<<break>>
-		<</if>>
-	<</for>>
+	<<set $activeSlave.assignment = "be a servant">>
 <<case "Dairy">>
-	<<set _Tcount = $DairyiIDs.length>>
-	<<for _i = 0; _i < _Tcount; _i++>>
-		<<if _ID == $DairyiIDs[_i].ID>>
-			<<set _dump = $DairyiIDs.pluck([_i], [_i]), $dairySlaves--, $activeSlave.assignment = "get milked">>
-			<<break>>
-		<</if>>
-	<</for>>
+	<<set $activeSlave.assignment = "get milked">>
 	<<if $dairyRestraintsSetting > 1>>
 		<<set $activeSlave.buttplug = "none", $activeSlave.clothes = "no clothing", $activeSlave.collar = "none", $activeSlave.vaginalAccessory = "none">>
 	<</if>>
 <<case "Brothel">>
-	<<set _Tcount = $BrothiIDs.length>>
-	<<for _i = 0; _i < _Tcount; _i++>>
-		<<if _ID == $BrothiIDs[_i].ID>>
-			<<set _dump = $BrothiIDs.pluck([_i], [_i]), $brothelSlaves--, $activeSlave.assignment = "whore">>
-			<<break>>
-		<</if>>
-	<</for>>
+	<<set $activeSlave.assignment = "whore">>
 <<case "Club">>
-	<<set _Tcount = $ClubiIDs.length>>
-	<<for _i = 0; _i < _Tcount; _i++>>
-		<<if _ID == $ClubiIDs[_i].ID>>
-			<<set _dump = $ClubiIDs.pluck([_i], [_i]), $clubSlaves--, $activeSlave.assignment = "serve the public">>
-			<<break>>
-		<</if>>
-	<</for>>
+	<<set $activeSlave.assignment = "serve the public">>
 <</switch>>
 
 <<if ($returnTo != "Pit") && ($returnTo != "Coursing Association")>>
-	<<set $activeSlave.assignmentVisible = 1, $activeSlave.choosesOwnAssignment = 0, $slaves[$i] = $activeSlave>>
+	<<set $slaves[$i] = $activeSlave>>
 <</if>>
+
 <<goto $returnTo>>
