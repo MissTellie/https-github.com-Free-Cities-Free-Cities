@@ -239,7 +239,7 @@
 <</switch>>
 
 <<if $Lurcher>>
-	<<if $slaves[_i].ID = $Lurcher.ID>>
+	<<if $slaves[_i].ID == $Lurcher.ID>>
 		<<set $Lurcher = $slaves[_i]>>
 		<<if canWalk($Lurcher) != true>>
 			''__@@color:pink;$Lurcher.slaveName@@__'' is no longer able to run @@color:yellow;and cannot course as a lurcher.@@<br>
