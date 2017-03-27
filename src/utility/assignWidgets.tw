@@ -5,7 +5,7 @@
 	$args[0] slave object. *MUST be present*
 	$args[1] Job to assign slave to. Will accept the $returnto vars and the _currentRule.assignFacility vars and the actual job assignments "serve in the master suite" etc.
 
-	This is basically a Widget version of Retrieve but will work anywhere, And it changes the assignment to "rest", and saves to the slaves[..] array, and changes your $args[0] var sent.
+	This is basically a Widget version of assign but will work anywhere, and saves to the slaves[..] array, and changes your $args[0] var sent.
 %/
 <<widget assginJob>>
 <<if ($args[1] != "Pit") && ($args[1] != "Coursing Association")>>
@@ -18,6 +18,7 @@
 	<</if>>
 <</for>>
 
+/% use .toLowerCase() to get rid of a few dupe conditions. %/
 <<switch $args[1].toLowerCase()>>
 <<case "clinic" "get treatment in the clinic">>
 	<<set $args[0].assignment = "get treatment in the clinic", $clinicSlaves++, $CliniciIds.push({ID: _wID, Index: _wii})>>
@@ -57,7 +58,7 @@
 	<<set $Bodyguard = 0>>
 <</if>>
 
-<<set $slaves[_wii] = $args[0]>>
+<<set $slaves[_wii] = $args[0], $i = _wii>>
 <<if $slaves[_wii].choosesOwnClothes == 1>><<include "SA chooses own clothes">><</if>>
 <</if>>
 <</widget>>
