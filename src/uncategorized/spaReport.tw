@@ -296,7 +296,8 @@
 		<<set $slaves[_i].health += 3>>
 	<</if>>
 	<<if ($slaves[_i].health >= 20) && ($slaves[_i].trust > 60) && ($slaves[_i].devotion > 60) && $slaves[_i].fetish != "mindbroken">>
-		<<set $slaves[_i].assignment = "rest", $slaves[_i].assignmentVisible = 1, _restedSlaves++, _dump = $SpaiIDs.pluck([_dI], [_dI]), $spaSlaves--, _DL--, _dI-->>
+		<<removeJob $slaves[_i] "rest in the spa">>
+		<<set _restedSlaves++, _DL--, _dI-->>
 		<<continue>>
 	<</if>>
 	<<if $showEWD != 0>>
