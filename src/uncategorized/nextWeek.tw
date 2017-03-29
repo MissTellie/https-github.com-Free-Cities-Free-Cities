@@ -1,6 +1,4 @@
-:: Next Week
-
-<<silently>>
+:: Next Week [silently]
 
 <<if $rivalOwner != 0>>
 	<<set _SL = $arcologies.length>>
@@ -90,11 +88,9 @@
 <<set $enduringDevotion = ($averageDevotion+($enduringDevotion*3))/4>>
 
 <<if (_OldHG != -1) && (_NewHG != -1)>>
-	<<set $slaves[_OldHG].assignment = "live with your Head Girl", $slaves[_OldHG].assignmentVisible = 0>>
-	<<if $slaves[_OldHG].ID == $personalAttention>>
-		<<set $personalAttention = "business">>
-	<</if>>
-	<<set $slaves[_NewHG].assignment = "be your Head Girl", $slaves[_NewHG].assignmentVisible = 1, $HeadGirl = $slaves[_NewHG], $slaves[_NewHG].diet = "healthy">>
+	<<removeJob $slaves[_NewHG] "live with your Head Girl">>
+	<<assginJob $slaves[_OldHG] "live with your Head Girl">>
+	<<set $HeadGirl = $slaves[_NewHG], $slaves[_NewHG].diet = "healthy">>
 <</if>>
 
 <<if $week is $oldWeek>>
@@ -218,5 +214,3 @@
 <</if>>
 
 <<goto "Main">>
-
-<</silently>>

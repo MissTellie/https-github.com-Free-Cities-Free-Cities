@@ -196,11 +196,11 @@
 		<<if (_Slave.intelligenceImplant < 1) || (_Slave.accent+$schoolroomUpgradeLanguage > 2) || (_Slave.oralSkill <= 10) || (_Slave.whoreSkill <= 10) || (_Slave.entertainSkill <= 10) || (_Slave.analSkill < 1) || ((_Slave.vaginalSkill < 1) && (_Slave.vagina > 0))>>
 			<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if $seeImages == 1>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>><<print "[[_Slave.slaveName|Slave Interact][$activeSlave to $slaves["+_i+"]]]">>
 		<<else>>
-			/* <br>//_Slave.slaveName already has a basic education// */
+			<br>//_Slave.slaveName already has a basic education//
 			<<continue>>
 		<</if>>
 	<<else>>
-		/* <br>//_Slave.slaveName is too resistant to learn// */
+		<br>//_Slave.slaveName is too resistant to learn//
 		<<continue>>
 	<</if>>
 <<elseif $Flag == 1>>
