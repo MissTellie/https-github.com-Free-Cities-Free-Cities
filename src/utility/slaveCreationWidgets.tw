@@ -1060,7 +1060,7 @@
 	<<else>>
 		<<set $activeSlave.attrXX = 0>>
 	<</if>>
-	<<set $activeSlave.attrXX == Math.clamp($activeSlave.attrXX, 0, 100)>>
+	<<set $activeSlave.attrXX = Math.clamp($activeSlave.attrXX, 0, 100)>>
 	<<set $activeSlave.attrKnown = 1>>
 	<<replace "#attrXX">>
 		<<if $activeSlave.attrXX <= 5>>
@@ -1116,7 +1116,7 @@
 	<<else>>
 		<<set $activeSlave.attrXX = 100>>
 	<</if>>
-	<<set $activeSlave.attrXX == Math.clamp(0, 100)>>
+	<<set $activeSlave.attrXX = Math.clamp(0, 100)>>
 	<<set $activeSlave.attrKnown = 1>>
 	<<replace "#attrXX">>
 		<<if $activeSlave.attrXX <= 5>>
@@ -1173,7 +1173,7 @@
 		<<set $activeSlave.attrXY = 0>>
 	<</if>>
 
-	<<set $activeSlave.attrXY == Math.clamp(0, 100)>>
+	<<set $activeSlave.attrXY = Math.clamp(0, 100)>>
 	<<set $activeSlave.attrKnown = 1>>
 	<<replace "#attrXY">>
 		<<if $activeSlave.attrXY <= 5>>
@@ -1230,7 +1230,7 @@
 	<<else>>
 		<<set $activeSlave.attrXY = 100>>
 	<</if>>
-	<<set $activeSlave.attrXY == Math.clamp(0, 100)>>
+	<<set $activeSlave.attrXY = Math.clamp(0, 100)>>
 	<<set $activeSlave.attrKnown = 1>>
 	<<replace "#attrXY">>
 		<<if $activeSlave.attrXY <= 5>>
