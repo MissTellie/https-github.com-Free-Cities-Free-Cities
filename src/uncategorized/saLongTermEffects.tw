@@ -451,7 +451,7 @@ and ($slaves[$i].clothes != "a slutty qipao") and ($slaves[$i].clothes != "restr
 	  <</if>>
 	<</if>>
   <</if>>
-<<elseif $fakeBellies.contains($bellyAccessory)>>
+<<elseif $fakeBellies.includes($bellyAccessory)>>
   <<if ($slaves[$i].devotion <= 20) && ($slaves[$i].trust >= -50) && ($slaves[$i].fetish is "pregnancy")>>
 	<<if ($slaves[$i].fetishStrength > 60)>>
 	  As a pregnancy fetishist, she @@color:hotpink;openly enjoys@@ wearing her fake belly around.
@@ -1785,7 +1785,7 @@ and ($slaves[$i].clothes != "a slutty qipao") and ($slaves[$i].clothes != "restr
 	<</if>>
 	<<if $slaves[$i].preg > 0>>
 		Her paraphilia is satisfied by her pregnancy.
-	<<elseif $fakeBellies.contains($bellyAccessory)>>
+	<<elseif $fakeBellies.includes($bellyAccessory)>>
 		She @@color:mediumorchid;loathes@@ being forced to carry a fake pregnancy.
 		<<set $slaves[$i].devotion -= 3>>
 	<<else>>
@@ -1876,7 +1876,7 @@ and ($slaves[$i].clothes != "a slutty qipao") and ($slaves[$i].clothes != "restr
 	<</if>>
 <<else>>
 	<<if $slaves[$i].trust >= -50>>
-		<<if $gratefulCareers.contains($slaves[$i].career)>>
+		<<if $gratefulCareers.includes($slaves[$i].career)>>
 		<<set $slaves[$i].trust += 1>>
 		She remembers how hard her life was before she was a slave, and
 		<<if $slaves[$i].trust > 50>>
@@ -1889,7 +1889,7 @@ and ($slaves[$i].clothes != "a slutty qipao") and ($slaves[$i].clothes != "restr
 		<</if>>
 	<</if>>
 	<<if $slaves[$i].devotion >= -50>>
-		<<if $menialCareers.contains($slaves[$i].career)>>
+		<<if $menialCareers.includes($slaves[$i].career)>>
 		<<set $slaves[$i].devotion += 1>>
 		She took orders a lot before she was a slave, and is subconsciously
 		<<if $slaves[$i].trust > 50>>
@@ -3040,7 +3040,7 @@ and ($slaves[$i].clothes != "a slutty qipao") and ($slaves[$i].clothes != "restr
 	<<if $slaves[$i].preg == 10>>
 		$possessiveCap areolae darken with $possessive progressing pregnancy.
 	<<else>>
-		<<if $fakeBellies.contains($bellyAccessory)>>
+		<<if $fakeBellies.includes($bellyAccessory)>>
 			Her growing pregnancy renders her fake belly moot.
 			<<set $slaves[$i].bellyAccessory to "none">>
 		<</if>>

@@ -248,7 +248,7 @@
 	<</if>>
 <</if>>
 
-<<if $fighterIDs.contains($slaves[_i])>>
+<<if $fighterIDs.includes($slaves[_i])>>
 	<<if canWalk($slaves[_i]) != true>>
 		''__@@color:pink;$slaves[_i].slaveName@@__'' is no longer independently mobile @@color:yellow;and cannot fight any more.@@ She has been removed from $pitName roster<br>.
 		<<for _k to 0; _k < $fighterIDs.length; _k++>>
