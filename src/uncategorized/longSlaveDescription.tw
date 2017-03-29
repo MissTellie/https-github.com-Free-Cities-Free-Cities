@@ -190,7 +190,7 @@ She comes to you for an inspection
 	<<if $activeSlave.relationship <= 1>>
 	@@color:lightgreen;friends with $slaves[$i].slaveName;@@ the rules <<if $activeSlave.relationshipRules != "restrictive">>encourage<<else>> discourage<</if>> their relationship.
 	<<elseif $activeSlave.relationship <= 2>>
-	@@color:lightgreen;best friends@@ with $slaves[$i].slaveName;@@ the rules <<if $activeSlave.relationshipRules != "restrictive">>encourage<<else>> discourage<</if>> their close relationship.
+	@@color:lightgreen;best friends with $slaves[$i].slaveName;@@ the rules <<if $activeSlave.relationshipRules != "restrictive">>encourage<<else>> discourage<</if>> their close relationship.
 	<<elseif $activeSlave.relationship <= 3>>
 	@@color:lightgreen;$slaves[$i].slaveName's friend with benefits;@@ the rules <<if $activeSlave.relationshipRules == "permissive">>encourage<<else>> discourage<</if>> their sexual relationship.
 	<<elseif $activeSlave.relationship <= 4>>
@@ -1804,7 +1804,7 @@ $pronounCap is
 			She has a simple stud in her nose.
 		<<else>>
 			She has nasal studs and a large septum ring.
-			<<if ($activeSlave.clothes is "slutty jewelry") && ($activeSlave. earPiercing > 0)>>
+			<<if ($activeSlave.clothes is "slutty jewelry") && ($activeSlave.earPiercing > 0)>>
 				Her bangles include a light chain from her nose ring to her ear piercings on one side.
 			<</if>>
 		<</if>>
@@ -1825,7 +1825,7 @@ $pronounCap is
   <<if $activeSlave.amp != 1>>
 	<<if $activeSlave.nails == 1>>
 	  Her nails are long and elegant.
-	<<elseif ($activeSlave. nails is 2) && ($activeSlave.hColor is "blonde")>>
+	<<elseif ($activeSlave.nails is 2) && ($activeSlave.hColor is "blonde")>>
 	  Her nails are yellow to go with her $activeSlave.hColor hair.
 	<<elseif $activeSlave.nails == 2>>
 	  Her nails are color-coordinated with her $activeSlave.hColor hair.
