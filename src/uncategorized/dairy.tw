@@ -35,18 +35,19 @@
 	<</if>>
 	<<if $dairyPregSettingChanged == 1>>
 		<<for _Di = 0; _Di < _DL; _Di++>>
-			<<set _i = $DairyiIDs[_Di].Index>>
-			<<if $DairyiIDs[_Di].ID != $slaves[_i].ID>>
-				<<for _x = 0; _x < _SL; _x++>>
-					<<if ($DairyiIDs[_Di].ID == $slaves[_x].ID)>>
-						<<set $DairyiIDs[_Di].Index = _x, _i = _x>>
+			<<set _i = $DairyiIDs[_Di].Index, _ID = $DairyiIDs[_Di].ID>>
+			<<if _ID.ID != $slaves[_i].ID>>
+				<<for _i = 0; _i < _SL; _i++>>
+					<<if _ID.ID == $slaves[_i].ID>>
+						<<set $DairyiIDs[_Di].Index = _i>>
 						<<break>>
 					<</if>>
 				<</for>>
 			<</if>>
 			<<if ($slaves[_i].vagina > -1) && ($slaves[_i].vagina < 3)>>
 				$slaves[_i].slaveName's milking machine ejects her, since it cannot fit the mandated dildo into her tight cunt.
-				<<set $slaves[_i].assignment = "rest", $slaves[_i].assignmentVisible = 1, _dump = $DairyiIDs.pluck([_Di], [_Di]), _DL-->>
+				<<removeJob $slaves[_i] "work in the dairy">>
+				<<set _DL-->>
 			<</if>>
 		<</for>>
 		In unison, the milking machines withdraw their dildos from the pregnant slaves' vaginas. The auxiliary drug injectors hiss as the slaves are filled with drugs that promote natural lubrication. The slaves begin to shift awkwardly as they feel their pussies begin to drool slick female fluids. Once a machine judges that its slave's cunt is sufficiently wet, it readies a gigantic dildo. The slaves cannot see their own groins, but as soon as the heads of the dildos touch their pussylips, they begin to
@@ -67,18 +68,19 @@
 	<</if>>
 	<<if $dairyStimulatorsSettingChanged == 1>>
 		<<for _Di = 0; _Di < _DL; _Di++>>
-			<<set _i = $DairyiIDs[_Di].Index>>
-			<<if $DairyiIDs[_Di].ID != $slaves[_i].ID>>
-				<<for _x = 0; _x < _SL; _x++>>
-					<<if ($DairyiIDs[_Di].ID == $slaves[_x].ID)>>
-						<<set $DairyiIDs[_Di].Index = _x, _i = _x>>
+			<<set _i = $DairyiIDs[_Di].Index, _ID = $DairyiIDs[_Di].ID>>
+			<<if _ID.ID != $slaves[_i].ID>>
+				<<for _i = 0; _i < _SL; _i++>>
+					<<if _ID.ID == $slaves[_i].ID>>
+						<<set $DairyiIDs[_Di].Index = _i>>
 						<<break>>
 					<</if>>
 				<</for>>
 			<</if>>
 			<<if ($slaves[_i].anus < 3)>>
 				$slaves[_i].slaveName's milking machine ejects her, since it cannot fit its massive anal dildo up her tight asshole.
-				<<set $slaves[_i].assignment = "rest", $slaves[_i].assignmentVisible = 1, _dump = $DairyiIDs.pluck([_Di], [_Di]), _DL-->>
+				<<removeJob $slaves[_i] "work in the dairy">>
+				<<set _DL-->>
 			<</if>>
 		<</for>>
 		In unison, the milking machines shove their dildos deep into slaves' anuses, ejaculating large quantities of lubricant deep inside their rectums. The slaves start in surprise at the sudden rush of warm slick fluid, and then relax as the phalli withdraw themselves from their butts. Their relief is short-lived, however, as their assholes are only empty for a moment. The reasonably sized dildos are replaced with dildos the size of horse cocks. As soon as the slaves feel the heads of these monstrous phalli press inexorably against their sphincters,
@@ -100,18 +102,19 @@
 	<<if $dairyRestraintsSettingChanged == 1>>
 		<<if $dairyRestraintsSetting == 1>>
 			<<for _Di = 0; _Di < _DL; _Di++>>
-				<<set _i = $DairyiIDs[_Di].Index>>
-				<<if $DairyiIDs[_Di].ID != $slaves[_i].ID>>
-					<<for _x = 0; _x < _SL; _x++>>
-						<<if ($DairyiIDs[_Di].ID == $slaves[_x].ID)>>
-							<<set $DairyiIDs[_Di].Index = _x, _i = _x>>
+				<<set _i = $DairyiIDs[_Di].Index, _ID = $DairyiIDs[_Di].ID>>
+				<<if _ID.ID != $slaves[_i].ID>>
+					<<for _i = 0; _i < _SL; _i++>>
+						<<if _ID.ID == $slaves[_i].ID>>
+							<<set $DairyiIDs[_Di].Index = _i>>
 							<<break>>
 						<</if>>
 					<</for>>
 				<</if>>
 				<<if ($slaves[_i].indentureRestrictions >= 2)>>
 					$slaves[_i].slaveName's milking machine declines to restrain her, since she is encoded as an indentured servant protected from restraint for milking.
-					<<set $slaves[_i].assignment = "rest", $slaves[_i].assignmentVisible = 1, _dump = $DairyiIDs.pluck([_Di], [_Di]), _DL-->>
+					<<removeJob $slaves[_i] "work in the dairy">>
+					<<set _DL-->>
 				<</if>>
 			<</for>>
 			The next cow to stumble over to a milking machine to be drained is gently but firmly embraced by its restraints, allowing it to suck her dry and violate her without any regard for her feelings. Most of the cows accept this new wrinkle in their lives, since the restraints let them go afterward, and the milking machines bring temporary relief. Some, however, begin to regard the machines with concern.
@@ -122,18 +125,19 @@
 	<<elseif $dairyRestraintsSettingChanged == -1>>
 		<<if $dairyRestraintsSetting == 1>>
 			<<for _Di = 0; _Di < _DL; _Di++>>
-				<<set _i = $DairyiIDs[_Di].Index>>
-				<<if $DairyiIDs[_Di].ID != $slaves[_i].ID>>
-					<<for _x = 0; _x < _SL; _x++>>
-						<<if ($DairyiIDs[_Di].ID == $slaves[_x].ID)>>
-							<<set $DairyiIDs[_Di].Index = _x, _i = _x>>
+				<<set _i = $DairyiIDs[_Di].Index, _ID = $DairyiIDs[_Di].ID>>
+				<<if _ID.ID != $slaves[_i].ID>>
+					<<for _i = 0; _i < _SL; _i++>>
+						<<if _ID.ID == $slaves[_i].ID>>
+							<<set $DairyiIDs[_Di].Index = _i>>
 							<<break>>
 						<</if>>
 					<</for>>
 				<</if>>
 				<<if ($slaves[_i].indentureRestrictions >= 1)>>
 					$slaves[_i].slaveName's milking machine declines to restrain her, since she is encoded as an indentured servant protected from being restrained for milking.
-					<<set $slaves[_i].assignment = "rest", $slaves[_i].assignmentVisible = 1, _dump = $DairyiIDs.pluck([_Di], [_Di]), _DL-->>
+					<<removeJob $slaves[_i] "work in the dairy">>
+					<<set _DL-->>
 				<</if>>
 			<</for>>
 			The next time a cow tries to get up after being milked, she finds to her sudden terror that the machine will not let her go. It continues to add fluids to her body, and remove them from her nipples, ignoring her mounting panic as she realizes that it's to be her new partner and lover, on a level far more intimate than any possible human relationship. The other cows approach their machines with trepidation, but the mounting pressure in their udders forces them to embrace their immurement despite their terror.
@@ -296,7 +300,6 @@ $dairyNameCaps
 
 <<set _Tmult0 = Math.trunc($dairy*1000*$upgradeMultiplierArcology)>>
 <br>$dairyName can support $dairy milkers. [[Expand the dairy|Dairy][$cash -= _Tmult0, $dairy += 5]] //Costs ¤_Tmult0 and will increase upkeep costs//
-
 
 <<set _Tmult1 = Math.trunc(10000*$upgradeMultiplierArcology)>>
 <br>
