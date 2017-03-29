@@ -1,8 +1,9 @@
 :: Arcade Report [nobr]
 
-<<set _cockmilked = 0, _implanted = 0, _milked = 0,  _profits = 0, _DL = $ArcadeiIDs.length, $arcadeSlaves = _DL, _SL = $slaves.length>>
+<<set _DL = $ArcadeiIDs.length, $arcadeSlaves = _DL>>
 
 <<if $arcadeSlaves > 0>>
+	<<set _cockmilked = 0, _implanted = 0, _milked = 0,  _profits = 0, _SL = $slaves.length>>
 	&nbsp;&nbsp;&nbsp;&nbsp;<<if ($arcadeSlaves > 1)>>''There are $arcadeSlaves inmates confined in $arcadeName.''<<else>>''There is one inmate confined in $arcadeName.''<</if>>
 	<<if ($arcologies[0].FSDegradationist > 20)>>
 	<<if $arcologies[0].FSDegradationistLaw == 1>>
@@ -176,7 +177,7 @@
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;$activeSlave.slaveName is low-quality and surplus to the needs of the arcade, so she has been converted into a Fuckdoll.
 		<<include "Remove activeSlave">>
 		<<if $activeSlave == 0>> /% if not zero then technically there was an error INVALID SLAVE %/
-			<<set $fuckdolls++, $arcadeSlaves-->>
+			<<set $fuckdolls++>>
 		<</if>>
 	<</if>>
 <<else>>
