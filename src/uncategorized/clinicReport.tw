@@ -210,7 +210,8 @@
 		<<set $slaves[_i].chem -= 5>>
 	<</if>>
 	<<if ($slaves[_i].health >= 40) && (($slaves[_i].chem <= 20) || ($clinicUpgradeFilters != 1))>>
-		<<set $slaves[_i].assignment = "rest", $slaves[_i].assignmentVisible = 1, _restedSlaves++, _dump = $CliniciIds.pluck([_dI], [_dI]), $clinicSlaves--, _dI--, _DL-->>
+		<<removeJob $slaves[_i] "get treatment in the clinic">>
+		<<set _restedSlaves++, _dI--, _DL-->>
 		<<continue>>
 	<</if>>
 	<<if $showEWD != 0>>
