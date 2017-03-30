@@ -127,7 +127,7 @@
 	<</if>>
 
 <<elseif ($slaves[$i].fetishKnown == 1)>>
-	<<if ($slaves[$i].fetish is "submissive") && canWalk($slaves[$i])>>
+	<<if ($slaves[$i].fetish == "submissive") && canWalk($slaves[$i])>>
 	<<if $servantsQuarters > 0>>
 		thinks she belongs at the bottom of the penthouse hierarchy, so she goes to live in $servantsQuartersName.
 		<<assginJob $slaves[$i] "work as a servant">>
@@ -159,7 +159,7 @@
 		decides to become a whore, mostly to suck cock.
 		<<set $slaves[$i].assignment = "whore", $slaves[$i].assignmentVisible = 1>>
 	<</if>>
-<<elseif ($slaves[$i].fetish is "humiliation")>>
+<<elseif ($slaves[$i].fetish == "humiliation")>>
 	<<if $brothel > 0>>
 		chooses $brothelName, since it's even more embarrassing to be a whore than a club slut.
 		<<assginJob $slaves[$i] "work in the brothel">>
@@ -167,7 +167,7 @@
 		chooses to whore, since it's even more embarrassing to be a whore than to be a public servant.
 		<<set $slaves[$i].assignment = "whore", $slaves[$i].assignmentVisible = 1>>
 	<</if>>
-<<elseif ($slaves[$i].fetish is "buttslut")>>
+<<elseif ($slaves[$i].fetish == "buttslut")>>
 	<<if ($slaves[$i].balls > 0)>>
 	<<if ($dairy > 0) && ($dairyRestraintsSetting < 2)>>
 		chooses confinement in $dairyName, since all she'll be expected to do is make cum by orgasming to buttsex.
@@ -205,8 +205,8 @@
 	<<elseif ($slaves[$i].preg > 0)>>
 	<<if $masterSuite > 0>>
 		heads straight to $masterSuiteName to share the intimacy of her pregnant body with you.
-		<<set $slaves[$i].assignment to "serve in the master suite">>
-		<<set $slaves[$i].assignmentVisible to 0>>
+		<<set $slaves[$i].assignment = "serve in the master suite">>
+		<<set $slaves[$i].assignmentVisible = 0>>
 	<<else>>
 		chooses to be your fucktoy to share the intimacy of her pregnant body with you.
 		<<assginJob $slaves[$i] "serve in the master suite">>
@@ -220,7 +220,7 @@
 		<<set $slaves[$i].assignment = "whore", $slaves[$i].assignmentVisible = 1>>
 	<</if>>
 	<</if>>
-<<elseif ($slaves[$i].fetish is "boobs")>>
+<<elseif ($slaves[$i].fetish == "boobs")>>
 	<<if ($slaves[$i].lactation > 0)>>
 	<<if $dairy > 0>>
 		heads down to $dairyName for all the attention that'll be lavished on her nipples.

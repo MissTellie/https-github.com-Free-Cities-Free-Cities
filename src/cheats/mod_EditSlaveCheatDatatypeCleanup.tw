@@ -1,8 +1,8 @@
 :: MOD_Edit Slave Cheat Datatype Cleanup
 
 <<nobr>>
-	<<set $nextButton to "Continue">>
-	<<set $nextLink to "Slave Interact">>
+	<<set $nextButton = "Continue">>
+	<<set $nextLink = "Slave Interact">>
 
 	<<set $rep to Number($rep)>>
 	<<set $cash to Number($cash)>>
@@ -58,9 +58,9 @@ You perform the dark rituals, pray to the dark gods and sold your soul for the p
 
 This slave has been changed forever and you have lost a bit of your soul, YOU CHEATER!
 
-<<for $i to 0; $i < $slaves.length; $i++>>
+<<for $i = 0; $i < $slaves.length; $i++>>
 	<<if $activeSlave.ID == $slaves[$i].ID>>
-	<<set $slaves[$i] to $activeSlave>>
+	<<set $slaves[$i] = $activeSlave>>
 	<<break>>
 	<</if>>
 <</for>>

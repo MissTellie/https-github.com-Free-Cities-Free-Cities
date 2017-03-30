@@ -2,27 +2,27 @@
 /* Written and coded by Boney M */
 <<nobr>>
 
-<<set $nextButton to "Continue">>
-<<set $nextLink to "RIE Eligibility Check">>
-<<set $returnTo to "RIE Eligibility Check">>
-<<set $showEncyclopedia to 1>><<set $encyclopedia to "Enslaving People">>
+<<set $nextButton = "Continue">>
+<<set $nextLink = "RIE Eligibility Check">>
+<<set $returnTo = "RIE Eligibility Check">>
+<<set $showEncyclopedia = 1>><<set $encyclopedia = "Enslaving People">>
 
-<<set $contractCost to 3000>>
+<<set $contractCost = 3000>>
 <<include "Generate New Slave">>
-<<set $activeSlave.origin to "She offered herself to you for enslavement hoping you would preserve her incestuous relationship with her sibling.">>
+<<set $activeSlave.origin = "She offered herself to you for enslavement hoping you would preserve her incestuous relationship with her sibling.">>
 <<set $activeSlave.devotion = random(5,15)>>
 <<set $activeSlave.trust = random(-15,-5)>>
-<<set $activeSlave.age to random(21,29)>>
+<<set $activeSlave.age = random(21,29)>>
 <<set $activeSlave.health = random(-20,0)>>
 <<slaveCost $activeSlave>>
 <<set $slaveCost -= 3000>>
 
-<<set $activeSlave.relation to "sister">>
-<<set $activeSlave.relationTarget to $activeSlave.ID + 1000>>
-<<set $activeSlave.relationship to 4>>
-<<set $activeSlave.relationshipTarget to $activeSlave.ID + 1000>>
+<<set $activeSlave.relation = "sister">>
+<<set $activeSlave.relationTarget = $activeSlave.ID + 1000>>
+<<set $activeSlave.relationship = 4>>
+<<set $activeSlave.relationshipTarget = $activeSlave.ID + 1000>>
 
-<<if ($activeSlave.dick > 0) && ($activeSlave.balls == 0)>><<set $activeSlave.balls to random(1,5)>><</if>>
+<<if ($activeSlave.dick > 0) && ($activeSlave.balls == 0)>><<set $activeSlave.balls = random(1,5)>><</if>>
 
 <</nobr>>\
 \

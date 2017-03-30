@@ -2,8 +2,8 @@
 
 
 
-<<set $nextButton to "Continue">>
-<<set $nextLink to "Slave Interact">>
+<<set $nextButton = "Continue">>
+<<set $nextLink = "Slave Interact">>
 
 //Paste the code into the text box and click Apply//
 
@@ -14,9 +14,9 @@
 <<set $tempSlave to "">>
 <<textbox "$tempSlave" $tempSlave>>
 <<link "Apply">>
-	<<if (def $tempSlave) && ($tempSlave isnot "")>>
+	<<if (def $tempSlave) && ($tempSlave !== "")>>
 		<<set $tempSlave to eval('({' + $tempSlave + '})')>>
-		<<set $tempSlave.ID to $IDNumber>>
+		<<set $tempSlave.ID = $IDNumber>>
 		<<set $IDNumber += 1>>
 		<<AddSlave $tempSlave>>
 		<<replace #import>>

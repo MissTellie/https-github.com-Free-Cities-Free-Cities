@@ -194,32 +194,32 @@ $args[2]: icon UI Display for vector art, 1 for on.
 
 /% Feet %/
 <<if $args[0].amp != 1>>
-<<if $args[0].shoes is "heels">>
+<<if $args[0].shoes == "heels">>
 	<<set _shoesType = "heel">>
-<<elseif $args[0].shoes is "extreme heels">>
+<<elseif $args[0].shoes == "extreme heels">>
 	<<if $args[0].weight <= 95>>/%Chubby%/
 		<<set _shoesType = "extreme heel wide">>
 	<<else>>
 		<<set _shoesType = "extreme heel">>
 	<</if>>
-<<elseif $args[0].shoes is "boots">>
+<<elseif $args[0].shoes == "boots">>
 	<<if $args[0].weight <= 95>>/%Chubby%/
 		<<set _shoesType = "boot wide">>
 	<<else>>
 		<<set _shoesType = "boot">>
 	<</if>>
-<<elseif $args[0].shoes is "flats">>
+<<elseif $args[0].shoes == "flats">>
 	<<set _shoesType = "flat">>
 <<else>>
 	<<print "<object type='image/svg+xml' data=" + _imgSkinLoc + "/feet.svg'" + "/></object>">>
 <</if>>
-<<if $args[0].shoes is "extreme heels" or $args[0].shoes is "boots">>
+<<if $args[0].shoes == "extreme heels" || $args[0].shoes == "boots">>
 	<<if $args[0].fuckdoll != 0>>
 		<<set _shoesType = _shoesType + " latex">>
 	<</if>>
 	<<print "<object type='image/svg+xml' data=" + _folderLoc + "/outfit/" + _shoesType + ".svg'" + "/></object>">>
 <</if>>
-<<if $args[0].shoes is "heels" or $args[0].shoes is "flats">>
+<<if $args[0].shoes == "heels" || $args[0].shoes == "flats">>
 	<<if $args[0].fuckdoll != 0>>
 		<<set _shoesType = _shoesType + " latex">>
 		<<print "<object type='image/svg+xml' data=" + _folderLoc + "/outfit/" + _shoesType + ".svg'" + "/></object>">>
@@ -230,13 +230,13 @@ $args[2]: icon UI Display for vector art, 1 for on.
 <</if>>
 
 /% Torso %/
-<<if $args[0].waist is 1>>/%Hour glass%/
+<<if $args[0].waist == 1>>/%Hour glass%/
 	<<if $args[0].weight <= 95>>/%Chubby%/
 		<<set _torsoSize = "normal">>
 	<<else>>
 		<<set _torsoSize = "hourglass">>
 	<</if>>
-<<elseif $args[0].waist is 2>>/*Unnatural*/
+<<elseif $args[0].waist == 2>>/*Unnatural*/
 	<<if $args[0].weight <= 95>>/%Chubby%/
 		<<set _torsoSize = "hourglass">>
 	<<else>>
@@ -295,12 +295,12 @@ $args[2]: icon UI Display for vector art, 1 for on.
 <</if>>
 
 /% Collar %/
-<<if $args[0].collar is "dildo gag">>
+<<if $args[0].collar == "dildo gag">>
 	<<print "<object type='image/svg+xml' data=" + _folderLoc + "/outfit/gag.svg'" + "/></object>">>
 <</if>>
 
 /% Glasses %/
-<<if $args[0].eyewear is "corrective glasses" or $args[0].eyewear is "glasses" or $args[0].eyewear is "blurring glasses">>
+<<if $args[0].eyewear == "corrective glasses" || $args[0].eyewear == "glasses" || $args[0].eyewear == "blurring glasses">>
 	<<print "<object type='image/svg+xml' data=" + _folderLoc + "/outfit/glasses.svg'" + "/></object>">>
 <</if>>
 
@@ -421,9 +421,9 @@ $args[2]: icon UI Display for vector art, 1 for on.
 
 <<else>> /* RENDERED IMAGES BY SHOKUSHU */
 
-<<if $args[0].vagina gt -1>>
-	<<if $args[0].dick gt 0>>
-		<<if $args[0].balls gt 0>>
+<<if $args[0].vagina > -1>>
+	<<if $args[0].dick > 0>>
+		<<if $args[0].balls > 0>>
 			<<set _fileName = "futanari">>
 		<<else>>
 			<<set _fileName = "herm">>
@@ -432,13 +432,13 @@ $args[2]: icon UI Display for vector art, 1 for on.
 		<<set _fileName = "female">>
 	<</if>>
 <<else>>
-	<<if $args[0].balls gt 0>>
+	<<if $args[0].balls > 0>>
 		<<set _fileName = "shemale">>
 	<<else>>
 		<<set _fileName = "gelding">>
 	<</if>>
 <</if>>
-<<if $args[0].preg gt 10>>
+<<if $args[0].preg > 10>>
 	<<set _fileName = "preg " + _fileName>>
 <</if>>
 <<if $args[0].boobs < 400>>

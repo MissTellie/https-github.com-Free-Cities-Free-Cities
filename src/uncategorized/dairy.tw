@@ -434,7 +434,7 @@ $dairyNameCaps
 	<<set $Flag = 1>>
 	<<include "Slave Summary">>
 <</if>>
-<<set _seed to $bioreactorsXY+$bioreactorsXX+$bioreactorsHerm+$bioreactorsBarren>>
+<<set _seed = $bioreactorsXY+$bioreactorsXX+$bioreactorsHerm+$bioreactorsBarren>>
 <<if _seed > 1>>
 	//In addition, _seed milking machines have biological components installed in them.//
 <<elseif _seed == 1>>

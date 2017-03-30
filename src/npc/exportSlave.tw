@@ -2,15 +2,15 @@
 
 
 
-<<set $nextButton to "Continue">>
-<<set $nextLink to "Slave Interact">>
+<<set $nextButton = "Continue">>
+<<set $nextLink = "Slave Interact">>
 
 //Copy the following block of code for importing//
 
 <br><br>
 
 
-<<set _birthWeek to random(0,51)>>
+<<set _birthWeek = random(0,51)>>
 
 
 <<if (ndef $activeSlave.currentRules) || ($activeSlave.currentRules.length < 1)>><<set _currentRules to "[]">><<else>><<set _currentRules to "$activeSlave.currentRules">><</if>>

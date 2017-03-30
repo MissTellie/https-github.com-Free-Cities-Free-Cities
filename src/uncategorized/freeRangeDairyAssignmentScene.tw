@@ -2,8 +2,8 @@
 
 /* This scene wants $dairyRestraintsSetting == 0 && $activeSlave.devotion > 0 && $activeSlave.fetish != "mindbroken" */
 
-<<set $nextButton to "Continue">>
-<<set $nextLink to $returnTo>>
+<<set $nextButton = "Continue">>
+<<set $nextLink = $returnTo>>
 
 $activeSlave.slaveName reports to the dairy.
 <<if $activeSlave.energy > 90 >>
@@ -14,7 +14,7 @@ She rejoices since she is actually eager to be milked.
 <<if $dairySlaves > 1>>
 <br><br>
 While walking to her designated stall, she passes the other cows currently at their milking machines. Not being hurried, she occasionally stop to watch a cow.
-    <<if $activeSlave.fetish is "boobs" >>
+    <<if $activeSlave.fetish == "boobs" >>
     /* TODO: check if there actually are lactating cows at the dairy */
     <<set $aroused to true >>
     She cannot help but to feel aroused at the view of all those udders being thoroughly milked.
@@ -23,7 +23,7 @@ While walking to her designated stall, she passes the other cows currently at th
             <<if $activeSlave.lactation > 0 >>so she can produce even more milk<</if>>.
         <</if>>
     <</if>>
-    <<if $activeSlave.fetish is "buttslut" && $dairyStimulatorsSetting == 1>>
+    <<if $activeSlave.fetish == "buttslut" && $dairyStimulatorsSetting == 1>>
     <<set $aroused to true >>
     The automatic sodomizers are currently active. They are not running on an industrial setting, but on a gentler one. Every cow's anus is filled with a dildo attached on a mechanical arm. There is a wide range of sizes. Some dildos are small and provide expert stimulation for the sensitive areas. Other cows seem to prefer forearm-length horse-cocks for more intense stimulation. The automatic thrusting speeds vary, too. Some cows are currently asleep. Their respective stimulators are comfortably resting deeply buried in their behinds. Whenever a cow reaches climax, the sodomizers can thrust at ridiculous speeds. Good thing they provide not only nutrition, but lubrication, too.
     The sight of all those lovely rear-ends relentlessly reamed arouses $activeSlave.slaveName.
@@ -32,8 +32,8 @@ While walking to her designated stall, she passes the other cows currently at th
         <</if>>
     <</if>>
 
-    <<for $i to 0; $i < $slaves.length; $i++>>
-        <<if $slaves[$i].assignment is "work in the dairy" && $slaves[$i].balls > 5 >>
+    <<for $i = 0; $i < $slaves.length; $i++>>
+        <<if $slaves[$i].assignment == "work in the dairy" && $slaves[$i].balls > 5 >>
             <<set $aroused to true >>
             The hyper-endowed cum-cow $slaves[$i].slaveName is a pride for the dairy. $activeSlave.slaveName stops to watch her for a while. The constant suction on her dick has her panting. She is obviously nearing climax. Soon, her eyes bulge and her muscles tense.
             <<if  $dairyStimulatorsSetting == 1>>
@@ -71,24 +71,24 @@ All this lewd display turns $activeSlave.slaveName on and she is almost overcome
 Eventually, $activeSlave.slaveName arrives at her designated milking stall.
 <<set $assayedSlaveAvailable = 0>>
 <<if ($activeSlave.relation != 0)>>
-    <<for $i to 0; $i < $slaves.length; $i++>>
+    <<for $i = 0; $i < $slaves.length; $i++>>
     <<if $slaves[$i].ID == $activeSlave.relationTarget >>
-        <<if $slaves[$i].assignment is "work in the dairy">>
-            <<set $assayedSlave to $slaves[$i]>>
+        <<if $slaves[$i].assignment == "work in the dairy">>
+            <<set $assayedSlave = $slaves[$i]>>
             <<set $assayedSlaveAvailable = 1>>
         <</if>>
         <<break>>
     <</if>>
     <</for>>
     <<if $assayedSlaveAvailable == 1>>
-        <<set $assayType to $activeSlave.relation>>
+        <<set $assayType = $activeSlave.relation>>
     <</if>>
 <</if>>
 <<if $assayedSlaveAvailable == 0 && $activeSlave.relationship > 0>>
-    <<for $i to 0; $i < $slaves.length; $i++>>
+    <<for $i = 0; $i < $slaves.length; $i++>>
     <<if $slaves[$i].ID == $activeSlave.relationshipTarget>>
-        <<if $slaves[$i].assignment is "work in the dairy">>
-            <<set $assayedSlave to $slaves[$i]>>
+        <<if $slaves[$i].assignment == "work in the dairy">>
+            <<set $assayedSlave = $slaves[$i]>>
             <<set $assayedSlaveAvailable = 1>>
         <</if>>
         <<break>>
@@ -96,15 +96,15 @@ Eventually, $activeSlave.slaveName arrives at her designated milking stall.
     <</for>>
     <<if $assayedSlaveAvailable == 1>>
         <<if ($activeSlave.relationship <= 1)>>
-            <<set $assayType to "friend">>
+            <<set $assayType = "friend">>
         <<elseif ($activeSlave.relationship <= 2)>>
-            <<set $assayType to "best friend">>
+            <<set $assayType = "best friend">>
         <<elseif ($activeSlave.relationship <= 3)>>
-            <<set $assayType to "fuckbuddy">>
+            <<set $assayType = "fuckbuddy">>
         <<elseif ($activeSlave.relationship <= 4)>>
-            <<set $assayType to "lover">>
+            <<set $assayType = "lover">>
         <<else>>
-            <<set $assayType to "slave wife">>
+            <<set $assayType = "slave wife">>
         <</if>>
     <</if>>
 <</if>>
@@ -146,27 +146,27 @@ The milking chair comes with a small screen, providing mental stimulation for th
 <<else>>
     women
 <</if>>
-<<if ($activeSlave.fetish is "submissive") >>
+<<if ($activeSlave.fetish == "submissive") >>
     submitting to their sexual partners.
-<<elseif ($activeSlave.fetish is "cumslut") >>
+<<elseif ($activeSlave.fetish == "cumslut") >>
     sucking dick for all it's worth.
     <<if $dairyFeedersSetting == 1 >>
     The dairy feeders ejaculations are synced with the events in the video. $activeSlave.slaveName receives a load of cum-like nutrition every time a dick shoots. It really draws her into the pornography.
     <</if>>
-<<elseif ($activeSlave.fetish is "humiliation") >>
+<<elseif ($activeSlave.fetish == "humiliation") >>
     being humiliated.
-<<elseif ($activeSlave.fetish is "buttslut") >>
+<<elseif ($activeSlave.fetish == "buttslut") >>
     being fucked in the ass.
     <<if $dairyStimulatorsSetting == 1>>
     The dairy stimulators are synced to the videos. The automatic sodomizers thrust in exactly the same way as the dicks or dildos in the video. $activeSlave.slaveName is amazed by this advanced pornography. It feels like it was her being fucked in the videos all over.
     <</if>>
-<<elseif ($activeSlave.fetish is "dom") >>
+<<elseif ($activeSlave.fetish == "dom") >>
     dominating their sexual partners.
-<<elseif ($activeSlave.fetish is "masochist") >>
+<<elseif ($activeSlave.fetish == "masochist") >>
     being flogged.
-<<elseif ($activeSlave.fetish is "sadist") >>
+<<elseif ($activeSlave.fetish == "sadist") >>
     abusing their sexual partners.
-<<elseif ($activeSlave.fetish is "pregnancy") >>
+<<elseif ($activeSlave.fetish == "pregnancy") >>
     <<if $activeSlave.attrXY > $activeSlave.attrXX <= 5 || $activeSlave.behavioralQuirk == "adores men">>
         fucking pregnant women.
     <<else>>
@@ -204,7 +204,7 @@ Unfortunately, there is neither a milkmaid providing personal assistance nor aut
             anus, the automatic sodomizer is equipped with a decent silicone phallus.
             <</if>>
         Lubrication spurts from a hole at the tip, giving the artificial phallus a very lifelike pre-dripping look. Gently, the mechanical arm pushes the phallus into $activeSlave.slaveName's behind.
-            <<if $activeSlave.fetish is "buttslut" || $activeSlave.sexualFlaw == "anal addict">>
+            <<if $activeSlave.fetish == "buttslut" || $activeSlave.sexualFlaw == "anal addict">>
             She shudders with joy.
             <</if>>
         Soon, the automatic sodomizer pumps the dildo in and out of her butt-hole.

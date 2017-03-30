@@ -4,51 +4,51 @@
 
 /*PC qualities application*/
 
-<<set $upgradeMultiplierArcology to 1>>
-<<set $upgradeMultiplierMedicine to 1>>
+<<set $upgradeMultiplierArcology = 1>>
+<<set $upgradeMultiplierMedicine = 1>>
 
-<<if $PC.career is "wealth">>
+<<if $PC.career == "wealth">>
 	<<set $trinkets.push("a collection of diplomas from expensive schools")>>
 	<<set $cash += 10000>>
-<<elseif $PC.career is "capitalist">>
+<<elseif $PC.career == "capitalist">>
 	<<set $trinkets.push("a framed low denomination piece of paper money from your native country")>>
-<<elseif $PC.career is "mercenary">>
+<<elseif $PC.career == "mercenary">>
 	<<set $trinkets.push("a battered old assault rifle")>>
-<<elseif $PC.career is "slaver">>
+<<elseif $PC.career == "slaver">>
 	<<set $trinkets.push("a framed picture of a slave with her sale price scrawled across the bottom")>>
-<<elseif $PC.career is "engineer">>
+<<elseif $PC.career == "engineer">>
 	<<set $trinkets.push("an artist's impression of an early arcology design")>>
 	<<set $AProsperityCap = 100>>
-	<<set $upgradeMultiplierArcology to 0.6>>
-<<elseif $PC.career is "medicine">>
+	<<set $upgradeMultiplierArcology = 0.6>>
+<<elseif $PC.career == "medicine">>
 	<<set $trinkets.push("a framed postsurgical x-ray")>>
 	<<set $surgeryCost = Math.trunc($surgeryCost/2)>>
-	<<set $upgradeMultiplierMedicine to 0.8>>
-<<elseif $PC.career is "celebrity">>
+	<<set $upgradeMultiplierMedicine = 0.8>>
+<<elseif $PC.career == "celebrity">>
 	<<set $trinkets.push("a framed copy of the first news story featuring yourself")>>
 	<<set $rep += 4000>>
-<<elseif $PC.career is "arcology owner">>
+<<elseif $PC.career == "arcology owner">>
 	<<set $trinkets.push("a miniature model of your first arcology")>>
-	<<set $upgradeMultiplierArcology to 0.8>>
+	<<set $upgradeMultiplierArcology = 0.8>>
 	<<set $rep += 2000>>
 <</if>>
 
-<<if $PC.rumor is "wealth">>
+<<if $PC.rumor == "wealth">>
 	<<set $cash += 10000>>
-<<elseif $PC.rumor is "social engineering">>
-	<<set $FSAnnounced to 1>>
-	<<set $FSCredits to 1>>
-<<elseif $PC.rumor is "luck">>
+<<elseif $PC.rumor == "social engineering">>
+	<<set $FSAnnounced = 1>>
+	<<set $FSCredits = 1>>
+<<elseif $PC.rumor == "luck">>
 	<<set $rep += 4000>>
 <</if>>
 
-<<if $PC.age is 3>>
+<<if $PC.age == 3>>
 	<<set $rep += 2000>>
 <<elseif $PC.age == 1>>
 	<<if $rep >= 2000>>
 	<<set $rep -= 2000>>
 	<<else>>
-	<<set $rep to 0>>
+	<<set $rep = 0>>
 	<</if>>
 <</if>>
 
@@ -66,7 +66,7 @@
 	<<include "D Slaves Database">>
 	<<include "DF Slaves Database">>
 <</if>>
-<<set $activeSlave to 0>>
+<<set $activeSlave = 0>>
 
 /*Nationalities Setup*/
 
@@ -75,13 +75,13 @@
 
 <<if $terrain == "oceanic">>
 	<<set $nationalities = clone($basenationalities)>>
-	<<set $arcologies[0].FSSupremacistRace to "white">>
-	<<set $arcologies[0].FSSubjugationistRace to "middle eastern">>
+	<<set $arcologies[0].FSSupremacistRace = "white">>
+	<<set $arcologies[0].FSSubjugationistRace = "middle eastern">>
 <<else>>
 	<<switch $continent>>
 	<<case "North America">>
-		<<set $arcologies[0].FSSupremacistRace to "white">>
-		<<set $arcologies[0].FSSubjugationistRace to "black">>
+		<<set $arcologies[0].FSSupremacistRace = "white">>
+		<<set $arcologies[0].FSSubjugationistRace = "black">>
 		<<set $nationalities.push("American","American","American","American")>>
 		<<set $nationalities.push("Mexican","Mexican")>>
 		<<set $nationalities.push("Canadian")>>
@@ -90,8 +90,8 @@
 		<<set $nationalities.push("Puerto Rican")>>
 		<<set $nationalities.push("Jamaican")>>
 	<<case "South America">>
-		<<set $arcologies[0].FSSupremacistRace to "latina">>
-		<<set $arcologies[0].FSSubjugationistRace to "black">>
+		<<set $arcologies[0].FSSupremacistRace = "latina">>
+		<<set $arcologies[0].FSSubjugationistRace = "black">>
 		<<set $nationalities.push("Brazilian","Brazilian","Brazilian","Brazilian")>>
 		<<set $nationalities.push("Argentinian","Argentinian")>>
 		<<set $nationalities.push("Colombian","Colombian")>>
@@ -101,8 +101,8 @@
 		<<set $nationalities.push("Chilean")>>
 		<<set $nationalities.push("Guatemalan")>>
 	<<case "the Middle East">>
-		<<set $arcologies[0].FSSupremacistRace to "middle eastern">>
-		<<set $arcologies[0].FSSubjugationistRace to "asian">>
+		<<set $arcologies[0].FSSupremacistRace = "middle eastern">>
+		<<set $arcologies[0].FSSubjugationistRace = "asian">>
 		<<set $nationalities.push("Egyptian", "Egyptian", "Egyptian")>>
 		<<set $nationalities.push("Iranian", "Iranian")>>
 		<<set $nationalities.push("Saudi", "Saudi")>>
@@ -117,8 +117,8 @@
 		<<set $nationalities.push("Afghan")>>
 		<<set $nationalities.push("Yemeni")>>
 	<<case "Africa">>
-		<<set $arcologies[0].FSSupremacistRace to "black">>
-		<<set $arcologies[0].FSSubjugationistRace to "white">>
+		<<set $arcologies[0].FSSupremacistRace = "black">>
+		<<set $arcologies[0].FSSubjugationistRace = "white">>
 		<<set $nationalities.push("Nigerian", "Nigerian", "Nigerian")>>
 		<<set $nationalities.push("South African","South African","South African")>>
 		<<set $nationalities.push("Kenyan", "Kenyan")>>
@@ -135,8 +135,8 @@
 		<<set $nationalities.push("Tanzanian")>>
 		<<set $nationalities.push("Ugandan")>>
 	<<case "Asia">>
-		<<set $arcologies[0].FSSupremacistRace to "asian">>
-		<<set $arcologies[0].FSSubjugationistRace to "indo-aryan">>
+		<<set $arcologies[0].FSSupremacistRace = "asian">>
+		<<set $arcologies[0].FSSubjugationistRace = "indo-aryan">>
 		<<set $nationalities.push("Chinese","Chinese","Chinese","Chinese","Chinese","Chinese","Chinese","Chinese","Chinese","Chinese","Chinese","Chinese","Chinese","Chinese")>>
 		<<set $nationalities.push("Indian","Indian","Indian","Indian","Indian","Indian","Indian","Indian","Indian","Indian")>>
 		<<set $nationalities.push("Indonesian","Indonesian","Indonesian")>>
@@ -153,8 +153,8 @@
 		<<set $nationalities.push("Nepalese")>>
 		<<set $nationalities.push("Kazakh")>>
 	<<case "Europe">>
-		<<set $arcologies[0].FSSupremacistRace to "white">>
-		<<set $arcologies[0].FSSubjugationistRace to "middle eastern">>
+		<<set $arcologies[0].FSSupremacistRace = "white">>
+		<<set $arcologies[0].FSSubjugationistRace = "middle eastern">>
 		<<set $nationalities.push("Russian", "Russian", "Russian", "Russian")>>
 		<<set $nationalities.push("German", "German", "German")>>
 		<<set $nationalities.push("Ukrainian", "Ukrainian")>>
@@ -182,8 +182,8 @@
 		<<set $nationalities.push("Hungarian")>>
 		<<set $nationalities.push("Estonian")>>
 	<<case "Australia">>
-		<<set $arcologies[0].FSSupremacistRace to "white">>
-		<<set $arcologies[0].FSSubjugationistRace to "asian">>
+		<<set $arcologies[0].FSSupremacistRace = "white">>
+		<<set $arcologies[0].FSSubjugationistRace = "asian">>
 		<<set $nationalities.push("Australian","Australian","Australian")>>
 		<<set $nationalities.push("a New Zealander")>>
 	<</switch>>
@@ -282,25 +282,25 @@
 	<</if>>
 <</if>>
 
-<<set $customSlave.nationality to $nationalities.random()>>
+<<set $customSlave.nationality = $nationalities.random()>>
 
 /* SET STARTING CONDITIONS */
 
-<<set $minimumSlaveCost to 3000>>
-<<set $enduringRep to $rep>>
-<<set $oldCash to $cash>>
+<<set $minimumSlaveCost = 3000>>
+<<set $enduringRep = $rep>>
+<<set $oldCash = $cash>>
 
 <<set $arcologies to []>>
 <<set $leaders to []>>
 
-<<set $seed to ["north", "northeast", "east", "southeast", "south", "southwest", "west", "northwest"]>>
+<<set $seed = ["north", "northeast", "east", "southeast", "south", "southwest", "west", "northwest"]>>
 <<set $neighboringArcologies to Math.clamp($neighboringArcologies, 0, 8)>>
-<<for $i to 0; $i <= $neighboringArcologies; $i++>>
+<<for $i = 0; $i <= $neighboringArcologies; $i++>>
 	<<set $activeArcology to {name: "Arcology X-", direction: "north", government: "an individual", leaderID: 0, honeymoon: 0, prosperity: 50, ownership: 50, minority: 20, PCminority: 0, demandFactor: 0, FSSupremacist: "unset", FSSupremacistRace: 0, FSSubjugationist: "unset", FSSubjugationistRace: 0, FSGenderRadicalist: "unset", FSGenderFundamentalist: "unset", FSPaternalist: "unset", FSDegradationist: "unset", FSBodyPurist: "unset", FSTransformationFetishist: "unset", FSYouthPreferentialist: "unset", FSMaturityPreferentialist: "unset", FSSlimnessEnthusiast: "unset", FSAssetExpansionist: "unset", FSPastoralist: "unset", FSPhysicalIdealist: "unset", FSChattelReligionist: "unset", FSRomanRevivalist: "unset", FSEgyptianRevivalist: "unset", FSEdoRevivalist: "unset", FSArabianRevivalist: "unset", FSChineseRevivalist: "unset", FSNull: "unset", embargo: 1, embargoTarget: -1, influenceTarget: -1, influenceBonus: 0, rival: 0}>>
 	<<if $i == 0>>
-		<<set $activeArcology.direction to 0>>
-		<<set $activeArcology.name to "Arcology X-4">>
-		<<set $activeArcology.FSSupremacistDecoration to 20, $activeArcology.FSSubjugationistDecoration to 20, $activeArcology.FSGenderRadicalistDecoration to 20, $activeArcology.FSGenderFundamentalistDecoration to 20, $activeArcology.FSPaternalistDecoration to 20, $activeArcology.FSDegradationistDecoration to 20, $activeArcology.FSBodyPuristDecoration to 20, $activeArcology.FSTransformationFetishistDecoration to 20, $activeArcology.FSYouthPreferentialistDecoration to 20, $activeArcology.FSMaturityPreferentialistDecoration to 20, $activeArcology.FSSlimnessEnthusiastDecoration to 20, $activeArcology.FSAssetExpansionistDecoration to 20, $activeArcology.FSPastoralistDecoration to 20, $activeArcology.FSPhysicalIdealistDecoration to 20, $activeArcology.FSChattelReligionistDecoration to 20, $activeArcology.FSRomanRevivalistDecoration to 20, $activeArcology.FSEgyptianRevivalistDecoration to 20, $activeArcology.FSEdoRevivalistDecoration to 20, $activeArcology.FSArabianRevivalistDecoration to 20, $activeArcology.FSChineseRevivalistDecoration to 20>>
+		<<set $activeArcology.direction = 0>>
+		<<set $activeArcology.name = "Arcology X-4">>
+		<<set $activeArcology.FSSupremacistDecoration = 20, $activeArcology.FSSubjugationistDecoration = 20, $activeArcology.FSGenderRadicalistDecoration = 20, $activeArcology.FSGenderFundamentalistDecoration = 20, $activeArcology.FSPaternalistDecoration = 20, $activeArcology.FSDegradationistDecoration = 20, $activeArcology.FSBodyPuristDecoration = 20, $activeArcology.FSTransformationFetishistDecoration = 20, $activeArcology.FSYouthPreferentialistDecoration = 20, $activeArcology.FSMaturityPreferentialistDecoration = 20, $activeArcology.FSSlimnessEnthusiastDecoration = 20, $activeArcology.FSAssetExpansionistDecoration = 20, $activeArcology.FSPastoralistDecoration = 20, $activeArcology.FSPhysicalIdealistDecoration = 20, $activeArcology.FSChattelReligionistDecoration = 20, $activeArcology.FSRomanRevivalistDecoration = 20, $activeArcology.FSEgyptianRevivalistDecoration = 20, $activeArcology.FSEdoRevivalistDecoration = 20, $activeArcology.FSArabianRevivalistDecoration = 20, $activeArcology.FSChineseRevivalistDecoration = 20>>
 		<<if $targetArcology.type != "New">>
 			<<set $FSAnnounced = 1>>
 			<<set $activeArcology.name = $targetArcology.name, $activeArcology.prosperity = $targetArcology.prosperity, $ACitizens += $targetArcology.citizens*500>>
@@ -350,17 +350,17 @@
 				<<set $activeArcology.FSNull = 20>>
 			<</switch>>
 			<<if $PC.rumor = "social engineering">>
-				<<set $FSGotRepCreditOne to 1>>
+				<<set $FSGotRepCreditOne = 1>>
 			<</if>>
 		<</if>>
 	<<else>>
 		<<if $i > 4>>
-			<<set $activeArcology.name to $activeArcology.name+$i>>
+			<<set $activeArcology.name = $activeArcology.name+$i>>
 		<<else>>
-			<<set $activeArcology.name to $activeArcology.name+($i+1)>>
+			<<set $activeArcology.name = $activeArcology.name+($i+1)>>
 		<</if>>
-		<<set $activeArcology.direction to $seed.pluck()>>
-		<<set $activeArcology.government to random(0,5)>>
+		<<set $activeArcology.direction = $seed.pluck()>>
+		<<set $activeArcology.government = random(0,5)>>
 		<<set $activeArcology.prosperity += random(-20,20)>>
 		<<set $activeArcology.ownership += random(-10,0)>>
 		<<set $activeArcology.minority += random(-5,5)>>
@@ -368,48 +368,48 @@
 	<<set $arcologies.push($activeArcology)>>
 <</for>>
 
-<<set $arcologies[0].FSSupremacistLawME to 0>>
-<<set $arcologies[0].FSSupremacistSMR to 0>>
-<<set $arcologies[0].FSSubjugationistLawME to 0>>
-<<set $arcologies[0].FSSubjugationistSMR to 0>>
-<<set $arcologies[0].FSGenderRadicalistLawDicks to 0>>
-<<set $arcologies[0].FSGenderRadicalistLawFuta to 0>>
-<<set $arcologies[0].FSGenderRadicalistLawBeauty to 0>>
-<<set $arcologies[0].FSGenderFundamentalistLawBimbo to 0>>
-<<set $arcologies[0].FSGenderFundamentalistSMR to 0>>
-<<set $arcologies[0].FSGenderFundamentalistLawBeauty to 0>>
-<<set $arcologies[0].FSPaternalistLaw to 0>>
-<<set $arcologies[0].FSPaternalistSMR to 0>>
-<<set $arcologies[0].FSDegradationistLaw to 0>>
-<<set $arcologies[0].FSDegradationistSMR to 0>>
-<<set $arcologies[0].FSBodyPuristLaw to 0>>
-<<set $arcologies[0].FSBodyPuristSMR to 0>>
-<<set $arcologies[0].FSTransformationFetishistLaw to 0>>
-<<set $arcologies[0].FSTransformationFetishistSMR to 0>>
-<<set $arcologies[0].FSYouthPreferentialistLaw to 0>>
-<<set $arcologies[0].FSYouthPreferentialistSMR to 0>>
-<<set $arcologies[0].FSMaturityPreferentialistLaw to 0>>
-<<set $arcologies[0].FSMaturityPreferentialistSMR to 0>>
-<<set $arcologies[0].FSSlimnessEnthusiastSMR to 0>>
-<<set $arcologies[0].FSAssetExpansionistSMR to 0>>
-<<set $arcologies[0].FSPastoralistLaw to 0>>
-<<set $arcologies[0].FSPastoralistSMR to 0>>
-<<set $arcologies[0].FSPhysicalIdealistSMR to 0>>
-<<set $arcologies[0].FSChattelReligionistLaw to 0>>
-<<set $arcologies[0].FSChattelReligionistSMR to 0>>
-<<set $arcologies[0].FSChattelReligionistCreed to 0>>
-<<set $arcologies[0].FSRomanRevivalistLaw to 0>>
-<<set $arcologies[0].FSRomanRevivalistSMR to 0>>
-<<set $arcologies[0].FSEgyptianRevivalistLaw to 0>>
-<<set $arcologies[0].FSEgyptianRevivalistSMR to 0>>
-<<set $arcologies[0].FSEdoRevivalistLaw to 0>>
-<<set $arcologies[0].FSEdoRevivalistSMR to 0>>
-<<set $arcologies[0].FSArabianRevivalistLaw to 0>>
-<<set $arcologies[0].FSArabianRevivalistSMR to 0>>
-<<set $arcologies[0].FSChineseRevivalistLaw to 0>>
-<<set $arcologies[0].FSChineseRevivalistSMR to 0>>
+<<set $arcologies[0].FSSupremacistLawME = 0>>
+<<set $arcologies[0].FSSupremacistSMR = 0>>
+<<set $arcologies[0].FSSubjugationistLawME = 0>>
+<<set $arcologies[0].FSSubjugationistSMR = 0>>
+<<set $arcologies[0].FSGenderRadicalistLawDicks = 0>>
+<<set $arcologies[0].FSGenderRadicalistLawFuta = 0>>
+<<set $arcologies[0].FSGenderRadicalistLawBeauty = 0>>
+<<set $arcologies[0].FSGenderFundamentalistLawBimbo = 0>>
+<<set $arcologies[0].FSGenderFundamentalistSMR = 0>>
+<<set $arcologies[0].FSGenderFundamentalistLawBeauty = 0>>
+<<set $arcologies[0].FSPaternalistLaw = 0>>
+<<set $arcologies[0].FSPaternalistSMR = 0>>
+<<set $arcologies[0].FSDegradationistLaw = 0>>
+<<set $arcologies[0].FSDegradationistSMR = 0>>
+<<set $arcologies[0].FSBodyPuristLaw = 0>>
+<<set $arcologies[0].FSBodyPuristSMR = 0>>
+<<set $arcologies[0].FSTransformationFetishistLaw = 0>>
+<<set $arcologies[0].FSTransformationFetishistSMR = 0>>
+<<set $arcologies[0].FSYouthPreferentialistLaw = 0>>
+<<set $arcologies[0].FSYouthPreferentialistSMR = 0>>
+<<set $arcologies[0].FSMaturityPreferentialistLaw = 0>>
+<<set $arcologies[0].FSMaturityPreferentialistSMR = 0>>
+<<set $arcologies[0].FSSlimnessEnthusiastSMR = 0>>
+<<set $arcologies[0].FSAssetExpansionistSMR = 0>>
+<<set $arcologies[0].FSPastoralistLaw = 0>>
+<<set $arcologies[0].FSPastoralistSMR = 0>>
+<<set $arcologies[0].FSPhysicalIdealistSMR = 0>>
+<<set $arcologies[0].FSChattelReligionistLaw = 0>>
+<<set $arcologies[0].FSChattelReligionistSMR = 0>>
+<<set $arcologies[0].FSChattelReligionistCreed = 0>>
+<<set $arcologies[0].FSRomanRevivalistLaw = 0>>
+<<set $arcologies[0].FSRomanRevivalistSMR = 0>>
+<<set $arcologies[0].FSEgyptianRevivalistLaw = 0>>
+<<set $arcologies[0].FSEgyptianRevivalistSMR = 0>>
+<<set $arcologies[0].FSEdoRevivalistLaw = 0>>
+<<set $arcologies[0].FSEdoRevivalistSMR = 0>>
+<<set $arcologies[0].FSArabianRevivalistLaw = 0>>
+<<set $arcologies[0].FSArabianRevivalistSMR = 0>>
+<<set $arcologies[0].FSChineseRevivalistLaw = 0>>
+<<set $arcologies[0].FSChineseRevivalistSMR = 0>>
 
-<<set $showStartingGirlsExplanation to 1>>
+<<set $showStartingGirlsExplanation = 1>>
 <<goto "Starting Girls">>
 
 <</silently>>
