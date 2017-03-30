@@ -383,7 +383,7 @@ She did not expect to find you here, and is so preoccupied that she doesn't noti
 <<case "ignorant horny">>
 
 <span id="name"><<print "[[$activeSlave.slaveName|Long Slave Description][$nextLink = passage(), $eventDescription = 1]]">></span> is first on the inspection schedule, and as you watch her enter your office, you note several good signs about her progress towards becoming a good sex slave. She enters obediently, without pretending to be thrilled to be here, but also without hesitation. Best of all,
-<<if ($activeSlave.dick > 4) and canAchieveErection($activeSlave)>>
+<<if ($activeSlave.dick > 4) && canAchieveErection($activeSlave)>>
 	she's sporting a massive half-erection which slaps lewdly against her thighs as she walks.
 <<elseif ($activeSlave.dick > 2) && canAchieveErection($activeSlave)>>
 	her dick is half-erect, bobbing lewdly as she walks.

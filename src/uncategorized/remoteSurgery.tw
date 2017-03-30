@@ -492,7 +492,7 @@ $pronounCap has
 	$possessiveCap areolae are fairly normal.
 <<elseif $activeSlave.areolae == 1>>
 	$possessiveCap areolae are large but still fairly normal.
-<<elseif ($activeSlave.areolae > 1) and  ($activeSlave.areolae < 4)>>
+<<elseif ($activeSlave.areolae > 1) && ($activeSlave.areolae < 4)>>
 	<<if $activeSlave.indentureRestrictions < 2>>
 	$pronounCap has big areolae that could be reshaped into a pattern.  Graft skin to make $possessive areolae:
 	[[Heart-shaped|Surgery Degradation][$activeSlave.areolae = 4,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "areolae"]]

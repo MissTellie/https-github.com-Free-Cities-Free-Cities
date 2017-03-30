@@ -29,13 +29,13 @@
 	<<continue>>
 <</if>>
 <<case "BG Select">>
-<<if (_Slave.assignmentVisible == 1) && (_Slave.fuckdoll == 0) && (_Slave.devotion > 50) && (_Slave.assignment != "guard you") && (_Slave.assignment != "recruit girls") && (_Slave.assignment != "be your Head Girl") and canWalk(_Slave) and canSee(_Slave)>>
+<<if (_Slave.assignmentVisible == 1) && (_Slave.fuckdoll == 0) && (_Slave.devotion > 50) && (_Slave.assignment != "guard you") && (_Slave.assignment != "recruit girls") && (_Slave.assignment != "be your Head Girl") && canWalk(_Slave) && canSee(_Slave)>>
 	<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if $seeImages == 1>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>><<print "[[_Slave.slaveName|Bodyguard Workaround][$Bodyguard = $slaves["+_i+"]]]">>
 <<else>>
 	<<continue>>
 <</if>>
 <<case "Recruiter Select">>
-<<if (_Slave.assignmentVisible == 1) && (_Slave.fuckdoll == 0) && (_Slave.devotion > 50) && (_Slave.assignment != "guard you") && (_Slave.assignment != "recruit girls") && (_Slave.assignment != "be your Head Girl") and canWalk(_Slave) and canSee(_Slave) && canTalk(_Slave)>>
+<<if (_Slave.assignmentVisible == 1) && (_Slave.fuckdoll == 0) && (_Slave.devotion > 50) && (_Slave.assignment != "guard you") && (_Slave.assignment != "recruit girls") && (_Slave.assignment != "be your Head Girl") && canWalk(_Slave) && canSee(_Slave) && canTalk(_Slave)>>
 	<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if $seeImages == 1>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>><<print "[[_Slave.slaveName|Recruiter Workaround][$Recruiter = $slaves["+_i+"]]]">>
 <<else>>
 	<<continue>>
@@ -530,7 +530,7 @@ will
 	Fucktoy |
 <</if>>
 <<if (_Slave.assignment != "be a servant") && (_Slave.fuckdoll == 0)>>
-	<<if ((_Slave.devotion >= -20) || ((_Slave.trust < -20) && (_Slave.devotion >= -50)) || (_Slave.trust < -50)) and canWalk(_Slave) and canWalk(_Slave)>>
+	<<if ((_Slave.devotion >= -20) || ((_Slave.trust < -20) && (_Slave.devotion >= -50)) || (_Slave.trust < -50)) && canWalk(_Slave) && canWalk(_Slave)>>
 		<<print "[[House Servant|Servant Workaround][$activeSlave = $slaves[" + _i + "]]]">> |
 	<</if>>
 <<else>>

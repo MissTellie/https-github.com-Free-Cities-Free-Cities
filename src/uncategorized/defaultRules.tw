@@ -3,7 +3,7 @@
 <<for _r = 0; _r < $defaultRules.length; _r++>>
 <<set _currentRule = $defaultRules[_r]>>
 <<if !ruleApplied($activeSlave, _currentRule.ID)>><<continue>><</if>>
-<<if (def _currentRule.facility) && (_currentRule.facility.length > 1) and !ruleAppliedToSlaveFacility(_currentRule, $activeSlave)>><<continue>><</if>>
+<<if (def _currentRule.facility) && (_currentRule.facility.length > 1) && !ruleAppliedToSlaveFacility(_currentRule, $activeSlave)>><<continue>><</if>>
 
 <<if $activeSlave.fuckdoll == 0>>
 

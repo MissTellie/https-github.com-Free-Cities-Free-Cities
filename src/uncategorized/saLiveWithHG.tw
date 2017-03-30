@@ -356,7 +356,7 @@
 
 <<if ($HeadGirl.fetishKnown == 1)>>
 	<<if ($HeadGirl.energy > 95)>>
-	$slaves[$i].slaveName spends a lot of time getting fucked in whichever hole $HeadGirl.slaveName decides to shove her <<if ($HeadGirl.dick > 0) and canAchieveErection($HeadGirl) && ($HeadGirl.dickAccessory != "chastity")>>dick<<else>>strap-on<</if>> into next.
+	$slaves[$i].slaveName spends a lot of time getting fucked in whichever hole $HeadGirl.slaveName decides to shove her <<if ($HeadGirl.dick > 0) && canAchieveErection($HeadGirl) && ($HeadGirl.dickAccessory != "chastity")>>dick<<else>>strap-on<</if>> into next.
 	<<set $slaves[$i].oralCount += 5>>
 	<<set $oralTotal += 5>>
 	<<set $slaves[$i].analCount += 5>>

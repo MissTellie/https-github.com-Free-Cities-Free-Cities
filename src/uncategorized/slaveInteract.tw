@@ -240,7 +240,7 @@ __Assignment__: <strong><span id="assign"><<print $activeSlave.assignment>></spa
 <<link "Rest">><<set $activeSlave.assignment = "rest", $activeSlave.assignmentVisible = 1, $activeSlave.sentence = 0, $activeSlave.choosesOwnAssignment = 0>><<replace "#assign">><<print $activeSlave.assignment>><</replace>><</link>>
 | <<link "Fucktoy">><<set $activeSlave.assignment = "please you", $activeSlave.assignmentVisible = 1, $activeSlave.sentence = 0, $activeSlave.choosesOwnAssignment = 0>><<replace "#assign">><<print $activeSlave.assignment>><</replace>><</link>>
 <<if $activeSlave.fuckdoll == 0>>
-<<if (($activeSlave.devotion >= -20) || (($activeSlave.trust < -20) && ($activeSlave.devotion >= -50)) || ($activeSlave.trust < -50)) and canWalk($activeSlave)>>
+<<if (($activeSlave.devotion >= -20) || (($activeSlave.trust < -20) && ($activeSlave.devotion >= -50)) || ($activeSlave.trust < -50)) && canWalk($activeSlave)>>
 	| <<link "Subordinate slave">><<set $activeSlave.assignment = "be a subordinate slave", $activeSlave.assignmentVisible = 1, $activeSlave.sentence = 0, $activeSlave.choosesOwnAssignment = 0>><<goto "Subordinate Targeting">><</link>>
 	<<if ($activeSlave.eyes != -2)>>
 		| <<link "Servant">><<set $activeSlave.assignment = "be a servant", $activeSlave.assignmentVisible = 1, $activeSlave.sentence = 0, $activeSlave.choosesOwnAssignment = 0>><<replace "#assign">><<print $activeSlave.assignment>><</replace>><</link>>
