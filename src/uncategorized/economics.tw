@@ -1040,8 +1040,8 @@ earning you @@color:yellowgreen;¤$seed.@@
 		The local economy is hurt by the double edged sword of your economic warfare.
 		<<set _AWeekGrowth -= $arcologies[0].embargo*2>>
 	<</if>>
-	<<set $desc to []>>
-	<<set $descNeg to []>>
+	<<set $desc = []>>
+	<<set $descNeg = []>>
 	<<for $i = 1; $i < $arcologies.length; $i++>>
 		<<set $activeArcology = $arcologies[0]>>
 		<<set $targetArcology = $arcologies[$i]>>

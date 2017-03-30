@@ -6,19 +6,19 @@
 	<<set _currentRule = $defaultRules[_r]>>
 	<<if (def _currentRule) && (_currentRule.autoSurgery != 0)>>
 		<<set $thisSurgery = _currentRule.surgery>>
-		<<set _temp to lastLactationSurgeryRule($slaves[$i], $defaultRules)>>
+		<<set _temp = lastLactationSurgeryRule($slaves[$i], $defaultRules)>>
 		<<if _temp != null>>
 			<<set $thisSurgery.lactation = _temp.surgery.lactation>>
 		<</if>>
-		<<set _temp to lastLipSurgeryRule($slaves[$i], $defaultRules)>>
+		<<set _temp = lastLipSurgeryRule($slaves[$i], $defaultRules)>>
 		<<if _temp != null>>
 			<<set $thisSurgery.lips = _temp.surgery.lips>>
 		<</if>>
-		<<set _temp to lastButtSurgeryRule($slaves[$i], $defaultRules)>>
+		<<set _temp = lastButtSurgeryRule($slaves[$i], $defaultRules)>>
 		<<if _temp != null>>
 			<<set $thisSurgery.butt = _temp.surgery.butt>>
 		<</if>>
-		<<set _temp to lastBoobSurgeryRule($slaves[$i], $defaultRules)>>
+		<<set _temp = lastBoobSurgeryRule($slaves[$i], $defaultRules)>>
 		<<if _temp != null>>
 			<<set $thisSurgery.boobs = _temp.surgery.boobs>>
 		<</if>>
@@ -138,26 +138,26 @@
 		<<set $cash -= $surgeryCost>>
 		<<if $PC.career == "medicine">><<set $slaves[$i].health -= 5>><<else>><<set $slaves[$i].health -= 10>><</if>>
 	<</if>>
-<<elseif ($slaves[$i].faceImplant == 1) && ($slaves[$i].face < 3) && ($thisSurgery.cosmetic is 2)>>
+<<elseif ($slaves[$i].faceImplant == 1) && ($slaves[$i].face < 3) && ($thisSurgery.cosmetic == 2)>>
 	<<set $surgeries.push("a nicer face")>>
 	<<if $slaves[$i].faceShape == "masculine">><<set $slaves[$i].faceShape = "androgynous">><</if>>
 	<<set $slaves[$i].faceImplant = 2>>
 	<<set $slaves[$i].face += 1>>
 	<<set $cash -= $surgeryCost>>
 	<<if $PC.career == "medicine">><<set $slaves[$i].health -= 5>><<else>><<set $slaves[$i].health -= 10>><</if>>
-<<elseif ($slaves[$i].faceImplant > 0) && ($slaves[$i].face < 3) && ($surgeryUpgrade == 1) && ($thisSurgery.cosmetic is 2)>>
+<<elseif ($slaves[$i].faceImplant > 0) && ($slaves[$i].face < 3) && ($surgeryUpgrade == 1) && ($thisSurgery.cosmetic == 2)>>
 	<<set $surgeries.push("a nicer face")>>
 	<<if $slaves[$i].faceShape == "masculine">><<set $slaves[$i].faceShape = "androgynous">><</if>>
 	<<set $slaves[$i].faceImplant = 2>>
 	<<set $slaves[$i].face += 1>>
 	<<set $cash -= $surgeryCost>>
 	<<if $PC.career == "medicine">><<set $slaves[$i].health -= 5>><<else>><<set $slaves[$i].health -= 10>><</if>>
-<<elseif ($slaves[$i].waist == 1) && ($thisSurgery.cosmetic is 2) && ($seeExtreme == 1)>>
+<<elseif ($slaves[$i].waist == 1) && ($thisSurgery.cosmetic == 2) && ($seeExtreme == 1)>>
 	<<set $surgeries.push("a narrower waist")>>
 	<<set $slaves[$i].waist = 2>>
 	<<set $cash -= $surgeryCost>>
 	<<if $PC.career == "medicine">><<set $slaves[$i].health -= 30.5>><<else>><<set $slaves[$i].health -= 4>><</if>>
-<<elseif ($slaves[$i].voice < 3) && ($slaves[$i].voiceImplant == 0) && ($thisSurgery.cosmetic is 2)>>
+<<elseif ($slaves[$i].voice < 3) && ($slaves[$i].voiceImplant == 0) && ($thisSurgery.cosmetic == 2)>>
 	<<set $surgeries.push("a bimbo's voice")>>
 	<<set $slaves[$i].voice += 1>>
 	<<set $slaves[$i].voiceImplant += 1>>
@@ -215,7 +215,7 @@
 		<<set $cash -= $surgeryCost>>
 		<<if $PC.career == "medicine">><<set $slaves[$i].health -= 5>><<else>><<set $slaves[$i].health -= 10>><</if>>
 	<</if>>
-<<elseif ($slaves[$i].anus > 0) && ($surgeryUpgrade == 1) && ($thisSurgery.holes is 2)>>
+<<elseif ($slaves[$i].anus > 0) && ($surgeryUpgrade == 1) && ($thisSurgery.holes == 2)>>
 	<<set $surgeries.push("a virgin anus")>>
 	<<set $slaves[$i].anus = 0>>
 	<<if $slaves[$i].analSkill > 10>>

@@ -24,7 +24,7 @@
 	Since $activeSlave.slaveName has an unusual sexuality, you @@color:hotpink;build her devotion to you@@ by indulging her perversions. Since she's an absolute slut for humiliation, you let her whore around inside the special camera room whenever possible. When you're going out and feel like putting on a show, you bring her on a leash and fuck her in public. She comes harder than ever when you push her naked body up against the wall of a crowded public arcology elevator and molest her.
 	<<set $activeSlave.oralCount += 4, $oralTotal += 4>>
 	<<BothVCheck 4 2>>
-<<elseif ($activeSlave.anus is 3) && ($activeSlave.vagina is 3)>>
+<<elseif ($activeSlave.anus == 3) && ($activeSlave.vagina == 3)>>
 	$activeSlave.slaveName is a stretched-out, well-traveled slut. Some like their holes loose, but most prefer cunts and butts that don't make sloppy noises when fucked. So, you spend some quality care time with her, carefully massaging her abused holes with oils and lotions. She comes, of course, but her pussy and asshole do benefit from the treatment. You allow her to service you with her mouth to avoid spoiling your work right away. Afterward, she <<if ($activeSlave.amp != 1)>>@@color:hotpink;hugs you and gives you a kiss@@<<else>>@@color:hotpink;gives you a kiss and tries to hug you,@@ but without arms, all she manages is a sort of nuzzle<</if>>.
 	<<set $activeSlave.vagina--, $activeSlave.anus--,
 	$activeSlave.oralCount += 5, $oralTotal += 5>>
@@ -65,13 +65,13 @@
 		<<if ($activeSlave.anus == 3) && (random(1,100) > 50)>>
 			@@color:orange;Her anus has recovered and is now merely loose.@@
 			<<set $activeSlave.anus-->>
-		<<elseif ($activeSlave.anus is 3)>>
+		<<elseif ($activeSlave.anus == 3)>>
 			Her distended anus does not improve this week.
 		<</if>>
 		<<if ($activeSlave.vagina == 3) && (random(1,100) > 50)>>
 			@@color:orange;Her pussy has tightened.@@
 			<<set $activeSlave.vagina-->>
-		<<elseif ($activeSlave.vagina is 3)>>
+		<<elseif ($activeSlave.vagina == 3)>>
 			Her loose pussy does not recover this week.
 		<</if>>
 	<</if>>
@@ -295,10 +295,10 @@
 		<<if ($activeSlave.vaginalSkill >= 100)>>
 			slut; @@color:yellow;her assignment has defaulted to fostering devotion.@@
 			<<set $trainingRegimen = "build her devotion">>
-		<<elseif ($activeSlave.vagina is -1) && ($activeSlave.balls == 0)>>
+		<<elseif ($activeSlave.vagina == -1) && ($activeSlave.balls == 0)>>
 			gelded bitch; @@color:yellow;her assignment has defaulted to fostering devotion.@@
 			<<set $trainingRegimen = "build her devotion">>
-		<<elseif ($activeSlave.vagina is -1)>>
+		<<elseif ($activeSlave.vagina == -1)>>
 			shemale slut; @@color:yellow;her assignment has defaulted to fostering devotion.@@
 			<<set $trainingRegimen = "build her devotion">>
 		<<elseif ($activeSlave.vaginalAccessory == "chastity belt")>>

@@ -971,26 +971,26 @@ In total, you were paid @@color:yellowgreen;¤<<print Math.trunc($beauty*$FResul
 /* VIGNETTES */
 
 <<if ($showVignettes == 1)>>
-<<set $vignettes to []>>
+<<set $vignettes = []>>
 
 <<set $seed = random(1,10)>>
 <<if ($seed == 1)>>
 	<<set $vignettes.push({text: "the most interesting thing that happened to her at work was that she witnessed a domestic dispute over another whore,", type: "rep", effect: 0})>>
-<<elseif ($seed is 2)>>
+<<elseif ($seed == 2)>>
 	<<set $vignettes.push({text: "the most interesting thing that happened to her at work was that she saw a free whore finally sink into slavery,", type: "rep", effect: 0})>>
-<<elseif ($seed is 3)>>
+<<elseif ($seed == 3)>>
 	<<set $vignettes.push({text: "the most interesting thing that happened to her at work was that construction forced her to move from her usual spot,", type: "rep", effect: 0})>>
-<<elseif ($seed is 4)>>
+<<elseif ($seed == 4)>>
 	<<set $vignettes.push({text: "the most interesting thing that happened to her at work was that a customer used a new and improved sex toy on her,", type: "rep", effect: 0})>>
-<<elseif ($seed is 5)>>
+<<elseif ($seed == 5)>>
 	<<set $vignettes.push({text: "the most interesting thing that happened to her at work was an appointment with an unusually perverted family,", type: "rep", effect: 0})>>
-<<elseif ($seed is 6)>>
+<<elseif ($seed == 6)>>
 	<<set $vignettes.push({text: "the most interesting thing that happened to her at work was that she saw a man sell his wife into slavery,", type: "rep", effect: 0})>>
-<<elseif ($seed is 7)>>
+<<elseif ($seed == 7)>>
 	<<set $vignettes.push({text: "the most interesting thing that happened to her at work was that she saw a woman sell her daughters into slavery,", type: "rep", effect: 0})>>
-<<elseif ($seed is 8)>>
+<<elseif ($seed == 8)>>
 	<<set $vignettes.push({text: "the most interesting thing that happened to her at work was that she watched a citizen descend into aphrodisiac addiction,", type: "rep", effect: 0})>>
-<<elseif ($seed is 9)>>
+<<elseif ($seed == 9)>>
 	<<set $vignettes.push({text: "the most interesting thing that happened to her at work was that she watched a citizen develop the beginnings of sex addiction,", type: "rep", effect: 0})>>
 <<else>>
 	<<set $vignettes.push({text: "the most interesting thing that happened to her at work was that she witnessed a citizen administering a brutal public punishment to one of his slaves,", type: "rep", effect: 0})>>
@@ -998,11 +998,11 @@ In total, you were paid @@color:yellowgreen;¤<<print Math.trunc($beauty*$FResul
 <<set $seed = random(1,5)>>
 <<if ($seed == 1)>>
 	<<set $vignettes.push({text: "a citizen punished one of his slaves by tying her up in public near where $slaves[$i].slaveName was working. This cut into her business that day,", type: "cash", effect: -1})>>
-<<elseif ($seed is 2)>>
+<<elseif ($seed == 2)>>
 	<<set $vignettes.push({text: "a citizen shared one of his slaves with the public near where $slaves[$i].slaveName was working. This cut into her business that day,", type: "cash", effect: -1})>>
-<<elseif ($seed is 3)>>
+<<elseif ($seed == 3)>>
 	<<set $vignettes.push({text: "a private brothel offered a promotion near where $slaves[$i].slaveName was working. This cut into her business that day,", type: "cash", effect: -1})>>
-<<elseif ($seed is 4)>>
+<<elseif ($seed == 4)>>
 	<<set $vignettes.push({text: "some free sluts threw an aphrodisiac street party near where $slaves[$i].slaveName was working. This cut into her business that day,", type: "cash", effect: -1})>>
 <<else>>
 	<<set $vignettes.push({text: "a contract breaker was punished with the pillory near where $slaves[$i].slaveName was working. This cut into her business that day,", type: "cash", effect: -1})>>
@@ -1010,11 +1010,11 @@ In total, you were paid @@color:yellowgreen;¤<<print Math.trunc($beauty*$FResul
 <<set $seed = random(1,5)>>
 <<if ($seed == 1)>>
 	<<set $vignettes.push({text: "one of her regular customers got a divorce and came to her for repeated consolation,", type: "cash", effect: 1})>>
-<<elseif ($seed is 2)>>
+<<elseif ($seed == 2)>>
 	<<set $vignettes.push({text: "a brothel near where $slaves[$i].slaveName usually works had business trouble,", type: "cash", effect: 1})>>
-<<elseif ($seed is 3)>>
+<<elseif ($seed == 3)>>
 	<<set $vignettes.push({text: "a competing whore that looks like her fell ill, driving a customer to look for an alternative,", type: "cash", effect: 1})>>
-<<elseif ($seed is 4)>>
+<<elseif ($seed == 4)>>
 	<<set $vignettes.push({text: "a street whore that works near her was badly beaten by an abusive customer and had to take time off. The reduced competition got her more business,", type: "cash", effect: 1})>>
 <<else>>
 	<<set $vignettes.push({text: "an influx of tourists came into her part of the arcology, earning her more business for a day,", type: "cash", effect: 1})>>

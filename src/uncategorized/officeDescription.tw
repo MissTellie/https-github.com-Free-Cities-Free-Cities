@@ -6,7 +6,7 @@
 
 <<if $clubAdsSpending >= 5000>>
 	A corner of your desk is piled with sample merchandise from the campaign promoting your club.
-	<<set $eventSlaves to []>>
+	<<set $eventSlaves = []>>
 	<<for _i = 0; _i < $slaves.length; _i++>>
 	<<if ($slaves[_i].assignment == "serve in the club") and canWalk($slaves[_i])>>
 		<<set $eventSlaves.push($slaves[_i])>>
@@ -41,7 +41,7 @@
 	<<else>>
 	A corner of your desk is piled with sample merchandise from the campaign promoting $brothelName.
 	<</if>>
-	<<set $eventSlaves to []>>
+	<<set $eventSlaves = []>>
 	<<for _i = 0; _i < $slaves.length; _i++>>
 	<<if ($slaves[_i].assignment == "work in the brothel") and canWalk($slaves[_i])>>
 		<<set $eventSlaves.push($slaves[_i])>>

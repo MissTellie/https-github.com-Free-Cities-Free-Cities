@@ -49,7 +49,7 @@
 	<</if>>
 
 	<<if ndef $arcologies>>
-	<<set $arcologies to []>>
+	<<set $arcologies = []>>
 
 	<<set $arcologies[0] to {name: "Arcology X-", direction: 0, government: 1, honeymoon: 0, prosperity: 50, FSSupremacist: "unset", FSSupremacistRace: 0, FSSubjugationist: "unset", FSSubjugationistRace: 0, FSGenderRadicalist: "unset", FSGenderFundamentalist: "unset", FSPaternalist: "unset", FSDegradationist: "unset", FSBodyPurist: "unset", FSTransformationFetishist: "unset", FSYouthPreferentialist: "unset", FSMaturityPreferentialist: "unset", FSSlimnessEnthusiast: "unset", FSAssetExpansionist: "unset", FSPastoralist: "unset", FSPhysicalIdealist: "unset", FSChattelReligionist: "unset", FSRomanRevivalist: "unset", FSEgyptianRevivalist: "unset", FSEdoRevivalist: "unset", FSArabianRevivalist: "unset", FSChineseRevivalist: "unset", FSNull: "unset", embargo: 1, embargoTarget: -1, influenceTarget: -1, influenceBonus: 0, rival: 0}>>
 	<</if>>
@@ -442,25 +442,25 @@
 	<</if>>
 
 	<<if ndef $REFeminizationCheckinIDs>>
-		<<set $REFeminizationCheckinIDs to []>>
+		<<set $REFeminizationCheckinIDs = []>>
 	<</if>>
 	<<if ndef $REMILFCheckinIDs>>
-		<<set $REMILFCheckinIDs to []>>
+		<<set $REMILFCheckinIDs = []>>
 	<</if>>
 	<<if ndef $REOrientationCheckinIDs>>
-		<<set $REOrientationCheckinIDs to []>>
+		<<set $REOrientationCheckinIDs = []>>
 	<</if>>
 	<<if ndef $REUglyCheckinIDs>>
-		<<set $REUglyCheckinIDs to []>>
+		<<set $REUglyCheckinIDs = []>>
 	<</if>>
 	<<if ndef $REButtholeCheckinIDs>>
-		<<set $REButtholeCheckinIDs to []>>
+		<<set $REButtholeCheckinIDs = []>>
 	<</if>>
 	<<if ndef $REFutaSisterCheckinIDs>>
-		<<set $REFutaSisterCheckinIDs to []>>
+		<<set $REFutaSisterCheckinIDs = []>>
 	<</if>>
 	<<if ndef $REReductionCheckinIDs>>
-		<<set $REReductionCheckinIDs to []>>
+		<<set $REReductionCheckinIDs = []>>
 	<</if>>
 	<<if ndef $dormitory>>
 		<<set $dormitory = 20>>
@@ -744,7 +744,7 @@
 	<</if>>
 
 	<<if ndef $trinkets>>
-		<<set $trinkets to []>>
+		<<set $trinkets = []>>
 
 		<<set $upgradeMultiplierArcology = 1>>
 		<<set $upgradeMultiplierMedicine = 1>>
@@ -1381,7 +1381,7 @@
 	  <<set _Slave.bellyAccessory to "none">>
 	<</if>>
 	<<if (ndef _Slave.currentRules) || (_Slave.currentRules.length < 1)>>
-		<<set _Slave.currentRules to []>>
+		<<set _Slave.currentRules = []>>
 	<</if>>
 
 	<<if _Slave.nationality == 0>>

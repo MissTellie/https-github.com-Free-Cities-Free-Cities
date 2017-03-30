@@ -173,7 +173,7 @@ $activeSlave.slaveName is lying strapped down on the table in your body modifica
 	$possessiveCap clit is unpierced.
 <<elseif ($activeSlave.clitPiercing == 1) && ($activeSlave.vagina != -1)>>
 	$pronounCap has a simple clitoral stud.
-<<elseif ($activeSlave.clitPiercing is 2) && ($activeSlave.vagina != -1)>>
+<<elseif ($activeSlave.clitPiercing == 2) && ($activeSlave.vagina != -1)>>
 	$pronounCap has a big ring in $possessive clit.
 <<elseif ($activeSlave.clitPiercing > 2) && ($activeSlave.vagina != -1)>>
 	$pronounCap has a smart piercing in $possessive clit.
@@ -181,7 +181,7 @@ $activeSlave.slaveName is lying strapped down on the table in your body modifica
 	$possessiveCap dickhead is unpierced.
 <<elseif ($activeSlave.clitPiercing == 1)>>
 	$pronounCap has a simple dickhead stud.
-<<elseif ($activeSlave.clitPiercing is 2)>>
+<<elseif ($activeSlave.clitPiercing == 2)>>
 	$pronounCap has a big ring in $possessive dickhead.
 <<elseif ($activeSlave.clitPiercing > 2)>>
 	$pronounCap has a smart frenulum piercing.
@@ -204,7 +204,7 @@ $activeSlave.slaveName is lying strapped down on the table in your body modifica
 	$possessiveCap pussylips are unpierced.
 <<elseif ($activeSlave.vaginaPiercing == 1)>>
 	$pronounCap has a simple row of studs down $possessive labia.
-<<elseif ($activeSlave.vaginaPiercing is 2)>>
+<<elseif ($activeSlave.vaginaPiercing == 2)>>
 	$pronounCap has a row of big rings down $possessive labia.
 <</if>>
 <<if $activeSlave.vaginaPiercing == 0>>
@@ -223,13 +223,13 @@ $activeSlave.slaveName is lying strapped down on the table in your body modifica
 	$possessiveCap shaft is unpierced.
 <<elseif ($activeSlave.dickPiercing == 1)>>
 	$pronounCap has a simple row of studs down $possessive cock.
-<<elseif ($activeSlave.dickPiercing is 2)>>
+<<elseif ($activeSlave.dickPiercing == 2)>>
 	$pronounCap has a row of big rings down $possessive cock.
 <</if>>
 <<if ($activeSlave.balls != 0)>>
 <<if ($activeSlave.dickPiercing == 1)>>
 	$pronounCap has a couple of studs in $possessive ballsack.
-<<elseif ($activeSlave.dickPiercing is 2)>>
+<<elseif ($activeSlave.dickPiercing == 2)>>
 	$pronounCap has a row of rings down the center of $possessive ballsack, all the way from the base of $possessive shaft to $possessive perineum.
 <</if>>
 <</if>>
@@ -250,7 +250,7 @@ $activeSlave.slaveName is lying strapped down on the table in your body modifica
 	$pronounCap has a simple piercing between the base of $possessive cock and $possessive asshole.
 <<elseif $activeSlave.anusPiercing == 1>>
 	$pronounCap has a simple piercing between $possessive pussy and $possessive asshole.
-<<elseif ($activeSlave.anusPiercing is 2) && ($activeSlave.vagina < 0)>>
+<<elseif ($activeSlave.anusPiercing == 2) && ($activeSlave.vagina < 0)>>
 	$pronounCap has a big ring between between the base of $possessive cock and $possessive asshole and studs in a ring around $possessive anus.
 <<elseif $activeSlave.anusPiercing == 2>>
 	$pronounCap has a big ring between $possessive pussy and $possessive asshole and studs in a ring around $possessive anus.

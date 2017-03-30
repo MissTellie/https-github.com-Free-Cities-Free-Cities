@@ -1916,7 +1916,7 @@ and ($slaves[$i].clothes != "a slutty qipao") && ($slaves[$i].clothes != "restri
 <<if ($slaves[$i].vagina == 3) && ($slaves[$i].vaginalAccessory != "large dildo") && ($slaves[$i].vaginalAccessory != "huge dildo")>>
 	With a rest from strenuous use, @@color:orange;$possessive loose vagina recovers a little.@@
 	<<set $slaves[$i].vagina -= 1>>
-<<elseif ($slaves[$i].anus is 3) && ($slaves[$i].buttplug != "large plug") && ($slaves[$i].buttplug != "huge plug")>>
+<<elseif ($slaves[$i].anus == 3) && ($slaves[$i].buttplug != "large plug") && ($slaves[$i].buttplug != "huge plug")>>
 	With a rest from continual sodomy, @@color:orange;$possessive gaping anus recovers a little.@@
 	<<set $slaves[$i].anus -= 1>>
 <</if>>
@@ -2290,7 +2290,7 @@ and ($slaves[$i].clothes != "a slutty qipao") && ($slaves[$i].clothes != "restri
 	<</if>>
 	<</if>>
 	<</if>>
-<<elseif ($slaves[$i].vagina is -1)>>
+<<elseif ($slaves[$i].vagina == -1)>>
 	<<if ($slaves[$i].fetishStrength <= 95)>>
 	<<if $fetishChangeChance > random(0,90)>>
 	<<if ($slaves[$i].assignment == "serve the public") || ($slaves[$i].assignment == "serve in the club")>>
@@ -2585,7 +2585,7 @@ and ($slaves[$i].clothes != "a slutty qipao") && ($slaves[$i].clothes != "restri
 		<</if>>
 	<</if>>
 	<</if>>
-<<elseif ($slaves[$i].nipplesPiercing is 2)>>
+<<elseif ($slaves[$i].nipplesPiercing == 2)>>
 	<<if ($slaves[$i].nipples == "tiny")>>
 	<<if (random(1,100) > 80)>>
 		$possessiveCap's got so much metal in $possessive nipples that the weight @@color:lime;stretches and lengthens them.@@
@@ -3534,7 +3534,7 @@ and ($slaves[$i].clothes != "a slutty qipao") && ($slaves[$i].clothes != "restri
 		<<if ($slaves[$i].relationship == -3)>>
 		Society @@color:green;approves very strongly@@ of $possessive happiness as your wife; this advances paternalistic ideals.
 		<<set $repGain += 2*$FSSingleSlaveRep*($arcologies[0].FSPaternalist/$FSLockinLevel), $arcologies[0].FSPaternalist += 0.1*$FSSingleSlaveRep*$pornFameBonus>>
-		<<elseif ($slaves[$i].relationship is -2)>>
+		<<elseif ($slaves[$i].relationship == -2)>>
 		Society @@color:green;strongly approves@@ of $possessive emotional bond to you; this advances paternalistic ideals.
 		<<set $repGain += 1.5*$FSSingleSlaveRep*($arcologies[0].FSPaternalist/$FSLockinLevel), $arcologies[0].FSPaternalist += 0.075*$FSSingleSlaveRep*$pornFameBonus>>
 		<<else>>

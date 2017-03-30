@@ -5,7 +5,7 @@
 <<set $nextLink = "Rules Assistant">>
 
 <<if ndef $currentRule.selectedSlaves>>
-	<<set $currentRule.selectedSlaves to []>>
+	<<set $currentRule.selectedSlaves = []>>
 <</if>>
 
 <<if ((ndef $currentRule.selectedSlaves) || ($currentRule.selectedSlaves.length < 1)) && ((ndef $currentRule.excludedSlaves) || ($currentRule.excludedSlaves.length < 1))>>
@@ -29,6 +29,6 @@
 	<<set $Flag = 0>>
 	<<include "Slave Summary">>
 
-	<br>[[Apply to all slaves|Rules Slave Select][$currentRule.selectedSlaves to []]]
+	<br>[[Apply to all slaves|Rules Slave Select][$currentRule.selectedSlaves = []]]
 <</if>>
 <</nobr>>

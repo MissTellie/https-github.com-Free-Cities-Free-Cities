@@ -387,7 +387,7 @@
 						<<set _SlaveI.relationship++, _SlaveJ.relationship = _SlaveI.relationship>>
 					<</if>>
 				<<elseif (_SlaveI.attrXY > 85) && (random(1, 100) > 70)>>
-					<<if (_SlaveJ.balls > 0)  or (_SlaveJ.faceShape == "masculine")>>
+					<<if (_SlaveJ.balls > 0) || (_SlaveJ.faceShape == "masculine")>>
 						_SlaveI.slaveName obviously lusts after her friend, and does everything she can to @@color:lightgreen;draw her closer.@@
 						<<set _SlaveI.relationship++, _SlaveJ.relationship = _SlaveI.relationship>>
 					<</if>>

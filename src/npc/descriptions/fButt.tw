@@ -9,11 +9,11 @@ You call her over so you can
 	fuck her gaping holes.
 <<elseif ($activeSlave.vagina > 2)>>
 	fuck her loose holes.
-<<elseif ($activeSlave.vagina is 2)>>
+<<elseif ($activeSlave.vagina == 2)>>
 	use her whorish holes.
-<<elseif ($activeSlave.vagina is 1)>>
+<<elseif ($activeSlave.vagina == 1)>>
 	use her tight holes.
-<<elseif ($activeSlave.vagina is 0) || ($activeSlave.anus is 0)>>
+<<elseif ($activeSlave.vagina == 0) || ($activeSlave.anus == 0)>>
 	take her virginity.
 <</if>>
 
@@ -32,7 +32,7 @@ You call her over so you can
 	<<if ($activeSlave.dick !== 0)>>
 		Metal glints all up and down her cock.
 	<</if>>
-<<elseif ($activeSlave.vaginaPiercing is 1)>>
+<<elseif ($activeSlave.vaginaPiercing == 1)>>
 	Her pierced clit has her nice and moist.
 	<<if ($activeSlave.dick !== 0)>>
 		Metal glints at the head of her cock.
@@ -41,7 +41,7 @@ You call her over so you can
 
 <<if ($activeSlave.anusPiercing > 1)>>
 	The ring of stud piercings around her anus should massage you delightfully as you sodomize her.
-<<elseif ($activeSlave.anusPiercing is 1)>>
+<<elseif ($activeSlave.anusPiercing == 1)>>
 	Her perineum piercing has a big ring in it, which you should be able to feel when you hilt yourself in her ass.
 <</if>>
 
@@ -49,7 +49,7 @@ You call her over so you can
 Her anus is invitingly bleached,
 <<if ($activeSlave.vagina > -1)>>
 	which is appropriate: rather than looking like she has a hole for fucking and an ass, it looks like she has two fuckholes.
-<<elseif ($activeSlave.balls is 0)>>
+<<elseif ($activeSlave.balls == 0)>>
 	making it look like she has a natural fuckhole despite the fact that she's a gelding.
 <<else>>
 	making it look like she has a natural fuckhole despite the fact that she's a shemale.
@@ -74,7 +74,7 @@ Her anus is invitingly bleached,
 	<</if>>
 	<<set $activeSlave.vagina++, $activeSlave.anus++>>
 	<<BothVCheck>>
-<<elseif ($activeSlave.vagina is 0) and canDoVaginal($activeSlave)>>
+<<elseif ($activeSlave.vagina == 0) && canDoVaginal($activeSlave)>>
 	<<if ($activeSlave.devotion > 20)>>
 		She accepts your orders without comment and presents her virgin pussy for defloration<<if ($PC.dick == 0)>>, watching with some small trepidation as you don a strap-on<</if>>. You gently ease into her pussy before gradually increasing the intensity of your thrusts into her. Before long, she's moaning loudly as you pound away. Since she is already well broken, this new connection with <<if def $PC.customTitle>>her $PC.customTitle<<elseif $PC.title !== 0>>her master<<else>>her mistress<</if>> @@color:hotpink;increases her devotion to you.@@ @@color:lime;Her pussy has been broken in.@@
 		<<set $activeSlave.devotion += 10>>
@@ -87,7 +87,7 @@ Her anus is invitingly bleached,
 	<</if>>
 	<<set $activeSlave.vagina++>>
 	<<VaginalVCheck>>
-<<elseif ($activeSlave.anus is 0)>>
+<<elseif ($activeSlave.anus == 0)>>
 	<<if ($activeSlave.devotion > 20)>>
 		She accepts your orders without comment and presents her virgin anus for defloration. You<<if ($PC.dick == 0)>> don a strap-on and<</if>> gently sodomize her. You gently ease yourself into her butthole and gradually speed up your thrusts while she slowly learns to move her hips along with you. Since she is already well broken, this new connection with <<if def $PC.customTitle>>her $PC.customTitle<<elseif $PC.title !== 0>>her master<<else>>her mistress<</if>> @@color:hotpink;increases her devotion to you.@@ @@color:lime;Her tight little ass has been broken in.@@
 		<<set $activeSlave.devotion += 4>>
@@ -176,9 +176,9 @@ Her anus is invitingly bleached,
 	Her gaping hole drips your cum right out again.
 <<elseif ($activeSlave.anus > 2)>>
 	Cum drips out of her loose hole.
-<<elseif ($activeSlave.anus is 2)>>
+<<elseif ($activeSlave.anus == 2)>>
 	Cum drips out of her loosened anus.
-<<elseif ($activeSlave.anus is 1)>>
+<<elseif ($activeSlave.anus == 1)>>
 	Her still-tight ass keeps your load inside her.
 <</if>>
 

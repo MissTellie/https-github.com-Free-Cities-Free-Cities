@@ -26,7 +26,7 @@ You prepare her for sale. Her response to being put up for purchase is
 
 <<if $showAppraisal == 1>>
 <br><br>
-<<set $seed to []>>
+<<set $seed = []>>
 <<if $arcologies[0].FSRomanRevivalist > 20>>
 	<<set $seed.push("roman")>>
 <<elseif $arcologies[0].FSEgyptianRevivalist > 20>>
@@ -464,7 +464,7 @@ __Bids Received__\
 <<elseif ($activeSlave.dick > 3) && ($activeSlave.balls == 0) && (random(1,100) > 80)>>
 	<br>''¤$seed'' from a citizen who likes a big limp dick flopping around when he fucks a slave's asspussy.
 	<<set $seed = 1>>
-<<elseif ($activeSlave.dick == 1) && ($activeSlave.balls == 0) && ($activeSlave.anus is 3) && (random(1,100) > 80)>>
+<<elseif ($activeSlave.dick == 1) && ($activeSlave.balls == 0) && ($activeSlave.anus == 3) && (random(1,100) > 80)>>
 	<br>''¤$seed'' from a citizen who likes sissies with anal slits longer than their little limp dicks.
 	<<set $seed = 1>>
 <<elseif ($activeSlave.dick > 0) && ($activeSlave.boobs < 300) && (random(1,100) > 80)>>

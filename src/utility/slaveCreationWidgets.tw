@@ -54,7 +54,7 @@
 	<</if>>
 	<</if>>
 
-	<<set $activeSlave.age to Number($activeSlave.age)>>
+	<<set $activeSlave.age = Number($activeSlave.age)>>
 	<<set $activeSlave.devotion = Number($activeSlave.devotion)>>
 	<<set $activeSlave.trust = Number($activeSlave.trust)>>
 	<<if $activeSlave.indenture >= 0>>
@@ -641,7 +641,7 @@
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;
 		<<link "Add this slave">>
 			<<set $returnTo = "Commit Starting Girl", $createRelatedSlave = 0, $applyCareerBonus = 1, $careerBonusApplied = 0>>
-			<<set $activeSlave.age to Number($activeSlave.age)>>
+			<<set $activeSlave.age = Number($activeSlave.age)>>
 			<<set $activeSlave.devotion = Number($activeSlave.devotion)>>
 			<<set $activeSlave.trust = Number($activeSlave.trust)>>
 			<<if $activeSlave.indenture >= 0>>
@@ -675,7 +675,7 @@
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;
 		<<link "Add slave without career bonus">>
 			<<set $returnTo = "Commit Starting Girl", $createRelatedSlave = 0, $applyCareerBonus = 0, $careerBonusApplied = 0>>
-			<<set $activeSlave.age to Number($activeSlave.age)>>
+			<<set $activeSlave.age = Number($activeSlave.age)>>
 			<<set $activeSlave.devotion = Number($activeSlave.devotion)>>
 			<<set $activeSlave.trust = Number($activeSlave.trust)>>
 			<<if $activeSlave.indenture >= 0>>
@@ -694,7 +694,7 @@
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;
 		<<link "Add slave">>
 			<<set $returnTo = "Commit Starting Girl", $createRelatedSlave = 0, $applyCareerBonus = 0, $careerBonusApplied = 0>>
-			<<set $activeSlave.age to Number($activeSlave.age)>>
+			<<set $activeSlave.age = Number($activeSlave.age)>>
 			<<set $activeSlave.devotion = Number($activeSlave.devotion)>>
 			<<set $activeSlave.trust = Number($activeSlave.trust)>>
 			<<if $activeSlave.indenture >= 0>>

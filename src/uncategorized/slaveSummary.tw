@@ -309,7 +309,7 @@
 <<case "Master Suite">>
 <<if $Flag == 0>>
 	<<if $masterSuite <= $masterSuiteSlaves>><<continue>><</if>>
-	<<if (_Slave.devotion > 20) || ((_Slave.devotion >= -50) && (_Slave.trust < -20)) or  (_Slave.trust < -50)>>
+	<<if (_Slave.devotion > 20) || ((_Slave.devotion >= -50) && (_Slave.trust < -20)) || (_Slave.trust < -50)>>
 		<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if $seeImages == 1>><div class="imageRef smlImg"><<SlaveArt $slaves[_i] 1>></div><</if>><<print "[[_Slave.slaveName|Slave Interact][$activeSlave = $slaves[" + _i + "]]]">>
 	<<else>>
 		<br>//_Slave.slaveName is not sufficiently broken for the master suite//
@@ -856,7 +856,7 @@ Release rules: _Slave.releaseRules.
 <</if>>
 <<if ((_Slave.preg == -2) || (_Slave.ovaries == 0)) && (_Slave.vagina != -1)>>
 	''Barr''
-<<elseif _Slave.preg is -1>>
+<<elseif _Slave.preg == -1>>
 	''CC''
 <<elseif _Slave.preg == 0>>
 	''Fert+''
@@ -891,7 +891,7 @@ Release rules: _Slave.releaseRules.
 <</if>>
 <<if ((_Slave.preg == -2) || (_Slave.ovaries == 0)) && (_Slave.vagina != -1)>>
 	Barren.
-<<elseif _Slave.preg is -1>>
+<<elseif _Slave.preg == -1>>
 	On contraceptives.
 <<elseif _Slave.preg == 0>>
 	Fertile.
@@ -904,9 +904,9 @@ Release rules: _Slave.releaseRules.
 	_Slave.preg weeks pregnant with
 	<<if _Slave.pregType > 4>>
 	  quintuplets.
-	<<elseif _Slave.pregType is 4>>
+	<<elseif _Slave.pregType == 4>>
 	  quadruplets.
-	<<elseif _Slave.pregType is 3>>
+	<<elseif _Slave.pregType == 3>>
 	  triplets.
 	<<else>>
 	  twins.
@@ -1244,7 +1244,7 @@ Release rules: _Slave.releaseRules.
 <</if>>
 <<if _Slave.vagina == 0>>
 	@@color:lime;VV@@
-<<elseif (_Slave.preg > 0) and canWalk(_Slave) && (_Slave.clothes == "no clothing") && (_Slave.shoes == "none")>>
+<<elseif (_Slave.preg > 0) && canWalk(_Slave) && (_Slave.clothes == "no clothing") && (_Slave.shoes == "none")>>
 	@@color:pink;NBP@@
 <</if>>
 <<if _Slave.anus == 0>>
@@ -1298,7 +1298,7 @@ Release rules: _Slave.releaseRules.
 <</if>>
 <<if _Slave.vagina == 0>>
 	@@color:lime;Virgin.@@
-<<elseif (_Slave.preg > 0) and canWalk(_Slave) && (_Slave.clothes == "no clothing") && (_Slave.shoes == "none")>>
+<<elseif (_Slave.preg > 0) && canWalk(_Slave) && (_Slave.clothes == "no clothing") && (_Slave.shoes == "none")>>
 	@@color:pink;Naked, barefoot, and pregnant.@@
 <</if>>
 <<if _Slave.anus == 0>>
@@ -1359,7 +1359,7 @@ Release rules: _Slave.releaseRules.
 <</switch>>
 <<if _Slave.eyes == -2>>
 	@@color:red;Blind@@
-<<elseif _Slave.eyes is -1>>
+<<elseif _Slave.eyes == -1>>
 	<<if (_Slave.eyewear != "corrective glasses")>>
 	<<if (_Slave.eyewear != "corrective contacts")>>
 		@@color:yellow;Sight-@@
@@ -1424,7 +1424,7 @@ Release rules: _Slave.releaseRules.
 <<else>>
 	<<if _Slave.accent == 3>>
 		@@color:red;Acc--@@
-	<<elseif _Slave.accent is 2>>
+	<<elseif _Slave.accent == 2>>
 		Acc-
 	<<elseif _Slave.accent == 1>>
 		@@color:pink;Acc@@
@@ -1627,7 +1627,7 @@ _Slave.faceShape face.
 <<else>>
 <<if _Slave.accent == 3>>
 	@@color:red;Bad accent.@@
-<<elseif _Slave.accent is 2>>
+<<elseif _Slave.accent == 2>>
 	Accent.
 <<elseif _Slave.accent == 1>>
 	@@color:pink;Cute accent.@@
@@ -1814,7 +1814,7 @@ _Slave.faceShape face.
 @@color:green;
 <<if _Slave.prestige > 2>>
 	Prest++
-<<elseif _Slave.prestige is 2>>
+<<elseif _Slave.prestige == 2>>
 	Prest+
 <<elseif _Slave.prestige == 1>>
 	Prest
@@ -1900,7 +1900,7 @@ _Slave.faceShape face.
 @@color:green;
 <<if _Slave.prestige > 2>>
 	Extremely prestigious.
-<<elseif _Slave.prestige is 2>>
+<<elseif _Slave.prestige == 2>>
 	Very prestigious.
 <<elseif _Slave.prestige == 1>>
 	Prestigious.
@@ -2588,13 +2588,13 @@ _Slave.faceShape face.
 <<break>>
 <</if>>
 <</for>>
-<<elseif _Slave.relationship is -3>>
+<<elseif _Slave.relationship == -3>>
 	Your wife
 	&nbsp;&nbsp;&nbsp;&nbsp;
-<<elseif _Slave.relationship is -2>>
+<<elseif _Slave.relationship == -2>>
 	E Bonded
 	&nbsp;&nbsp;&nbsp;&nbsp;
-<<elseif _Slave.relationship is -1>>
+<<elseif _Slave.relationship == -1>>
 	E Slut
 	&nbsp;&nbsp;&nbsp;&nbsp;
 <</if>>
@@ -2650,13 +2650,13 @@ _Slave.faceShape face.
 <<break>>
 <</if>>
 <</for>>
-<<elseif _Slave.relationship is -3>>
+<<elseif _Slave.relationship == -3>>
 	@@color:lightgreen;Your wife.@@
 	&nbsp;&nbsp;&nbsp;&nbsp;
-<<elseif _Slave.relationship is -2>>
+<<elseif _Slave.relationship == -2>>
 	@@color:lightgreen;Emotionally bonded to you.@@
 	&nbsp;&nbsp;&nbsp;&nbsp;
-<<elseif _Slave.relationship is -1>>
+<<elseif _Slave.relationship == -1>>
 	@@color:lightgreen;Emotional slut.@@
 	&nbsp;&nbsp;&nbsp;&nbsp;
 <</if>>

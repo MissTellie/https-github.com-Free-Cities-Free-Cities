@@ -246,7 +246,7 @@
 <<case "fertility drugs">>
 	<<if ($slaves[$i].preg > 5)>>
 	$pronounCap's already pregnant, so the fertility drugs $pronoun's on do $object no good.
-	<<elseif ($slaves[$i].vagina is -1)>>
+	<<elseif ($slaves[$i].vagina == -1)>>
 	<<if ($slaves[$i].lactation == 0)>>
 		Unfortunately, it's impossible to fuck $possessive asshole pregnant, limiting the potential impact of the fertility drugs $pronoun's on to $possessive boobs.
 	<<else>>
@@ -256,7 +256,7 @@
 	$pronounCap's sterile, so the fertility drugs $pronoun's on do $object no good.
 	<<elseif ($slaves[$i].ovaries == 0)>>
 	$pronounCap's barren, so the fertility drugs $pronoun's on do $object no good.
-	<<elseif ($slaves[$i].preg is -1)>>
+	<<elseif ($slaves[$i].preg == -1)>>
 	$pronounCap's on contraceptives, so the fertility drugs $pronoun's on do $object no good.
 	<<else>>
 	$pronounCap's on fertility drugs, so $pronoun is more likely to conceive, and may experience multiple pregnancy.

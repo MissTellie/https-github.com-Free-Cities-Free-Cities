@@ -293,13 +293,13 @@
 	__Contraception__: <span id="fertility"><strong><<if $activeSlave.preg == -1>><<print "using contraceptives">><<elseif $activeSlave.preg == 0>><<print "fertile">><<elseif $activeSlave.preg < 4>><<print "may be pregnant">><<else>><<print $activeSlave.preg>><<print " weeks pregnant">><</if>></strong></span>.
 	<<if ($activeSlave.preg == 0) && ($activeSlave.clothes != "a Fuckdoll suit")>>
 		<<link "Use contraceptives">><<set $activeSlave.preg = -1>><<SlaveInteractImpreg>><<SlaveInteractFertility>><</link>>
-	<<elseif ($activeSlave.preg is -1) && ($activeSlave.clothes != "a Fuckdoll suit")>>
+	<<elseif ($activeSlave.preg == -1) && ($activeSlave.clothes != "a Fuckdoll suit")>>
 		<<link "Let her get pregnant">><<set $activeSlave.preg = 0>><<SlaveInteractImpreg>><<SlaveInteractFertility>><</link>>
 		<</if>>
 	<</if>>
 	<<if ($activeSlave.preg == 0) && ($activeSlave.clothes == "a Fuckdoll suit")>>
 		<<link "Use contraceptives">><<set $activeSlave.preg = -1>><<SlaveInteractFertility>><</link>>
-	<<elseif ($activeSlave.preg is -1) && ($activeSlave.clothes == "a Fuckdoll suit")>>
+	<<elseif ($activeSlave.preg == -1) && ($activeSlave.clothes == "a Fuckdoll suit")>>
 		<<link "Let her get pregnant">><<set $activeSlave.preg = 0>><<SlaveInteractFertility>><</link>>
 	<<elseif ($activeSlave.preg > 0)>>
 		[[Abort her pregnancy|Abort]]
@@ -769,8 +769,8 @@
 	<<set $titles.push("Comptroller of the Arcade")>>
 <</if>>
 
-<<set $schoolsPresent to []>>
-<<set $schoolsPerfected to []>>
+<<set $schoolsPresent = []>>
+<<set $schoolsPerfected = []>>
 <<if $TSS.schoolProsperity >= 10>>
 	<<set $schoolsPerfected.push("The Slave School")>>
 <<elseif $TSS.schoolPresent == 1>>

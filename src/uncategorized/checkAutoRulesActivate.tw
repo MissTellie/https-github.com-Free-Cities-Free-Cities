@@ -3,7 +3,7 @@
 <<nobr>>
 
 <<if (ndef $activeSlave.currentRules) || ($activeSlave.currentRules.length < 1)>>
-	<<set $activeSlave.currentRules to []>>
+	<<set $activeSlave.currentRules = []>>
 <</if>>
 
 <<for _r = 0; _r < $defaultRules.length; _r++>>

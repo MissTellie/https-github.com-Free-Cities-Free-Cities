@@ -161,16 +161,16 @@ and spank her brutally
 	The bitch's wearing a chastity belt, so she isn't surprised when you shove <<if ($PC.dick == 0)>>the strap-on<<else>>your dick<</if>> up her butt. What surprises her is when you slide a finger or two in alongside your dick to stretch her to the point of pain
 	<<AnalVCheck>>
 	<<set _asspain = 1>>
-<<elseif ($activeSlave.vagina is 0)>>
+<<elseif ($activeSlave.vagina == 0)>>
 	The bitch's still a virgin and you don't mean to take that now, but you torture her with the threat of raping her virgin pussy for a while before settling for her gagging throat
 	<<set $activeSlave.oralCount++, $oralTotal++>>
 <<elseif ($activeSlave.preg > 10)>>
 	The bitch is pregnant, so hard intercourse will be uncomfortable and even worrying for her. You have hard intercourse. She sobs as you saw the huge weight of her belly back and forth without mercy, and whines as she feels your cockhead batter her womb.<<if ($PC.vagina == 1) && ($PC.dick == 1)>> Fortunately for her, this gets you so wet that some of your pussyjuice makes it down onto your shaft and serves as improvised lube.<</if>> More cum won't make the bitch more pregnant, but you cum inside her anyway
 	<<VaginalVCheck>>
-<<elseif ($activeSlave.vagina is 1)>>
+<<elseif ($activeSlave.vagina == 1)>>
 	The bitch's pussy is tight, so you ram <<if ($PC.dick == 0)>>the strap-on<<else>>your dick<</if>> into her without preamble and fuck her hard and fast.<<if ($PC.vagina == 1) && ($PC.dick == 1)>> Fortunately for her, this gets you so wet that some of your pussyjuice makes it down onto your shaft and serves as improvised lube.<</if>> Her cunt spasms with the pain of the rape. You cum in no time
 	<<VaginalVCheck>>
-<<elseif ($activeSlave.anus is 1)>>
+<<elseif ($activeSlave.anus == 1)>>
 	The bitch's butt is tight, so you ram <<if ($PC.dick == 0)>>the strap-on<<else>>your dick<</if>> into her without lubricant and sodomize her as hard as you can without damaging your property.<<if ($PC.vagina == 1) && ($PC.dick == 1)>> Fortunately for her, this gets you so wet that some of your pussyjuice makes it down onto your shaft and serves as improvised lube.<</if>> Her asshole spasms with the pain of the rape. You cum explosively
 	<<AnalVCheck>>
 	<<set _asspain = 1>>
@@ -223,25 +223,25 @@ and leave her sobbing on the floor <<if ($PC.dick == 0)>>as you shuck off the st
 	<<if (_seed == 1) && ($activeSlave.behavioralFlaw !== "odd")>>
 		@@color:red;acting strangely.@@
 		<<set $activeSlave.behavioralFlaw = "odd">>
-	<<elseif (_seed is 2) && ($activeSlave.behavioralFlaw !== "anorexic")>>
+	<<elseif (_seed == 2) && ($activeSlave.behavioralFlaw !== "anorexic")>>
 		@@color:red;starving herself@@ in a crippling attempt to be pretty.
 		<<set $activeSlave.behavioralFlaw = "anorexic">>
-	<<elseif (_seed is 3) && ($activeSlave.behavioralFlaw !== "gluttonous")>>
+	<<elseif (_seed == 3) && ($activeSlave.behavioralFlaw !== "gluttonous")>>
 		@@color:red;stress eating@@ whenever she can.
 		<<set $activeSlave.behavioralFlaw = "gluttonous">>
-	<<elseif (_seed is 4) && ($activeSlave.behavioralFlaw !== "devout")>>
+	<<elseif (_seed == 4) && ($activeSlave.behavioralFlaw !== "devout")>>
 		@@color:red;praying in private@@ whenever she can.
 		<<set $activeSlave.behavioralFlaw = "devout">>
-	<<elseif (_seed is 5) && ($activeSlave.sexualFlaw !== "apathetic")>>
+	<<elseif (_seed == 5) && ($activeSlave.sexualFlaw !== "apathetic")>>
 		@@color:red;sexually apathetic,@@ since she feels it cannot go well for her.
 		<<set $activeSlave.sexualFlaw = "apathetic">>
-	<<elseif (_seed is 6) && ($activeSlave.sexualFlaw !== "crude")>>
+	<<elseif (_seed == 6) && ($activeSlave.sexualFlaw !== "crude")>>
 		@@color:red;sexually crude,@@ out of an unconscious belief that sex is ugly and unworthy of effort.
 		<<set $activeSlave.sexualFlaw = "crude">>
-	<<elseif (_seed is 7) && ($activeSlave.sexualFlaw !== "judgemental")>>
+	<<elseif (_seed == 7) && ($activeSlave.sexualFlaw !== "judgemental")>>
 		@@color:red;sexually judgemental,@@ out of an unconscious desire to disqualify people from being good enough to have sex with her.
 		<<set $activeSlave.sexualFlaw = "judgemental">>
-	<<elseif ($PC.dick is 1)>>
+	<<elseif ($PC.dick == 1)>>
 		@@color:red;hating men,@@ since you forced your cock on her.
 		<<set $activeSlave.behavioralFlaw = "hates men">>
 	<<else>>

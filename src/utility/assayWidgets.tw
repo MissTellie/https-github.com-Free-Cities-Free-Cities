@@ -633,7 +633,7 @@
 
 <<if $arcologies[0].FSEgyptianRevivalist != "unset">>
 	<<if ndef $racialVarieties>>
-	<<set $racialVarieties to []>>
+	<<set $racialVarieties = []>>
 	<</if>>
 	<<set $seed = 0>>
 	<<for $j = 0; $j < $racialVarieties.length; $j++>>
@@ -751,7 +751,7 @@
 
 <<if !canSee($args[0])>>
 	<<set $deadliness -= 8>>
-<<elseif ($args[0].eyes is -1 and ($args[0].eyewear != "corrective glasses" || $args[0].eyewear != "corrective contacts")) || ($args[0].eyes == 1 and ($args[0].eyewear == "blurring glasses" || $args[0].eyewear == "blurring contacts"))>>
+<<elseif ($args[0].eyes == -1 && ($args[0].eyewear != "corrective glasses" || $args[0].eyewear != "corrective contacts")) || ($args[0].eyes == 1 && ($args[0].eyewear == "blurring glasses" || $args[0].eyewear == "blurring contacts"))>>
 	<<set $deadliness -= 1>>
 <</if>>
 

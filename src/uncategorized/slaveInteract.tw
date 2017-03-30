@@ -315,14 +315,14 @@ __Fucktoy use preference__: <strong><span id="hole"><<print $activeSlave.toyHole
 	<</if>>
 	<<if $servantsQuarters != 0>>
 	<<if $servantsQuarters > $servantsQuartersSlaves>>|
-	<<if ($activeSlave.devotion >= -20) || (($activeSlave.devotion >= -50) && ($activeSlave.trust <= 20)) or  ($activeSlave.trust < -20)>>
+	<<if ($activeSlave.devotion >= -20) || (($activeSlave.devotion >= -50) && ($activeSlave.trust <= 20)) || ($activeSlave.trust < -20)>>
 		[[Servants' Quarters|Assign][$returnTo = "Servants' Quarters"]]
 	<<else>>Servants' Quarters<</if>>
 	<<else>>Servants' Quarters<</if>>
 	<</if>>
 	<<if $masterSuite != 0>>
 	<<if $masterSuite > $masterSuiteSlaves>>|
-	<<if ($activeSlave.devotion > 20) || (($activeSlave.devotion >= -50) && ($activeSlave.trust < -20)) or  ($activeSlave.trust < -50)>>
+	<<if ($activeSlave.devotion > 20) || (($activeSlave.devotion >= -50) && ($activeSlave.trust < -20)) || ($activeSlave.trust < -50)>>
 		[[Master Suite|Assign][$returnTo = "Master Suite"]]
 	<<else>>Master Suite<</if>>
 	<<else>>Master Suite<</if>>
@@ -466,7 +466,7 @@ __Contraception__: <span id="fertility"><strong><<if $activeSlave.preg == -1>><<
 	<<SlaveInteractFertility>>
 	<<SlaveInteractImpreg>>
 	<</link>>
-<<elseif ($activeSlave.preg is -1) && ($activeSlave.clothes != "a Fuckdoll suit")>>
+<<elseif ($activeSlave.preg == -1) && ($activeSlave.clothes != "a Fuckdoll suit")>>
 	<<link "Let her get pregnant">><<set $activeSlave.preg = 0>>
 	<<SlaveInteractFertility>>
 	<<SlaveInteractImpreg>>
@@ -477,7 +477,7 @@ __Contraception__: <span id="fertility"><strong><<if $activeSlave.preg == -1>><<
 	<<link "Use contraceptives">><<set $activeSlave.preg = -1>>
 	<<SlaveInteractFertility>>
 	<</link>>
-<<elseif ($activeSlave.preg is -1) && ($activeSlave.clothes == "a Fuckdoll suit")>>
+<<elseif ($activeSlave.preg == -1) && ($activeSlave.clothes == "a Fuckdoll suit")>>
 	<<link "Let her get pregnant">><<set $activeSlave.preg = 0>>
 	<<SlaveInteractFertility>>
 	<</link>>

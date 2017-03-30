@@ -161,7 +161,7 @@ has an estimated GSP of @@color:yellowgreen;¤<<print Math.trunc((0.1*$arcologie
 		Its direct democracy votes to empower some elected officials in the hope they can lead the arcology out of its problems.
 		<<set $arcologies[$i].government = "elected officials">>
 	  <</switch>>
-	  <<set $desc to []>>
+	  <<set $desc = []>>
 	  <<if $arcologies[$i].FSSubjugationist != "unset">>
 		<<if $arcologies[$i].FSSubjugationist < random(10,150)>>
 		  <<set $desc.push("Racial Subjugationism")>>
@@ -1451,7 +1451,7 @@ has an estimated GSP of @@color:yellowgreen;¤<<print Math.trunc((0.1*$arcologie
 <<if $arcologies[$i].ownership >= 100>>
 	<<set $appliedInfluenceBonus /= 2>>
 <</if>>
-<<set $desc to []>>
+<<set $desc = []>>
 <<set _alignment = 0>>
 
 <<if $arcologies[$j].FSSubjugationist > 60>>
@@ -1798,7 +1798,7 @@ has an estimated GSP of @@color:yellowgreen;¤<<print Math.trunc((0.1*$arcologie
 
 <<if _influential == 1>> /* SELECT AN ARCOLOGY TO INFLUENCE */
 
-<<set _eligibleTargets to []>>
+<<set _eligibleTargets = []>>
 <<for $j = 0; $j < $arcologies.length; $j++>>
 <<if $arcologies[$j].direction != $arcologies[$i].direction>>
 <<if ($arcologies[$i].government != "your trustees" && $arcologies[$i].government != "your agent") || ($arcologies[$j].direction != 0)>>

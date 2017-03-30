@@ -483,7 +483,7 @@
 
 <<if ($Nurse != 0)>>
 <<if ($clinicSlaves > 0)>>
-	<<set $nurseMolestationSubIDs to []>>
+	<<set $nurseMolestationSubIDs = []>>
 	<<for $i = 0; $i < $slaves.length; $i++>>
 	<<if $slaves[$i].assignment == "get treatment in the clinic">>
 	<<if $slaves[$i].anus != 0>>
@@ -528,7 +528,7 @@
 	<<set $events.push("RE recruit")>>
 <</if>>
 <</if>>
-<<set $recruit to []>>
+<<set $recruit = []>>
 
 <<if $seeDicks != 2>> /*XX ACQUISITIONS*/
 
@@ -664,7 +664,7 @@
 <</for>>
 
 <<if $FSAnnounced == 1>>
-	<<set $FSAcquisitionEvents to []>>
+	<<set $FSAcquisitionEvents = []>>
 	<<if $arcologies[0].FSSupremacist > random(1,100)>>
 		<<set $FSAcquisitionEvents.push("Supremacist")>>
 		<<set $events.push("RE FS acquisition")>>
@@ -744,7 +744,7 @@
 	<<if $arcologies[0].FSEgyptianRevivalist > random(1,100)>>
 		<<set $events.push("RE FSEgyptianRevivalist acquisition")>>
 	<</if>>
-	<<set $FSNonconformistEvents to []>>
+	<<set $FSNonconformistEvents = []>>
 	<<if $arcologies[0].FSSupremacist < 95>><<if $arcologies[0].FSSupremacist > 50>>
 		<<set $FSNonconformistEvents.push("Supremacist")>>
 		<<set $events.push("RE FS nonconformist")>>
@@ -830,7 +830,7 @@
 /* SCHOOL EVENTS */
 
 <<if $cash > 50000>>
-	<<set $RESEndowment to []>>
+	<<set $RESEndowment = []>>
 	<<if $TSS.schoolUpgrade == 0>>
 	<<if ($TSS.studentsBought > 1) || ($TSS.schoolPresent != 0)>>
 		<<set $events.push("RES Endowment")>>
@@ -892,7 +892,7 @@
 	<</if>>
 <</if>>
 
-<<set $RESMove to []>>
+<<set $RESMove = []>>
 <<if $TSS.schoolUpgrade != 0>>
 <<if $TSS.schoolPresent == 0>>
 <<if $TSS.schoolAnnexed == 0>>
@@ -956,7 +956,7 @@
 
 <<if $cash > 10000>>
 <<if $rep > 6000>>
-	<<set $RESSale to []>>
+	<<set $RESSale = []>>
 <<if $seeDicks != 2>>
 <<if $TSS.studentsBought == 0>>
 	<<set $events.push("RES Sale")>>
@@ -1026,7 +1026,7 @@
 	<</if>>
 <</if>>
 
-<<set $REM to []>>
+<<set $REM = []>>
 <<if random(1,100) > $slaveCostFactor*40>>
 	<<set $events.push("REM fluctuations")>>
 	<<set $events.push("REM fluctuations")>>

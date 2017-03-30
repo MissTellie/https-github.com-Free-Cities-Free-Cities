@@ -183,7 +183,7 @@ __Rule $r Automatic Activation__
 <<set _facility = $currentRule.facility>>
 
 <<if (ndef _facility)>>
-	<<set _facility to []>>
+	<<set _facility = []>>
 <</if>>
 
 <span id = "applyfacility">
@@ -195,7 +195,7 @@ __Rule $r Automatic Activation__
 <<set _excludeFacility = $currentRule.excludeFacility>>
 
 <<if (ndef _excludeFacility)>>
-	<<set _excludeFacility to []>>
+	<<set _excludeFacility = []>>
 <</if>>
 
 <span id = "excludefacility">
@@ -227,9 +227,9 @@ Apply to slaves:<br>
 <<if ((ndef $currentRule.selectedSlaves) || ($currentRule.selectedSlaves.length < 1)) && ((ndef $currentRule.excludedSlaves) || ($currentRule.excludedSlaves.length < 1))>>
 ''Currently applied to all slaves'' | [[Choose specific slaves|Rules Slave Select]]
 <<elseif ((ndef $currentRule.selectedSlaves) || ($currentRule.selectedSlaves.length < 1)) && (def $currentRule.excludedSlaves) && ($currentRule.excludedSlaves.length > 0)>>
-''Currently applied to all slaves except excluded slaves'' | [[Choose specific slaves|Rules Slave Select]] | [[Apply to all slaves|Rules Assistant][$currentRule.selectedSlaves to [],$currentRule.excludedSlaves to []]]
+''Currently applied to all slaves except excluded slaves'' | [[Choose specific slaves|Rules Slave Select]] | [[Apply to all slaves|Rules Assistant][$currentRule.selectedSlaves = [],$currentRule.excludedSlaves = []]]
 <<else>>
-[[Currently applied to specific slaves|Rules Slave Select]] | [[Apply to all slaves|Rules Assistant][$currentRule.selectedSlaves to [], $currentRule.excludedSlaves to []]]
+[[Currently applied to specific slaves|Rules Slave Select]] | [[Apply to all slaves|Rules Assistant][$currentRule.selectedSlaves = [], $currentRule.excludedSlaves = []]]
 <</if>>
 <br>
 Exclude slaves:<br>
@@ -238,7 +238,7 @@ Exclude slaves:<br>
 
 [[Exclude specific slaves|Rules Slave Exclude]]
 <<else>>
-[[Currently excluding specific slaves|Rules Slave Exclude]] | [[Don't exclude slaves|Rules Assistant][$currentRule.excludedSlaves to []]]
+[[Currently excluding specific slaves|Rules Slave Exclude]] | [[Don't exclude slaves|Rules Assistant][$currentRule.excludedSlaves = []]]
 <</if>>
 
 <br><br>
@@ -2302,17 +2302,17 @@ Relationship rules: ''$currentRule.relationshipRules.''
 				<<set $currentRule.growth = "unlimited">>
 				<<set $currentRule.lactation = "no default setting">>
 				<<set $currentRule.autoBrand = 1>>
-				<<set $currentRule.assignment to []>>
-				<<set $currentRule.excludeAssignment to []>>
+				<<set $currentRule.assignment = []>>
+				<<set $currentRule.excludeAssignment = []>>
 				<<set $currentRule.setAssignment = "none">>
-				<<set $currentRule.facility to []>>
-				<<set $currentRule.excludeFacility to []>>
+				<<set $currentRule.facility = []>>
+				<<set $currentRule.excludeFacility = []>>
 				<<set $currentRule.assignFacility = "none">>
 				<<set $currentRule.excludeSpecialSlaves to true>>
 				<<set $currentRule.facilityRemove to false>>
 				<<set $currentRule.removalAssignment = "rest">>
-				<<set $currentRule.selectedSlaves to []>>
-				<<set $currentRule.excludedSlaves to []>>
+				<<set $currentRule.selectedSlaves = []>>
+				<<set $currentRule.excludedSlaves = []>>
 				<<set $currentRule.teeth = "straighten">>
 				<<set $currentRule.autosurgery = 1>>
 				<<set $currentRule.surgery.lactation = "no default setting">>
@@ -2328,7 +2328,7 @@ Relationship rules: ''$currentRule.relationshipRules.''
 				<<set $currentRule.surgery.lips = 0>>
 				<<set $currentRule.surgery.holes = 0>>
 				<<set $defaultRules[_t] = $currentRule>>
-			<<elseif ($currentRule.ID is 2)>>
+			<<elseif ($currentRule.ID == 2)>>
 				<<set $currentRule.name = "Disobedient Slaves">>
 				<<set $currentRule.activation = "devotion">>
 				<<set $currentRule.thresholdLower = "none">>
@@ -2384,17 +2384,17 @@ Relationship rules: ''$currentRule.relationshipRules.''
 				<<set $currentRule.growth = "unlimited">>
 				<<set $currentRule.lactation = "no default setting">>
 				<<set $currentRule.autoBrand = 1>>
-				<<set $currentRule.assignment to []>>
-				<<set $currentRule.excludeAssignment to []>>
+				<<set $currentRule.assignment = []>>
+				<<set $currentRule.excludeAssignment = []>>
 				<<set $currentRule.setAssignment = "none">>
-				<<set $currentRule.facility to []>>
-				<<set $currentRule.excludeFacility to []>>
+				<<set $currentRule.facility = []>>
+				<<set $currentRule.excludeFacility = []>>
 				<<set $currentRule.assignFacility = "none">>
 				<<set $currentRule.excludeSpecialSlaves to true>>
 				<<set $currentRule.facilityRemove to false>>
 				<<set $currentRule.removalAssignment = "rest">>
-				<<set $currentRule.selectedSlaves to []>>
-				<<set $currentRule.excludedSlaves to []>>
+				<<set $currentRule.selectedSlaves = []>>
+				<<set $currentRule.excludedSlaves = []>>
 				<<set $currentRule.surgery.lactation = "no default setting">>
 				<<set $currentRule.surgery.cosmetic = 0>>
 				<<set $currentRule.surgery.accent = 0>>
@@ -2463,17 +2463,17 @@ Relationship rules: ''$currentRule.relationshipRules.''
 				<<set $currentRule.growth = "no default setting">>
 				<<set $currentRule.lactation = "no default setting">>
 				<<set $currentRule.autoBrand = "no default setting">>
-				<<set $currentRule.assignment to []>>
-				<<set $currentRule.excludeAssignment to []>>
+				<<set $currentRule.assignment = []>>
+				<<set $currentRule.excludeAssignment = []>>
 				<<set $currentRule.setAssignment = "none">>
-				<<set $currentRule.facility to []>>
-				<<set $currentRule.excludeFacility to []>>
+				<<set $currentRule.facility = []>>
+				<<set $currentRule.excludeFacility = []>>
 				<<set $currentRule.assignFacility = "none">>
 				<<set $currentRule.excludeSpecialSlaves to true>>
 				<<set $currentRule.facilityRemove to false>>
 				<<set $currentRule.removalAssignment = "rest">>
-				<<set $currentRule.selectedSlaves to []>>
-				<<set $currentRule.excludedSlaves to []>>
+				<<set $currentRule.selectedSlaves = []>>
+				<<set $currentRule.excludedSlaves = []>>
 				<<set $currentRule.surgery.lactation = "no default setting">>
 				<<set $currentRule.surgery.cosmetic = 0>>
 				<<set $currentRule.surgery.accent = 0>>
@@ -2564,10 +2564,10 @@ Relationship rules: ''$currentRule.relationshipRules.''
 			<<set $currentRule.facility = _facility>>
 			<<set $currentRule.excludeFacility = _excludeFacility>>
 			<<if $currentRule.thresholdLower != "none">>
-				<<set $currentRule.thresholdLower to Number($currentRule.thresholdLower)>>
+				<<set $currentRule.thresholdLower = Number($currentRule.thresholdLower)>>
 			<</if>>
 			<<if $currentRule.thresholdUpper != "none">>
-				<<set $currentRule.thresholdUpper to Number($currentRule.thresholdUpper)>>
+				<<set $currentRule.thresholdUpper = Number($currentRule.thresholdUpper)>>
 			<</if>>
 			<<set $defaultRules[_t] = $currentRule>>
 		<</if>>

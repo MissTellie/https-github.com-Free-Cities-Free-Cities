@@ -1910,7 +1910,7 @@ $pronounCap's got a
 	<<else>>
 	and the $skinDesc skin around it is stretched smooth, since it's been deflowered only recently.
 	<</if>>
-<<elseif  $activeSlave.anus is 2>>
+<<elseif  $activeSlave.anus == 2>>
 	<<set $seed = either("anal opening", "anus", "butthole", "asshole", "asspussy")>>
 	$possessiveCap $seed is <<if $activeSlave.analArea-$activeSlave.anus > 1>>only <</if>><<set $seed = either("relaxed", "loose", "accommodating")>>$seed,
 	<<if $activeSlave.analArea-$activeSlave.anus > 2>>
@@ -1922,7 +1922,7 @@ $pronounCap's got a
 	<<else>>
 	and the $skinDesc skin around it is stretched smooth, suggesting it's getting used to being this way.
 	<</if>>
-<<elseif  $activeSlave.anus is 3>>
+<<elseif  $activeSlave.anus == 3>>
 	<<set $seed = either("anal opening", "anus", "butthole", "asshole", "asspussy")>>
 	$possessiveCap $seed is a <<set $seed = either("relaxed", "loose", "welcoming", "lewd")>>$seed slit,
 	<<if $activeSlave.analArea-$activeSlave.anus > 1>>
@@ -1961,13 +1961,13 @@ $pronounCap's got a
 <<if ($activeSlave.vagina > -1)>>
 	<<if ($activeSlave.anusPiercing == 1)>>
 		$pronounCap has a simple piercing between $possessive pussy and $possessive asshole<<if $activeSlave.fuckdoll > 0>> which helps keep the strip of material <<if $activeSlave.vagina > -1>>between its holes<<else>>below its rear hole<</if>> in place<</if>>.
-	<<elseif ($activeSlave.anusPiercing is 2)>>
+	<<elseif ($activeSlave.anusPiercing == 2)>>
 		$pronounCap has a big ring between $possessive pussy and $possessive asshole<<if $activeSlave.fuckdoll > 0>>, which helps keep the strip of material <<if $activeSlave.vagina > -1>>between its holes<<else>>below its rear hole<</if>> in place,<</if>> and studs in all around $possessive anus.
 	<</if>>
 <<else>>
 	<<if ($activeSlave.anusPiercing == 1)>>
 		$pronounCap has a simple perianal piercing between the base of $possessive dick and $possessive girly butthole<<if $activeSlave.fuckdoll > 0>> which helps keep the strip of material <<if $activeSlave.vagina > -1>>between its holes<<else>>below its rear hole<</if>> in place<</if>>.
-	<<elseif ($activeSlave.anusPiercing is 2)>>
+	<<elseif ($activeSlave.anusPiercing == 2)>>
 		$pronounCap has a big ring between the base of $possessive dick and $possessive girly butthole, which has studs all around it.
 	<</if>>
 <</if>>
@@ -2131,7 +2131,7 @@ $pronounCap's got a
 <<case "shibari ropes">>
 	<<if ($activeSlave.dick > 4) and canAchieveErection($activeSlave) && ($activeSlave.devotion > 20) && ($activeSlave.preg > 10)>>
 		$activeSlave.slaveName's ropes bind $possessive huge cock to the bottom of $possessive pregnant belly.
-	<<elseif ($activeSlave.dick > 4) and canAchieveErection($activeSlave) && ($activeSlave.devotion > 20)>>
+	<<elseif ($activeSlave.dick > 4) && canAchieveErection($activeSlave) && ($activeSlave.devotion > 20)>>
 		$activeSlave.slaveName's ropes bind $possessive huge cock straight up $possessive abdomen.<<if $activeSlave.boobs > 400>> It's so long that its head rests between $possessive breasts.<</if>>
 	<<elseif ($activeSlave.dick > 0) && ($activeSlave.vagina > -1)>>
 		$activeSlave.slaveName's ropes are woven in a complex pattern to bind all parts of $possessive complicated genitalia.
@@ -2153,7 +2153,7 @@ $pronounCap's got a
 	$activeSlave.slaveName's
 	<<if ($activeSlave.dick > 5) and canAchieveErection($activeSlave) && ($activeSlave.devotion > 20) && ($activeSlave.preg > 10)>>
 		huge erection is agonizingly pressed down by $possessive pregnancy.
-	<<elseif ($activeSlave.dick > 5) and canAchieveErection($activeSlave) && ($activeSlave.devotion > 20)>>
+	<<elseif ($activeSlave.dick > 5) && canAchieveErection($activeSlave) && ($activeSlave.devotion > 20)>>
 		erection is so big that $pronoun's restrained it by trapping its head under $possessive bra.<<if $activeSlave.boobs > 800>> Its head peeks out from $possessive cleavage.<</if>>
 	<<elseif ($activeSlave.dick > 3) && ($activeSlave.vagina > -1)>>
 		lace g-string cannot cover hermaphroditic genitalia due to the size of $possessive cock. $pronounCap's simply pulled it to one side, leaving $possessive pussy bare as well.
@@ -2177,7 +2177,7 @@ $pronounCap's got a
 	$activeSlave.slaveName's
 	<<if ($activeSlave.dick > 5) and canAchieveErection($activeSlave) && ($activeSlave.devotion > 20) && ($activeSlave.preg > 10)>>
 		huge erection is agonizingly pressed down by $possessive pregnancy.
-	<<elseif ($activeSlave.dick > 5) and canAchieveErection($activeSlave) && ($activeSlave.devotion > 20)>>
+	<<elseif ($activeSlave.dick > 5) && canAchieveErection($activeSlave) && ($activeSlave.devotion > 20)>>
 		erection is so big that $pronoun's got it restrained behind $possessive string bikini top.<<if $activeSlave.boobs > 800>> Its head peeks out from $possessive cleavage.<</if>>
 	<<elseif ($activeSlave.dick > 0) && ($activeSlave.vagina > -1)>>
 		just given up and pushed $possessive bikini bottom to one side, since the bikini bottom that fits a hermaphrodite has not yet been designed.
@@ -2201,7 +2201,7 @@ $pronounCap's got a
 	$activeSlave.slaveName's
 	<<if ($activeSlave.dick > 5) and canAchieveErection($activeSlave) && ($activeSlave.devotion > 20) && ($activeSlave.preg > 10)>>
 		huge erection pins $possessive skirt against $possessive pregnant belly, revealing $possessive bare pussy.
-	<<elseif ($activeSlave.dick > 5) and canAchieveErection($activeSlave) && ($activeSlave.devotion > 20)>>
+	<<elseif ($activeSlave.dick > 5) && canAchieveErection($activeSlave) && ($activeSlave.devotion > 20)>>
 		erection is so big that $pronoun's trapped it upwards against $possessive stomach and under $possessive top.<<if $activeSlave.boobs > 800>> Its head peeks out from $possessive cleavage.<</if>>
 	<<elseif $activeSlave.dick > 5>>
 		cheerleader skirt is not designed for someone with a cock as big as hers; its lower half sticks out beneath its edge.
@@ -2314,11 +2314,11 @@ $pronounCap's got a
 	$activeSlave.slaveName's
 	<<if ($activeSlave.dick > 5) and canAchieveErection($activeSlave) && ($activeSlave.devotion > 20) && ($activeSlave.preg > 20)>>
 		massive erection is agonizingly pinned to the front of $possessive gravid belly, entirely visible against the straining fabric of $possessive dress.
-	<<elseif ($activeSlave.dick > 5) and canAchieveErection($activeSlave) && ($activeSlave.devotion > 20)>>
+	<<elseif ($activeSlave.dick > 5) && canAchieveErection($activeSlave) && ($activeSlave.devotion > 20)>>
 		massive erection ascends up $possessive chest, entirely visible against the straining fabric of $possessive dress.
-	<<elseif ($activeSlave.dick > 3) and canAchieveErection($activeSlave) && ($activeSlave.devotion > 20) && ($activeSlave.preg > 20)>>
+	<<elseif ($activeSlave.dick > 3) && canAchieveErection($activeSlave) && ($activeSlave.devotion > 20) && ($activeSlave.preg > 20)>>
 		erection lies flush against the bottom of $possessive gravid stomach, visible under the tight fabric of $possessive dress.
-	<<elseif ($activeSlave.dick > 3) and canAchieveErection($activeSlave) && ($activeSlave.devotion > 20)>>
+	<<elseif ($activeSlave.dick > 3) && canAchieveErection($activeSlave) && ($activeSlave.devotion > 20)>>
 		erection lies flush against $possessive stomach, visible under the tight fabric of $possessive dress.
 	<<elseif $activeSlave.dick > 5>>
 		short dress can't possibly conceal $possessive huge cock; its lower half sticks out below the hemline.
@@ -2827,9 +2827,9 @@ $pronounCap's got a
 	$pronounCap is a @@color:lime;virgin.@@ $possessiveCap pussy is fresh,
 <<elseif  $activeSlave.vagina == 1>>
 	$possessiveCap pussy is tight and appealing,
-<<elseif  $activeSlave.vagina is 2>>
+<<elseif  $activeSlave.vagina == 2>>
 	$possessiveCap pussy is reasonably tight,
-<<elseif  $activeSlave.vagina is 3>>
+<<elseif  $activeSlave.vagina == 3>>
 	$possessiveCap pussy is loose,
 <<elseif  $activeSlave.vagina > 3>>
 	$possessiveCap pussy is utterly cavernous,
@@ -3053,7 +3053,7 @@ $pronounCap's got a
 
 <<if ($activeSlave.clitPiercing == 1) && ($activeSlave.vagina != -1)>>
 	$pronounCap has a simple clitoral stud.
-<<elseif ($activeSlave.clitPiercing is 2) && ($activeSlave.vagina != -1)>>
+<<elseif ($activeSlave.clitPiercing == 2) && ($activeSlave.vagina != -1)>>
 	$pronounCap has a big ring in $possessive clit.
 	<<if ($activeSlave.clothes == "slutty jewelry")>>
 		Since $pronoun's wearing slutty bangles $pronoun has a short length of light chain dangling from $possessive clit ring; it constantly stimulates $possessive pussylips.
@@ -3062,7 +3062,7 @@ $pronounCap's got a
 	$pronounCap has a smart piercing in $possessive clit.
 <<elseif ($activeSlave.clitPiercing == 1)>>
 	$pronounCap has a simple dickhead stud.
-<<elseif ($activeSlave.clitPiercing is 2)>>
+<<elseif ($activeSlave.clitPiercing == 2)>>
 	$pronounCap has a big ring in $possessive dickhead.
 	<<if ($activeSlave.clothes == "slutty jewelry")>>
 		Since $pronoun's wearing slutty bangles $pronoun has a short length of light chain dangling from $possessive dickhead piercing; as $pronoun moves it tugs lightly at $possessive cock.
@@ -3121,19 +3121,19 @@ $pronounCap's got a
 <<if ($activeSlave.dick != 0)>>
 <<if ($activeSlave.dickPiercing == 1)>>
 	$pronounCap has a row of studs down $possessive shaft.
-<<elseif ($activeSlave.dickPiercing is 2)>>
+<<elseif ($activeSlave.dickPiercing == 2)>>
 	$pronounCap has a row of heavy rings down $possessive shaft.
 <</if>>
 <<if ($activeSlave.scrotum != 0)>>
 	<<if ($activeSlave.dickPiercing == 1)>>
 	$pronounCap has a couple of studs in $possessive ballsack.
-	<<elseif ($activeSlave.dickPiercing is 2)>>
+	<<elseif ($activeSlave.dickPiercing == 2)>>
 	$pronounCap has a row of rings down the center of $possessive ballsack, all the way from the base of $possessive shaft to $possessive perineum.
 	<</if>>
 <<else>>
 	<<if ($activeSlave.dickPiercing == 1)>>
 	$pronounCap has a couple of studs beneath the base of $possessive dick.
-	<<elseif ($activeSlave.dickPiercing is 2)>>
+	<<elseif ($activeSlave.dickPiercing == 2)>>
 	$pronounCap has a row of rings all the way from the base of $possessive shaft to $possessive perineum.
 	<</if>>
 <</if>>
@@ -3160,8 +3160,7 @@ $pronounCap's got a
 <<else>>
 	<<if ($activeSlave.dick != 0) && ($activeSlave.hormones > 0) && ($activeSlave.amp == 1)>>
 		The aphrodisiacs combined with the hormones that keep $possessive flaccid have $possessive sexually frustrated; $pronoun's unconsciously rubbing $possessive ass against whatever's next to $possessive, and humping $possessive dick against whatever $pronoun can manage to mount without limbs.
-	<<elseif ($activeSlave.dick != 0)
-	 and ($activeSlave.balls == 0) && ($activeSlave.amp == 1)>>
+	<<elseif ($activeSlave.dick != 0) && ($activeSlave.balls == 0) && ($activeSlave.amp == 1)>>
 		The aphrodisiacs combined with the lack of balls that keeps $possessive flaccid have $possessive sexually frustrated; $pronoun's unconsciously rubbing $possessive ass against whatever's next to $possessive, and humping $possessive dick against whatever $pronoun can manage to mount without limbs.
 	<<elseif ($activeSlave.dick != 0) && ($activeSlave.hormones > 0)>>
 		The aphrodisiacs combined with the hormones that keep $possessive flaccid have $possessive sexually frustrated; $pronoun's touching $possessive limp dick distractedly and unconsciously rubbing $possessive ass against whatever's next to $object.
@@ -3423,7 +3422,7 @@ $activeSlave.slaveName is
 		and a garter belt.
 		<<if ($activeSlave.vagina == 0)>>
 			$possessiveCap lingerie is virgin white.
-		<<elseif ($activeSlave.vagina is -1) && ($activeSlave.anus == 0)>>
+		<<elseif ($activeSlave.vagina == -1) && ($activeSlave.anus == 0)>>
 			$possessiveCap lingerie is white, since $pronoun has a virgin asspussy.
 		<<elseif ($activeSlave.fetish == "dom") || ($activeSlave.fetish == "sadist")>>
 			$pronounCap's gone with black lingerie to look a bit more intimidating.
@@ -3438,7 +3437,7 @@ $activeSlave.slaveName is
 		long sheer stockings, and a garter belt.
 		<<if ($activeSlave.vagina == 0)>>
 			$possessiveCap lingerie is virgin white,
-		<<elseif ($activeSlave.vagina is -1) && ($activeSlave.anus == 0)>>
+		<<elseif ($activeSlave.vagina == -1) && ($activeSlave.anus == 0)>>
 			$possessiveCap lingerie is white, since $pronoun has a virgin asspussy,
 		<<elseif ($activeSlave.fetish == "dom") || ($activeSlave.fetish == "sadist")>>
 			$pronounCap's gone with black lingerie to look a bit more intimidating,
@@ -3616,7 +3615,7 @@ $activeSlave.slaveName is
 			in white to create a striking contrast with $possessive $activeSlave.skin skin,
 		<<elseif ($activeSlave.addict > 5)>>
 			in the electric blue color of aphrodisiacs to signal $pronoun's down to fuck high,
-		<<elseif ($activeSlave.dick > 0) and canAchieveErection($activeSlave)>>
+		<<elseif ($activeSlave.dick > 0) && canAchieveErection($activeSlave)>>
 			in blue to signal that $pronoun can get hard,
 		<<else>>
 			in classic bubblegum pink,
@@ -5981,7 +5980,7 @@ $possessiveCap @@color:pink;face is
 	masculine, but not entirely unappealing.
 	<<elseif ($activeSlave.face == 1)>>
 	attractively masculine.
-	<<elseif ($activeSlave.face is 2)>>
+	<<elseif ($activeSlave.face == 2)>>
 	quite handsome in a masculine way.
 	<<else>>
 	the height of masculine handsomeness.
@@ -5997,7 +5996,7 @@ $possessiveCap @@color:pink;face is
 	strangely androgynous.
 	<<elseif ($activeSlave.face == 1)>>
 	androgynous, and attractive enough that this ambiguity is interesting.
-	<<elseif ($activeSlave.face is 2)>>
+	<<elseif ($activeSlave.face == 2)>>
 	gorgeously androgynous in a complex way that captures the eye.
 	<<else>>
 	so gorgeously androgynous that $pronoun tends to induce sexual confusion.
@@ -6013,7 +6012,7 @@ $possessiveCap @@color:pink;face is
 	merely average, but is appealingly cute.
 	<<elseif ($activeSlave.face == 1)>>
 	both attractive and appealingly cute.
-	<<elseif ($activeSlave.face is 2)>>
+	<<elseif ($activeSlave.face == 2)>>
 	beautiful, yet somehow also approachably cute.
 	<<else>>
 	an impossibly perfect combination of beauty and girl-next-door cuteness.
@@ -6029,7 +6028,7 @@ $possessiveCap @@color:pink;face is
 	merely average, but undeniably sensual.
 	<<elseif ($activeSlave.face == 1)>>
 	both attractive and naturally sultry.
-	<<elseif ($activeSlave.face is 2)>>
+	<<elseif ($activeSlave.face == 2)>>
 	both beautiful and sultry, bringing sex to mind naturally.
 	<<else>>
 	very beautiful in a consummately sexual way.
@@ -6045,7 +6044,7 @@ $possessiveCap @@color:pink;face is
 	quite average, but not uninteresting.
 	<<elseif ($activeSlave.face == 1)>>
 	attractive in an exotic and interesting way.
-	<<elseif ($activeSlave.face is 2)>>
+	<<elseif ($activeSlave.face == 2)>>
 	exotic and beautiful, capable of catching the eye and keeping its gaze.
 	<<else>>
 	very beautiful and exotic, almost to the point of alien fascination.
@@ -6061,7 +6060,7 @@ $possessiveCap @@color:pink;face is
 	average and conventionally feminine.
 	<<elseif ($activeSlave.face == 1)>>
 	conventionally attractive.
-	<<elseif ($activeSlave.face is 2)>>
+	<<elseif ($activeSlave.face == 2)>>
 	conventionally beautiful.
 	<<else>>
 	the height of conventional feminine beauty.
@@ -6088,7 +6087,7 @@ $possessiveCap @@color:pink;face is
 		$pronounCap has a distinctive beauty mark.
 		<<elseif ($activeSlave.face == 1)>>
 		$pronounCap has a nice beauty mark.
-		<<elseif ($activeSlave.face is 2)>>
+		<<elseif ($activeSlave.face == 2)>>
 		$pronounCap has a beauty mark that adds to $possessive distinctiveness.
 		<<else>>
 		$pronounCap has a beauty mark that makes $possessive really memorable.
@@ -6278,7 +6277,7 @@ $pronounCap has
 		<<else>>
 		$pronounCap has a simple gold band on a length of chain around $possessive neck.
 		<</if>>
-	<<elseif ($activeSlave.relationship is -3)>>
+	<<elseif ($activeSlave.relationship == -3)>>
 		<<if ($activeSlave.amp != 1)>>
 		$pronounCap has a simple steel band on the little finger of $possessive left hand.
 		<<else>>

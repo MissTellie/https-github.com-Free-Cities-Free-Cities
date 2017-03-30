@@ -48,8 +48,8 @@
 <</if>>
 <</if>>
 
-<<set _tmp to lastEyeWearRule($activeSlave, $defaultRules)>>
-<<if (_tmp != null) && (_tmp.ID is _currentRule.ID)>>
+<<set _tmp = lastEyeWearRule($activeSlave, $defaultRules)>>
+<<if (_tmp != null) && (_tmp.ID == _currentRule.ID)>>
 <<if (_currentRule.eyewear !== "no default setting")>>
 	<<if _currentRule.eyewear == "correct with glasses">>
 	<<if $activeSlave.eyes <= -1>>
@@ -441,7 +441,7 @@
 	<<set $activeSlave.drugs = "fertility drugs">>
 	<<set $activeSlave.hormones = 0>>
 	<br>$activeSlave.slaveName is a fertile female, so she has been put on the appropriate contraceptive regime.
-<<elseif (_currentRule.preg is 2)>>
+<<elseif (_currentRule.preg == 2)>>
 	<<set $activeSlave.drugs = "fertility drugs">>
 	<<set $activeSlave.hormones = 2>>
 	<<set $activeSlave.preg = 0>>
@@ -744,8 +744,8 @@
 	<</if>>
 <</if>>
 
-<<set _tmp to lastEyeColorRule($activeSlave, $defaultRules)>>
-<<if (_tmp != null) && (_tmp.ID is _currentRule.ID)>>
+<<set _tmp = lastEyeColorRule($activeSlave, $defaultRules)>>
+<<if (_tmp != null) && (_tmp.ID == _currentRule.ID)>>
 <<if (_currentRule.eyeColor !== "no default setting")>>
 <<if ($activeSlave.eyeColor !== _currentRule.eyeColor)>>
   <<set $activeSlave.eyeColor = _currentRule.eyeColor>>
@@ -755,8 +755,8 @@
 <</if>>
 <</if>>
 
-<<set _tmp to lastMakeupRule($activeSlave, $defaultRules)>>
-<<if (_tmp != null) && (_tmp.ID is _currentRule.ID)>>
+<<set _tmp = lastMakeupRule($activeSlave, $defaultRules)>>
+<<if (_tmp != null) && (_tmp.ID == _currentRule.ID)>>
 <<if (_currentRule.makeup !== "no default setting")>>
 <<if ($activeSlave.makeup !== _currentRule.makeup)>>
   <<set $activeSlave.makeup = _currentRule.makeup>>
@@ -766,8 +766,8 @@
 <</if>>
 <</if>>
 
-<<set _tmp to lastNailsRule($activeSlave, $defaultRules)>>
-<<if (_tmp != null) && (_tmp.ID is _currentRule.ID)>>
+<<set _tmp = lastNailsRule($activeSlave, $defaultRules)>>
+<<if (_tmp != null) && (_tmp.ID == _currentRule.ID)>>
 <<if ($activeSlave.amp != 1)>>
 <<if (_currentRule.nails !== "no default setting")>>
 <<if ($activeSlave.nails !== _currentRule.nails)>>
@@ -779,8 +779,8 @@
 <</if>>
 <</if>>
 
-<<set _tmp to lastHColorRule($activeSlave, $defaultRules)>>
-<<if (_tmp != null) && (_tmp.ID is _currentRule.ID)>>
+<<set _tmp = lastHColorRule($activeSlave, $defaultRules)>>
+<<if (_tmp != null) && (_tmp.ID == _currentRule.ID)>>
 <<if (_currentRule.hColor !== "no default setting")>>
 <<if ($activeSlave.hColor !== _currentRule.hColor)>>
   <<set $activeSlave.hColor = _currentRule.hColor>>
@@ -790,8 +790,8 @@
 <</if>>
 <</if>>
 
-<<set _tmp to lastHStyleRule($activeSlave, $defaultRules)>>
-<<if (_tmp != null) && (_tmp.ID is _currentRule.ID)>>
+<<set _tmp = lastHStyleRule($activeSlave, $defaultRules)>>
+<<if (_tmp != null) && (_tmp.ID == _currentRule.ID)>>
 <<if (_currentRule.hStyle !== "no default setting")>>
 <<if ($activeSlave.hStyle !== _currentRule.hStyle)>>
 <br>$activeSlave.slaveName's hair has been
@@ -807,8 +807,8 @@
 <</if>>
 <</if>>
 
-<<set _tmp to lastHLengthRule($activeSlave, $defaultRules)>>
-<<if (_tmp != null) && (_tmp.ID is _currentRule.ID)>>
+<<set _tmp = lastHLengthRule($activeSlave, $defaultRules)>>
+<<if (_tmp != null) && (_tmp.ID == _currentRule.ID)>>
 <<if (_currentRule.hLength !== "no default setting")>>
 <<if ($activeSlave.hLength !== _currentRule.hLength)>>
 <<if ($activeSlave.hLength > _currentRule.hLength)>>
@@ -824,8 +824,8 @@ is now _currentRule.hLength cm long.
 <</if>>
 <</if>>
 
-<<set _tmp to lastPubicHColorRule($activeSlave, $defaultRules)>>
-<<if (_tmp != null) && (_tmp.ID is _currentRule.ID)>>
+<<set _tmp = lastPubicHColorRule($activeSlave, $defaultRules)>>
+<<if (_tmp != null) && (_tmp.ID == _currentRule.ID)>>
 <<if (_currentRule.pubicHColor !== "no default setting")>>
 <<if ($activeSlave.pubicHColor !== _currentRule.pubicHColor)>>
   <<set $activeSlave.pubicHColor = _currentRule.pubicHColor>>
@@ -835,8 +835,8 @@ is now _currentRule.hLength cm long.
 <</if>>
 <</if>>
 
-<<set _tmp to lastPubicHStyleRule($activeSlave, $defaultRules)>>
-<<if (_tmp != null) && (_tmp.ID is _currentRule.ID)>>
+<<set _tmp = lastPubicHStyleRule($activeSlave, $defaultRules)>>
+<<if (_tmp != null) && (_tmp.ID == _currentRule.ID)>>
 <<if (_currentRule.pubicHStyle !== "no default setting")>>
 <<if ($activeSlave.pubicHStyle !== _currentRule.pubicHStyle)>>
   <<set $activeSlave.pubicHStyle = _currentRule.pubicHStyle>>
@@ -929,8 +929,8 @@ is now _currentRule.hLength cm long.
 <</if>>
 <</if>>
 
-<<set _tmp to lastNipplesPiercingRule($activeSlave, $defaultRules)>>
-<<if (_tmp != null) && (_tmp.ID is _currentRule.ID)>>
+<<set _tmp = lastNipplesPiercingRule($activeSlave, $defaultRules)>>
+<<if (_tmp != null) && (_tmp.ID == _currentRule.ID)>>
 <<if (_currentRule.nipplesPiercing !== "no default setting")>>
 <<if (_currentRule.nipplesPiercing != 0)>>
 <<if $activeSlave.nipplesPiercing !== _currentRule.nipplesPiercing>>
@@ -942,8 +942,8 @@ is now _currentRule.hLength cm long.
 <</if>>
 <</if>>
 
-<<set _tmp to lastAreolaePiercingRule($activeSlave, $defaultRules)>>
-<<if (_tmp != null) && (_tmp.ID is _currentRule.ID)>>
+<<set _tmp = lastAreolaePiercingRule($activeSlave, $defaultRules)>>
+<<if (_tmp != null) && (_tmp.ID == _currentRule.ID)>>
 <<if (_currentRule.areolaePiercing !== "no default setting")>>
 <<if (_currentRule.areolaePiercing != 0)>>
 <<if $activeSlave.areolaePiercing !== _currentRule.areolaePiercing>>
@@ -955,8 +955,8 @@ is now _currentRule.hLength cm long.
 <</if>>
 <</if>>
 
-<<set _tmp to lastClitPiercingRule($activeSlave, $defaultRules)>>
-<<if (_tmp != null) && (_tmp.ID is _currentRule.ID)>>
+<<set _tmp = lastClitPiercingRule($activeSlave, $defaultRules)>>
+<<if (_tmp != null) && (_tmp.ID == _currentRule.ID)>>
 <<if (_currentRule.clitPiercing !== "no default setting")>>
 <<if ($activeSlave.clitPiercing != 3)>>
 <<if (_currentRule.clitPiercing != 0)>>
@@ -978,8 +978,8 @@ is now _currentRule.hLength cm long.
 <</if>>
 <</if>>
 
-<<set _tmp to lastClitSettingRule($activeSlave, $defaultRules)>>
-<<if (_tmp != null) && (_tmp.ID is _currentRule.ID)>>
+<<set _tmp = lastClitSettingRule($activeSlave, $defaultRules)>>
+<<if (_tmp != null) && (_tmp.ID == _currentRule.ID)>>
 <<if ($activeSlave.clitPiercing == 3)>>
 <<if (_currentRule.clitSetting !== "no default setting")>>
 <<if $activeSlave.clitSetting !== _currentRule.clitSetting>>
@@ -990,8 +990,8 @@ is now _currentRule.hLength cm long.
 <</if>>
 <</if>>
 
-<<set _tmp to lastVaginaPiercingRule($activeSlave, $defaultRules)>>
-<<if (_tmp != null) && (_tmp.ID is _currentRule.ID)>>
+<<set _tmp = lastVaginaPiercingRule($activeSlave, $defaultRules)>>
+<<if (_tmp != null) && (_tmp.ID == _currentRule.ID)>>
 <<if $activeSlave.vagina != -1>>
 <<if (_currentRule.vaginaPiercing !== "no default setting")>>
 <<if (_currentRule.vaginaPiercing != 0)>>
@@ -1005,8 +1005,8 @@ is now _currentRule.hLength cm long.
 <</if>>
 <</if>>
 
-<<set _tmp to lastDickPiercingRule($activeSlave, $defaultRules)>>
-<<if (_tmp != null) && (_tmp.ID is _currentRule.ID)>>
+<<set _tmp = lastDickPiercingRule($activeSlave, $defaultRules)>>
+<<if (_tmp != null) && (_tmp.ID == _currentRule.ID)>>
 <<if $activeSlave.dick > 0>>
 <<if (_currentRule.dickPiercing !== "no default setting")>>
 <<if (_currentRule.dickPiercing != 0)>>
@@ -1020,8 +1020,8 @@ is now _currentRule.hLength cm long.
 <</if>>
 <</if>>
 
-<<set _tmp to lastAnusPiercingRule($activeSlave, $defaultRules)>>
-<<if (_tmp != null) && (_tmp.ID is _currentRule.ID)>>
+<<set _tmp = lastAnusPiercingRule($activeSlave, $defaultRules)>>
+<<if (_tmp != null) && (_tmp.ID == _currentRule.ID)>>
 <<if (_currentRule.anusPiercing !== "no default setting")>>
 <<if (_currentRule.anusPiercing != 0)>>
 <<if $activeSlave.anusPiercing !== _currentRule.anusPiercing>>
@@ -1033,8 +1033,8 @@ is now _currentRule.hLength cm long.
 <</if>>
 <</if>>
 
-<<set _tmp to lastLipsPiercingRule($activeSlave, $defaultRules)>>
-<<if (_tmp != null) && (_tmp.ID is _currentRule.ID)>>
+<<set _tmp = lastLipsPiercingRule($activeSlave, $defaultRules)>>
+<<if (_tmp != null) && (_tmp.ID == _currentRule.ID)>>
 <<if (_currentRule.lipsPiercing !== "no default setting")>>
 <<if (_currentRule.lipsPiercing != 0)>>
 <<if $activeSlave.lipsPiercing !== _currentRule.lipsPiercing>>
@@ -1046,8 +1046,8 @@ is now _currentRule.hLength cm long.
 <</if>>
 <</if>>
 
-<<set _tmp to lastTonguePiercingRule($activeSlave, $defaultRules)>>
-<<if (_tmp != null) && (_tmp.ID is _currentRule.ID)>>
+<<set _tmp = lastTonguePiercingRule($activeSlave, $defaultRules)>>
+<<if (_tmp != null) && (_tmp.ID == _currentRule.ID)>>
 <<if (_currentRule.tonguePiercing !== "no default setting")>>
 <<if (_currentRule.tonguePiercing != 0)>>
 <<if $activeSlave.tonguePiercing !== _currentRule.tonguePiercing>>
@@ -1059,8 +1059,8 @@ is now _currentRule.hLength cm long.
 <</if>>
 <</if>>
 
-<<set _tmp to lastEarPiercingRule($activeSlave, $defaultRules)>>
-<<if (_tmp != null) && (_tmp.ID is _currentRule.ID)>>
+<<set _tmp = lastEarPiercingRule($activeSlave, $defaultRules)>>
+<<if (_tmp != null) && (_tmp.ID == _currentRule.ID)>>
 <<if (_currentRule.earPiercing !== "no default setting")>>
 <<if (_currentRule.earPiercing != 0)>>
 <<if $activeSlave.earPiercing !== _currentRule.earPiercing>>
@@ -1072,8 +1072,8 @@ is now _currentRule.hLength cm long.
 <</if>>
 <</if>>
 
-<<set _tmp to lastNosePiercingRule($activeSlave, $defaultRules)>>
-<<if (_tmp != null) && (_tmp.ID is _currentRule.ID)>>
+<<set _tmp = lastNosePiercingRule($activeSlave, $defaultRules)>>
+<<if (_tmp != null) && (_tmp.ID == _currentRule.ID)>>
 <<if (_currentRule.nosePiercing !== "no default setting")>>
 <<if (_currentRule.nosePiercing != 0)>>
 <<if $activeSlave.nosePiercing !== _currentRule.nosePiercing>>
@@ -1085,8 +1085,8 @@ is now _currentRule.hLength cm long.
 <</if>>
 <</if>>
 
-<<set _tmp to lastEyebrowPiercingRule($activeSlave, $defaultRules)>>
-<<if (_tmp != null) && (_tmp.ID is _currentRule.ID)>>
+<<set _tmp = lastEyebrowPiercingRule($activeSlave, $defaultRules)>>
+<<if (_tmp != null) && (_tmp.ID == _currentRule.ID)>>
 <<if (_currentRule.eyebrowPiercing !== "no default setting")>>
 <<if (_currentRule.eyebrowPiercing != 0)>>
 <<if $activeSlave.eyebrowPiercing !== _currentRule.eyebrowPiercing>>
@@ -1098,8 +1098,8 @@ is now _currentRule.hLength cm long.
 <</if>>
 <</if>>
 
-<<set _tmp to lastNavelPiercingRule($activeSlave, $defaultRules)>>
-<<if (_tmp != null) && (_tmp.ID is _currentRule.ID)>>
+<<set _tmp = lastNavelPiercingRule($activeSlave, $defaultRules)>>
+<<if (_tmp != null) && (_tmp.ID == _currentRule.ID)>>
 <<if (_currentRule.navelPiercing !== "no default setting")>>
 <<if (_currentRule.navelPiercing != 0)>>
 <<if $activeSlave.navelPiercing !== _currentRule.navelPiercing>>
@@ -1111,8 +1111,8 @@ is now _currentRule.hLength cm long.
 <</if>>
 <</if>>
 
-<<set _tmp to lastCorsetPiercingRule($activeSlave, $defaultRules)>>
-<<if (_tmp != null) && (_tmp.ID is _currentRule.ID)>>
+<<set _tmp = lastCorsetPiercingRule($activeSlave, $defaultRules)>>
+<<if (_tmp != null) && (_tmp.ID == _currentRule.ID)>>
 <<if (_currentRule.corsetPiercing !== "no default setting")>>
 <<if (_currentRule.corsetPiercing != 0)>>
 <<if $activeSlave.corsetPiercing !== _currentRule.corsetPiercing>>
@@ -1124,8 +1124,8 @@ is now _currentRule.hLength cm long.
 <</if>>
 <</if>>
 
-<<set _tmp to lastBoobsTatRule($activeSlave, $defaultRules)>>
-<<if (_tmp != null) && (_tmp.ID is _currentRule.ID)>>
+<<set _tmp = lastBoobsTatRule($activeSlave, $defaultRules)>>
+<<if (_tmp != null) && (_tmp.ID == _currentRule.ID)>>
 <<if (_currentRule.boobsTat !== "no default setting")>>
 <<if ($activeSlave.boobsTat !== _currentRule.boobsTat)>>
 	<<set $activeSlave.boobsTat = _currentRule.boobsTat>>
@@ -1135,8 +1135,8 @@ is now _currentRule.hLength cm long.
 <</if>>
 <</if>>
 
-<<set _tmp to lastButtTatRule($activeSlave, $defaultRules)>>
-<<if (_tmp != null) && (_tmp.ID is _currentRule.ID)>>
+<<set _tmp = lastButtTatRule($activeSlave, $defaultRules)>>
+<<if (_tmp != null) && (_tmp.ID == _currentRule.ID)>>
 <<if (_currentRule.buttTat !== "no default setting")>>
 <<if ($activeSlave.buttTat !== _currentRule.buttTat)>>
 	<<set $activeSlave.buttTat = _currentRule.buttTat>>
@@ -1146,8 +1146,8 @@ is now _currentRule.hLength cm long.
 <</if>>
 <</if>>
 
-<<set _tmp to lastVaginaTatRule($activeSlave, $defaultRules)>>
-<<if (_tmp != null) && (_tmp.ID is _currentRule.ID)>>
+<<set _tmp = lastVaginaTatRule($activeSlave, $defaultRules)>>
+<<if (_tmp != null) && (_tmp.ID == _currentRule.ID)>>
 <<if (_currentRule.vaginaTat !== "no default setting")>>
 <<if ($activeSlave.vaginaTat !== _currentRule.vaginaTat)>>
 	<<set $activeSlave.vaginaTat = _currentRule.vaginaTat>>
@@ -1157,8 +1157,8 @@ is now _currentRule.hLength cm long.
 <</if>>
 <</if>>
 
-<<set _tmp to lastDickTatRule($activeSlave, $defaultRules)>>
-<<if (_tmp != null) && (_tmp.ID is _currentRule.ID)>>
+<<set _tmp = lastDickTatRule($activeSlave, $defaultRules)>>
+<<if (_tmp != null) && (_tmp.ID == _currentRule.ID)>>
 <<if ($activeSlave.dick > 0)>>
 <<if (_currentRule.dickTat !== "no default setting")>>
 <<if ($activeSlave.dickTat !== _currentRule.dickTat)>>
@@ -1170,8 +1170,8 @@ is now _currentRule.hLength cm long.
 <</if>>
 <</if>>
 
-<<set _tmp to lastLipsTatRule($activeSlave, $defaultRules)>>
-<<if (_tmp != null) && (_tmp.ID is _currentRule.ID)>>
+<<set _tmp = lastLipsTatRule($activeSlave, $defaultRules)>>
+<<if (_tmp != null) && (_tmp.ID == _currentRule.ID)>>
 <<if (_currentRule.lipsTat !== "no default setting")>>
 <<if ($activeSlave.lipsTat !== _currentRule.lipsTat)>>
 	<<set $activeSlave.lipsTat = _currentRule.lipsTat>>
@@ -1181,8 +1181,8 @@ is now _currentRule.hLength cm long.
 <</if>>
 <</if>>
 
-<<set _tmp to lastAnusTatRule($activeSlave, $defaultRules)>>
-<<if (_tmp != null) && (_tmp.ID is _currentRule.ID)>>
+<<set _tmp = lastAnusTatRule($activeSlave, $defaultRules)>>
+<<if (_tmp != null) && (_tmp.ID == _currentRule.ID)>>
 <<if (_currentRule.anusTat !== "no default setting")>>
 <<if ($activeSlave.anusTat !== _currentRule.anusTat)>>
 	<<set $activeSlave.anusTat = _currentRule.anusTat>>
@@ -1192,8 +1192,8 @@ is now _currentRule.hLength cm long.
 <</if>>
 <</if>>
 
-<<set _tmp to lastShouldersTatRule($activeSlave, $defaultRules)>>
-<<if (_tmp != null) && (_tmp.ID is _currentRule.ID)>>
+<<set _tmp = lastShouldersTatRule($activeSlave, $defaultRules)>>
+<<if (_tmp != null) && (_tmp.ID == _currentRule.ID)>>
 <<if (_currentRule.shouldersTat !== "no default setting")>>
 <<if ($activeSlave.shouldersTat !== _currentRule.shouldersTat)>>
 	<<set $activeSlave.shouldersTat = _currentRule.shouldersTat>>
@@ -1203,8 +1203,8 @@ is now _currentRule.hLength cm long.
 <</if>>
 <</if>>
 
-<<set _tmp to lastArmsTatRule($activeSlave, $defaultRules)>>
-<<if (_tmp != null) && (_tmp.ID is _currentRule.ID)>>
+<<set _tmp = lastArmsTatRule($activeSlave, $defaultRules)>>
+<<if (_tmp != null) && (_tmp.ID == _currentRule.ID)>>
 <<if (_currentRule.armsTat !== "no default setting")>>
 <<if ($activeSlave.armsTat !== _currentRule.armsTat)>>
 	<<set $activeSlave.armsTat = _currentRule.armsTat>>
@@ -1214,8 +1214,8 @@ is now _currentRule.hLength cm long.
 <</if>>
 <</if>>
 
-<<set _tmp to lastLegsTatRule($activeSlave, $defaultRules)>>
-<<if (_tmp != null) && (_tmp.ID is _currentRule.ID)>>
+<<set _tmp = lastLegsTatRule($activeSlave, $defaultRules)>>
+<<if (_tmp != null) && (_tmp.ID == _currentRule.ID)>>
 <<if (_currentRule.legsTat !== "no default setting")>>
 <<if ($activeSlave.legsTat !== _currentRule.legsTat)>>
 	<<set $activeSlave.legsTat = _currentRule.legsTat>>
@@ -1225,8 +1225,8 @@ is now _currentRule.hLength cm long.
 <</if>>
 <</if>>
 
-<<set _tmp to lastStampTatRule($activeSlave, $defaultRules)>>
-<<if (_tmp != null) && (_tmp.ID is _currentRule.ID)>>
+<<set _tmp = lastStampTatRule($activeSlave, $defaultRules)>>
+<<if (_tmp != null) && (_tmp.ID == _currentRule.ID)>>
 <<if (_currentRule.stampTat !== "no default setting")>>
 <<if ($activeSlave.stampTat !== _currentRule.stampTat)>>
 	<<set $activeSlave.stampTat = _currentRule.stampTat>>
@@ -1335,7 +1335,7 @@ consequences.
 		<</if>>
 	<</if>>
 <<case "brothel">>
-	<<if ($brothel > $brothelSlaves) && ($activeSlave.devotion > 50) || (($activeSlave.devotion >= -50) && ($activeSlave.trust < -20)) or  ($activeSlave.trust < -50) || ($activeSlave.trust > 50)>>
+	<<if ($brothel > $brothelSlaves) && ($activeSlave.devotion > 50) || (($activeSlave.devotion >= -50) && ($activeSlave.trust < -20)) || ($activeSlave.trust < -50) || ($activeSlave.trust > 50)>>
 	<<if ($activeSlave.assignment != "work in the brothel")>>
 		<br>$activeSlave.slaveName has automatically been assigned to $activeSlave.assignment.
 		<<if ($personalAttention == $activeSlave.ID)>>
@@ -1368,7 +1368,7 @@ consequences.
 	<<elseif ($activeSlave.indentureRestrictions > 1) && ($dairyRestraintsSetting > 0)>>
 	<<else>>
 		<<if ($activeSlave.lactation > 0) || ($activeSlave.balls > 0) || (($dairyFeedersUpgrade == 1) && ($dairyFeedersSetting > 0))>>
-		<<if ($activeSlave.devotion > 20) || (($activeSlave.devotion >= -50) && ($activeSlave.trust < -20)) or  ($activeSlave.trust < -50) || ($activeSlave.amp == 1) || ($dairyRestraintsUpgrade == 1)>>
+		<<if ($activeSlave.devotion > 20) || (($activeSlave.devotion >= -50) && ($activeSlave.trust < -20)) || ($activeSlave.trust < -50) || ($activeSlave.amp == 1) || ($dairyRestraintsUpgrade == 1)>>
 		<<if ($dairyStimulatorsSetting < 2) || ($activeSlave.anus > 2) || ($dairyPrepUpgrade == 1)>>
 		<<if ($dairyPregSetting < 2) || ($activeSlave.vagina > 2) || ($activeSlave.ovaries == 0) || ($dairyPrepUpgrade == 1)>>
 	<<if ($activeSlave.assignment != "work in the dairy")>>
@@ -1401,7 +1401,7 @@ consequences.
 	<</if>>
 	<</if>>
 <<case "servantsquarters">>
-	<<if ($servantsQuarters > $servantsQuartersSlaves) && ($activeSlave.devotion >= -20) || (($activeSlave.devotion >= -50) && ($activeSlave.trust <= 20)) or  ($activeSlave.trust < -20)>>
+	<<if ($servantsQuarters > $servantsQuartersSlaves) && ($activeSlave.devotion >= -20) || (($activeSlave.devotion >= -50) && ($activeSlave.trust <= 20)) || ($activeSlave.trust < -20)>>
 	<<if ($activeSlave.assignment != "work as a servant")>>
 		<br>$activeSlave.slaveName has automatically been assigned to $activeSlave.assignment.
 		<<if ($personalAttention == $activeSlave.ID)>>

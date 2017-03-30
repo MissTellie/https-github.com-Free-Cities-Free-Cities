@@ -242,7 +242,7 @@ $args[2]: icon UI Display for vector art, 1 for on.
 	<<else>>
 		<<set _torsoSize = "unnatural">>
 	<</if>>
-<<elseif $args[0].waist is 0>>/*Normal*/
+<<elseif $args[0].waist == 0>>/*Normal*/
 	<<set _torsoSize = "normal">>
 <</if>>
 <<print "<object type='image/svg+xml' data=" + _imgSkinLoc + "/torso " + _torsoSize + ".svg'" + "/></object>">>
