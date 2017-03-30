@@ -3238,15 +3238,15 @@ and ($slaves[$i].clothes != "a slutty qipao") && ($slaves[$i].clothes != "restri
 		<<set $seed = random(1,100)>>
 		<<if ($slaves[$i].relationship == -3 || $slaves[$i].relationship == -2) && $PC.dick == 1>>
 			<<set $slaves[$i].pregSource = -1>>
-		<<elseif $slaves[$i].relationship > 2 and canAchieveErection($tempLover) && $tempLover.dickAccessory != "chastity">>
+		<<elseif $slaves[$i].relationship > 2 && canAchieveErection($tempLover) && $tempLover.dickAccessory != "chastity">>
 			<<set $slaves[$i].pregSource = $tempLover.ID>>
-		<<elseif $slaves[$i].rivalry > 2 and canAchieveErection($tempRival) && $tempRival.dickAccessory != "chastity" and $seed > 95>>/* raped and knocked up by rival */
+		<<elseif $slaves[$i].rivalry > 2 && canAchieveErection($tempRival) && $tempRival.dickAccessory != "chastity" && $seed > 95>>/* raped and knocked up by rival */
 			<<set $slaves[$i].pregSource = $tempRival.ID>>
 		<<elseif $slaves[$i].subTarget != 0 && $slaves[$i].assignment == "be a subordinate slave">>
 			<<if canAchieveErection($tempSub) && $slaves[$m].dickAccessory != "chastity">>
 			<<set $slaves[$i].pregSource = $tempSub.ID>>
 			<</if>>
-		<<elseif $seed > 60 and $PC.dick == 1>>
+		<<elseif $seed > 60 && $PC.dick == 1>>
 			<<set $slaves[$i].pregSource = -1>>
 		<<elseif $seed <= 10>>
 			<<set $slaves[$i].pregSource = -2>>
@@ -3259,7 +3259,7 @@ and ($slaves[$i].clothes != "a slutty qipao") && ($slaves[$i].clothes != "restri
 			<<for $m = $sourceSeed+1; $m is $sourceSeed; $m++>>
 				<<if $m >= $slaves.length>> /* oob catch */
 					<<set $m = -1>>
-				<<elseif $slaves[$m].dick > 0 and $slaves[$m].balls > 0 and $slaves[$m].dickAccessory != "chastity">>
+				<<elseif $slaves[$m].dick > 0 && $slaves[$m].balls > 0 && $slaves[$m].dickAccessory != "chastity">>
 					<<if $slaves[$i].ID == $slaves[$m].ID>>
 					/* catch for self-impregnation */
 						<<if random(1,100) > 95>>
