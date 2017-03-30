@@ -1019,8 +1019,11 @@
 	<<set $events.push("REM merger")>>
 <</if>>
 
-<<if $rep-10000 > random(1,10000)>>
-	<<set $events.push("RE female arcology owner")>>
+<<if $RegularParties == 1>>
+	<<set $events.push("RE citizen hookup")>>
+	<<if $rep-10000 > random(1,10000)>>
+		<<set $events.push("RE female arcology owner")>>
+	<</if>>
 <</if>>
 
 <<set $REM to []>>
