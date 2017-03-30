@@ -40,16 +40,16 @@ $activeSlave.slaveName has been added to your starting stable of slaves. You now
 	<br>
 	//Add another slave, related to the previous slave://
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	[[Twin|RG AS Dump][$returnTo = "Starting Girls", $activeSlave.relation = "twin", $activeSlave.relationTarget to $activeSlave.ID+1, $startingGirlCopied = 1]]
+	[[Twin|RG AS Dump][$returnTo = "Starting Girls", $activeSlave.relation = "twin", $activeSlave.relationTarget = $activeSlave.ID+1, $startingGirlCopied = 1]]
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	[[Sister|RG AS Dump][$returnTo = "Starting Girls", $activeSlave.relation = "sister", $activeSlave.relationTarget to $activeSlave.ID+1, $startingGirlCopied = 1]]
+	[[Sister|RG AS Dump][$returnTo = "Starting Girls", $activeSlave.relation = "sister", $activeSlave.relationTarget = $activeSlave.ID+1, $startingGirlCopied = 1]]
 	<<if $activeSlave.age <= 28>>
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;
-		[[Mother|RG AS Dump][$returnTo = "Starting Girls", $activeSlave.relation = "daughter", $activeSlave.relationTarget to $activeSlave.ID+1, $startingGirlCopied = 1]]
+		[[Mother|RG AS Dump][$returnTo = "Starting Girls", $activeSlave.relation = "daughter", $activeSlave.relationTarget = $activeSlave.ID+1, $startingGirlCopied = 1]]
 	<</if>>
 	<<if $activeSlave.age >= 34>>
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;
-		[[Daughter|RG AS Dump][$returnTo = "Starting Girls", $activeSlave.relation = "mother", $activeSlave.relationTarget to $activeSlave.ID+1, $startingGirlCopied = 1]]
+		[[Daughter|RG AS Dump][$returnTo = "Starting Girls", $activeSlave.relation = "mother", $activeSlave.relationTarget = $activeSlave.ID+1, $startingGirlCopied = 1]]
 	<</if>>
 	<<elseif $activeSlave.relation == 0>>
 	<br>

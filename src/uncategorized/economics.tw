@@ -1036,7 +1036,7 @@ earning you @@color:yellowgreen;¤$seed.@@
 		Since your arcology is located in the heart of an urban area, its commerce is naturally vibrant.
 		<<set _AWeekGrowth++>>
 	<</if>>
-	<<if def $arcologies[0].embargoTarget and $arcologies[0].embargoTarget != -1>>
+	<<if def $arcologies[0].embargoTarget && $arcologies[0].embargoTarget != -1>>
 		The local economy is hurt by the double edged sword of your economic warfare.
 		<<set _AWeekGrowth -= $arcologies[0].embargo*2>>
 	<</if>>
@@ -1207,7 +1207,7 @@ The Futanari Sisters have a <<if $TFS.schoolProsperity > 4>>very prosperous<<els
 <</if>>
 
 <<if $marketAssistantLimit != 0>>
-<<set $seed to Math.clamp($slaveCostFactor*1000, 500, 1500)>>
+<<set $seed = Math.clamp($slaveCostFactor*1000, 500, 1500)>>
 <br>
 Your ''business assistant'' manages the menial slave market.
 <<if $seed <= 800+$marketAssistantAggressiveness>>/* BUY */

@@ -58,7 +58,7 @@
 Next [E,→]  |  
 <</if>>
 
-<<if $r != $defaultRules.length and $defaultRules[$defaultRules.length-1]>>
+<<if $r != $defaultRules.length && $defaultRules[$defaultRules.length-1]>>
 <span id="lastRule">
 	<strong>
 	<<link "Last">>
@@ -233,7 +233,7 @@ Apply to slaves:<br>
 <</if>>
 <br>
 Exclude slaves:<br>
-<<if ndef $currentRule.excludedSlaves or $currentRule.excludedSlaves.length < 1>>
+<<if ndef $currentRule.excludedSlaves || $currentRule.excludedSlaves.length < 1>>
 ''Not excluding any slaves'' |
 
 [[Exclude specific slaves|Rules Slave Exclude]]
@@ -2233,7 +2233,7 @@ Relationship rules: ''$currentRule.relationshipRules.''
 <span id="saveresult">
 </span>
 <<timed 50ms>>
-<<set _text to "Save rule " + $r>>
+<<set _text = "Save rule " + $r>>
 	<<RAChangeSave>>
 <</timed>>
 
@@ -2250,9 +2250,9 @@ Relationship rules: ''$currentRule.relationshipRules.''
 				<<set $currentRule.name = "Obedient Slaves">>
 				<<set $currentRule.activation = "devotion">>
 				<<set $currentRule.thresholdLower = 20>>
-				<<set $currentRule.eqLower to true>>
+				<<set $currentRule.eqLower = true>>
 				<<set $currentRule.thresholdUpper = "none">>
-				<<set $currentRule.eqUpper to true>>
+				<<set $currentRule.eqUpper = true>>
 				<<set $currentRule.clothes = "slutty jewelry">>
 				<<set $currentRule.choosesOwnClothes = 0>>
 				<<set $currentRule.collar = "pretty jewelry">>
@@ -2308,8 +2308,8 @@ Relationship rules: ''$currentRule.relationshipRules.''
 				<<set $currentRule.facility = []>>
 				<<set $currentRule.excludeFacility = []>>
 				<<set $currentRule.assignFacility = "none">>
-				<<set $currentRule.excludeSpecialSlaves to true>>
-				<<set $currentRule.facilityRemove to false>>
+				<<set $currentRule.excludeSpecialSlaves = true>>
+				<<set $currentRule.facilityRemove = false>>
 				<<set $currentRule.removalAssignment = "rest">>
 				<<set $currentRule.selectedSlaves = []>>
 				<<set $currentRule.excludedSlaves = []>>
@@ -2332,9 +2332,9 @@ Relationship rules: ''$currentRule.relationshipRules.''
 				<<set $currentRule.name = "Disobedient Slaves">>
 				<<set $currentRule.activation = "devotion">>
 				<<set $currentRule.thresholdLower = "none">>
-				<<set $currentRule.eqLower to true>>
+				<<set $currentRule.eqLower = true>>
 				<<set $currentRule.thresholdUpper = 20>>
-				<<set $currentRule.eqUpper to false>>
+				<<set $currentRule.eqUpper = false>>
 				<<set $currentRule.clothes = "uncomfortable straps">>
 				<<set $currentRule.choosesOwnClothes = 0>>
 				<<set $currentRule.collar = "uncomfortable leather">>
@@ -2390,8 +2390,8 @@ Relationship rules: ''$currentRule.relationshipRules.''
 				<<set $currentRule.facility = []>>
 				<<set $currentRule.excludeFacility = []>>
 				<<set $currentRule.assignFacility = "none">>
-				<<set $currentRule.excludeSpecialSlaves to true>>
-				<<set $currentRule.facilityRemove to false>>
+				<<set $currentRule.excludeSpecialSlaves = true>>
+				<<set $currentRule.facilityRemove = false>>
 				<<set $currentRule.removalAssignment = "rest">>
 				<<set $currentRule.selectedSlaves = []>>
 				<<set $currentRule.excludedSlaves = []>>
@@ -2412,9 +2412,9 @@ Relationship rules: ''$currentRule.relationshipRules.''
 				<<set $currentRule.name = "Unhealthy Slaves">>
 				<<set $currentRule.activation = "health">>
 				<<set $currentRule.thresholdLower = "none">>
-				<<set $currentRule.eqLower to true>>
+				<<set $currentRule.eqLower = true>>
 				<<set $currentRule.thresholdUpper = -2>>
-				<<set $currentRule.eqUpper to false>>
+				<<set $currentRule.eqUpper = false>>
 				<<set $currentRule.clothes = "no default setting">>
 				<<set $currentRule.choosesOwnClothes = 0>>
 				<<set $currentRule.collar = "no default setting">>
@@ -2469,8 +2469,8 @@ Relationship rules: ''$currentRule.relationshipRules.''
 				<<set $currentRule.facility = []>>
 				<<set $currentRule.excludeFacility = []>>
 				<<set $currentRule.assignFacility = "none">>
-				<<set $currentRule.excludeSpecialSlaves to true>>
-				<<set $currentRule.facilityRemove to false>>
+				<<set $currentRule.excludeSpecialSlaves = true>>
+				<<set $currentRule.facilityRemove = false>>
 				<<set $currentRule.removalAssignment = "rest">>
 				<<set $currentRule.selectedSlaves = []>>
 				<<set $currentRule.excludedSlaves = []>>
@@ -2497,7 +2497,7 @@ Relationship rules: ''$currentRule.relationshipRules.''
 
 |
 <span id="result">
-<<set _text to "Remove rule " + $r>>
+<<set _text = "Remove rule " + $r>>
 <<link _text>>
 	<<set $defaultRules[$r-1].activation = "none">>
 	<<for $s = 0; $s < $slaves.length; $s++>>
@@ -2525,7 +2525,7 @@ Relationship rules: ''$currentRule.relationshipRules.''
 <br>
 	<<link "Add a new rule">>
 
-	<<set _activeRule to {aphrodisiacs: "no default setting", activation: "none", thresholdLower: 4, thresholdUpper: "none", eqLower: true, eqUpper: true, releaseRules: "no default setting", clitSetting: "no default setting", speechRules: "no default setting", clothes: "no default setting", fuckdoll: 0, choosesOwnClothes: 0, collar: "no default setting", shoes: "no default setting", virginAccessory: "no default setting", aVirginAccessory: "no default setting", vaginalAccessory: "no default setting", aVirginDickAccessory: "no default setting", dickAccessory: "no default setting", cSec: 0, bellyAccessory: "no default setting", aVirginButtplug: "no default setting", buttplug: "no default setting", markings: "none", eyeColor: "no default setting", makeup: "no default setting", nails: "no default setting", hColor: "no default setting", hLength: "no default setting", hStyle: "no default setting", pubicHColor: "no default setting", pubicHStyle: "no default setting", nipplesPiercing: "no default setting", areolaePiercing: "no default setting", clitPiercing: "no default setting", vaginaLube: "no default setting", vaginaPiercing: "no default setting", analArea: 1, dickPiercing: "no default setting", anusPiercing: "no default setting", lipsPiercing: "no default setting", tonguePiercing: "no default setting", earPiercing: "no default setting", nosePiercing: "no default setting", eyebrowPiercing: "no default setting", navelPiercing: "no default setting", corsetPiercing: "no default setting", boobsTat: "no default setting", buttTat: "no default setting", vaginaTat: "no default setting", dickTat: "no default setting", lipsTat: "no default setting", anusTat: "no default setting", shouldersTat: "no default setting", armsTat: "no default setting", legsTat: "no default setting", backTat: "no default setting", stampTat: "no default setting", curatives: "no default setting", livingRules: "no default setting", relationshipRules: "no default setting", standardPunishment: "no default setting", standardReward: "no default setting", useRulesAssistant: 1, diet: "no default setting", dietCum: "no default setting", dietMilk: "no default setting", muscles: "no default setting", XY: "no default setting", XX: "no default setting", gelding: "no default setting", preg: "no default setting", growth: "no default setting", autoSurgery: 0, choosesOwnAssignment: 0, lactation: 0, autoBrand: 0, pornFameSpending: "no default setting", dietGrowthSupport: 0, eyewear: "no default setting", assignment: [], excludeAssignment: [], setAssignment: "none", facility: [], excludeFacility: [], assignFacility: "none", excludeSpecialSlaves: true, facilityRemove: false, removalAssignment: "rest", selectedSlaves: [], excludedSlaves: [], surgery: {lactation: "no default setting", cosmetic: 0, accent: "no default setting", shoulders: "no default setting", shouldersImplant: "no default setting", boobs: "no default setting", hips: "no default setting", hipsImplant: "no default setting", butt: "no default setting", faceShape: "no default setting", lips: "no default setting", holes: 0} }>>
+	<<set _activeRule = {aphrodisiacs: "no default setting", activation: "none", thresholdLower: 4, thresholdUpper: "none", eqLower: true, eqUpper: true, releaseRules: "no default setting", clitSetting: "no default setting", speechRules: "no default setting", clothes: "no default setting", fuckdoll: 0, choosesOwnClothes: 0, collar: "no default setting", shoes: "no default setting", virginAccessory: "no default setting", aVirginAccessory: "no default setting", vaginalAccessory: "no default setting", aVirginDickAccessory: "no default setting", dickAccessory: "no default setting", cSec: 0, bellyAccessory: "no default setting", aVirginButtplug: "no default setting", buttplug: "no default setting", markings: "none", eyeColor: "no default setting", makeup: "no default setting", nails: "no default setting", hColor: "no default setting", hLength: "no default setting", hStyle: "no default setting", pubicHColor: "no default setting", pubicHStyle: "no default setting", nipplesPiercing: "no default setting", areolaePiercing: "no default setting", clitPiercing: "no default setting", vaginaLube: "no default setting", vaginaPiercing: "no default setting", analArea: 1, dickPiercing: "no default setting", anusPiercing: "no default setting", lipsPiercing: "no default setting", tonguePiercing: "no default setting", earPiercing: "no default setting", nosePiercing: "no default setting", eyebrowPiercing: "no default setting", navelPiercing: "no default setting", corsetPiercing: "no default setting", boobsTat: "no default setting", buttTat: "no default setting", vaginaTat: "no default setting", dickTat: "no default setting", lipsTat: "no default setting", anusTat: "no default setting", shouldersTat: "no default setting", armsTat: "no default setting", legsTat: "no default setting", backTat: "no default setting", stampTat: "no default setting", curatives: "no default setting", livingRules: "no default setting", relationshipRules: "no default setting", standardPunishment: "no default setting", standardReward: "no default setting", useRulesAssistant: 1, diet: "no default setting", dietCum: "no default setting", dietMilk: "no default setting", muscles: "no default setting", XY: "no default setting", XX: "no default setting", gelding: "no default setting", preg: "no default setting", growth: "no default setting", autoSurgery: 0, choosesOwnAssignment: 0, lactation: 0, autoBrand: 0, pornFameSpending: "no default setting", dietGrowthSupport: 0, eyewear: "no default setting", assignment: [], excludeAssignment: [], setAssignment: "none", facility: [], excludeFacility: [], assignFacility: "none", excludeSpecialSlaves: true, facilityRemove: false, removalAssignment: "rest", selectedSlaves: [], excludedSlaves: [], surgery: {lactation: "no default setting", cosmetic: 0, accent: "no default setting", shoulders: "no default setting", shouldersImplant: "no default setting", boobs: "no default setting", hips: "no default setting", hipsImplant: "no default setting", butt: "no default setting", faceShape: "no default setting", lips: "no default setting", holes: 0} }>>
 
 	<<if ndef _r>>
 		<<set _r = 0>>
@@ -2540,7 +2540,7 @@ Relationship rules: ''$currentRule.relationshipRules.''
 		<<set $RulesID = 1>>
 	<</if>>
 
-	<<set _activeRule.name to "Rule " + _length>>
+	<<set _activeRule.name = "Rule " + _length>>
 	<<set _activeRule.ID = $RulesID>>
 
 	<<set $defaultRules.push(_activeRule)>>

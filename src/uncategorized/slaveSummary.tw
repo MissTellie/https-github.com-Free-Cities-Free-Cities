@@ -12,11 +12,11 @@
 		<<set _Slave = $slaves[_i]>>
 	<</if>>
 	<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if $seeImages == 1>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>>
-	<<if "be your Head Girl" is _Slave.assignment>>''HG''
-	<<elseif "recruit girls" is _Slave.assignment>>''RC''
-	<<elseif "guard you" is _Slave.assignment>>''BG''
+	<<if "be your Head Girl" == _Slave.assignment>>''HG''
+	<<elseif "recruit girls" == _Slave.assignment>>''RC''
+	<<elseif "guard you" == _Slave.assignment>>''BG''
 	<</if>>
-	<<if $personalAttention is _Slave.ID>>''PA''<</if>>
+	<<if $personalAttention == _Slave.ID>>''PA''<</if>>
 	<<print "[[_Slave.slaveName|Slave Interact][$activeSlave = $slaves["+_i+"]]]">>
 <<case "Personal Attention Select">>
 <<if (_Slave.assignmentVisible != 1) || (_Slave.fuckdoll > 0)>><<continue>><</if>>
@@ -2142,7 +2142,7 @@ _Slave.faceShape face.
 <<case "liberated">>
 	Lib
 <<default>>
-	<<set _Slave.behavioralFlaw to "none">>
+	<<set _Slave.behavioralFlaw = "none">>
 <</switch>>
 @@
 <<switch _Slave.sexualFlaw>>
@@ -2183,7 +2183,7 @@ _Slave.faceShape face.
 <<case "breeder">>
 	@@color:yellow;BreedObsess@@
 <<default>>
-	<<set _Slave.sexualFlaw to "none">>
+	<<set _Slave.sexualFlaw = "none">>
 <</switch>>
 @@color:green;
 <<switch _Slave.behavioralQuirk>>
@@ -2206,7 +2206,7 @@ _Slave.faceShape face.
 <<case "advocate">>
 	Advoc
 <<default>>
-	<<set _Slave.behavioralQuirk to "none">>
+	<<set _Slave.behavioralQuirk = "none">>
 <</switch>>
 <<switch _Slave.sexualQuirk>>
 <<case "gagfuck queen">>
@@ -2228,7 +2228,7 @@ _Slave.faceShape face.
 <<case "size queen">>
 	SizeQ
 <<default>>
-	<<set _Slave.sexualQuirk to "none">>
+	<<set _Slave.sexualQuirk = "none">>
 <</switch>>
 @@
 <<elseif $abbreviateMental == 2>>
@@ -2461,7 +2461,7 @@ _Slave.faceShape face.
 <<case "liberated">>
 	Mentally liberated.
 <<default>>
-	<<set _Slave.behavioralFlaw to "none">>
+	<<set _Slave.behavioralFlaw = "none">>
 <</switch>>
 @@
 <<switch _Slave.sexualFlaw>>
@@ -2502,7 +2502,7 @@ _Slave.faceShape face.
 <<case "breeder">>
 	@@color:yellow;Breeding obsession.@@
 <<default>>
-	<<set _Slave.sexualFlaw to "none">>
+	<<set _Slave.sexualFlaw = "none">>
 <</switch>>
 @@color:green;
 <<switch _Slave.behavioralQuirk>>
@@ -2525,7 +2525,7 @@ _Slave.faceShape face.
 <<case "advocate">>
 	Advocate.
 <<default>>
-	<<set _Slave.behavioralQuirk to "none">>
+	<<set _Slave.behavioralQuirk = "none">>
 <</switch>>
 <<switch _Slave.sexualQuirk>>
 <<case "gagfuck queen">>
@@ -2547,7 +2547,7 @@ _Slave.faceShape face.
 <<case "size queen">>
 	Size queen.
 <<default>>
-	<<set _Slave.sexualQuirk to "none">>
+	<<set _Slave.sexualQuirk = "none">>
 <</switch>>
 @@
 <</if>>

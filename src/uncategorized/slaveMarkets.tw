@@ -787,7 +787,7 @@ You're in the area of the slave market that specializes in slaves from within th
 <<set $targetArcology = $arcologies[$i]>>
 <<include "Arcology Opinion">>
 <<set $opinion = Math.trunc($opinion/20)>>
-<<set $opinion to Math.clamp($opinion, -10, 10)>>
+<<set $opinion = Math.clamp($opinion, -10, 10)>>
 
 <<if ($arcologies[0].FSDegradationist != "unset") && ($arcologies[$i].FSPaternalist != "unset")>>
 	<<set $activeSlave.devotion = random(-90,-60)>>

@@ -5,7 +5,7 @@ They arrive hand-in-hand and don't let go of each other until the end of the ens
 
 <<AddSlave $sibling>>
 
-<<set _secondSlave to clone($activeSlave)>>
+<<set _secondSlave = clone($activeSlave)>>
 
 <<NationalityToName _secondSlave>>
 
@@ -16,7 +16,7 @@ They arrive hand-in-hand and don't let go of each other until the end of the ens
 <<set _secondSlave.oldDevotion = $activeSlave.devotion>>
 <<set _secondSlave.age -= random (1, 3)>>
 
-<<set _secondSlave.relation to "sister">>
+<<set _secondSlave.relation = "sister">>
 <<set _secondSlave.relationTarget = $activeSlave.ID>>
 <<set _secondSlave.relationship = 4>>
 <<set _secondSlave.relationshipTarget = $activeSlave.ID>>

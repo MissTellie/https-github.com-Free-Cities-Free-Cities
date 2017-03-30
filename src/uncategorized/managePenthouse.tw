@@ -131,7 +131,7 @@ __Penthouse Improvements__
 
 <<if ($dispensary == 0)>>
 <<if ($rep > 5000)>>
-	[[Install a cutting-edge pharmaceutical fabricator|Manage Penthouse][$cash -= Math.trunc(50000*$upgradeMultiplierArcology), $dispensary = 1, $drugsCost to $drugsCost/2]]
+	[[Install a cutting-edge pharmaceutical fabricator|Manage Penthouse][$cash -= Math.trunc(50000*$upgradeMultiplierArcology), $dispensary = 1, $drugsCost = $drugsCost/2]]
 	//Costs ¤<<print Math.trunc(50000*$upgradeMultiplierArcology)>>//
 <<else>>
 	//You lack the reputation to obtain cutting-edge pharmaceutical technology//

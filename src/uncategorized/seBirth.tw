@@ -58,7 +58,7 @@
 <<if $slaves[$i].curatives > 0>>
 		<<set $birthDamage -= 3>>
 <</if>>
-<<if $nurseCareers.includes($slaves[$i].career) and $slaves[$i].fetish != "mindbroken">>
+<<if $nurseCareers.includes($slaves[$i].career) && $slaves[$i].fetish != "mindbroken">>
 	<<set $birthDamage = 0>>
 <</if>>
 
@@ -181,7 +181,7 @@
 	It barely comprehends what has happened, nor will it realize when another child is conceived in it.
 <</if>> /* close fuckdoll birth */
 
-<<if $slaves[$i].assignment == "work in the dairy" and $dairyPregSetting > 0>>
+<<if $slaves[$i].assignment == "work in the dairy" && $dairyPregSetting > 0>>
 
 <br>
 <br>
@@ -291,7 +291,7 @@ Since $possessive vagina was spared from childbirth, @@color:lime;it retained it
 <</if>>
 
 
-<<set _tmp to lastPregRule($slaves[$i], $defaultRules)>>
+<<set _tmp = lastPregRule($slaves[$i], $defaultRules)>>
 <<if ($slaves[$i].assignmentVisible == 0) && (_tmp != null)>>
 	<<set $slaves[$i].preg = -1>>
 <<else>>
@@ -481,7 +481,7 @@ Childbirth has @@color:lime;stretched out $possessive vagina.@@
 <</if>>
 <</if>>
 
-<<set _tmp to lastPregRule($slaves[$i], $defaultRules)>>
+<<set _tmp = lastPregRule($slaves[$i], $defaultRules)>>
 <<if ($slaves[$i].assignmentVisible == 0) && (_tmp != null)>>
 	<<set $slaves[$i].preg = -1>>
 <<else>>

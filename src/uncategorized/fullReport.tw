@@ -127,15 +127,15 @@
 	<<set $activeSlave = $slaves[$i], $HGtraining = "health">>
 	<<include "HG Application">>
 	<br>
-<<elseif (["cum addict", "anal addict", "attention whore", "breast growth", "abusive", "malicious", "self hating", "neglectful", "breeder"].includes($slaves[$i].sexualFlaw) is true) && ($headGirlTrainsParaphilias == 1)>>
+<<elseif (["cum addict", "anal addict", "attention whore", "breast growth", "abusive", "malicious", "self hating", "neglectful", "breeder"].includes($slaves[$i].sexualFlaw) == true) && ($headGirlTrainsParaphilias == 1)>>
 	<<set $activeSlave = $slaves[$i], $HGtraining = "flaw">>
 	<<include "HG Application">>
 	<br>
-<<elseif (["cum addict", "anal addict", "attention whore", "breast growth", "abusive", "malicious", "self hating", "neglectful", "breeder"].includes($slaves[$i].sexualFlaw) is false) && ($headGirlTrainsFlaws == 1) && (($slaves[$i].behavioralFlaw != "none") || ($slaves[$i].sexualFlaw != "none"))>>
+<<elseif (["cum addict", "anal addict", "attention whore", "breast growth", "abusive", "malicious", "self hating", "neglectful", "breeder"].includes($slaves[$i].sexualFlaw) == false) && ($headGirlTrainsFlaws == 1) && (($slaves[$i].behavioralFlaw != "none") || ($slaves[$i].sexualFlaw != "none"))>>
 	<<set $activeSlave = $slaves[$i], $HGtraining = "flaw">>
 	<<include "HG Application">>
 	<br>
-<<elseif (["cum addict", "anal addict", "attention whore", "breast growth", "abusive", "malicious", "self hating", "neglectful", "breeder"].includes($slaves[$i].sexualFlaw) is false) && ($headGirlTrainsFlaws == 2) && ($slaves[$i].devotion > 20) && (($slaves[$i].behavioralFlaw != "none") || ($slaves[$i].sexualFlaw != "none"))>>
+<<elseif (["cum addict", "anal addict", "attention whore", "breast growth", "abusive", "malicious", "self hating", "neglectful", "breeder"].includes($slaves[$i].sexualFlaw) == false) && ($headGirlTrainsFlaws == 2) && ($slaves[$i].devotion > 20) && (($slaves[$i].behavioralFlaw != "none") || ($slaves[$i].sexualFlaw != "none"))>>
 	<<if ((($slaves[$i].behavioralFlaw != "none") && ($slaves[$i].behavioralQuirk == "none")) || (($slaves[$i].sexualFlaw != "none") && ($slaves[$i].sexualQuirk == "none")))>>
 		<<set $activeSlave = $slaves[$i], $HGtraining = "soften">>
 		<<include "HG Application">>

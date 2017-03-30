@@ -382,7 +382,7 @@
 <<if ($activeSlave.hormones !== _currentRule.gelding)>>
 	<<set $activeSlave.hormones = _currentRule.gelding>>
 	<<if $activeSlave.indentureRestrictions >= 2>>
-		<<set $activeSlave.hormones to Math.clamp($activeSlave.hormones, -1, 1)>>
+		<<set $activeSlave.hormones = Math.clamp($activeSlave.hormones, -1, 1)>>
 	<</if>>
 	<br>$activeSlave.slaveName is a gelding, so she has been put on the appropriate hormones.
 <</if>>
@@ -396,7 +396,7 @@
 <<if ($activeSlave.assignment != "be the Collectrix")>>
 	<<set $activeSlave.hormones = _currentRule.XY>>
 	<<if $activeSlave.indentureRestrictions >= 2>>
-		<<set $activeSlave.hormones to Math.clamp($activeSlave.hormones, -1, 1)>>
+		<<set $activeSlave.hormones = Math.clamp($activeSlave.hormones, -1, 1)>>
 	<</if>>
 	<br>$activeSlave.slaveName is a shemale, so she has been put on the appropriate hormones.
 <</if>>
@@ -414,7 +414,7 @@
 <<if ($activeSlave.hormones !== _currentRule.XX)>>
 	<<set $activeSlave.hormones = _currentRule.XX>>
 	<<if $activeSlave.indentureRestrictions >= 2>>
-		<<set $activeSlave.hormones to Math.clamp($activeSlave.hormones, -1, 1)>>
+		<<set $activeSlave.hormones = Math.clamp($activeSlave.hormones, -1, 1)>>
 	<</if>>
 	<br>$activeSlave.slaveName is a female, so she has been put on the appropriate hormonal regime.
 	<</if>>
@@ -1263,15 +1263,15 @@ consequences.
 <</if>>
 <</if>>
 
-<<set _exclude to false>>
+<<set _exclude = false>>
 <<if _currentRule.excludeSpecialSlaves>>
-	<<if (($HeadGirl != 0) && ($HeadGirl.ID == $activeSlave.ID)) || (($Bodyguard != 0) && ($Bodyguard.ID == $activeSlave.ID)) || (($Recruiter != 0) && ($Recruiter.ID == $activeSlave.ID)) || (($Concubine != 0) && ($Concubine.ID == $activeSlave.ID)) || (($Nurse != 0) && ($Nurse.ID == $activeSlave.ID)) || (($Attendant != 0) and($Attendant.ID == $activeSlave.ID)) || (($Madam != 0) || ($Madam.ID == $activeSlave.ID)) || (($DJ != 0) && ($DJ.ID == $activeSlave.ID)) || (($Milkmaid != 0) && ($Milkmaid.ID == $activeSlave.ID)) || (($Stewardess != 0 ) && ($Stewardess.ID == $activeSlave.ID)) || (($Schoolteacher != 0) && ($Schoolteacher.ID == $activeSlave.ID)) || (($Wardeness != 0) && ($Wardeness.ID == $activeSlave.ID))>>
-		<<set _exclude to true>>
+	<<if (($HeadGirl != 0) && ($HeadGirl.ID == $activeSlave.ID)) || (($Bodyguard != 0) && ($Bodyguard.ID == $activeSlave.ID)) || (($Recruiter != 0) && ($Recruiter.ID == $activeSlave.ID)) || (($Concubine != 0) && ($Concubine.ID == $activeSlave.ID)) || (($Nurse != 0) && ($Nurse.ID == $activeSlave.ID)) || (($Attendant != 0) && ($Attendant.ID == $activeSlave.ID)) || (($Madam != 0) || ($Madam.ID == $activeSlave.ID)) || (($DJ != 0) && ($DJ.ID == $activeSlave.ID)) || (($Milkmaid != 0) && ($Milkmaid.ID == $activeSlave.ID)) || (($Stewardess != 0 ) && ($Stewardess.ID == $activeSlave.ID)) || (($Schoolteacher != 0) && ($Schoolteacher.ID == $activeSlave.ID)) || (($Wardeness != 0) && ($Wardeness.ID == $activeSlave.ID))>>
+		<<set _exclude = true>>
 	<</if>>
 <</if>>
 
 <<if $activeSlave.assignmentVisible != 1>>
-	<<set _exclude to true>>
+	<<set _exclude = true>>
 <</if>>
 
 <<if !_exclude>>

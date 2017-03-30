@@ -306,7 +306,7 @@
  * @todo Figure out why we're using variable space with capitalized facility names when we can parse it from true name
  */
 
-<<set _facListArr to [
+<<set _facListArr = [
     ["Brothel Report", $brothelNameCaps, $brothel, $brothelSlaves, $Madam, "Madam"],
     ["Club Report", $clubNameCaps, $club, $clubSlaves, $DJ, "DJ"],
     ["Arcade Report", $arcadeNameCaps, $arcade, $arcadeSlaves, -1, -1],
@@ -320,9 +320,9 @@
 ]>>
 
 <<for _ii = 0; _ii lt _facListArr.length; _ii++>>
-    <<set _facSubArr to _facListArr[_ii]>>
+    <<set _facSubArr = _facListArr[_ii]>>
     <<if _facSubArr[2] > 0>>                                                                                       /** Do we have one of these? */
-        <<if $useAccordion > 0>><<set _accText to " accordion">><</if>>                                                 /** Quick settings check - static or pretty tops? */
+        <<if $useAccordion > 0>><<set _accText = " accordion">><</if>>                                                 /** Quick settings check - static or pretty tops? */
         <<if (_facSubArr[3] eq 0) && (_facSubArr[4] eq 0)>>                                                   /** Do we have anyone inside? */
             <<= '<div class="unStaffed">' + _facSubArr[1] + ' is currently unstaffed</div>'>>    /** Display the "Unstaffed" facility header bar */
         <<else>>

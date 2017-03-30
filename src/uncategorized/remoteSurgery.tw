@@ -54,30 +54,30 @@ $possessiveCap
 	[[String implants|Surgery Degradation][$activeSlave.boobsImplant = 400, $activeSlave.boobsImplantType = 1,$activeSlave.boobs += 400,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "boobs"]] |
 	[[Standard implants|Surgery Degradation][$activeSlave.boobsImplant = 400,$activeSlave.boobs += 400,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "boobs"]] |
 	[[Small implants|Surgery Degradation][$activeSlave.boobsImplant = 200,$activeSlave.boobs += 200,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "boobs"]]
-<<elseif $activeSlave.boobsImplant > 600 and $activeSlave.boobsImplantType != 1>>
+<<elseif $activeSlave.boobsImplant > 600 && $activeSlave.boobsImplantType != 1>>
 	[[Add inert filler|Surgery Degradation][$activeSlave.boobsImplant += 200,$activeSlave.boobs += 200,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "boobs"]]
-<<elseif $activeSlave.boobsImplant > 400 and $activeSlave.boobsImplantType != 1>>
+<<elseif $activeSlave.boobsImplant > 400 && $activeSlave.boobsImplantType != 1>>
 	[[Fillable implants|Surgery Degradation][$activeSlave.boobsImplant = 800,$activeSlave.boobs += 200,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "boobs"]]
-<<elseif $activeSlave.boobsImplant > 200 and $activeSlave.boobsImplantType != 1>>
+<<elseif $activeSlave.boobsImplant > 200 && $activeSlave.boobsImplantType != 1>>
 	[[Large implants|Surgery Degradation][$activeSlave.boobsImplant = 600,$activeSlave.boobs += 200,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "boobs"]]
-<<elseif $activeSlave.boobsImplant > 0 and $activeSlave.boobsImplantType != 1>>
+<<elseif $activeSlave.boobsImplant > 0 && $activeSlave.boobsImplantType != 1>>
 	[[Standard implants|Surgery Degradation][$activeSlave.boobsImplant = 400,$activeSlave.boobs += 200,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "boobs"]] | [[Large implants|Surgery Degradation][$activeSlave.boobsImplant = 600,$activeSlave.boobs += 400,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "boobs"]]
 <</if>>
 <<if $activeSlave.boobsImplant != 0>>
-	<<if $activeSlave.boobsImplantType == 1 and $activeSlave.boobsImplant > 400>>
+	<<if $activeSlave.boobsImplantType == 1 && $activeSlave.boobsImplant > 400>>
 		<<if $activeSlave.boobsImplant > 8000>>
-			 | [[Drain 1000cc|Surgery Degradation][$activeSlave.boobs to ($activeSlave.boobs-1000),$activeSlave.boobsImplant to ($activeSlave.boobsImplant-1000),$cash -= $surgeryCost, $surgeryType = "boobsLoss"]]
+			 | [[Drain 1000cc|Surgery Degradation][$activeSlave.boobs = ($activeSlave.boobs-1000),$activeSlave.boobsImplant = ($activeSlave.boobsImplant-1000),$cash -= $surgeryCost, $surgeryType = "boobsLoss"]]
 		<<elseif $activeSlave.boobsImplant > 5000>>
-			 | [[Drain 750cc|Surgery Degradation][$activeSlave.boobs to ($activeSlave.boobs-750),$activeSlave.boobsImplant to ($activeSlave.boobsImplant-750),$cash -= $surgeryCost, $surgeryType = "boobsLoss"]]
+			 | [[Drain 750cc|Surgery Degradation][$activeSlave.boobs = ($activeSlave.boobs-750),$activeSlave.boobsImplant = ($activeSlave.boobsImplant-750),$cash -= $surgeryCost, $surgeryType = "boobsLoss"]]
 		<<elseif $activeSlave.boobsImplant > 2000>>
-			 | [[Drain 500cc|Surgery Degradation][$activeSlave.boobs to ($activeSlave.boobs-500),$activeSlave.boobsImplant to ($activeSlave.boobsImplant-500),$cash -= $surgeryCost, $surgeryType = "boobsLoss"]]
+			 | [[Drain 500cc|Surgery Degradation][$activeSlave.boobs = ($activeSlave.boobs-500),$activeSlave.boobsImplant = ($activeSlave.boobsImplant-500),$cash -= $surgeryCost, $surgeryType = "boobsLoss"]]
 		<<elseif $activeSlave.boobsImplant > 1000>>
-			 | [[Drain 250cc|Surgery Degradation][$activeSlave.boobs to ($activeSlave.boobs-250),$activeSlave.boobsImplant to ($activeSlave.boobsImplant-250),$cash -= $surgeryCost, $surgeryType = "boobsLoss"]]
+			 | [[Drain 250cc|Surgery Degradation][$activeSlave.boobs = ($activeSlave.boobs-250),$activeSlave.boobsImplant = ($activeSlave.boobsImplant-250),$cash -= $surgeryCost, $surgeryType = "boobsLoss"]]
 		<<elseif $activeSlave.boobsImplant > 500>>
-			 | [[Drain 100cc|Surgery Degradation][$activeSlave.boobs to ($activeSlave.boobs-100),$activeSlave.boobsImplant to ($activeSlave.boobsImplant-100),$cash -= $surgeryCost, $surgeryType = "boobsLoss"]]
+			 | [[Drain 100cc|Surgery Degradation][$activeSlave.boobs = ($activeSlave.boobs-100),$activeSlave.boobsImplant = ($activeSlave.boobsImplant-100),$cash -= $surgeryCost, $surgeryType = "boobsLoss"]]
 		<</if>>
 	<</if>>
-	 | [[Remove breast implants|Surgery Degradation][$activeSlave.boobs to ($activeSlave.boobs-$activeSlave.boobsImplant),$activeSlave.boobsImplant = 0,$activeSlave.boobsImplantType = 0,$cash -= $surgeryCost, $surgeryType = "boobsLoss"]]
+	 | [[Remove breast implants|Surgery Degradation][$activeSlave.boobs = ($activeSlave.boobs-$activeSlave.boobsImplant),$activeSlave.boobsImplant = 0,$activeSlave.boobsImplantType = 0,$cash -= $surgeryCost, $surgeryType = "boobsLoss"]]
 <</if>>
 <<if ($activeSlave.boobs > 300) && ($activeSlave.boobsImplant == 0)>>
 	<<if $activeSlave.indentureRestrictions >= 2>>
@@ -258,7 +258,7 @@ $pronounCap has
 <</if>>
 <<if $activeSlave.lipsImplant != 0>>
 	<<if $activeSlave.indentureRestrictions < 2>>
-	 | [[Remove lip implants|Surgery Degradation][$activeSlave.lips to ($activeSlave.lips-$activeSlave.lipsImplant),$activeSlave.lipsImplant = 0,$cash -= $surgeryCost, $surgeryType = "lips"]]
+	 | [[Remove lip implants|Surgery Degradation][$activeSlave.lips = ($activeSlave.lips-$activeSlave.lipsImplant),$activeSlave.lipsImplant = 0,$cash -= $surgeryCost, $surgeryType = "lips"]]
 	<</if>>
 <</if>>
 <<if ($activeSlave.lips >= 10) && ($activeSlave.lipsImplant == 0)>>
@@ -292,19 +292,19 @@ $pronounCap's got a
 <<elseif $activeSlave.buttImplant == 0>>
 	[[Implants|Surgery Degradation][$activeSlave.buttImplant = 1,$activeSlave.butt += 1,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "butt"]]
 	| [[String implants|Surgery Degradation][$activeSlave.buttImplant = 1,$activeSlave.butt += 1,$activeSlave.buttImplantType = 1,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "butt"]]
-<<elseif $activeSlave.buttImplant == 1 and $activeSlave.buttImplantType != 1>>
+<<elseif $activeSlave.buttImplant == 1 && $activeSlave.buttImplantType != 1>>
 	[[Bigger implants|Surgery Degradation][$activeSlave.buttImplant = 2,$activeSlave.butt += 1,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "butt"]]
-<<elseif $activeSlave.buttImplant == 2 and $activeSlave.buttImplantType != 1>>
+<<elseif $activeSlave.buttImplant == 2 && $activeSlave.buttImplantType != 1>>
 	[[Fillable implants|Surgery Degradation][$activeSlave.buttImplant = 3,$activeSlave.butt += 1,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "butt"]]
-<<elseif $activeSlave.buttImplant > 2 and $activeSlave.buttImplantType != 1>>
+<<elseif $activeSlave.buttImplant > 2 && $activeSlave.buttImplantType != 1>>
 	[[Add inert filler|Surgery Degradation][$activeSlave.buttImplant += 1,$activeSlave.butt += 1,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "butt"]]
 <</if>>
 <<if $activeSlave.buttImplant != 0>>
 	<<if $activeSlave.indentureRestrictions < 2>>
-	<<if $activeSlave.buttImplantType == 1 and $activeSlave.buttImplant > 1>>
-	 | [[Drain implants|Surgery Degradation][$activeSlave.butt to ($activeSlave.butt-1),$activeSlave.buttImplant to ($activeSlave.buttImplant-1),$cash -= $surgeryCost, $surgeryType = "buttLoss"]]
+	<<if $activeSlave.buttImplantType == 1 && $activeSlave.buttImplant > 1>>
+	 | [[Drain implants|Surgery Degradation][$activeSlave.butt = ($activeSlave.butt-1),$activeSlave.buttImplant = ($activeSlave.buttImplant-1),$cash -= $surgeryCost, $surgeryType = "buttLoss"]]
 	<</if>>
-	 | [[Remove implants|Surgery Degradation][$activeSlave.butt to ($activeSlave.butt-$activeSlave.buttImplant),$activeSlave.buttImplant = 0,$activeSlave.buttImplantType = 0,$cash -= $surgeryCost, $surgeryType = "buttLoss"]]
+	 | [[Remove implants|Surgery Degradation][$activeSlave.butt = ($activeSlave.butt-$activeSlave.buttImplant),$activeSlave.buttImplant = 0,$activeSlave.buttImplantType = 0,$cash -= $surgeryCost, $surgeryType = "buttLoss"]]
 	<</if>>
 <</if>>
 <<if ($activeSlave.butt > 1) && ($activeSlave.buttImplant == 0)>>
@@ -532,7 +532,7 @@ The fabricator is not currently growing an organ for $object. Extract tissue to 
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
 	<<link "Penis">>
 		<<set $cash -= 5000>>
-		<<set $activeOrgan to {type: "penis", weeksToCompletion: "5", ID: 0}>>
+		<<set $activeOrgan = {type: "penis", weeksToCompletion: "5", ID: 0}>>
 		<<set $activeOrgan.ID = $activeSlave.ID>>
 		<<set $organs.push($activeOrgan)>>
 		<<goto "Remote Surgery">>
@@ -540,7 +540,7 @@ The fabricator is not currently growing an organ for $object. Extract tissue to 
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
 	<<link "Testicles">>
 		<<set $cash -= 5000>>
-		<<set $activeOrgan to {type: "testicles", weeksToCompletion: "10", ID: 0}>>
+		<<set $activeOrgan = {type: "testicles", weeksToCompletion: "10", ID: 0}>>
 		<<set $activeOrgan.ID = $activeSlave.ID>>
 		<<set $organs.push($activeOrgan)>>
 		<<goto "Remote Surgery">>
@@ -549,7 +549,7 @@ The fabricator is not currently growing an organ for $object. Extract tissue to 
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;
 		<<link "Scrotum">>
 			<<set $cash -= 2500>>
-			<<set $activeOrgan to {type: "scrotum", weeksToCompletion: "5", ID: 0}>>
+			<<set $activeOrgan = {type: "scrotum", weeksToCompletion: "5", ID: 0}>>
 			<<set $activeOrgan.ID = $activeSlave.ID>>
 			<<set $organs.push($activeOrgan)>>
 			<<goto "Remote Surgery">>
@@ -559,7 +559,7 @@ The fabricator is not currently growing an organ for $object. Extract tissue to 
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;
 		<<link "Foreskin">>
 			<<set $cash -= 2500>>
-			<<set $activeOrgan to {type: "foreskin", weeksToCompletion: "5", ID: 0}>>
+			<<set $activeOrgan = {type: "foreskin", weeksToCompletion: "5", ID: 0}>>
 			<<set $activeOrgan.ID = $activeSlave.ID>>
 			<<set $organs.push($activeOrgan)>>
 			<<goto "Remote Surgery">>
@@ -569,7 +569,7 @@ The fabricator is not currently growing an organ for $object. Extract tissue to 
 <br>&nbsp;&nbsp;&nbsp;&nbsp;
 <<link "Ovaries">>
 	<<set $cash -= 10000>>
-	<<set $activeOrgan to {type: "ovaries", weeksToCompletion: "10", ID: 0}>>
+	<<set $activeOrgan = {type: "ovaries", weeksToCompletion: "10", ID: 0}>>
 	<<set $activeOrgan.ID = $activeSlave.ID>>
 	<<set $organs.push($activeOrgan)>>
 	<<goto "Remote Surgery">>
@@ -578,7 +578,7 @@ The fabricator is not currently growing an organ for $object. Extract tissue to 
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
 	<<link "Eyes">>
 		<<set $cash -= 10000>>
-		<<set $activeOrgan to {type: "eyes", weeksToCompletion: "10", ID: 0}>>
+		<<set $activeOrgan = {type: "eyes", weeksToCompletion: "10", ID: 0}>>
 		<<set $activeOrgan.ID = $activeSlave.ID>>
 		<<set $organs.push($activeOrgan)>>
 		<<goto "Remote Surgery">>
@@ -588,7 +588,7 @@ The fabricator is not currently growing an organ for $object. Extract tissue to 
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
 	<<link "Vocal cords">>
 		<<set $cash -= 5000>>
-		<<set $activeOrgan to {type: "voicebox", weeksToCompletion: "5", ID: 0}>>
+		<<set $activeOrgan = {type: "voicebox", weeksToCompletion: "5", ID: 0}>>
 		<<set $activeOrgan.ID = $activeSlave.ID>>
 		<<set $organs.push($activeOrgan)>>
 		<<goto "Remote Surgery">>
@@ -964,7 +964,7 @@ The prosthesis facility is not currently building a set of artificial limbs for 
 		<<if $activeSlave.amp >= 0>>
 		<<link "Construct basic prosthetic limbs">>
 			<<set $cash -= 10000>>
-			<<set $activeLimbs to {weeksToCompletion: 12, ID: 0, type: "simple"}>>
+			<<set $activeLimbs = {weeksToCompletion: 12, ID: 0, type: "simple"}>>
 			<<set $activeLimbs.ID = $activeSlave.ID>>
 			<<set $limbs.push($activeLimbs)>>
 			<<goto "Remote Surgery">>
@@ -982,7 +982,7 @@ The prosthesis facility is not currently building a set of artificial limbs for 
 		<<if $activeSlave.amp != -1>>
 		<<link "Basic prosthetic limbs">>
 			<<set $cash -= 10000>>
-			<<set $activeLimbs to {weeksToCompletion: 6, ID: 0, type: "simple"}>>
+			<<set $activeLimbs = {weeksToCompletion: 6, ID: 0, type: "simple"}>>
 			<<set $activeLimbs.ID = $activeSlave.ID>>
 			<<if $activeSlave.amp == 1>>
 				<<set $activeLimbs.weeksToCompletion += 3>>
@@ -995,7 +995,7 @@ The prosthesis facility is not currently building a set of artificial limbs for 
 		<<if $activeSlave.amp != -2>>
 		<<link "Sexual functions">>
 			<<set $cash -= 10000>>
-			<<set $activeLimbs to {weeksToCompletion: 6, ID: 0, type: "sex"}>>
+			<<set $activeLimbs = {weeksToCompletion: 6, ID: 0, type: "sex"}>>
 			<<set $activeLimbs.ID = $activeSlave.ID>>
 			<<if $activeSlave.amp == 1>>
 				<<set $activeLimbs.weeksToCompletion += 3>>
@@ -1008,7 +1008,7 @@ The prosthesis facility is not currently building a set of artificial limbs for 
 		<<if $activeSlave.amp != -3>>
 		<<link "Beauty and grace">>
 			<<set $cash -= 10000>>
-			<<set $activeLimbs to {weeksToCompletion: 6, ID: 0, type: "beauty"}>>
+			<<set $activeLimbs = {weeksToCompletion: 6, ID: 0, type: "beauty"}>>
 			<<set $activeLimbs.ID = $activeSlave.ID>>
 			<<if $activeSlave.amp == 1>>
 				<<set $activeLimbs.weeksToCompletion += 3>>
@@ -1021,7 +1021,7 @@ The prosthesis facility is not currently building a set of artificial limbs for 
 		<<if $activeSlave.amp != -4>>
 		<<link "Combat effectiveness">>
 			<<set $cash -= 10000>>
-			<<set $activeLimbs to {weeksToCompletion: 6, ID: 0, type: "combat"}>>
+			<<set $activeLimbs = {weeksToCompletion: 6, ID: 0, type: "combat"}>>
 			<<set $activeLimbs.ID = $activeSlave.ID>>
 			<<if $activeSlave.amp == 1>>
 				<<set $activeLimbs.weeksToCompletion += 3>>
@@ -1042,7 +1042,7 @@ The prosthesis facility is not currently building a set of artificial limbs for 
 		<<if $activeSlave.amp != -1>>
 		<<link "Basic prosthetic limbs">>
 			<<set $cash -= 5000>>
-			<<set $activeLimbs to {weeksToCompletion: 6, ID: 0, type: "simple"}>>
+			<<set $activeLimbs = {weeksToCompletion: 6, ID: 0, type: "simple"}>>
 			<<set $activeLimbs.ID = $activeSlave.ID>>
 			<<if $activeSlave.amp == 1>>
 				<<set $activeLimbs.weeksToCompletion += 3>>
@@ -1055,7 +1055,7 @@ The prosthesis facility is not currently building a set of artificial limbs for 
 		|
 		<<link "Sexual functions">>
 			<<set $cash -= 10000>>
-			<<set $activeLimbs to {weeksToCompletion: 6, ID: 0, type: "sex"}>>
+			<<set $activeLimbs = {weeksToCompletion: 6, ID: 0, type: "sex"}>>
 			<<set $activeLimbs.ID = $activeSlave.ID>>
 			<<if $activeSlave.amp == 1>>
 				<<set $activeLimbs.weeksToCompletion += 3>>
@@ -1068,7 +1068,7 @@ The prosthesis facility is not currently building a set of artificial limbs for 
 		|
 		<<link "Beauty and grace">>
 			<<set $cash -= 10000>>
-			<<set $activeLimbs to {weeksToCompletion: 6, ID: 0, type: "beauty"}>>
+			<<set $activeLimbs = {weeksToCompletion: 6, ID: 0, type: "beauty"}>>
 			<<set $activeLimbs.ID = $activeSlave.ID>>
 			<<if $activeSlave.amp == 1>>
 				<<set $activeLimbs.weeksToCompletion += 3>>
@@ -1081,7 +1081,7 @@ The prosthesis facility is not currently building a set of artificial limbs for 
 		|
 		<<link "Combat effectiveness">>
 			<<set $cash -= 10000>>
-			<<set $activeLimbs to {weeksToCompletion: 6, ID: 0, type: "combat"}>>
+			<<set $activeLimbs = {weeksToCompletion: 6, ID: 0, type: "combat"}>>
 			<<set $activeLimbs.ID = $activeSlave.ID>>
 			<<if $activeSlave.amp == 1>>
 				<<set $activeLimbs.weeksToCompletion += 3>>
@@ -1094,7 +1094,7 @@ The prosthesis facility is not currently building a set of artificial limbs for 
 		|
 		<<link "Highly advanced cybernetics">>
 			<<set $cash -= 15000>>
-			<<set $activeLimbs to {weeksToCompletion: 12, ID: 0, type: "cyber"}>>
+			<<set $activeLimbs = {weeksToCompletion: 12, ID: 0, type: "cyber"}>>
 			<<set $activeLimbs.ID = $activeSlave.ID>>
 			<<if $activeSlave.amp == 1>>
 				<<set $activeLimbs.weeksToCompletion += 6>>
@@ -1223,12 +1223,12 @@ The prosthesis facility has constructed $possessive prosthetic limbs.
 <<if $toSearch.indexOf("surgically") == -1>>
 	<<if $activeSlave.indentureRestrictions < 1>>
 	$pronounCap is $activeSlave.race. Surgically alter $object to look more:
-	[[Caucasian|Surgery Degradation][$activeSlave.race = "surgically altered to look white",$activeSlave.skin to either("pale", "tanned", "fair"),$activeSlave.eyeColor to either("blue", "brown", "green"),$activeSlave.hColor to either("black", "blonde", "red", "brown"),$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "race"]] |
-	[[Latina|Surgery Degradation][$activeSlave.race = "surgically altered to look latina",$activeSlave.skin to either("olive", "brown", "light brown"),$activeSlave.hColor to either("black", "black", "brown", "brown"),$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "race"]] |
-	[[Black|Surgery Degradation][$activeSlave.race = "surgically altered to look black",$activeSlave.skin to either("black", "brown", "light brown"),$activeSlave.hColor to either("black", "black", "black", "brown"),$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "race"]] |
-	[[Asian|Surgery Degradation][$activeSlave.race = "surgically altered to look asian",$activeSlave.skin to either("pale", "dark", "light"),$activeSlave.hColor to either("black"),$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "race"]] |
-	[[Middle Eastern|Surgery Degradation][$activeSlave.race = "surgically altered to look middle eastern",$activeSlave.skin to either("pale", "dark", "light"),$activeSlave.hColor = "black",$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "race"]] |
-	[[Indo-aryan|Surgery Degradation][$activeSlave.race = "surgically altered to look indo-aryan",$activeSlave.skin to either("dark", "light"),$activeSlave.hColor = "black",$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "race"]]
+	[[Caucasian|Surgery Degradation][$activeSlave.race = "surgically altered to look white",$activeSlave.skin = either("pale", "tanned", "fair"),$activeSlave.eyeColor = either("blue", "brown", "green"),$activeSlave.hColor = either("black", "blonde", "red", "brown"),$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "race"]] |
+	[[Latina|Surgery Degradation][$activeSlave.race = "surgically altered to look latina",$activeSlave.skin = either("olive", "brown", "light brown"),$activeSlave.hColor = either("black", "black", "brown", "brown"),$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "race"]] |
+	[[Black|Surgery Degradation][$activeSlave.race = "surgically altered to look black",$activeSlave.skin = either("black", "brown", "light brown"),$activeSlave.hColor = either("black", "black", "black", "brown"),$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "race"]] |
+	[[Asian|Surgery Degradation][$activeSlave.race = "surgically altered to look asian",$activeSlave.skin = either("pale", "dark", "light"),$activeSlave.hColor = either("black"),$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "race"]] |
+	[[Middle Eastern|Surgery Degradation][$activeSlave.race = "surgically altered to look middle eastern",$activeSlave.skin = either("pale", "dark", "light"),$activeSlave.hColor = "black",$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "race"]] |
+	[[Indo-aryan|Surgery Degradation][$activeSlave.race = "surgically altered to look indo-aryan",$activeSlave.skin = either("dark", "light"),$activeSlave.hColor = "black",$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "race"]]
 	<</if>>
 <<else>>
 	$pronounCap is $activeSlave.race.

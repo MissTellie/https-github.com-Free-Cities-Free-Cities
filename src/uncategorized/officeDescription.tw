@@ -8,7 +8,7 @@
 	A corner of your desk is piled with sample merchandise from the campaign promoting your club.
 	<<set $eventSlaves = []>>
 	<<for _i = 0; _i < $slaves.length; _i++>>
-	<<if ($slaves[_i].assignment == "serve in the club") and canWalk($slaves[_i])>>
+	<<if ($slaves[_i].assignment == "serve in the club") && canWalk($slaves[_i])>>
 		<<set $eventSlaves.push($slaves[_i])>>
 	<</if>>
 	<</for>>
@@ -43,7 +43,7 @@
 	<</if>>
 	<<set $eventSlaves = []>>
 	<<for _i = 0; _i < $slaves.length; _i++>>
-	<<if ($slaves[_i].assignment == "work in the brothel") and canWalk($slaves[_i])>>
+	<<if ($slaves[_i].assignment == "work in the brothel") && canWalk($slaves[_i])>>
 		<<set $eventSlaves.push($slaves[_i])>>
 	<</if>>
 	<</for>>

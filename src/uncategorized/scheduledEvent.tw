@@ -82,7 +82,7 @@
 
 <<if $rivalOwner == -1>>
 	<<goto "P rival initiation">>
-<<elseif ($independenceDay == 1) && (Math.trunc(($week-23)/52) is ($week-23)/52)>>
+<<elseif ($independenceDay == 1) && (Math.trunc(($week-23)/52) == ($week-23)/52)>>
 	<<goto "SE independence day">>
 <<elseif ($weddingPlanned > 0)>>
 	<<set $seed = 0>>
@@ -108,7 +108,7 @@
 	<<goto "SE recruiter success">>
 <<elseif ($customSlaveOrdered == 1)>>
 	<<goto "SE custom slave delivery">>
-<<elseif ($Lurcher != 0) && ($CoursingAssociation != 0) && (Math.trunc($week/4) is ($week/4)) && ($coursed != 1)>>
+<<elseif ($Lurcher != 0) && ($CoursingAssociation != 0) && (Math.trunc($week/4) == ($week/4)) && ($coursed != 1)>>
 	<<goto "SE coursing">>
 <<elseif ((($fighterIDs.length > 1) && ($pitBG == 0)) || (($fighterIDs.length > 0) && ($Bodyguard != 0) && ($pitBG == 1))) && ($pitFought == 0)>>
 	<<if $pitLethal == 1>><<goto "SE lethal pit">><<else>><<goto "SE nonlethal pit">><</if>>

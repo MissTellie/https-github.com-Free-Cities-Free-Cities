@@ -31,7 +31,7 @@
 			<</if>>
 
 			<<if ndef $defaultRules[_i].surgery>>
-				<<set $defaultRules[_i].surgery to {lactation: "no default setting", cosmetic: 0, accent: "no default setting", shoulders: "no default setting", shouldersImplant: "no default setting", boobs: "no default setting", hips: "no default setting", hipsImplant: "no default setting", butt: "no default setting", faceShape: "no default setting", lips: "no default setting", holes: 0}>>
+				<<set $defaultRules[_i].surgery = {lactation: "no default setting", cosmetic: 0, accent: "no default setting", shoulders: "no default setting", shouldersImplant: "no default setting", boobs: "no default setting", hips: "no default setting", hipsImplant: "no default setting", butt: "no default setting", faceShape: "no default setting", lips: "no default setting", holes: 0}>>
 			<</if>>
 		<</for>>
 	<</if>>
@@ -51,7 +51,7 @@
 	<<if ndef $arcologies>>
 	<<set $arcologies = []>>
 
-	<<set $arcologies[0] to {name: "Arcology X-", direction: 0, government: 1, honeymoon: 0, prosperity: 50, FSSupremacist: "unset", FSSupremacistRace: 0, FSSubjugationist: "unset", FSSubjugationistRace: 0, FSGenderRadicalist: "unset", FSGenderFundamentalist: "unset", FSPaternalist: "unset", FSDegradationist: "unset", FSBodyPurist: "unset", FSTransformationFetishist: "unset", FSYouthPreferentialist: "unset", FSMaturityPreferentialist: "unset", FSSlimnessEnthusiast: "unset", FSAssetExpansionist: "unset", FSPastoralist: "unset", FSPhysicalIdealist: "unset", FSChattelReligionist: "unset", FSRomanRevivalist: "unset", FSEgyptianRevivalist: "unset", FSEdoRevivalist: "unset", FSArabianRevivalist: "unset", FSChineseRevivalist: "unset", FSNull: "unset", embargo: 1, embargoTarget: -1, influenceTarget: -1, influenceBonus: 0, rival: 0}>>
+	<<set $arcologies[0] = {name: "Arcology X-", direction: 0, government: 1, honeymoon: 0, prosperity: 50, FSSupremacist: "unset", FSSupremacistRace: 0, FSSubjugationist: "unset", FSSubjugationistRace: 0, FSGenderRadicalist: "unset", FSGenderFundamentalist: "unset", FSPaternalist: "unset", FSDegradationist: "unset", FSBodyPurist: "unset", FSTransformationFetishist: "unset", FSYouthPreferentialist: "unset", FSMaturityPreferentialist: "unset", FSSlimnessEnthusiast: "unset", FSAssetExpansionist: "unset", FSPastoralist: "unset", FSPhysicalIdealist: "unset", FSChattelReligionist: "unset", FSRomanRevivalist: "unset", FSEgyptianRevivalist: "unset", FSEdoRevivalist: "unset", FSArabianRevivalist: "unset", FSChineseRevivalist: "unset", FSNull: "unset", embargo: 1, embargoTarget: -1, influenceTarget: -1, influenceBonus: 0, rival: 0}>>
 	<</if>>
 
 	<<if def $arcologyName>>
@@ -95,7 +95,7 @@
 		<<set $arcologies[0].leaderID = 0>>
 	<</if>>
 
-	<<if def $FSSupremacist and $FSSupremacist != "unset">>
+	<<if def $FSSupremacist && $FSSupremacist != "unset">>
 		<<set $arcologies[0].FSSupremacist = $FSSupremacist>>
 		<<set $arcologies[0].FSSupremacistRace = $FSSupremacistRace>>
 		<<unset $FSSupremacist>>
@@ -104,14 +104,14 @@
 		<<set $arcologies[0].FSSupremacist = "unset">>
 	<</if>>
 
-	<<if def $FSSupremacistLawME and $FSSupremacistLawME != 0>>
+	<<if def $FSSupremacistLawME && $FSSupremacistLawME != 0>>
 		<<set $arcologies[0].FSSupremacistLawME = $FSSupremacistLawME>>
 		<<unset $FSSupremacistLawME>>
 	<<elseif ndef $arcologies[0].FSSupremacistLawME>>
 		<<set $arcologies[0].FSSupremacistLawME = 0>>
 	<</if>>
 
-	<<if def $FSSubjugationist and $FSSubjugationist != "unset">>
+	<<if def $FSSubjugationist && $FSSubjugationist != "unset">>
 		<<set $arcologies[0].FSSubjugationist = $FSSubjugationist>>
 		<<set $arcologies[0].FSSubjugationistRace = $FSSubjugationistRace>>
 		<<unset $FSSubjugationist>>
@@ -120,259 +120,259 @@
 		<<set $arcologies[0].FSSubjugationist = "unset">>
 	<</if>>
 
-	<<if def $FSSubjugationistLawME and $FSSubjugationistLawME != 0>>
+	<<if def $FSSubjugationistLawME && $FSSubjugationistLawME != 0>>
 		<<set $arcologies[0].FSSubjugationistLawME = $FSSubjugationistLawME>>
 		<<unset $FSSubjugationistLawME>>
 	<<elseif ndef $arcologies[0].FSSubjugationistLawME>>
 		<<set $arcologies[0].FSSubjugationistLawME = 0>>
 	<</if>>
 
-	<<if def $FSDegradationist and $FSDegradationist != "unset">>
+	<<if def $FSDegradationist && $FSDegradationist != "unset">>
 		<<set $arcologies[0].FSDegradationist = $FSDegradationist>>
 		<<unset $FSDegradationist>>
 	<<elseif ndef $arcologies[0].FSDegradationist>>
 		<<set $arcologies[0].FSDegradationist = "unset">>
 	<</if>>
 
-	<<if def $FSDegradationistLaw and $FSDegradationistLaw != 0>>
+	<<if def $FSDegradationistLaw && $FSDegradationistLaw != 0>>
 		<<set $arcologies[0].FSDegradationistLaw = $FSDegradationistLaw>>
 		<<unset $FSDegradationistLaw>>
 	<<elseif ndef $arcologies[0].FSDegradationistLaw>>
 		<<set $arcologies[0].FSDegradationistLaw = 0>>
 	<</if>>
 
-	<<if def $FSPaternalist and $FSPaternalist != "unset">>
+	<<if def $FSPaternalist && $FSPaternalist != "unset">>
 		<<set $arcologies[0].FSPaternalist = $FSPaternalist>>
 		<<unset $FSPaternalist>>
 	<<elseif ndef $arcologies[0].FSPaternalist>>
 		<<set $arcologies[0].FSPaternalist = "unset">>
 	<</if>>
 
-	<<if def $FSPaternalistLaw and $FSPaternalistLaw != 0>>
+	<<if def $FSPaternalistLaw && $FSPaternalistLaw != 0>>
 		<<set $arcologies[0].FSPaternalistLaw = $FSPaternalistLaw>>
 		<<unset $FSPaternalistLaw>>
 	<<elseif ndef $arcologies[0].FSPaternalistLaw>>
 		<<set $arcologies[0].FSPaternalistLaw = 0>>
 	<</if>>
 
-	<<if def $FSGenderFundamentalist and $FSGenderFundamentalist != "unset">>
+	<<if def $FSGenderFundamentalist && $FSGenderFundamentalist != "unset">>
 		<<set $arcologies[0].FSGenderFundamentalist = $FSGenderFundamentalist>>
 		<<unset $FSGenderFundamentalist>>
 	<<elseif ndef $arcologies[0].FSGenderFundamentalist>>
 		<<set $arcologies[0].FSGenderFundamentalist = "unset">>
 	<</if>>
 
-	<<if def $FSGenderFundamentalistSMR and $FSGenderFundamentalistSMR != 0>>
+	<<if def $FSGenderFundamentalistSMR && $FSGenderFundamentalistSMR != 0>>
 		<<set $arcologies[0].FSGenderFundamentalistSMR = $FSGenderFundamentalistSMR>>
 		<<unset $FSGenderFundamentalistSMR>>
 	<<elseif ndef $arcologies[0].FSGenderFundamentalistSMR>>
 		<<set $arcologies[0].FSGenderFundamentalistSMR = 0>>
 	<</if>>
 
-	<<if def $FSGenderRadicalist and $FSGenderRadicalist != "unset">>
+	<<if def $FSGenderRadicalist && $FSGenderRadicalist != "unset">>
 		<<set $arcologies[0].FSGenderRadicalist = $FSGenderRadicalist>>
 		<<unset $FSGenderRadicalist>>
 	<<elseif ndef $arcologies[0].FSGenderRadicalist>>
 		<<set $arcologies[0].FSGenderRadicalist = "unset">>
 	<</if>>
 
-	<<if def $FSGenderRadicalistLaw and $FSGenderRadicalistLaw != 0>>
+	<<if def $FSGenderRadicalistLaw && $FSGenderRadicalistLaw != 0>>
 		<<set $arcologies[0].FSGenderRadicalistLaw = $FSGenderRadicalistLaw>>
 		<<unset $FSGenderRadicalistLaw>>
 	<<elseif ndef $arcologies[0].FSGenderRadicalistLaw>>
 		<<set $arcologies[0].FSGenderRadicalistLaw = 0>>
 	<</if>>
 
-	<<if def $FSBodyPurist and $FSBodyPurist != "unset">>
+	<<if def $FSBodyPurist && $FSBodyPurist != "unset">>
 		<<set $arcologies[0].FSBodyPurist = $FSBodyPurist>>
 		<<unset $FSBodyPurist>>
 	<<elseif ndef $arcologies[0].FSBodyPurist>>
 		<<set $arcologies[0].FSBodyPurist = "unset">>
 	<</if>>
 
-	<<if def $FSBodyPuristLaw and $FSBodyPuristLaw != 0>>
+	<<if def $FSBodyPuristLaw && $FSBodyPuristLaw != 0>>
 		<<set $arcologies[0].FSBodyPuristLaw = $FSBodyPuristLaw>>
 		<<unset $FSBodyPuristLaw>>
 	<<elseif ndef $arcologies[0].FSBodyPuristLaw>>
 		<<set $arcologies[0].FSBodyPuristLaw = 0>>
 	<</if>>
 
-	<<if def $FSPhysicalIdealist and $FSPhysicalIdealist != "unset">>
+	<<if def $FSPhysicalIdealist && $FSPhysicalIdealist != "unset">>
 		<<set $arcologies[0].FSPhysicalIdealist = $FSPhysicalIdealist>>
 		<<unset $FSPhysicalIdealist>>
 	<<elseif ndef $arcologies[0].FSPhysicalIdealist>>
 		<<set $arcologies[0].FSPhysicalIdealist = "unset">>
 	<</if>>
 
-	<<if def $FSPhysicalIdealistSMR and $FSPhysicalIdealistSMR != 0>>
+	<<if def $FSPhysicalIdealistSMR && $FSPhysicalIdealistSMR != 0>>
 		<<set $arcologies[0].FSPhysicalIdealistSMR = $FSPhysicalIdealistSMR>>
 		<<unset $FSPhysicalIdealistSMR>>
 	<<elseif ndef $arcologies[0].FSPhysicalIdealistSMR>>
 		<<set $arcologies[0].FSPhysicalIdealistSMR = 0>>
 	<</if>>
 
-	<<if def $FSTransformationFetishist and $FSTransformationFetishist != "unset">>
+	<<if def $FSTransformationFetishist && $FSTransformationFetishist != "unset">>
 		<<set $arcologies[0].FSTransformationFetishist = $FSTransformationFetishist>>
 		<<unset $FSTransformationFetishist>>
 	<<elseif ndef $arcologies[0].FSTransformationFetishist>>
 		<<set $arcologies[0].FSTransformationFetishist = "unset">>
 	<</if>>
 
-	<<if def $FSTransformationFetishistLaw and $FSTransformationFetishistLaw != 0>>
+	<<if def $FSTransformationFetishistLaw && $FSTransformationFetishistLaw != 0>>
 		<<set $arcologies[0].FSTransformationFetishistLaw = $FSTransformationFetishistLaw>>
 		<<unset $FSTransformationFetishistLaw>>
 	<<elseif ndef $arcologies[0].FSTransformationFetishistLaw>>
 		<<set $arcologies[0].FSTransformationFetishistLaw = 0>>
 	<</if>>
 
-	<<if def $FSAssetExpansionist and $FSAssetExpansionist != "unset">>
+	<<if def $FSAssetExpansionist && $FSAssetExpansionist != "unset">>
 		<<set $arcologies[0].FSAssetExpansionist = $FSAssetExpansionist>>
 		<<unset $FSAssetExpansionist>>
 	<<elseif ndef $arcologies[0].FSAssetExpansionist>>
 		<<set $arcologies[0].FSAssetExpansionist = "unset">>
 	<</if>>
 
-	<<if def $FSAssetExpansionistSMR and $FSAssetExpansionistSMR != 0>>
+	<<if def $FSAssetExpansionistSMR && $FSAssetExpansionistSMR != 0>>
 		<<set $arcologies[0].FSAssetExpansionistSMR = $FSAssetExpansionistSMR>>
 		<<unset $FSAssetExpansionistSMR>>
 	<<elseif ndef $arcologies[0].FSAssetExpansionistSMR>>
 		<<set $arcologies[0].FSAssetExpansionistSMR = 0>>
 	<</if>>
 
-	<<if def $FSSlimnessEnthusiast and $FSSlimnessEnthusiast != "unset">>
+	<<if def $FSSlimnessEnthusiast && $FSSlimnessEnthusiast != "unset">>
 		<<set $arcologies[0].FSSlimnessEnthusiast = $FSSlimnessEnthusiast>>
 		<<unset $FSSlimnessEnthusiast>>
 	<<elseif ndef $arcologies[0].FSSlimnessEnthusiast>>
 		<<set $arcologies[0].FSSlimnessEnthusiast = "unset">>
 	<</if>>
 
-	<<if def $FSSlimnessEnthusiastSMR and $FSSlimnessEnthusiastSMR != 0>>
+	<<if def $FSSlimnessEnthusiastSMR && $FSSlimnessEnthusiastSMR != 0>>
 		<<set $arcologies[0].FSSlimnessEnthusiastSMR = $FSSlimnessEnthusiastSMR>>
 		<<unset $FSSlimnessEnthusiastSMR>>
 	<<elseif ndef $arcologies[0].FSSlimnessEnthusiastSMR>>
 		<<set $arcologies[0].FSSlimnessEnthusiastSMR = 0>>
 	<</if>>
 
-	<<if def $FSMaturityPreferentialist and $FSMaturityPreferentialist != "unset">>
+	<<if def $FSMaturityPreferentialist && $FSMaturityPreferentialist != "unset">>
 		<<set $arcologies[0].FSMaturityPreferentialist = $FSMaturityPreferentialist>>
 		<<unset $FSMaturityPreferentialist>>
 	<<elseif ndef $arcologies[0].FSMaturityPreferentialist>>
 		<<set $arcologies[0].FSMaturityPreferentialist = "unset">>
 	<</if>>
 
-	<<if def $FSMaturityPreferentialistLaw and $FSMaturityPreferentialistLaw != 0>>
+	<<if def $FSMaturityPreferentialistLaw && $FSMaturityPreferentialistLaw != 0>>
 		<<set $arcologies[0].FSMaturityPreferentialistLaw = $FSMaturityPreferentialistLaw>>
 		<<unset $FSMaturityPreferentialistLaw>>
 	<<elseif ndef $arcologies[0].FSMaturityPreferentialistLaw>>
 		<<set $arcologies[0].FSMaturityPreferentialistLaw = 0>>
 	<</if>>
 
-	<<if def $FSYouthPreferentialist and $FSYouthPreferentialist != "unset">>
+	<<if def $FSYouthPreferentialist && $FSYouthPreferentialist != "unset">>
 		<<set $arcologies[0].FSYouthPreferentialist = $FSYouthPreferentialist>>
 		<<unset $FSYouthPreferentialist>>
 	<<elseif ndef $arcologies[0].FSYouthPreferentialist>>
 		<<set $arcologies[0].FSYouthPreferentialist = "unset">>
 	<</if>>
 
-	<<if def $FSYouthPreferentialistLaw and $FSYouthPreferentialistLaw != 0>>
+	<<if def $FSYouthPreferentialistLaw && $FSYouthPreferentialistLaw != 0>>
 		<<set $arcologies[0].FSYouthPreferentialistLaw = $FSYouthPreferentialistLaw>>
 		<<unset $FSYouthPreferentialistLaw>>
 	<<elseif ndef $arcologies[0].FSYouthPreferentialistLaw>>
 		<<set $arcologies[0].FSYouthPreferentialistLaw = 0>>
 	<</if>>
 
-	<<if def $FSPastoralist and $FSPastoralist != "unset">>
+	<<if def $FSPastoralist && $FSPastoralist != "unset">>
 		<<set $arcologies[0].FSPastoralist = $FSPastoralist>>
 		<<unset $FSPastoralist>>
 	<<elseif ndef $arcologies[0].FSPastoralist>>
 		<<set $arcologies[0].FSPastoralist = "unset">>
 	<</if>>
 
-	<<if def $FSPastoralistLaw and $FSPastoralistLaw != 0>>
+	<<if def $FSPastoralistLaw && $FSPastoralistLaw != 0>>
 		<<set $arcologies[0].FSPastoralistLaw = $FSPastoralistLaw>>
 		<<unset $FSPastoralistLaw>>
 	<<elseif ndef $arcologies[0].FSPastoralistLaw>>
 		<<set $arcologies[0].FSPastoralistLaw = 0>>
 	<</if>>
 
-	<<if def $FSChattelReligionist and $FSChattelReligionist != "unset">>
+	<<if def $FSChattelReligionist && $FSChattelReligionist != "unset">>
 		<<set $arcologies[0].FSChattelReligionist = $FSChattelReligionist>>
 		<<unset $FSChattelReligionist>>
 	<<elseif ndef $arcologies[0].FSChattelReligionist>>
 		<<set $arcologies[0].FSChattelReligionist = "unset">>
 	<</if>>
 
-	<<if def $FSChattelReligionistLaw and $FSChattelReligionistLaw != 0>>
+	<<if def $FSChattelReligionistLaw && $FSChattelReligionistLaw != 0>>
 		<<set $arcologies[0].FSChattelReligionistLaw = $FSChattelReligionistLaw>>
 		<<unset $FSChattelReligionistLaw>>
 	<<elseif ndef $arcologies[0].FSChattelReligionistLaw>>
 		<<set $arcologies[0].FSChattelReligionistLaw = 0>>
 	<</if>>
 
-	<<if def $FSRomanRevivalist and $FSRomanRevivalist != "unset">>
+	<<if def $FSRomanRevivalist && $FSRomanRevivalist != "unset">>
 		<<set $arcologies[0].FSRomanRevivalist = $FSRomanRevivalist>>
 		<<unset $FSRomanRevivalist>>
 	<<elseif ndef $arcologies[0].FSRomanRevivalist>>
 		<<set $arcologies[0].FSRomanRevivalist = "unset">>
 	<</if>>
 
-	<<if def $FSRomanRevivalistLaw and $FSRomanRevivalistLaw != 0>>
+	<<if def $FSRomanRevivalistLaw && $FSRomanRevivalistLaw != 0>>
 		<<set $arcologies[0].FSRomanRevivalistLaw = $FSRomanRevivalistLaw>>
 		<<unset $FSRomanRevivalistLaw>>
 	<<elseif ndef $arcologies[0].FSRomanRevivalistLaw>>
 		<<set $arcologies[0].FSRomanRevivalistLaw = 0>>
 	<</if>>
 
-	<<if def $FSEgyptianRevivalist and $FSEgyptianRevivalist != "unset">>
+	<<if def $FSEgyptianRevivalist && $FSEgyptianRevivalist != "unset">>
 		<<set $arcologies[0].FSEgyptianRevivalist = $FSEgyptianRevivalist>>
 		<<unset $FSEgyptianRevivalist>>
 	<<elseif ndef $arcologies[0].FSEgyptianRevivalist>>
 		<<set $arcologies[0].FSEgyptianRevivalist = "unset">>
 	<</if>>
 
-	<<if def $FSEgyptianRevivalistLaw and $FSEgyptianRevivalistLaw != 0>>
+	<<if def $FSEgyptianRevivalistLaw && $FSEgyptianRevivalistLaw != 0>>
 		<<set $arcologies[0].FSEgyptianRevivalistLaw = $FSEgyptianRevivalistLaw>>
 		<<unset $FSEgyptianRevivalistLaw>>
 	<<elseif ndef $arcologies[0].FSEgyptianRevivalistLaw>>
 		<<set $arcologies[0].FSEgyptianRevivalistLaw = 0>>
 	<</if>>
 
-	<<if def $FSEdoRevivalist and $FSEdoRevivalist != "unset">>
+	<<if def $FSEdoRevivalist && $FSEdoRevivalist != "unset">>
 		<<set $arcologies[0].FSEdoRevivalist = $FSEdoRevivalist>>
 		<<unset $FSEdoRevivalist>>
 	<<elseif ndef $arcologies[0].FSEdoRevivalist>>
 		<<set $arcologies[0].FSEdoRevivalist = "unset">>
 	<</if>>
 
-	<<if def $FSEdoRevivalistLaw and $FSEdoRevivalistLaw != 0>>
+	<<if def $FSEdoRevivalistLaw && $FSEdoRevivalistLaw != 0>>
 		<<set $arcologies[0].FSEdoRevivalistLaw = $FSEdoRevivalistLaw>>
 		<<unset $FSEdoRevivalistLaw>>
 	<<elseif ndef $arcologies[0].FSEdoRevivalistLaw>>
 		<<set $arcologies[0].FSEdoRevivalistLaw = 0>>
 	<</if>>
 
-	<<if def $FSArabianRevivalist and $FSArabianRevivalist != "unset">>
+	<<if def $FSArabianRevivalist && $FSArabianRevivalist != "unset">>
 		<<set $arcologies[0].FSArabianRevivalist = $FSArabianRevivalist>>
 		<<unset $FSArabianRevivalist>>
 	<<elseif ndef $arcologies[0].FSArabianRevivalist>>
 		<<set $arcologies[0].FSArabianRevivalist = "unset">>
 	<</if>>
 
-	<<if def $FSArabianRevivalistLaw and $FSArabianRevivalistLaw != 0>>
+	<<if def $FSArabianRevivalistLaw && $FSArabianRevivalistLaw != 0>>
 		<<set $arcologies[0].FSArabianRevivalistLaw = $FSArabianRevivalistLaw>>
 		<<unset $FSArabianRevivalistLaw>>
 	<<elseif ndef $arcologies[0].FSArabianRevivalistLaw>>
 		<<set $arcologies[0].FSArabianRevivalistLaw = 0>>
 	<</if>>
 
-	<<if def $FSChineseRevivalist and $FSChineseRevivalist != "unset">>
+	<<if def $FSChineseRevivalist && $FSChineseRevivalist != "unset">>
 		<<set $arcologies[0].FSChineseRevivalist = $FSChineseRevivalist>>
 		<<unset $FSChineseRevivalist>>
 	<<elseif ndef $arcologies[0].FSChineseRevivalist>>
 		<<set $arcologies[0].FSChineseRevivalist = "unset">>
 	<</if>>
 
-	<<if def $FSChineseRevivalistLaw and $FSChineseRevivalistLaw != 0>>
+	<<if def $FSChineseRevivalistLaw && $FSChineseRevivalistLaw != 0>>
 		<<set $arcologies[0].FSChineseRevivalistLaw = $FSChineseRevivalistLaw>>
 		<<unset $FSChineseRevivalistLaw>>
 	<<elseif ndef $arcologies[0].FSChineseRevivalistLaw>>
@@ -770,22 +770,22 @@
 	<</if>>
 
 	<<if ndef $TSS>>
-		<<set $TSS to {schoolUpgrade: 0, schoolPresent: 0, schoolProsperity: 0, subsidize: 0, schoolAnnexed: 0, studentsBought: 0, schoolSale: 0}>>
+		<<set $TSS = {schoolUpgrade: 0, schoolPresent: 0, schoolProsperity: 0, subsidize: 0, schoolAnnexed: 0, studentsBought: 0, schoolSale: 0}>>
 	<</if>>
 	<<if ndef $GRI>>
-		<<set $GRI to {schoolUpgrade: 0, schoolPresent: 0, schoolProsperity: 0, subsidize: 0, schoolAnnexed: 0, studentsBought: 0, schoolSale: 0}>>
+		<<set $GRI = {schoolUpgrade: 0, schoolPresent: 0, schoolProsperity: 0, subsidize: 0, schoolAnnexed: 0, studentsBought: 0, schoolSale: 0}>>
 	<</if>>
 	<<if ndef $SCP>>
-		<<set $SCP to {schoolUpgrade: 0, schoolPresent: 0, schoolProsperity: 0, subsidize: 0, schoolAnnexed: 0, studentsBought: 0, schoolSale: 0}>>
+		<<set $SCP = {schoolUpgrade: 0, schoolPresent: 0, schoolProsperity: 0, subsidize: 0, schoolAnnexed: 0, studentsBought: 0, schoolSale: 0}>>
 	<</if>>
 	<<if ndef $LDE>>
-		<<set $LDE to {schoolUpgrade: 0, schoolPresent: 0, schoolProsperity: 0, subsidize: 0, schoolAnnexed: 0, studentsBought: 0, schoolSale: 0}>>
+		<<set $LDE = {schoolUpgrade: 0, schoolPresent: 0, schoolProsperity: 0, subsidize: 0, schoolAnnexed: 0, studentsBought: 0, schoolSale: 0}>>
 	<</if>>
 	<<if ndef $TGA>>
-		<<set $TGA to {schoolUpgrade: 0, schoolPresent: 0, schoolProsperity: 0, subsidize: 0, schoolAnnexed: 0, studentsBought: 0, schoolSale: 0}>>
+		<<set $TGA = {schoolUpgrade: 0, schoolPresent: 0, schoolProsperity: 0, subsidize: 0, schoolAnnexed: 0, studentsBought: 0, schoolSale: 0}>>
 	<</if>>
 	<<if ndef $TFS>>
-		<<set $TFS to {schoolUpgrade: 0, schoolPresent: 0, schoolProsperity: 0, subsidize: 0, schoolAnnexed: 0, studentsBought: 0, schoolSale: 0}>>
+		<<set $TFS = {schoolUpgrade: 0, schoolPresent: 0, schoolProsperity: 0, subsidize: 0, schoolAnnexed: 0, studentsBought: 0, schoolSale: 0}>>
 	<</if>>
 
 	<<if ndef $assistantName>>
@@ -1012,15 +1012,15 @@
 	<<set _Slave = $slaves[_i]>>
 
 	<<if ndef _Slave.faceShape>>
-		<<set _Slave.faceShape to "normal">>
+		<<set _Slave.faceShape = "normal">>
 	<</if>>
 
 	<<if _Slave.teeth == 0>>
-		<<set _Slave.teeth to "normal">>
+		<<set _Slave.teeth = "normal">>
 	<</if>>
 
 	<<if ndef _Slave.boobShape>>
-		<<set _Slave.boobShape to "perky">>
+		<<set _Slave.boobShape = "perky">>
 	<</if>>
 
 	<<if ndef _Slave.vaginaLube>>
@@ -1063,12 +1063,12 @@
 		<<set _Slave.eyeColor to _Slave.eyes>>
 		<<set _Slave.eyes = 1>>
 		<<if ndef _Slave.eyeColor>>
-			<<set _Slave.eyeColor to "brown">>
+			<<set _Slave.eyeColor = "brown">>
 		<</if>>
 	<</if>>
 
 	<<if ndef _Slave.eyewear>>
-	  <<set _Slave.eyewear to "none">>
+	  <<set _Slave.eyewear = "none">>
 	<</if>>
 
 	<<if ndef _Slave.indenture>>
@@ -1197,145 +1197,145 @@
 
 	<<switch _Slave.boobsTat>>
 	<<case "floral designs">>
-		<<set _Slave.boobsTat to "flowers">>
+		<<set _Slave.boobsTat = "flowers">>
 	<<case "demeaning inscriptions">>
-		<<set _Slave.boobsTat to "rude words">>
+		<<set _Slave.boobsTat = "rude words">>
 	<<case "lewd scenes">>
-		<<set _Slave.boobsTat to "scenes">>
+		<<set _Slave.boobsTat = "scenes">>
 	<<case "degrading language">>
-		<<set _Slave.boobsTat to "degradation">>
+		<<set _Slave.boobsTat = "degradation">>
 	<<case  "slutty advertisements">>
-		<<set _Slave.boobsTat to "advertisements">>
+		<<set _Slave.boobsTat = "advertisements">>
 	<</switch>>
 
 	<<switch _Slave.buttTat>>
 	<<case "floral designs">>
-		<<set _Slave.buttTat to "flowers">>
+		<<set _Slave.buttTat = "flowers">>
 	<<case "demeaning inscriptions">>
-		<<set _Slave.buttTat to "rude words">>
+		<<set _Slave.buttTat = "rude words">>
 	<<case "lewd scenes">>
-		<<set _Slave.buttTat to "scenes">>
+		<<set _Slave.buttTat = "scenes">>
 	<<case "degrading language">>
-		<<set _Slave.buttTat to "degradation">>
+		<<set _Slave.buttTat = "degradation">>
 	<<case  "slutty advertisements">>
-		<<set _Slave.buttTat to "advertisements">>
+		<<set _Slave.buttTat = "advertisements">>
 	<</switch>>
 
 	<<switch _Slave.vaginaTat>>
 	<<case "floral designs">>
-		<<set _Slave.vaginaTat to "flowers">>
+		<<set _Slave.vaginaTat = "flowers">>
 	<<case "demeaning inscriptions">>
-		<<set _Slave.vaginaTat to "rude words">>
+		<<set _Slave.vaginaTat = "rude words">>
 	<<case "lewd scenes">>
-		<<set _Slave.vaginaTat to "scenes">>
+		<<set _Slave.vaginaTat = "scenes">>
 	<<case "degrading language">>
-		<<set _Slave.vaginaTat to "degradation">>
+		<<set _Slave.vaginaTat = "degradation">>
 	<<case  "slutty advertisements">>
-		<<set _Slave.vaginaTat to "advertisements">>
+		<<set _Slave.vaginaTat = "advertisements">>
 	<</switch>>
 
 	<<switch _Slave.dickTat>>
 	<<case "floral designs">>
-		<<set _Slave.dickTat to "flowers">>
+		<<set _Slave.dickTat = "flowers">>
 	<<case "demeaning inscriptions">>
-		<<set _Slave.dickTat to "rude words">>
+		<<set _Slave.dickTat = "rude words">>
 	<<case "lewd scenes">>
-		<<set _Slave.dickTat to "scenes">>
+		<<set _Slave.dickTat = "scenes">>
 	<<case "degrading language">>
-		<<set _Slave.dickTat to "degradation">>
+		<<set _Slave.dickTat = "degradation">>
 	<<case  "slutty advertisements">>
-		<<set _Slave.dickTat to "advertisements">>
+		<<set _Slave.dickTat = "advertisements">>
 	<</switch>>
 
 	<<switch _Slave.anusTat>>
 	<<case "floral designs">>
-		<<set _Slave.anusTat to "flowers">>
+		<<set _Slave.anusTat = "flowers">>
 	<<case "demeaning inscriptions">>
-		<<set _Slave.anusTat to "rude words">>
+		<<set _Slave.anusTat = "rude words">>
 	<<case "lewd scenes">>
-		<<set _Slave.anusTat to "scenes">>
+		<<set _Slave.anusTat = "scenes">>
 	<<case "degrading language">>
-		<<set _Slave.anusTat to "degradation">>
+		<<set _Slave.anusTat = "degradation">>
 	<<case  "slutty advertisements">>
-		<<set _Slave.anusTat to "advertisements">>
+		<<set _Slave.anusTat = "advertisements">>
 	<</switch>>
 
 	<<switch _Slave.backTat>>
 	<<case "floral designs">>
-		<<set _Slave.backTat to "flowers">>
+		<<set _Slave.backTat = "flowers">>
 	<<case "demeaning inscriptions">>
-		<<set _Slave.backTat to "rude words">>
+		<<set _Slave.backTat = "rude words">>
 	<<case "lewd scenes">>
-		<<set _Slave.backTat to "scenes">>
+		<<set _Slave.backTat = "scenes">>
 	<<case "degrading language">>
-		<<set _Slave.backTat to "degradation">>
+		<<set _Slave.backTat = "degradation">>
 	<<case  "slutty advertisements">>
-		<<set _Slave.backTat to "advertisements">>
+		<<set _Slave.backTat = "advertisements">>
 	<</switch>>
 
 	<<switch _Slave.shouldersTat>>
 	<<case "floral designs">>
-		<<set _Slave.shouldersTat to "flowers">>
+		<<set _Slave.shouldersTat = "flowers">>
 	<<case "demeaning inscriptions">>
-		<<set _Slave.shouldersTat to "rude words">>
+		<<set _Slave.shouldersTat = "rude words">>
 	<<case "lewd scenes">>
-		<<set _Slave.shouldersTat to "scenes">>
+		<<set _Slave.shouldersTat = "scenes">>
 	<<case "degrading language">>
-		<<set _Slave.shouldersTat to "degradation">>
+		<<set _Slave.shouldersTat = "degradation">>
 	<<case  "slutty advertisements">>
-		<<set _Slave.shouldersTat to "advertisements">>
+		<<set _Slave.shouldersTat = "advertisements">>
 	<</switch>>
 
 	<<switch _Slave.armsTat>>
 	<<case "floral designs">>
-		<<set _Slave.armsTat to "flowers">>
+		<<set _Slave.armsTat = "flowers">>
 	<<case "demeaning inscriptions">>
-		<<set _Slave.armsTat to "rude words">>
+		<<set _Slave.armsTat = "rude words">>
 	<<case "lewd scenes">>
-		<<set _Slave.armsTat to "scenes">>
+		<<set _Slave.armsTat = "scenes">>
 	<<case "degrading language">>
-		<<set _Slave.armsTat to "degradation">>
+		<<set _Slave.armsTat = "degradation">>
 	<<case  "slutty advertisements">>
-		<<set _Slave.armsTat to "advertisements">>
+		<<set _Slave.armsTat = "advertisements">>
 	<</switch>>
 
 	<<switch _Slave.legsTat>>
 	<<case "floral designs">>
-		<<set _Slave.legsTat to "flowers">>
+		<<set _Slave.legsTat = "flowers">>
 	<<case "demeaning inscriptions">>
-		<<set _Slave.legsTat to "rude words">>
+		<<set _Slave.legsTat = "rude words">>
 	<<case "lewd scenes">>
-		<<set _Slave.legsTat to "scenes">>
+		<<set _Slave.legsTat = "scenes">>
 	<<case "degrading language">>
-		<<set _Slave.legsTat to "degradation">>
+		<<set _Slave.legsTat = "degradation">>
 	<<case  "slutty advertisements">>
-		<<set _Slave.legsTat to "advertisements">>
+		<<set _Slave.legsTat = "advertisements">>
 	<</switch>>
 
 	<<switch _Slave.stampTat>>
 	<<case "floral designs">>
-		<<set _Slave.stampTat to "flowers">>
+		<<set _Slave.stampTat = "flowers">>
 	<<case "demeaning inscriptions">>
-		<<set _Slave.stampTat to "rude words">>
+		<<set _Slave.stampTat = "rude words">>
 	<<case "lewd scenes">>
-		<<set _Slave.stampTat to "scenes">>
+		<<set _Slave.stampTat = "scenes">>
 	<<case "degrading language">>
-		<<set _Slave.stampTat to "degradation">>
+		<<set _Slave.stampTat = "degradation">>
 	<<case  "slutty advertisements">>
-		<<set _Slave.stampTat to "advertisements">>
+		<<set _Slave.stampTat = "advertisements">>
 	<</switch>>
 
 	<<switch _Slave.lipsTat>>
 	<<case "floral designs">>
-		<<set _Slave.lipsTat to "flowers">>
+		<<set _Slave.lipsTat = "flowers">>
 	<<case "demeaning inscriptions">>
-		<<set _Slave.lipsTat to "rude words">>
+		<<set _Slave.lipsTat = "rude words">>
 	<<case "lewd scenes">>
-		<<set _Slave.lipsTat to "scenes">>
+		<<set _Slave.lipsTat = "scenes">>
 	<<case "degrading language">>
-		<<set _Slave.lipsTat to "degradation">>
+		<<set _Slave.lipsTat = "degradation">>
 	<<case  "slutty advertisements">>
-		<<set _Slave.lipsTat to "advertisements">>
+		<<set _Slave.lipsTat = "advertisements">>
 	<</switch>>
 
 	<<if ndef _Slave.areolaePiercing>>
@@ -1343,11 +1343,11 @@
 	<</if>>
 
 	<<if ndef _Slave.standardPunishment>>
-		<<set _Slave.standardPunishment to "situational">>
+		<<set _Slave.standardPunishment = "situational">>
 	<</if>>
 
 	<<if ndef _Slave.standardReward>>
-		<<set _Slave.standardReward to "situational">>
+		<<set _Slave.standardReward = "situational">>
 	<</if>>
 
 	<<if ndef _Slave.corsetPiercing>>
@@ -1355,7 +1355,7 @@
 	<</if>>
 
 	<<if ndef _Slave.dickAccessory>>
-		<<set _Slave.dickAccessory to "none">>
+		<<set _Slave.dickAccessory = "none">>
 	<</if>>
 
 	<<if ndef _Slave.scrotum>>
@@ -1363,7 +1363,7 @@
 	<</if>>
 
 	<<if ndef _Slave.markings>>
-		<<set _Slave.markings to "none">>
+		<<set _Slave.markings = "none">>
 	<</if>>
 
 	<<if ndef _Slave.accent>>
@@ -1378,14 +1378,14 @@
 	<</if>>
 
 	<<if ndef _Slave.bellyAccessory>>
-	  <<set _Slave.bellyAccessory to "none">>
+	  <<set _Slave.bellyAccessory = "none">>
 	<</if>>
 	<<if (ndef _Slave.currentRules) || (_Slave.currentRules.length < 1)>>
 		<<set _Slave.currentRules = []>>
 	<</if>>
 
 	<<if _Slave.nationality == 0>>
-		<<set _Slave.indenture to "slave">>
+		<<set _Slave.indenture = "slave">>
 	<</if>>
 
 	<<if _Slave.height < -1>>
@@ -1401,11 +1401,11 @@
 	<</if>>
 
 	<<if _Slave.customTat is " ">>
-		<<set _Slave.customTat to "">>
+		<<set _Slave.customTat = "">>
 	<</if>>
 
 	<<if _Slave.customLabel is " ">>
-		<<set _Slave.customLabel to "">>
+		<<set _Slave.customLabel = "">>
 	<</if>>
 	<<if _Slave.lipsPiercing == "no default setting">>
 		<<set _Slave.lipsPiercing = 0>>
@@ -1447,8 +1447,8 @@
 		<<set _Slave.corsetPiercing = 0>>
 	<</if>>
 
-	<<if _Slave.customDesc == " " or _Slave.customDesc == 0>>
-		<<set _Slave.customDesc to "">>
+	<<if _Slave.customDesc == " " || _Slave.customDesc == 0>>
+		<<set _Slave.customDesc = "">>
 	<</if>>
 
 	<<if ndef _Slave.aphrodisiacs>>

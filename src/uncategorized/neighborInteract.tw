@@ -162,19 +162,19 @@
 <<set $seed = 500*Math.trunc($activeArcology.prosperity*(1+($activeArcology.demandFactor/100)))>>
 A 1% interest in $activeArcology.name is worth ¤$seed and will require a transaction cost of ¤10000 to acquire.
 <<if ($activeArcology.ownership + $activeArcology.PCminority + $activeArcology.minority < 100)>>
-	[[Buy|Neighbor Interact][$buyArcologyDirection to $activeArcology.direction, $transaction = 1]]
+	[[Buy|Neighbor Interact][$buyArcologyDirection = $activeArcology.direction, $transaction = 1]]
 	<<if ($activeArcology.ownership + $activeArcology.PCminority + $activeArcology.minority <= 90)>>
 	<<if $cash > 10*(500*Math.trunc($arcologies[$i].prosperity*(1+($arcologies[$i].demandFactor/100))))>>
-		[[Buy 10%|Neighbor Interact][$buyArcologyDirection to $activeArcology.direction, $transaction = 10]]
+		[[Buy 10%|Neighbor Interact][$buyArcologyDirection = $activeArcology.direction, $transaction = 10]]
 		//Transaction costs will only be paid once//
 	<</if>>
 	<</if>>
 <</if>>
 <<if ($activeArcology.ownership + $activeArcology.PCminority + $activeArcology.minority < 100) && ($activeArcology.PCminority > 0)>>|<</if>>
 <<if $activeArcology.PCminority > 0>>
-	[[Sell|Neighbor Interact][$sellArcologyDirection to $activeArcology.direction, $transaction = 1]]
+	[[Sell|Neighbor Interact][$sellArcologyDirection = $activeArcology.direction, $transaction = 1]]
 	<<if $activeArcology.PCminority >= 10>>
-		| [[Sell 10%|Neighbor Interact][$sellArcologyDirection to $activeArcology.direction, $transaction = 10]]
+		| [[Sell 10%|Neighbor Interact][$sellArcologyDirection = $activeArcology.direction, $transaction = 10]]
 	<</if>>
 <</if>>
 <br>

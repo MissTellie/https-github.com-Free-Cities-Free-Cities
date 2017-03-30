@@ -4,17 +4,17 @@ Your new pair of slaves look frightened and uncertain, but seem encouraged by ea
 
 <<AddSlave $activeSlave>>
 
-<<set _secondSlave to clone($activeSlave)>>
+<<set _secondSlave = clone($activeSlave)>>
 <<unset $activeSlave>>
 <<NationalityToName _secondSlave>>
 <<NationalityToAccent _secondSlave>>
 
-<<set _secondSlave.ID to _secondSlave.ID + 1000>>
+<<set _secondSlave.ID = _secondSlave.ID + 1000>>
 <<set _secondSlave.devotion -= random(5,-5)>>
-<<set _secondSlave.oldDevotion to _secondSlave.devotion>>
+<<set _secondSlave.oldDevotion = _secondSlave.devotion>>
 <<set _secondSlave.trust -= random(5,-5)>>
-<<set _secondSlave.oldTrust to _secondSlave.trust>>
-<<set _secondSlave.oldDevotion to _secondSlave.devotion>>
+<<set _secondSlave.oldTrust = _secondSlave.trust>>
+<<set _secondSlave.oldDevotion = _secondSlave.devotion>>
 <<set _secondSlave.age -= random (1, 5)>>
 
 <<set _secondSlave.attrXX += random(-20,20)>>
@@ -31,8 +31,8 @@ Your new pair of slaves look frightened and uncertain, but seem encouraged by ea
 	<<set _secondSlave.sexualFlaw = either("none", "none", "none", "none", "hates oral", "hates anal", "hates penetration", "repressed", "idealistic", "shamefast", "apathetic", "crude", "judgemental")>>
 <</if>>
 
-<<set _secondSlave.relation to "sister">>
-<<set _secondSlave.relationTarget to _secondSlave.ID - 1000>>
+<<set _secondSlave.relation = "sister">>
+<<set _secondSlave.relationTarget = _secondSlave.ID - 1000>>
 
 <<if _secondSlave.age < 18>>
 	<<set _secondSlave.age = 18>>

@@ -1,15 +1,15 @@
 :: Walk Past [nobr]
 
 //
-<<set $target to "">>
+<<set $target = "">>
 <<if ($activeSlave.relation !== 0) && (random(1,100) > 80)>>
-	<<set _seed = 110, $partner to "relation">>
+	<<set _seed = 110, $partner = "relation">>
 <<elseif ($activeSlave.relationship > 0) && (random(1,100) > 70)>>
-	<<set _seed = 120, $partner to "relationship">>
+	<<set _seed = 120, $partner = "relationship">>
 <<elseif ($activeSlave.rivalry !== 0) && ($activeSlave.amp !== 1) && (random(1,100) > 70)>>
-	<<set _seed = 130, $partner to "rivalry">>
+	<<set _seed = 130, $partner = "rivalry">>
 <<else>>
-	<<set _seed = random(1,100), $partner to "">>
+	<<set _seed = random(1,100), $partner = "">>
 <</if>>
 
 <<SlavePronouns $activeSlave>>
@@ -309,14 +309,14 @@
 /* TIME TOGETHER EXCEPTION ENDS */
 
 <<if ($partner == "rivalry")>>
-	<<set _partnerSlave to null>>
+	<<set _partnerSlave = null>>
 	<<for _i = 0; _i < $slaves.length; _i++>>
 		<<if $slaves[_i].ID == $activeSlave.rivalryTarget>>
 		<<set _partnerSlave = $slaves[_i]>>
 		<<break>>
 		<</if>>
 	<</for>>
-	<<if _partnerSlave is null>>
+	<<if _partnerSlave == null>>
 		<<goto "Main">>
 	<</if>>
 
@@ -472,23 +472,23 @@
 	<</if>>
 
 	<</switch>>
-	<<set $target = "FRival", _partnerSlave to null>>
+	<<set $target = "FRival", _partnerSlave = null>>
 <<elseif ($partner == "relationship") && ($activeSlave.relationship >= 3) && ($activeSlave.releaseRules !== "restrictive")>>
-	<<set _partnerSlave to null>>
+	<<set _partnerSlave = null>>
 	<<for _i = 0; _i < $slaves.length; _i++>>
 		<<if $slaves[_i].ID == $activeSlave.relationshipTarget>>
 			<<set _partnerSlave = $slaves[_i]>>
 			<<if $activeSlave.relationship <= 3>>
-			<<set _activeSlaveRel to "friend with benefits">>
+			<<set _activeSlaveRel = "friend with benefits">>
 			<<elseif $activeSlave.relationship <= 4>>
-			<<set _activeSlaveRel to "lover">>
+			<<set _activeSlaveRel = "lover">>
 			<<else>>
-			<<set _activeSlaveRel to "slave wife">>
+			<<set _activeSlaveRel = "slave wife">>
 			<</if>>
 			<<break>>
 		<</if>>
 	<</for>>
-	<<if _partnerSlave is null>>
+	<<if _partnerSlave == null>>
 		<<goto "Main">>
 	<</if>>
 
@@ -705,23 +705,23 @@
 	<</if>>
 
 	<<else>> /* TOGETHER TIME */
-	<<if ($activeSlave.age >= _partnerSlave.age+10) and canTalk(_partnerSlave)>>
+	<<if ($activeSlave.age >= _partnerSlave.age+10) && canTalk(_partnerSlave)>>
 		tidying up their room together. _partnerSlave.slaveName is chattering about her day, while $activeSlave.slaveName listens quietly, smiling fondly at her _activeSlaveRel's prattle.
 	<<elseif ($activeSlave.amp !== 1) && (canTalk($activeSlave) == false)>>
 		getting ready for bed. $activeSlave.slaveName is using gestures to tell her $activeSlave.slaveName about her day; _partnerSlave.slaveName is very patient and does her best to follow.
-	<<elseif ($activeSlave.behavioralQuirk == "confident") and canTalk($activeSlave)>>
+	<<elseif ($activeSlave.behavioralQuirk == "confident") && canTalk($activeSlave)>>
 		finishing up a meal together. $activeSlave.slaveName is concluding a story, her clear confident voice ringing as she relates a slight.
-	<<elseif ($activeSlave.behavioralQuirk == "cutting") and canTalk($activeSlave)>>
+	<<elseif ($activeSlave.behavioralQuirk == "cutting") && canTalk($activeSlave)>>
 		seeing to their chores together. $activeSlave.slaveName is making biting remarks about another one of your other slaves, with which her _activeSlaveRel agrees tolerantly.
-	<<elseif ($activeSlave.behavioralQuirk == "funny") and canTalk(_partnerSlave)>>
+	<<elseif ($activeSlave.behavioralQuirk == "funny") && canTalk(_partnerSlave)>>
 		seeing to their chores together. $activeSlave.slaveName has just produced some unintentional slapstick humor, and her _activeSlaveRel is giggling helplessly at her antics.
 	<<elseif ($activeSlave.behavioralQuirk == "fitness")>>
 		have just woken up. $activeSlave.slaveName is doing her morning crunches, and her _activeSlaveRel is sleepily sitting on her feet to help.
-	<<elseif ($activeSlave.behavioralQuirk == "insecure") and canTalk(_partnerSlave)>>
+	<<elseif ($activeSlave.behavioralQuirk == "insecure") && canTalk(_partnerSlave)>>
 		have just woken up. $activeSlave.slaveName is getting dressed when her _activeSlaveRel pays her a compliment; $activeSlave.slaveName blushes and gives _partnerSlave.slaveName a kiss.
-	<<elseif ($activeSlave.behavioralQuirk == "sinful") and canTalk($activeSlave)>>
+	<<elseif ($activeSlave.behavioralQuirk == "sinful") && canTalk($activeSlave)>>
 		have just woken up. $activeSlave.slaveName appears to be praying, but to go by her _activeSlaveRel's quiet mirth, she seems to be substituting in some lewd words.
-	<<elseif ($activeSlave.behavioralQuirk == "advocate") and canTalk($activeSlave)>>
+	<<elseif ($activeSlave.behavioralQuirk == "advocate") && canTalk($activeSlave)>>
 		starting a meal together. A third, less well trained slave has asked $activeSlave.slaveName an innocent question, and is getting enthusiastic slave dogma in return. Her _activeSlaveRel smiles tolerantly.
 	<<elseif ($activeSlave.amp == 1) && (_partnerSlave.amp !== 1)>>
 		using some of their free time to watch the weather; _partnerSlave.slaveName carried her _activeSlaveRel to a window so she could look out with her.
@@ -738,11 +738,11 @@
 	<</if>>
 	/* CLOSE SEXY/CUDDLE/TOGETHER TIME */
 
-	<<if $slaves[_i].ID is _partnerSlave.ID>>
+	<<if $slaves[_i].ID == _partnerSlave.ID>>
 		<<set $slaves[_i] = _partnerSlave>>
 	<<else>>
 		<<for _i = 0; _i < $slaves.length; _i++>>
-			<<if $slaves[_i].ID is _partnerSlave.ID>>
+			<<if $slaves[_i].ID == _partnerSlave.ID>>
 			<<set $slaves[_i] = _partnerSlave>>
 			<<break>>
 			<</if>>
@@ -754,10 +754,10 @@
 		<<break>>
 		<</if>>
 	<</for>>
-	<<set $target = "FRelation", _partnerSlave to null>>
+	<<set $target = "FRelation", _partnerSlave = null>>
 
 <<elseif ($partner == "relationship") || ($partner == "relation")>>
-	<<set _partnerSlave to null>>
+	<<set _partnerSlave = null>>
 	<<if ($partner == "relation")>>
 		<<for _i = 0; _i < $slaves.length; _i++>>
 			<<if $slaves[_i].ID == $activeSlave.relationTarget>>
@@ -770,21 +770,21 @@
 			<<if $slaves[_i].ID == $activeSlave.relationshipTarget>>
 			<<set _partnerSlave = $slaves[_i]>>
 			<<if $activeSlave.relationship <= 1>>
-				<<set _activeSlaveRel to "friend", _partnerRel to "friend">>
+				<<set _activeSlaveRel = "friend", _partnerRel = "friend">>
 			<<elseif $activeSlave.relationship <= 2>>
-				<<set _activeSlaveRel to "best friend", _partnerRel to "best friend">>
+				<<set _activeSlaveRel = "best friend", _partnerRel = "best friend">>
 			<<elseif $activeSlave.relationship <= 3>>
-				<<set _activeSlaveRel to "friend with benefits", _partnerRel to "friend with benefits">>
+				<<set _activeSlaveRel = "friend with benefits", _partnerRel = "friend with benefits">>
 			<<elseif $activeSlave.relationship <= 4>>
-				<<set _activeSlaveRel to "lover", _partnerRel to "lover">>
+				<<set _activeSlaveRel = "lover", _partnerRel = "lover">>
 			<<elseif $activeSlave.relationship > 4>>
-				<<set _activeSlaveRel to "slave wife", _partnerRel to "slave wife">>
+				<<set _activeSlaveRel = "slave wife", _partnerRel = "slave wife">>
 			<</if>>
 			<<break>>
 			<</if>>
 		<</for>>
 	<</if>>
-	<<if _partnerSlave is null>>
+	<<if _partnerSlave == null>>
 		<<goto "Main">>
 	<</if>>
 
@@ -935,7 +935,7 @@
 	<</if>>
 
 	<</switch>>
-	<<set $target = "FRelation", _partnerSlave to null>>
+	<<set $target = "FRelation", _partnerSlave = null>>
 <<elseif (_seed > 80) && ($activeSlave.fuckdoll == 0)>>
 	<<BoobsDescription>>
 	<<switch $activeSlave.clothes>>

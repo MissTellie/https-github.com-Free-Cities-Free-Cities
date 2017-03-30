@@ -7,11 +7,11 @@
 <br><br>
 <span id = "import">
 </span>
-<<set $tempRule to "">>
+<<set $tempRule = "">>
 <<textbox "$tempRule" $tempRule>>
 <<link "Apply">>
 	<<if (def $tempRule) && ($tempRule !== "")>>
-		<<set $tempRule to eval('({' + $tempRule + '})')>>
+		<<set $tempRule = eval('({' + $tempRule + '})')>>
 
 		<<if $defaultRules.length > 0>>
 			<<set $RulesID += 1>>

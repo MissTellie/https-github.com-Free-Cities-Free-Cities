@@ -304,7 +304,7 @@ Your hired mercenaries are en route now with your precious cargo.
 	<</if>>
 <</switch>>
 
-<<if $rivalryDuration <= 10 || ($rivalryFS == "Racial Supremacism" and $rivalryDuration <= 20) || ($rivalryFS == "Paternalism" and $rivalryDuration <= 20)>>
+<<if $rivalryDuration <= 10 || ($rivalryFS == "Racial Supremacism" && $rivalryDuration <= 20) || ($rivalryFS == "Paternalism" && $rivalryDuration <= 20)>>
 	She considers you her rescuer, since her previous owner subjected her to unremitting horror in an attempt to offend your philosophy of $rivalryFS. She's overjoyed to be your slave.
 <<elseif ($rivalryFS == "Racial Supremacism" and $rivalryDuration > 20) || ($rivalryFS == "Paternalism" and $rivalryDuration > 20)>>
 	Her mind and body were destroyed in an attempt to offend your philosophy of $rivalryFS. If she ever recovers, she'd consider you her savior and be overjoyed to be your slave.

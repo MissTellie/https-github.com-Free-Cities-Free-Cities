@@ -149,7 +149,7 @@
 	The Colonel raises a hand in greeting and nods as you approach. She is sprawled on a couch, wearing only her combat suit tank top and fingerless gloves. She's holding a near-empty bottle of strong liquor in her hand, and you can see a naked slave girl kneeling on the floor between her legs. The Colonel has her legs wrapped tightly around the girl's head, forcing the girl to service her if she wants to breathe. The Colonel is close to her climax, and suddenly tenses her lower body, gripping the girl ever tighter and throwing her head back in ecstasy as she orgasms. She lets out a long breath and releases the girl, giving her a hard smack and shouting at her to fuck off.<br><br> The Colonel finishes off her bottle and tosses it over her shoulder, leaning back on the couch and spreading her legs wide. You look down briefly, falling into your habits of inspection. Her pussy is completely devoid of hair, with heavy labia and a very large, and hard, clit. Beads of moisture are visible, the result of her excitation, and you can tell from long experience that she would be tight as a vise. You return your gaze to her face to find her smirking at you. "Like what you see, boss?" She waves her hand at the plaza around her. "So do they. But you're not here for pussy. You're here to talk business. So, what's up?"
 <<elseif random(1,100) > 50>>
 	The Colonel is in no condition, initially, to greet you. She's naked except for one sock, giving you a very good view of her muscled, taut body, and is lying half on her couch and half on the table in front of it, face down in a drugged-out stupor in the middle of a wide variety of powders and pills. Perhaps sensing your approach, her head suddenly shoots up, and she looks at you with unfocused, bloodshot eyes. "Sorry, boss," she slurs, wiping her face and weakly holding up a hand. "Hold on a second, I need something to help me out here. Long fucking night." She struggles to sit on the couch, and then bends over the table, loudly snorting up some of the white powder on it. "Ahhh, fuck," she says, breathing heavily.<br><br> She shakes her head powerfully and then looks at you, her eyes once again alert and piercing. "That's better," she says, leaning back on the couch and giving you another good view of her assets. "So, boss," she begins, "what brings you down here to our little clubhouse? I trust you're happy with how we've been handling things out there?" You nod. "Good, good," she laughs. "I have to say, its nice to have a place like this, to have some top-end gear, and to be able to have fun out there without worrying about anyone coming back on us. Good fucking times." She laughs again. "So - I'm assuming you want something?"
-<<elseif random(1,100) > 70 and $securityForceDepravity >= 1.5>>
+<<elseif random(1,100) > 70 && $securityForceDepravity >= 1.5>>
 	The Colonel, relaxing on her couch stark naked, greets you with a raised hand. Between her tightly clenched legs is the head of a slave girl being forced to eat her out. "Hey, boss, what's -" she breaks off as a flash of pain crosses her features. "Fucking bitch!" she exclaims, pulling her legs away and punching the slave girl in the face. She pushes the girl to the ground, straddles her and begins hitting, and you hear one crunch after another as the Colonel's powerful blows shatter the girl's face. She hisses from between clenched teeth, each word accompanied by a brutal punch. "How. Many. Fucking. Times. Have. I. Told. You. To. Watch. Your. Fucking. Teeth. On. My. Fucking. Clit!" She leans back and breaths heavily, before leaning back down and gripping the girl's neck with her powerful hands. Wordlessly, she grips tightly, and the girl begins struggling mightily for breath. Eventually her struggles weaken, and then finally, end.<br><br> The Colonel relaxes her grip and wipes her brow, clearing away the sweat from her exertion, before rising from the girl's body, relaxing back on the couch and putting her feet up on the table. "Sorry about that boss," she says, shrugging. "So many of these bitches we pick up from the outside don't understand that they have to behave." She shakes her head in frustration. "Now I need to find another one. But that's not your problem, you're here to talk business. So, what's up?"
 <<else>>
 	The Colonel, stripped to the waist, is reviewing the particulars of her unit on a tablet as you approach. She raises a hand in greeting. "Hey boss," she says, noticing you looking at her chest. She laughs. "Nice, aren't they? But they're not for you, or for them." She throws a thumb at the plaza around her. "You're down here for a reason, though. What can I do for you?"
@@ -210,7 +210,7 @@
 		//The $securityForceName is fully equipped and upgraded - nothing else can be done.//
 	<<elseif $securityForceUpgradeToken == 0>>
 	<span id="result2">
-		<<if $securityForceInfantryPower < 5 and $securityForceUpgradeToken == 0>>
+		<<if $securityForceInfantryPower < 5 && $securityForceUpgradeToken == 0>>
 			<<link "Ask the Colonel to improve the infantry equipment">>
 				<<replace "#result2">>
 					"Sure, boss." she says, nodding. "The boys'll like having some new guns and armour to help them out there." She laughs. "Don't think the poor bastards they'll be shooting will thank you though." She picks up a tablet and taps a few commands on it. "I'll get right on it."
@@ -222,7 +222,7 @@
 		<<elseif $securityForceInfantryPower == 5>>
 			//The $securityForceName armoury is fully upgraded.//<br>
 		<</if>>
-		<<if $securityForceVehiclePower < 5 and $securityForceArcologyUpgrades >= 1 and $securityForceUpgradeToken == 0>>
+		<<if $securityForceVehiclePower < 5 && $securityForceArcologyUpgrades >= 1 && $securityForceUpgradeToken == 0>>
 			<<link "Ask the Colonel to improve the vehicle fleet">>
 				<<replace "#result2">>
 					"Sure, boss." she says, nodding. "Some new wheels should help a lot." She laughs. "The scum out there don't seem to like it when we roll up on them in something better than their piece of shit junkers." She picks up a tablet and taps a few commands on it. "I'll get right on it."
@@ -236,7 +236,7 @@
 		<<else>>
 			//More barracks infrastructure upgrades are needed before the vehicle fleet can be expanded.//<br>
 		<</if>>
-		<<if $securityForceDronePower < 5 and $securityForceArcologyUpgrades >= 2 and $securityForceUpgradeToken == 0>>
+		<<if $securityForceDronePower < 5 && $securityForceArcologyUpgrades >= 2 && $securityForceUpgradeToken == 0>>
 			<<link "Ask the Colonel to improve the drone fleet">>
 				<<replace "#result2">>
 					"Sure, boss." she says, nodding. "Some new drones would be nice." She laughs. "The poor bastards out there shit themselves when they see combat drones fly over the horizon." She picks up a tablet and taps a few commands on it. "I'll get right on it."
@@ -250,7 +250,7 @@
 		<<else>>
 			//More barracks infrastructure upgrades are needed before the drone fleet can be expanded.//<br>
 		<</if>>
-		<<if $securityForceAircraftPower < 5 and $securityForceArcologyUpgrades >= 4 and $securityForceUpgradeToken == 0>>
+		<<if $securityForceAircraftPower < 5 && $securityForceArcologyUpgrades >= 4 && $securityForceUpgradeToken == 0>>
 			<<link "Ask the Colonel to improve the air fleet">>
 				<<replace "#result2">>
 					"Sure, boss." she says, nodding. "Some new VTOLs would be great." She laughs. "They're the real multiplier over the scum out there. Not much a looter gang can do against air support." She picks up a tablet and taps a few commands on it. "I'll get right on it."
@@ -264,7 +264,7 @@
 		<<else>>
 			//More barracks infrastructure upgrades are needed before the air fleet can be expanded.//<br>
 		<</if>>
-		<<if $securityForceStimulantPower < 5 and $securityForceUpgradeToken == 0>>
+		<<if $securityForceStimulantPower < 5 && $securityForceUpgradeToken == 0>>
 			<<link "Ask the Colonel to improve combat stimulants">>
 				<<replace "#result2">>
 					"Sure, boss." she says, nodding. "The boys are going to like hearing that they'll be getting new stims. Some of them can't get enough." She laughs, sweeping her arm at a corner of the throne, where dozens of empty stimulant injectors are piled. "I might be one of them. Either way, the fucks out there aren't going to like us once we're on the new juice." She picks up a tablet and taps a few commands on it. "I'll get right on it."
@@ -276,7 +276,7 @@
 		<<elseif $securityForceStimulantPower == 5>>
 			//The $securityForceName stimulant lab is fully upgraded.//<br>
 		<</if>>
-		<<if $securityForceArcologyUpgrades < 5 and $securityForceUpgradeToken == 0>>
+		<<if $securityForceArcologyUpgrades < 5 && $securityForceUpgradeToken == 0>>
 			<<link "Ask the Colonel to improve barracks infrastructure">>
 				<<replace "#result2">>
 					"Sure, boss." she says, nodding. "Expanding the facilities here should help us support more cool shit." She laughs, picks up a tablet, and taps a few commands on it. "I'll get right on it."

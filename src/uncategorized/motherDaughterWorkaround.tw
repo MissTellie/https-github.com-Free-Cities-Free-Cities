@@ -4,16 +4,16 @@ Your new pair of slaves look frightened and uncertain, but seem encouraged by ea
 
 <<AddSlave $activeSlave>>
 
-<<set _secondSlave to clone($activeSlave)>>
+<<set _secondSlave = clone($activeSlave)>>
 <<unset $activeSlave>>
 <<NationalityToName _secondSlave>>
 <<NationalityToAccent _secondSlave>>
 
-<<set _secondSlave.ID to _secondSlave.ID + 1000>>
+<<set _secondSlave.ID = _secondSlave.ID + 1000>>
 <<set _secondSlave.devotion -= random(1,3)>>
-<<set _secondSlave.oldDevotion to _secondSlave.devotion>>
+<<set _secondSlave.oldDevotion = _secondSlave.devotion>>
 <<set _secondSlave.trust -= random(1,3)>>
-<<set _secondSlave.oldTrust to _secondSlave.trust>>
+<<set _secondSlave.oldTrust = _secondSlave.trust>>
 <<set _secondSlave.health += 30>>
 <<set _secondSlave.boobs -= 100>>
 <<set _secondSlave.butt -= 1>>
@@ -34,8 +34,8 @@ Your new pair of slaves look frightened and uncertain, but seem encouraged by ea
 	<<set _secondSlave.sexualFlaw = either("none", "none", "none", "none", "hates oral", "hates anal", "hates penetration", "repressed", "idealistic", "shamefast", "apathetic", "crude", "judgemental")>>
 <</if>>
 
-<<set _secondSlave.relation to "daughter">>
-<<set _secondSlave.relationTarget to _secondSlave.ID - 1000>>
+<<set _secondSlave.relation = "daughter">>
+<<set _secondSlave.relationTarget = _secondSlave.ID - 1000>>
 
 <<if _secondSlave.boobs > 200>>
 	<<set _secondSlave.boobs += random(-1, 1)*100>>

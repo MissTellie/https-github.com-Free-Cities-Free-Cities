@@ -308,7 +308,7 @@
 
 <<set $cheater = 0>>
 <<set $PCName = "Anonymous">>
-<<set $PC to {title: 1, dick: 1, vagina: 0, voiceImplant: 0, accent: 0, shoulders: 0, shouldersImplant: 0, boobs: 0, career: "capitalist", rumor: "wealth", indenture: -1, indentureRestrictions: 0, birthWeek: random(0,51), age: 2, sexualEnergy: 4, refreshment: "cigar", refreshmentType: 0}>>
+<<set $PC = {title: 1, dick: 1, vagina: 0, voiceImplant: 0, accent: 0, shoulders: 0, shouldersImplant: 0, boobs: 0, career: "capitalist", rumor: "wealth", indenture: -1, indentureRestrictions: 0, birthWeek: random(0,51), age: 2, sexualEnergy: 4, refreshment: "cigar", refreshmentType: 0}>>
 <<set $cash = 10000>>
 <<set $normalizedEvents = 0>>
 <<set $autosave = 1>>
@@ -390,10 +390,10 @@
 <<set $headGirlTrainsParaphilias = 1>>
 
 <<include "Init Rules">>
-<<set $autoSurgery to {lactation: 0, cosmetic: 1, accent: 0, shoulders: 0, shouldersImplant: 0, boobs: 0, hips: 0, hipsImplant: 0, butt: 0, faceShape: "normal", lips: 10, holes: 0}>>
+<<set $autoSurgery = {lactation: 0, cosmetic: 1, accent: 0, shoulders: 0, shouldersImplant: 0, boobs: 0, hips: 0, hipsImplant: 0, butt: 0, faceShape: "normal", lips: 10, holes: 0}>>
 
 <<else>>
-	<<set $cash to Math.clamp(1000*Math.trunc($cash/100000), 5000, 1000000)>>
+	<<set $cash = Math.clamp(1000*Math.trunc($cash/100000), 5000, 1000000)>>
 	<<set $PC.career = "arcology owner">>
 <</if>>
 
@@ -655,12 +655,12 @@
 <<set $fakeBellies = ["a small empathy belly", "a medium empathy belly", "a large empathy belly", "a huge empathy belly"]>> /* lets fake bellies be separated from other .bellyAccessory */
 
 <<set $schoolSuggestion = 0>>
-<<set $TSS to {schoolUpgrade: 0, schoolPresent: 0, schoolProsperity: 0, subsidize: 0, schoolAnnexed: 0, studentsBought: 0, schoolSale: 0}>>
-<<set $GRI to {schoolUpgrade: 0, schoolPresent: 0, schoolProsperity: 0, subsidize: 0, schoolAnnexed: 0, studentsBought: 0, schoolSale: 0}>>
-<<set $SCP to {schoolUpgrade: 0, schoolPresent: 0, schoolProsperity: 0, subsidize: 0, schoolAnnexed: 0, studentsBought: 0, schoolSale: 0}>>
-<<set $LDE to {schoolUpgrade: 0, schoolPresent: 0, schoolProsperity: 0, subsidize: 0, schoolAnnexed: 0, studentsBought: 0, schoolSale: 0}>>
-<<set $TGA to {schoolUpgrade: 0, schoolPresent: 0, schoolProsperity: 0, subsidize: 0, schoolAnnexed: 0, studentsBought: 0, schoolSale: 0}>>
-<<set $TFS to {farmUpgrade: 0, schoolUpgrade: 0, schoolPresent: 0, schoolProsperity: 0, subsidize: 0, schoolAnnexed: 0, studentsBought: 0, schoolSale: 0}>>
+<<set $TSS = {schoolUpgrade: 0, schoolPresent: 0, schoolProsperity: 0, subsidize: 0, schoolAnnexed: 0, studentsBought: 0, schoolSale: 0}>>
+<<set $GRI = {schoolUpgrade: 0, schoolPresent: 0, schoolProsperity: 0, subsidize: 0, schoolAnnexed: 0, studentsBought: 0, schoolSale: 0}>>
+<<set $SCP = {schoolUpgrade: 0, schoolPresent: 0, schoolProsperity: 0, subsidize: 0, schoolAnnexed: 0, studentsBought: 0, schoolSale: 0}>>
+<<set $LDE = {schoolUpgrade: 0, schoolPresent: 0, schoolProsperity: 0, subsidize: 0, schoolAnnexed: 0, studentsBought: 0, schoolSale: 0}>>
+<<set $TGA = {schoolUpgrade: 0, schoolPresent: 0, schoolProsperity: 0, subsidize: 0, schoolAnnexed: 0, studentsBought: 0, schoolSale: 0}>>
+<<set $TFS = {farmUpgrade: 0, schoolUpgrade: 0, schoolPresent: 0, schoolProsperity: 0, subsidize: 0, schoolAnnexed: 0, studentsBought: 0, schoolSale: 0}>>
 <<set $futaAddiction = 0>>
 
 <<set $IDNumber = 1>>
@@ -1171,73 +1171,73 @@
 <<set $badWords = ["fuck", "shit", "ass", "cock", "piss", "dick", "slut", "cum", "whore", "butt", "boob", "cunt", "cunny", "pussy", "junk", "trash", "slave"]>>
 
 <<set $niceWeather = []>>
-<<set $weatherToday to {name: "Sunny", severity: 1}>>
+<<set $weatherToday = {name: "Sunny", severity: 1}>>
 <<set $niceWeather.push($weatherToday)>>
-<<set $weatherToday to {name: "Cloudy", severity: 1}>>
+<<set $weatherToday = {name: "Cloudy", severity: 1}>>
 <<set $niceWeather.push($weatherToday)>>
-<<set $weatherToday to {name: "Partly Cloudy", severity: 1}>>
+<<set $weatherToday = {name: "Partly Cloudy", severity: 1}>>
 <<set $niceWeather.push($weatherToday)>>
-<<set $weatherToday to {name: "Overcast", severity: 1}>>
+<<set $weatherToday = {name: "Overcast", severity: 1}>>
 <<set $niceWeather.push($weatherToday)>>
-<<set $weatherToday to {name: "Light Wind", severity: 1}>>
+<<set $weatherToday = {name: "Light Wind", severity: 1}>>
 <<set $niceWeather.push($weatherToday)>>
-<<set $weatherToday to {name: "Clear and Calm", severity: 1}>>
+<<set $weatherToday = {name: "Clear and Calm", severity: 1}>>
 <<set $niceWeather.push($weatherToday)>>
-<<set $weatherToday to {name: "Light Rain", severity: 1}>>
+<<set $weatherToday = {name: "Light Rain", severity: 1}>>
 <<set $niceWeather.push($weatherToday)>>
-<<set $weatherToday to {name: "Heavy Rain", severity: 1}>>
+<<set $weatherToday = {name: "Heavy Rain", severity: 1}>>
 <<set $niceWeather.push($weatherToday)>>
-<<set $weatherToday to {name: "Smoke warning", severity: 1}>>
+<<set $weatherToday = {name: "Smoke warning", severity: 1}>>
 <<set $niceWeather.push($weatherToday)>>
 
 <<set $lightWeather = []>>
-<<set $weatherToday to {name: "High Winds", severity: 2}>>
+<<set $weatherToday = {name: "High Winds", severity: 2}>>
 <<set $lightWeather.push($weatherToday)>>
-<<set $weatherToday to {name: "Acid Rain", severity: 2}>>
+<<set $weatherToday = {name: "Acid Rain", severity: 2}>>
 <<set $lightWeather.push($weatherToday)>>
-<<set $weatherToday to {name: "T-Storm Warning", severity: 2}>>
+<<set $weatherToday = {name: "T-Storm Warning", severity: 2}>>
 <<set $lightWeather.push($weatherToday)>>
-<<set $weatherToday to {name: "Flood Warning", severity: 2}>>
+<<set $weatherToday = {name: "Flood Warning", severity: 2}>>
 <<set $lightWeather.push($weatherToday)>>
-<<set $weatherToday to {name: "Tornado Warning", severity: 2}>>
+<<set $weatherToday = {name: "Tornado Warning", severity: 2}>>
 <<set $lightWeather.push($weatherToday)>>
-<<set $weatherToday to {name: "Light Sandstorm", severity: 2}>>
+<<set $weatherToday = {name: "Light Sandstorm", severity: 2}>>
 <<set $lightWeather.push($weatherToday)>>
-<<set $weatherToday to {name: "High Heat", severity: 2}>>
+<<set $weatherToday = {name: "High Heat", severity: 2}>>
 <<set $lightWeather.push($weatherToday)>>
-<<set $weatherToday to {name: "Smoky", severity: 2}>>
+<<set $weatherToday = {name: "Smoky", severity: 2}>>
 <<set $lightWeather.push($weatherToday)>>
 
 <<set $heavyWeather = []>>
-<<set $weatherToday to {name: "Extreme Winds", severity: 3}>>
+<<set $weatherToday = {name: "Extreme Winds", severity: 3}>>
 <<set $heavyWeather.push($weatherToday)>>
-<<set $weatherToday to {name: "Heavy Acid Rain", severity: 3}>>
+<<set $weatherToday = {name: "Heavy Acid Rain", severity: 3}>>
 <<set $heavyWeather.push($weatherToday)>>
-<<set $weatherToday to {name: "Extreme T-storm", severity: 3}>>
+<<set $weatherToday = {name: "Extreme T-storm", severity: 3}>>
 <<set $heavyWeather.push($weatherToday)>>
-<<set $weatherToday to {name: "Flooding", severity: 3}>>
+<<set $weatherToday = {name: "Flooding", severity: 3}>>
 <<set $heavyWeather.push($weatherToday)>>
-<<set $weatherToday to {name: "Tornadoes", severity: 3}>>
+<<set $weatherToday = {name: "Tornadoes", severity: 3}>>
 <<set $heavyWeather.push($weatherToday)>>
-<<set $weatherToday to {name: "Sandstorm", severity: 3}>>
+<<set $weatherToday = {name: "Sandstorm", severity: 3}>>
 <<set $heavyWeather.push($weatherToday)>>
-<<set $weatherToday to {name: "Extreme Heat", severity: 3}>>
+<<set $weatherToday = {name: "Extreme Heat", severity: 3}>>
 <<set $heavyWeather.push($weatherToday)>>
-<<set $weatherToday to {name: "Dense Smoke", severity: 3}>>
+<<set $weatherToday = {name: "Dense Smoke", severity: 3}>>
 <<set $heavyWeather.push($weatherToday)>>
 
 <<set $extremeWeather = []>>
-<<set $weatherToday to {name: "Solar Flare", severity: 4}>>
+<<set $weatherToday = {name: "Solar Flare", severity: 4}>>
 <<set $extremeWeather.push($weatherToday)>>
-<<set $weatherToday to {name: "Ion Storm", severity: 4}>>
+<<set $weatherToday = {name: "Ion Storm", severity: 4}>>
 <<set $extremeWeather.push($weatherToday)>>
-<<set $weatherToday to {name: "Cataclysmic Rains", severity: 4}>>
+<<set $weatherToday = {name: "Cataclysmic Rains", severity: 4}>>
 <<set $extremeWeather.push($weatherToday)>>
-<<set $weatherToday to {name: "Cat 6 Hurricane", severity: 4}>>
+<<set $weatherToday = {name: "Cat 6 Hurricane", severity: 4}>>
 <<set $extremeWeather.push($weatherToday)>>
-<<set $weatherToday to {name: "Abrasive Sandstorm", severity: 4}>>
+<<set $weatherToday = {name: "Abrasive Sandstorm", severity: 4}>>
 <<set $extremeWeather.push($weatherToday)>>
-<<set $weatherToday to {name: "Radiological Warning", severity: 4}>>
+<<set $weatherToday = {name: "Radiological Warning", severity: 4}>>
 <<set $extremeWeather.push($weatherToday)>>
 
 <<set $weatherToday = $niceWeather.random()>>
@@ -1247,7 +1247,7 @@
 <<set $nextLink = "EW Slaves">>
 
 <<set $customSlaveOrdered = 0>>
-<<set $customSlave to {slaveName: "custom", birthName: "custom", weekAcquired: 1, origin: 0, career: 0, ID: 0, prestige: 0, pornFame: 0, pornFameSpending: 0, prestigeDesc: 0, recruiter: 0, relation: 0, relationTarget: 0, relationship: 0, relationshipTarget: 0, rivalry: 0, rivalryTarget: 0, subTarget: 0, choosesOwnAssignment: 0, assignment: "rest", assignmentVisible: 1, sentence: 0, training: 0, toyHole: "all her holes", indenture: -1, indentureRestrictions: 0, birthWeek: random(0,51), age: 18, ageImplant: 0, health: 0, minorInjury: 0, trust: 0, oldTrust: 0, devotion: 0, oldDevotion: 0, weight: 0, muscles: 0, height: 170, heightImplant: 0, nationality: "slave", race:"white", markings: "none", eyes: 1, eyeColor: "brown", hColor: "brown", pubicHColor: "brown", skin: 0, hLength: 60, hStyle: 0, pubicHStyle: "neat", waist: 0, corsetPiercing: 0, amp: 0, heels:0, voice: 2, voiceImplant: 0, accent: 0, shoulders: 0, shouldersImplant: 0, boobs: 500, boobsImplant: 0, boobsImplantType: 0, boobShape: "normal", nipples: "cute",  nipplesPiercing: 0, areolae: 0, areolaePiercing: 0, boobsTat: 0, lactation: 0, lactationAdaptation: 0, milk: 0, cum: 0, hips: 0, hipsImplant: 0, butt: 2, buttImplant: 0, buttImplantType: 0, buttTat: 0, face: 0, faceImplant: 0, faceShape: "normal", lips: 15, lipsImplant: 0, lipsPiercing: 0, lipsTat: 0, teeth: "no default setting", tonguePiercing: 0, vagina: 1, vaginaLube: 0, vaginaPiercing: 0, vaginaTat: 0, preg: -1, pregType: 0, labor: 0, births: 0, cSec: 0, bellyAccessory: "none", labia: 0, clit: 0, clitPiercing: 0, clitSetting: "vanilla", foreskin: 0, anus: 1, dick: 0, analArea: 1, dickPiercing: 0, dickTat: 0, balls: 0, scrotum: 0, ovaries: 1, anusPiercing: 0, anusTat: 0, makeup: 0, nails: 0, brand: 0, brandLocation: 0, earPiercing: 0, nosePiercing: 0, eyebrowPiercing: 0, navelPiercing: 0,  shouldersTat: 0, armsTat: 0, legsTat: 0, backTat: 0, stampTat: 0, vaginalSkill: 0, oralSkill: 0, analSkill: 0, whoreSkill: 0, entertainSkill: 0, combatSkill: 0, livingRules: "spare", speechRules: "restrictive", releaseRules:"restrictive", relationshipRules: "restrictive", standardPunishment: "situational", standardReward: "situational", useRulesAssistant: 1, diet: "healthy", dietCum: 0, dietMilk: 0, tired: 0, hormones: 0, drugs: "no drugs", curatives: 0, chem: 0, aphrodisiacs: 0, addict: 0, fuckdoll: 0, choosesOwnClothes: 0, clothes: "no clothing", collar: "none", shoes: "none", vaginalAccessory: "none", dickAccessory: "none", buttplug: "none", intelligence: 0,  intelligenceImplant: 0, energy: 50, attrXX: 0, attrXY: 0, attrKnown: 0, fetish: "none", fetishStrength: 70, fetishKnown: 0, behavioralFlaw: "none", behavioralQuirk: "none", sexualFlaw: "none", sexualQuirk: "none", oralCount: 0, vaginalCount: 0, analCount: 0, mammaryCount: 0, penetrativeCount: 0, pitKills: 0, customTat: "", customLabel: "", customDesc: "", customImage: 0, currentRules: []}>>
+<<set $customSlave = {slaveName: "custom", birthName: "custom", weekAcquired: 1, origin: 0, career: 0, ID: 0, prestige: 0, pornFame: 0, pornFameSpending: 0, prestigeDesc: 0, recruiter: 0, relation: 0, relationTarget: 0, relationship: 0, relationshipTarget: 0, rivalry: 0, rivalryTarget: 0, subTarget: 0, choosesOwnAssignment: 0, assignment: "rest", assignmentVisible: 1, sentence: 0, training: 0, toyHole: "all her holes", indenture: -1, indentureRestrictions: 0, birthWeek: random(0,51), age: 18, ageImplant: 0, health: 0, minorInjury: 0, trust: 0, oldTrust: 0, devotion: 0, oldDevotion: 0, weight: 0, muscles: 0, height: 170, heightImplant: 0, nationality: "slave", race:"white", markings: "none", eyes: 1, eyeColor: "brown", hColor: "brown", pubicHColor: "brown", skin: 0, hLength: 60, hStyle: 0, pubicHStyle: "neat", waist: 0, corsetPiercing: 0, amp: 0, heels:0, voice: 2, voiceImplant: 0, accent: 0, shoulders: 0, shouldersImplant: 0, boobs: 500, boobsImplant: 0, boobsImplantType: 0, boobShape: "normal", nipples: "cute",  nipplesPiercing: 0, areolae: 0, areolaePiercing: 0, boobsTat: 0, lactation: 0, lactationAdaptation: 0, milk: 0, cum: 0, hips: 0, hipsImplant: 0, butt: 2, buttImplant: 0, buttImplantType: 0, buttTat: 0, face: 0, faceImplant: 0, faceShape: "normal", lips: 15, lipsImplant: 0, lipsPiercing: 0, lipsTat: 0, teeth: "no default setting", tonguePiercing: 0, vagina: 1, vaginaLube: 0, vaginaPiercing: 0, vaginaTat: 0, preg: -1, pregType: 0, labor: 0, births: 0, cSec: 0, bellyAccessory: "none", labia: 0, clit: 0, clitPiercing: 0, clitSetting: "vanilla", foreskin: 0, anus: 1, dick: 0, analArea: 1, dickPiercing: 0, dickTat: 0, balls: 0, scrotum: 0, ovaries: 1, anusPiercing: 0, anusTat: 0, makeup: 0, nails: 0, brand: 0, brandLocation: 0, earPiercing: 0, nosePiercing: 0, eyebrowPiercing: 0, navelPiercing: 0,  shouldersTat: 0, armsTat: 0, legsTat: 0, backTat: 0, stampTat: 0, vaginalSkill: 0, oralSkill: 0, analSkill: 0, whoreSkill: 0, entertainSkill: 0, combatSkill: 0, livingRules: "spare", speechRules: "restrictive", releaseRules:"restrictive", relationshipRules: "restrictive", standardPunishment: "situational", standardReward: "situational", useRulesAssistant: 1, diet: "healthy", dietCum: 0, dietMilk: 0, tired: 0, hormones: 0, drugs: "no drugs", curatives: 0, chem: 0, aphrodisiacs: 0, addict: 0, fuckdoll: 0, choosesOwnClothes: 0, clothes: "no clothing", collar: "none", shoes: "none", vaginalAccessory: "none", dickAccessory: "none", buttplug: "none", intelligence: 0,  intelligenceImplant: 0, energy: 50, attrXX: 0, attrXY: 0, attrKnown: 0, fetish: "none", fetishStrength: 70, fetishKnown: 0, behavioralFlaw: "none", behavioralQuirk: "none", sexualFlaw: "none", sexualQuirk: "none", oralCount: 0, vaginalCount: 0, analCount: 0, mammaryCount: 0, penetrativeCount: 0, pitKills: 0, customTat: "", customLabel: "", customDesc: "", customImage: 0, currentRules: []}>>
 
 <<set $cheatMode = 0>>
 <<set $weightAffectsAssets = 1>>

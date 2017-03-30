@@ -89,7 +89,7 @@ She has been trying desperately hard not to think about this trying situation, b
 <<elseif ($activeSlave.devotion > 50) && ($activeSlave.trust > 50)>>
 
 <<set $slaveCost = Math.trunc(($slaveCost*0.5)/500)*500>>
-<<set $slaveCost to Math.clamp($slaveCost, $minimumSlaveCost, 100000)>>
+<<set $slaveCost = Math.clamp($slaveCost, $minimumSlaveCost, 100000)>>
 
 Her feelings on this are quite mixed, since she has come to feel that she has a place under you.
 <<if $activeSlave.amp == 1>>

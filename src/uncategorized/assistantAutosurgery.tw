@@ -5,11 +5,11 @@
 <<set $surgeries = []>>
 
 <<if $HGTastes == 1>>
-	<<set $thisSurgery to {lactation: 0, cosmetic: 1, faceShape: "cute", lips: 10, hips: 0, hipsImplant: 0, butt: 0, accent: 0, shoulders: 0, shouldersImplant: 0, boobs: 0, holes: 0}>>
+	<<set $thisSurgery = {lactation: 0, cosmetic: 1, faceShape: "cute", lips: 10, hips: 0, hipsImplant: 0, butt: 0, accent: 0, shoulders: 0, shouldersImplant: 0, boobs: 0, holes: 0}>>
 	<<elseif $HGTastes == 2>>
-	<<set $thisSurgery to {lactation: 0, cosmetic: 1, faceShape: "cute", lips: 60, hips: 0, hipsImplant: 0, butt: 4, accent: 0, shoulders: 0, shouldersImplant: 0, boobs: 1200, holes: 0}>>
+	<<set $thisSurgery = {lactation: 0, cosmetic: 1, faceShape: "cute", lips: 60, hips: 0, hipsImplant: 0, butt: 4, accent: 0, shoulders: 0, shouldersImplant: 0, boobs: 1200, holes: 0}>>
 <<else>>
-	<<set $thisSurgery to {lactation: 0, cosmetic: 1, faceShape: "cute", lips: 95, hips: 0, hipsImplant: 0, butt: 8, accent: 0, shoulders: 0, shouldersImplant: 0, boobs: 10000, holes: 2}>>
+	<<set $thisSurgery = {lactation: 0, cosmetic: 1, faceShape: "cute", lips: 95, hips: 0, hipsImplant: 0, butt: 8, accent: 0, shoulders: 0, shouldersImplant: 0, boobs: 10000, holes: 2}>>
 <</if>>
 
 <<set $seed = 0>>
@@ -179,7 +179,7 @@
 
 <<if $surgeries.length > 0>>
 
-<<set $surgeriesDisplay to "">>
+<<set $surgeriesDisplay = "">>
 
 <<for $j = 0; $j < $surgeries.length; $j++>>
 	<<set $seed = $surgeries[$j]>>

@@ -26,7 +26,7 @@ When ''$currentRule.activation'' is ''more than''
 <</if>>
 </span>
       <<link ">">>
-<<set $currentRule.eqLower to false>>
+<<set $currentRule.eqLower = false>>
 <<replace "#lower">>
 When ''$currentRule.activation'' is ''more than''
 <<textbox "$currentRule.thresholdLower" $currentRule.thresholdLower>>
@@ -34,7 +34,7 @@ When ''$currentRule.activation'' is ''more than''
 <</link>>
  |
 <<link ">=">>
-<<set $currentRule.eqLower to true>>
+<<set $currentRule.eqLower = true>>
 <<replace "#lower">>
 When ''$currentRule.activation'' is
 <<textbox "$currentRule.thresholdLower" $currentRule.thresholdLower>> ''or more''
@@ -62,7 +62,7 @@ When ''$currentRule.activation'' is ''less than''
 <</if>>
 </span>
       <<link "<">>
-<<set $currentRule.eqUpper to false>>
+<<set $currentRule.eqUpper = false>>
 <<replace "#upper">>
 When ''$currentRule.activation'' is ''less than''
 <<textbox "$currentRule.thresholdUpper" $currentRule.thresholdUpper>>
@@ -70,7 +70,7 @@ When ''$currentRule.activation'' is ''less than''
 <</link>>
  |
 <<link "<=">>
-<<set $currentRule.eqUpper to true>>
+<<set $currentRule.eqUpper = true>>
 <<replace "#upper">>
 When ''$currentRule.activation'' is
 <<textbox "$currentRule.thresholdUpper" $currentRule.thresholdUpper>> ''or less''
@@ -86,10 +86,10 @@ When ''$currentRule.activation'' is
 <<if ($currentRule.thresholdLower == "none") && ( $currentRule.thresholdUpper == "none")>>
 	<<set $currentRule.activation = "always">>
 <<elseif ($currentRule.thresholdLower != "none") && ( $currentRule.thresholdUpper != "none")>>
-	<<if (def $currentRule.thresholdLower and $currentRule.thresholdLower > $currentRule.thresholdUpper)>>
+	<<if (def $currentRule.thresholdLower && $currentRule.thresholdLower > $currentRule.thresholdUpper)>>
 	<<set $currentRule.thresholdLower = $currentRule.thresholdUpper>>
 	<</if>>
-	<<if (def $currentRule.thresholdUpper and $currentRule.thresholdUpper < $currentRule.thresholdLower)>>
+	<<if (def $currentRule.thresholdUpper && $currentRule.thresholdUpper < $currentRule.thresholdLower)>>
 	<<set $currentRule.thresholdUpper = $currentRule.thresholdLower>>
 	<</if>>
 <</if>>
@@ -125,47 +125,47 @@ Apply to assignments:
 <<if ndef $currentRule.assignment>>
 	<<set $currentRule.assignment = []>>
 <</if>>
-<<set _rest to false>>
-<<set _fucktoy to false>>
-<<set _servant to false>>
-<<set _confined to false>>
-<<set _whore to false>>
-<<set _public to false>>
-<<set _milked to false>>
-<<set _subordinate to false>>
-<<set _gloryhole to false>>
+<<set _rest = false>>
+<<set _fucktoy = false>>
+<<set _servant = false>>
+<<set _confined = false>>
+<<set _whore = false>>
+<<set _public = false>>
+<<set _milked = false>>
+<<set _subordinate = false>>
+<<set _gloryhole = false>>
 
 <<for _a = $currentRule.assignment.length; _a >= 0; _a-->>
 <<if $currentRule.assignment[_a] == "rest">>
-	<<set _rest to true>>
+	<<set _rest = true>>
 <</if>>
 <<if $currentRule.assignment[_a] == "please you">>
-	<<set _fucktoy to true>>
+	<<set _fucktoy = true>>
 <</if>>
 <<if $currentRule.assignment[_a] == "be a servant">>
-	<<set _servant to true>>
+	<<set _servant = true>>
 <</if>>
 <<if $currentRule.assignment[_a] == "whore">>
-	<<set _whore to true>>
+	<<set _whore = true>>
 <</if>>
 <<if $currentRule.assignment[_a] == "work a glory hole">>
-	<<set _gloryhole to true>>
+	<<set _gloryhole = true>>
 <</if>>
 <<if $currentRule.assignment[_a] == "get milked">>
-	<<set _milked to true>>
+	<<set _milked = true>>
 <</if>>
 <<if $currentRule.assignment[_a] == "serve the public">>
-	<<set _public to true>>
+	<<set _public = true>>
 <</if>>
 <<if $currentRule.assignment[_a] == "be a subordinate slave">>
-	<<set _subordinate to true>>
+	<<set _subordinate = true>>
 <</if>>
 <<if $currentRule.assignment[_a] == "stay confined">>
-	<<set _confined to true>>
+	<<set _confined = true>>
 <</if>>
 <</for>>
 
-<<if _rest or _fucktoy or _servant or _confined or _whore  or _public or _milked or _subordinate or _gloryhole>>
+<<if _rest || _fucktoy || _servant || _confined || _whore || _public || _milked || _subordinate || _gloryhole>>
 	<<link "None">>
 		<<set $currentRule.assignment = []>>
 		<<RAChangeApplyAssignment>>
@@ -360,45 +360,45 @@ Exclude assignments:
 <<if ndef $currentRule.excludeAssignment>>
 	<<set $currentRule.excludeAssignment = []>>
 <</if>>
-<<set _rest to false>>
-<<set _fucktoy to false>>
-<<set _servant to false>>
-<<set _confined to false>>
-<<set _whore to false>>
-<<set _public to false>>
-<<set _milked to false>>
-<<set _subordinate to false>>
-<<set _gloryhole to false>>
+<<set _rest = false>>
+<<set _fucktoy = false>>
+<<set _servant = false>>
+<<set _confined = false>>
+<<set _whore = false>>
+<<set _public = false>>
+<<set _milked = false>>
+<<set _subordinate = false>>
+<<set _gloryhole = false>>
 <<for _a = $currentRule.excludeAssignment.length; _a >= 0; _a-->>
 <<if $currentRule.excludeAssignment[_a] == "rest">>
-	<<set _rest to true>>
+	<<set _rest = true>>
 <</if>>
 <<if $currentRule.excludeAssignment[_a] == "please you">>
-	<<set _fucktoy to true>>
+	<<set _fucktoy = true>>
 <</if>>
 <<if $currentRule.excludeAssignment[_a] == "be a servant">>
-	<<set _servant to true>>
+	<<set _servant = true>>
 <</if>>
 <<if $currentRule.excludeAssignment[_a] == "whore">>
-	<<set _whore to true>>
+	<<set _whore = true>>
 <</if>>
 <<if $currentRule.excludeAssignment[_a] == "work a glory hole">>
-	<<set _gloryhole to true>>
+	<<set _gloryhole = true>>
 <</if>>
 <<if $currentRule.excludeAssignment[_a] == "get milked">>
-	<<set _milked to true>>
+	<<set _milked = true>>
 <</if>>
 <<if $currentRule.excludeAssignment[_a] == "serve the public">>
-	<<set _public to true>>
+	<<set _public = true>>
 <</if>>
 <<if $currentRule.excludeAssignment[_a] == "be a subordinate slave">>
-	<<set _subordinate to true>>
+	<<set _subordinate = true>>
 <</if>>
 <<if $currentRule.excludeAssignment[_a] == "stay confined">>
-	<<set _confined to true>>
+	<<set _confined = true>>
 <</if>>
 <</for>>
-<<if _rest or _fucktoy or _servant or _confined or _whore  or _public or _milked or _subordinate or _gloryhole>>
+<<if _rest || _fucktoy || _servant || _confined || _whore || _public || _milked || _subordinate || _gloryhole>>
 	<<link "None">>
 		<<set $currentRule.excludeAssignment = []>>
 		<<RAChangeExcludeAssignment>>
@@ -840,7 +840,7 @@ Apply to facilities:
 <<if $currentRule.excludeSpecialSlaves>>
 	''True'' |
 	<<link False>>
-		<<set $currentRule.excludeSpecialSlaves to false>>
+		<<set $currentRule.excludeSpecialSlaves = false>>
 		<<RAChangeApplyFacility>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -848,7 +848,7 @@ Apply to facilities:
 <<else>>
 	''False'' |
 	<<link True>>
-		<<set $currentRule.excludeSpecialSlaves to true>>
+		<<set $currentRule.excludeSpecialSlaves = true>>
 		<<RAChangeApplyFacility>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -1257,7 +1257,7 @@ Automatically set assignment:
 <<if $currentRule.excludeSpecialSlaves>>
 	''True'' |
 	<<link False>>
-		<<set $currentRule.excludeSpecialSlaves to false>>
+		<<set $currentRule.excludeSpecialSlaves = false>>
 		<<RAChangeSetAssignment>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -1265,7 +1265,7 @@ Automatically set assignment:
 <<else>>
 	''False'' |
 	<<link True>>
-		<<set $currentRule.excludeSpecialSlaves to true>>
+		<<set $currentRule.excludeSpecialSlaves = true>>
 		<<RAChangeSetAssignment>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -1501,7 +1501,7 @@ Automatically assign slaves to facility:
 <<if $currentRule.excludeSpecialSlaves>>
 	''True'' |
 	<<link False>>
-		<<set $currentRule.excludeSpecialSlaves to false>>
+		<<set $currentRule.excludeSpecialSlaves = false>>
 		<<RAChangeAssignFacility>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -1509,7 +1509,7 @@ Automatically assign slaves to facility:
 <<else>>
 	''False'' |
 	<<link True>>
-		<<set $currentRule.excludeSpecialSlaves to true>>
+		<<set $currentRule.excludeSpecialSlaves = true>>
 		<<RAChangeAssignFacility>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -1520,7 +1520,7 @@ Automatically assign slaves to facility:
 <<if $currentRule.facilityRemove>>
 	''True'' |
 	<<link False>>
-		<<set $currentRule.facilityRemove to false>>
+		<<set $currentRule.facilityRemove = false>>
 		<<RAChangeAssignFacility>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -1528,7 +1528,7 @@ Automatically assign slaves to facility:
 <<else>>
 	''False'' |
 	<<link True>>
-		<<set $currentRule.facilityRemove to true>>
+		<<set $currentRule.facilityRemove = true>>
 		<<RAChangeAssignFacility>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>

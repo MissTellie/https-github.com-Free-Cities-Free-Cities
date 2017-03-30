@@ -11,11 +11,11 @@
 
 <span id = "import">
 </span>
-<<set $tempSlave to "">>
+<<set $tempSlave = "">>
 <<textbox "$tempSlave" $tempSlave>>
 <<link "Apply">>
 	<<if (def $tempSlave) && ($tempSlave !== "")>>
-		<<set $tempSlave to eval('({' + $tempSlave + '})')>>
+		<<set $tempSlave = eval('({' + $tempSlave + '})')>>
 		<<set $tempSlave.ID = $IDNumber>>
 		<<set $IDNumber += 1>>
 		<<AddSlave $tempSlave>>

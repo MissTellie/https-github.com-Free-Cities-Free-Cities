@@ -256,7 +256,7 @@ In any case, both of the slaves have been dosed with aggression enhancers and in
 	<<set _winnerDeadliness = $fighterOneDeadliness>>
 <</if>>
 
-<<if !canSee(_winner) and !canSee(_loser)>>
+<<if !canSee(_winner) && !canSee(_loser)>>
 	_winner.slaveName and _loser.slaveName are both blind making the fight a staredown. Neither slave wants to make the first move, especially with the drowning cacophony coming from the jeering crowd. Slowly, _winner.slaveName moves forward, waving her sword side to side in the hopes of finding her opponent before she herself gets found. _loser.slaveName's sword clips the tip of _winner.slaveName's setting off a surprisingly brutal series of slashes. The two slaves violently lay into each other, suffering more and more strikes as the struggle goes on. Less than a minute from first contact, both slaves are laying in their combined blood. As you begin to call it a draw, you notice _winner.slaveName start to stir. She staggers to her feet, coated in her and _loser.slaveName's blood, before dropping back to her knees. It seems she lived through this fight, odds aren't likely she'll do it again.
 	<<set _winner.health -= 50>>
 	<<if $pitAudience == "paid">>
@@ -409,13 +409,13 @@ You let the winner _winner.slaveName, shaking as she comes off the adrenaline, d
 <<if (_winner.fetish != "sadist")>>
 <<if random(1,100) > 50>>
 	Cruelty and callousness seeps its way into her sexuality; she has become a @@color:pink;bloody sadist.@@
-	<<set _winner.fetish to "sadist">>
+	<<set _winner.fetish = "sadist">>
 	<<set _winner.fetishKnown = 1>>
 	<<set _winner.fetishStrength = 65>>
 <</if>>
 <</if>>
 
-<<if (_winner.rivalry > 0) and(_loser.ID is _winner.rivalryTarget)>>
+<<if (_winner.rivalry > 0) && (_loser.ID is _winner.rivalryTarget)>>
 	<<if (_winner.devotion > 75)>>
 	She is so accepting of the low value of slave life that she @@color:hotpink;is pleased@@ to have killed her rival _loser.slaveName.
 	<<set _winner.devotion += 4>>
@@ -426,16 +426,16 @@ You let the winner _winner.slaveName, shaking as she comes off the adrenaline, d
 	<<set _winner.devotion += 4>>
 	<<else>>
 	She shows little reaction to the death of her only friend at her own hand. In the coming days, it becomes clear that this is because she is @@color:red;no longer capable@@ of reacting to anything on an emotional level. Ever again.
-	<<set _winner.fetish to "mindbroken">>
+	<<set _winner.fetish = "mindbroken">>
 	<<set _winner.fetishKnown = 1>>
 	<</if>>
-<<elseif (_winner.relation != 0) && (_loser.ID is _winner.relationTarget)>>
+<<elseif (_winner.relation != 0) && (_loser.ID == _winner.relationTarget)>>
 	<<if (_winner.devotion > 95)>>
 	She is so worshipful of you that she sees the death of her _loser.relation at her own hand as an @@color:hotpink;honorable@@ end to their doomed family.
 	<<set _winner.devotion += 4>>
 	<<else>>
 	She shows little reaction to the death of her _loser.relation at her own hand. In the coming days, it becomes clear that this is because she is @@color:red;no longer capable@@ of reacting to anything on an emotional level. Ever again.
-	<<set _winner.fetish to "mindbroken">>
+	<<set _winner.fetish = "mindbroken">>
 	<<set _winner.fetishKnown = 1>>
 	<</if>>
 <</if>>

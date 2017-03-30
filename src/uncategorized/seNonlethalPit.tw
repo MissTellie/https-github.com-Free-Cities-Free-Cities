@@ -226,7 +226,7 @@ You review the rules - the combatants are wearing light gloves, and the fight wi
 	<<set _winnerDeadliness = $fighterOneDeadliness>>
 <</if>>
 
-<<if !canSee(_winner) and !canSee(_loser)>>
+<<if !canSee(_winner) && !canSee(_loser)>>
 	_winner.slaveName and _loser.slaveName are both blind making the fight a staredown. Neither slave wants to make the first move, especially with the drowning cacophony coming from the jeering crowd. Slowly, _winner.slaveName moves forward, waving feeling for her opponent before she herself gets found. _loser.slaveName's hand meets _winner.slaveName's and the two move to grab eachother in a headlock. The two slaves violently thrash against each other, suffering more and more strikes as the struggle goes on. Eventually, _loser.slaveName can take no more and releases her grip on _winner.slaveName neck. It takes a moment for _winner.slaveName to stop wrestling the submitting _loser.slaveName and accepting her victory.
 	<<if $pitAudience == "paid">>
 		The audience is surprised by the sudden wrestling match, and your @@color:yellowgreen;cut of the betting@@ is modest.
@@ -406,7 +406,7 @@ You throw the victor's strap-on down to _winner.slaveName.
 		<<if canTalk(_loser) == false>>_loser.slaveName tries to gesture a protest before _winner.slaveName fills her fertile pussy with cum, but _winner.slaveName grabs her hands and pins them to keep her from complaining.<<else>>_loser.slaveName starts to scream a protest to stop _winner.slaveName raping her pregnant, but _winner.slaveName grinds her face into the mat to shut her up.<</if>>
 		<<if random(1,100) > 50>>
 			<<set (_loser.preg = 1)>>
-			<<set (_loser.pregSource to _winner.ID)>>
+			<<set (_loser.pregSource = _winner.ID)>>
 		<</if>>
 		<</if>>
 	<</if>>
@@ -431,15 +431,15 @@ You throw the victor's strap-on down to _winner.slaveName.
 	_winner.slaveName is unenthusiastic and just thrusts mechanically, to avoid being punished. She @@color:mediumorchid;resents@@ having to fight and fuck. The audience barely pays attention.
 	<<set _winner.devotion -= 2>>
 <</if>>
-<<if (_winner.rivalry > 0) && (_loser.ID is _winner.rivalryTarget)>>
+<<if (_winner.rivalry > 0) && (_loser.ID == _winner.rivalryTarget)>>
 	She @@color:hotpink;relishes@@ the chance to abuse _loser.slaveName, who she dislikes.
 	<<set _winner.devotion += 1>>
-<<elseif (_winner.relationship >= 0) && (_loser.ID is _winner.relationshipTarget) && (_winner.devotion >= 4)>>
+<<elseif (_winner.relationship >= 0) && (_loser.ID == _winner.relationshipTarget) && (_winner.devotion >= 4)>>
 	She accepts having to abuse _loser.slaveName, and plans to make it up to her later.
-<<elseif (_winner.relationship >= 0) && (_loser.ID is _winner.relationshipTarget)>>
+<<elseif (_winner.relationship >= 0) && (_loser.ID == _winner.relationshipTarget)>>
 	She @@color:mediumorchid;hates@@ having to abuse _loser.slaveName.
 	<<set _winner.devotion -= 2>>
-<<elseif (_winner.relation != 0) && (_loser.ID is _winner.relationTarget) && (_winner.devotion >= 4)>>
+<<elseif (_winner.relation != 0) && (_loser.ID == _winner.relationTarget) && (_winner.devotion >= 4)>>
 	She accepts having to abuse _loser.slaveName, and plans to make it up to her later.
 <<elseif (_winner.relation != 0) && (_loser.ID is _winner.relationTarget)>>
 	She @@color:mediumorchid;hates@@ having to abuse _loser.slaveName.
@@ -457,20 +457,20 @@ You throw the victor's strap-on down to _winner.slaveName.
 	<<set _loser.devotion -= 2>>
 	<<set _loser.trust -= 2>>
 <</if>>
-<<if (_loser.rivalry > 0) && (_winner.ID is _loser.rivalryTarget)>>
+<<if (_loser.rivalry > 0) && (_winner.ID == _loser.rivalryTarget)>>
 	She is @@color:mediumorchid;embarrassed@@ by losing to and being raped by _winner.slaveName, who she dislikes, and @@color:gold;fears@@ that it will happen again.
 	<<set _loser.devotion -= 2>>
 	<<set _loser.trust -= 2>>
-<<elseif (_loser.relationship >= 0) && (_winner.ID is _loser.relationshipTarget) && (_loser.devotion >= 4)>>
+<<elseif (_loser.relationship >= 0) && (_winner.ID == _loser.relationshipTarget) && (_loser.devotion >= 4)>>
 	She accepts _winner.slaveName having to rape her.
-<<elseif (_loser.relationship >= 0) && (_winner.ID is _loser.relationshipTarget)>>
+<<elseif (_loser.relationship >= 0) && (_winner.ID == _loser.relationshipTarget)>>
 	She @@color:mediumorchid;hates@@ having to accept rape from _winner.slaveName, and @@color:gold;fears@@ that it will happen again.
 	<<set _loser.trust -= 2>>
 	<<set _loser.devotion -= 2>>
-<<elseif (_loser.relation != 0) && (_winner.ID is _loser.relationTarget) && (_loser.devotion >= 4)>>
+<<elseif (_loser.relation != 0) && (_winner.ID == _loser.relationTarget) && (_loser.devotion >= 4)>>
 	She accepts _winner.slaveName having to rape her, but she @@color:gold;fears@@ that it will happen again.
 	<<set _loser.trust -= 2>>
-<<elseif (_loser.relation != 0) && (_winner.ID is _loser.relationTarget)>>
+<<elseif (_loser.relation != 0) && (_winner.ID == _loser.relationTarget)>>
 	She @@color:mediumorchid;hates@@ having to accept rape from _winner.slaveName, and @@color:gold;fears@@ that it will happen again.
 	<<set _loser.devotion -= 2>>
 	<<set _loser.trust -= 2>>
@@ -478,7 +478,7 @@ You throw the victor's strap-on down to _winner.slaveName.
 
 <<if (_loser.relationship != 0)>>
 <<if (_loser.relationship <= 4)>>
-<<if (_loser.relationshipTarget is _winner.ID)>>
+<<if (_loser.relationshipTarget == _winner.ID)>>
 	Fighting and rape have @@color:lightsalmon;damaged@@ the relationship between the slaves.
 	<<set _loser.relationship -= 1>>
 	<<set _winner.relationship -= 1>>

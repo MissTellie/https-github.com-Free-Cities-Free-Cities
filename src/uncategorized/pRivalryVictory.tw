@@ -28,7 +28,7 @@ For the first time, you receive a direct call from your rival. You pictured the 
 		  <<set $arcologies[$i].rival = 0>>
 		  <<set $arcologies[$i].government = 5>>
 		  <<set $arcologies[$i].PCminority += $arcologies[$i].ownership>>
-		  <<set $arcologies[$i].PCminority to Math.clamp($arcologies[$i].PCminority, 0, 49)>>
+		  <<set $arcologies[$i].PCminority = Math.clamp($arcologies[$i].PCminority, 0, 49)>>
 		  <<break>>
 		<</if>>
 		<</for>>

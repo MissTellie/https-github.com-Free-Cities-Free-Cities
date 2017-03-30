@@ -8,7 +8,7 @@
 
 <<for _r = 0; _r < $defaultRules.length; _r++>>
 <<set _currentRule = $defaultRules[_r]>>
-<<set _rule to _r+1>>
+<<set _rule = _r+1>>
 
 <<if (def _currentRule.excludedSlaves) && (_currentRule.excludedSlaves.length > 0)>>
 	<<if ruleSlaveExcluded($activeSlave, _currentRule)>>
@@ -159,6 +159,6 @@
 <</switch>>
 <</for>>
 
-<<set $activeSlave.currentRules to  $activeSlave.currentRules.sort(function(a, b) { return a-b; });>>
+<<set $activeSlave.currentRules = $activeSlave.currentRules.sort(function(a, b) { return a-b; });>>
 
 <</nobr>>

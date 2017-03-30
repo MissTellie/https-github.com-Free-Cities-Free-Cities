@@ -44,7 +44,7 @@
 <br>
 <<if $seeDetails == 1>>
 	<span id="LSD"><<include "Long Slave Description">></span>
-	<br>//[[Options][$nextLink to passage()]] | [[Descriptions|Slave Interact][$seeDetails = 0]] | [[Customize|Add custom descriptors]] | ''<<link "Update">><<replace "#LSD">><<include "Long Slave Description">><</replace>><</link>>''//
+	<br>//[[Options][$nextLink = passage()]] | [[Descriptions|Slave Interact][$seeDetails = 0]] | [[Customize|Add custom descriptors]] | ''<<link "Update">><<replace "#LSD">><<include "Long Slave Description">><</replace>><</link>>''//
 <<else>>
 	//[[Show descriptions|Slave Interact][$seeDetails = 1]]//
 <</if>>
@@ -101,7 +101,7 @@
 	<<if $activeSlave.devotion >= 100>>
 	<<if $activeSlave.relationship < 0>>
 	<<if $activeSlave.relationship > -3>>
-		| [[Talk to her about relationships|Matchmaking][$subSlave = 0, $eventSlave to $activeSlave]]
+		| [[Talk to her about relationships|Matchmaking][$subSlave = 0, $eventSlave = $activeSlave]]
 	<</if>>
 	<</if>>
 	<</if>>
@@ -509,7 +509,7 @@ __Diet__: <strong><span id="diet"><<print $activeSlave.diet>></span></strong>.
 <<else>>
 | //She is already overweight//
 <</if>>
-<<if ($activeSlave.muscles <= 95) and canWalk($activeSlave)>>
+<<if ($activeSlave.muscles <= 95) && canWalk($activeSlave)>>
 | <<link "Build muscle">><<set $activeSlave.diet = "muscle building">><<replace "#diet">><<print $activeSlave.diet>><</replace>><</link>>
 <<else>>
 | //She is maintaining her enormous musculature//
@@ -749,7 +749,7 @@ __Body Accessory__: ''<span id="bellyAccessory">$activeSlave.bellyAccessory</spa
 <<link "None">><<set $activeSlave.bellyAccessory = "none">><<replace "#bellyAccessory">><<print $activeSlave.bellyAccessory>><</replace>><</link>>
 | <<link "Tight corset">><<set $activeSlave.bellyAccessory = "a corset">><<replace "#bellyAccessory">><<print $activeSlave.bellyAccessory>><</replace>><</link>>
 | <<link "Extreme corset">><<set $activeSlave.bellyAccessory = "an extreme corset">><<replace "#bellyAccessory">><<print $activeSlave.bellyAccessory>><</replace>><</link>>
-<<if $clothesBoughtBelly == 1 or $cheatMode == 1>>
+<<if $clothesBoughtBelly == 1 || $cheatMode == 1>>
 | <<link "1st Trimester">><<set $activeSlave.bellyAccessory = "a small empathy belly">><<replace "#bellyAccessory">><<print $activeSlave.bellyAccessory>><</replace>><</link>>
 | <<link "2nd Trimester">><<set $activeSlave.bellyAccessory = "a medium empathy belly">><<replace "#bellyAccessory">><<print $activeSlave.bellyAccessory>><</replace>><</link>>
 | <<link "3rd Trimester">><<set $activeSlave.bellyAccessory = "a large empathy belly">><<replace "#bellyAccessory">><<print $activeSlave.bellyAccessory>><</replace>><</link>>
@@ -819,7 +819,7 @@ __Buttplug__: ''<span id="buttplug">$activeSlave.buttplug</span>.''
 	<<if ($seeAge == 1)>>
 	<<if ($activeSlave.indenture < 1)>>
 	<<if ($retiree == 0)>>
-	[[Retire her|Slave Interact][$retiree to $activeSlave, $manuallyRetired = 1]] |
+	[[Retire her|Slave Interact][$retiree = $activeSlave, $manuallyRetired = 1]] |
 	<<else>>
 	//A slave has been manually retired this turn.//
 	<</if>>

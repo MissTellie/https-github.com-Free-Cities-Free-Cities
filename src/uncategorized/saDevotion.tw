@@ -9,7 +9,7 @@
 <<set $energyPlus = 0>>
 
 <<if $slaves[$i].origin == "You were acquainted with her before you were an arcology owner; your rival tried to use her to manipulate you, but you rescued her.">>
-	<<if ($rivalryDuration <= 10 or $rivalryFS == "Racial Supremacism" || $rivalryFS == "Paternalism")>>
+	<<if ($rivalryDuration <= 10 || $rivalryFS == "Racial Supremacism" || $rivalryFS == "Paternalism")>>
 		You @@color:mediumaquamarine;saved $slaves[$i].slaveName from a living nightmare@@ under your rival's rule. She @@color:hotpink;tries her best to adapt to her savior's wishes@@.
 		<<set $slaves[$i].devotion += 2.0>>
 		<<set $slaves[$i].trust += 2.0>>
