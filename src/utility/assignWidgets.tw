@@ -22,6 +22,7 @@
 	<</for>>
 <</if>>
 
+<<removeJob $args[0] $args[0].assignment>>
 /% use .toLowerCase() to get rid of a few dupe conditions. %/
 <<switch $args[1].toLowerCase()>>
 <<case "clinic" "get treatment in the clinic">>
