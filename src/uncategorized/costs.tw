@@ -224,6 +224,9 @@
 <<if $alwaysSubsidizeRep == 1>>
 	<<set $costs += $policyCost>>
 <</if>>
+<<if $RegularParties == 1>>
+	<<set $costs += $policyCost>>
+<</if>>
 
 <<if $ProImmigrationCash == 1>>
 	<<set $costs += $policyCost>>
