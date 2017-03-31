@@ -1,69 +1,69 @@
 :: Slave Sold [nobr]
 
-<<set $nextButton to "Back to Main", $nextLink to "Main", $returnTo to "Main", $showEncyclopedia to 1, $encyclopedia to "Personal Assistant">>
+<<set $nextButton = "Back to Main", $nextLink = "Main", $returnTo = "Main", $showEncyclopedia = 1, $encyclopedia = "Personal Assistant">>
 
-<<set $display to 0>>
+<<set $display = 0>>
 
 <<if $activeSlave.relation != 0>>
-	<<for $j to 0; $j < $slaves.length; $j++>>
-		<<if $slaves[$j].ID is $activeSlave.relationTarget>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
+		<<if $slaves[$j].ID == $activeSlave.relationTarget>>
 		<<if $slaves[$j].fetish != "mindbroken">>
 			$slaves[$j].slaveName is @@color:mediumorchid;grieved@@ that you are selling her $activeSlave.relation.
 			<br><br>
 			<<set $slaves[$j].devotion -= 20>>
-			<<set $display to 1>>
+			<<set $display = 1>>
 			<<break>>
 		<</if>>
 		<</if>>
 	<</for>>
 <</if>>
 <<if $activeSlave.relationship > 0>>
-	<<for $j to 0; $j < $slaves.length; $j++>>
-		<<if $slaves[$j].ID is $activeSlave.relationshipTarget>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
+		<<if $slaves[$j].ID == $activeSlave.relationshipTarget>>
 		<<if $slaves[$j].fetish != "mindbroken">>
 			$slaves[$j].slaveName is @@color:mediumorchid;grieved@@ that you are selling her best source of comfort and companionship in a life of bondage.
 			<br><br>
 			<<set $slaves[$j].devotion -= $slaves[$j].relationship>>
-			<<set $display to 1>>
+			<<set $display = 1>>
 			<<break>>
 		<</if>>
 		<</if>>
 	<</for>>
-<<elseif $activeSlave.relationship is -3>>
+<<elseif $activeSlave.relationship == -3>>
 	Selling one of your slave wives is @@color:red;socially unacceptable.@@ In addition, your other devoted slaves are @@color:gold;worried@@ that you may not respect their status.
 	<br><br>
 	<<set $rep -= 200>>
-	<<set $display to 1>>
-	<<for $j to 0; $j < $slaves.length; $j++>>
+	<<set $display = 1>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
 		<<if $slaves[$j].devotion > 50>>
 			<<set $slaves[$j].trust -= 5>>
 		<</if>>
 	<</for>>
 <</if>>
 <<if $activeSlave.rivalry != 0>>
-	<<for $j to 0; $j < $slaves.length; $j++>>
-		<<if $slaves[$j].ID is $activeSlave.rivalryTarget>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
+		<<if $slaves[$j].ID == $activeSlave.rivalryTarget>>
 		<<if $slaves[$j].fetish != "mindbroken">>
 			$slaves[$j].slaveName is @@color:hotpink;pleased@@ that she won't have to see her rival any more.
 			<br><br>
 			<<set $slaves[$j].devotion += $slaves[$j].rivalry*0.3>>
-			<<set $display to 1>>
+			<<set $display = 1>>
 			<<break>>
 		<</if>>
 		<</if>>
 	<</for>>
 <</if>>
 
-<<set $seed to 0>>
+<<set $seed = 0>>
 <<switch $buyer>>
 
 <<case "housekeeper">>
 	$activeSlave.slaveName settles into her new life in a humbler part of $arcologies[0].name, and can occasionally be seen accompanying her master in public.
-	<<for $j to 0; $j < $slaves.length; $j++>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
 	<<if ($slaves[$j].trust >= -20)>>
 	<<if ($slaves[$j].age > 30)>>
 		<<set $slaves[$j].trust += 1>>
-		<<set $seed to 1>>
+		<<set $seed = 1>>
 	<</if>>
 	<</if>>
 	<</for>>
@@ -73,10 +73,10 @@
 
 <<case "buttbreaker">>
 	In short order, $activeSlave.slaveName is heard out on the promenade, sobbing and screaming as her new owner breaks in her virgin butt in public.
-	<<for $j to 0; $j < $slaves.length; $j++>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
 	<<if ($slaves[$j].anus == 0)>>
 		<<set $slaves[$j].trust -= 2>>
-		<<set $seed to 1>>
+		<<set $seed = 1>>
 	<</if>>
 	<</for>>
 	<<if ($seed == 1)>>
@@ -85,10 +85,10 @@
 
 <<case "cheap brothel">>
 	$activeSlave.slaveName is soon seen on shift outside a seedy establishment in the lower arcology, mechanically offering her holes to passersby and flinching whenever her superiors come out to check on her.
-	<<for $j to 0; $j < $slaves.length; $j++>>
-	<<if ($slaves[$j].assignment is "whore") || ($slaves[$j].assignment is "work in the brothel")>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
+	<<if ($slaves[$j].assignment == "whore") || ($slaves[$j].assignment == "work in the brothel")>>
 		<<set $slaves[$j].trust -= 2>>
-		<<set $seed to 1>>
+		<<set $seed = 1>>
 	<</if>>
 	<</for>>
 	<<if ($seed == 1)>>
@@ -97,10 +97,10 @@
 
 <<case "nice brothel">>
 	$activeSlave.slaveName disappears for a time as her training is perfected, but she reappears in the refined brothel, wearing classy clothes and flirting gracefully with patrons of her body.
-	<<for $j to 0; $j < $slaves.length; $j++>>
-	<<if ($slaves[$j].assignment is "whore") || ($slaves[$j].assignment is "work in the brothel")>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
+	<<if ($slaves[$j].assignment == "whore") || ($slaves[$j].assignment == "work in the brothel")>>
 		<<set $slaves[$j].trust += 1>>
-		<<set $seed to 1>>
+		<<set $seed = 1>>
 	<</if>>
 	<</for>>
 	<<if ($seed == 1)>>
@@ -109,10 +109,10 @@
 
 <<case "factory farm">>
 	$activeSlave.slaveName is never again seen in public, but her fate is obvious: she's chained to a milking rack somewhere in a cavernous factory farm, with milk draining from her tits<<if $activeSlave.balls > 0>> and an electroshock stimulator up her butt to force her to cum<<elseif $activeSlave.ovaries > 0>> and a new baby in her belly every ten months<</if>>.
-	<<for $j to 0; $j < $slaves.length; $j++>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
 	<<if ($slaves[$j].devotion <= 50)>>
 		<<set $slaves[$j].trust -= 2>>
-		<<set $seed to 1>>
+		<<set $seed = 1>>
 	<</if>>
 	<</for>>
 	<<if ($seed == 1)>>
@@ -121,10 +121,10 @@
 
 <<case "free range">>
 	$activeSlave.slaveName is a common sight around the arcology, since free range cows are allowed to range between milkings. She seems reasonably content.
-	<<for $j to 0; $j < $slaves.length; $j++>>
-	<<if ($slaves[$j].assignment is "get milked") || ($slaves[$j].assignment is "work in the dairy")>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
+	<<if ($slaves[$j].assignment == "get milked") || ($slaves[$j].assignment == "work in the dairy")>>
 		<<set $slaves[$j].trust += 1>>
-		<<set $seed to 1>>
+		<<set $seed = 1>>
 	<</if>>
 	<</for>>
 	<<if ($seed == 1)>>
@@ -133,10 +133,10 @@
 
 <<case "volume breeder">>
 	The breeder already has stud stock, and $activeSlave.slaveName is rapidly impregnated. She's kept in a stockyard on the lower service levels of the arcology, one of a dense crowd of beaten-down women with gravid bellies.
-	<<for $j to 0; $j < $slaves.length; $j++>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
 	<<if ($slaves[$j].ovaries == 1)>>
 		<<set $slaves[$j].trust -= 2>>
-		<<set $seed to 1>>
+		<<set $seed = 1>>
 	<</if>>
 	<</for>>
 	<<if ($seed == 1)>>
@@ -145,11 +145,11 @@
 
 <<case "preg fetishist">>
 	$activeSlave.slaveName settles in to her new role easily enough; she's one of the most pampered slaves in the arcology. All she's expected to do is light housework and self-maintenance, along with gentle unprotected vaginal sex with her new master.
-	<<for $j to 0; $j < $slaves.length; $j++>>
-	<<if ($slaves[$j].fetish is "pregnancy")>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
+	<<if ($slaves[$j].fetish == "pregnancy")>>
 	<<if ($slaves[$j].fetishKnown == 1)>>
 		<<set $slaves[$j].trust += 1>>
-		<<set $seed to 1>>
+		<<set $seed = 1>>
 	<</if>>
 	<</if>>
 	<</for>>
@@ -159,11 +159,11 @@
 
 <<case "nipple fetishist">>
 	$activeSlave.slaveName's new mistress is an exhibitionist as well as a nipple fetishist, and before long, she's seen in the club, riding $activeSlave.slaveName's chest with her wet pussy. The slave is expected to keep her nipples erect for her at all times.
-	<<for $j to 0; $j < $slaves.length; $j++>>
-	<<if ($slaves[$j].fetish is "boobs")>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
+	<<if ($slaves[$j].fetish == "boobs")>>
 	<<if ($slaves[$j].fetishKnown == 1)>>
 		<<set $slaves[$j].trust += 1>>
-		<<set $seed to 1>>
+		<<set $seed = 1>>
 	<</if>>
 	<</if>>
 	<</for>>
@@ -173,11 +173,11 @@
 
 <<case "anal fetishist">>
 	The next time $activeSlave.slaveName is seen in public, on an errand for her master, she's walking a little oddly. Her naked dick has the flaccidity of sexual satiation, and she has a tired but dreamy expression on her face.
-	<<for $j to 0; $j < $slaves.length; $j++>>
-	<<if ($slaves[$j].fetish is "buttslut")>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
+	<<if ($slaves[$j].fetish == "buttslut")>>
 	<<if ($slaves[$j].fetishKnown == 1)>>
 		<<set $slaves[$j].trust += 1>>
-		<<set $seed to 1>>
+		<<set $seed = 1>>
 	<</if>>
 	<</if>>
 	<</for>>
@@ -187,11 +187,11 @@
 
 <<case "oral fetishist">>
 	The next time $activeSlave.slaveName is seen in public, she's obediently accompanying her new master. After doing some business on the promenade, he pulls her into an alcove and lets her masturbate as he uses her throat.
-	<<for $j to 0; $j < $slaves.length; $j++>>
-	<<if ($slaves[$j].fetish is "cumslut")>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
+	<<if ($slaves[$j].fetish == "cumslut")>>
 	<<if ($slaves[$j].fetishKnown == 1)>>
 		<<set $slaves[$j].trust += 1>>
-		<<set $seed to 1>>
+		<<set $seed = 1>>
 	<</if>>
 	<</if>>
 	<</for>>
@@ -201,11 +201,11 @@
 
 <<case "pain fetishist">>
 	$activeSlave.slaveName is not seen again in public for a long time, but the crack of leather on flesh and the resultant hoarse female howling that issues from her new mistress's apartment is well-known.
-	<<for $j to 0; $j < $slaves.length; $j++>>
-	<<if ($slaves[$j].fetish is "masochist")>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
+	<<if ($slaves[$j].fetish == "masochist")>>
 	<<if ($slaves[$j].fetishKnown == 1)>>
 		<<set $slaves[$j].trust += 1>>
-		<<set $seed to 1>>
+		<<set $seed = 1>>
 	<</if>>
 	<</if>>
 	<</for>>
@@ -215,11 +215,11 @@
 
 <<case "sadism fetishist">>
 	$activeSlave.slaveName rarely leaves her new mistress's apartments, but the slave rumor mill bears stories about her to your penthouse anyway. Her mistress uses her as a rapist on demand, and her dumbly obedient brutality is renowned.
-	<<for $j to 0; $j < $slaves.length; $j++>>
-	<<if ($slaves[$j].fetish is "sadist")>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
+	<<if ($slaves[$j].fetish == "sadist")>>
 	<<if ($slaves[$j].fetishKnown == 1)>>
 		<<set $slaves[$j].trust += 1>>
-		<<set $seed to 1>>
+		<<set $seed = 1>>
 	<</if>>
 	<</if>>
 	<</for>>
@@ -229,11 +229,11 @@
 
 <<case "dom fetishist">>
 	$activeSlave.slaveName wins herself a leadership position with her new master, who repays her hard work by allowing her to use his slaves at will.
-	<<for $j to 0; $j < $slaves.length; $j++>>
-	<<if ($slaves[$j].fetish is "dom")>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
+	<<if ($slaves[$j].fetish == "dom")>>
 	<<if ($slaves[$j].fetishKnown == 1)>>
 		<<set $slaves[$j].trust += 1>>
-		<<set $seed to 1>>
+		<<set $seed = 1>>
 	<</if>>
 	<</if>>
 	<</for>>
@@ -243,11 +243,11 @@
 
 <<case "sub fetishist">>
 	The back of $activeSlave.slaveName's head becomes a well-known sight in business circles, since her mistress rarely lets it out from between her legs.
-	<<for $j to 0; $j < $slaves.length; $j++>>
-	<<if ($slaves[$j].fetish is "submissive")>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
+	<<if ($slaves[$j].fetish == "submissive")>>
 	<<if ($slaves[$j].fetishKnown == 1)>>
 		<<set $slaves[$j].trust += 1>>
-		<<set $seed to 1>>
+		<<set $seed = 1>>
 	<</if>>
 	<</if>>
 	<</for>>
@@ -257,10 +257,10 @@
 
 <<case "supremacist arcology">>
 	$activeSlave.slaveName leaves your control forthwith, to be freed and installed in a favored life in an arcology that gives $activeSlave.race people every possible advantage.
-	<<for $j to 0; $j < $slaves.length; $j++>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
 	<<if ($slaves[$j].devotion < 10)>>
 		<<set $slaves[$j].devotion -= 2>>
-		<<set $seed to 1>>
+		<<set $seed = 1>>
 	<</if>>
 	<</for>>
 	<<if ($seed == 1)>>
@@ -269,10 +269,10 @@
 
 <<case "subjugationist arcology">>
 	$activeSlave.slaveName is shipped off to help produce a race of $activeSlave.race idiots to perform eternal servitude. She is not perceptive enough to fear her upcoming life as a downtrodden breeder.
-	<<for $j to 0; $j < $slaves.length; $j++>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
 	<<if ($slaves[$j].intelligence > 0)>>
 		<<set $slaves[$j].trust -= 2>>
-		<<set $seed to 1>>
+		<<set $seed = 1>>
 	<</if>>
 	<</for>>
 	<<if ($seed == 1)>>
@@ -281,11 +281,11 @@
 
 <<case "gender radicalist arcology">>
 	$activeSlave.slaveName is shipped off, but her buyer is so unwilling to waste any time that the shipment container includes hormonal injectors to get her started on an intensive feminization regime as quickly as possible.
-	<<for $j to 0; $j < $slaves.length; $j++>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
 	<<if ($slaves[$j].dick > 0)>>
 	<<if ($slaves[$j].devotion <= 20)>>
 		<<set $slaves[$j].trust -= 2>>
-		<<set $seed to 1>>
+		<<set $seed = 1>>
 	<</if>>
 	<</if>>
 	<</for>>
@@ -295,10 +295,10 @@
 
 <<case "gender fundamentalist arcology">>
 	$activeSlave.slaveName is taken away to join the legion of airheaded, big-titted sex slaves that throng the arcology owned by her purchaser.
-	<<for $j to 0; $j < $slaves.length; $j++>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
 	<<if ($slaves[$j].intelligence > 1)>>
 		<<set $slaves[$j].devotion -= 2>>
-		<<set $seed to 1>>
+		<<set $seed = 1>>
 	<</if>>
 	<</for>>
 	<<if ($seed == 1)>>
@@ -307,11 +307,11 @@
 
 <<case "paternalist arcology">>
 	$activeSlave.slaveName is shipped off to be improved into a happy, educated slave at the best pace her new owner can manage.
-	<<for $j to 0; $j < $slaves.length; $j++>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
 	<<if ($slaves[$j].devotion < -20)>>
 	<<if ($slaves[$j].intelligenceImplant == 0)>>
 		<<set $slaves[$j].devotion -= 2>>
-		<<set $seed to 1>>
+		<<set $seed = 1>>
 	<</if>>
 	<</if>>
 	<</for>>
@@ -321,10 +321,10 @@
 
 <<case "degradationist arcology">>
 	Stories about the place she's going have reached $arcologies[0].name, and $activeSlave.slaveName suspects the fate she's been condemned to when she's loaded into a shipping container expressly designed to keep the inmate awake and uncomfortable.
-	<<for $j to 0; $j < $slaves.length; $j++>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
 	<<if ($slaves[$j].devotion > 20)>>
 		<<set $slaves[$j].trust -= 2>>
-		<<set $seed to 1>>
+		<<set $seed = 1>>
 	<</if>>
 	<</for>>
 	<<if ($seed == 1)>>
@@ -333,10 +333,10 @@
 
 <<case "slimness enthusiast arcology">>
 	$activeSlave.slaveName is taken away to join the tribe of squealing, slim forms that populate the arcology of her new owner.
-	<<for $j to 0; $j < $slaves.length; $j++>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
 	<<if ($slaves[$j].intelligence > 1)>>
 		<<set $slaves[$j].devotion -= 2>>
-		<<set $seed to 1>>
+		<<set $seed = 1>>
 	<</if>>
 	<</for>>
 	<<if ($seed == 1)>>
@@ -345,10 +345,10 @@
 
 <<case "asset expansionist arcology">>
 	A shipping container arrives for $activeSlave.slaveName; as she's loaded into it, it sedates her and begins to pump hormones, curatives and growth enhancers into no less than seven places scattered over her body.
-	<<for $j to 0; $j < $slaves.length; $j++>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
 	<<if ($slaves[$j].devotion <= 20)>>
 		<<set $slaves[$j].trust -= 2>>
-		<<set $seed to 1>>
+		<<set $seed = 1>>
 	<</if>>
 	<</for>>
 	<<if ($seed == 1)>>
@@ -357,10 +357,10 @@
 
 <<case "transformation fetishist arcology">>
 	A purchasing agent arrives for $activeSlave.slaveName; he uses a lull in the proceedings to use a permanent marker to begin mapping out surgical sites across her body. There are a lot of them.
-	<<for $j to 0; $j < $slaves.length; $j++>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
 	<<if ($slaves[$j].devotion <= 20)>>
 		<<set $slaves[$j].trust -= 2>>
-		<<set $seed to 1>>
+		<<set $seed = 1>>
 	<</if>>
 	<</for>>
 	<<if ($seed == 1)>>
@@ -369,11 +369,11 @@
 
 <<case "physical idealist arcology">>
 	Stories about the arcology $activeSlave.slaveName is headed to have circulated among slaves. Most intelligent girls see a life of workouts as relatively harmless.
-	<<for $j to 0; $j < $slaves.length; $j++>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
 	<<if ($slaves[$j].weight > 10)>>
 	<<if ($slaves[$j].intelligence < 0)>>
 		<<set $slaves[$j].trust -= 2>>
-		<<set $seed to 1>>
+		<<set $seed = 1>>
 	<</if>>
 	<</if>>
 	<</for>>
@@ -383,11 +383,11 @@
 
 <<case "pastoralist arcology">>
 	$activeSlave.slaveName is subjected to a stock assay and then packed off to take her place as a prize heifer.
-	<<for $j to 0; $j < $slaves.length; $j++>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
 	<<if ($slaves[$j].lactation == 0)>>
 	<<if ($slaves[$j].devotion <= 20)>>
 		<<set $slaves[$j].trust -= 2>>
-		<<set $seed to 1>>
+		<<set $seed = 1>>
 	<</if>>
 	<</if>>
 	<</for>>
@@ -397,10 +397,10 @@
 
 <<case "chattel religionist arcology">>
 	$activeSlave.slaveName is terrified of her impending religious life; perhaps she's heard the new text that reads 'no woman come of age is holy unless she performs the act as many times per day as she has years less than forty.'
-	<<for $j to 0; $j < $slaves.length; $j++>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
 	<<if ($slaves[$j].analCount < 200)>>
 		<<set $slaves[$j].trust -= 2>>
-		<<set $seed to 1>>
+		<<set $seed = 1>>
 	<</if>>
 	<</for>>
 	<<if ($seed == 1)>>
@@ -409,10 +409,10 @@
 
 <<case "roman revivalist arcology">>
 	$activeSlave.slaveName is shipped to a new arcology, and culturally, across the centuries. Her skill at arms is well enough  known that her impending role as a gladiatrix is easily deduced.
-	<<for $j to 0; $j < $slaves.length; $j++>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
 	<<if ($slaves[$j].combatSkill > 0)>>
 		<<set $slaves[$j].trust -= 2>>
-		<<set $seed to 1>>
+		<<set $seed = 1>>
 	<</if>>
 	<</for>>
 	<<if ($seed == 1)>>
@@ -421,10 +421,10 @@
 
 <<case "egyptian revivalist arcology">>
 	$activeSlave.slaveName's journey to her new home is respectful, even celebratory, as far as you can see. She is gravely informed by the purchasing agent that many slaves await her learned instruction.
-	<<for $j to 0; $j < $slaves.length; $j++>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
 	<<if ($slaves[$j].intelligence < -1)>>
 		<<set $slaves[$j].devotion -= 2>>
-		<<set $seed to 1>>
+		<<set $seed = 1>>
 	<</if>>
 	<</for>>
 	<<if ($seed == 1)>>
@@ -433,11 +433,11 @@
 
 <<case "virgin trader">>
 	$activeSlave.slaveName is seen in a shipment of slaves leaving the arcology a month later, with just the slightest hint of a gravid belly and a worn-down expression on her face.
-	<<for $j to 0; $j < $slaves.length; $j++>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
 	<<if ($slaves[$j].vagina == 0)>>
 	<<if ($slaves[$j].ovaries == 1)>>
 		<<set $slaves[$j].trust -= 2>>
-		<<set $seed to 1>>
+		<<set $seed = 1>>
 	<</if>>
 	<</if>>
 	<</for>>
@@ -447,11 +447,11 @@
 
 <<case "body purist arcology">>
 	$activeSlave.slaveName is shipped to her new owner's arcology to have her implants extracted and the resultant damage addressed.
-	<<for $j to 0; $j < $slaves.length; $j++>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
 	<<if ($slaves[$j].devotion <= 50)>>
 	<<if ($slaves[$j].boobsImplant > 1000)>>
 		<<set $slaves[$j].devotion -= 2>>
-		<<set $seed to 1>>
+		<<set $seed = 1>>
 	<</if>>
 	<</if>>
 	<</for>>
@@ -461,10 +461,10 @@
 
 <<case "trainer staffing">>
 	$activeSlave.slaveName is soon well-known among the slaves of the arcology, as many of them are sold after passing under her hands in training. She performs effectively, imparting good sex slave ethics in a generation of sluts.
-	<<for $j to 0; $j < $slaves.length; $j++>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
 	<<if ($slaves[$j].intelligence > 0)>>
 		<<set $slaves[$j].trust += 1>>
-		<<set $seed to 1>>
+		<<set $seed = 1>>
 	<</if>>
 	<</for>>
 	<<if ($seed == 1)>>
@@ -473,10 +473,10 @@
 
 <<case "teaching trainer">>
 	$activeSlave.slaveName is not pleased by her change in circumstances, since she is soon subjected to training rigor that she did not experience while your property.
-	<<for $j to 0; $j < $slaves.length; $j++>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
 	<<if ($slaves[$j].intelligenceImplant == 0)>>
 		<<set $slaves[$j].trust -= 2>>
-		<<set $seed to 1>>
+		<<set $seed = 1>>
 	<</if>>
 	<</for>>
 	<<if ($seed == 1)>>
@@ -485,10 +485,10 @@
 
 <<case "implanting trainer">>
 	A few weeks later, $activeSlave.slaveName is seen in a shipment of slaves heading out of the arcology. She has new fake tits, a bigger butt, lip implants, and even some facial bone structure alterations, but her balloon breasts are the most shocking change.
-	<<for $j to 0; $j < $slaves.length; $j++>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
 	<<if ($slaves[$j].boobsImplant == 0)>>
 		<<set $slaves[$j].trust -= 2>>
-		<<set $seed to 1>>
+		<<set $seed = 1>>
 	<</if>>
 	<</for>>
 	<<if ($seed == 1)>>
@@ -497,10 +497,10 @@
 
 <<case "purifying trainer">>
 	A few weeks later, $activeSlave.slaveName is seen in a shipment of slaves heading out of the arcology. She is almost unrecognizable, having been quickly returned to as natural an appearance as skillful removal of her implants could manage.
-	<<for $j to 0; $j < $slaves.length; $j++>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
 	<<if ($slaves[$j].boobsImplant > 800)>>
 		<<set $slaves[$j].trust += 1>>
-		<<set $seed to 1>>
+		<<set $seed = 1>>
 	<</if>>
 	<</for>>
 	<<if ($seed == 1)>>
@@ -509,10 +509,10 @@
 
 <<case "D virgin asspussy">>
 	$activeSlave.slaveName's buyer takes charge of her, and cannot resist immediately running a hand between her buttocks to sink a couple of groping fingers into her soft asspussy.
-	<<for $j to 0; $j < $slaves.length; $j++>>
-	<<if ($slaves[$j].fetish is "buttslut")>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
+	<<if ($slaves[$j].fetish == "buttslut")>>
 		<<set $slaves[$j].trust += 1>>
-		<<set $seed to 1>>
+		<<set $seed = 1>>
 	<</if>>
 	<</for>>
 	<<if ($seed == 1)>>
@@ -521,10 +521,10 @@
 
 <<case "D startled the witch">>
 	$activeSlave.slaveName heads off to form part of whatever great design her new master is pursuing; all you know is that it apparently requires lots of lithe, sharp toothed slave girls.
-	<<for $j to 0; $j < $slaves.length; $j++>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
 	<<if ($slaves[$j].devotion <= 20)>>
 		<<set $slaves[$j].trust += 1>>
-		<<set $seed to 1>>
+		<<set $seed = 1>>
 	<</if>>
 	<</for>>
 	<<if ($seed == 1)>>
@@ -533,10 +533,10 @@
 
 <<case "D milf staffing">>
 	$activeSlave.slaveName becomes a common sight around the arcology, training slaves for her new master. They're usually seen hanging close by her as she manages them with an air at once protective and frankly sexual.
-	<<for $j to 0; $j < $slaves.length; $j++>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
 	<<if ($slaves[$j].age > 35)>>
 		<<set $slaves[$j].trust += 1>>
-		<<set $seed to 1>>
+		<<set $seed = 1>>
 	<</if>>
 	<</for>>
 	<<if ($seed == 1)>>
@@ -545,10 +545,10 @@
 
 <<case "D hucow">>
 	$activeSlave.slaveName becomes quite a fixture at social events hosted by her new master; he enjoys showing off how healthy, happy and productive his cow is.
-	<<for $j to 0; $j < $slaves.length; $j++>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
 	<<if ($slaves[$j].lactation > 0)>>
 		<<set $slaves[$j].trust += 1>>
-		<<set $seed to 1>>
+		<<set $seed = 1>>
 	<</if>>
 	<</for>>
 	<<if ($seed == 1)>>
@@ -557,10 +557,10 @@
 
 <<case "D r9k">>
 	$activeSlave.slaveName's nervous buyer comes to collect her, stammering and sweating and doing his best to pretend he does this all the time.
-	<<for $j to 0; $j < $slaves.length; $j++>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
 	<<if ($slaves[$j].vaginalCount + $slaves[$j].analCount < 20)>>
 		<<set $slaves[$j].trust += 1>>
-		<<set $seed to 1>>
+		<<set $seed = 1>>
 	<</if>>
 	<</for>>
 	<<if ($seed == 1)>>
@@ -569,10 +569,10 @@
 
 <<case "slimming trainer">>
 	$activeSlave.slaveName is occasionally visible around the arcology, looking rather tired and gaunt under the stresses of a severe crash diet coupled with a punishing cardio regime.
-	<<for $j to 0; $j < $slaves.length; $j++>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
 	<<if ($slaves[$j].weight > 10)>>
 		<<set $slaves[$j].trust -= 2>>
-		<<set $seed to 1>>
+		<<set $seed = 1>>
 	<</if>>
 	<</for>>
 	<<if ($seed == 1)>>
@@ -581,10 +581,10 @@
 
 <<case "broadening trainer">>
 	$activeSlave.slaveName is only rarely seen around the arcology, since her new owners force her to spend most of her time sleeping, eating and looking after herself. But her belly, painfully distended with food, makes her situation obvious.
-	<<for $j to 0; $j < $slaves.length; $j++>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
 	<<if ($slaves[$j].weight > 10)>>
 		<<set $slaves[$j].trust -= 2>>
-		<<set $seed to 1>>
+		<<set $seed = 1>>
 	<</if>>
 	<</for>>
 	<<if ($seed == 1)>>
@@ -593,10 +593,10 @@
 
 <<case "cow trainer">>
 	$activeSlave.slaveName is last seen somewhat later, packed into a shipment of cows heading out of the arcology. She looks rather ill from the drugs she's been filled with, and her now-distended breasts are marred by unsightly stretch marks.
-	<<for $j to 0; $j < $slaves.length; $j++>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
 	<<if ($slaves[$j].lactation == 0)>>
 		<<set $slaves[$j].trust -= 2>>
-		<<set $seed to 1>>
+		<<set $seed = 1>>
 	<</if>>
 	<</for>>
 	<<if ($seed == 1)>>
@@ -605,10 +605,10 @@
 
 <<case "clipping trainer">>
 	$activeSlave.slaveName is frequently seen in public over the next few weeks, since she's being trained to improve her feminine deportment. She grows visibly more feminine as time passes, as the hormonal effects of having her balls cut off become apparent.
-	<<for $j to 0; $j < $slaves.length; $j++>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
 	<<if ($slaves[$j].balls > 0)>>
 		<<set $slaves[$j].trust -= 2>>
-		<<set $seed to 1>>
+		<<set $seed = 1>>
 	<</if>>
 	<</for>>
 	<<if ($seed == 1)>>
@@ -617,10 +617,10 @@
 
 <<case "reassignment trainer">>
 	$activeSlave.slaveName is next seen after some weeks of surgery. She's barely recognizable, and now possesses a serviceable vagina which she clearly is unsure of. Her original status is scarcely discernible.
-	<<for $j to 0; $j < $slaves.length; $j++>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
 	<<if ($slaves[$j].dick > 0)>>
 		<<set $slaves[$j].trust -= 2>>
-		<<set $seed to 1>>
+		<<set $seed = 1>>
 	<</if>>
 	<</for>>
 	<<if ($seed == 1)>>
@@ -629,10 +629,10 @@
 
 <<case "arcade">>
 	The upper half of $activeSlave.slaveName's body is never seen again. Her butt, on the other hand, is periodically visible in a lower-level arcade, her orifices gradually showing the wear and her price gradually decreasing, until finally she is seen no more.
-	<<for $j to 0; $j < $slaves.length; $j++>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
 	<<if ($slaves[$j].devotion < 10)>>
 		<<set $slaves[$j].trust -= 2>>
-		<<set $seed to 1>>
+		<<set $seed = 1>>
 	<</if>>
 	<</for>>
 	<<if ($seed == 1)>>
@@ -641,27 +641,27 @@
 
 <<case "D cannibal">>
 	$activeSlave.slaveName is never seen again. Her buyer prefers to keep whatever happened to her private. However, rumors of steaks, rump roasts, sweetbreads, and blood pudding eaten at three in the morning filter out from time to time. Naturally, these murmurs never fail to @@color:gold;terrify@@ your other slaves.
-	<<for $j to 0; $j < $slaves.length; $j++>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
 	<<set $slaves[$j].trust -= 2>>
 	<</for>>
 
 <<case "harvester">>
 	Though $activeSlave.slaveName's fate as a source of organs for transplantation is not announced, rumors of what happens to girls who @@color:gold;fail to be valuable to you@@ pass among your slaves.
-	<<for $j to 0; $j < $slaves.length; $j++>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
 	<<set $slaves[$j].trust -= 2>>
 	<</for>>
 
 <<case "D amazon hunter">>
 	When $activeSlave.slaveName's buyer appears, the big girl is almost bashful. He tries to resist the impulse, but quickly breaks down and sweeps her into a tight hug. She accepts the embrace meekly. Your other slaves find this @@color:mediumaquamarine;very romantic.@@
-	<<for $j to 0; $j < $slaves.length; $j++>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
 	<<set $slaves[$j].trust += 1>>
 	<</for>>
 
 <<case "D oral servants">>
 	$activeSlave.slaveName is an occasional sight around the arcology; she's never seen outside the company of her new slave superior. This is one of her new master's more favored slaves. She has a huge cock, and $activeSlave.slaveName usually crouches down, hugging one of her superior's legs and keeping her mouth obediently near that dick. Your cumsluts are @@color:mediumaquamarine;rather envious.@@
-	<<for $j to 0; $j < $slaves.length; $j++>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
 	<<if ($slaves[$j].fetishKnown == 1)>>
-	<<if ($slaves[$j].fetish is "cumslut")>>
+	<<if ($slaves[$j].fetish == "cumslut")>>
 		<<set $slaves[$j].trust += 1>>
 	<</if>>
 	<</if>>
@@ -669,7 +669,7 @@
 
 <<case "D trap lover">>
 	$activeSlave.slaveName becomes a frequent sight around the arcology, accompanying her new master. She's clearly happy, and is frequently seen to offer her butt to him with a smile. Your girls with dicks who've accepted their lot in life find this @@color:mediumaquamarine;encouraging.@@
-	<<for $j to 0; $j < $slaves.length; $j++>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
 	<<if ($slaves[$j].dick > 0)>>
 	<<if ($slaves[$j].devotion > 20)>>
 		<<set $slaves[$j].trust += 1>>
@@ -679,8 +679,8 @@
 
 <<case "D butt bury">>
 	$activeSlave.slaveName's buyer arrives promptly; he seems pleased with his new slave's bountiful bottom, so far off the ground. Your buttsluts giggle over what he's got in store for her, and @@color:mediumaquamarine;envy@@ her new owner a little.
-	<<for $j to 0; $j < $slaves.length; $j++>>
-	<<if ($slaves[$j].fetish is "buttslut")>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
+	<<if ($slaves[$j].fetish == "buttslut")>>
 	<<if ($slaves[$j].fetishKnown == 1)>>
 		<<set $slaves[$j].trust += 1>>
 	<</if>>
@@ -689,7 +689,7 @@
 
 <<case "D milky herm">>
 	$activeSlave.slaveName's buyer arrives and seems pleased with her lovely feminine appearance; he verifies her lactation and her ability to achieve erection despite her lack of visible balls. Your other feminine girls with dicks @@color:mediumaquamarine;trust@@ they'll go to owners that will value them, should they be sold.
-	<<for $j to 0; $j < $slaves.length; $j++>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
 	<<if ($slaves[$j].dick > 0)>>
 	<<if ($slaves[$j].boobs > 400)>>
 		<<set $slaves[$j].trust += 1>>
@@ -699,8 +699,8 @@
 
 <<case "D shorty breeder">>
 	$activeSlave.slaveName's lithe, muscular form is rarely seen after her buyer takes charge of her, since she seems to spend most of her time at home making babies. Your slaves with pregnancy fetishes @@color:mediumaquamarine;almost want to be sold@@ since there's a chance they'll be purchased by him, too.
-	<<for $j to 0; $j < $slaves.length; $j++>>
-	<<if ($slaves[$j].fetish is "pregnancy")>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
+	<<if ($slaves[$j].fetish == "pregnancy")>>
 	<<if ($slaves[$j].fetishKnown == 1)>>
 		<<set $slaves[$j].trust += 4>>
 	<</if>>
@@ -712,7 +712,7 @@
 
 <<case "fuckdoll">>
 	Though $activeSlave.slaveName's fate as a living fucktoy is not obvious, since most of her body will for ever after be encased in thick latex, rumors of what happens to girls who @@color:gold;fail to be valuable to you@@ pass among your slaves.
-	<<for $j to 0; $j < $slaves.length; $j++>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
 	<<set $slaves[$j].trust -= 2>>
 	<</for>>
 
@@ -722,7 +722,7 @@
 <</switch>>
 
 <<if $activeSlave.origin != 0>>
-	<<set $toSearch to $activeSlave.origin>>
+	<<set $toSearch = $activeSlave.origin>>
 	<<if $toSearch.indexOf("Slave Shelter") != -1>>
 	<<set $shelterAbuse += 1>>
 	<</if>>

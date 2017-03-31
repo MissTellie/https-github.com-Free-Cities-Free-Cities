@@ -7,11 +7,11 @@
  Checks $assayedSlave for availability, e.g. not strapped to a machine or distant.
 %/
 <<widget "AssayedSlaveAvailable">>
-<<if $assayedSlave.assignment is "be your agent">>
+<<if $assayedSlave.assignment == "be your agent">>
 	<<set $assayedSlaveAvailable = 0>>
-<<elseif $assayedSlave.assignment is "live with your agent">>
+<<elseif $assayedSlave.assignment == "live with your agent">>
 	<<set $assayedSlaveAvailable = 0>>
-<<elseif ($assayedSlave.assignment is "work in the dairy") && ($dairyRestraintsSetting >= 2)>>
+<<elseif ($assayedSlave.assignment == "work in the dairy") && ($dairyRestraintsSetting >= 2)>>
 	<<set $assayedSlaveAvailable = 0>>
 <<else>>
 	<<set $assayedSlaveAvailable = 1>>
@@ -38,7 +38,7 @@
 		You force yourself into her butthole. She sobs and cries with disgust while you continue thrusting into her ass. She @@color:mediumorchid;hates@@ and @@color:gold;fears@@ you for violating her virgin butt. She dreads having her ass fucked by you again.
 		<<set $activeSlave.trust -= 5, $activeSlave.devotion -= 5>>
 	<</if>>
-	<<set $activeSlave.anus to 1>>
+	<<set $activeSlave.anus = 1>>
 <</if>>
 <<if $args[0]>>
 	<<set $analTotal += $args[0],
@@ -69,7 +69,7 @@
 		<<else>>
 			You ease yourself into her pussy, since it's her first time, then gradually speed up your thrusts while she slowly learns to move her hips along with you. She accepts losing her virginity to her owner. She looks forward to having her pussy fucked by you again.
 		<</if>>
-		<<set $activeSlave.vagina to 1>>
+		<<set $activeSlave.vagina = 1>>
 	<</if>>
 	<<if $args[0]>>
 		<<set $vaginalTotal += $args[0],
@@ -103,7 +103,7 @@
 			<<else>>
 				As it's her first time, you ease yourself into her pussy before gradually working your way into her ass and alternate between the two holes while she moans. She accepts being fucked in both holes for the first time. She looks forward to having her holes fucked by you again.
 			<</if>>
-			<<set $activeSlave.anus to 1>>
+			<<set $activeSlave.anus = 1>>
 		<<elseif canDoAnal($activeSlave)>>
 			@@color:lime;This breaks in $activeSlave.slaveName's virgin pussy.@@
 			<<set $activeSlave.vagina++>>
@@ -117,7 +117,7 @@
 				As it's her first time, you ease yourself into her pussy before gradually increasing the intensity of your thrusts while she softly moans. She accepts losing her virginity to her owner. She looks forward to having her pussy fucked by you again.
 			<</if>>
 		<</if>>
-		<<set $activeSlave.vagina to 1>>
+		<<set $activeSlave.vagina = 1>>
 	<<elseif ($activeSlave.anus eq 0)>>
 		@@color:lime;This breaks in $activeSlave.slaveName's virgin ass.@@
 		<<if ($activeSlave.devotion > 50)>>
@@ -132,7 +132,7 @@
 			You force yourself into her butthole. She sobs and cries with disgust while you continue thrusting into her ass. She @@color:mediumorchid;hates@@ and @@color:gold;fears@@ you for violating her virgin butt. She dreads having her ass fucked by you again.
 			<<set $activeSlave.trust -= 5, $activeSlave.devotion -= 5>>
 		<</if>>
-		<<set $activeSlave.anus to 1>>
+		<<set $activeSlave.anus = 1>>
 	<</if>>
 	<<if $args[1]>>
 		<<set $vaginalTotal += $args[1], $analTotal += $args[1],
@@ -156,7 +156,7 @@
 			You force yourself into her butthole. She sobs and cries with disgust while you continue thrusting into her ass. She @@color:mediumorchid;hates@@ and @@color:gold;fears@@ you for violating her virgin butt. She dreads having her ass fucked by you again.
 			<<set $activeSlave.trust -= 5, $activeSlave.devotion -= 5>>
 		<</if>>
-		<<set $activeSlave.anus to 1>>
+		<<set $activeSlave.anus = 1>>
 	<</if>>
 	<<if $args[0]>>
 		<<set $analTotal += $args[0],
@@ -186,7 +186,7 @@
 		<<else>>
 			As it's her first time, you ease yourself into her pussy and gradually speed up your thrusts while she slowly learns to move her hips along with you. She accepts losing her virginity to her owner. She looks forward to having her pussy fucked by you again.
 		<</if>>
-		<<set $activeSlave.vagina to 1>>
+		<<set $activeSlave.vagina = 1>>
 	<</if>>
 	<<if $args[0]>>
 		<<set $vaginalTotal += $args[0],
@@ -210,7 +210,7 @@
 			You force yourself into her butthole. She sobs and cries with disgust while you continue thrusting into her ass. She @@color:mediumorchid;hates@@ and @@color:gold;fears@@ you for violating her virgin butt. She dreads having her ass fucked by you again.
 			<<set $activeSlave.trust -= 5, $activeSlave.devotion -= 5>>
 		<</if>>
-		<<set $activeSlave.anus to 1>>
+		<<set $activeSlave.anus = 1>>
 	<</if>>
 	<<if $args[0]>>
 		<<set $analTotal += $args[0],
@@ -290,17 +290,17 @@
 	<<if ($activeSlave.preg < -1) || ($activeSlave.ovaries == 0)>>
 		//She is sterile//
 	<<elseif ($activeSlave.preg >= -1) && ($activeSlave.ovaries != 0)>>
-	__Contraception__: <span id="fertility"><strong><<if $activeSlave.preg is -1>><<print "using contraceptives">><<elseif $activeSlave.preg == 0>><<print "fertile">><<elseif $activeSlave.preg < 4>><<print "may be pregnant">><<else>><<print $activeSlave.preg>><<print " weeks pregnant">><</if>></strong></span>.
+	__Contraception__: <span id="fertility"><strong><<if $activeSlave.preg == -1>><<print "using contraceptives">><<elseif $activeSlave.preg == 0>><<print "fertile">><<elseif $activeSlave.preg < 4>><<print "may be pregnant">><<else>><<print $activeSlave.preg>><<print " weeks pregnant">><</if>></strong></span>.
 	<<if ($activeSlave.preg == 0) && ($activeSlave.clothes != "a Fuckdoll suit")>>
-		<<link "Use contraceptives">><<set $activeSlave.preg to -1>><<SlaveInteractImpreg>><<SlaveInteractFertility>><</link>>
-	<<elseif ($activeSlave.preg is -1) && ($activeSlave.clothes != "a Fuckdoll suit")>>
-		<<link "Let her get pregnant">><<set $activeSlave.preg to 0>><<SlaveInteractImpreg>><<SlaveInteractFertility>><</link>>
+		<<link "Use contraceptives">><<set $activeSlave.preg = -1>><<SlaveInteractImpreg>><<SlaveInteractFertility>><</link>>
+	<<elseif ($activeSlave.preg == -1) && ($activeSlave.clothes != "a Fuckdoll suit")>>
+		<<link "Let her get pregnant">><<set $activeSlave.preg = 0>><<SlaveInteractImpreg>><<SlaveInteractFertility>><</link>>
 		<</if>>
 	<</if>>
 	<<if ($activeSlave.preg == 0) && ($activeSlave.clothes == "a Fuckdoll suit")>>
-		<<link "Use contraceptives">><<set $activeSlave.preg to -1>><<SlaveInteractFertility>><</link>>
-	<<elseif ($activeSlave.preg is -1) && ($activeSlave.clothes == "a Fuckdoll suit")>>
-		<<link "Let her get pregnant">><<set $activeSlave.preg to 0>><<SlaveInteractFertility>><</link>>
+		<<link "Use contraceptives">><<set $activeSlave.preg = -1>><<SlaveInteractFertility>><</link>>
+	<<elseif ($activeSlave.preg == -1) && ($activeSlave.clothes == "a Fuckdoll suit")>>
+		<<link "Let her get pregnant">><<set $activeSlave.preg = 0>><<SlaveInteractFertility>><</link>>
 	<<elseif ($activeSlave.preg > 0)>>
 		[[Abort her pregnancy|Abort]]
 	<</if>>
@@ -377,22 +377,22 @@
 %/
 <<widget "agentLeadership">>
 <<set $agentBonus = 0>>
-<<for _j to 1; _j < $leaders.length; _j++>>
+<<for _j = 1; _j < $leaders.length; _j++>>
 	<<if $arcologies[$i].leaderID == $leaders[_j].ID>>
 		<<set $agentBonus == $leaders[_j].intelligence>>
 		<<set $agentBonus += $leaders[_j].intelligenceImplant>>
 		<<if $leaders[_j].age > 35>>
 			<<set $agentBonus += 1>>
 		<</if>>
-		<<if $leaders[_j].career is "an arcology owner">>
+		<<if $leaders[_j].career == "an arcology owner">>
 			<<set $agentBonus += 1>>
 		<<elseif $HGCareers.includes($leaders[_j].career)>>
 			<<set $agentBonus += 1>>
 		<</if>>
 		<<if $leaders[_j].fetishStrength > 95>>
-		<<if ($leaders[_j].fetish is "dom") || ($leaders[_j].fetish is "sadist")>>
+		<<if ($leaders[_j].fetish == "dom") || ($leaders[_j].fetish == "sadist")>>
 			<<set $agentBonus += 1>>
-		<<elseif ($leaders[_j].fetish is "dom") || ($leaders[_j].fetish is "sadist")>>
+		<<elseif ($leaders[_j].fetish == "dom") || ($leaders[_j].fetish == "sadist")>>
 			<<set $agentBonus -= 1>>
 		<</if>>
 		<</if>>
@@ -414,68 +414,68 @@
 %/
 <<widget "PCTitle">>
 
-<<set $PCTitle to $PCName>>
+<<set $PCTitle = $PCName>>
 <<set $titles = []>>
 
 <<if $cheater == 1>>
-	<<set $PCTitle to ($PCTitle + " the Cheater")>>
+	<<set $PCTitle = ($PCTitle + " the Cheater")>>
 <<elseif $rep > 18000>>
-	<<set $PCTitle to ($PCTitle + " the Great")>>
+	<<set $PCTitle = ($PCTitle + " the Great")>>
 <<elseif $rep > 17000>>
-	<<set $PCTitle to ("the exalted " + $PCTitle)>>
+	<<set $PCTitle = ("the exalted " + $PCTitle)>>
 <<elseif $rep > 16000>>
-	<<set $PCTitle to ("the illustrious " + $PCTitle)>>
+	<<set $PCTitle = ("the illustrious " + $PCTitle)>>
 <<elseif $rep > 15000>>
-	<<set $PCTitle to ("the prestigious " + $PCTitle)>>
+	<<set $PCTitle = ("the prestigious " + $PCTitle)>>
 <<elseif $rep > 14000>>
-	<<set $PCTitle to ("the renowned " + $PCTitle)>>
+	<<set $PCTitle = ("the renowned " + $PCTitle)>>
 <<elseif $rep > 13000>>
-	<<set $PCTitle to ("the famed " + $PCTitle)>>
+	<<set $PCTitle = ("the famed " + $PCTitle)>>
 <<elseif $rep > 12000>>
-	<<set $PCTitle to ("the celebrated " + $PCTitle)>>
+	<<set $PCTitle = ("the celebrated " + $PCTitle)>>
 <<elseif $rep > 11000>>
-	<<set $PCTitle to ("the honored " + $PCTitle)>>
+	<<set $PCTitle = ("the honored " + $PCTitle)>>
 <<elseif $rep > 10000>>
-	<<set $PCTitle to ("the acclaimed " + $PCTitle)>>
+	<<set $PCTitle = ("the acclaimed " + $PCTitle)>>
 <<elseif $rep > 9000>>
-	<<set $PCTitle to ("the eminent " + $PCTitle)>>
+	<<set $PCTitle = ("the eminent " + $PCTitle)>>
 <<elseif $rep > 8250>>
-	<<set $PCTitle to ("the prominent " + $PCTitle)>>
+	<<set $PCTitle = ("the prominent " + $PCTitle)>>
 <<elseif $rep > 7500>>
-	<<set $PCTitle to ("the distinguished " + $PCTitle)>>
+	<<set $PCTitle = ("the distinguished " + $PCTitle)>>
 <<elseif $rep > 6750>>
-	<<set $PCTitle to ("the admired " + $PCTitle)>>
+	<<set $PCTitle = ("the admired " + $PCTitle)>>
 <<elseif $rep > 6000>>
-	<<set $PCTitle to ("the esteemed " + $PCTitle)>>
+	<<set $PCTitle = ("the esteemed " + $PCTitle)>>
 <<elseif $rep > 5250>>
-	<<set $PCTitle to ("the respected " + $PCTitle)>>
+	<<set $PCTitle = ("the respected " + $PCTitle)>>
 <<elseif $rep > 4500>>
-	<<set $PCTitle to ("the known " + $PCTitle)>>
+	<<set $PCTitle = ("the known " + $PCTitle)>>
 <<elseif $rep > 3750>>
-	<<set $PCTitle to ("the recognized " + $PCTitle)>>
+	<<set $PCTitle = ("the recognized " + $PCTitle)>>
 <<elseif $rep > 3000>>
-	<<set $PCTitle to ("the rumored " + $PCTitle)>>
+	<<set $PCTitle = ("the rumored " + $PCTitle)>>
 <</if>>
 
-<<set $PCTitle to ($PCTitle + ", ")>>
+<<set $PCTitle = ($PCTitle + ", ")>>
 
-<<if $PCName is "FC Dev">>
+<<if $PCName == "FC Dev">>
 	<<set $titles.push("the Creator")>>
 <</if>>
 
 <<if $plot == 1>>
-	<<if $invasionVictory is 3>>
+	<<if $invasionVictory == 3>>
 	<<if $PC.title == 1>>
 		<<set $titles.push("Hero of the City")>>
 	<<else>>
 		<<set $titles.push("Heroine of the City")>>
 	<</if>>
-	<<elseif $invasionVictory is 2>>
+	<<elseif $invasionVictory == 2>>
 	<<set $titles.push("Defender of the City")>>
 	<</if>>
-	<<if $daughtersVictory is 3>>
+	<<if $daughtersVictory == 3>>
 	<<set $titles.push("Destroyer of the Daughters")>>
-	<<elseif $daughtersVictory is 2>>
+	<<elseif $daughtersVictory == 2>>
 	<<if $PC.title == 1>>
 		<<set $titles.push("Victor over the Daughters")>>
 	<<else>>
@@ -485,25 +485,25 @@
 <</if>>
 
 <<if $mercenaries >= 5>>
-	<<if $mercenariesTitle is "Evocati">>
-	<<set $seed to $mercenariesTitle>>
-	<<set $seed to ("Princeps of the " + $seed)>>
+	<<if $mercenariesTitle == "Evocati">>
+	<<set $seed = $mercenariesTitle>>
+	<<set $seed = ("Princeps of the " + $seed)>>
 	<<set $titles.push($seed)>>
-	<<elseif $mercenariesTitle is "Knights">>
-	<<set $seed to $mercenariesTitle>>
+	<<elseif $mercenariesTitle == "Knights">>
+	<<set $seed = $mercenariesTitle>>
 	<<if $PC.title == 1>>
-		<<set $seed to ("Lord Commander of the " + $seed)>>
+		<<set $seed = ("Lord Commander of the " + $seed)>>
 	<<else>>
-		<<set $seed to ("Lady Commander of the " + $seed)>>
+		<<set $seed = ("Lady Commander of the " + $seed)>>
 	<</if>>
 	<<set $titles.push($seed)>>
-	<<elseif $mercenariesTitle is "Immortals">>
-	<<set $seed to $mercenariesTitle>>
-	<<set $seed to ("Tyrant of the " + $seed)>>
+	<<elseif $mercenariesTitle == "Immortals">>
+	<<set $seed = $mercenariesTitle>>
+	<<set $seed = ("Tyrant of the " + $seed)>>
 	<<set $titles.push($seed)>>
 	<<else>>
-	<<set $seed to $mercenariesTitle>>
-	<<set $seed to ("Commander of the " + $seed)>>
+	<<set $seed = $mercenariesTitle>>
+	<<set $seed = ("Commander of the " + $seed)>>
 	<<set $titles.push($seed)>>
 	<</if>>
 <<elseif $mercenaries >= 1>>
@@ -769,8 +769,8 @@
 	<<set $titles.push("Comptroller of the Arcade")>>
 <</if>>
 
-<<set $schoolsPresent to []>>
-<<set $schoolsPerfected to []>>
+<<set $schoolsPresent = []>>
+<<set $schoolsPerfected = []>>
 <<if $TSS.schoolProsperity >= 10>>
 	<<set $schoolsPerfected.push("The Slave School")>>
 <<elseif $TSS.schoolPresent == 1>>
@@ -802,16 +802,16 @@
 	<<else>>
 	<<set $schoolTitle = "Benefactrix of ">>
 	<</if>>
-	<<for $i to 0; $i < $schoolsPerfected.length; $i++>>
-	<<set $seed to $schoolsPerfected[$i]>>
-	<<set $schoolTitle to ($schoolTitle + $seed)>>
+	<<for $i = 0; $i < $schoolsPerfected.length; $i++>>
+	<<set $seed = $schoolsPerfected[$i]>>
+	<<set $schoolTitle = ($schoolTitle + $seed)>>
 	<<if $i < $schoolsPerfected.length-2>>
-		<<set $schoolTitle to ($schoolTitle + ", ")>>
-	<<elseif $i is $schoolsPerfected.length-2>>
+		<<set $schoolTitle = ($schoolTitle + ", ")>>
+	<<elseif $i == $schoolsPerfected.length-2>>
 		<<if $schoolsPerfected.length > 2>>
-		<<set $schoolTitle to ($schoolTitle + ", and ")>>
+		<<set $schoolTitle = ($schoolTitle + ", and ")>>
 		<<else>>
-		<<set $schoolTitle to ($schoolTitle + " and ")>>
+		<<set $schoolTitle = ($schoolTitle + " and ")>>
 		<</if>>
 	<</if>>
 	<</for>>
@@ -819,16 +819,16 @@
 <</if>>
 <<if $schoolsPresent.length > 0>>
 	<<set $schoolTitle = "Supporter of ">>
-	<<for $i to 0; $i < $schoolsPresent.length; $i++>>
-	<<set $seed to $schoolsPresent[$i]>>
-	<<set $schoolTitle to ($schoolTitle + $seed)>>
+	<<for $i = 0; $i < $schoolsPresent.length; $i++>>
+	<<set $seed = $schoolsPresent[$i]>>
+	<<set $schoolTitle = ($schoolTitle + $seed)>>
 	<<if $i < $schoolsPresent.length-2>>
-		<<set $schoolTitle to ($schoolTitle + ", ")>>
-	<<elseif $i is $schoolsPresent.length-2>>
+		<<set $schoolTitle = ($schoolTitle + ", ")>>
+	<<elseif $i == $schoolsPresent.length-2>>
 		<<if $schoolsPresent.length > 2>>
-		<<set $schoolTitle to ($schoolTitle + ", and ")>>
+		<<set $schoolTitle = ($schoolTitle + ", and ")>>
 		<<else>>
-		<<set $schoolTitle to ($schoolTitle + " and ")>>
+		<<set $schoolTitle = ($schoolTitle + " and ")>>
 		<</if>>
 	<</if>>
 	<</for>>
@@ -898,11 +898,11 @@
 	<<set $titles.push("owner of the arcology")>>
 <</if>>
 
-<<for $i to 0; $i < $titles.length; $i++>>
-	<<set $seed to $titles[$i]>>
-	<<set $PCTitle to ($PCTitle + $seed)>>
+<<for $i = 0; $i < $titles.length; $i++>>
+	<<set $seed = $titles[$i]>>
+	<<set $PCTitle = ($PCTitle + $seed)>>
 	<<if $i < $titles.length-2>>
-	<<set $PCTitle to ($PCTitle + ", ")>>
+	<<set $PCTitle = ($PCTitle + ", ")>>
 	<</if>>
 <</for>>
 
@@ -918,7 +918,7 @@
 <<set _OverMenialCap = ($helots+$fuckdolls+$menialBioreactors)-_PopCap>>
 <<if _OverMenialCap > 0>>
 	<<set _Price = Math.trunc(($slaveCostFactor*1000)/100)*100>>
-	<<set _Price to Math.clamp(_Price, 500, 1500)>>
+	<<set _Price = Math.clamp(_Price, 500, 1500)>>
 	<<if $helots > 0>>
 		<<if $helots > _OverMenialCap>>
 			<<set $cash += _OverMenialCap*_Price, $menialDemandFactor -= _OverMenialCap,

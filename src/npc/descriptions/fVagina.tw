@@ -309,7 +309,7 @@ You decide to fuck her
 
 <<if passage() != "Slave Interact">>
 	<<set _SL = $slaves.length>>
-	<<for _i to 0; _i < _SL; _i++>>
+	<<for _i = 0; _i < _SL; _i++>>
 	<<if $slaves[_i].ID == $activeSlave.ID>>
 		<<set $slaves[_i] = $activeSlave>>
 		<<break>>

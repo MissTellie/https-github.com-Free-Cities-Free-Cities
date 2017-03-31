@@ -1,30 +1,30 @@
 :: HG Workaround
 
 <<if ($HeadGirl == 0)>>
-	<<for $i to 0; $i < $slaves.length; $i++>>
-	<<if ($slaves[$i].assignment is "be your Head Girl")>>
-		<<set $slaves[$i].assignment to "rest">>
-		<<set $slaves[$i].assignmentVisible to 1>>
+	<<for $i = 0; $i < $slaves.length; $i++>>
+	<<if ($slaves[$i].assignment == "be your Head Girl")>>
+		<<set $slaves[$i].assignment = "rest">>
+		<<set $slaves[$i].assignmentVisible = 1>>
 		<<break>>
 	<</if>>
 	<</for>>
-	<<if $personalAttention is "HG">>
-	<<set $personalAttention to "business">>
+	<<if $personalAttention == "HG">>
+	<<set $personalAttention = "business">>
 	<</if>>
 <<else>>
-	<<for $i to 0; $i < $slaves.length; $i++>>
+	<<for $i = 0; $i < $slaves.length; $i++>>
 	<<if $HeadGirl.ID == $slaves[$i].ID>>
-		<<set $slaves[$i].assignment to "be your Head Girl">>
-		<<set $slaves[$i].assignmentVisible to 1>>
-		<<set $slaves[$i].choosesOwnAssignment to 0>>
-		<<set $slaves[$i].sentence to 0>>
-	<<elseif ($slaves[$i].assignment is "be your Head Girl")>>
-		<<set $slaves[$i].assignment to "rest">>
-		<<set $slaves[$i].assignmentVisible to 1>>
+		<<set $slaves[$i].assignment = "be your Head Girl">>
+		<<set $slaves[$i].assignmentVisible = 1>>
+		<<set $slaves[$i].choosesOwnAssignment = 0>>
+		<<set $slaves[$i].sentence = 0>>
+	<<elseif ($slaves[$i].assignment == "be your Head Girl")>>
+		<<set $slaves[$i].assignment = "rest">>
+		<<set $slaves[$i].assignmentVisible = 1>>
 	<</if>>
 	<</for>>
 <</if>>
 
-<<set $HGTimeInGrade to 0>>
+<<set $HGTimeInGrade = 0>>
 
 <<goto "Main">>

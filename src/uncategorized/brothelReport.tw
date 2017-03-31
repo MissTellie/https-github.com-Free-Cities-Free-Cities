@@ -144,7 +144,7 @@
 <<if ($brothelSlaves < 5)>>
 <<set $slavesGettingHelp = 0>>
 <<if $universalRulesFacilityWork == 1>>
-	<<for _i to 0; _i < _SL; _i++>>
+	<<for _i = 0; _i < _SL; _i++>>
 		<<if ($slaves[_i].assignment == "whore")>>
 		<<set $slavesGettingHelp++>>
 		<</if>>

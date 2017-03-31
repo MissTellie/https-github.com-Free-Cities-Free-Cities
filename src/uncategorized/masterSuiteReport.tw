@@ -45,7 +45,7 @@
 		<<set _masterSuiteAverageSadism -= $slaves[_i].fetishStrength>>
 	<</switch>>
 	<</if>>
-	<<if ($legendaryAbolitionistID == 0) && ($slaves[_i].devotion > 95) && ($slaves[_i].prestige == 0) && (($slaves[_i].origin is "You sentenced her to enslavement as a punishment for attempted theft of a slave.") || ($slaves[_i].origin is "She is an enslaved Daughter of Liberty."))>>
+	<<if ($legendaryAbolitionistID == 0) && ($slaves[_i].devotion > 95) && ($slaves[_i].prestige == 0) && (($slaves[_i].origin == "You sentenced her to enslavement as a punishment for attempted theft of a slave.") || ($slaves[_i].origin == "She is an enslaved Daughter of Liberty."))>>
 		<<set $legendaryAbolitionistID = $slaves[_i].ID>>
 	<</if>>
 <</for>>
@@ -318,7 +318,7 @@ The level of sexual energy in the suite is
 
 <<if $masterSuiteUpgradePregnancy == 1>>
 	/* If they're not on fertility drugs and the toggle is active, stick them on (if they can take them). Otherwise take them off. */
-	<<if $slaves[_i].assignment is "serve in the master suite">>
+	<<if $slaves[_i].assignment == "serve in the master suite">>
 	<<if ($masterSuitePregnancyFertilityDrugs == 1) && ($slaves[_i].drugs != "fertility drugs") && ($slaves[_i].preg > -2) && ($slaves[_i].ovaries > 0)>>
 		<<set $slaves[_i].drugs = "fertility drugs">>
 	<<elseif ($masterSuitePregnancyFertilityDrugs == 0) && ($slaves[_i].drugs == "fertility drugs")>>

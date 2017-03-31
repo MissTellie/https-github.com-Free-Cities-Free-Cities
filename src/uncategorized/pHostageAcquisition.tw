@@ -1,11 +1,11 @@
 :: P hostage acquisition [nobr]
 
-<<set $nextButton to "Continue">>
-<<set $nextLink to "AS Dump">>
-<<set $returnTo to "RIE Eligibility Check">>
+<<set $nextButton = "Continue">>
+<<set $nextLink = "AS Dump">>
+<<set $returnTo = "RIE Eligibility Check">>
 
-<<set $hostageRescued to 0>>
-<<set $activeSlave to $hostage>>
+<<set $hostageRescued = 0>>
+<<set $activeSlave = $hostage>>
 <<set $activeSlave.ID += 55555>>
 <<AddSlave $activeSlave>>
 
@@ -51,26 +51,26 @@ Your hired mercenaries are en route now with your precious cargo.
 	<<set $activeSlave.health = -100>>
 	<<if $rivalryDuration <= 5>>
 	Upon seeing you, $activeSlave.slaveName dives into your <<if $PC.boobs == 1>>ample bust<<else>>chest<</if>> sobbing "Thank you... Thank you...". You gently wrap your arms around her in a comforting embrace. She's nearly the same as you remember her, albeit acting slightly odd and covered in scars.
-	<<set $activeSlave.weight to 0>>
-	<<set $activeSlave.customTat to "She has slight scarring from being beaten under your rival's rule.">>
+	<<set $activeSlave.weight = 0>>
+	<<set $activeSlave.customTat = "She has slight scarring from being beaten under your rival's rule.">>
 	<<elseif $rivalryDuration <= 10>>
 	Upon seeing you, $activeSlave.slaveName walks into your <<if $PC.boobs == 1>>ample bust<<else>>chest<</if>> sobbing "T-thank you... T-thank you..." You gently draw her thin body into a comforting embrace. She's nearly the same as you remember her, albeit thinner, acting odd and covered in many scars.
 	<<set $activeSlave.weight = -20>>
-	<<set $activeSlave.customTat to "She has noticeable scarring from being beaten under your rival's rule.">>
+	<<set $activeSlave.customTat = "She has noticeable scarring from being beaten under your rival's rule.">>
 	<<elseif $rivalryDuration <= 15>>
 	Upon seeing you, $activeSlave.slaveName shuffles into your <<if $PC.boobs == 1>>ample bust<<else>>chest<</if>> sobbing "T-thank you..." You gently draw her rail thin body into a comforting embrace, though you can't help but feel her swollen belly pressing into your own. She's nearly the same as you remember her, albeit thinner, pregnant, acting very odd and heavily covered in scars.
 	<<set $activeSlave.weight = -50>>
-	<<set $activeSlave.customTat to "She has heavy scarring from being beaten under your rival's rule.">>
+	<<set $activeSlave.customTat = "She has heavy scarring from being beaten under your rival's rule.">>
 	<<elseif $rivalryDuration <= 20>>
 	Upon seeing you, $activeSlave.slaveName attempts to stumble into your <<if $PC.boobs == 1>>ample bust<<else>>chest<</if>> but only makes it several pained steps before collapsing to the ground. You gently pick up her frail, bloated body and hold it in a comforting embrace. a short "T-thank you..." escapes her tired lips. She's nearly the same as you remember her, albeit emaciated, pregnant, acting very odd and completely covered in scars.
 	<<set $activeSlave.weight = -100>>
-	<<set $activeSlave.customTat to "She has heavy scarring all over her body from being beaten under your rival's rule.">>
+	<<set $activeSlave.customTat = "She has heavy scarring all over her body from being beaten under your rival's rule.">>
 	<<else>>
 	Your mercenaries radio you upon arrival. "VIP recovered but... She isn't all there."
 	Upon seeing her, it's obvious $activeSlave.slaveName has been completely broken. You beckon to the mercenary captain to give her to you. Holding her in your arms, it's clear that the poor girl is barely clinging to life.
 	The mercenary captain apologizes again, "My apologies, we found her like that. I'm sorry." He says, as he and his group exit your penthouse, leaving you with the comatose $activeSlave.slaveName. She looks the same as you remember, albeit emaciated, battered, broken and very pregnant. Although, if she pulls through this, she'll be devoted to you forever.
 	<<set $activeSlave.weight = -100>>
-	<<set $activeSlave.customTat to "She has heavy scarring all over her body from being beaten under your rival's rule.">>
+	<<set $activeSlave.customTat = "She has heavy scarring all over her body from being beaten under your rival's rule.">>
 	<</if>>
 <<case "Gender Radicalism">>
 	<<set $activeSlave.health = 60>>
@@ -106,7 +106,7 @@ Your hired mercenaries are en route now with your precious cargo.
 	<<set $activeSlave.health = -100>>
 	<<if $rivalryDuration <= 5>>
 	Upon seeing you, $activeSlave.slaveName dives into your <<if $PC.boobs == 1>>ample bust<<else>>chest<</if>> sobbing "Thank you... Thank you...". You gently wrap your arms around her in a comforting embrace. She's nearly the same as you remember her, albeit acting slightly odd and covered in piercings and tattoos.
-	<<set $activeSlave.weight to 0>>
+	<<set $activeSlave.weight = 0>>
 	<<elseif $rivalryDuration <= 10>>
 	Upon seeing you, $activeSlave.slaveName tries to crawl to you. You help her into your <<if $PC.boobs == 1>>ample bust<<else>>chest<</if>> as she sobs "T-thank you... T-thank you...". You gently draw her thin body into a comforting embrace. She's nearly the same as you remember her, albeit thinner, acting odd and covered in piercings and tattoos.
 	<<set $activeSlave.weight = -20>>
@@ -173,9 +173,9 @@ Your hired mercenaries are en route now with your precious cargo.
 	<<elseif $rivalryDuration <= 10>>
 	Upon seeing you, $activeSlave.slaveName gingerly approaches, uncertain if she should. You pull her into your <<if $PC.boobs == 1>>ample bust<<else>>chest<</if>> as she breaks down in tears. "They made me make out with an old lady!". She's exactly as you remember.
 	<<elseif $rivalryDuration <= 15>>
-	Upon seeing you, $activeSlave.slaveName shifts her weight back and forth, unsure of what to make of you. As you step forward, she hesitatingly approaches. Once she is close enough she asks "<<if $PC.age is 3>>Where you always that attractive?<<else>>Can I hang out with some MILFS?<</if>>". While she looks the same as you remember, she certainly doesn't think the same anymore.
+	Upon seeing you, $activeSlave.slaveName shifts her weight back and forth, unsure of what to make of you. As you step forward, she hesitatingly approaches. Once she is close enough she asks "<<if $PC.age == 3>>Where you always that attractive?<<else>>Can I hang out with some MILFS?<</if>>". While she looks the same as you remember, she certainly doesn't think the same anymore.
 	<<elseif $rivalryDuration <= 20>>
-	Upon seeing you, $activeSlave.slaveName shifts her weight back and forth, unsure of what to make of you. As you step forward, she quickly steps back. After several steps, she says "<<if $PC.age is 3>>You know, you're soo much older than me... I like that", with a wink.<<elseif $PC.age == 1>>Ew, you're soo young. Keep your hands off me!<<else>>Can you hook me up with a nice MILF?<</if>>". While she looks the same as you remember, she definitely doesn't think the same anymore.
+	Upon seeing you, $activeSlave.slaveName shifts her weight back and forth, unsure of what to make of you. As you step forward, she quickly steps back. After several steps, she says "<<if $PC.age == 3>>You know, you're soo much older than me... I like that", with a wink.<<elseif $PC.age == 1>>Ew, you're soo young. Keep your hands off me!<<else>>Can you hook me up with a nice MILF?<</if>>". While she looks the same as you remember, she definitely doesn't think the same anymore.
 	<<else>>
 	Your mercenaries radio you upon arrival. "This one's got quite some spunk in her, you better ready yourself. We're coming in now."
 	Upon seeing you, $activeSlave.slaveName's eyes fill with a distinct hatred. As you step forward, she stands her ground. After several steps, she shouts "How fucking DARE you split me up from my MILFy wife! I saw your arcology on the way in, its SICK. So many young girls, you're sick you hear me! SI-"
@@ -190,7 +190,7 @@ Your hired mercenaries are en route now with your precious cargo.
 	<<elseif $rivalryDuration <= 15>>
 	Upon seeing you, $activeSlave.slaveName shifts her weight back and forth, unsure of what to make of you. As you step forward, she hesitatingly approaches. Once she is close enough she asks "<<if $PC.age == 1>>Where you always that attractive?<<else>>Can I hang out with the rest of the young ladies?<</if>>". While she looks the same as you remember, she certainly doesn't think the same anymore.
 	<<elseif $rivalryDuration <= 20>>
-	Upon seeing you, $activeSlave.slaveName shifts her weight back and forth, unsure of what to make of you. As you step forward, she quickly steps back. After several steps, she says "<<if $PC.age == 1>>You know, you're so young... I like that", with a wink.<<elseif $PC.age is 3>>Ew, you're soo old. Keep your hands off me!<<else>>Can you hook me up with a nice young girl?<</if>>". While she looks the same as you remember, she definitely doesn't think the same anymore.
+	Upon seeing you, $activeSlave.slaveName shifts her weight back and forth, unsure of what to make of you. As you step forward, she quickly steps back. After several steps, she says "<<if $PC.age == 1>>You know, you're so young... I like that", with a wink.<<elseif $PC.age == 3>>Ew, you're soo old. Keep your hands off me!<<else>>Can you hook me up with a nice young girl?<</if>>". While she looks the same as you remember, she definitely doesn't think the same anymore.
 	<<else>>
 	Your mercenaries radio you upon arrival. "This one's got quite some spunk in her, you better ready yourself. We're coming in now."
 	Upon seeing you, $activeSlave.slaveName's eyes fill with a distinct hatred. As you step forward, she stands her ground. After several steps, she shouts "How fucking DARE you split me up from my youthful wife! I saw your arcology on the way in, its SICK. So many old ladies, you're sick you hear me! SI-"
@@ -304,9 +304,9 @@ Your hired mercenaries are en route now with your precious cargo.
 	<</if>>
 <</switch>>
 
-<<if $rivalryDuration <= 10 or ($rivalryFS is "Racial Supremacism" and $rivalryDuration <= 20) or ($rivalryFS is "Paternalism" and $rivalryDuration <= 20)>>
+<<if $rivalryDuration <= 10 || ($rivalryFS == "Racial Supremacism" && $rivalryDuration <= 20) || ($rivalryFS == "Paternalism" && $rivalryDuration <= 20)>>
 	She considers you her rescuer, since her previous owner subjected her to unremitting horror in an attempt to offend your philosophy of $rivalryFS. She's overjoyed to be your slave.
-<<elseif ($rivalryFS is "Racial Supremacism" and $rivalryDuration > 20) or ($rivalryFS is "Paternalism" and $rivalryDuration > 20)>>
+<<elseif ($rivalryFS == "Racial Supremacism" and $rivalryDuration > 20) || ($rivalryFS == "Paternalism" and $rivalryDuration > 20)>>
 	Her mind and body were destroyed in an attempt to offend your philosophy of $rivalryFS. If she ever recovers, she'd consider you her savior and be overjoyed to be your slave.
 <<elseif $rivalryDuration > 20>>
 	You took everything from her and she hates you as much as she possibly can for it. You ripped her away from heaven to sentence her to a living hell, and she swears to do everything she can to hurt you.
