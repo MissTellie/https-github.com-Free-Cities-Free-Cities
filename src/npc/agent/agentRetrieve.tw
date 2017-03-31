@@ -2,9 +2,9 @@
 
 <<silently>>
 
-<<for $i to 0; $i < $slaves.length; $i++>>
+<<for $i = 0; $i < $slaves.length; $i++>>
 <<if $slaves[$i].ID == $activeArcology.leaderID>>
-	<<for $j to 0; $j < $slaves.length; $j++>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
 	<<if $slaves[$j].assignment == "live with your agent">>
 	<<if $slaves[$j].ID == $slaves[$i].relationshipTarget>>
 		<<set $slaves[$j].assignment = "rest">>
@@ -24,9 +24,9 @@
 <<set $activeArcology.leaderID = 0>>
 <<set $activeArcology.government = "your trustees">>
 
-<<for _i to 0;_i < $leaders.length;_i++>>
+<<for _i = 0;_i < $leaders.length;_i++>>
 <<if $activeArcology.leaderID == $leaders[_i].ID>>
-	<<set $dump to $leaders.pluck([_i], [_i])>>
+	<<set $dump = $leaders.pluck([_i], [_i])>>
 	<<break>>
 <</if>>
 <</for>>

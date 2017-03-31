@@ -3,7 +3,7 @@
 <<set $nextButton = "Back to Main", $nextLink = "Main", $returnTo = "Servants' Quarters", $showEncyclopedia = 1, $encyclopedia = "Servants' Quarters", _DL = $ServQiIDs.length, $servantsQuartersSlaves = _DL, _SL = $slaves.length>>
 
 <<if $servantsQuartersName != "the Servants' Quarters">>
-	<<set $servantsQuartersNameCaps to $servantsQuartersName.replace("the ", "The ")>>
+	<<set $servantsQuartersNameCaps = $servantsQuartersName.replace("the ", "The ")>>
 <</if>>
 
 $servantsQuartersNameCaps

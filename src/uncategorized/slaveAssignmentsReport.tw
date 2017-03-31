@@ -123,7 +123,7 @@
 	<<if canTalk($DJ) == false>>
 		''__@@color:pink;$DJ.slaveName@@__'' can't speak @@color:yellow;and cannot serve as your DJ any more.@@<br>
 		<<set $DJ = 0>>
-	<<elseif $DJ.fetish is "mindbroken">>
+	<<elseif $DJ.fetish == "mindbroken">>
 		''__@@color:pink;$DJ.slaveName@@__'' is mindbroken @@color:yellow;and cannot serve as your DJ any more.@@<br>
 		<<set $DJ = 0>>
 	<<elseif canWalk($DJ) != true>>
@@ -251,7 +251,7 @@
 <<if $fighterIDs.includes($slaves[_i])>>
 	<<if canWalk($slaves[_i]) != true>>
 		''__@@color:pink;$slaves[_i].slaveName@@__'' is no longer independently mobile @@color:yellow;and cannot fight any more.@@ She has been removed from $pitName roster<br>.
-		<<for _k to 0; _k < $fighterIDs.length; _k++>>
+		<<for _k = 0; _k < $fighterIDs.length; _k++>>
 		<<if $slaves[_i].ID == $fighterIDs[_k]>>
 			<<set _dump = $fighterIDs.pluck([_k],[_k])>>
 			<<set _k-->>
@@ -306,7 +306,7 @@
  * @todo Figure out why we're using variable space with capitalized facility names when we can parse it from true name
  */
 
-<<set _facListArr to [
+<<set _facListArr = [
     ["Brothel Report", $brothelNameCaps, $brothel, $brothelSlaves, $Madam, "Madam"],
     ["Club Report", $clubNameCaps, $club, $clubSlaves, $DJ, "DJ"],
     ["Arcade Report", $arcadeNameCaps, $arcade, $arcadeSlaves, -1, -1],
@@ -319,10 +319,10 @@
     ["Master Suite Report", $masterSuiteNameCaps, $masterSuite, $masterSuiteSlaves, $Concubine, "Concubine"]
 ]>>
 
-<<for _ii to 0; _ii lt _facListArr.length; _ii++>>
-    <<set _facSubArr to _facListArr[_ii]>>
+<<for _ii = 0; _ii lt _facListArr.length; _ii++>>
+    <<set _facSubArr = _facListArr[_ii]>>
     <<if _facSubArr[2] > 0>>                                                                                       /** Do we have one of these? */
-        <<if $useAccordion > 0>><<set _accText to " accordion">><</if>>                                                 /** Quick settings check - static or pretty tops? */
+        <<if $useAccordion > 0>><<set _accText = " accordion">><</if>>                                                 /** Quick settings check - static or pretty tops? */
         <<if (_facSubArr[3] eq 0) && (_facSubArr[4] eq 0)>>                                                   /** Do we have anyone inside? */
             <<= '<div class="unStaffed">' + _facSubArr[1] + ' is currently unstaffed</div>'>>    /** Display the "Unstaffed" facility header bar */
         <<else>>

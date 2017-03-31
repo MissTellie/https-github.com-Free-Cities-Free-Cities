@@ -1,6 +1,6 @@
 :: SA recruit girls [nobr]
 
-<<set $bellyAccessory to $slaves[$i].bellyAccessory>>
+<<set $bellyAccessory = $slaves[$i].bellyAccessory>>
 
 /* Note on target sum: HG and Recruiter are the initial 2 counted (no facility req'd), while HGSuite counts the HG's girl, other facilities count associated leader */
 <<if $recruiterIdleRule == "number">>
@@ -61,42 +61,42 @@ uses your online resources and some @@color:yellowgreen;modest funds@@ to convin
 
 <<if $clubUpgradePDAs == 1>>
 	The slaves in $clubName help her by passing her tips they pick up while working the crowds.
-	<<for $j to 0; $j < $slaves.length; $j++>>
-	<<if $slaves[$j].assignment is "serve in the club">>
+	<<for $j = 0; $j < $slaves.length; $j++>>
+	<<if $slaves[$j].assignment == "serve in the club">>
 		<<set $recruiterProgress += 0.5>>
 	<</if>>
 	<</for>>
 <</if>>
 
-<<if $recruiterTarget is "desperate whores">>
+<<if $recruiterTarget == "desperate whores">>
 	<<if ($Recruiter.analCount + $Recruiter.oralCount) > 200>>
 	As a veteran slut, she speaks from experience when she says that being your slave whore will be safer and healthier than streetwalking.
 	<<set $recruiterProgress += 1>>
 	<<else>>
 	She does her best to convince them that being your slave whore will be safer and healthier than streetwalking.
 	<</if>>
-<<elseif $recruiterTarget is "expectant mothers">> /* now you can ginger too */
+<<elseif $recruiterTarget == "expectant mothers">> /* now you can ginger too */
   <<if $Recruiter.preg > 5 or $fakeBellies.includes($bellyAccessory)>>
 	Since she's visibly pregnant herself, she speaks with authority when she says that Free Cities medicine can keep them and their pregnancies safe and healthy.
 	<<set $recruiterProgress += 1>>
   <<else>>
 	She does her best to convince them that Free Cities medicine can keep them and their pregnancies safe and healthy.
   <</if>>
-<<elseif $recruiterTarget is "young migrants">>
+<<elseif $recruiterTarget == "young migrants">>
 	<<if ($Recruiter.health >= 80) && ($Recruiter.face > 0)>>
 	Her lovely face and shining health go a long way to convince them that being your slave promises a better life.
 	<<set $recruiterProgress += 1>>
 	<<else>>
 	She does her best to convince them that being your slave promises a better life.
 	<</if>>
-<<elseif $recruiterTarget is "dissolute sissies">>
+<<elseif $recruiterTarget == "dissolute sissies">>
 	<<if ($Recruiter.dick > 1) && canAchieveErection($Recruiter) && ($Recruiter.dickAccessory != ("chastity"))>>
 	She giggles and shows off her erection, making it easy to convince them that your slaves with dicks enjoy a sexually satisfying life.
 	<<set $recruiterProgress += 1>>
 	<<else>>
 	She does her best to convince them that your slaves with dicks enjoy a sexually satisfying life.
 	<</if>>
-<<elseif $recruiterTarget is "reassignment candidates">>
+<<elseif $recruiterTarget == "reassignment candidates">>
 	<<if ($Recruiter.ovaries == 0) && ($Recruiter.face > 0)>>
 	She shows off her lovely face and describes her unusual biological situation under your care, convincing them that you'll turn them into happy little slave girls.
 	<<set $recruiterProgress += 1>>
@@ -118,7 +118,7 @@ uses your online resources and some @@color:yellowgreen;modest funds@@ to convin
 	She has no real prospects yet and has more work to do before anyone agrees to enslavement.
 <</if>>
 
-<<if ($slaves[$i].livingRules is "luxurious")>>
+<<if ($slaves[$i].livingRules == "luxurious")>>
 	Being continually trusted with this position @@color:hotpink;increases her devotion to you@@ and encourages her to @@color:mediumaquamarine;trust you in turn.@@
 	<<set $slaves[$i].devotion += 4>>
 	<<set $slaves[$i].trust += 4>>

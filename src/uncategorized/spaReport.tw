@@ -4,11 +4,11 @@
 
 <<if $spaSlaves > 0>>
 <<for _dI = 0; _dI < _DL; _dI++>>
-<<set _i = $SpaiIDs[_dI].Index, _ID = $SpaiIDs[_dI].Index>>
+<<set _i = $SpaiIDs[_dI].Index, _ID = $SpaiIDs[_dI].ID>>
 <<if _ID != $slaves[_i].ID>>
 	/% Slaves.ID and $SpaiIDs.ID's don't match-up so let's find her %/
 	<<for _i = 0; _i < _SL; _i++>>
-	<<if (_ID == $slaves[_i].ID)>>
+	<<if _ID == $slaves[_i].ID>>
 		/% Correct the Index %/
 		<<set $SpaiIDs[_dI].Index = _i>>
 	<</if>>
@@ -190,12 +190,12 @@
 		She does her best to soothe the famous entertainer, $slaves[_i].slaveName, letting her relax in blissful peace.
 		<<set $slaves[_i].devotion += 3, $slaves[_i].trust += 3>>
 	<<case "She is remembered for winning best in show as a cockmilker.">>
-		<<if $Attendant.fetish is "cumslut">>
+		<<if $Attendant.fetish == "cumslut">>
 			She can't keep her hands off $slaves[_i].slaveName's cock and balls, but she doesn't mind being milked constantly.  Before long strands of cum can be found floating all throughout the bath.
 			<<set $Attendant.fetishStrength += 4, $slaves[_FLs].fetishStrength += 4>>
 		<<else>>
 			She does her best to accommodate $slaves[_i].slaveName's massive genitals and tends to her when ever she feels a need for release.
-			<<if random(1,100) > 65 && $Attendant.fetish is "none">>
+			<<if random(1,100) > 65 && $Attendant.fetish == "none">>
 			After taking several massive loads to the face, $Attendant.slaveName begins to find satisfaction in being coated in cum.
 			<<set $Attendant.fetish = "cumslut", $slaves[_FLs].fetish = "cumslut">>
 			<</if>>
@@ -217,7 +217,7 @@
 	<</for>>
 	<</if>>
 	<<if ($spaSlaves < 5)>>
-		<<set _seed to random(1,10)+((5-$spaSlaves)*(random(150,170)+(_idleBonus*10)))>>
+		<<set _seed = random(1,10)+((5-$spaSlaves)*(random(150,170)+(_idleBonus*10)))>>
 		<<set $cash += _seed>>
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;Since she doesn't have enough girls to occupy all her time, the spa takes in citizens' slaves on a contract basis and she helps them too, earning @@color:yellowgreen;¤_seed.@@
 	<</if>>

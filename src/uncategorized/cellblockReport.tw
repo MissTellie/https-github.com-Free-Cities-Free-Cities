@@ -122,7 +122,7 @@
 	<</for>>
 	<</if>>
 	<<if ($cellblockSlaves < 5)>>
-		<<set _seed to random(1,10)+((5-$cellblockSlaves)*(random(150,170)+(_idleBonus*10))), $cash += _seed>>
+		<<set _seed = random(1,10)+((5-$cellblockSlaves)*(random(150,170)+(_idleBonus*10))), $cash += _seed>>
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;Since she doesn't have enough prisoners to manage to keep her busy, she works on citizens' slaves, earning @@color:yellowgreen;¤_seed.@@
 	<</if>>
 	<<if ($cellblockSlaves > 0)>><br><</if>>
@@ -211,7 +211,7 @@
 		<<case "liberated">>
 			<<set $slaves[_i].behavioralQuirk = "advocate", _softenedQuirks++>>
 		<</switch>>
-		<<set $slaves[_i].behavioralFlaw to "none", $slaves[_i].devotion -= 10>>
+		<<set $slaves[_i].behavioralFlaw = "none", $slaves[_i].devotion -= 10>>
 	<<elseif ($slaves[_i].sexualFlaw != "none") && ($slaves[_i].sexualQuirk == "none")>>
 		<<switch $slaves[_i].sexualFlaw>>
 		<<case "hates oral">>
