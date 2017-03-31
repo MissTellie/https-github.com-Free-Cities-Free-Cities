@@ -317,8 +317,10 @@ $masterSuiteNameCaps is furnished
 	<<include "Slave Summary">>
 <</if>>
 
-<<if (_SL > _DL)>>
-	<br><br>''Send a slave to serve in the master suite:''
+<<if $masterSuite <= _DL>>
+	<br><br>''$masterSuiteNameCaps is full and cannot hold any more slaves''
+<<elseif (_SL > _DL)>>
+	<br><br>''Send a slave to serve in $masterSuiteName:''
 	<<set $Flag = 0>>
 	<<include "Slave Summary">>
 <</if>>
