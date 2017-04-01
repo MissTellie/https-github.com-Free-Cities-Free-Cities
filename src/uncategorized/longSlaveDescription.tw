@@ -190,7 +190,7 @@ She comes to you for an inspection
 	<<if $activeSlave.relationship <= 1>>
 	@@color:lightgreen;friends with $slaves[$i].slaveName;@@ the rules <<if $activeSlave.relationshipRules != "restrictive">>encourage<<else>> discourage<</if>> their relationship.
 	<<elseif $activeSlave.relationship <= 2>>
-	@@color:lightgreen;best friends@@ with $slaves[$i].slaveName;@@ the rules <<if $activeSlave.relationshipRules != "restrictive">>encourage<<else>> discourage<</if>> their close relationship.
+	@@color:lightgreen;best friends with $slaves[$i].slaveName;@@ the rules <<if $activeSlave.relationshipRules != "restrictive">>encourage<<else>> discourage<</if>> their close relationship.
 	<<elseif $activeSlave.relationship <= 3>>
 	@@color:lightgreen;$slaves[$i].slaveName's friend with benefits;@@ the rules <<if $activeSlave.relationshipRules == "permissive">>encourage<<else>> discourage<</if>> their sexual relationship.
 	<<elseif $activeSlave.relationship <= 4>>
@@ -501,7 +501,11 @@ $pronounCap has been with you
 <<if $activeSlave.fuckdoll == 0>> /* NORMAL NON-FUCKDOLL MENTAL REPORT */
 
 <<if $activeSlave.eyes == -2>>
-	Her eyes are dull and unfocused,
+	<<if $activeSlave.eyeColor != "empty">>
+		Her eyes are dull and unfocused,
+	<<else>>
+		Her gaze is empty,
+	<</if>>
 	<<if ($activeSlave.intelligence >= 3)>>
 		but her facial expressions reveal she is incisive, quick, cunning;
 		<<if ($activeSlave.intelligenceImplant != 1)>>

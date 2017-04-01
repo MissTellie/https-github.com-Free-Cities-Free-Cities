@@ -172,6 +172,15 @@ __Facilities__
 	The lower level of the penthouse includes a hallway of cells to confine slaves in.
 <</if>>
 
+<<if $cyberMod == 1>>
+	<br>
+	<<if $researchLab.built == "true">>
+		Your penthouse is now equipped with a research lab.
+	<<else>>
+		[[Clear out one of the floors and install research equipment|Manage Arcology][$cash -= Math.trunc(15000*$upgradeMultiplierArcology), $researchLab.built = "true", $researchLab.maxSpace = 5]]
+		//Costs ¤<<print Math.trunc(15000*$upgradeMultiplierArcology)>>//
+	<</if>>
+<</if>>
 <br><br>
 
 __Special Arcology Upgrades__

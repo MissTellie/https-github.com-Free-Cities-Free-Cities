@@ -390,6 +390,10 @@
 <br />
 /* Accordion 000-250-006 */
 
+<<if ($researchLab.built == "true")>>
+	<<include "Lab Report">><br><br>
+<</if>>
+
 <<if $slavesVisible > 0>>
 __''Penthouse Report''__<br>
 <<for $i to 0; $i < $slaves.length; $i++>>
