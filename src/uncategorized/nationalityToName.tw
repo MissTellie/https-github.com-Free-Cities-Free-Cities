@@ -1,193 +1,193 @@
 :: Nationality to Name [nobr]
 
-<<if ($activeSlave.nationality == "American")>>
-	<<if $activeSlave.race == "black">>
-		<<set $activeSlave.birthName = $africanAmericanSlaveNames.random()>>
-	<<elseif $activeSlave.race == "latina">>
-		<<set $activeSlave.birthName = $latinaSlaveNames.random()>>
-	<<elseif $activeSlave.race == "asian">>
-		<<set $activeSlave.birthName = $asianAmericanSlaveNames.random()>>
-	<<elseif $activeSlave.race == "middle eastern">>
-		<<set $activeSlave.birthName = $egyptianSlaveNames.random()>>
+<<if ($activeSlave.nationality is "American")>>
+	<<if $activeSlave.race is "black">>
+		<<set $activeSlave.birthName to $africanAmericanSlaveNames.random()>>
+	<<elseif $activeSlave.race is "latina">>
+		<<set $activeSlave.birthName to $latinaSlaveNames.random()>>
+	<<elseif $activeSlave.race is "asian">>
+		<<set $activeSlave.birthName to $asianAmericanSlaveNames.random()>>
+	<<elseif $activeSlave.race is "middle eastern">>
+		<<set $activeSlave.birthName to $egyptianSlaveNames.random()>>
 	<<else>>
-		<<set $activeSlave.birthName = $whiteAmericanSlaveNames.random()>>
+		<<set $activeSlave.birthName to $whiteAmericanSlaveNames.random()>>
 	<</if>>
-<<elseif ($activeSlave.nationality == "Canadian")>>
-	<<set $activeSlave.birthName = $canadianSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Mexican")>>
-	<<set $activeSlave.birthName = $mexicanSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Puerto Rican")>>
-	<<set $activeSlave.birthName = $puertoRicanSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Haitian")>>
-	<<set $activeSlave.birthName = $haitianSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Jamaican")>>
-	<<set $activeSlave.birthName = $jamaicanSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Cuban")>>
-	<<set $activeSlave.birthName = $cubanSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Guatemalan")>>
-	<<set $activeSlave.birthName = $guatemalanSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Chilean")>>
-	<<set $activeSlave.birthName = $chileanSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Peruvian")>>
-	<<set $activeSlave.birthName = $peruvianSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Bolivian")>>
-	<<set $activeSlave.birthName = $bolivianSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Venezuelan")>>
-	<<set $activeSlave.birthName = $venezuelanSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Russian")>>
-	<<set $activeSlave.birthName = $russianSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Ukrainian")>>
-	<<set $activeSlave.birthName = $ukrainianSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Italian")>>
-	<<set $activeSlave.birthName = $italianSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Spanish")>>
-	<<set $activeSlave.birthName = $spanishSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "British")>>
-	<<set $activeSlave.birthName = $britishSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "French")>>
-	<<set $activeSlave.birthName = $frenchSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "German")>>
-	<<set $activeSlave.birthName = $germanSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Lithuanian")>>
-	<<set $activeSlave.birthName = $lithuanianSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Norwegian")>>
-	<<set $activeSlave.birthName = $norwegianSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Slovak")>>
-	<<set $activeSlave.birthName = $slovakSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Danish")>>
-	<<set $activeSlave.birthName = $danishSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Dutch")>>
-	<<set $activeSlave.birthName = $dutchSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Austrian")>>
-	<<set $activeSlave.birthName = $austrianSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Swiss")>>
-	<<set $activeSlave.birthName = $swissSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Serbian")>>
-	<<set $activeSlave.birthName = $serbianSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Belgian")>>
-	<<set $activeSlave.birthName = $belgianSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Czech")>>
-	<<set $activeSlave.birthName = $czechSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Portuguese")>>
-	<<set $activeSlave.birthName = $portugueseSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Swedish")>>
-	<<set $activeSlave.birthName = $swedishSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Romanian")>>
-	<<set $activeSlave.birthName = $romanianSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Hungarian")>>
-	<<set $activeSlave.birthName = $hungarianSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Estonian")>>
-	<<set $activeSlave.birthName = $estonianSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Irish")>>
-	<<set $activeSlave.birthName = $irishSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Icelandic")>>
-	<<set $activeSlave.birthName = $icelandicSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Finnish")>>
-	<<set $activeSlave.birthName = $finnishSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Greek")>>
-	<<set $activeSlave.birthName = $greekSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Polish")>>
-	<<set $activeSlave.birthName = $polishSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Brazilian")>>
-	<<set $activeSlave.birthName = $brazilianSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Egyptian")>>
-	<<set $activeSlave.birthName = $egyptianSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Colombian")>>
-	<<set $activeSlave.birthName = $colombianSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Argentinian")>>
-	<<set $activeSlave.birthName = $argentinianSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Turkish")>>
-	<<set $activeSlave.birthName = $turkishSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Iranian")>>
-	<<set $activeSlave.birthName = $iranianSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Armenian")>>
-	<<set $activeSlave.birthName = $armenianSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Israeli")>>
-	<<set $activeSlave.birthName = $israeliSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Saudi")>>
-	<<set $activeSlave.birthName = $saudiSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "South African")>>
-	<<if $activeSlave.race == "black">>
-		<<set $activeSlave.birthName = $blackSouthAfricanSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Canadian")>>
+	<<set $activeSlave.birthName to $canadianSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Mexican")>>
+	<<set $activeSlave.birthName to $mexicanSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Puerto Rican")>>
+	<<set $activeSlave.birthName to $puertoRicanSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Haitian")>>
+	<<set $activeSlave.birthName to $haitianSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Jamaican")>>
+	<<set $activeSlave.birthName to $jamaicanSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Cuban")>>
+	<<set $activeSlave.birthName to $cubanSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Guatemalan")>>
+	<<set $activeSlave.birthName to $guatemalanSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Chilean")>>
+	<<set $activeSlave.birthName to $chileanSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Peruvian")>>
+	<<set $activeSlave.birthName to $peruvianSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Bolivian")>>
+	<<set $activeSlave.birthName to $bolivianSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Venezuelan")>>
+	<<set $activeSlave.birthName to $venezuelanSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Russian")>>
+	<<set $activeSlave.birthName to $russianSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Ukrainian")>>
+	<<set $activeSlave.birthName to $ukrainianSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Italian")>>
+	<<set $activeSlave.birthName to $italianSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Spanish")>>
+	<<set $activeSlave.birthName to $spanishSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "British")>>
+	<<set $activeSlave.birthName to $britishSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "French")>>
+	<<set $activeSlave.birthName to $frenchSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "German")>>
+	<<set $activeSlave.birthName to $germanSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Lithuanian")>>
+	<<set $activeSlave.birthName to $lithuanianSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Norwegian")>>
+	<<set $activeSlave.birthName to $norwegianSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Slovak")>>
+	<<set $activeSlave.birthName to $slovakSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Danish")>>
+	<<set $activeSlave.birthName to $danishSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Dutch")>>
+	<<set $activeSlave.birthName to $dutchSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Austrian")>>
+	<<set $activeSlave.birthName to $austrianSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Swiss")>>
+	<<set $activeSlave.birthName to $swissSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Serbian")>>
+	<<set $activeSlave.birthName to $serbianSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Belgian")>>
+	<<set $activeSlave.birthName to $belgianSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Czech")>>
+	<<set $activeSlave.birthName to $czechSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Portuguese")>>
+	<<set $activeSlave.birthName to $portugueseSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Swedish")>>
+	<<set $activeSlave.birthName to $swedishSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Romanian")>>
+	<<set $activeSlave.birthName to $romanianSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Hungarian")>>
+	<<set $activeSlave.birthName to $hungarianSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Estonian")>>
+	<<set $activeSlave.birthName to $estonianSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Irish")>>
+	<<set $activeSlave.birthName to $irishSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Icelandic")>>
+	<<set $activeSlave.birthName to $icelandicSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Finnish")>>
+	<<set $activeSlave.birthName to $finnishSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Greek")>>
+	<<set $activeSlave.birthName to $greekSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Polish")>>
+	<<set $activeSlave.birthName to $polishSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Brazilian")>>
+	<<set $activeSlave.birthName to $brazilianSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Egyptian")>>
+	<<set $activeSlave.birthName to $egyptianSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Colombian")>>
+	<<set $activeSlave.birthName to $colombianSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Argentinian")>>
+	<<set $activeSlave.birthName to $argentinianSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Turkish")>>
+	<<set $activeSlave.birthName to $turkishSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Iranian")>>
+	<<set $activeSlave.birthName to $iranianSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Armenian")>>
+	<<set $activeSlave.birthName to $armenianSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Israeli")>>
+	<<set $activeSlave.birthName to $israeliSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Saudi")>>
+	<<set $activeSlave.birthName to $saudiSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "South African")>>
+	<<if $activeSlave.race is "black">>
+		<<set $activeSlave.birthName to $blackSouthAfricanSlaveNames.random()>>
 	<<else>>
-		<<set $activeSlave.birthName = $whiteSouthAfricanSlaveNames.random()>>
+		<<set $activeSlave.birthName to $whiteSouthAfricanSlaveNames.random()>>
 	<</if>>
-<<elseif ($activeSlave.nationality == "Nigerian")>>
-	<<set $activeSlave.birthName = $nigerianSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Congolese")>>
-	<<set $activeSlave.birthName = $congoleseSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Kenyan")>>
-	<<set $activeSlave.birthName = $kenyanSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Tanzanian")>>
-	<<set $activeSlave.birthName = $tanzanianSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Zimbabwean")>>
-	<<set $activeSlave.birthName = $zimbabweanSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Ghanan")>>
-	<<set $activeSlave.birthName = $ghananSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Ugandan")>>
-	<<set $activeSlave.birthName = $ugandanSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Ethiopian")>>
-	<<set $activeSlave.birthName = $ethiopianSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Moroccan")>>
-	<<set $activeSlave.birthName = $moroccanSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Chinese")>>
-	<<set $activeSlave.birthName = $chineseSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Korean")>>
-	<<set $activeSlave.birthName = $koreanSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Thai")>>
-	<<set $activeSlave.birthName = $thaiSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Vietnamese")>>
-	<<set $activeSlave.birthName = $vietnameseSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Japanese")>>
-	<<set $activeSlave.birthName = $japaneseSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Indonesian")>>
-	<<set $activeSlave.birthName = $indonesianSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Filipina")>>
-	<<set $activeSlave.birthName = $filipinaSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Bangladeshi")>>
-	<<set $activeSlave.birthName = $bangladeshiSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Malaysian")>>
-	<<set $activeSlave.birthName = $malaysianSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Uzbek")>>
-	<<set $activeSlave.birthName = $uzbekSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Afghan")>>
-	<<set $activeSlave.birthName = $afghanSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Nepalese")>>
-	<<set $activeSlave.birthName = $nepaleseSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Burmese")>>
-	<<set $activeSlave.birthName = $burmeseSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Iraqi")>>
-	<<set $activeSlave.birthName = $iraqiSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Yemeni")>>
-	<<set $activeSlave.birthName = $yemeniSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Sudanese")>>
-	<<set $activeSlave.birthName = $sudaneseSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Algerian")>>
-	<<set $activeSlave.birthName = $algerianSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Tunisian")>>
-	<<set $activeSlave.birthName = $tunisianSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Libyan")>>
-	<<set $activeSlave.birthName = $libyanSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Omani")>>
-	<<set $activeSlave.birthName = $omaniSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Malian")>>
-	<<set $activeSlave.birthName = $malianSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Jordanian")>>
-	<<set $activeSlave.birthName = $jordanianSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Lebanese")>>
-	<<set $activeSlave.birthName = $lebaneseSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Emirati")>>
-	<<set $activeSlave.birthName = $emiratiSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Kazakh")>>
-	<<set $activeSlave.birthName = $kazakhSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Pakistani")>>
-	<<set $activeSlave.birthName = $pakistaniSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Indian")>>
-	<<set $activeSlave.birthName = $indianSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "Australian")>>
-	<<set $activeSlave.birthName = $australianSlaveNames.random()>>
-<<elseif ($activeSlave.nationality == "a New Zealander")>>
-	<<set $activeSlave.birthName = $newZealanderSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Nigerian")>>
+	<<set $activeSlave.birthName to $nigerianSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Congolese")>>
+	<<set $activeSlave.birthName to $congoleseSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Kenyan")>>
+	<<set $activeSlave.birthName to $kenyanSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Tanzanian")>>
+	<<set $activeSlave.birthName to $tanzanianSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Zimbabwean")>>
+	<<set $activeSlave.birthName to $zimbabweanSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Ghanan")>>
+	<<set $activeSlave.birthName to $ghananSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Ugandan")>>
+	<<set $activeSlave.birthName to $ugandanSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Ethiopian")>>
+	<<set $activeSlave.birthName to $ethiopianSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Moroccan")>>
+	<<set $activeSlave.birthName to $moroccanSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Chinese")>>
+	<<set $activeSlave.birthName to $chineseSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Korean")>>
+	<<set $activeSlave.birthName to $koreanSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Thai")>>
+	<<set $activeSlave.birthName to $thaiSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Vietnamese")>>
+	<<set $activeSlave.birthName to $vietnameseSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Japanese")>>
+	<<set $activeSlave.birthName to $japaneseSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Indonesian")>>
+	<<set $activeSlave.birthName to $indonesianSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Filipina")>>
+	<<set $activeSlave.birthName to $filipinaSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Bangladeshi")>>
+	<<set $activeSlave.birthName to $bangladeshiSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Malaysian")>>
+	<<set $activeSlave.birthName to $malaysianSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Uzbek")>>
+	<<set $activeSlave.birthName to $uzbekSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Afghan")>>
+	<<set $activeSlave.birthName to $afghanSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Nepalese")>>
+	<<set $activeSlave.birthName to $nepaleseSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Burmese")>>
+	<<set $activeSlave.birthName to $burmeseSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Iraqi")>>
+	<<set $activeSlave.birthName to $iraqiSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Yemeni")>>
+	<<set $activeSlave.birthName to $yemeniSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Sudanese")>>
+	<<set $activeSlave.birthName to $sudaneseSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Algerian")>>
+	<<set $activeSlave.birthName to $algerianSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Tunisian")>>
+	<<set $activeSlave.birthName to $tunisianSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Libyan")>>
+	<<set $activeSlave.birthName to $libyanSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Omani")>>
+	<<set $activeSlave.birthName to $omaniSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Malian")>>
+	<<set $activeSlave.birthName to $malianSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Jordanian")>>
+	<<set $activeSlave.birthName to $jordanianSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Lebanese")>>
+	<<set $activeSlave.birthName to $lebaneseSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Emirati")>>
+	<<set $activeSlave.birthName to $emiratiSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Kazakh")>>
+	<<set $activeSlave.birthName to $kazakhSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Pakistani")>>
+	<<set $activeSlave.birthName to $pakistaniSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Indian")>>
+	<<set $activeSlave.birthName to $indianSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "Australian")>>
+	<<set $activeSlave.birthName to $australianSlaveNames.random()>>
+<<elseif ($activeSlave.nationality is "a New Zealander")>>
+	<<set $activeSlave.birthName to $newZealanderSlaveNames.random()>>
 <<else>>
-	<<set $activeSlave.birthName = $whiteAmericanSlaveNames.random()>>
+	<<set $activeSlave.birthName to $whiteAmericanSlaveNames.random()>>
 <</if>>

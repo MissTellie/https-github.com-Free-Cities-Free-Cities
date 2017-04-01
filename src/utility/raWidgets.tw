@@ -13,7 +13,7 @@ __($currentRule.activation):__
 <br>
 <<if ($currentRule.activation != "none") && ($currentRule.activation != "always")>>
 <span id="lower">
-<<if ($currentRule.thresholdLower == "none")>>
+<<if ($currentRule.thresholdLower is "none")>>
 (no lower limit)
 <<else>>
 <<if $currentRule.eqLower>>
@@ -26,7 +26,7 @@ When ''$currentRule.activation'' is ''more than''
 <</if>>
 </span>
       <<link ">">>
-<<set $currentRule.eqLower = false>>
+<<set $currentRule.eqLower to false>>
 <<replace "#lower">>
 When ''$currentRule.activation'' is ''more than''
 <<textbox "$currentRule.thresholdLower" $currentRule.thresholdLower>>
@@ -34,7 +34,7 @@ When ''$currentRule.activation'' is ''more than''
 <</link>>
  |
 <<link ">=">>
-<<set $currentRule.eqLower = true>>
+<<set $currentRule.eqLower to true>>
 <<replace "#lower">>
 When ''$currentRule.activation'' is
 <<textbox "$currentRule.thresholdLower" $currentRule.thresholdLower>> ''or more''
@@ -42,14 +42,14 @@ When ''$currentRule.activation'' is
 <</link>>
  |
 <<link "No lower limit">>
-<<set $currentRule.thresholdLower = "none">>
+<<set $currentRule.thresholdLower to "none">>
 <<replace "#lower">>
 (no lower limit)
 <</replace>>
 <</link>>
 <br>and<br>
 <span id="upper">
-<<if ($currentRule.thresholdUpper == "none")>>
+<<if ($currentRule.thresholdUpper is "none")>>
 (no upper limit)
 <<else>>
 <<if $currentRule.eqUpper>>
@@ -62,7 +62,7 @@ When ''$currentRule.activation'' is ''less than''
 <</if>>
 </span>
       <<link "<">>
-<<set $currentRule.eqUpper = false>>
+<<set $currentRule.eqUpper to false>>
 <<replace "#upper">>
 When ''$currentRule.activation'' is ''less than''
 <<textbox "$currentRule.thresholdUpper" $currentRule.thresholdUpper>>
@@ -70,7 +70,7 @@ When ''$currentRule.activation'' is ''less than''
 <</link>>
  |
 <<link "<=">>
-<<set $currentRule.eqUpper = true>>
+<<set $currentRule.eqUpper to true>>
 <<replace "#upper">>
 When ''$currentRule.activation'' is
 <<textbox "$currentRule.thresholdUpper" $currentRule.thresholdUpper>> ''or less''
@@ -78,19 +78,19 @@ When ''$currentRule.activation'' is
 <</link>>
 |
 <<link "No upper limit">>
-<<set $currentRule.thresholdUpper = "none">>
+<<set $currentRule.thresholdUpper to "none">>
 <<replace "#upper">>
 (no upper limit)
 <</replace>>
 <</link>>
-<<if ($currentRule.thresholdLower == "none") && ( $currentRule.thresholdUpper == "none")>>
-	<<set $currentRule.activation = "always">>
+<<if ($currentRule.thresholdLower is "none") && ( $currentRule.thresholdUpper is "none")>>
+	<<set $currentRule.activation to "always">>
 <<elseif ($currentRule.thresholdLower != "none") && ( $currentRule.thresholdUpper != "none")>>
-	<<if (def $currentRule.thresholdLower && $currentRule.thresholdLower > $currentRule.thresholdUpper)>>
-	<<set $currentRule.thresholdLower = $currentRule.thresholdUpper>>
+	<<if (def $currentRule.thresholdLower and $currentRule.thresholdLower > $currentRule.thresholdUpper)>>
+	<<set $currentRule.thresholdLower to $currentRule.thresholdUpper>>
 	<</if>>
-	<<if (def $currentRule.thresholdUpper && $currentRule.thresholdUpper < $currentRule.thresholdLower)>>
-	<<set $currentRule.thresholdUpper = $currentRule.thresholdLower>>
+	<<if (def $currentRule.thresholdUpper and $currentRule.thresholdUpper < $currentRule.thresholdLower)>>
+	<<set $currentRule.thresholdUpper to $currentRule.thresholdLower>>
 	<</if>>
 <</if>>
 <</if>>
@@ -123,51 +123,51 @@ When ''$currentRule.activation'' is
 Apply to assignments:
 <br>
 <<if ndef $currentRule.assignment>>
-	<<set $currentRule.assignment = []>>
+	<<set $currentRule.assignment to []>>
 <</if>>
-<<set _rest = false>>
-<<set _fucktoy = false>>
-<<set _servant = false>>
-<<set _confined = false>>
-<<set _whore = false>>
-<<set _public = false>>
-<<set _milked = false>>
-<<set _subordinate = false>>
-<<set _gloryhole = false>>
+<<set _rest to false>>
+<<set _fucktoy to false>>
+<<set _servant to false>>
+<<set _confined to false>>
+<<set _whore to false>>
+<<set _public to false>>
+<<set _milked to false>>
+<<set _subordinate to false>>
+<<set _gloryhole to false>>
 
-<<for _a = $currentRule.assignment.length; _a >= 0; _a-->>
-<<if $currentRule.assignment[_a] == "rest">>
-	<<set _rest = true>>
+<<for _a to $currentRule.assignment.length; _a >= 0; _a-->>
+<<if $currentRule.assignment[_a] is "rest">>
+	<<set _rest to true>>
 <</if>>
-<<if $currentRule.assignment[_a] == "please you">>
-	<<set _fucktoy = true>>
+<<if $currentRule.assignment[_a] is "please you">>
+	<<set _fucktoy to true>>
 <</if>>
-<<if $currentRule.assignment[_a] == "be a servant">>
-	<<set _servant = true>>
+<<if $currentRule.assignment[_a] is "be a servant">>
+	<<set _servant to true>>
 <</if>>
-<<if $currentRule.assignment[_a] == "whore">>
-	<<set _whore = true>>
+<<if $currentRule.assignment[_a] is "whore">>
+	<<set _whore to true>>
 <</if>>
-<<if $currentRule.assignment[_a] == "work a glory hole">>
-	<<set _gloryhole = true>>
+<<if $currentRule.assignment[_a] is "work a glory hole">>
+	<<set _gloryhole to true>>
 <</if>>
-<<if $currentRule.assignment[_a] == "get milked">>
-	<<set _milked = true>>
+<<if $currentRule.assignment[_a] is "get milked">>
+	<<set _milked to true>>
 <</if>>
-<<if $currentRule.assignment[_a] == "serve the public">>
-	<<set _public = true>>
+<<if $currentRule.assignment[_a] is "serve the public">>
+	<<set _public to true>>
 <</if>>
-<<if $currentRule.assignment[_a] == "be a subordinate slave">>
-	<<set _subordinate = true>>
+<<if $currentRule.assignment[_a] is "be a subordinate slave">>
+	<<set _subordinate to true>>
 <</if>>
-<<if $currentRule.assignment[_a] == "stay confined">>
-	<<set _confined = true>>
+<<if $currentRule.assignment[_a] is "stay confined">>
+	<<set _confined to true>>
 <</if>>
 <</for>>
 
-<<if _rest || _fucktoy || _servant || _confined || _whore || _public || _milked || _subordinate || _gloryhole>>
+<<if _rest or _fucktoy or _servant or _confined or _whore  or _public or _milked or _subordinate or _gloryhole>>
 	<<link "None">>
-		<<set $currentRule.assignment = []>>
+		<<set $currentRule.assignment to []>>
 		<<RAChangeApplyAssignment>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -179,7 +179,7 @@ Apply to assignments:
 <<if !_rest>>
 	<<link "Rest">>
 		<<set $currentRule.assignment.push("rest")>>
-		<<set $currentRule.setAssignment = "none">>
+		<<set $currentRule.setAssignment to "none">>
 		<<RAChangeSetAssignment>>
 		<<RAChangeApplyAssignment>>
 		<<RAChangeSave>>
@@ -198,7 +198,7 @@ Apply to assignments:
 <<if !_fucktoy>>
 	<<link "Fucktoy">>
 		<<set $currentRule.assignment.push("please you")>>
-		<<set $currentRule.setAssignment = "none">>
+		<<set $currentRule.setAssignment to "none">>
 		<<RAChangeSetAssignment>>
 		<<RAChangeApplyAssignment>>
 		<<RAChangeSave>>
@@ -217,7 +217,7 @@ Apply to assignments:
 <<if !_subordinate>>
 	<<link "Subordinate Slave">>
 		<<set $currentRule.assignment.push("be a subordinate slave")>>
-		<<set $currentRule.setAssignment = "none">>
+		<<set $currentRule.setAssignment to "none">>
 		<<RAChangeSetAssignment>>
 		<<RAChangeApplyAssignment>>
 		<<RAChangeSave>>
@@ -238,7 +238,7 @@ Apply to assignments:
 <<if !_servant>>
 	<<link "House Servant">>
 		<<set $currentRule.assignment.push("be a servant")>>
-		<<set $currentRule.setAssignment = "none">>
+		<<set $currentRule.setAssignment to "none">>
 		<<RAChangeSetAssignment>>
 		<<RAChangeApplyAssignment>>
 		<<RAChangeSave>>
@@ -257,7 +257,7 @@ Apply to assignments:
 <<if !_confined>>
 	<<link "Confined">>
 		<<set $currentRule.assignment.push("stay confined")>>
-		<<set $currentRule.setAssignment = "none">>
+		<<set $currentRule.setAssignment to "none">>
 		<<RAChangeSetAssignment>>
 		<<RAChangeApplyAssignment>>
 		<<RAChangeSave>>
@@ -276,7 +276,7 @@ Apply to assignments:
 <<if !_whore>>
 	<<link "Whore">>
 		<<set $currentRule.assignment.push("whore")>>
-		<<set $currentRule.setAssignment = "none">>
+		<<set $currentRule.setAssignment to "none">>
 		<<RAChangeSetAssignment>>
 		<<RAChangeApplyAssignment>>
 		<<RAChangeSave>>
@@ -295,7 +295,7 @@ Apply to assignments:
 <<if !_public>>
 	<<link "Public Servant">>
 		<<set $currentRule.assignment.push("serve the public")>>
-		<<set $currentRule.setAssignment = "none">>
+		<<set $currentRule.setAssignment to "none">>
 		<<RAChangeSetAssignment>>
 		<<RAChangeApplyAssignment>>
 		<<RAChangeSave>>
@@ -314,7 +314,7 @@ Apply to assignments:
 <<if !_milked>>
 	<<link "Milking">>
 		<<set $currentRule.assignment.push("get milked")>>
-		<<set $currentRule.setAssignment = "none">>
+		<<set $currentRule.setAssignment to "none">>
 		<<RAChangeSetAssignment>>
 		<<RAChangeApplyAssignment>>
 		<<RAChangeSave>>
@@ -333,7 +333,7 @@ Apply to assignments:
 <<if !_gloryhole>>
 	<<link "Gloryhole">>
 		<<set $currentRule.assignment.push("work a glory hole")>>
-		<<set $currentRule.setAssignment = "none">>
+		<<set $currentRule.setAssignment to "none">>
 		<<RAChangeSetAssignment>>
 		<<RAChangeApplyAssignment>>
 		<<RAChangeSave>>
@@ -358,49 +358,49 @@ Apply to assignments:
 Exclude assignments:
 <br>
 <<if ndef $currentRule.excludeAssignment>>
-	<<set $currentRule.excludeAssignment = []>>
+	<<set $currentRule.excludeAssignment to []>>
 <</if>>
-<<set _rest = false>>
-<<set _fucktoy = false>>
-<<set _servant = false>>
-<<set _confined = false>>
-<<set _whore = false>>
-<<set _public = false>>
-<<set _milked = false>>
-<<set _subordinate = false>>
-<<set _gloryhole = false>>
-<<for _a = $currentRule.excludeAssignment.length; _a >= 0; _a-->>
-<<if $currentRule.excludeAssignment[_a] == "rest">>
-	<<set _rest = true>>
+<<set _rest to false>>
+<<set _fucktoy to false>>
+<<set _servant to false>>
+<<set _confined to false>>
+<<set _whore to false>>
+<<set _public to false>>
+<<set _milked to false>>
+<<set _subordinate to false>>
+<<set _gloryhole to false>>
+<<for _a to $currentRule.excludeAssignment.length; _a >= 0; _a-->>
+<<if $currentRule.excludeAssignment[_a] is "rest">>
+	<<set _rest to true>>
 <</if>>
-<<if $currentRule.excludeAssignment[_a] == "please you">>
-	<<set _fucktoy = true>>
+<<if $currentRule.excludeAssignment[_a] is "please you">>
+	<<set _fucktoy to true>>
 <</if>>
-<<if $currentRule.excludeAssignment[_a] == "be a servant">>
-	<<set _servant = true>>
+<<if $currentRule.excludeAssignment[_a] is "be a servant">>
+	<<set _servant to true>>
 <</if>>
-<<if $currentRule.excludeAssignment[_a] == "whore">>
-	<<set _whore = true>>
+<<if $currentRule.excludeAssignment[_a] is "whore">>
+	<<set _whore to true>>
 <</if>>
-<<if $currentRule.excludeAssignment[_a] == "work a glory hole">>
-	<<set _gloryhole = true>>
+<<if $currentRule.excludeAssignment[_a] is "work a glory hole">>
+	<<set _gloryhole to true>>
 <</if>>
-<<if $currentRule.excludeAssignment[_a] == "get milked">>
-	<<set _milked = true>>
+<<if $currentRule.excludeAssignment[_a] is "get milked">>
+	<<set _milked to true>>
 <</if>>
-<<if $currentRule.excludeAssignment[_a] == "serve the public">>
-	<<set _public = true>>
+<<if $currentRule.excludeAssignment[_a] is "serve the public">>
+	<<set _public to true>>
 <</if>>
-<<if $currentRule.excludeAssignment[_a] == "be a subordinate slave">>
-	<<set _subordinate = true>>
+<<if $currentRule.excludeAssignment[_a] is "be a subordinate slave">>
+	<<set _subordinate to true>>
 <</if>>
-<<if $currentRule.excludeAssignment[_a] == "stay confined">>
-	<<set _confined = true>>
+<<if $currentRule.excludeAssignment[_a] is "stay confined">>
+	<<set _confined to true>>
 <</if>>
 <</for>>
-<<if _rest || _fucktoy || _servant || _confined || _whore || _public || _milked || _subordinate || _gloryhole>>
+<<if _rest or _fucktoy or _servant or _confined or _whore  or _public or _milked or _subordinate or _gloryhole>>
 	<<link "None">>
-		<<set $currentRule.excludeAssignment = []>>
+		<<set $currentRule.excludeAssignment to []>>
 		<<RAChangeExcludeAssignment>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -411,7 +411,7 @@ Exclude assignments:
 <<if !_rest>>
 	<<link "Rest">>
 		<<set $currentRule.excludeAssignment.push("rest")>>
-		<<set $currentRule.setAssignment = "none">>
+		<<set $currentRule.setAssignment to "none">>
 		<<RAChangeSetAssignment>>
 		<<RAChangeExcludeAssignment>>
 		<<RAChangeSave>>
@@ -430,7 +430,7 @@ Exclude assignments:
 <<if !_fucktoy>>
 	<<link "Fucktoy">>
 		<<set $currentRule.excludeAssignment.push("please you")>>
-		<<set $currentRule.setAssignment = "none">>
+		<<set $currentRule.setAssignment to "none">>
 		<<RAChangeSetAssignment>>
 		<<RAChangeExcludeAssignment>>
 		<<RAChangeSave>>
@@ -449,7 +449,7 @@ Exclude assignments:
 <<if !_subordinate>>
 	<<link "Subordinate Slave">>
 		<<set $currentRule.excludeAssignment.push("be a subordinate slave")>>
-		<<set $currentRule.setAssignment = "none">>
+		<<set $currentRule.setAssignment to "none">>
 		<<RAChangeSetAssignment>>
 		<<RAChangeExcludeAssignment>>
 		<<RAChangeSave>>
@@ -469,7 +469,7 @@ Exclude assignments:
 <<if !_servant>>
 	<<link "House Servant">>
 		<<set $currentRule.excludeAssignment.push("be a servant")>>
-		<<set $currentRule.setAssignment = "none">>
+		<<set $currentRule.setAssignment to "none">>
 		<<RAChangeSetAssignment>>
 		<<RAChangeExcludeAssignment>>
 		<<RAChangeSave>>
@@ -488,7 +488,7 @@ Exclude assignments:
 <<if !_confined>>
 	<<link "Confined">>
 		<<set $currentRule.excludeAssignment.push("stay confined")>>
-		<<set $currentRule.setAssignment = "none">>
+		<<set $currentRule.setAssignment to "none">>
 		<<RAChangeSetAssignment>>
 		<<RAChangeExcludeAssignment>>
 		<<RAChangeSave>>
@@ -507,7 +507,7 @@ Exclude assignments:
 <<if !_whore>>
 	<<link "Whore">>
 		<<set $currentRule.excludeAssignment.push("whore")>>
-		<<set $currentRule.setAssignment = "none">>
+		<<set $currentRule.setAssignment to "none">>
 		<<RAChangeSetAssignment>>
 		<<RAChangeExcludeAssignment>>
 		<<RAChangeSave>>
@@ -526,7 +526,7 @@ Exclude assignments:
 <<if !_public>>
 	<<link "Public Servant">>
 		<<set $currentRule.excludeAssignment.push("serve the public")>>
-		<<set $currentRule.setAssignment = "none">>
+		<<set $currentRule.setAssignment to "none">>
 		<<RAChangeSetAssignment>>
 		<<RAChangeExcludeAssignment>>
 		<<RAChangeSave>>
@@ -545,7 +545,7 @@ Exclude assignments:
 <<if !_milked>>
 	<<link "Milking">>
 		<<set $currentRule.excludeAssignment.push("get milked")>>
-		<<set $currentRule.setAssignment = "none">>
+		<<set $currentRule.setAssignment to "none">>
 		<<RAChangeSetAssignment>>
 		<<RAChangeExcludeAssignment>>
 		<<RAChangeSave>>
@@ -564,7 +564,7 @@ Exclude assignments:
 <<if !_gloryhole>>
 	<<link "Gloryhole">>
 		<<set $currentRule.excludeAssignment.push("work a glory hole")>>
-		<<set $currentRule.setAssignment = "none">>
+		<<set $currentRule.setAssignment to "none">>
 		<<RAChangeSetAssignment>>
 		<<RAChangeExcludeAssignment>>
 		<<RAChangeSave>>
@@ -594,7 +594,7 @@ Apply to facilities:
 <br>
 <<if (_facility.length > 0)>>
 	<<link "None">>
-		<<set _facility = []>>
+		<<set _facility to []>>
 		<<RAChangeApplyFacility>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -607,7 +607,7 @@ Apply to facilities:
 <<if !ruleFacility(_facility,"hgsuite")>>
 	<<link $HGSuiteNameCaps>>
 		<<set _facility.push("hgsuite")>>
-		<<set $currentRule.assignFacility = "none">>
+		<<set $currentRule.assignFacility to "none">>
 		<<RAChangeApplyFacility>>
 		<<RAChangeAssignFacility>>
 		<<RAChangeSave>>
@@ -628,7 +628,7 @@ Apply to facilities:
 <<if !ruleFacility(_facility,"brothel")>>
 	<<link $brothelNameCaps>>
 		<<set _facility.push("brothel")>>
-		<<set $currentRule.assignFacility = "none">>
+		<<set $currentRule.assignFacility to "none">>
 		<<RAChangeApplyFacility>>
 		<<RAChangeAssignFacility>>
 		<<RAChangeSave>>
@@ -649,7 +649,7 @@ Apply to facilities:
 <<if !ruleFacility(_facility,"club")>>
 	<<link $clubNameCaps>>
 		<<set _facility.push("club")>>
-		<<set $currentRule.assignFacility = "none">>
+		<<set $currentRule.assignFacility to "none">>
 		<<RAChangeApplyFacility>>
 		<<RAChangeAssignFacility>>
 		<<RAChangeSave>>
@@ -670,7 +670,7 @@ Apply to facilities:
 <<if !ruleFacility(_facility,"arcade")>>
 	<<link $arcadeNameCaps>>
 		<<set _facility.push("arcade")>>
-		<<set $currentRule.assignFacility = "none">>
+		<<set $currentRule.assignFacility to "none">>
 		<<RAChangeApplyFacility>>
 		<<RAChangeAssignFacility>>
 		<<RAChangeSave>>
@@ -691,7 +691,7 @@ Apply to facilities:
 <<if !ruleFacility(_facility,"dairy")>>
 	<<link $dairyNameCaps>>
 		<<set _facility.push("dairy")>>
-		<<set $currentRule.assignFacility = "none">>
+		<<set $currentRule.assignFacility to "none">>
 		<<RAChangeApplyFacility>>
 		<<RAChangeAssignFacility>>
 		<<RAChangeSave>>
@@ -712,7 +712,7 @@ Apply to facilities:
 <<if !ruleFacility(_facility,"servantsquarters")>>
 	<<link $servantsQuartersNameCaps>>
 		<<set _facility.push("servantsquarters")>>
-		<<set $currentRule.assignFacility = "none">>
+		<<set $currentRule.assignFacility to "none">>
 		<<RAChangeApplyFacility>>
 		<<RAChangeAssignFacility>>
 		<<RAChangeSave>>
@@ -733,7 +733,7 @@ Apply to facilities:
 <<if !ruleFacility(_facility,"mastersuite")>>
 	<<link $masterSuiteNameCaps>>
 		<<set _facility.push("mastersuite")>>
-		<<set $currentRule.assignFacility = "none">>
+		<<set $currentRule.assignFacility to "none">>
 		<<RAChangeApplyFacility>>
 		<<RAChangeAssignFacility>>
 		<<RAChangeSave>>
@@ -754,7 +754,7 @@ Apply to facilities:
 <<if !ruleFacility(_facility,"schoolroom")>>
 	<<link $schoolroomNameCaps>>
 		<<set _facility.push("schoolroom")>>
-		<<set $currentRule.assignFacility = "none">>
+		<<set $currentRule.assignFacility to "none">>
 		<<RAChangeApplyFacility>>
 		<<RAChangeAssignFacility>>
 		<<RAChangeSave>>
@@ -775,7 +775,7 @@ Apply to facilities:
 <<if !ruleFacility(_facility,"spa")>>
 	<<link $spaNameCaps>>
 		<<set _facility.push("spa")>>
-		<<set $currentRule.assignFacility = "none">>
+		<<set $currentRule.assignFacility to "none">>
 		<<RAChangeApplyFacility>>
 		<<RAChangeAssignFacility>>
 		<<RAChangeSave>>
@@ -796,7 +796,7 @@ Apply to facilities:
 <<if !ruleFacility(_facility,"clinic")>>
 	<<link $clinicNameCaps>>
 		<<set _facility.push("clinic")>>
-		<<set $currentRule.assignFacility = "none">>
+		<<set $currentRule.assignFacility to "none">>
 		<<RAChangeApplyFacility>>
 		<<RAChangeAssignFacility>>
 		<<RAChangeSave>>
@@ -817,7 +817,7 @@ Apply to facilities:
 <<if !ruleFacility(_facility,"cellblock")>>
 	<<link $cellblockNameCaps>>
 		<<set _facility.push("cellblock")>>
-		<<set $currentRule.assignFacility = "none">>
+		<<set $currentRule.assignFacility to "none">>
 		<<RAChangeApplyFacility>>
 		<<RAChangeAssignFacility>>
 		<<RAChangeSave>>
@@ -840,7 +840,7 @@ Apply to facilities:
 <<if $currentRule.excludeSpecialSlaves>>
 	''True'' |
 	<<link False>>
-		<<set $currentRule.excludeSpecialSlaves = false>>
+		<<set $currentRule.excludeSpecialSlaves to false>>
 		<<RAChangeApplyFacility>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -848,7 +848,7 @@ Apply to facilities:
 <<else>>
 	''False'' |
 	<<link True>>
-		<<set $currentRule.excludeSpecialSlaves = true>>
+		<<set $currentRule.excludeSpecialSlaves to true>>
 		<<RAChangeApplyFacility>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -868,7 +868,7 @@ Exclude facilities:
 <br>
 <<if (_excludeFacility.length > 0)>>
 	<<link "None">>
-		<<set _excludeFacility = []>>
+		<<set _excludeFacility to []>>
 		<<RAChangeExcludeFacility>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -881,7 +881,7 @@ Exclude facilities:
 <<if !ruleFacility(_excludeFacility,"hgsuite")>>
 	<<link $HGSuiteNameCaps>>
 		<<set _excludeFacility.push("hgsuite")>>
-		<<set $currentRule.assignFacility = "none">>
+		<<set $currentRule.assignFacility to "none">>
 		<<RAChangeExcludeFacility>>
 		<<RAChangeAssignFacility>>
 		<<RAChangeSave>>
@@ -902,7 +902,7 @@ Exclude facilities:
 <<if !ruleFacility(_excludeFacility,"brothel")>>
 	<<link $brothelNameCaps>>
 		<<set _excludeFacility.push("brothel")>>
-		<<set $currentRule.assignFacility = "none">>
+		<<set $currentRule.assignFacility to "none">>
 		<<RAChangeExcludeFacility>>
 		<<RAChangeAssignFacility>>
 		<<RAChangeSave>>
@@ -923,7 +923,7 @@ Exclude facilities:
 <<if !ruleFacility(_excludeFacility,"club")>>
 	<<link $clubNameCaps>>
 		<<set _excludeFacility.push("club")>>
-		<<set $currentRule.assignFacility = "none">>
+		<<set $currentRule.assignFacility to "none">>
 		<<RAChangeExcludeFacility>>
 		<<RAChangeAssignFacility>>
 		<<RAChangeSave>>
@@ -944,7 +944,7 @@ Exclude facilities:
 <<if !ruleFacility(_excludeFacility,"arcade")>>
 	<<link $arcadeNameCaps>>
 		<<set _excludeFacility.push("arcade")>>
-		<<set $currentRule.assignFacility = "none">>
+		<<set $currentRule.assignFacility to "none">>
 		<<RAChangeExcludeFacility>>
 		<<RAChangeAssignFacility>>
 		<<RAChangeSave>>
@@ -965,7 +965,7 @@ Exclude facilities:
 <<if !ruleFacility(_excludeFacility,"dairy")>>
 	<<link $dairyNameCaps>>
 		<<set _excludeFacility.push("dairy")>>
-		<<set $currentRule.assignFacility = "none">>
+		<<set $currentRule.assignFacility to "none">>
 		<<RAChangeExcludeFacility>>
 		<<RAChangeAssignFacility>>
 		<<RAChangeSave>>
@@ -986,7 +986,7 @@ Exclude facilities:
 <<if !ruleFacility(_excludeFacility,"servantsquarters")>>
 	<<link $servantsQuartersNameCaps>>
 		<<set _excludeFacility.push("servantsquarters")>>
-		<<set $currentRule.assignFacility = "none">>
+		<<set $currentRule.assignFacility to "none">>
 		<<RAChangeExcludeFacility>>
 		<<RAChangeAssignFacility>>
 		<<RAChangeSave>>
@@ -1007,7 +1007,7 @@ Exclude facilities:
 <<if !ruleFacility(_excludeFacility,"mastersuite")>>
 	<<link $masterSuiteNameCaps>>
 		<<set _excludeFacility.push("mastersuite")>>
-		<<set $currentRule.assignFacility = "none">>
+		<<set $currentRule.assignFacility to "none">>
 		<<RAChangeExcludeFacility>>
 		<<RAChangeAssignFacility>>
 		<<RAChangeSave>>
@@ -1028,7 +1028,7 @@ Exclude facilities:
 <<if !ruleFacility(_excludeFacility,"schoolroom")>>
 	<<link $schoolroomNameCaps>>
 		<<set _excludeFacility.push("schoolroom")>>
-		<<set $currentRule.assignFacility = "none">>
+		<<set $currentRule.assignFacility to "none">>
 		<<RAChangeExcludeFacility>>
 		<<RAChangeAssignFacility>>
 		<<RAChangeSave>>
@@ -1049,7 +1049,7 @@ Exclude facilities:
 <<if !ruleFacility(_excludeFacility,"spa")>>
 	<<link $spaNameCaps>>
 		<<set _excludeFacility.push("spa")>>
-		<<set $currentRule.assignFacility = "none">>
+		<<set $currentRule.assignFacility to "none">>
 		<<RAChangeExcludeFacility>>
 		<<RAChangeAssignFacility>>
 		<<RAChangeSave>>
@@ -1070,7 +1070,7 @@ Exclude facilities:
 <<if !ruleFacility(_excludeFacility,"clinic")>>
 	<<link $clinicNameCaps>>
 		<<set _excludeFacility.push("clinic")>>
-		<<set $currentRule.assignFacility = "none">>
+		<<set $currentRule.assignFacility to "none">>
 		<<RAChangeExcludeFacility>>
 		<<RAChangeAssignFacility>>
 		<<RAChangeSave>>
@@ -1091,7 +1091,7 @@ Exclude facilities:
 <<if !ruleFacility(_excludeFacility,"cellblock")>>
 	<<link $cellblockNameCaps>>
 		<<set _excludeFacility.push("cellblock")>>
-		<<set $currentRule.assignFacility = "none">>
+		<<set $currentRule.assignFacility to "none">>
 		<<RAChangeExcludeFacility>>
 		<<RAChangeAssignFacility>>
 		<<RAChangeSave>>
@@ -1121,7 +1121,7 @@ Exclude facilities:
 ''Automatically set assignment:''
 <br>
 	<<link "None">>
-		<<set $currentRule.setAssignment = "none">>
+		<<set $currentRule.setAssignment to "none">>
 		<<RAChangeSetAssignment>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -1134,9 +1134,9 @@ Automatically set assignment:
 |
 <<if ($currentRule.setAssignment != "rest")>>
 	<<link "Rest">>
-		<<set $currentRule.setAssignment = "rest">>
-		<<set $currentRule.assignFacility = "none">>
-		<<set $currentRule.assignment = []>>
+		<<set $currentRule.setAssignment to "rest">>
+		<<set $currentRule.assignFacility to "none">>
+		<<set $currentRule.assignment to []>>
 		<<RAChangeApplyAssignment>>
 		<<RAChangeSetAssignment>>
 		<<RAChangeAssignFacility>>
@@ -1149,9 +1149,9 @@ Automatically set assignment:
 |
 <<if ($currentRule.setAssignment != "please you")>>
 	<<link "Fucktoy">>
-		<<set $currentRule.setAssignment = "please you">>
-		<<set $currentRule.assignFacility = "none">>
-		<<set $currentRule.assignment = []>>
+		<<set $currentRule.setAssignment to "please you">>
+		<<set $currentRule.assignFacility to "none">>
+		<<set $currentRule.assignment to []>>
 		<<RAChangeApplyAssignment>>
 		<<RAChangeSetAssignment>>
 		<<RAChangeAssignFacility>>
@@ -1164,9 +1164,9 @@ Automatically set assignment:
 |
 <<if ($currentRule.setAssignment != "be a servant")>>
 	<<link "House Servant">>
-		<<set $currentRule.setAssignment = "be a servant">>
-		<<set $currentRule.assignFacility = "none">>
-		<<set $currentRule.assignment = []>>
+		<<set $currentRule.setAssignment to "be a servant">>
+		<<set $currentRule.assignFacility to "none">>
+		<<set $currentRule.assignment to []>>
 		<<RAChangeApplyAssignment>>
 		<<RAChangeSetAssignment>>
 		<<RAChangeAssignFacility>>
@@ -1179,9 +1179,9 @@ Automatically set assignment:
 |
 <<if ($currentRule.setAssignment != "stay confined")>>
 	<<link "Confined">>
-		<<set $currentRule.setAssignment = "stay confined">>
-		<<set $currentRule.assignFacility = "none">>
-		<<set $currentRule.assignment = []>>
+		<<set $currentRule.setAssignment to "stay confined">>
+		<<set $currentRule.assignFacility to "none">>
+		<<set $currentRule.assignment to []>>
 		<<RAChangeApplyAssignment>>
 		<<RAChangeSetAssignment>>
 		<<RAChangeAssignFacility>>
@@ -1194,9 +1194,9 @@ Automatically set assignment:
 |
 <<if ($currentRule.setAssignment != "whore")>>
 	<<link "Whore">>
-		<<set $currentRule.setAssignment = "whore">>
-		<<set $currentRule.assignFacility = "none">>
-		<<set $currentRule.assignment = []>>
+		<<set $currentRule.setAssignment to "whore">>
+		<<set $currentRule.assignFacility to "none">>
+		<<set $currentRule.assignment to []>>
 		<<RAChangeApplyAssignment>>
 		<<RAChangeSetAssignment>>
 		<<RAChangeAssignFacility>>
@@ -1209,9 +1209,9 @@ Automatically set assignment:
 |
 <<if ($currentRule.setAssignment != "serve the public")>>
 	<<link "Public Servant">>
-		<<set $currentRule.setAssignment = "serve the public">>
-		<<set $currentRule.assignFacility = "none">>
-		<<set $currentRule.assignment = []>>
+		<<set $currentRule.setAssignment to "serve the public">>
+		<<set $currentRule.assignFacility to "none">>
+		<<set $currentRule.assignment to []>>
 		<<RAChangeApplyAssignment>>
 		<<RAChangeSetAssignment>>
 		<<RAChangeAssignFacility>>
@@ -1224,9 +1224,9 @@ Automatically set assignment:
 |
 <<if ($currentRule.setAssignment != "get milked")>>
 	<<link "Milking">>
-		<<set $currentRule.setAssignment = "get milked">>
-		<<set $currentRule.assignFacility = "none">>
-		<<set $currentRule.assignment = []>>
+		<<set $currentRule.setAssignment to "get milked">>
+		<<set $currentRule.assignFacility to "none">>
+		<<set $currentRule.assignment to []>>
 		<<RAChangeApplyAssignment>>
 		<<RAChangeSetAssignment>>
 		<<RAChangeAssignFacility>>
@@ -1239,9 +1239,9 @@ Automatically set assignment:
 |
 <<if ($currentRule.setAssignment != "work a glory hole")>>
 	<<link "Gloryhole">>
-		<<set $currentRule.setAssignment = "work a glory hole">>
-		<<set $currentRule.assignFacility = "none">>
-		<<set $currentRule.assignment = []>>
+		<<set $currentRule.setAssignment to "work a glory hole">>
+		<<set $currentRule.assignFacility to "none">>
+		<<set $currentRule.assignment to []>>
 		<<RAChangeApplyAssignment>>
 		<<RAChangeSetAssignment>>
 		<<RAChangeApplyFacility>>
@@ -1257,7 +1257,7 @@ Automatically set assignment:
 <<if $currentRule.excludeSpecialSlaves>>
 	''True'' |
 	<<link False>>
-		<<set $currentRule.excludeSpecialSlaves = false>>
+		<<set $currentRule.excludeSpecialSlaves to false>>
 		<<RAChangeSetAssignment>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -1265,7 +1265,7 @@ Automatically set assignment:
 <<else>>
 	''False'' |
 	<<link True>>
-		<<set $currentRule.excludeSpecialSlaves = true>>
+		<<set $currentRule.excludeSpecialSlaves to true>>
 		<<RAChangeSetAssignment>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -1287,7 +1287,7 @@ Automatically set assignment:
 ''Automatically assign slaves to facility:''
 <br>
 	<<link "None">>
-		<<set $currentRule.assignFacility = "none">>
+		<<set $currentRule.assignFacility to "none">>
 		<<RAChangeAssignFacility>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -1301,10 +1301,10 @@ Automatically assign slaves to facility:
 |
 <<if ($currentRule.assignFacility != "hgsuite")>>
 	<<link $HGSuiteNameCaps>>
-		<<set $currentRule.assignFacility = "hgsuite">>
-		<<set $currentRule.setAssignment = "none">>
-		<<set $currentRule.facility = []>>
-		<<set _facility = []>>
+		<<set $currentRule.assignFacility to "hgsuite">>
+		<<set $currentRule.setAssignment to "none">>
+		<<set $currentRule.facility to []>>
+		<<set _facility to []>>
 		<<RAChangeAssignFacility>>
 		<<RAChangeSetAssignment>>
 		<<RAChangeApplyFacility>>
@@ -1319,10 +1319,10 @@ Automatically assign slaves to facility:
 |
 <<if ($currentRule.assignFacility != "brothel")>>
 	<<link $brothelNameCaps>>
-		<<set $currentRule.assignFacility = "brothel">>
-		<<set $currentRule.setAssignment = "none">>
-		<<set $currentRule.facility = []>>
-		<<set _facility = []>>
+		<<set $currentRule.assignFacility to "brothel">>
+		<<set $currentRule.setAssignment to "none">>
+		<<set $currentRule.facility to []>>
+		<<set _facility to []>>
 		<<RAChangeApplyFacility>>
 		<<RAChangeAssignFacility>>
 		<<RAChangeSetAssignment>>
@@ -1337,10 +1337,10 @@ Automatically assign slaves to facility:
 |
 <<if ($currentRule.assignFacility != "club")>>
 	<<link $clubNameCaps>>
-		<<set $currentRule.assignFacility = "club">>
-		<<set $currentRule.setAssignment = "none">>
-		<<set $currentRule.facility = []>>
-		<<set _facility = []>>
+		<<set $currentRule.assignFacility to "club">>
+		<<set $currentRule.setAssignment to "none">>
+		<<set $currentRule.facility to []>>
+		<<set _facility to []>>
 		<<RAChangeApplyFacility>>
 		<<RAChangeAssignFacility>>
 		<<RAChangeSetAssignment>>
@@ -1355,10 +1355,10 @@ Automatically assign slaves to facility:
 |
 <<if ($currentRule.assignFacility != "arcade")>>
 	<<link $arcadeNameCaps>>
-		<<set $currentRule.assignFacility = "arcade">>
-		<<set $currentRule.setAssignment = "none">>
-		<<set $currentRule.facility = []>>
-		<<set _facility = []>>
+		<<set $currentRule.assignFacility to "arcade">>
+		<<set $currentRule.setAssignment to "none">>
+		<<set $currentRule.facility to []>>
+		<<set _facility to []>>
 		<<RAChangeApplyFacility>>
 		<<RAChangeAssignFacility>>
 		<<RAChangeSetAssignment>>
@@ -1373,10 +1373,10 @@ Automatically assign slaves to facility:
 |
 <<if ($currentRule.assignFacility != "dairy")>>
 	<<link $dairyNameCaps>>
-		<<set $currentRule.assignFacility = "dairy">>
-		<<set $currentRule.setAssignment = "none">>
-		<<set $currentRule.facility = []>>
-		<<set _facility = []>>
+		<<set $currentRule.assignFacility to "dairy">>
+		<<set $currentRule.setAssignment to "none">>
+		<<set $currentRule.facility to []>>
+		<<set _facility to []>>
 		<<RAChangeApplyFacility>>
 		<<RAChangeAssignFacility>>
 		<<RAChangeSetAssignment>>
@@ -1391,10 +1391,10 @@ Automatically assign slaves to facility:
 |
 <<if ($currentRule.assignFacility != "servantsquarters")>>
 	<<link $servantsQuartersNameCaps>>
-		<<set $currentRule.assignFacility = "servantsquarters">>
-		<<set $currentRule.setAssignment = "none">>
-		<<set $currentRule.facility = []>>
-		<<set _facility = []>>
+		<<set $currentRule.assignFacility to "servantsquarters">>
+		<<set $currentRule.setAssignment to "none">>
+		<<set $currentRule.facility to []>>
+		<<set _facility to []>>
 		<<RAChangeApplyFacility>>
 		<<RAChangeAssignFacility>>
 		<<RAChangeSetAssignment>>
@@ -1409,10 +1409,10 @@ Automatically assign slaves to facility:
 |
 <<if ($currentRule.assignFacility != "mastersuite")>>
 	<<link $masterSuiteNameCaps>>
-		<<set $currentRule.assignFacility = "mastersuite">>
-		<<set $currentRule.setAssignment = "none">>
-		<<set $currentRule.facility = []>>
-		<<set _facility = []>>
+		<<set $currentRule.assignFacility to "mastersuite">>
+		<<set $currentRule.setAssignment to "none">>
+		<<set $currentRule.facility to []>>
+		<<set _facility to []>>
 		<<RAChangeApplyFacility>>
 		<<RAChangeAssignFacility>>
 		<<RAChangeSetAssignment>>
@@ -1427,10 +1427,10 @@ Automatically assign slaves to facility:
 |
 <<if ($currentRule.assignFacility != "schoolroom")>>
 	<<link $schoolroomNameCaps>>
-		<<set $currentRule.assignFacility = "schoolroom">>
-		<<set $currentRule.setAssignment = "none">>
-		<<set $currentRule.facility = []>>
-		<<set _facility = []>>
+		<<set $currentRule.assignFacility to "schoolroom">>
+		<<set $currentRule.setAssignment to "none">>
+		<<set $currentRule.facility to []>>
+		<<set _facility to []>>
 		<<RAChangeApplyFacility>>
 		<<RAChangeAssignFacility>>
 		<<RAChangeSetAssignment>>
@@ -1445,10 +1445,10 @@ Automatically assign slaves to facility:
 |
 <<if ($currentRule.assignFacility != "spa")>>
 	<<link $spaNameCaps>>
-		<<set $currentRule.assignFacility = "spa">>
-		<<set $currentRule.setAssignment = "none">>
-		<<set $currentRule.facility = []>>
-		<<set _facility = []>>
+		<<set $currentRule.assignFacility to "spa">>
+		<<set $currentRule.setAssignment to "none">>
+		<<set $currentRule.facility to []>>
+		<<set _facility to []>>
 		<<RAChangeApplyFacility>>
 		<<RAChangeAssignFacility>>
 		<<RAChangeSetAssignment>>
@@ -1463,10 +1463,10 @@ Automatically assign slaves to facility:
 |
 <<if ($currentRule.assignFacility != "clinic")>>
 	<<link $clinicNameCaps>>
-		<<set $currentRule.assignFacility = "clinic">>
-		<<set $currentRule.setAssignment = "none">>
-		<<set $currentRule.facility = []>>
-		<<set _facility = []>>
+		<<set $currentRule.assignFacility to "clinic">>
+		<<set $currentRule.setAssignment to "none">>
+		<<set $currentRule.facility to []>>
+		<<set _facility to []>>
 		<<RAChangeApplyFacility>>
 		<<RAChangeAssignFacility>>
 		<<RAChangeSetAssignment>>
@@ -1481,10 +1481,10 @@ Automatically assign slaves to facility:
 |
 <<if ($currentRule.assignFacility != "cellblock")>>
 	<<link $cellblockNameCaps>>
-		<<set $currentRule.assignFacility = "cellblock">>
-		<<set $currentRule.setAssignment = "none">>
-		<<set $currentRule.facility = []>>
-		<<set _facility = []>>
+		<<set $currentRule.assignFacility to "cellblock">>
+		<<set $currentRule.setAssignment to "none">>
+		<<set $currentRule.facility to []>>
+		<<set _facility to []>>
 		<<RAChangeApplyFacility>>
 		<<RAChangeAssignFacility>>
 		<<RAChangeSetAssignment>>
@@ -1501,7 +1501,7 @@ Automatically assign slaves to facility:
 <<if $currentRule.excludeSpecialSlaves>>
 	''True'' |
 	<<link False>>
-		<<set $currentRule.excludeSpecialSlaves = false>>
+		<<set $currentRule.excludeSpecialSlaves to false>>
 		<<RAChangeAssignFacility>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -1509,7 +1509,7 @@ Automatically assign slaves to facility:
 <<else>>
 	''False'' |
 	<<link True>>
-		<<set $currentRule.excludeSpecialSlaves = true>>
+		<<set $currentRule.excludeSpecialSlaves to true>>
 		<<RAChangeAssignFacility>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -1520,7 +1520,7 @@ Automatically assign slaves to facility:
 <<if $currentRule.facilityRemove>>
 	''True'' |
 	<<link False>>
-		<<set $currentRule.facilityRemove = false>>
+		<<set $currentRule.facilityRemove to false>>
 		<<RAChangeAssignFacility>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -1528,7 +1528,7 @@ Automatically assign slaves to facility:
 <<else>>
 	''False'' |
 	<<link True>>
-		<<set $currentRule.facilityRemove = true>>
+		<<set $currentRule.facilityRemove to true>>
 		<<RAChangeAssignFacility>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -1539,7 +1539,7 @@ Automatically assign slaves to facility:
 $currentRule.removalAssignment |
 <<if ($currentRule.removalAssignment != "rest")>>
 	<<link Rest>>
-		<<set $currentRule.removalAssignment = "rest">>
+		<<set $currentRule.removalAssignment to "rest">>
 		<<RAChangeAssignFacility>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -1549,7 +1549,7 @@ $currentRule.removalAssignment |
 <</if>>
 <<if ($currentRule.removalAssignment != "please you")>>
 	<<link "Please you">>
-		<<set $currentRule.removalAssignment = "please you">>
+		<<set $currentRule.removalAssignment to "please you">>
 		<<RAChangeAssignFacility>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -1559,7 +1559,7 @@ $currentRule.removalAssignment |
 <</if>>
 <<if ($currentRule.removalAssignment != "whore")>>
 	<<link Whore>>
-		<<set $currentRule.removalAssignment = "whore">>
+		<<set $currentRule.removalAssignment to "whore">>
 		<<RAChangeAssignFacility>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -1569,7 +1569,7 @@ $currentRule.removalAssignment |
 <</if>>
 <<if ($currentRule.removalAssignment != "serve the public")>>
 	<<link "Public servant">>
-		<<set $currentRule.removalAssignment = "serve the public">>
+		<<set $currentRule.removalAssignment to "serve the public">>
 		<<RAChangeAssignFacility>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -1579,7 +1579,7 @@ $currentRule.removalAssignment |
 <</if>>
 <<if ($currentRule.removalAssignment != "get milked")>>
 	<<link "Get milked">>
-		<<set $currentRule.removalAssignment = "get milked">>
+		<<set $currentRule.removalAssignment to "get milked">>
 		<<RAChangeAssignFacility>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -1589,7 +1589,7 @@ $currentRule.removalAssignment |
 <</if>>
 <<if ($currentRule.removalAssignment != "stay confined")>>
 	<<link "Stay confined">>
-		<<set $currentRule.removalAssignment = "stay confined">>
+		<<set $currentRule.removalAssignment to "stay confined">>
 		<<RAChangeAssignFacility>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -1599,7 +1599,7 @@ $currentRule.removalAssignment |
 <</if>>
 <<if ($currentRule.removalAssignment != "work a glory hole")>>
 	<<link "Glory hole">>
-		<<set $currentRule.removalAssignment = "work a glory hole">>
+		<<set $currentRule.removalAssignment to "work a glory hole">>
 		<<RAChangeAssignFacility>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -1619,7 +1619,7 @@ $currentRule.removalAssignment |
 <<replace #clothes>>
 <<if $currentRule.choosesOwnClothes == 1>>
 	''slave's choice.''
-	<<set $currentRule.clothes = "choosing her own clothes">>
+	<<set $currentRule.clothes to "choosing her own clothes">>
 <<else>>
 	''$currentRule.clothes.''
 <</if>>
@@ -1731,13 +1731,13 @@ Corsetage: ''$currentRule.bellyAccessory.
 <<replace #growth>>
 Growth hormones for healthy slaves:
 
-<<if $currentRule.growth == "girlish">>
+<<if $currentRule.growth is "girlish">>
 	''up to a girlish figure.''
-<<elseif $currentRule.growth == "stacked">>
+<<elseif $currentRule.growth is "stacked">>
 	''up to a stacked figure.''
-<<elseif $currentRule.growth == "functional">>
+<<elseif $currentRule.growth is "functional">>
 	''as large as will allow a normal life.''
-<<elseif $currentRule.growth == "unlimited">>
+<<elseif $currentRule.growth is "unlimited">>
 	''no limits.''
 <<else>>
 	''no default setting.''
@@ -1777,9 +1777,9 @@ Contraceptives for fertile slaves: // Will override hormones and drugs if applic
 	''fertile.''
 <<elseif $currentRule.preg == 1>>
 	''very fertile.''
-<<elseif $currentRule.preg == 2>>
+<<elseif $currentRule.preg is 2>>
 	''extremely fertile.''
-<<elseif $currentRule.preg == -1>>
+<<elseif $currentRule.preg is -1>>
 	''contraceptives.''
 <<else>>
 	''no default setting.''
@@ -1798,11 +1798,11 @@ Hormones for female slaves:
 	''no hormones.''
 <<elseif $currentRule.XX == 1>>
 	''female.''
-<<elseif $currentRule.XX == 2>>
+<<elseif $currentRule.XX is 2>>
 	''intensive female.''
-<<elseif $currentRule.XX == -1>>
+<<elseif $currentRule.XX is -1>>
 	''male.''
-<<elseif $currentRule.XX == -2>>
+<<elseif $currentRule.XX is -2>>
 	''intensive male.''
 <<else>>
 	''no default setting.''
@@ -1821,11 +1821,11 @@ Hormones for shemales:
 	''no hormones.''
 <<elseif $currentRule.XY == 1>>
 	''female.''
-<<elseif $currentRule.XY == 2>>
+<<elseif $currentRule.XY is 2>>
 	''intensive female.''
-<<elseif $currentRule.XY == -1>>
+<<elseif $currentRule.XY is -1>>
 	''male.''
-<<elseif $currentRule.XY == -2>>
+<<elseif $currentRule.XY is -2>>
 	''intensive male.''
 <<else>>
 	''no default setting.''
@@ -1844,11 +1844,11 @@ Hormones for geldings:
 	''no hormones.''
 <<elseif $currentRule.gelding == 1>>
 	''female.''
-<<elseif $currentRule.gelding == 2>>
+<<elseif $currentRule.gelding is 2>>
 	''intensive female.''
-<<elseif $currentRule.gelding == -1>>
+<<elseif $currentRule.gelding is -1>>
 	''male.''
-<<elseif $currentRule.gelding == -2>>
+<<elseif $currentRule.gelding is -2>>
 	''intensive male.''
 <<else>>
 	''no default setting.''
@@ -1869,14 +1869,14 @@ Slave diets:
 	''designed for average weight.''
 <<elseif $currentRule.diet == -30>>
 	''designed to keep slaves thin.''
-<<elseif $currentRule.diet == "attractive">>
+<<elseif $currentRule.diet is "attractive">>
 	''fat slaves will slim down to plush; skinny slaves will fill out to thin.''
 <<else>>
 	''no default setting.''
 <</if>>
 <</replace>>
 <<replace #dietsupport>>
-<<if $currentRule.diet !== "no default setting">>	
+<<if $currentRule.diet isnot "no default setting">>	
 <br>&nbsp;&nbsp;&nbsp;&nbsp;Diet support for growth drugs:
 <<if $currentRule.dietGrowthSupport == 1>>
 	''on.''
@@ -1885,12 +1885,12 @@ Slave diets:
 <</if>>
 
 <<link "On">>
-	<<set $currentRule.dietGrowthSupport = 1>>
+	<<set $currentRule.dietGrowthSupport to 1>>
 	<<RAChangeDiet>>
 <</link>>
 | 
 <<link "Off">>
-	<<set $currentRule.dietGrowthSupport = 0>>
+	<<set $currentRule.dietGrowthSupport to 0>>
 	<<RAChangeDiet>>
 <</link>>
 <</if>>
@@ -1942,11 +1942,11 @@ Muscles:
 <<replace #braces>>
 Braces:
 
-<<if $currentRule.teeth == "straighten">>
+<<if $currentRule.teeth is "straighten">>
 	''straighten'' teeth, then remove.
-<<elseif $currentRule.teeth == "universal">>
+<<elseif $currentRule.teeth is "universal">>
 	''universally'' applied.
-<<elseif $currentRule.teeth == "none">>
+<<elseif $currentRule.teeth is "none">>
 	''none.''
 <<else>>
 	''no default setting.''
@@ -1964,13 +1964,13 @@ Assistant-applied implants:
 <<if $currentRule.autoSurgery == 1>>
 	''ACTIVE, STAND CLEAR.''
 	<<link "Off">>
-		<<set $currentRule.autoSurgery = 0>>
+		<<set $currentRule.autoSurgery to 0>>
 		<<RAChangeAssistantImplants>>
 	<</link>>
 <<else>>
 	''off.''
 	<<link "Activate">>
-		<<set $currentRule.autoSurgery = 1>>
+		<<set $currentRule.autoSurgery to 1>>
 		<<RAChangeAssistantImplants>>
 	<</link>>
 <</if>>
@@ -1988,13 +1988,13 @@ Assignments:
   ''selected by the player.''
 
 <<link "Slave's choice">>
-	<<set $currentRule.choosesOwnAssignment = 1>>
+	<<set $currentRule.choosesOwnAssignment to 1>>
 	<<RAChangeAssignment>>
 <</link>>
 <<else>>
   ''selected by the slave.''
 <<link "Player control">>
-	<<set $currentRule.choosesOwnAssignment = 0>>
+	<<set $currentRule.choosesOwnAssignment to 0>>
 	<<RAChangeAssignment>>
 <</link>>
 <</if>>
@@ -2069,10 +2069,10 @@ Relationship rules: ''$currentRule.relationshipRules.''
 %/
 <<widget "RAChangeFameSpending">>
 <<replace #pornfame>>
-<<if $currentRule.pornFameSpending == -1>>
+<<if $currentRule.pornFameSpending is -1>>
   Release of feeds showing excellent slaves' sex lives: ''off.''
 <<link "Enable">>
-	<<set $currentRule.pornFameSpending = 0>>
+	<<set $currentRule.pornFameSpending to 0>>
 	<<RAChangeFameSpending>>
 <</link>>
 <<else>>
@@ -2089,17 +2089,17 @@ Relationship rules: ''$currentRule.relationshipRules.''
 <<link _text>>
 	<<replace "#saveresult">>
 	//Rule saved.//
-	<<for _t = 0; _t < $defaultRules.length; _t++>>
-		<<if $currentRule.ID == $defaultRules[_t].ID>>
+	<<for _t to 0; _t < $defaultRules.length; _t++>>
+		<<if $currentRule.ID is $defaultRules[_t].ID>>
 			<<if $currentRule.thresholdLower != "none">>
-				<<set $currentRule.thresholdLower = Number($currentRule.thresholdLower)>>
+				<<set $currentRule.thresholdLower to Number($currentRule.thresholdLower)>>
 			<</if>>
 			<<if $currentRule.thresholdUpper != "none">>
-				<<set $currentRule.thresholdUpper = Number($currentRule.thresholdUpper)>>
+				<<set $currentRule.thresholdUpper to Number($currentRule.thresholdUpper)>>
 			<</if>>
-			<<set $currentRule.facility = _facility>>
-			<<set $currentRule.excludeFacility = _excludeFacility>>
-			<<set $defaultRules[_t] = $currentRule>>
+			<<set $currentRule.facility to _facility>>
+			<<set $currentRule.excludeFacility to _excludeFacility>>
+			<<set $defaultRules[_t] to $currentRule>>
 			<<break>>
 		<</if>>
 	<</for>>
@@ -2119,34 +2119,34 @@ Relationship rules: ''$currentRule.relationshipRules.''
 	//Rules applied.//
 	<</replace>>
 	<<replace "#applied">>
-	<<for _t = 0; _t < $defaultRules.length; _t++>>
-		<<if $currentRule.ID == $defaultRules[_t].ID>>
-			<<set $currentRule.facility = _facility>>
-			<<set $currentRule.excludeFacility = _excludeFacility>>
+	<<for _t to 0; _t < $defaultRules.length; _t++>>
+		<<if $currentRule.ID is $defaultRules[_t].ID>>
+			<<set $currentRule.facility to _facility>>
+			<<set $currentRule.excludeFacility to _excludeFacility>>
 			<<if $currentRule.thresholdLower != "none">>
-				<<set $currentRule.thresholdLower = Number($currentRule.thresholdLower)>>
+				<<set $currentRule.thresholdLower to Number($currentRule.thresholdLower)>>
 			<</if>>
 			<<if $currentRule.thresholdUpper != "none">>
-				<<set $currentRule.thresholdUpper = Number($currentRule.thresholdUpper)>>
+				<<set $currentRule.thresholdUpper to Number($currentRule.thresholdUpper)>>
 			<</if>>
-			<<set $defaultRules[_t] = $currentRule>>
+			<<set $defaultRules[_t] to $currentRule>>
 		<</if>>
 	<</for>>
-	<<for $i = 0; $i < $slaves.length; $i++>>
+	<<for $i to 0; $i < $slaves.length; $i++>>
 		  <<if $slaves[$i].useRulesAssistant == 1>>
-		  <<set $activeSlave = $slaves[$i]>>
+		  <<set $activeSlave to $slaves[$i]>>
 		  <<include "Check Auto Rules Activate">>
 		  <<include "Default Rules">>
-		  /*<<set $slaves[$i] = $activeSlave>>*/
+		  /*<<set $slaves[$i] to $activeSlave>>*/
 		  <</if>>
 	<</for>>
 
-	<<for _t = 0; _t < $defaultRules.length; _t++>>
-		<<set _r = $r-1>>
-		<<if $defaultRules[_t].ID == $defaultRules[_r].ID>>
-			<<set $currentRule = $defaultRules[_t]>>
-			<<set _facility = $currentRule.facility>>
-			<<set _excludeFacility = $currentRule.excludeFacility>>
+	<<for _t to 0; _t < $defaultRules.length; _t++>>
+		<<set _r to $r-1>>
+		<<if $defaultRules[_t].ID is $defaultRules[_r].ID>>
+			<<set $currentRule to $defaultRules[_t]>>
+			<<set _facility to $currentRule.facility>>
+			<<set _excludeFacility to $currentRule.excludeFacility>>
 			<<break>>
 		<</if>>
 	<</for>>
@@ -2182,11 +2182,11 @@ Eye coloring: ''$currentRule.eyeColor.''
 	makeup-free.
 <<elseif $currentRule.makeup == 1>>
 	minimal makeup.
-<<elseif $currentRule.makeup == 2>>
+<<elseif $currentRule.makeup is 2>>
 	luxurious, expensive makeup.
-<<elseif $currentRule.makeup == 3>>
+<<elseif $currentRule.makeup is 3>>
 	color-coordinated.
-<<elseif $currentRule.makeup == 4>>
+<<elseif $currentRule.makeup is 4>>
 	garish.
 <<else>>
 	no default setting.
@@ -2204,13 +2204,13 @@ Eye coloring: ''$currentRule.eyeColor.''
 	clipped.
 <<elseif $currentRule.nails == 1>>
 	long and elegant.
-<<elseif $currentRule.nails == 2>>
+<<elseif $currentRule.nails is 2>>
 	color-coordinated.
-<<elseif $currentRule.nails == 3>>
+<<elseif $currentRule.nails is 3>>
 	sharp and claw-like.
-<<elseif $currentRule.nails == 4>>
+<<elseif $currentRule.nails is 4>>
 	bright and glittery.
-<<elseif $currentRule.nails == 5>>
+<<elseif $currentRule.nails is 5>>
 	garish.
 <<else>>
 	no default setting.
@@ -2263,8 +2263,8 @@ Pubic hair style: ''$currentRule.pubicHStyle.''
 %/
 <<widget "RAChangeEarPiercings">>
 <<replace #earpiercing>>
-<<if $currentRule.earPiercing == "no default setting">>No default setting.<<elseif $currentRule.earPiercing == 0>>None.<<elseif $currentRule.earPiercing == 1>>Light.
-<<elseif $currentRule.earPiercing == 2>>Heavy.<</if>>
+<<if $currentRule.earPiercing is "no default setting">>No default setting.<<elseif $currentRule.earPiercing == 0>>None.<<elseif $currentRule.earPiercing == 1>>Light.
+<<elseif $currentRule.earPiercing is 2>>Heavy.<</if>>
 <</replace>>
 <</widget>>
 /%
@@ -2272,8 +2272,8 @@ Pubic hair style: ''$currentRule.pubicHStyle.''
 %/
 <<widget "RAChangeNosePiercings">>
 <<replace #nosepiercing>>
-<<if $currentRule.nosePiercing == "no default setting">>No default setting.<<elseif $currentRule.nosePiercing == 0>>None.<<elseif $currentRule.nosePiercing == 1>>Light.
-<<elseif $currentRule.nosePiercing == 2>>Heavy.<</if>>
+<<if $currentRule.nosePiercing is "no default setting">>No default setting.<<elseif $currentRule.nosePiercing == 0>>None.<<elseif $currentRule.nosePiercing == 1>>Light.
+<<elseif $currentRule.nosePiercing is 2>>Heavy.<</if>>
 <</replace>>
 <</widget>>
 /%
@@ -2281,8 +2281,8 @@ Pubic hair style: ''$currentRule.pubicHStyle.''
 %/
 <<widget "RAChangeEyebrowPiercings">>
 <<replace #eyebrowpiercing>>
-<<if $currentRule.eyebrowPiercing == "no default setting">>No default setting.<<elseif $currentRule.eyebrowPiercing == 0>>None.<<elseif $currentRule.eyebrowPiercing == 1>>Light.
-<<elseif $currentRule.eyebrowPiercing == 2>>Heavy.<</if>>
+<<if $currentRule.eyebrowPiercing is "no default setting">>No default setting.<<elseif $currentRule.eyebrowPiercing == 0>>None.<<elseif $currentRule.eyebrowPiercing == 1>>Light.
+<<elseif $currentRule.eyebrowPiercing is 2>>Heavy.<</if>>
 <</replace>>
 <</widget>>
 /%
@@ -2290,8 +2290,8 @@ Pubic hair style: ''$currentRule.pubicHStyle.''
 %/
 <<widget "RAChangeNavelPiercings">>
 <<replace #navelpiercing>>
-<<if $currentRule.navelPiercing == "no default setting">>No default setting.<<elseif $currentRule.navelPiercing == 0>>None.<<elseif $currentRule.navelPiercing == 1>>Light.
-<<elseif $currentRule.navelPiercing == 2>>Heavy.<</if>>
+<<if $currentRule.navelPiercing is "no default setting">>No default setting.<<elseif $currentRule.navelPiercing == 0>>None.<<elseif $currentRule.navelPiercing == 1>>Light.
+<<elseif $currentRule.navelPiercing is 2>>Heavy.<</if>>
 <</replace>>
 <</widget>>
 /%
@@ -2299,8 +2299,8 @@ Pubic hair style: ''$currentRule.pubicHStyle.''
 %/
 <<widget "RAChangeNipplePiercings">>
 <<replace #nipplepiercing>>
-<<if $currentRule.nipplesPiercing == "no default setting">>No default setting.<<elseif $currentRule.nipplesPiercing == 0>>None.<<elseif $currentRule.nipplesPiercing == 1>>Light.
-<<elseif $currentRule.nipplesPiercing == 2>>Heavy.<</if>>
+<<if $currentRule.nipplesPiercing is "no default setting">>No default setting.<<elseif $currentRule.nipplesPiercing == 0>>None.<<elseif $currentRule.nipplesPiercing == 1>>Light.
+<<elseif $currentRule.nipplesPiercing is 2>>Heavy.<</if>>
 <</replace>>
 <</widget>>
 /%
@@ -2308,7 +2308,7 @@ Pubic hair style: ''$currentRule.pubicHStyle.''
 %/
 <<widget "RAChangeAreolaPiercings">>
 <<replace #areolapiercing>>
-<<if $currentRule.areolaePiercing == "no default setting">>No default setting.<<elseif $currentRule.areolaePiercing == 0>>None.<<elseif $currentRule.areolaePiercing == 1>>Studded.<</if>>
+<<if $currentRule.areolaePiercing is "no default setting">>No default setting.<<elseif $currentRule.areolaePiercing == 0>>None.<<elseif $currentRule.areolaePiercing == 1>>Studded.<</if>>
 <</replace>>
 <</widget>>
 /%
@@ -2316,8 +2316,8 @@ Pubic hair style: ''$currentRule.pubicHStyle.''
 %/
 <<widget "RAChangeLipPiercings">>
 <<replace #lippiercing>>
-<<if $currentRule.lipsPiercing == "no default setting">>No default setting.<<elseif $currentRule.lipsPiercing == 0>>None.<<elseif $currentRule.lipsPiercing == 1>>Light.
-<<elseif $currentRule.lipsPiercing == 2>>Heavy.<</if>>
+<<if $currentRule.lipsPiercing is "no default setting">>No default setting.<<elseif $currentRule.lipsPiercing == 0>>None.<<elseif $currentRule.lipsPiercing == 1>>Light.
+<<elseif $currentRule.lipsPiercing is 2>>Heavy.<</if>>
 <</replace>>
 <</widget>>
 /%
@@ -2325,8 +2325,8 @@ Pubic hair style: ''$currentRule.pubicHStyle.''
 %/
 <<widget "RAChangeTonguePiercings">>
 <<replace #tonguepiercing>>
-<<if $currentRule.tonguePiercing == "no default setting">>No default setting.<<elseif $currentRule.tonguePiercing == 0>>None.<<elseif $currentRule.tonguePiercing == 1>>Light.
-<<elseif $currentRule.tonguePiercing == 2>>Heavy.<</if>>
+<<if $currentRule.tonguePiercing is "no default setting">>No default setting.<<elseif $currentRule.tonguePiercing == 0>>None.<<elseif $currentRule.tonguePiercing == 1>>Light.
+<<elseif $currentRule.tonguePiercing is 2>>Heavy.<</if>>
 <</replace>>
 <</widget>>
 /%
@@ -2334,9 +2334,9 @@ Pubic hair style: ''$currentRule.pubicHStyle.''
 %/
 <<widget "RAChangeClitPiercings">>
 <<replace #clitpiercing>>
-<<if $currentRule.clitPiercing == "no default setting">>No default setting.<<elseif $currentRule.clitPiercing == 0>>None.<<elseif $currentRule.clitPiercing == 1>>Light.
-<<elseif $currentRule.clitPiercing == 2>>Heavy.
-<<elseif $currentRule.clitPiercing == 3>>Smart.<</if>>
+<<if $currentRule.clitPiercing is "no default setting">>No default setting.<<elseif $currentRule.clitPiercing == 0>>None.<<elseif $currentRule.clitPiercing == 1>>Light.
+<<elseif $currentRule.clitPiercing is 2>>Heavy.
+<<elseif $currentRule.clitPiercing is 3>>Smart.<</if>>
 <</replace>>
 <</widget>>
 /%
@@ -2344,8 +2344,8 @@ Pubic hair style: ''$currentRule.pubicHStyle.''
 %/
 <<widget "RAChangeVaginaPiercings">>
 <<replace #vaginapiercing>>
-<<if $currentRule.vaginaPiercing == "no default setting">>No default setting.<<elseif $currentRule.vaginaPiercing == 0>>None.<<elseif $currentRule.vaginaPiercing == 1>>Light.
-<<elseif $currentRule.vaginaPiercing == 2>>Heavy.<</if>>
+<<if $currentRule.vaginaPiercing is "no default setting">>No default setting.<<elseif $currentRule.vaginaPiercing == 0>>None.<<elseif $currentRule.vaginaPiercing == 1>>Light.
+<<elseif $currentRule.vaginaPiercing is 2>>Heavy.<</if>>
 <</replace>>
 <</widget>>
 /%
@@ -2353,8 +2353,8 @@ Pubic hair style: ''$currentRule.pubicHStyle.''
 %/
 <<widget "RAChangeDickPiercings">>
 <<replace #dickpiercing>>
-<<if $currentRule.dickPiercing == "no default setting">>No default setting.<<elseif $currentRule.dickPiercing == 0>>None.<<elseif $currentRule.dickPiercing == 1>>Light.
-<<elseif $currentRule.dickPiercing == 2>>Heavy.<</if>>
+<<if $currentRule.dickPiercing is "no default setting">>No default setting.<<elseif $currentRule.dickPiercing == 0>>None.<<elseif $currentRule.dickPiercing == 1>>Light.
+<<elseif $currentRule.dickPiercing is 2>>Heavy.<</if>>
 <</replace>>
 <</widget>>
 /%
@@ -2362,8 +2362,8 @@ Pubic hair style: ''$currentRule.pubicHStyle.''
 %/
 <<widget "RAChangeAnusPiercings">>
 <<replace #anuspiercing>>
-<<if $currentRule.anusPiercing == "no default setting">>No default setting.<<elseif $currentRule.anusPiercing == 0>>None.<<elseif $currentRule.anusPiercing == 1>>Light.
-<<elseif $currentRule.anusPiercing == 2>>Heavy.<</if>>
+<<if $currentRule.anusPiercing is "no default setting">>No default setting.<<elseif $currentRule.anusPiercing == 0>>None.<<elseif $currentRule.anusPiercing == 1>>Light.
+<<elseif $currentRule.anusPiercing is 2>>Heavy.<</if>>
 <</replace>>
 <</widget>>
 /%
@@ -2371,7 +2371,7 @@ Pubic hair style: ''$currentRule.pubicHStyle.''
 %/
 <<widget "RAChangeCorsetPiercings">>
 <<replace #corsetpiercing>>
-<<if $currentRule.corsetPiercing == "no default setting">>No default setting.<<elseif $currentRule.corsetPiercing == 0>>None.<<elseif $currentRule.corsetPiercing == 1>>Applied.<</if>>
+<<if $currentRule.corsetPiercing is "no default setting">>No default setting.<<elseif $currentRule.corsetPiercing == 0>>None.<<elseif $currentRule.corsetPiercing == 1>>Applied.<</if>>
 <</replace>>
 <</widget>>
 /%
@@ -2382,13 +2382,13 @@ Pubic hair style: ''$currentRule.pubicHStyle.''
 <<if $currentRule.autoBrand == 1>>
   ''on.''
   <<link "Deactivate">>
-<<set $currentRule.autoBrand = 0>>
+<<set $currentRule.autoBrand to 0>>
 <<RAChangeBranding>>
 <</link>>
 <<else>>
   ''off.''
   <<link "Activate">>
-<<set $currentRule.autoBrand = 1>>
+<<set $currentRule.autoBrand to 1>>
 <<RAChangeBranding>>
 <</link>>
 <</if>>
@@ -2504,7 +2504,7 @@ Your brand design is ''$brandDesign.''
 %/
 <<widget "RASurgeryChangeLacation">>
 <<replace #lactation>>
-	<<if ($currentRule.surgery.lactation == "no default setting")>>
+	<<if ($currentRule.surgery.lactation is "no default setting")>>
 		''no default setting.''
 	<<elseif ($currentRule.surgery.lactation == 1)>>
 		''implanted.''
@@ -2514,25 +2514,25 @@ Your brand design is ''$brandDesign.''
 
 	<br>
 
-	<<if ($currentRule.surgery.lactation !== "no default setting")>>
+	<<if ($currentRule.surgery.lactation isnot "no default setting")>>
 		<<link "No default setting">>
-			<<set $currentRule.surgery.lactation = "no default setting">>
+			<<set $currentRule.surgery.lactation to "no default setting">>
 			<<RASurgeryChangeLacation>>
 		<</link>> |
 	<<else>>
 		No default setting |
 	<</if>>
-	<<if ($currentRule.surgery.lactation !== 0)>>
+	<<if ($currentRule.surgery.lactation isnot 0)>>
 		<<link "Removed">>
-			<<set $currentRule.surgery.lactation = 0>>
+			<<set $currentRule.surgery.lactation to 0>>
 			<<RASurgeryChangeLacation>>
 		<</link>> |
 	<<else>>
 		Removed |
 	<</if>>
-	<<if ($currentRule.surgery.lactation !== 1)>>
+	<<if ($currentRule.surgery.lactation isnot 1)>>
 		<<link "Implanted">>
-			<<set $currentRule.surgery.lactation = 1>>
+			<<set $currentRule.surgery.lactation to 1>>
 			<<RASurgeryChangeLacation>>
 		<</link>>
 	<<else>>
@@ -2546,7 +2546,7 @@ Your brand design is ''$brandDesign.''
 %/
 <<widget "RASurgeryChangeCosmetic">>
 <<replace #cosmetic>>
-	<<if ($currentRule.surgery.cosmetic == 2)>>
+	<<if ($currentRule.surgery.cosmetic is 2)>>
 		''invasive.''
 	<<elseif ($currentRule.surgery.cosmetic == 1)>>
 		''subtle.''
@@ -2556,7 +2556,7 @@ Your brand design is ''$brandDesign.''
 
 	<br>
 
-	<<if ($currentRule.surgery.cosmetic !== 0)>>
+	<<if ($currentRule.surgery.cosmetic isnot 0)>>
 		<<link "None">>
 			<<set $currentRule.surgery.cosmetic = 0>>
 			<<RASurgeryChangeCosmetic>>
@@ -2564,7 +2564,7 @@ Your brand design is ''$brandDesign.''
 	<<else>>
 		None |
 	<</if>>
-	<<if ($currentRule.surgery.cosmetic !== 1)>>
+	<<if ($currentRule.surgery.cosmetic isnot 1)>>
 		<<link "Subtle">>
 			<<set $currentRule.surgery.cosmetic = 1>>
 			<<RASurgeryChangeCosmetic>>
@@ -2572,7 +2572,7 @@ Your brand design is ''$brandDesign.''
 	<<else>>
 		Subtle |
 	<</if>>
-	<<if ($currentRule.surgery.cosmetic !== 2)>>
+	<<if ($currentRule.surgery.cosmetic isnot 2)>>
 		<<link "Invasive">>
 			<<set $currentRule.surgery.cosmetic = 2>>
 			<<RASurgeryChangeCosmetic>>
@@ -2588,13 +2588,13 @@ Your brand design is ''$brandDesign.''
 %/
 <<widget "RASurgeryChangeLips">>
 <<replace #lips>>
-	<<if ($currentRule.surgery.lips == "no default setting")>>
+	<<if ($currentRule.surgery.lips is "no default setting")>>
 		''no default setting.''
-	<<elseif ($currentRule.surgery.lips == 95)>>
+	<<elseif ($currentRule.surgery.lips is 95)>>
 		implanted until a ''facepussy.''
-	<<elseif ($currentRule.surgery.lips == 70)>>
+	<<elseif ($currentRule.surgery.lips is 70)>>
 		implanted until ''huge.''
-	<<elseif ($currentRule.surgery.lips == 40)>>
+	<<elseif ($currentRule.surgery.lips is 40)>>
 		implanted until ''big.''
 	<<elseif ($currentRule.surgery.lips == 20)>>
 		implanted until ''plush.''
@@ -2604,9 +2604,9 @@ Your brand design is ''$brandDesign.''
 
 	<br>
 
-	<<if ($currentRule.surgery.lips !== "no default setting")>>
+	<<if ($currentRule.surgery.lips isnot "no default setting")>>
 		<<link "No default setting">>
-		<<set $currentRule.surgery.lips = "no default setting">>
+		<<set $currentRule.surgery.lips to "no default setting">>
 		<<RASurgeryChangeLips>>
 		<</link>> |
 	<<else>>
@@ -2614,7 +2614,7 @@ Your brand design is ''$brandDesign.''
 	<</if>>
 	<<if ($currentRule.surgery.lips != 0)>>
 		<<link "Removed">>
-		<<set $currentRule.surgery.lips = 0>>
+		<<set $currentRule.surgery.lips to 0>>
 		<<RASurgeryChangeLips>>
 		<</link>> |
 	<<else>>
@@ -2622,7 +2622,7 @@ Your brand design is ''$brandDesign.''
 	<</if>>
 	<<if ($currentRule.surgery.lips != 20)>>
 		<<link "Plush">>
-		<<set $currentRule.surgery.lips = 20>>
+		<<set $currentRule.surgery.lips to 20>>
 		<<RASurgeryChangeLips>>
 		<</link>> |
 	<<else>>
@@ -2630,7 +2630,7 @@ Your brand design is ''$brandDesign.''
 	<</if>>
 	<<if ($currentRule.surgery.lips != 40)>>
 		<<link "Big">>
-		<<set $currentRule.surgery.lips = 40>>
+		<<set $currentRule.surgery.lips to 40>>
 		<<RASurgeryChangeLips>>
 		<</link>> |
 	<<else>>
@@ -2638,7 +2638,7 @@ Your brand design is ''$brandDesign.''
 	<</if>>
 	<<if ($currentRule.surgery.lips != 70)>>
 		<<link "Huge">>
-		<<set $currentRule.surgery.lips = 70>>
+		<<set $currentRule.surgery.lips to 70>>
 		<<RASurgeryChangeLips>>
 		<</link>>
 	<<else>>
@@ -2647,7 +2647,7 @@ Your brand design is ''$brandDesign.''
 	<<if ($seeExtreme != 0)>>
 	<<if ($currentRule.surgery.lips != 95)>>
 		| <<link "Facepussy">>
-		<<set $currentRule.surgery.lips = 95>>
+		<<set $currentRule.surgery.lips to 95>>
 		<<RASurgeryChangeLips>>
 		<</link>>
 	<<else>>
@@ -2662,15 +2662,15 @@ Your brand design is ''$brandDesign.''
 %/
 <<widget "RASurgeryChangeButt">>
 <<replace #butt>>
-	<<if ($currentRule.surgery.butt == "no default setting")>>
+	<<if ($currentRule.surgery.butt is "no default setting")>>
 		''no default setting.''
-	<<elseif ($currentRule.surgery.butt == 9)>>
+	<<elseif ($currentRule.surgery.butt is 9)>>
 		implanted until ''maximized.''
-	<<elseif ($currentRule.surgery.butt == 6)>>
+	<<elseif ($currentRule.surgery.butt is 6)>>
 		implanted until ''huge.''
-	<<elseif ($currentRule.surgery.butt == 4)>>
+	<<elseif ($currentRule.surgery.butt is 4)>>
 		implanted until ''stacked.''
-	<<elseif ($currentRule.surgery.butt == 2)>>
+	<<elseif ($currentRule.surgery.butt is 2)>>
 		implanted until ''slim.''
 	<<else>>
 		''implants will be removed.''
@@ -2678,9 +2678,9 @@ Your brand design is ''$brandDesign.''
 
 	<br>
 
-	<<if ($currentRule.surgery.butt !== "no default setting")>>
+	<<if ($currentRule.surgery.butt isnot "no default setting")>>
 		<<link "No default setting">>
-		<<set $currentRule.surgery.butt = "no default setting">>
+		<<set $currentRule.surgery.butt to "no default setting">>
 		<<RASurgeryChangeButt>>
 		<</link>> |
 	<<else>>
@@ -2688,7 +2688,7 @@ Your brand design is ''$brandDesign.''
 	<</if>>
 	<<if ($currentRule.surgery.butt != 0)>>
 		<<link "Removed">>
-		<<set $currentRule.surgery.butt = 0>>
+		<<set $currentRule.surgery.butt to 0>>
 		<<RASurgeryChangeButt>>
 		<</link>> |
 	<<else>>
@@ -2696,7 +2696,7 @@ Your brand design is ''$brandDesign.''
 	<</if>>
 	<<if ($currentRule.surgery.butt != 2)>>
 		<<link "Slim">>
-		<<set $currentRule.surgery.butt = 2>>
+		<<set $currentRule.surgery.butt to 2>>
 		<<RASurgeryChangeButt>>
 		<</link>> |
 	<<else>>
@@ -2704,7 +2704,7 @@ Your brand design is ''$brandDesign.''
 	<</if>>
 	<<if ($currentRule.surgery.butt != 4)>>
 		<<link "Stacked">>
-		<<set $currentRule.surgery.butt = 4>>
+		<<set $currentRule.surgery.butt to 4>>
 		<<RASurgeryChangeButt>>
 		<</link>> |
 	<<else>>
@@ -2712,7 +2712,7 @@ Your brand design is ''$brandDesign.''
 	<</if>>
 	<<if ($currentRule.surgery.butt != 6)>>
 		<<link "Huge">>
-		<<set $currentRule.surgery.butt = 6>>
+		<<set $currentRule.surgery.butt to 6>>
 		<<RASurgeryChangeButt>>
 		<</link>> |
 	<<else>>
@@ -2720,7 +2720,7 @@ Your brand design is ''$brandDesign.''
 	<</if>>
 	<<if ($currentRule.surgery.butt != 9)>>
 		<<link "Maximize">>
-		<<set $currentRule.surgery.butt = 9>>
+		<<set $currentRule.surgery.butt to 9>>
 		<<RASurgeryChangeButt>>
 		<</link>>
 	<<else>>
@@ -2734,17 +2734,17 @@ Your brand design is ''$brandDesign.''
 %/
 <<widget "RASurgeryChangeBoobs">>
 <<replace #boobs>>
-	<<if ($currentRule.surgery.boobs == "no default setting")>>
+	<<if ($currentRule.surgery.boobs is "no default setting")>>
 		''no default setting.''
-	<<elseif ($currentRule.surgery.boobs == 24000)>>
+	<<elseif ($currentRule.surgery.boobs is 24000)>>
 		implanted until ''maximized.''
-	<<elseif ($currentRule.surgery.boobs == 9000)>>
+	<<elseif ($currentRule.surgery.boobs is 9000)>>
 		implanted to maximally ''functional,'' where more would immobilize the slave.
-	<<elseif ($currentRule.surgery.boobs == 2000)>>
+	<<elseif ($currentRule.surgery.boobs is 2000)>>
 		implanted until ''huge.''
 	<<elseif ($currentRule.surgery.boobs == 1000)>>
 		implanted until ''stacked.''
-	<<elseif ($currentRule.surgery.boobs == 400)>>
+	<<elseif ($currentRule.surgery.boobs is 400)>>
 		implanted until ''slim.''
 	<<else>>
 		''implants will be removed.''
@@ -2754,7 +2754,7 @@ Your brand design is ''$brandDesign.''
 
 	<<if ($currentRule.surgery.boobs != "no default setting")>>
 		<<link "No default setting">>
-		<<set $currentRule.surgery.boobs = "no default setting">>
+		<<set $currentRule.surgery.boobs to "no default setting">>
 		<<RASurgeryChangeBoobs>>
 		<</link>> |
 	<<else>>
@@ -2762,7 +2762,7 @@ Your brand design is ''$brandDesign.''
 	<</if>>
 	<<if ($currentRule.surgery.boobs != 0)>>
 		<<link "Removed">>
-		<<set $currentRule.surgery.boobs = 0>>
+		<<set $currentRule.surgery.boobs to 0>>
 		<<RASurgeryChangeBoobs>>
 		<</link>> |
 	<<else>>
@@ -2770,7 +2770,7 @@ Your brand design is ''$brandDesign.''
 	<</if>>
 	<<if ($currentRule.surgery.boobs != 400)>>
 		<<link "Slim">>
-		<<set $currentRule.surgery.boobs = 400>>
+		<<set $currentRule.surgery.boobs to 400>>
 		<<RASurgeryChangeBoobs>>
 		<</link>> |
 	<<else>>
@@ -2786,7 +2786,7 @@ Your brand design is ''$brandDesign.''
 	<</if>>
 	<<if ($currentRule.surgery.boobs != 2000)>>
 		<<link "Huge">>
-		<<set $currentRule.surgery.boobs = 2000>>
+		<<set $currentRule.surgery.boobs to 2000>>
 		<<RASurgeryChangeBoobs>>
 		<</link>> |
 	<<else>>
@@ -2794,7 +2794,7 @@ Your brand design is ''$brandDesign.''
 	<</if>>
 	<<if ($currentRule.surgery.boobs != 9000)>>
 		<<link "Functional">>
-		<<set $currentRule.surgery.boobs = 9000>>
+		<<set $currentRule.surgery.boobs to 9000>>
 		<<RASurgeryChangeBoobs>>
 		<</link>> |
 	<<else>>
@@ -2802,7 +2802,7 @@ Your brand design is ''$brandDesign.''
 	<</if>>
 	<<if ($currentRule.surgery.boobs != 24000)>>
 		<<link "Maximize">>
-		<<set $currentRule.surgery.boobs = 24000>>
+		<<set $currentRule.surgery.boobs to 24000>>
 		<<RASurgeryChangeBoobs>>
 		<</link>>
 	<<else>>
@@ -2816,7 +2816,7 @@ Your brand design is ''$brandDesign.''
 %/
 <<widget "RASurgeryChangeHoles">>
 <<replace #holes>>
-	<<if ($currentRule.surgery.holes == 2)>>
+	<<if ($currentRule.surgery.holes is 2)>>
 		''virginity restoration'' will be applied where possible.
 	<<elseif ($currentRule.surgery.holes == 1)>>
 		''hole tightening'' will be applied.
@@ -2827,7 +2827,7 @@ Your brand design is ''$brandDesign.''
 	<br>
 	<<if ($currentRule.surgery.holes != 0)>>
 		<<link "Off">>
-		<<set $currentRule.surgery.holes = 0>>
+		<<set $currentRule.surgery.holes to 0>>
 		<<RASurgeryChangeHoles>>
 		<</link>> |
 	<<else>>
@@ -2835,7 +2835,7 @@ Your brand design is ''$brandDesign.''
 	<</if>>
 	<<if ($currentRule.surgery.holes != 1)>>
 		<<link "Tightening">>
-		<<set $currentRule.surgery.holes = 1>>
+		<<set $currentRule.surgery.holes to 1>>
 		<<RASurgeryChangeHoles>>
 		<</link>> |
 	<<else>>
@@ -2843,7 +2843,7 @@ Your brand design is ''$brandDesign.''
 	<</if>>
 	<<if ($currentRule.surgery.holes != 2)>>
 		<<link "Virginity">>
-		<<set $currentRule.surgery.holes = 2>>
+		<<set $currentRule.surgery.holes to 2>>
 		<<RASurgeryChangeHoles>>
 		<</link>>
 	<<else>>
@@ -2856,9 +2856,9 @@ Your brand design is ''$brandDesign.''
  Call as <<RARemoveRule>>
 %/
 <<widget "RARemoveRule">>
-	<<for _s = 0; _s < $activeSlave.currentRules.length; _s++>>
+	<<for _s to 0; _s < $activeSlave.currentRules.length; _s++>>
 		<<if _currentRule.ID == $activeSlave.currentRules[_s]>>
-			<<set $dump = $activeSlave.currentRules.pluck([_s],[_s])>>
+			<<set $dump to $activeSlave.currentRules.pluck([_s],[_s])>>
 		<</if>>
 	<</for>>
 	<br>Rule _rule (_currentRule.name) is no longer applying to $activeSlave.slaveName.

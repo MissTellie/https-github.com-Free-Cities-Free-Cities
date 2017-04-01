@@ -2,42 +2,42 @@
 
 <<nobr>>
 
-<<set $nextButton = "Continue">>
-<<set $nextLink = "Random Nonindividual Event">>
-<<set $returnTo = "Random Nonindividual Event">>
+<<set $nextButton to "Continue">>
+<<set $nextLink to "Random Nonindividual Event">>
+<<set $returnTo to "Random Nonindividual Event">>
 
-<<set $slaveMedic = 0>>
+<<set $slaveMedic to 0>>
 
 <<include "Generate XX Slave">>
-<<set $activeSlave.origin = "She was captured while caring for those injured in a failed attack on the Free City.">>
-<<set $activeSlave.career = "a nurse">>
-<<set $activeSlave.customDesc = "She has a faint air of fatigue about her, and strength too: that of a survivor.">>
-<<set $activeSlave.sexualFlaw = "none">>
-<<set $activeSlave.behavioralFlaw = "none">>
-<<set $activeSlave.anusTat = "bleached">>
+<<set $activeSlave.origin to "She was captured while caring for those injured in a failed attack on the Free City.">>
+<<set $activeSlave.career to "a nurse">>
+<<set $activeSlave.customDesc to "She has a faint air of fatigue about her, and strength too: that of a survivor.">>
+<<set $activeSlave.sexualFlaw to "none">>
+<<set $activeSlave.behavioralFlaw to "none">>
+<<set $activeSlave.anusTat to "bleached">>
 <<set $activeSlave.devotion = random(30,40)>>
 <<set $activeSlave.trust = $activeSlave.devotion-20>>
-<<set $activeSlave.oldDevotion = $activeSlave.devotion>>
-<<set $activeSlave.vagina = 2>>
-<<set $activeSlave.preg = -1>>
-<<set $activeSlave.height = random(165,190)>>
-<<set $activeSlave.muscles = either(20,50)>>
-<<set $activeSlave.ovaries = 1>>
+<<set $activeSlave.oldDevotion to $activeSlave.devotion>>
+<<set $activeSlave.vagina to 2>>
+<<set $activeSlave.preg to -1>>
+<<set $activeSlave.height to random(165,190)>>
+<<set $activeSlave.muscles to either(20,50)>>
+<<set $activeSlave.ovaries to 1>>
 <<set $activeSlave.vaginalSkill = 35>>
 <<set $activeSlave.oralSkill = 35>>
 <<set $activeSlave.analSkill = 15>>
 <<set $activeSlave.whoreSkill = 0>>
 <<set $activeSlave.entertainSkill = 15>>
-<<set $activeSlave.intelligence = 2>>
-<<set $activeSlave.intelligenceImplant = 1>>
-<<set $activeSlave.teeth = "normal">>
-<<set $activeSlave.anus = 2>>
+<<set $activeSlave.intelligence to 2>>
+<<set $activeSlave.intelligenceImplant to 1>>
+<<set $activeSlave.teeth to "normal">>
+<<set $activeSlave.anus to 2>>
 <<set $activeSlave.boobs += 400>>
 <<set $activeSlave.butt += 1>>
-<<set $activeSlave.hStyle = "neat">>
-<<set $activeSlave.hLength = 35>>
-<<set $activeSlave.stampTat = either("flowers", "tribal patterns")>>
-<<set $activeSlave.age = random(25,42)>>
+<<set $activeSlave.hStyle to "neat">>
+<<set $activeSlave.hLength to 35>>
+<<set $activeSlave.stampTat to either("flowers", "tribal patterns")>>
+<<set $activeSlave.age to random(25,42)>>
 <<set $activeSlave.health = random(20,40)>>
 
 <</nobr>>\
@@ -51,7 +51,7 @@ When you enter the lounge of their barracks, you see $activeSlave.slaveName bend
 <span id="result">
 <<link "Offer ¤10000 for her">>
 	<<replace "#result">>
-		The mercenary laughs at your offered price. "No offense, <<if def $PC.customTitle>>$PC.customTitle<<elseif $PC.title != 0>>Sir<<else>>Ma'am<</if>>, but no. Even if I wanted to sell her on everyone's behalf for that price, my buddies would kill me for that. She's popular, == $activeSlave.slaveName."
+		The mercenary laughs at your offered price. "No offense, <<if def $PC.customTitle>>$PC.customTitle<<elseif $PC.title != 0>>Sir<<else>>Ma'am<</if>>, but no. Even if I wanted to sell her on everyone's behalf for that price, my buddies would kill me for that. She's popular, is $activeSlave.slaveName."
 	<</replace>>
 <</link>>
 <<link "Offer a very generous ¤25000 for her">>

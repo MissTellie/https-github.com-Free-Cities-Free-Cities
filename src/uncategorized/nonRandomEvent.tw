@@ -1,11 +1,11 @@
 :: Nonrandom Event
 
-<<set $showEncyclopedia = 0>>
+<<set $showEncyclopedia to 0>>
 
 <<if ($plot == 1)>>
 
 <<set _effectiveWeek = $week-$nationHate>>
-<<set $toSearch = $arcologies[0].name>>
+<<set $toSearch to $arcologies[0].name>>
 <<if (_effectiveWeek == 6)>>
 	<<set $Event = "strip club closing">>
 	<<goto "Generic Plot Events">>
@@ -40,16 +40,16 @@
 <<elseif (_effectiveWeek == 43)>>
 	<<goto "P invasion">>
 <<elseif (_effectiveWeek == 44) && ($mercenaries > 0)>>
-		<<set $activeSlave = 0>>
+		<<set $activeSlave to 0>>
 		<<goto "P mercenary romeo">>
 <<elseif (_effectiveWeek == 47) && ($mercenaries > 0)>>
 		<<goto "P raid invitation">>
 <<elseif (_effectiveWeek == 49) && ($slaveMedic > 0)>>
 		<<goto "P slave medic">>
 <<elseif (_effectiveWeek == 56)>>
-	<<set $collaboration = 0>>
-	<<set $traitor = 0>>
-	<<set $hackerSupport = 0>>
+	<<set $collaboration to 0>>
+	<<set $traitor to 0>>
+	<<set $hackerSupport to 0>>
 	<<goto "P underground railroad">>
 <<elseif (_effectiveWeek == 58) && ($traitor == 0)>>
 		<<goto "P bombing">>
@@ -98,7 +98,7 @@
 <<elseif ($cash > 30000) && ($rep > 4000) && ($corpAnnounced == 0)>>
 	<<goto "P Corp Announcement">>
 <<elseif ($rivalOwner > 0)>>
-	<<if $hostageAnnounced == -1>>
+	<<if $hostageAnnounced is -1>>
 		<<goto "P rivalry hostage">>
 	<<elseif ($rivalOwner-$rivalryPower+10)/$arcologies[0].prosperity < 0.5>>
 		<<goto "P rivalry victory">>

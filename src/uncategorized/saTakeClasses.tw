@@ -1,17 +1,17 @@
 :: SA take classes [nobr]
 
-<<set $learning = 1>>
+<<set $learning to 1>>
 
-<<if ($slaves[$i].assignment == "learn in the schoolroom")>>
+<<if ($slaves[$i].assignment is "learn in the schoolroom")>>
 	<<if ($Schoolteacher != 0)>>
-		<<set $seed = $Schoolteacher.intelligence+$Schoolteacher.intelligenceImplant>>
+		<<set $seed to $Schoolteacher.intelligence+$Schoolteacher.intelligenceImplant>>
 		<<if ($Schoolteacher.age > 35)>>
 			<<set $seed += 1>>
 		<</if>>
-		<<if $schoolteacherCareers.includes($Schoolteacher.career)>>
+		<<if $schoolteacherCareers.contains($Schoolteacher.career)>>
 			<<set $seed += 1>>
 		<</if>>
-		<<if ($Schoolteacher.face > 1)>>
+		<<if ($Schoolteacher.face > 40)>>
 			<<set $seed += 1>>
 		<</if>>
 		<<if (random(1,100) < 20+($seed*20))>>
@@ -91,19 +91,19 @@ takes courses in slavery<<if $schoolroomUpgradeSkills + $schoolroomUpgradeRemedi
 
 <<if ($learning <= 1)>>
 	and she learns slowly this week.
-<<elseif ($learning == 2)>>
+<<elseif ($learning is 2)>>
 	and she does well with her studies this week.
 <<else>>
 	and she is perfectly studious this week.
 <</if>>
 
-<<set $seed = 0>>
+<<set $seed to 0>>
 <<set $skillIncrease = 10+$slaves[$i].intelligence>>
-<<for $j = 0; $j < $learning; $j++>>
+<<for $j to 0; $j < $learning; $j++>>
 	<<if ($slaves[$i].devotion <= 20) && ($seed == 0)>>
 		Since she is wanting in basic obedience, she suffers through courses on @@color:hotpink;her place@@ in the Free Cities world.
 		<<set $slaves[$i].devotion += 10>>
-		<<set $seed = 1>>
+		<<set $seed to 1>>
 	<<elseif ($slaves[$i].oralSkill <= 10)>>
 		Since she is orally incompetent, she is taught basic gag reflex suppression exercises and other simple oral things.
 		<<OralSkillIncrease $slaves[$i]>>
@@ -137,7 +137,7 @@ takes courses in slavery<<if $schoolroomUpgradeSkills + $schoolroomUpgradeRemedi
 	She makes some progress towards a basic education.
 	<<set $slaves[$i].intelligenceImplant += 0.1*$learning>>
 	<<if ($slaves[$i].intelligenceImplant >= 1)>>
-		<<set $slaves[$i].intelligenceImplant = 1>>
+		<<set $slaves[$i].intelligenceImplant to 1>>
 		She has completed a course of slave education, and for most purposes she is now @@color:deepskyblue;more intelligent.@@
 		<<if ($slaves[$i].intelligence < 3)>>
 			<<set $slaves[$i].intelligence += 1>>
@@ -151,20 +151,19 @@ takes courses in slavery<<if $schoolroomUpgradeSkills + $schoolroomUpgradeRemedi
 	<<if ($schoolroomUpgradeLanguage == 0)>>
 		<<if ($slaves[$i].accent >= 3)>>
 		She has @@color:green;learned functional $language,@@ and can make herself understood, though her $slaves[$i].nationality accent is still quite heavy.
-		<<set $slaves[$i].accent = 2>>
+		<<set $slaves[$i].accent to 2>>
 		<</if>>
 	<<else>>
 		<<if ($slaves[$i].accent >= 2)>>
 		She has @@color:green;learned decent $language,@@ though she retains enough of her $slaves[$i].nationality accent to make her voice distinctly sexy.
-		<<set $slaves[$i].accent = 1>>
+		<<set $slaves[$i].accent to 1>>
 		<</if>>
 	<</if>>
 	<</if>>
 <</if>>
 <</if>>
 
-
-<<if $slaves[$i].assignment != ("learn in the schoolroom") && ($slaves[$i].intelligenceImplant == 1)>>
+<<if ($slaves[$i].intelligenceImplant == 1)>>
 <<if ($slaves[$i].voice == 0) || ($slaves[$i].accent <= 1) || (($schoolroomUpgradeLanguage == 0) && ($slaves[$i].accent <= 2))>>
 <<if ($slaves[$i].oralSkill > 30) || (($schoolroomUpgradeSkills == 0) && ($slaves[$i].oralSkill > 10))>>
 <<if ($slaves[$i].whoreSkill > 30) || (($schoolroomUpgradeSkills == 0) && ($slaves[$i].whoreSkill > 10))>>
@@ -172,7 +171,7 @@ takes courses in slavery<<if $schoolroomUpgradeSkills + $schoolroomUpgradeRemedi
 <<if ($slaves[$i].analSkill > 10) || ($slaves[$i].anus < 1)>>
 <<if ($slaves[$i].vaginalSkill > 10) || ($slaves[$i].vagina < 1)>>
 	She can learn little from further classes, so @@color:yellow;her assignment has defaulted to rest.@@
-	<<set $slaves[$i].assignment = "rest", $slaves[$i].assignmentVisible = 1>>
+	<<set $slaves[$i].assignment to "rest", $slaves[$i].assignmentVisible to 1, $schoolroomSlaves-->>
 <</if>>
 <</if>>
 <</if>>

@@ -1,25 +1,25 @@
 :: Import Rule [nobr]
 
 
-<<set $nextButton = "Continue">>
-<<set $nextLink = "Rules Assistant">>
+<<set $nextButton to "Continue">>
+<<set $nextLink to "Rules Assistant">>
 //Paste the code into the text box and click Apply//
 <br><br>
 <span id = "import">
 </span>
-<<set $tempRule = "">>
+<<set $tempRule to "">>
 <<textbox "$tempRule" $tempRule>>
 <<link "Apply">>
-	<<if (def $tempRule) && ($tempRule !== "")>>
-		<<set $tempRule = eval('({' + $tempRule + '})')>>
+	<<if (def $tempRule) && ($tempRule isnot "")>>
+		<<set $tempRule to eval('({' + $tempRule + '})')>>
 
 		<<if $defaultRules.length > 0>>
 			<<set $RulesID += 1>>
 		<<else>>
-			<<set $RulesID = 1>>
+			<<set $RulesID to 1>>
 		<</if>>
 
-		<<set $tempRule.ID = $RulesID>>
+		<<set $tempRule.ID to $RulesID>>
 		<<set $defaultRules.push($tempRule)>>
 		<<replace #import>>
 			''Rule imported successfully!''

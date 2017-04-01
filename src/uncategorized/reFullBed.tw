@@ -1,18 +1,18 @@
 :: RE full bed [nobr]
 
-<<set $nextButton = "Continue">>
-<<set $nextLink = "RIE Eligibility Check">>
+<<set $nextButton to "Continue">>
+<<set $nextLink to "RIE Eligibility Check">>
 
-<<set $bedSlaveOne = 0>>
-<<set $bedSlaveTwo = 0>>
-<<for $i = 0; $i < $slaves.length; $i++>>
-	<<if ($slaves[$i].assignment == "please you") || ($slaves[$i].assignment == "serve in the master suite") || ($slaves[$i].assignment == "be your Concubine")>>
+<<set $bedSlaveOne to 0>>
+<<set $bedSlaveTwo to 0>>
+<<for $i to 0; $i < $slaves.length; $i++>>
+	<<if ($slaves[$i].assignment is "please you") || ($slaves[$i].assignment is "serve in the master suite") || ($slaves[$i].assignment is "be your Concubine")>>
 	<<if $slaves[$i].devotion > 50>>
 	<<if $slaves[$i].anus > 0>>
 		<<if $bedSlaveOne == 0>>
-		<<set $bedSlaveOne = $slaves[$i]>>
+		<<set $bedSlaveOne to $slaves[$i]>>
 	<<elseif $bedSlaveTwo == 0>>
-		<<set $bedSlaveTwo = $slaves[$i]>>
+		<<set $bedSlaveTwo to $slaves[$i]>>
 		<<break>>
 		<</if>>
 	<</if>>
@@ -38,13 +38,13 @@ Today was an unusually relaxing day, and you aren't particularly tired.
 			<<set $bedSlaveOne.analCount += 1>>
 			<<set $bedSlaveTwo.analCount += 1>>
 			<<set $analTotal += 2>>
-	<<for $i = 0; $i < $slaves.length; $i++>>
+	<<for $i to 0; $i < $slaves.length; $i++>>
 	<<if $bedSlaveOne.ID == $slaves[$i].ID>>
-		<<set $slaves[$i] = $bedSlaveOne>>
-		<<set $bedSlaveOne = 0>>
+		<<set $slaves[$i] to $bedSlaveOne>>
+		<<set $bedSlaveOne to 0>>
 	<<elseif $bedSlaveTwo.ID == $slaves[$i].ID>>
-		<<set $slaves[$i] = $bedSlaveTwo>>
-		<<set $bedSlaveTwo = 0>>
+		<<set $slaves[$i] to $bedSlaveTwo>>
+		<<set $bedSlaveTwo to 0>>
 	<</if>>
 	<</for>>
 	<</replace>>
@@ -57,13 +57,13 @@ Today was an unusually relaxing day, and you aren't particularly tired.
 			<<set $bedSlaveOne.analCount += 3>>
 			<<set $bedSlaveTwo.analCount += 3>>
 			<<set $analTotal += 6>>
-	<<for $i = 0; $i < $slaves.length; $i++>>
+	<<for $i to 0; $i < $slaves.length; $i++>>
 	<<if $bedSlaveOne.ID == $slaves[$i].ID>>
-		<<set $slaves[$i] = $bedSlaveOne>>
-		<<set $bedSlaveOne = 0>>
+		<<set $slaves[$i] to $bedSlaveOne>>
+		<<set $bedSlaveOne to 0>>
 	<<elseif $bedSlaveTwo.ID == $slaves[$i].ID>>
-		<<set $slaves[$i] = $bedSlaveTwo>>
-		<<set $bedSlaveTwo = 0>>
+		<<set $slaves[$i] to $bedSlaveTwo>>
+		<<set $bedSlaveTwo to 0>>
 	<</if>>
 	<</for>>
 	<</replace>>

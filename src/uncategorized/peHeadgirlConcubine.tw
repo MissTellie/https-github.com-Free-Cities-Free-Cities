@@ -2,9 +2,9 @@
 
 <<nobr>>
 
-<<set $nextButton = "Continue">>
-<<set $nextLink = "AS Dump">>
-<<set $returnTo = "RIE Eligibility Check">>
+<<set $nextButton to "Continue">>
+<<set $nextLink to "AS Dump">>
+<<set $returnTo to "RIE Eligibility Check">>
 
 <</nobr>>\
 \
@@ -52,17 +52,17 @@ You wake up one morning to find $HeadGirl.slaveName and $Concubine.slaveName wai
 		<</if>>
 	<</if>>
 	in motion as you walk is something she openly enjoys, while $Concubine.slaveName at least tries to be a little more modest. You sit down at your desk, taking in the situation in your domain at a glance as $assistantName
-	<<if $assistantAppearance == "monstergirl">>
+	<<if $assistantAppearance is "monstergirl">>
 		springs into monstrous life on the glass desktop, eyes flashing and hair writhing.
-	<<elseif $assistantAppearance == "shemale">>
+	<<elseif $assistantAppearance is "shemale">>
 		pops up on the glass desktop, helicoptering her dick while she waits for instructions.
-	<<elseif $assistantAppearance == "amazon">>
+	<<elseif $assistantAppearance is "amazon">>
 		appears to smash through the glass desktop, landing in a crouch to wait for orders.
-	<<elseif $assistantAppearance == "businesswoman">>
+	<<elseif $assistantAppearance is "businesswoman">>
 		appears on the glass desktop, sitting primly in her own chair and waiting for instructions.
-	<<elseif $assistantAppearance == "goddess">>
+	<<elseif $assistantAppearance is "goddess">>
 		gleams into existence on the glass desktop, reclining in a glow of maternal glory while she waits for direction.
-	<<elseif $assistantAppearance == "schoolgirl">>
+	<<elseif $assistantAppearance is "schoolgirl">>
 		appears on the glass desktop, sitting in her own chair and waiting for instructions with her legs spread a little wide for such a short skirt.
 	<<else>>
 		appears as a glowing icon on the glass desktop, awaiting instructions.
@@ -75,7 +75,7 @@ You wake up one morning to find $HeadGirl.slaveName and $Concubine.slaveName wai
 		has eyes only for you; she
 	<<elseif $HeadGirl.relationship == -1>>
 		gives $Concubine.slaveName a look up and down, which her slutty nature obliges her to give everyone; then she
-	<<elseif $HeadGirl.relationshipTarget == $Concubine.ID>>
+	<<elseif $HeadGirl.relationshipTarget is $Concubine.ID>>
 		<<if $HeadGirl.relationship == 1>>
 			gives her friend $Concubine.slaveName a smile; then she
 		<<elseif $HeadGirl.relationship == 2>>
@@ -131,7 +131,7 @@ You wake up one morning to find $HeadGirl.slaveName and $Concubine.slaveName wai
 	she breathes across you at your Concubine.
 	<br><br>
 	They soon get their revenge as you give them their orders, though, moving their expert hands between your legs to give you a handjob. They do it cooperatively as you continue to play with them, letting you enjoy the delightful sensation of <<if $PC.dick == 1>>two hands working your shaft while another tickles your frenulum and a fourth massages your balls<<else>>a hand massaging your petals on either side while another delves two fingers inside you and a fourth pleasures your clit<</if>>. They crane their necks to rain kisses on your chin, neck, <<if $PC.boobs == 1>>breasts, and nipples,<<else>>and chest,<</if>> and on each other's mouths. You spring out of bed when you're satisfied, pulling your leadership with you towards the shower, and they @@color:mediumaquamarine;trustingly bounce up to follow.@@
-	<<for $i = 0; $i < $slaves.length; $i++>>
+	<<for $i to 0; $i < $slaves.length; $i++>>
 		<<if ($HeadGirl.ID == $slaves[$i].ID) || ($Concubine.ID == $slaves[$i].ID)>>
 			<<set $slaves[$i].trust += 4>>
 		<<set $slaves[$i].oralCount += 1>>
@@ -163,9 +163,9 @@ You wake up one morning to find $HeadGirl.slaveName and $Concubine.slaveName wai
 			slides a hand down and
 			<<if $Concubine.anus > 3>>
 			fists $Concubine.slaveName's loose ass, since that's what it takes to fill your Concubine's gaping asspussy.
-			<<elseif $Concubine.anus == 3>>
+			<<elseif $Concubine.anus is 3>>
 			starts to fuck $Concubine.slaveName's soft anus with three fingers.
-			<<elseif $Concubine.anus == 2>>
+			<<elseif $Concubine.anus is 2>>
 			starts to fuck $Concubine.slaveName's asspussy with two fingers.
 			<<else>>
 			starts to fuck $Concubine.slaveName's tight little backdoor with a finger.
@@ -187,9 +187,9 @@ You wake up one morning to find $HeadGirl.slaveName and $Concubine.slaveName wai
 			slides a hand down and
 			<<if $Concubine.anus > 3>>
 			fists $Concubine.slaveName's loose ass, since that's what it takes to fill your Concubine's gaping asspussy.
-			<<elseif $Concubine.anus == 3>>
+			<<elseif $Concubine.anus is 3>>
 			starts to fuck $Concubine.slaveName's soft anus with three fingers.
-			<<elseif $Concubine.anus == 2>>
+			<<elseif $Concubine.anus is 2>>
 			starts to fuck $Concubine.slaveName's asspussy with two fingers.
 			<<else>>
 			starts to fuck $Concubine.slaveName's tight little backdoor with a finger.
@@ -227,7 +227,7 @@ You wake up one morning to find $HeadGirl.slaveName and $Concubine.slaveName wai
 			lube.
 		<</if>>
 	<</if>>
-	<<for $i = 0; $i < $slaves.length; $i++>>
+	<<for $i to 0; $i < $slaves.length; $i++>>
 		<<if ($HeadGirl.ID == $slaves[$i].ID) || ($Concubine.ID == $slaves[$i].ID)>>
 			<<if ($slaves[$i].vagina > -1)>>
 			<<set $slaves[$i].vaginalCount += 1>>

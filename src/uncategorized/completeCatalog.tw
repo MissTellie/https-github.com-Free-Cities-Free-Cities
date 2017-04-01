@@ -1,20 +1,20 @@
 :: Complete Catalog
 
-<<set $nextButton = "Back to Main">>\
-<<set $nextLink = "Main">>\
-<<set $returnTo = "Main">>\
+<<set $nextButton to "Back to Main">>\
+<<set $nextLink to "Main">>\
+<<set $returnTo to "Main">>\
 //This is the complete catalog of slaves that you can acquire from other slaveowners. Most of these slaves are not for sale, so persuading their owners to part with them will be extremely expensive.//
 
 <<nobr>>
-<<for $i = 0; $i < $heroSlaves.length; $i++>>
-<<print "[[$heroSlaves[$i].slaveName|Complete Catalog][$activeSlave = $heroSlaves[" + $i + "]]]">> |
+<<for $i to 0; $i < $heroSlaves.length; $i++>>
+<<print "[[$heroSlaves[$i].slaveName|Complete Catalog][$activeSlave to $heroSlaves[" + $i + "]]]">> |
 <</for>>
 <</nobr>>
 
 <<include "Long Slave Description">>\
 <<slaveCost $activeSlave>>\
-<<set $slaveCost = (10*Math.trunc(($slaveCost/10)*2))>>
+<<set $slaveCost to (10*Math.trunc(($slaveCost/10)*2))>>
 
 The offered price is ¤<<print $slaveCost>>.
 
-[[Buy her slave contract|New Slave Intro][$cash -= $slaveCost, $activeSlave.weekAcquired = $week,$nextButton = "Continue",$nextLink = "AS Dump",$returnTo = "Main",$specialSlave = 1]]
+[[Buy her slave contract|New Slave Intro][$cash -= $slaveCost, $activeSlave.weekAcquired to $week,$nextButton to "Continue",$nextLink to "AS Dump",$returnTo to "Main",$specialSlave to 1]]
