@@ -79,7 +79,7 @@
 <<case "Spa">>
 <<if _Slave.fuckdoll > 0>><<continue>><</if>>
 <<if $Flag == 0>>
-	<<if $spa <= $spaSlaves>><<continue>><</if>>
+	<<if _Slave.assignment == "rest in the spa">><<continue>><</if>>
 	<<if (_Slave.health < 20) || (_Slave.trust < 60) || (_Slave.devotion <= 60) || (_Slave.fetish == "mindbroken")>>
 	<<if _Slave.devotion >= -20>>
 		<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if $seeImages == 1>><div class="imageRef smlImg"><<SlaveArt $slaves[_i] 1>></div><</if>><<print "[[_Slave.slaveName|Slave Interact][$activeSlave to $slaves[" + _i + "]]]">>
@@ -114,7 +114,7 @@
 <<case "Brothel">>
 <<if _Slave.fuckdoll > 0>><<continue>><</if>>
 <<if $Flag == 0>>
-	<<if $brothel <= $brothelSlaves>><<continue>><</if>>
+	<<if _Slave.assignment == "work in the brothel">><<continue>><</if>>
 	<<if (_Slave.devotion > 50) || ((_Slave.devotion >= -50) && (_Slave.trust < -20)) ||  (_Slave.trust < -50) || (_Slave.trust > 50)>>
 		<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if $seeImages == 1>><div class="imageRef smlImg"><<SlaveArt $slaves[_i] 1>></div><</if>><<print "[[_Slave.slaveName|Slave Interact][$activeSlave = $slaves[" + _i + "]]]">>
 	<<else>>
@@ -144,7 +144,7 @@
 <<case "Club">>
 <<if _Slave.fuckdoll > 0>><<continue>><</if>>
 <<if $Flag == 0>>
-	<<if $club <= $clubSlaves>><<continue>><</if>>
+	<<if _Slave.assignment == "serve in the club">><<continue>><</if>>
 	<<if (_Slave.devotion > 50) || ((_Slave.devotion >= -50) && (_Slave.trust < -20)) || (_Slave.trust < -50) || (_Slave.trust > 50)>>
 		<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if $seeImages == 1>><div class="imageRef smlImg"><<SlaveArt $slaves[_i] 1>></div><</if>><<print "[[_Slave.slaveName|Slave Interact][$activeSlave to $slaves[" + _i + "]]]">>
 	<<else>>
@@ -174,7 +174,7 @@
 <<case "Clinic">>
 <<if _Slave.fuckdoll > 0>><<continue>><</if>>
 <<if $Flag == 0>>
-	<<if $clinic <= $clinicSlaves>><<continue>><</if>>
+	<<if _Slave.assignment == "get treatment in the clinic">><<continue>><</if>>
 	<<if (_Slave.health < 20) || ((_Slave.chem > 15) && ($clinicUpgradeFilters == 1))>>
 		<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if $seeImages == 1>><div class="imageRef smlImg"><<SlaveArt $slaves[_i] 1>></div><</if>><<print "[[_Slave.slaveName|Slave Interact][$activeSlave to $slaves[" + _i + "]]]">>
 	<<else>>
@@ -204,7 +204,7 @@
 <<case "Schoolroom">>
 <<if _Slave.fuckdoll > 0>><<continue>><</if>>
 <<if $Flag == 0>>
-	<<if $schoolroom <= $schoolroomSlaves>><<continue>><</if>>
+	<<if _Slave.assignment == "learn in the schoolroom">><<continue>><</if>>
 	<<if (_Slave.devotion >= -20) || ((_Slave.devotion >= -50) && (_Slave.trust < -20)) || (_Slave.trust < -50)>>
 		<<if (_Slave.intelligenceImplant < 1) || (_Slave.accent+$schoolroomUpgradeLanguage > 2) || (_Slave.oralSkill <= 10) || (_Slave.whoreSkill <= 10) || (_Slave.entertainSkill <= 10) || (_Slave.analSkill < 1) || ((_Slave.vaginalSkill < 1) && (_Slave.vagina > 0))>>
 			<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if $seeImages == 1>><div class="imageRef smlImg"><<SlaveArt $slaves[_i] 1>></div><</if>><<print "[[_Slave.slaveName|Slave Interact][$activeSlave to $slaves[" + _i + "]]]">>
@@ -239,7 +239,7 @@
 <<case "Dairy">>
 <<if _Slave.fuckdoll > 0>><<continue>><</if>>
 <<if $Flag == 0>>
-	<<if $dairy <= $dairySlaves+$bioreactorsXY+$bioreactorsXX+$bioreactorsHerm+$bioreactorsBarren>><<continue>><</if>>
+	<<if _Slave.assignment == "work in the dairy">><<continue>><</if>>
 	<<if (_Slave.indentureRestrictions > 0) && ($dairyRestraintsSetting > 1)>>
 		<br>//_Slave.slaveName's indenture forbids extractive Dairy service.//
 		<<continue>>
@@ -325,7 +325,7 @@
 <</if>>
 <<case "Master Suite">>
 <<if $Flag == 0>>
-	<<if $masterSuite <= $masterSuiteSlaves>><<continue>><</if>>
+	<<if _Slave.assignment == "serve in the master suite">><<continue>><</if>>
 	<<if (_Slave.devotion > 20) || ((_Slave.devotion >= -50) && (_Slave.trust < -20)) || (_Slave.trust < -50)>>
 		<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if $seeImages == 1>><div class="imageRef smlImg"><<SlaveArt $slaves[_i] 1>></div><</if>><<print "[[_Slave.slaveName|Slave Interact][$activeSlave = $slaves[" + _i + "]]]">>
 	<<else>>
@@ -355,7 +355,7 @@
 <</if>>
 <<case "Cellblock">>
 <<if $Flag == 0>>
-	<<if $cellblock <= $cellblockSlaves>><<continue>><</if>>
+	<<if _Slave.assignment == "be confined in the cellblock">><<continue>><</if>>
 	<<if ((_Slave.devotion < -20) && (_Slave.trust >= -20)) || ((_Slave.devotion < -50) && (_Slave.trust >= -50))>>
 		<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if $seeImages == 1>><div class="imageRef smlImg"><<SlaveArt $slaves[_i] 1>></div><</if>><<print "[[_Slave.slaveName|Slave Interact][$activeSlave to $slaves[" + _i + "]]]">>
 	<<else>>

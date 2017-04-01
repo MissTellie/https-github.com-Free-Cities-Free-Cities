@@ -97,7 +97,9 @@ $spaNameCaps
 	<<include "Slave Summary">>
 <</if>>
 
-<<if $notSpaSlaves > 0>>
+<<if ($spa <= _DL)>>
+	<br><br>''$spaNameCaps is full and cannot hold any more slaves''
+<<elseif (_SL > _DL)>>
 	<br><br>''Let an obedient slave rest in $spaName:''
 	<<set $Flag to 0>>
 	<<include "Slave Summary">>

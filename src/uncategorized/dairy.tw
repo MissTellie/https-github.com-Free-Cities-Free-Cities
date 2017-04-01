@@ -413,9 +413,11 @@ $dairyNameCaps
 	//In addition, one milking machine has biological components installed in it.//
 <</if>>
 
-<<if $notdairySlaves > 0>>
-	<br><br>''Send a slave to the dairy:''
-	<<set $Flag to 0>>
+<<if $dairy <= _DL+_seed>>
+	<br><br>''$dairyNameCaps is full and cannot hold any more slaves''
+<<elseif (_SL > _DL)>>
+	<br><br>''Send a slave to $dairyName:''
+	<<set $Flag = 0>>
 	<<include "Slave Summary">>
 <</if>>
 <<unset $Flag>>

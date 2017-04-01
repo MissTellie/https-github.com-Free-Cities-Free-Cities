@@ -104,9 +104,11 @@ $clinicNameCaps
 	<<include "Slave Summary">>
 <</if>>
 
-<<if $notClinicSlaves > 0>>
-	<br><br>''Send a slave to get treatment in the clinic:''
-	<<set $Flag to 0>>
+<<if $clinic <= _DL>>
+	<br><br>''$clinicNameCaps is full and cannot hold any more slaves''
+<<elseif (_SL > _DL)>>
+	<br><br>''Send a slave to get treatment in $clinicName:''
+	<<set $Flag = 0>>
 	<<include "Slave Summary">>
 <</if>>
 <<unset $Flag>>
