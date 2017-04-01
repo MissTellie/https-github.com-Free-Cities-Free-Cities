@@ -8,7 +8,7 @@
 You call her over so you can
 <<if ($activeSlave.vagina > 2)>>
 	fuck her gaping, fertile cunt.
-<<elseif ($activeSlave.vagina == 2)>>
+<<elseif ($activeSlave.vagina is 2)>>
 	use her whorish, fertile cunt.
 <<elseif ($activeSlave.vagina == 1)>>
 	use her tight, fertile cunt.
@@ -16,11 +16,11 @@ You call her over so you can
 	take her fertile, virgin pussy.
 <</if>>
 
-<<if ($activeSlave.vaginaTat == "tribal patterns")>>
+<<if ($activeSlave.vaginaTat is "tribal patterns")>>
 	The tattoos on her abdomen certainly draw attention there.
-<<elseif ($activeSlave.vaginaTat == "scenes")>>
+<<elseif ($activeSlave.vaginaTat is "scenes")>>
 	The tattoos on her abdomen nicely illustrate what you mean to do to her.
-<<elseif ($activeSlave.vaginaTat == "degradation")>>
+<<elseif ($activeSlave.vaginaTat is "degradation")>>
 	The tattoos on her abdomen ask you to, after all.
 <</if>>
 
@@ -36,32 +36,32 @@ You call her over so you can
 	Her pierced clit has her nice and moist.
 <</if>>
 
-<<if ($activeSlave.fetish == "pregnancy") && ($activeSlave.fetishStrength > 60) && ($activeSlave.fetishKnown == 1) && ($activeSlave.vagina == 0)>>
+<<if ($activeSlave.fetish is "pregnancy") && ($activeSlave.fetishStrength > 60) && ($activeSlave.fetishKnown == 1) && ($activeSlave.vagina == 0)>>
 	She cries with joy and presents her virgin pussy for fertilization. She sobs with happiness when she feels your hot seed, knowing that her first time will always be special to her. She spends the rest of the day cherishing her stomach. This new connection with <<if def $PC.customTitle>>$PC.customTitle<<elseif $PC.title != 0>>her master<<else>>her mistress<</if>> @@color:hotpink;increases her devotion to you.@@ @@color:lime;Her pussy has been broken in, and there's a good chance she's pregnant.@@
-	<<set $activeSlave.vagina = 1>>
+	<<set $activeSlave.vagina to 1>>
 	<<set  $activeSlave.devotion += 15>>
-<<elseif ($activeSlave.fetish == "pregnancy") && ($activeSlave.fetishStrength > 60) && ($activeSlave.fetishKnown == 1)>>
+<<elseif ($activeSlave.fetish is "pregnancy") && ($activeSlave.fetishStrength > 60) && ($activeSlave.fetishKnown == 1)>>
 	She cries with joy and presents her fertile pussy for breeding. She sobs with happiness when she feels your hot seed. She spends the rest of the day  considering her own stomach with pride. This new connection with <<if def $PC.customTitle>>$PC.customTitle<<elseif $PC.title != 0>>her master<<else>>her mistress<</if>> @@color:hotpink;increases her devotion to you.@@
 	<<set  $activeSlave.devotion += 10>>
 <<elseif  ($activeSlave.devotion > 20) && ($activeSlave.vagina == 0)>>
 	She accepts your orders without comment and presents her virgin pussy for fertilization. She gasps in shock when she feels your hot seed. She spends the rest of the day struggling with roiling emotions. Since she is already well broken, this new connection with <<if def $PC.customTitle>>$PC.customTitle<<elseif $PC.title != 0>>her master<<else>>her mistress<</if>> @@color:hotpink;increases her devotion to you.@@ @@color:lime;Her pussy has been broken in, and there's a good chance she's pregnant.@@
-	<<set $activeSlave.vagina = 1>>
+	<<set $activeSlave.vagina to 1>>
 	<<set  $activeSlave.devotion += 10>>
 <<elseif ($activeSlave.devotion >= -20) && ($activeSlave.vagina == 0)>>
 	She is clearly unhappy at losing her pearl of great price to you; this probably isn't what she imagined her first real sex would be like. Worse, she knows she's fertile and realizes she'll likely get pregnant. Nevertheless, this new connection with <<if def $PC.customTitle>>$PC.customTitle<<elseif $PC.title != 0>>her master<<else>>her mistress<</if>> @@color:hotpink;increases her devotion to you.@@ @@color:lime;Her pussy has been broken in.@@
-	<<set $activeSlave.vagina = 1>>
+	<<set $activeSlave.vagina to 1>>
 	<<set  $activeSlave.devotion += 4>>
 <<elseif ($activeSlave.vagina == 0)>>
 	As you anticipated, she refuses to give you her virginity. And as you expected, she is unable to resist you. She cries as your cock opens her fresh, tight hole. Afterward, she clutches her stomach and sobs, horrified by the knowledge that she's probably carrying her rapist's child. The rape @@color:mediumorchid;decreases her devotion to you@@ and @@color:gold;fills her with fear.@@ @@color:lime;Her pussy has been broken in.@@
 	<<set  $activeSlave.devotion -= 5>>
 	<<set  $activeSlave.trust -= 5>>
-	<<set $activeSlave.vagina = 1>>
+	<<set $activeSlave.vagina to 1>>
 
 <<elseif ($activeSlave.amp == 1)>>
 	You set her limbless torso on the end of the couch, face down, with her hips up in the air. This way, you get the greatest degree of penetration into her fertile pussy you can manage. She moans into the cushions, knowing that with the hot flow of semen against her innermost recesses, she has probably gotten pregnant.
-<<elseif canWalk($activeSlave) == -2>>
+<<elseif canWalk($activeSlave) is -2>>
 	You set her down on the couch, face down, with her hips up in the air. This way, she's pinned in place by the weight of her ridiculous tits, and you get the greatest degree of penetration into her fertile pussy. She moans into the cushions, knowing that with the hot flow of semen against her innermost recesses, she has probably gotten pregnant.
-<<elseif ($activeSlave.fetish == "submissive") && ($activeSlave.fetishStrength > 60) && ($activeSlave.fetishKnown == 1)>>
+<<elseif ($activeSlave.fetish is "submissive") && ($activeSlave.fetishStrength > 60) && ($activeSlave.fetishKnown == 1)>>
 	She comes submissively over, smiling a little submissive smile, and spreads herself for you. You take her on the couch next to your desk in the missionary position. She hugs her torso to you and her breasts press against your chest; you can feel her heart beating hard. As the sex reaches its climax, she begs you to use her unworthy body to make a new slave.
 <<elseif  $activeSlave.devotion < -20>>
 	She tries to refuse, so you bend the disobedient slave over your desk and take  her hard from behind. Her breasts slide back and forth across the desk. You give her buttocks some nice hard swats as you pound her. She grunts and moans but knows better than to try to get away. She begs you not to cum inside her, knowing she's fertile, and sobs when she feels you fill her with semen despite her pleas.
@@ -72,25 +72,25 @@ You call her over so you can
 <</if>>
 
 <<if random(1,100) > 50>>
-	<<set $activeSlave.preg = 1>>
-	<<if ($activeSlave.drugs == "fertility drugs")>>
-		<<if (($masterSuitePregnancyFertilitySupplements == 1) && (($activeSlave.assignment == "serve in the master suite") || ($activeSlave.ID == $Concubine.ID)))>>
-			<<if ($activeSlave.hormones == 2)>>
-				<<set $activeSlave.pregType = random(2,5)>>
+	<<set $activeSlave.preg to 1>>
+	<<if ($activeSlave.drugs is "fertility drugs")>>
+		<<if (($masterSuitePregnancyFertilitySupplements == 1) && (($activeSlave.assignment is "serve in the master suite") || ($activeSlave.ID is $Concubine.ID)))>>
+			<<if ($activeSlave.hormones is 2)>>
+				<<set $activeSlave.pregType to random(2,5)>>
 			<<else>>
-				<<set $activeSlave.pregType = either(1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 4, 4)>>
+				<<set $activeSlave.pregType to either(1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 4, 4)>>
 			<</if>>
 		<<else>>
-			<<if ($activeSlave.hormones == 2)>>
-				<<set $activeSlave.pregType = random(1,5)>>
+			<<if ($activeSlave.hormones is 2)>>
+				<<set $activeSlave.pregType to random(1,5)>>
 			<<else>>
-				<<set $activeSlave.pregType = either(1, 1, 1, 1, 2, 2, 2, 3, 3, 4)>>
+				<<set $activeSlave.pregType to either(1, 1, 1, 1, 2, 2, 2, 3, 3, 4)>>
 			<</if>>
 		<</if>>
 	<<else>>
-		<<set $activeSlave.pregType = either(1, 1, 1, 1, 1, 1, 1, 1, 1, 2)>>
+		<<set $activeSlave.pregType to either(1, 1, 1, 1, 1, 1, 1, 1, 1, 2)>>
 	<</if>>
-<<set $activeSlave.pregSource = -1>>
+<<set $activeSlave.pregSource to -1>>
 <</if>>
 
 <<if $arcologies[0].FSGenderFundamentalist != "unset">>

@@ -1,37 +1,37 @@
 :: Costs Report
 
-<<set $nextButton = "Back to Main">>\
-<<set $nextLink = "Main">>\
+<<set $nextButton to "Back to Main">>\
+<<set $nextLink to "Main">>\
 \
 //Your weekly costs are as follows.//
 <<nobr>>
 
-<<if $girls == 3>>
+<<if $girls is 3>>
 	Since you are accustomed to luxury, your __personal living expenses__ are ¤<<print ($girls*(250+($economy*500)))>>.
-<<elseif $girls == 2>>
+<<elseif $girls is 2>>
 	Since you are used to living well, your __personal living expenses__ are ¤<<print ($girls*(250+($economy*500)))>>.
 <<else>>
 	Since you are used to a fairly normal life, your __personal living expenses__ are ¤<<print ($girls*(250+($economy*500)))>>.
 <</if>>
 
 <<if $mercenaries > 0>>
-	<<if ($PC.career == "mercenary") || ($PC.career == "arcology owner")>>
+	<<if ($PC.career is "mercenary") || ($PC.career is "arcology owner")>>
 	<br>__Mercenary__ expenses: ¤<<print ($mercenaries*500)>> //Reduced by your @@color:springgreen;mercenary contacts@@//
 	<<else>>
 	<br>__Mercenary__ expenses: ¤<<print ($mercenaries*1000)>>
 	<</if>>
 <</if>>
 <<if $brothel > 0>>
-	<<set $seed = 0>>
+	<<set $seed to 0>>
 	<<if $brothel > 0>>
-		<<set $seed = $brothelAdsSpending>>
+		<<set $seed to $brothelAdsSpending>>
 	<</if>>
 	<br>__Brothel__ maintenance: ¤<<print ($brothel*$facilityCost)+(0.2*$brothelUpgradeDrugs*$brothel*$facilityCost)>>
 <</if>>
 <<if $club > 0>>
-	<<set $seed = 0>>
+	<<set $seed to 0>>
 	<<if $club > 0>>
-		<<set $seed = $clubAdsSpending>>
+		<<set $seed to $clubAdsSpending>>
 	<</if>>
 	<br>__Club__ maintenance: ¤<<print ($club*$facilityCost)+(0.2*$clubUpgradePDAs*$club*$facilityCost)>>
 <</if>>
@@ -119,10 +119,10 @@
 
 <br>
 
-<<for $i = 0; $i < $slaves.length; $i++>>
-	<<set $individualCosts = 0>>
+<<for $i to 0; $i < $slaves.length; $i++>>
+	<<set $individualCosts to 0>>
 	''$slaves[$i].slaveName'':
-	<<if $slaves[$i].livingRules == "luxurious">>
+	<<if $slaves[$i].livingRules is "luxurious">>
 	<<if $slaves[$i].relationship >= 4>>
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;Living expenses: ¤<<print ($rulesCost*3)>>
 		<<set $individualCosts += ($rulesCost*3)>>
@@ -130,7 +130,7 @@
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;Living expenses: ¤<<print ($rulesCost*4)>>
 		<<set $individualCosts += ($rulesCost*4)>>
 	<</if>>
-	<<elseif $slaves[$i].livingRules == "normal">>
+	<<elseif $slaves[$i].livingRules is "normal">>
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;Living expenses: ¤<<print ($rulesCost*2)>>
 		<<set $individualCosts += ($rulesCost*2)>>
 	<<else>>
@@ -182,7 +182,7 @@
 	<<elseif $slaves[$i].eyes <= -1>>
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;Increased living expenses due to poor vision: ¤25
 		<<set $individualCosts += 25>>
-	<<elseif ($slaves[$i].eyewear == "blurring glasses") || ($slaves[$i].eyewear == "blurring contacts")>>
+	<<elseif ($slaves[$i].eyewear is "blurring glasses") || ($slaves[$i].eyewear is "blurring contacts")>>
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;Increased living expenses due to blurred vision: ¤25
 		<<set $individualCosts += 25>>
 	<</if>>

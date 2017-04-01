@@ -1,6 +1,6 @@
 :: Acquisition [nobr]
 
-<<if $saveImported == 1>><<set _valueOwed = 5000>><<else>><<set _valueOwed = 50000>><</if>>
+<<if $saveImported == 1>><<set _valueOwed to 5000>><<else>><<set _valueOwed to 50000>><</if>>
 
 You've done it.
 <br><br>
@@ -62,19 +62,19 @@ The previous owner seems to have left in something of a hurry.
 	They could not get all of their personal effects away. Since they <<if $targetArcology.type == "Multiculturalist">>tried to sample different kinds of sexual slavery<<else>>did not have the time in control of the arcology to develop a specific stable of sex slaves<</if>>, their slaves were quite varied.
 <</if>>
 
-<<set $heroSlaves = $heroSlaves.shuffle()>>
-<<set _valueGiven = 0>>
+<<set $heroSlaves to $heroSlaves.shuffle()>>
+<<set _valueGiven to 0>>
 <<if $cheatMode == 1>>
 	<<include [[Cheatmode Database]]>>
 <<elseif $saveImported == 1>>
 <<elseif ($targetArcology.type != "New") && ($targetArcology.type != "Multiculturalist")>>
-	<<for $j = 0; $j < 5; $j++>>
+	<<for $j to 0; $j < 5; $j++>>
 	<<if _valueOwed - _valueGiven <= 5000>><<break>><</if>>
 	<<switch $targetArcology.type>>
 	<<case "Supremacist">>
 		<<set $arcologies[0].FSSupremacistLawME = 1>><<include "Generate New Slave">><<set $arcologies[0].FSSupremacistLawME = 0>>
 		<<set $activeSlave.devotion = random(25,45), $activeSlave.trust = random(-25,-45), $activeSlave.health = random(0,15)>>
-		<<set $activeSlave.face = random(1,3)>>
+		<<set $activeSlave.face = random(15,100)>>
 		<<set $activeSlave.oralSkill = random(15,35), $activeSlave.analSkill = random(15,35)>>
 		<<if $activeSlave.vagina > -1>>
 			<<if $activeSlave.vagina == 0>><<set $activeSlave.vagina++>><</if>>
@@ -86,7 +86,7 @@ The previous owner seems to have left in something of a hurry.
 	<<case "Subjugationist">>
 		<<set $fixedRace = $activeArcology.FSSubjugationistRace>><<include "Generate New Slave">><<set $fixedRace = 0>>
 		<<set $activeSlave.devotion = random(25,45), $activeSlave.trust = random(-25,-45), $activeSlave.health = random(0,15)>>
-		<<set $activeSlave.face = random(1,3)>>
+		<<set $activeSlave.face = random(15,100)>>
 		<<set $activeSlave.oralSkill = random(15,35), $activeSlave.analSkill = random(15,35)>>
 		<<if $activeSlave.vagina > -1>>
 			<<if $activeSlave.vagina == 0>><<set $activeSlave.vagina++>><</if>>
@@ -98,7 +98,7 @@ The previous owner seems to have left in something of a hurry.
 	<<case "GenderRadicalist">>
 		<<include "Generate XY Slave">>
 		<<set $activeSlave.devotion = random(25,45), $activeSlave.trust = random(15,-15), $activeSlave.health = 100>>
-		<<set $activeSlave.face = random(0,2)>>
+		<<set $activeSlave.face = random(0,55)>>
 		<<set $activeSlave.age = random(18,25)>>
 		<<set $activeSlave.boobs += 100*random(2,4)>>
 		<<set $activeSlave.butt += random(1,2)>>
@@ -110,7 +110,7 @@ The previous owner seems to have left in something of a hurry.
 	<<case "GenderFundamentalist">>
 		<<include "Generate XX Slave">>
 		<<set $activeSlave.devotion = random(25,45), $activeSlave.trust = random(-25,-45), $activeSlave.health = random(55,65)>>
-		<<set $activeSlave.face = random(1,3)>>
+		<<set $activeSlave.face = random(15,100)>>
 		<<set $activeSlave.age = random(18,25)>>
 		<<set $activeSlave.preg = random(1,35), $activeSlave.lactation = 1>>
 		<<if $activeSlave.vagina > -1>>
@@ -122,7 +122,7 @@ The previous owner seems to have left in something of a hurry.
 	<<case "Paternalist">>
 		<<include "Generate New Slave">>
 		<<set $activeSlave.devotion = random(25,45), $activeSlave.trust = random(55,65), $activeSlave.health = random(55,65)>>
-		<<set $activeSlave.face = random(1,3)>>
+		<<set $activeSlave.face = random(15,100)>>
 		<<set $activeSlave.intelligence = random(1,3), $activeSlave.intelligenceImplant = 1>>
 		<<set $activeSlave.entertainSkill = random(15,35)>>
 		<<set $activeSlave.clothes = "conservative clothing", $activeSlave.collar = "none", $activeSlave.shoes = "flats">>
@@ -139,13 +139,13 @@ The previous owner seems to have left in something of a hurry.
 		<<set $activeSlave.weight = random(-15,15)>>
 		<<set $activeSlave.oralSkill = 0, $activeSlave.analSkill = 0, $activeSlave.vaginalSkill = 0, $activeSlave.entertainSkill = 0, $activeSlave.whoreSkill = 0>>
 		<<set $activeSlave.behavioralFlaw = "none", $activeSlave.sexualFlaw = "none">>
-		<<set $activeSlave.clothes = "a Fuckdoll suit">>
+		<<set $activeSlave.clothes == "a Fuckdoll suit">>
 		<<set $activeSlave.assignment = "please you">>
 	<<case "AssetExpansionist">>
 		<<include "Generate New Slave">>
 		<<set $activeSlave.devotion = random(25,45), $activeSlave.trust = random(-15,15), $activeSlave.health = random(25,45)>>
 		<<set $activeSlave.chem = 50>>
-		<<set $activeSlave.face = random(1,3)>>
+		<<set $activeSlave.face = random(15,100)>>
 		<<set $activeSlave.boobs += 100*random(10,20)>>
 		<<set $activeSlave.butt += random(2,3)>>
 		<<set $activeSlave.lips += random(0,1)>>
@@ -163,7 +163,7 @@ The previous owner seems to have left in something of a hurry.
 	<<case "SlimnessEnthusiast">>
 		<<include "Generate New Slave">>
 		<<set $activeSlave.devotion = random(25,45), $activeSlave.trust = random(55,65), $activeSlave.health = random(55,65)>>
-		<<set $activeSlave.face = random(1,3)>>
+		<<set $activeSlave.face = random(15,100)>>
 		<<set $activeSlave.boobs = 100*random(1,4)>>
 		<<set $activeSlave.butt = random(1,2)>>
 		<<set $activeSlave.weight = random(-25,-15)>>
@@ -179,7 +179,7 @@ The previous owner seems to have left in something of a hurry.
 		<<include "Generate New Slave">>
 		<<set $activeSlave.devotion = random(25,45), $activeSlave.trust = random(-15,15), $activeSlave.health = random(-15,0)>>
 		<<set $activeSlave.faceImplant = random(1,2)>>
-		<<set $activeSlave.face = Math.trunc($activeSlave.face+$activeSlave.faceImplant,-3,3)>>
+		<<set $activeSlave.face = Math.trunc($activeSlave.face+$activeSlave.faceImplant*20,-100,100)>>
 		<<set $activeSlave.boobsImplant = 200*random(4,8)>>
 		<<set $activeSlave.boobs += $activeSlave.boobsImplant>>
 		<<set $activeSlave.buttImplant = random(2,4)>>
@@ -197,7 +197,7 @@ The previous owner seems to have left in something of a hurry.
 	<<case "BodyPurist">>
 		<<include "Generate New Slave">>
 		<<set $activeSlave.devotion = random(55,65), $activeSlave.trust = random(25,45), $activeSlave.health = 100>>
-		<<set $activeSlave.face = random(1,3)>>
+		<<set $activeSlave.face = random(15,100)>>
 		<<set $activeSlave.weight = random(-5,5)>>
 		<<set $activeSlave.muscle = random(10,25)>>
 		<<set $activeSlave.oralSkill = random(15,35), $activeSlave.analSkill = random(15,35)>>
@@ -210,7 +210,7 @@ The previous owner seems to have left in something of a hurry.
 	<<case "MaturityPreferentialist">>
 		<<include "Generate New Slave">>
 		<<set $activeSlave.devotion = random(55,65), $activeSlave.trust = random(-15,15), $activeSlave.health = random(25,45)>>
-		<<set $activeSlave.face = random(1,3)>>
+		<<set $activeSlave.face = random(15,100)>>
 		<<set $activeSlave.age = random(36,39)>>
 		<<set $activeSlave.boobs += 100*random(1,4)>>
 		<<set $activeSlave.butt += random(1,2)>>
@@ -226,7 +226,7 @@ The previous owner seems to have left in something of a hurry.
 	<<case "YouthPreferentialist">>
 		<<include "Generate New Slave">>
 		<<set $activeSlave.devotion = random(25,45), $activeSlave.trust = random(55,65), $activeSlave.health = random(25,45)>>
-		<<set $activeSlave.face = random(1,3)>>
+		<<set $activeSlave.face = random(15,100)>>
 		<<set $activeSlave.age = random(18,19)>>
 		<<set $activeSlave.boobs = 100*random(1,4)>>
 		<<set $activeSlave.butt = random(1,3)>>
@@ -267,7 +267,7 @@ The previous owner seems to have left in something of a hurry.
 	<<case "RomanRevivalist">>
 		<<include "Generate New Slave">>
 		<<set $activeSlave.devotion = 100, $activeSlave.trust = random(55,65), $activeSlave.health = 100>>
-		<<set $activeSlave.face = random(0,2)>>
+		<<set $activeSlave.face = random(0,55)>>
 		<<set $activeSlave.age = random(18,19)>>
 		<<set $activeSlave.muscles = random(25,50)>>
 		<<set $activeSlave.combatSkill = 1>>
@@ -278,7 +278,7 @@ The previous owner seems to have left in something of a hurry.
 	<<case "EgyptianRevivalist">>
 		<<include "Generate New Slave">>
 		<<set $activeSlave.devotion = random(25,45), $activeSlave.trust = random(25,45), $activeSlave.health = random(25,45)>>
-		<<set $activeSlave.face = random(1,3)>>
+		<<set $activeSlave.face = random(15,100)>>
 		<<set $activeSlave.oralSkill = random(15,35), $activeSlave.analSkill = random(15,35)>>
 		<<if $activeSlave.vagina > -1>>
 			<<if $activeSlave.vagina == 0>><<set $activeSlave.vagina++>><</if>>
@@ -294,7 +294,7 @@ The previous owner seems to have left in something of a hurry.
 		<<NationalityToName $activeSlave>>
 		<<set $activeSlave.accent = 0>>
 		<<set $activeSlave.devotion = random(25,45), $activeSlave.trust = random(25,45), $activeSlave.health = random(25,45)>>
-		<<set $activeSlave.face = random(1,3)>>
+		<<set $activeSlave.face = random(15,100)>>
 		<<set $activeSlave.intelligence = random(1,3), $activeSlave.intelligenceImplant = 1>>
 		<<set $activeSlave.entertainSkill = 100>>
 		<<set $activeSlave.clothes = "a kimono", $activeSlave.collar = "satin choker", $activeSlave.shoes = "heels">>
@@ -302,7 +302,7 @@ The previous owner seems to have left in something of a hurry.
 	<<case "ArabianRevivalist">>
 		<<include "Generate New Slave">>
 		<<set $activeSlave.devotion = random(25,45), $activeSlave.trust = random(-15,15), $activeSlave.health = random(25,45)>>
-		<<set $activeSlave.face = random(1,3)>>
+		<<set $activeSlave.face = random(15,100)>>
 		<<set $activeSlave.intelligence = random(0,2), $activeSlave.intelligenceImplant = 0>>
 		<<set $activeSlave.clothes = "harem gauze", $activeSlave.collar = "uncomfortable leather", $activeSlave.shoes = "flats">>
 		<<set $activeSlave.assignment = "take classes">>
@@ -312,7 +312,7 @@ The previous owner seems to have left in something of a hurry.
 		<<NationalityToName $activeSlave>>
 		<<NationalityToAccent $activeSlave>>
 		<<set $activeSlave.devotion = random(55,65), $activeSlave.trust = random(25,45), $activeSlave.health = random(25,45)>>
-		<<set $activeSlave.face = random(0,2)>>
+		<<set $activeSlave.face = random(0,55)>>
 		<<set $activeSlave.age = random(36,38)>>
 		<<set $activeSlave.accent = 0>>
 		<<set $activeSlave.intelligence = 3, $activeSlave.intelligenceImplant = 1>>
@@ -335,20 +335,20 @@ The previous owner seems to have left in something of a hurry.
 	<<AddSlave $activeSlave>>
 	<</for>>
 <<else>>
-	<<for $j = 0; $j < $heroSlaves.length; $j++>>
+	<<for $j to 0; $j < $heroSlaves.length; $j++>>
 	<<if _valueOwed - _valueGiven <= 5000>>
 		<<break>>
 	<</if>>
-	<<set $activeSlave = $heroSlaves[$j]>>
+	<<set $activeSlave to $heroSlaves[$j]>>
 	<<slaveCost $activeSlave>>
 	<<if _valueGiven + $slaveCost < _valueOwed*2>>
-		<<set $activeSlave.pubicHColor = $activeSlave.hColor>>
+		<<set $activeSlave.pubicHColor to $activeSlave.hColor>>
 		<<set $activeSlave.pubicHStyle = "waxed">>
-		<<set $activeSlave.oldDevotion = $activeSlave.devotion>>
-		<<set $activeSlave.oldTrust = $activeSlave.trust>>
+		<<set $activeSlave.oldDevotion to $activeSlave.devotion>>
+		<<set $activeSlave.oldTrust to $activeSlave.trust>>
 		<<set _valueGiven += $slaveCost>>
 		<<AddSlave $activeSlave>>
-		<<if $activeSlave.fetish == "mindbroken">>
+		<<if $activeSlave.fetish is "mindbroken">>
 			$activeSlave.slaveName is, sadly, not mentally competent, and is wandering through the penthouse at the moment.
 		<<elseif $activeSlave.amp == 1>>
 			$activeSlave.slaveName is a quadruple amputee and is quite helpless, so you can attend to her at your leisure.
@@ -360,23 +360,23 @@ The previous owner seems to have left in something of a hurry.
 			$activeSlave.slaveName is reasonably obedient, and is waiting for you in the dormitory, I believe in the hope of making a good impression.
 		<<elseif $activeSlave.energy > 95>>
 			$activeSlave.slaveName is a remarkable sexual addict, and I believe she will be very happy to meet you.
-		<<elseif $activeSlave.fetish == "buttslut">>
+		<<elseif $activeSlave.fetish is "buttslut">>
 			$activeSlave.slaveName is currently in the dormitory masturbating anally, and I believe she will be happy to meet you.
-		<<elseif $activeSlave.fetish == "cumslut">>
+		<<elseif $activeSlave.fetish is "cumslut">>
 			$activeSlave.slaveName is currently in the dormitory exhibiting oral fixation, and I believe she will be happy to meet you.
-		<<elseif $activeSlave.fetish == "boobs">>
+		<<elseif $activeSlave.fetish is "boobs">>
 			$activeSlave.slaveName is currently in the dormitory playing with her nipples, and I believe she will be happy to meet you.
-		<<elseif $activeSlave.fetish == "pregnancy">>
+		<<elseif $activeSlave.fetish is "pregnancy">>
 			$activeSlave.slaveName is currently in the dormitory examining herself to try to discern her fertility, and I believe she will be happy to meet you.
-		<<elseif $activeSlave.fetish == "humiliation">>
+		<<elseif $activeSlave.fetish is "humiliation">>
 			$activeSlave.slaveName is currently in the entryway flashing passersby, and I believe she will be happy to meet you.
-		<<elseif $activeSlave.fetish == "submissive">>
+		<<elseif $activeSlave.fetish is "submissive">>
 			$activeSlave.slaveName is currently in the dormitory, experimenting with self-bondage using the sheets; I believe she will be happy to meet you.
-		<<elseif $activeSlave.fetish == "dom">>
+		<<elseif $activeSlave.fetish is "dom">>
 			$activeSlave.slaveName is currently in the exercise area keeping fit; she likes to take an active role sexually and is using this down time to work out.
-		<<elseif $activeSlave.fetish == "sadist">>
+		<<elseif $activeSlave.fetish is "sadist">>
 			$activeSlave.slaveName is currently outside your office; she enjoys being superior to other slaves and I believe she means to ingratiate herself to you.
-		<<elseif $activeSlave.fetish == "masochist">>
+		<<elseif $activeSlave.fetish is "masochist">>
 			$activeSlave.slaveName is a sexual masochist; she is currently in the bathroom, experimenting with auto-flagellation with a wet towel.
 		<<else>>
 			$activeSlave.slaveName is currently outside your office, and I believe she is attempting to maintain sexual arousal to make a good first impression on you.
@@ -395,25 +395,25 @@ The previous owner seems to have left in something of a hurry.
 <<set $averageTrust = 0>>
 <<set $averageDevotion = 0>>
 <<set _slavesContributing = 0>>
-<<for $i = 0; $i < $slaves.length; $i++>>
+<<for $i to 0; $i < $slaves.length; $i++>>
 	<<if $slaves[$i].relation != 0>>
-	<<set $seed = 0>>
-	<<for $j = 0; $j < $slaves.length; $j++>>
+	<<set $seed to 0>>
+	<<for $j to 0; $j < $slaves.length; $j++>>
 		<<if $slaves[$i].relationTarget == $slaves[$j].ID>>
 		<<if $slaves[$j].relationTarget == $slaves[$i].ID>>
-		<<set $seed = 1>>
+		<<set $seed to 1>>
 		<<break>>
 		<</if>>
 		<</if>>
 	<</for>>
 	<<if $seed == 0>>
-		<<set $slaves[$i].relation = 0>>
-		<<set $slaves[$i].relationTarget = 0>>
+		<<set $slaves[$i].relation to 0>>
+		<<set $slaves[$i].relationTarget to 0>>
 		<<goto "Acquisition">>
 	<</if>>
 	<</if>>
-	<<set $slaves[$i].oldDevotion = $slaves[$i].devotion>>
-	<<set $slaves[$i].oldTrust = $slaves[$i].trust>>
+	<<set $slaves[$i].oldDevotion to $slaves[$i].devotion>>
+	<<set $slaves[$i].oldTrust to $slaves[$i].trust>>
 	/* AVERAGE VALUES UPDATE */
 	<<if $slaves[$i].assignmentVisible == 1>>
 		<<set $averageTrust += $slaves[$i].trust, $averageDevotion += $slaves[$i].devotion, _slavesContributing += 1>>
@@ -436,16 +436,16 @@ The previous owner seems to have left in something of a hurry.
 
 <<link "Continue">>
 	<<set $ui = "main">>
-	<<set $fixedNationality = 0>>
-	<<if $terrain == "urban">>
-		<<set $minimumSlaveCost = 2000>>
-		<<set $slaveCostFactor = 0.7>>
-	<<elseif $terrain == "marine">>
-		<<set $minimumSlaveCost = 2500>>
-		<<set $slaveCostFactor = 1>>
+	<<set $fixedNationality to 0>>
+	<<if $terrain is "urban">>
+		<<set $minimumSlaveCost to 2000>>
+		<<set $slaveCostFactor to 0.7>>
+	<<elseif $terrain is "marine">>
+		<<set $minimumSlaveCost to 2500>>
+		<<set $slaveCostFactor to 1>>
 	<<else>>
-		<<set $minimumSlaveCost = 3000>>
-		<<set $slaveCostFactor = 1.3>>
+		<<set $minimumSlaveCost to 3000>>
+		<<set $slaveCostFactor to 1.3>>
 	<</if>>
 	<<script>>Save.autosave.save("Week Start Autosave")<</script>>
 	<<goto "Main">>

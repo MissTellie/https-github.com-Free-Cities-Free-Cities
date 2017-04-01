@@ -2,9 +2,9 @@
 
 
 
-<<set $nextButton = "Back">>
-<<set $nextLink = "Rules Assistant">>
-<<set $showEncyclopedia = 1>><<set $encyclopedia = "Personal Assistant">>
+<<set $nextButton to "Back">>
+<<set $nextLink to "Rules Assistant">>
+<<set $showEncyclopedia to 1>><<set $encyclopedia to "Personal Assistant">>
 
 //Please use the 'no default setting' option to identify areas I should not address.//
 
@@ -15,27 +15,27 @@ __Rule $r Optometry options:__
 Eyewear: ''$currentRule.eyewear.''
 </span>
 <<link "No default setting">>
-<<set $currentRule.eyewear = "no default setting">>
+<<set $currentRule.eyewear to "no default setting">>
 <<RAChangeEyewear>>
 <</link>>
 | <<link "Correct with glasses">>
-<<set $currentRule.eyewear = "correct with glasses">>
+<<set $currentRule.eyewear to "correct with glasses">>
 <<RAChangeEyewear>>
 <</link>>
 | <<link "Correct with contacts">>
-<<set $currentRule.eyewear = "correct with contacts">>
+<<set $currentRule.eyewear to "correct with contacts">>
 <<RAChangeEyewear>>
 <</link>>
 | <<link "Universal glasses">>
-<<set $currentRule.eyewear = "universal glasses">>
+<<set $currentRule.eyewear to "universal glasses">>
 <<RAChangeEyewear>>
 <</link>>
 | <<link "Blur with glasses">>
-<<set $currentRule.eyewear = "blur with glasses">>
+<<set $currentRule.eyewear to "blur with glasses">>
 <<RAChangeEyewear>>
 <</link>>
 | <<link "Blur with contacts">>
-<<set $currentRule.eyewear = "blur with contacts">>
+<<set $currentRule.eyewear to "blur with contacts">>
 <<RAChangeEyewear>>
 <</link>>
 
@@ -47,79 +47,79 @@ __Rule $r Cosmetic options:__
 Eye coloring: ''$currentRule.eyeColor.''
 </span>
 <<link "No default eye color setting">>
-<<set $currentRule.eyeColor = "no default setting">>
+<<set $currentRule.eyeColor to "no default setting">>
 <<RAChangeEyecolor>>
 <</link>>
 | <<link "Blue">>
-<<set $currentRule.eyeColor = "blue">>
+<<set $currentRule.eyeColor to "blue">>
 <<RAChangeEyecolor>>
 <</link>>
 | <<link "Black">>
-<<set $currentRule.eyeColor = "black">>
+<<set $currentRule.eyeColor to "black">>
 <<RAChangeEyecolor>>
 <</link>>
 | <<link "Brown">>
-<<set $currentRule.eyeColor = "brown">>
+<<set $currentRule.eyeColor to "brown">>
 <<RAChangeEyecolor>>
 <</link>>
 | <<link "Green">>
-<<set $currentRule.eyeColor = "green">>
+<<set $currentRule.eyeColor to "green">>
 <<RAChangeEyecolor>>
 <</link>>
 | <<link "Turquoise">>
-<<set $currentRule.eyeColor = "turquoise">>
+<<set $currentRule.eyeColor to "turquoise">>
 <<RAChangeEyecolor>>
 <</link>>
 | <<link "Sky-blue">>
-<<set $currentRule.eyeColor = "sky-blue">>
+<<set $currentRule.eyeColor to "sky-blue">>
 <<RAChangeEyecolor>>
 <</link>>
 | <<link "Hazel">>
-<<set $currentRule.eyeColor = "hazel">>
+<<set $currentRule.eyeColor to "hazel">>
 <<RAChangeEyecolor>>
 <</link>>
 | <<link "Pale-grey">>
-<<set $currentRule.eyeColor = "pale-grey">>
+<<set $currentRule.eyeColor to "pale-grey">>
 <<RAChangeEyecolor>>
 <</link>>
 | <<link "White">>
-<<set $currentRule.eyeColor = "white">>
+<<set $currentRule.eyeColor to "white">>
 <<RAChangeEyecolor>>
 <</link>>
 | <<link "Pink">>
-<<set $currentRule.eyeColor = "pink">>
+<<set $currentRule.eyeColor to "pink">>
 <<RAChangeEyecolor>>
 <</link>>
 | <<link "Amber">>
-<<set $currentRule.eyeColor = "amber">>
+<<set $currentRule.eyeColor to "amber">>
 <<RAChangeEyecolor>>
 <</link>>
 | <<link "Red">>
-<<set $currentRule.eyeColor = "red">>
+<<set $currentRule.eyeColor to "red">>
 <<RAChangeEyecolor>>
 <</link>>
 | <<link "Catlike">>
-<<set $currentRule.eyeColor = "catlike">>
+<<set $currentRule.eyeColor to "catlike">>
 <<RAChangeEyecolor>>
 <</link>>
 | <<link "Serpent-like">>
-<<set $currentRule.eyeColor = "serpent-like">>
+<<set $currentRule.eyeColor to "serpent-like">>
 <<RAChangeEyecolor>>
 <</link>>
 | <<link "Devilish">>
-<<set $currentRule.eyeColor = "devilish">>
+<<set $currentRule.eyeColor to "devilish">>
 <<RAChangeEyecolor>>
 <</link>>
 | <<link "Demonic">>
-<<set $currentRule.eyeColor = "demonic">>
+<<set $currentRule.eyeColor to "demonic">>
 <<RAChangeEyecolor>>
 <</link>>
 | <<link "Hypnotic">>
-<<set $currentRule.eyeColor = "hypnotic">>
+<<set $currentRule.eyeColor to "hypnotic">>
 <<RAChangeEyecolor>>
 <</link>>
 | <<link "Heart-shaped">>
-<<set $currentRule.eyeColor = "heart-shaped">>
+<<set $currentRule.eyeColor to "heart-shaped">>
 <<RAChangeEyecolor>>
 <</link>>
 <br>
@@ -131,11 +131,11 @@ Makeup:
 	makeup-free.
 <<elseif $currentRule.makeup == 1>>
 	minimal makeup.
-<<elseif $currentRule.makeup == 2>>
+<<elseif $currentRule.makeup is 2>>
 	luxurious, expensive makeup.
-<<elseif $currentRule.makeup == 3>>
+<<elseif $currentRule.makeup is 3>>
 	color-coordinated.
-<<elseif $currentRule.makeup == 4>>
+<<elseif $currentRule.makeup is 4>>
 	garish.
 <<else>>
 	no default setting.
@@ -144,27 +144,27 @@ Makeup:
 </span>
 
 <<link "No default makeup setting">>
-<<set $currentRule.makeup = "no default setting">>
+<<set $currentRule.makeup to "no default setting">>
 <<RAChangeMakeup>>
 <</link>>
 | <<link "Makeup-free">>
-<<set $currentRule.makeup = 0>>
+<<set $currentRule.makeup to 0>>
 <<RAChangeMakeup>>
 <</link>>
 | <<link "Nice">>
-<<set $currentRule.makeup = 1>>
+<<set $currentRule.makeup to 1>>
 <<RAChangeMakeup>>
 <</link>>
 | <<link "Gorgeous">>
-<<set $currentRule.makeup = 2>>
+<<set $currentRule.makeup to 2>>
 <<RAChangeMakeup>>
 <</link>>
 | <<link "Color-coordinate with hair">>
-<<set $currentRule.makeup = 3>>
+<<set $currentRule.makeup to 3>>
 <<RAChangeMakeup>>
 <</link>>
 | <<link "Slutty">>
-<<set $currentRule.makeup = 4>>
+<<set $currentRule.makeup to 4>>
 <<RAChangeMakeup>>
 <</link>>
 
@@ -176,13 +176,13 @@ Nails:
 	clipped.
 <<elseif $currentRule.nails == 1>>
 	long and elegant.
-<<elseif $currentRule.nails == 2>>
+<<elseif $currentRule.nails is 2>>
 	color-coordinated.
-<<elseif $currentRule.nails == 3>>
+<<elseif $currentRule.nails is 3>>
 	sharp and claw-like.
-<<elseif $currentRule.nails == 4>>
+<<elseif $currentRule.nails is 4>>
 	bright and glittery.
-<<elseif $currentRule.nails == 5>>
+<<elseif $currentRule.nails is 5>>
 	garish.
 <<else>>
 	no default setting.
@@ -190,31 +190,31 @@ Nails:
 ''
 </span>
 <<link "No default nails setting">>
-<<set $currentRule.nails = "no default setting">>
+<<set $currentRule.nails to "no default setting">>
 <<RAChangeNails>>
 <</link>>
 | <<link "Clipped">>
-<<set $currentRule.nails = 0>>
+<<set $currentRule.nails to 0>>
 <<RAChangeNails>>
 <</link>>
 | <<link "Extended">>
-<<set $currentRule.nails = 1>>
+<<set $currentRule.nails to 1>>
 <<RAChangeNails>>
 <</link>>
 | <<link "Color-coordinate with hair">>
-<<set $currentRule.nails = 2>>
+<<set $currentRule.nails to 2>>
 <<RAChangeNails>>
 <</link>>
 | <<link "Sharp and claw-like">>
 <<RAChangeNails>>
-<<set $currentRule.nails = 3>>
+<<set $currentRule.nails to 3>>
 <</link>>
 | <<link "Bright and glittery">>
 <<RAChangeNails>>
-<<set $currentRule.nails = 4>><</link>>
+<<set $currentRule.nails to 4>><</link>>
 | <<link "Hooker nails">>
 <<RAChangeNails>>
-<<set $currentRule.nails = 5>>
+<<set $currentRule.nails to 5>>
 <</link>>
 
 <br>
@@ -223,92 +223,92 @@ Hair color: ''$currentRule.hColor.''
 </span>
 
 <<link "No default hair color setting">>
-<<set $currentRule.hColor = "no default setting">>
+<<set $currentRule.hColor to "no default setting">>
 <<RAChangeHColor>>
 <</link>>
 | <<link "Blonde">>
-<<set $currentRule.hColor = "blonde">>
+<<set $currentRule.hColor to "blonde">>
 <<RAChangeHColor>>
 <</link>>
 | <<link "Golden">>
-<<set $currentRule.hColor = "golden">>
+<<set $currentRule.hColor to "golden">>
 <<RAChangeHColor>>
 <</link>>
 | <<link "Platinum Blonde">>
-<<set $currentRule.hColor = "platinum blonde">>
+<<set $currentRule.hColor to "platinum blonde">>
 <<RAChangeHColor>>
 <</link>>
 | <<link "Strawberry-Blonde">>
-<<set $currentRule.hColor = "strawberry-blonde">>
+<<set $currentRule.hColor to "strawberry-blonde">>
 <<RAChangeHColor>>
 <</link>>
 | <<link "Copper">>
-<<set $currentRule.hColor = "copper">>
+<<set $currentRule.hColor to "copper">>
 <<RAChangeHColor>>
 <</link>>
 | <<link "Ginger">>
-<<set $currentRule.hColor = "ginger">>
+<<set $currentRule.hColor to "ginger">>
 <<RAChangeHColor>>
 <</link>>
 | <<link "Red">>
-<<set $currentRule.hColor = "red">>
+<<set $currentRule.hColor to "red">>
 <<RAChangeHColor>>
 <</link>>
 | <<link "Green">>
-<<set $currentRule.hColor = "green">>
+<<set $currentRule.hColor to "green">>
 <<RAChangeHColor>>
 <</link>>
 | <<link "Blue">>
-<<set $currentRule.hColor = "blue">>
+<<set $currentRule.hColor to "blue">>
 <<RAChangeHColor>>
 <</link>>
 | <<link "Pink">>
-<<set $currentRule.hColor = "pink">>
+<<set $currentRule.hColor to "pink">>
 <<RAChangeHColor>>
 <</link>>
 | <<link "Dark Brown">>
-<<set $currentRule.hColor = "dark brown">>
+<<set $currentRule.hColor to "dark brown">>
 <<RAChangeHColor>>
 <</link>>
 | <<link "Brown">>
-<<set $currentRule.hColor = "brown">>
+<<set $currentRule.hColor to "brown">>
 <<RAChangeHColor>>
 <</link>>
 | <<link "Auburn">>
-<<set $currentRule.hColor = "auburn">>
+<<set $currentRule.hColor to "auburn">>
 <<RAChangeHColor>>
 <</link>>
 | <<link "Burgundy">>
-<<set $currentRule.hColor = "burgundy">>
+<<set $currentRule.hColor to "burgundy">>
 <<RAChangeHColor>>
 <</link>>
 | <<link "Chocolate">>
-<<set $currentRule.hColor = "chocolate">>
+<<set $currentRule.hColor to "chocolate">>
 <<RAChangeHColor>>
 <</link>>
 | <<link "Chestnut">>
-<<set $currentRule.hColor = "chestnut">>
+<<set $currentRule.hColor to "chestnut">>
 <<RAChangeHColor>>
 <</link>>
 | <<link "Hazel">>
-<<set $currentRule.hColor = "hazel">>
+<<set $currentRule.hColor to "hazel">>
 <<RAChangeHColor>>
 <</link>>
 | <<link "Black">>
-<<set $currentRule.hColor = "black">>
+<<set $currentRule.hColor to "black">>
 <<RAChangeHColor>>
 <</link>>
 | <<link "Grey">>
-<<set $currentRule.hColor = "grey">>
+<<set $currentRule.hColor to "grey">>
 <<RAChangeHColor>>
 <</link>>
 | <<link "Silver">>
-<<set $currentRule.hColor = "silver">>
+<<set $currentRule.hColor to "silver">>
 <<RAChangeHColor>>
 <</link>>
 | <<link "White">>
 
-<<set $currentRule.hColor = "white">>
+<<set $currentRule.hColor to "white">>
 <<RAChangeHColor>>
 <</link>>
 <br>
@@ -318,71 +318,71 @@ Hair style: ''$currentRule.hStyle.''
 </span>
 
 <<link "No default hair length setting">>
-<<set $currentRule.hStyle = "no default setting">>
+<<set $currentRule.hStyle to "no default setting">>
 <<RAChangeHStyle>>
 <</link>>
 | <<link "Neat">>
-<<set $currentRule.hStyle = "neat">>
+<<set $currentRule.hStyle to "neat">>
 <<RAChangeHStyle>>
 <</link>>
 | <<link "Shaved">>
-<<set $currentRule.hStyle = "shaved",$currentRule.hLength = 0>>
+<<set $currentRule.hStyle to "shaved",$currentRule.hLength to 0>>
 <<RAChangeHStyle>>
 <</link>>
 | <<link "Trimmed short">>
-<<set $currentRule.hStyle = "trimmed",$currentRule.hLength = 10>>
+<<set $currentRule.hStyle to "trimmed",$currentRule.hLength to 10>>
 <<RAChangeHStyle>>
 <</link>>
 | <<link "Buzzcut">>
-<<set $currentRule.hStyle = "buzzcut",$currentRule.hLength = 1>>
+<<set $currentRule.hStyle to "buzzcut",$currentRule.hLength to 1>>
 <<RAChangeHStyle>>
 <</link>>
 | <<link "Up">>
-<<set $currentRule.hStyle = "up">>
+<<set $currentRule.hStyle to "up">>
 <<RAChangeHStyle>>
 <</link>>
 | <<link "In a ponytail">>
-<<set $currentRule.hStyle = "ponytail">>
+<<set $currentRule.hStyle to "ponytail">>
 <<RAChangeHStyle>>
 <</link>>
 | <<link "In a bun">>
-<<set $currentRule.hStyle = "bun">>
+<<set $currentRule.hStyle to "bun">>
 <<RAChangeHStyle>>
 <</link>>
 | <<link "Curled">>
-<<set $currentRule.hStyle = "curls">>
+<<set $currentRule.hStyle to "curls">>
 <<RAChangeHStyle>>
 <</link>>
 | <<link "Permed">>
-<<set $currentRule.hStyle = "permed">>
+<<set $currentRule.hStyle to "permed">>
 <<RAChangeHStyle>>
 <</link>>
 | <<link "Luxurious">>
-<<set $currentRule.hStyle = "luxurious">>
+<<set $currentRule.hStyle to "luxurious">>
 <<RAChangeHStyle>>
 <</link>>
 | <<link "Dreadlocks">>
-<<set $currentRule.hStyle = "dreadlocks">>
+<<set $currentRule.hStyle to "dreadlocks">>
 <<RAChangeHStyle>>
 <</link>>
 | <<link "Cornrows">>
-<<set $currentRule.hStyle = "cornrows">>
+<<set $currentRule.hStyle to "cornrows">>
 <<RAChangeHStyle>>
 <</link>>
 | <<link "Braided">>
-<<set $currentRule.hStyle = "braided">>
+<<set $currentRule.hStyle to "braided">>
 <<RAChangeHStyle>>
 <</link>>
 | <<link "In tails">>
-<<set $currentRule.hStyle = "tails">>
+<<set $currentRule.hStyle to "tails">>
 <<RAChangeHStyle>>
 <</link>>
 | <<link "Afro">>
-<<set $currentRule.hStyle = "afro">>
+<<set $currentRule.hStyle to "afro">>
 <<RAChangeHStyle>>
 <</link>>
 | <<link "Shaved sides">>
-<<set $currentRule.hStyle = "strip">>
+<<set $currentRule.hStyle to "strip">>
 <<RAChangeHStyle>>
 <</link>>
 <br>
@@ -394,23 +394,23 @@ Hair length: ''$currentRule.hLength.''
 </span>
 
 <<link "No default hair length setting">>
-<<set $currentRule.hLength = "no default setting">>
+<<set $currentRule.hLength to "no default setting">>
 <<RAChangeHLength>>
 <</link>>
 | <<link "Very short">>
-<<set $currentRule.hLength = 5>>
+<<set $currentRule.hLength to 5>>
 <<RAChangeHLength>>
 <</link>>
 | <<link "Short">>
-<<set $currentRule.hLength = 10>>
+<<set $currentRule.hLength to 10>>
 <<RAChangeHLength>>
 <</link>>
 | <<link "Shoulder length">>
-<<set $currentRule.hLength = 30>>
+<<set $currentRule.hLength to 30>>
 <<RAChangeHLength>>
 <</link>>
 | <<link "Long">>
-<<set $currentRule.hLength = 60>>
+<<set $currentRule.hLength to 60>>
 <<RAChangeHLength>>
 <</link>>
 | <<link "Very long">>
@@ -418,7 +418,7 @@ Hair length: ''$currentRule.hLength.''
 <<RAChangeHLength>>
 <</link>>
 | <<link "Floor length">>
-<<set $currentRule.hLength = 150>>
+<<set $currentRule.hLength to 150>>
 <<RAChangeHLength>>
 <</link>>
 
@@ -429,91 +429,91 @@ Hair length: ''$currentRule.hLength.''
 Pubic hair color, when present: ''$currentRule.pubicHColor.''
 </span>
 <<link "No default pubic hair color setting">>
-<<set $currentRule.pubicHColor = "no default setting">>
+<<set $currentRule.pubicHColor to "no default setting">>
 <<RAChangePHColor>>
 <</link>>
 | <<link "Blonde">>
-<<set $currentRule.pubicHColor = "blonde">>
+<<set $currentRule.pubicHColor to "blonde">>
 <<RAChangePHColor>>
 <</link>>
 | <<link "Golden">>
-<<set $currentRule.pubicHColor = "golden">>
+<<set $currentRule.pubicHColor to "golden">>
 <<RAChangePHColor>>
 <</link>>
 | <<link "Platinum Blonde">>
-<<set $currentRule.pubicHColor = "platinum blonde">>
+<<set $currentRule.pubicHColor to "platinum blonde">>
 <<RAChangePHColor>>
 <</link>>
 | <<link "Strawberry-Blonde">>
-<<set $currentRule.pubicHColor = "strawberry-blonde">>
+<<set $currentRule.pubicHColor to "strawberry-blonde">>
 <<RAChangePHColor>>
 <</link>>
 | <<link "Copper">>
-<<set $currentRule.pubicHColor = "copper">>
+<<set $currentRule.pubicHColor to "copper">>
 <<RAChangePHColor>>
 <</link>>
 | <<link "Ginger">>
-<<set $currentRule.pubicHColor = "ginger">>
+<<set $currentRule.pubicHColor to "ginger">>
 <<RAChangePHColor>>
 <</link>>
 | <<link "Red">>
-<<set $currentRule.pubicHColor = "red">>
+<<set $currentRule.pubicHColor to "red">>
 <<RAChangePHColor>>
 <</link>>
 | <<link "Green">>
-<<set $currentRule.pubicHColor = "green">>
+<<set $currentRule.pubicHColor to "green">>
 <<RAChangePHColor>>
 <</link>>
 | <<link "Blue">>
-<<set $currentRule.pubicHColor = "blue">>
+<<set $currentRule.pubicHColor to "blue">>
 <<RAChangePHColor>>
 <</link>>
 | <<link "Pink">>
-<<set $currentRule.pubicHColor = "pink">>
+<<set $currentRule.pubicHColor to "pink">>
 <<RAChangePHColor>>
 <</link>>
 | <<link "Dark Brown">>
-<<set $currentRule.pubicHColor = "dark brown">>
+<<set $currentRule.pubicHColor to "dark brown">>
 <<RAChangePHColor>>
 <</link>>
 | <<link "Brown">>
-<<set $currentRule.pubicHColor = "brown">>
+<<set $currentRule.pubicHColor to "brown">>
 <<RAChangePHColor>>
 <</link>>
 | <<link "Auburn">>
-<<set $currentRule.pubicHColor = "auburn">>
+<<set $currentRule.pubicHColor to "auburn">>
 <<RAChangePHColor>>
 <</link>>
 | <<link "Burgundy">>
-<<set $currentRule.pubicHColor = "burgundy">>
+<<set $currentRule.pubicHColor to "burgundy">>
 <<RAChangePHColor>>
 <</link>>
 | <<link "Chocolate">>
-<<set $currentRule.pubicHColor = "chocolate">>
+<<set $currentRule.pubicHColor to "chocolate">>
 <<RAChangePHColor>>
 <</link>>
 | <<link "Chestnut">>
-<<set $currentRule.pubicHColor = "chestnut">>
+<<set $currentRule.pubicHColor to "chestnut">>
 <<RAChangePHColor>>
 <</link>>
 | <<link "Hazel">>
-<<set $currentRule.pubicHColor = "hazel">>
+<<set $currentRule.pubicHColor to "hazel">>
 <<RAChangePHColor>>
 <</link>>
 | <<link "Black">>
-<<set $currentRule.pubicHColor = "black">>
+<<set $currentRule.pubicHColor to "black">>
 <<RAChangePHColor>>
 <</link>>
 | <<link "Grey">>
-<<set $currentRule.pubicHColor = "grey">>
+<<set $currentRule.pubicHColor to "grey">>
 <<RAChangePHColor>>
 <</link>>
 | <<link "Silver">>
-<<set $currentRule.pubicHColor = "silver">>
+<<set $currentRule.pubicHColor to "silver">>
 <<RAChangePHColor>>
 <</link>>
 | <<link "White">>
-<<set $currentRule.pubicHColor = "white">>
+<<set $currentRule.pubicHColor to "white">>
 <<RAChangePHColor>>
 <</link>>
 <br>
@@ -521,22 +521,22 @@ Pubic hair color, when present: ''$currentRule.pubicHColor.''
 Pubic hair style: ''$currentRule.pubicHStyle.''
 </span>
 <<link "No default pubic hair style setting">>
-<<set $currentRule.pubicHStyle = "no default setting">>
+<<set $currentRule.pubicHStyle to "no default setting">>
 <<RAChangePHStyle>>
 <</link>>
 | <<link "Waxed">>
-<<set $currentRule.pubicHStyle = "waxed">>
+<<set $currentRule.pubicHStyle to "waxed">>
 <<RAChangePHStyle>>
 <</link>>
 | <<link "Landing strip">>
-<<set $currentRule.pubicHStyle = "in a strip">>
+<<set $currentRule.pubicHStyle to "in a strip">>
 <<RAChangePHStyle>>
 <</link>>
 | <<link "Neat">>
-<<set $currentRule.pubicHStyle = "neat">>
+<<set $currentRule.pubicHStyle to "neat">>
 <<RAChangePHStyle>>
 <</link>>
 | <<link "Bushy">>
-<<set $currentRule.pubicHStyle = "bushy">>
+<<set $currentRule.pubicHStyle to "bushy">>
 <<RAChangePHStyle>>
 <</link>>

@@ -2,9 +2,9 @@
 
 
 
-<<set $nextButton = "Back">>
-<<set $nextLink = "Rules Assistant">>
-<<set $showEncyclopedia = 1>><<set $encyclopedia = "Personal Assistant">>
+<<set $nextButton to "Back">>
+<<set $nextLink to "Rules Assistant">>
+<<set $showEncyclopedia to 1>><<set $encyclopedia to "Personal Assistant">>
 
 <br>
 
@@ -15,234 +15,234 @@ __Rule $r piercings__
 <br>
 Ear piercings: ''
 <span id = "earpiercing">
-<<if $currentRule.earPiercing == "no default setting">>No default setting.<<elseif $currentRule.earPiercing == 0>>None.<<elseif $currentRule.earPiercing == 1>>Light.
-<<elseif $currentRule.earPiercing == 2>>Heavy.<</if>></span>''
+<<if $currentRule.earPiercing is "no default setting">>No default setting.<<elseif $currentRule.earPiercing == 0>>None.<<elseif $currentRule.earPiercing == 1>>Light.
+<<elseif $currentRule.earPiercing is 2>>Heavy.<</if>></span>''
 
 <<link "No default setting">>
-<<set $currentRule.earPiercing = "no default setting">>
+<<set $currentRule.earPiercing to "no default setting">>
 <<RAChangeEarPiercings>>
 <</link>>
 |
 <<link "None">>
-<<set $currentRule.earPiercing = 0>>
+<<set $currentRule.earPiercing to 0>>
 <<RAChangeEarPiercings>>
 <</link>>
 |
 <<link "Light">>
-<<set $currentRule.earPiercing = 1>>
+<<set $currentRule.earPiercing to 1>>
 <<RAChangeEarPiercings>>
 <</link>>
 |
 <<link "Heavy">>
-<<set $currentRule.earPiercing = 2>>
+<<set $currentRule.earPiercing to 2>>
 <<RAChangeEarPiercings>>
 <</link>>
 
 <br>
 Nasal piercings: ''
 <span id = "nosepiercing">
-<<if $currentRule.nosePiercing == "no default setting">>No default setting.<<elseif $currentRule.nosePiercing == 0>>None.<<elseif $currentRule.nosePiercing == 1>>Light.
-<<elseif $currentRule.nosePiercing == 2>>Heavy.<</if>></span>''
+<<if $currentRule.nosePiercing is "no default setting">>No default setting.<<elseif $currentRule.nosePiercing == 0>>None.<<elseif $currentRule.nosePiercing == 1>>Light.
+<<elseif $currentRule.nosePiercing is 2>>Heavy.<</if>></span>''
 
 <<link "No default setting">>
-<<set $currentRule.nosePiercing = "no default setting">>
+<<set $currentRule.nosePiercing to "no default setting">>
 <<RAChangeNosePiercings>>
 <</link>>
 |
 <<link "None">>
-<<set $currentRule.nosePiercing = 0>>
+<<set $currentRule.nosePiercing to 0>>
 <<RAChangeNosePiercings>>
 <</link>>
 |
 <<link "Light">>
-<<set $currentRule.nosePiercing = 1>>
+<<set $currentRule.nosePiercing to 1>>
 <<RAChangeNosePiercings>>
 <</link>>
 |
 <<link "Heavy">>
-<<set $currentRule.nosePiercing = 2>>
+<<set $currentRule.nosePiercing to 2>>
 <<RAChangeNosePiercings>>
 <</link>>
 
 <br>
 Eyebrow piercings: ''
 <span id = "eyebrowpiercing">
-<<if $currentRule.eyebrowPiercing == "no default setting">>No default setting.<<elseif $currentRule.eyebrowPiercing == 0>>None.<<elseif $currentRule.eyebrowPiercing == 1>>Light.
-<<elseif $currentRule.eyebrowPiercing == 2>>Heavy.<</if>></span>''
+<<if $currentRule.eyebrowPiercing is "no default setting">>No default setting.<<elseif $currentRule.eyebrowPiercing == 0>>None.<<elseif $currentRule.eyebrowPiercing == 1>>Light.
+<<elseif $currentRule.eyebrowPiercing is 2>>Heavy.<</if>></span>''
 
 <<link "No default setting">>
-<<set $currentRule.eyebrowPiercing = "no default setting">>
+<<set $currentRule.eyebrowPiercing to "no default setting">>
 <<RAChangeEyebrowPiercings>>
 <</link>>
 |
 <<link "None">>
-<<set $currentRule.eyebrowPiercing = 0>>
+<<set $currentRule.eyebrowPiercing to 0>>
 <<RAChangeEyebrowPiercings>>
 <</link>>
 |
 <<link "Light">>
-<<set $currentRule.eyebrowPiercing = 1>>
+<<set $currentRule.eyebrowPiercing to 1>>
 <<RAChangeEyebrowPiercings>>
 <</link>>
 |
 <<link "Heavy">>
-<<set $currentRule.eyebrowPiercing = 2>>
+<<set $currentRule.eyebrowPiercing to 2>>
 <<RAChangeEyebrowPiercings>>
 <</link>>
 
 <br>
 Navel piercing: ''
 <span id = "navelpiercing">
-<<if $currentRule.navelPiercing == "no default setting">>No default setting.<<elseif $currentRule.navelPiercing == 0>>None.<<elseif $currentRule.navelPiercing == 1>>Light.
-<<elseif $currentRule.navelPiercing == 2>>Heavy.<</if>></span>''
+<<if $currentRule.navelPiercing is "no default setting">>No default setting.<<elseif $currentRule.navelPiercing == 0>>None.<<elseif $currentRule.navelPiercing == 1>>Light.
+<<elseif $currentRule.navelPiercing is 2>>Heavy.<</if>></span>''
 
 <<link "No default setting">>
-<<set $currentRule.navelPiercing = "no default setting">>
+<<set $currentRule.navelPiercing to "no default setting">>
 <<RAChangeNavelPiercings>>
 <</link>>
 |
 <<link "None">>
-<<set $currentRule.navelPiercing = 0>>
+<<set $currentRule.navelPiercing to 0>>
 <<RAChangeNavelPiercings>>
 <</link>>
 |
 <<link "Light">>
-<<set $currentRule.navelPiercing = 1>>
+<<set $currentRule.navelPiercing to 1>>
 <<RAChangeNavelPiercings>>
 <</link>>
 |
 <<link "Heavy">>
-<<set $currentRule.navelPiercing = 2>>
+<<set $currentRule.navelPiercing to 2>>
 <<RAChangeNavelPiercings>>
 <</link>>
 
 <br>
 Nipple piercings: ''
 <span id = "nipplepiercing">
-<<if $currentRule.nipplesPiercing == "no default setting">>No default setting.<<elseif $currentRule.nipplesPiercing == 0>>None.<<elseif $currentRule.nipplesPiercing == 1>>Light.
-<<elseif $currentRule.nipplesPiercing == 2>>Heavy.<</if>></span>''
+<<if $currentRule.nipplesPiercing is "no default setting">>No default setting.<<elseif $currentRule.nipplesPiercing == 0>>None.<<elseif $currentRule.nipplesPiercing == 1>>Light.
+<<elseif $currentRule.nipplesPiercing is 2>>Heavy.<</if>></span>''
 
 <<link "No default setting">>
-<<set $currentRule.nipplesPiercing = "no default setting">>
+<<set $currentRule.nipplesPiercing to "no default setting">>
 <<RAChangeNipplePiercings>>
 <</link>>
 |
 <<link "None">>
-<<set $currentRule.nipplesPiercing = 0>>
+<<set $currentRule.nipplesPiercing to 0>>
 <<RAChangeNipplePiercings>>
 <</link>>
 |
 <<link "Light">>
-<<set $currentRule.nipplesPiercing = 1>>
+<<set $currentRule.nipplesPiercing to 1>>
 <<RAChangeNipplePiercings>>
 <</link>>
 |
 <<link "Heavy">>
-<<set $currentRule.nipplesPiercing = 2>>
+<<set $currentRule.nipplesPiercing to 2>>
 <<RAChangeNipplePiercings>>
 <</link>>
 
 <br>
 Areola studs: ''
 <span id = "areolapiercing">
-<<if $currentRule.areolaePiercing == "no default setting">>No default setting.<<elseif $currentRule.areolaePiercing == 0>>None.<<elseif $currentRule.areolaePiercing == 1>>Studded.<</if>></span>''
+<<if $currentRule.areolaePiercing is "no default setting">>No default setting.<<elseif $currentRule.areolaePiercing == 0>>None.<<elseif $currentRule.areolaePiercing == 1>>Studded.<</if>></span>''
 
 <<link "No default setting">>
-<<set $currentRule.areolaePiercing = "no default setting">>
+<<set $currentRule.areolaePiercing to "no default setting">>
 <<RAChangeAreolaPiercings>>
 <</link>>
 |
 <<link "None">>
-<<set $currentRule.areolaePiercing = 0>>
+<<set $currentRule.areolaePiercing to 0>>
 <<RAChangeAreolaPiercings>>
 <</link>>
 |
 <<link "Studded">>
-<<set $currentRule.areolaePiercing = 1>>
+<<set $currentRule.areolaePiercing to 1>>
 <<RAChangeAreolaPiercings>>
 <</link>>
 
 <br>
 Lip piercings: ''
 <span id = "lippiercing">
-<<if $currentRule.lipsPiercing == "no default setting">>No default setting.<<elseif $currentRule.lipsPiercing == 0>>None.<<elseif $currentRule.lipsPiercing == 1>>Light.
-<<elseif $currentRule.lipsPiercing == 2>>Heavy.<</if>></span>''
+<<if $currentRule.lipsPiercing is "no default setting">>No default setting.<<elseif $currentRule.lipsPiercing == 0>>None.<<elseif $currentRule.lipsPiercing == 1>>Light.
+<<elseif $currentRule.lipsPiercing is 2>>Heavy.<</if>></span>''
 
 <<link "No default setting">>
-<<set $currentRule.lipsPiercing = "no default setting">>
+<<set $currentRule.lipsPiercing to "no default setting">>
 <<RAChangeLipPiercings>>
 <</link>>
 |
 <<link "None">>
-<<set $currentRule.lipsPiercing = 0>>
+<<set $currentRule.lipsPiercing to 0>>
 <<RAChangeLipPiercings>>
 <</link>>
 |
 <<link "Light">>
-<<set $currentRule.lipsPiercing = 1>>
+<<set $currentRule.lipsPiercing to 1>>
 <<RAChangeLipPiercings>>
 <</link>>
 |
 <<link "Heavy">>
-<<set $currentRule.lipsPiercing = 2>>
+<<set $currentRule.lipsPiercing to 2>>
 <<RAChangeLipPiercings>>
 <</link>>
 
 <br>
 Tongue piercing: ''
 <span id = "tonguepiercing">
-<<if $currentRule.tonguePiercing == "no default setting">>No default setting.<<elseif $currentRule.tonguePiercing == 0>>None.<<elseif $currentRule.tonguePiercing == 1>>Light.
-<<elseif $currentRule.tonguePiercing == 2>>Heavy.<</if>></span>''
+<<if $currentRule.tonguePiercing is "no default setting">>No default setting.<<elseif $currentRule.tonguePiercing == 0>>None.<<elseif $currentRule.tonguePiercing == 1>>Light.
+<<elseif $currentRule.tonguePiercing is 2>>Heavy.<</if>></span>''
 
 <<link "No default setting">>
-<<set $currentRule.tonguePiercing = "no default setting">>
+<<set $currentRule.tonguePiercing to "no default setting">>
 <<RAChangeTonguePiercings>>
 <</link>>
 |
 <<link "None">>
-<<set $currentRule.tonguePiercing = 0>>
+<<set $currentRule.tonguePiercing to 0>>
 <<RAChangeTonguePiercings>>
 <</link>>
 |
 <<link "Light">>
-<<set $currentRule.tonguePiercing = 1>>
+<<set $currentRule.tonguePiercing to 1>>
 <<RAChangeTonguePiercings>>
 <</link>>
 |
 <<link "Heavy">>
-<<set $currentRule.tonguePiercing = 2>>
+<<set $currentRule.tonguePiercing to 2>>
 <<RAChangeTonguePiercings>>
 <</link>>
 
 <br>
 Clit piercing: ''
 <span id = "clitpiercing">
-<<if $currentRule.clitPiercing == "no default setting">>No default setting.<<elseif $currentRule.clitPiercing == 0>>None.<<elseif $currentRule.clitPiercing == 1>>Light.
-<<elseif $currentRule.clitPiercing == 2>>Heavy.
-<<elseif $currentRule.clitPiercing == 3>>Smart.<</if>></span>''
+<<if $currentRule.clitPiercing is "no default setting">>No default setting.<<elseif $currentRule.clitPiercing == 0>>None.<<elseif $currentRule.clitPiercing == 1>>Light.
+<<elseif $currentRule.clitPiercing is 2>>Heavy.
+<<elseif $currentRule.clitPiercing is 3>>Smart.<</if>></span>''
 
 <<link "No default setting">>
-<<set $currentRule.clitPiercing = "no default setting">>
+<<set $currentRule.clitPiercing to "no default setting">>
 <<RAChangeClitPiercings>>
 <</link>>
 |
 <<link "None">>
-<<set $currentRule.clitPiercing = 0>>
+<<set $currentRule.clitPiercing to 0>>
 <<RAChangeClitPiercings>>
 <</link>>
 |
 <<link "Light">>
-<<set $currentRule.clitPiercing = 1>>
+<<set $currentRule.clitPiercing to 1>>
 <<RAChangeClitPiercings>>
 <</link>>
 |
 <<link "Heavy">>
-<<set $currentRule.clitPiercing = 2>>
+<<set $currentRule.clitPiercing to 2>>
 <<RAChangeClitPiercings>>
 <</link>>
 |
 <<link "Smart">>
-<<set $currentRule.clitPiercing = 3>>
+<<set $currentRule.clitPiercing to 3>>
 <<RAChangeClitPiercings>>
 <</link>>  //Warning: expensive//
 
@@ -250,26 +250,26 @@ Clit piercing: ''
 <br>
 Pussylips piercings: ''
 <span id = "vaginapiercing">
-<<if $currentRule.vaginaPiercing == "no default setting">>No default setting.<<elseif $currentRule.vaginaPiercing == 0>>None.<<elseif $currentRule.vaginaPiercing == 1>>Light.
-<<elseif $currentRule.vaginaPiercing == 2>>Heavy.<</if>></span>''
+<<if $currentRule.vaginaPiercing is "no default setting">>No default setting.<<elseif $currentRule.vaginaPiercing == 0>>None.<<elseif $currentRule.vaginaPiercing == 1>>Light.
+<<elseif $currentRule.vaginaPiercing is 2>>Heavy.<</if>></span>''
 
 <<link "No default setting">>
-<<set $currentRule.vaginaPiercing = "no default setting">>
+<<set $currentRule.vaginaPiercing to "no default setting">>
 <<RAChangeVaginaPiercings>>
 <</link>>
 |
 <<link "None">>
-<<set $currentRule.vaginaPiercing = 0>>
+<<set $currentRule.vaginaPiercing to 0>>
 <<RAChangeVaginaPiercings>>
 <</link>>
 |
 <<link "Light">>
-<<set $currentRule.vaginaPiercing = 1>>
+<<set $currentRule.vaginaPiercing to 1>>
 <<RAChangeVaginaPiercings>>
 <</link>>
 |
 <<link "Heavy">>
-<<set $currentRule.vaginaPiercing = 2>>
+<<set $currentRule.vaginaPiercing to 2>>
 <<RAChangeVaginaPiercings>>
 <</link>>
 <</if>>
@@ -279,26 +279,26 @@ Pussylips piercings: ''
 <br>
 Shaft piercings: ''
 <span id = "dickpiercing">
-<<if $currentRule.dickPiercing == "no default setting">>No default setting.<<elseif $currentRule.dickPiercing == 0>>None.<<elseif $currentRule.dickPiercing == 1>>Light.
-<<elseif $currentRule.dickPiercing == 2>>Heavy.<</if>></span>''
+<<if $currentRule.dickPiercing is "no default setting">>No default setting.<<elseif $currentRule.dickPiercing == 0>>None.<<elseif $currentRule.dickPiercing == 1>>Light.
+<<elseif $currentRule.dickPiercing is 2>>Heavy.<</if>></span>''
 
 <<link "No default setting">>
-<<set $currentRule.dickPiercing = "no default setting">>
+<<set $currentRule.dickPiercing to "no default setting">>
 <<RAChangeDickPiercings>>
 <</link>>
 |
 <<link "None">>
-<<set $currentRule.dickPiercing = 0>>
+<<set $currentRule.dickPiercing to 0>>
 <<RAChangeDickPiercings>>
 <</link>>
 |
 <<link "Light">>
-<<set $currentRule.dickPiercing = 1>>
+<<set $currentRule.dickPiercing to 1>>
 <<RAChangeDickPiercings>>
 <</link>>
 |
 <<link "Heavy">>
-<<set $currentRule.dickPiercing = 2>>
+<<set $currentRule.dickPiercing to 2>>
 <<RAChangeDickPiercings>>
 <</link>>
 <</if>>
@@ -307,46 +307,46 @@ Shaft piercings: ''
 
 Perianal piercings: ''
 <span id = "anuspiercing">
-<<if $currentRule.anusPiercing == "no default setting">>No default setting.<<elseif $currentRule.anusPiercing == 0>>None.<<elseif $currentRule.anusPiercing == 1>>Light.
-<<elseif $currentRule.anusPiercing == 2>>Heavy.<</if>></span>''
+<<if $currentRule.anusPiercing is "no default setting">>No default setting.<<elseif $currentRule.anusPiercing == 0>>None.<<elseif $currentRule.anusPiercing == 1>>Light.
+<<elseif $currentRule.anusPiercing is 2>>Heavy.<</if>></span>''
 
 <<link "No default setting">>
-<<set $currentRule.anusPiercing = "no default setting">>
+<<set $currentRule.anusPiercing to "no default setting">>
 <<RAChangeAnusPiercings>>
 <</link>>
 |
 <<link "None">>
-<<set $currentRule.anusPiercing = 0>>
+<<set $currentRule.anusPiercing to 0>>
 <<RAChangeAnusPiercings>>
 <</link>>
 |
 <<link "Light">>
-<<set $currentRule.anusPiercing = 1>>
+<<set $currentRule.anusPiercing to 1>>
 <<RAChangeAnusPiercings>>
 <</link>>
 |
 <<link "Heavy">>
-<<set $currentRule.anusPiercing = 2>>
+<<set $currentRule.anusPiercing to 2>>
 <<RAChangeAnusPiercings>>
 <</link>>
 
 <br>
 Corset piercings: ''
 <span id = "corsetpiercing">
-<<if $currentRule.corsetPiercing == "no default setting">>No default setting.<<elseif $currentRule.corsetPiercing == 0>>None.<<elseif $currentRule.corsetPiercing == 1>>Applied.<</if>></span>''
+<<if $currentRule.corsetPiercing is "no default setting">>No default setting.<<elseif $currentRule.corsetPiercing == 0>>None.<<elseif $currentRule.corsetPiercing == 1>>Applied.<</if>></span>''
 
 <<link "No default setting">>
-<<set $currentRule.corsetPiercing = "no default setting">>
+<<set $currentRule.corsetPiercing to "no default setting">>
 <<RAChangeCorsetPiercings>>
 <</link>>
 |
 <<link "None">>
-<<set $currentRule.corsetPiercing = 0>>
+<<set $currentRule.corsetPiercing to 0>>
 <<RAChangeCorsetPiercings>>
 <</link>>
 |
 <<link "Apply">>
-<<set $currentRule.corsetPiercing = 1>>
+<<set $currentRule.corsetPiercing to 1>>
 <<RAChangeCorsetPiercings>>
 <</link>>
 
@@ -358,13 +358,13 @@ Automatic branding is
 <<if $currentRule.autoBrand == 1>>
   ''on.''
   <<link "Deactivate">>
-<<set $currentRule.autoBrand = 0>>
+<<set $currentRule.autoBrand to 0>>
 <<RAChangeBranding>>
 <</link>>
 <<else>>
   ''off.''
   <<link "Activate">>
-<<set $currentRule.autoBrand = 1>>
+<<set $currentRule.autoBrand to 1>>
 <<RAChangeBranding>>
 <</link>>
 <</if>>
@@ -376,222 +376,222 @@ Automatic branding is
 Your preferred location for brands is the ''$brandTarget.''
 </span>
 <<link "Right buttock">>
-<<set $brandTarget = "right buttock">>
+<<set $brandTarget to "right buttock">>
 <<RAChangeBrandTarget>>
 <</link>>
 |
 <<link "Right thigh">>
-<<set $brandTarget = "right thigh">>
+<<set $brandTarget to "right thigh">>
 <<RAChangeBrandTarget>>
 <</link>>
 |
 <<link "Right calf">>
-<<set $brandTarget = "right calf">>
+<<set $brandTarget to "right calf">>
 <<RAChangeBrandTarget>>
 <</link>>
 |
 <<link "Right ankle">>
-<<set $brandTarget = "right ankle">>
+<<set $brandTarget to "right ankle">>
 <<RAChangeBrandTarget>>
 <</link>>
 |
 <<link "Right foot">>
-<<set $brandTarget = "right foot">>
+<<set $brandTarget to "right foot">>
 <<RAChangeBrandTarget>>
 <</link>>
 |
 <<link "Left buttock">>
-<<set $brandTarget = "left buttock">>
+<<set $brandTarget to "left buttock">>
 <<RAChangeBrandTarget>>
 <</link>>
 |
 <<link "Left thigh">>
-<<set $brandTarget = "left thigh">>
+<<set $brandTarget to "left thigh">>
 <<RAChangeBrandTarget>>
 <</link>>
 |
 <<link "Left calf">>
-<<set $brandTarget = "left calf">>
+<<set $brandTarget to "left calf">>
 <<RAChangeBrandTarget>>
 <</link>>
 |
 <<link "Left ankle">>
-<<set $brandTarget = "left ankle">>
+<<set $brandTarget to "left ankle">>
 <<RAChangeBrandTarget>>
 <</link>>
 |
 <<link "Left foot">>
-<<set $brandTarget = "left foot">>
+<<set $brandTarget to "left foot">>
 <<RAChangeBrandTarget>>
 <</link>>
 |
 <<link "Both buttocks">>
-<<set $brandTarget = "buttocks">>
+<<set $brandTarget to "buttocks">>
 <<RAChangeBrandTarget>>
 <</link>>
 |
 <<link "Both thighs">>
-<<set $brandTarget = "thighs">>
+<<set $brandTarget to "thighs">>
 <<RAChangeBrandTarget>>
 <</link>>
 |
 <<link "Both calves">>
-<<set $brandTarget = "calves">>
+<<set $brandTarget to "calves">>
 <<RAChangeBrandTarget>>
 <</link>>
 |
 <<link "Both ankles">>
-<<set $brandTarget = "ankles">>
+<<set $brandTarget to "ankles">>
 <<RAChangeBrandTarget>>
 <</link>>
 |
 <<link "Both feet">>
-<<set $brandTarget = "feet">>
+<<set $brandTarget to "feet">>
 <<RAChangeBrandTarget>>
 <</link>>
 |
 <<link "Right breast">>
-<<set $brandTarget = "right breast">>
+<<set $brandTarget to "right breast">>
 <<RAChangeBrandTarget>>
 <</link>>
 |
 <<link "Right shoulder">>
-<<set $brandTarget = "right shoulder">>
+<<set $brandTarget to "right shoulder">>
 <<RAChangeBrandTarget>>
 <</link>>
 |
 <<link "Right upper arm">>
-<<set $brandTarget = "right upper arm">>
+<<set $brandTarget to "right upper arm">>
 <<RAChangeBrandTarget>>
 <</link>>
 |
 <<link "Right lower arm">>
-<<set $brandTarget = "right lower arm">>
+<<set $brandTarget to "right lower arm">>
 <<RAChangeBrandTarget>>
 <</link>>
 |
 <<link "Right wrist">>
-<<set $brandTarget = "right wrist">>
+<<set $brandTarget to "right wrist">>
 <<RAChangeBrandTarget>>
 <</link>>
 |
 <<link "Right hand">>
-<<set $brandTarget = "right hand">>
+<<set $brandTarget to "right hand">>
 <<RAChangeBrandTarget>>
 <</link>>
 |
 <<link "Left breast">>
-<<set $brandTarget = "left breast">>
+<<set $brandTarget to "left breast">>
 <<RAChangeBrandTarget>>
 <</link>>
 |
 <<link "Left shoulder">>
-<<set $brandTarget = "left shoulder">>
+<<set $brandTarget to "left shoulder">>
 <<RAChangeBrandTarget>>
 <</link>>
 |
 <<link "Left upper arm">>
-<<set $brandTarget = "left upper arm">>
+<<set $brandTarget to "left upper arm">>
 <<RAChangeBrandTarget>>
 <</link>>
 |
 <<link "Left lower arm">>
-<<set $brandTarget = "left lower arm">>
+<<set $brandTarget to "left lower arm">>
 <<RAChangeBrandTarget>>
 <</link>>
 |
 <<link "Left wrist">>
-<<set $brandTarget = "left wrist">>
+<<set $brandTarget to "left wrist">>
 <<RAChangeBrandTarget>>
 <</link>>
 |
 <<link "Left hand">>
-<<set $brandTarget = "left hand">>
+<<set $brandTarget to "left hand">>
 <<RAChangeBrandTarget>>
 <</link>>
 |
 <<link "Both breasts">>
-<<set $brandTarget = "breasts">>
+<<set $brandTarget to "breasts">>
 <<RAChangeBrandTarget>>
 <</link>>
 |
 <<link "Both shoulders">>
-<<set $brandTarget = "shoulders">>
+<<set $brandTarget to "shoulders">>
 <<RAChangeBrandTarget>>
 <</link>>
 |
 <<link "Both upper arms">>
-<<set $brandTarget = "upper arms">>
+<<set $brandTarget to "upper arms">>
 <<RAChangeBrandTarget>>
 <</link>>
 |
 <<link "Both lower arms">>
-<<set $brandTarget = "lower left arms">>
+<<set $brandTarget to "lower left arms">>
 <<RAChangeBrandTarget>>
 <</link>>
 |
 <<link "Both wrists">>
-<<set $brandTarget = "wrists">>
+<<set $brandTarget to "wrists">>
 <<RAChangeBrandTarget>>
 <</link>>
 |
 <<link "Both hands">>
-<<set $brandTarget = "hands">>
+<<set $brandTarget to "hands">>
 <<RAChangeBrandTarget>>
 <</link>>
 |
 <<link "Back">>
-<<set $brandTarget = "back">>
+<<set $brandTarget to "back">>
 <<RAChangeBrandTarget>>
 <</link>>
 |
 <<link "Chest">>
-<<set $brandTarget = "chest">>
+<<set $brandTarget to "chest">>
 <<RAChangeBrandTarget>>
 <</link>>
 |
 <<link "Right cheek">>
-<<set $brandTarget = "right cheek">>
+<<set $brandTarget to "right cheek">>
 <<RAChangeBrandTarget>>
 <</link>>
 |
 <<link "Left cheek">>
-<<set $brandTarget = "left cheek">>
+<<set $brandTarget to "left cheek">>
 <<RAChangeBrandTarget>>
 <</link>>
 |
 <<link "Both cheeks">>
-<<set $brandTarget = "cheeks">>
+<<set $brandTarget to "cheeks">>
 <<RAChangeBrandTarget>>
 <</link>>
 |
 <<link "Neck">>
-<<set $brandTarget = "neck">>
+<<set $brandTarget to "neck">>
 <<RAChangeBrandTarget>>
 <</link>>
 |
 <<link "Right ear">>
-<<set $brandTarget = "right ear">>
+<<set $brandTarget to "right ear">>
 <<RAChangeBrandTarget>>
 <</link>>
 |
 <<link "Left ear">>
-<<set $brandTarget = "left ear">>
+<<set $brandTarget to "left ear">>
 <<RAChangeBrandTarget>>
 <</link>>
 |
 <<link "Both ears">>
-<<set $brandTarget = "ears">>
+<<set $brandTarget to "ears">>
 <<RAChangeBrandTarget>>
 <</link>>
 |
 <<link "Belly">>
-<<set $brandTarget = "belly">>
+<<set $brandTarget to "belly">>
 <<RAChangeBrandTarget>>
 <</link>>
 |
 <<link "Pubic Mound">>
-<<set $brandTarget = "pubic mound">>
+<<set $brandTarget to "pubic mound">>
 <<RAChangeBrandTarget>>
 <</link>>
 <br>
@@ -601,192 +601,192 @@ Your brand design is ''$brandDesign.''
 </span>
 
 <<link "Your slaving emblem">>
-<<set $brandDesign = "your personal symbol">>
+<<set $brandDesign to "your personal symbol">>
 <<RAChangeBrandDesign>>
 <</link>>
 |
 <<link "Your initials">>
-<<set $brandDesign = "your initials">>
+<<set $brandDesign to "your initials">>
 <<RAChangeBrandDesign>>
 <</link>>
 |
 <<link "SLUT">>
-<<set $brandDesign = "SLUT">>
+<<set $brandDesign to "SLUT">>
 <<RAChangeBrandDesign>>
 <</link>>
 |
 <<link "WHORE">>
-<<set $brandDesign = "WHORE">>
+<<set $brandDesign to "WHORE">>
 <<RAChangeBrandDesign>>
 <</link>>
 |
 <<link "SLAVE">>
-<<set $brandDesign = "SLAVE">>
+<<set $brandDesign to "SLAVE">>
 <<RAChangeBrandDesign>>
 <</link>>
 |
 <<link "COW">>
-<<set $brandDesign = "COW">>
+<<set $brandDesign to "COW">>
 <<RAChangeBrandDesign>>
 <</link>>
 |
 <<link "MEAT">>
-<<set $brandDesign = "MEAT">>
+<<set $brandDesign to "MEAT">>
 <<RAChangeBrandDesign>>
 <</link>>
 |
 <<link "CUMDUMP">>
-<<set $brandDesign = "CUMDUMP">>
+<<set $brandDesign to "CUMDUMP">>
 <<RAChangeBrandDesign>>
 <</link>>
 |
 <<link "LOVER">>
-<<set $brandDesign = "LOVER">>
+<<set $brandDesign to "LOVER">>
 <<RAChangeBrandDesign>>
 <</link>>
 |
 <<link "Pussy symbol">>
-<<set $brandDesign = "a pussy symbol">>
+<<set $brandDesign to "a pussy symbol">>
 <<RAChangeBrandDesign>>
 <</link>>
 |
 <<link "Anus symbol">>
-<<set $brandDesign = "an anus symbol">>
+<<set $brandDesign to "an anus symbol">>
 <<RAChangeBrandDesign>>
 <</link>>
 |
 <<link "Penis symbol">>
-<<set $brandDesign = "a penis symbol">>
+<<set $brandDesign to "a penis symbol">>
 <<RAChangeBrandDesign>>
 <</link>>
 |
 <<link "Lady">>
-<<set $brandDesign = "a lady silhouette">>
+<<set $brandDesign to "a lady silhouette">>
 <<RAChangeBrandDesign>>
 <</link>>
 |
 <<link "Princess">>
-<<set $brandDesign = "a princess silhouette">>
+<<set $brandDesign to "a princess silhouette">>
 <<RAChangeBrandDesign>>
 <</link>>
 |
 <<link "Queen">>
-<<set $brandDesign = "a queen silhouette">>
+<<set $brandDesign to "a queen silhouette">>
 <<RAChangeBrandDesign>>
 <</link>>
 |
 <<link "Angel">>
-<<set $brandDesign = "an angel silhouette">>
+<<set $brandDesign to "an angel silhouette">>
 <<RAChangeBrandDesign>>
 <</link>>
 |
 <<link "Devil">>
-<<set $brandDesign = "a devil silhouette">>
+<<set $brandDesign to "a devil silhouette">>
 <<RAChangeBrandDesign>>
 <</link>>
-<<if ($arcologies[0].FSSupremacist != "unset") && ($arcologies[0].FSSupremacistRace == "white") && ($activeSlave.race != $arcologies[0].FSSupremacistRace)>>
+<<if ($arcologies[0].FSSupremacist != "unset") && ($arcologies[0].FSSupremacistRace is "white") && ($activeSlave.race != $arcologies[0].FSSupremacistRace)>>
 | //FS// <<link "Swastika">>
-<<set $brandDesign = "a swastika">>
+<<set $brandDesign to "a swastika">>
 <<RAChangeBrandDesign>>
 <</link>>
 <<elseif ($arcologies[0].FSSupremacist != "unset") && ($activeSlave.race != $arcologies[0].FSSupremacistRace)>>
 | //FS// <<link "Racial Slur">>
-<<set $brandDesign = "a racial slur">>
+<<set $brandDesign to "a racial slur">>
 <<RAChangeBrandDesign>>
 <</link>>  <</if>>
-<<if ($arcologies[0].FSSubjugationistRace == "semitic") && ($activeSlave.race == "semitic")>>
+<<if ($arcologies[0].FSSubjugationistRace is "semitic") && ($activeSlave.race is "semitic")>>
 | //FS// <<link "Star of David">>
-<<set $brandDesign = "a Star of David">>
+<<set $brandDesign to "a Star of David">>
 <<RAChangeBrandDesign>>
 <</link>>
-<<elseif ($arcologies[0].FSSubjugationist != "unset") && ($activeSlave.race == $arcologies[0].FSSubjugationistRace)>>
+<<elseif ($arcologies[0].FSSubjugationist != "unset") && ($activeSlave.race is $arcologies[0].FSSubjugationistRace)>>
 | //FS// <<link "Racial Slur">>
-<<set $brandDesign = "a racial slur">>
+<<set $brandDesign to "a racial slur">>
 <<RAChangeBrandDesign>>
 <</link>>  <</if>>
 <<if ($arcologies[0].FSGenderRadicalist != "unset") || ($arcologies[0].FSGenderFundamentalist != "unset")>>
 | //FS// <<link "Gender Symbol">>
-<<set $brandDesign = "a gender symbol">>
+<<set $brandDesign to "a gender symbol">>
 <<RAChangeBrandDesign>>
 <</link>>  <</if>>
 <<if ($arcologies[0].FSPaternalist != "unset")>>
 | //FS// <<link "Personal Symbol">>
-<<set $brandDesign = "her own personal symbol">>
+<<set $brandDesign to "her own personal symbol">>
 <<RAChangeBrandDesign>>
 <</link>>  <</if>>
 <<if ($arcologies[0].FSDegradationist != "unset")>>
 | //FS// <<link "Chain Symbol">>
-<<set $brandDesign = "a chain symbol">>
+<<set $brandDesign to "a chain symbol">>
 <<RAChangeBrandDesign>>
 <</link>>  <</if>>
 <<if ($arcologies[0].FSBodyPurist != "unset")>>
 | //FS// <<link "Vitruvian Man">>
-<<set $brandDesign = "a Vitruvian man">>
+<<set $brandDesign to "a Vitruvian man">>
 <<RAChangeBrandDesign>>
 <</link>>  <</if>>
 <<if ($arcologies[0].FSTransformationFetishist != "unset")>>
 | //FS// <<link "Most Desired Implants">>
-<<set $brandDesign = "a shortlist of desired implants">>
+<<set $brandDesign to "a shortlist of desired implants">>
 <<RAChangeBrandDesign>>
 <</link>>  <</if>>
 <<if ($arcologies[0].FSYouthPreferentialist != "unset")>>
 | //FS// <<link "Virginity Status">>
-<<set $brandDesign = "her virginity status">>
+<<set $brandDesign to "her virginity status">>
 <<RAChangeBrandDesign>>
 <</link>>  <</if>>
 <<if ($arcologies[0].FSMaturityPreferentialist != "unset")>>
 | //FS// <<link "Sexual Skill Info">>
-<<set $brandDesign = "her sexual skills">>
+<<set $brandDesign to "her sexual skills">>
 <<RAChangeBrandDesign>>
 <</link>>  <</if>>
 <<if ($arcologies[0].FSSlimnessEnthusiast != "unset")>>
 | //FS// <<link "Breast Ceiling">>
-<<set $brandDesign = "her absolute maximum breast size">>
+<<set $brandDesign to "her absolute maximum breast size">>
 <<RAChangeBrandDesign>>
 <</link>>  <</if>>
 <<if ($arcologies[0].FSAssetExpansionist != "unset")>>
 | //FS// <<link "Breast Floor">>
-<<set $brandDesign = "her absolute minimum breast size">>
+<<set $brandDesign to "her absolute minimum breast size">>
 <<RAChangeBrandDesign>>
 <</link>>  <</if>>
 <<if ($arcologies[0].FSPastoralist != "unset")>>
 | //FS// <<link "Product Quality">>
-<<set $brandDesign = "her body product quality">>
+<<set $brandDesign to "her body product quality">>
 <<RAChangeBrandDesign>>
 <</link>>  <</if>>
 <<if ($arcologies[0].FSPhysicalIdealist != "unset")>>
 | //FS// <<link "Deadlift Info">>
-<<set $brandDesign = "her deadlift record">>
+<<set $brandDesign to "her deadlift record">>
 <<RAChangeBrandDesign>>
 <</link>>  <</if>>
 <<if ($arcologies[0].FSChattelReligionist != "unset")>>
 | //FS// <<link "Religious Symbol">>
-<<set $brandDesign = "a religious symbol">>
+<<set $brandDesign to "a religious symbol">>
 <<RAChangeBrandDesign>>
 <</link>>  <</if>>
 <<if ($arcologies[0].FSRomanRevivalist != "unset")>>
 | //FS// <<link "Republican Crest">>
-<<set $brandDesign = "a small crest of your Republic">>
+<<set $brandDesign to "a small crest of your Republic">>
 <<RAChangeBrandDesign>>
 <</link>>  <</if>>
 <<if ($arcologies[0].FSEgyptianRevivalist != "unset")>>
 | //FS// <<link "Dynastic Sigil">>
-<<set $brandDesign = "a small sigil of your Dynasty">>
+<<set $brandDesign to "a small sigil of your Dynasty">>
 <<RAChangeBrandDesign>>
 <</link>>  <</if>>
 <<if ($arcologies[0].FSEdoRevivalist != "unset")>>
 | //FS// <<link "Mon">>
-<<set $brandDesign = "a small image of the Shogunate's mon">>
+<<set $brandDesign to "a small image of the Shogunate's mon">>
 <<RAChangeBrandDesign>>
 <</link>>  <</if>>
 <<if ($arcologies[0].FSArabianRevivalist != "unset")>>
 | //FS// <<link "Caliphate Symbol">>
-<<set $brandDesign = "a small symbol of the Caliphate">>
+<<set $brandDesign to "a small symbol of the Caliphate">>
 <<RAChangeBrandDesign>>
 <</link>>  <</if>>
 <<if ($arcologies[0].FSChineseRevivalist != "unset")>>
 | //FS// <<link "Imperial Seal">>
-<<set $brandDesign = "a small image of your Imperial Seal">>
+<<set $brandDesign to "a small image of your Imperial Seal">>
 <<RAChangeBrandDesign>>
 <</link>>  <</if>>
 <br>
@@ -803,57 +803,57 @@ Chest tattoos: ''
 '' <br>&nbsp;&nbsp;&nbsp;&nbsp;
 
 <<link "No default setting">>
-<<set $currentRule.boobsTat = "no default setting">>
+<<set $currentRule.boobsTat to "no default setting">>
 <<RAChangeChestTattoos>>
 <</link>>
 |
 <<link "None">>
-<<set $currentRule.boobsTat = 0>>
+<<set $currentRule.boobsTat to 0>>
 <<RAChangeChestTattoos>>
 <</link>>
 |
 <<link "Tribal patterns">>
-<<set $currentRule.boobsTat = "tribal patterns">>
+<<set $currentRule.boobsTat to "tribal patterns">>
 <<RAChangeChestTattoos>>
 <</link>>
 |
 <<link "Flowers">>
-<<set $currentRule.boobsTat = "flowers">>
+<<set $currentRule.boobsTat to "flowers">>
 <<RAChangeChestTattoos>>
 <</link>>
 |
 <<link "Scenes">>
-<<set $currentRule.boobsTat = "scenes">>
+<<set $currentRule.boobsTat to "scenes">>
 <<RAChangeChestTattoos>>
 <</link>>
 |
 <<link "Asian art">>
-<<set $currentRule.boobsTat = "Asian art">>
+<<set $currentRule.boobsTat to "Asian art">>
 <<RAChangeChestTattoos>>
 <</link>>
 |
 <<link "Degradation">>
-<<set $currentRule.boobsTat = "degradation">>
+<<set $currentRule.boobsTat to "degradation">>
 <<RAChangeChestTattoos>>
 <</link>>
 |
 <<link "Counting">>
-<<set $currentRule.boobsTat = "counting">>
+<<set $currentRule.boobsTat to "counting">>
 <<RAChangeChestTattoos>>
 <</link>>
 |
 <<link "Advertisements">>
-<<set $currentRule.boobsTat = "advertisements">>
+<<set $currentRule.boobsTat to "advertisements">>
 <<RAChangeChestTattoos>>
 <</link>>
 |
 <<link "Rude words">>
-<<set $currentRule.boobsTat = "rude words">>
+<<set $currentRule.boobsTat to "rude words">>
 <<RAChangeChestTattoos>>
 <</link>>
 |
 <<link "Bovine patterns">>
-<<set $currentRule.boobsTat = "bovine patterns">>
+<<set $currentRule.boobsTat to "bovine patterns">>
 <<RAChangeChestTattoos>>
 <</link>>
 <br>
@@ -864,57 +864,57 @@ Buttock tattoos: ''
 </span>
 '' <br>&nbsp;&nbsp;&nbsp;&nbsp;
 <<link "No default setting">>
-<<set $currentRule.buttTat = "no default setting">>
+<<set $currentRule.buttTat to "no default setting">>
 <<RAChangeButtTattoos>>
 <</link>>
 |
 <<link "None">>
-<<set $currentRule.buttTat = 0>>
+<<set $currentRule.buttTat to 0>>
 <<RAChangeButtTattoos>>
 <</link>>
 |
 <<link "Tribal patterns">>
-<<set $currentRule.buttTat = "tribal patterns">>
+<<set $currentRule.buttTat to "tribal patterns">>
 <<RAChangeButtTattoos>>
 <</link>>
 |
 <<link "Flowers">>
-<<set $currentRule.buttTat = "flowers">>
+<<set $currentRule.buttTat to "flowers">>
 <<RAChangeButtTattoos>>
 <</link>>
 |
 <<link "Scenes">>
-<<set $currentRule.buttTat = "scenes">>
+<<set $currentRule.buttTat to "scenes">>
 <<RAChangeButtTattoos>>
 <</link>>
 |
 <<link "Asian art">>
-<<set $currentRule.buttTat = "Asian art">>
+<<set $currentRule.buttTat to "Asian art">>
 <<RAChangeButtTattoos>>
 <</link>>
 |
 <<link "Degradation">>
-<<set $currentRule.buttTat = "degradation">>
+<<set $currentRule.buttTat to "degradation">>
 <<RAChangeButtTattoos>>
 <</link>>
 |
 <<link "Counting">>
-<<set $currentRule.buttTat = "counting">>
+<<set $currentRule.buttTat to "counting">>
 <<RAChangeButtTattoos>>
 <</link>>
 |
 <<link "Advertisements">>
-<<set $currentRule.buttTat = "advertisements">>
+<<set $currentRule.buttTat to "advertisements">>
 <<RAChangeButtTattoos>>
 <</link>>
 |
 <<link "Rude words">>
-<<set $currentRule.buttTat = "rude words">>
+<<set $currentRule.buttTat to "rude words">>
 <<RAChangeButtTattoos>>
 <</link>>
 |
 <<link "Bovine patterns">>
-<<set $currentRule.buttTat = "bovine patterns">>
+<<set $currentRule.buttTat to "bovine patterns">>
 <<RAChangeButtTattoos>>
 <</link>>
 <br>
@@ -925,57 +925,57 @@ Facial tattoos: ''
 </span>
 '' <br>&nbsp;&nbsp;&nbsp;&nbsp;
 <<link "No default setting">>
-<<set $currentRule.lipsTat = "no default setting">>
+<<set $currentRule.lipsTat to "no default setting">>
 <<RAChangeFaceTattoos>>
 <</link>>
 |
 <<link "None">>
-<<set $currentRule.lipsTat = 0>>
+<<set $currentRule.lipsTat to 0>>
 <<RAChangeFaceTattoos>>
 <</link>>
 |
 <<link "Tribal patterns">>
-<<set $currentRule.lipsTat = "tribal patterns">>
+<<set $currentRule.lipsTat to "tribal patterns">>
 <<RAChangeFaceTattoos>>
 <</link>>
 |
 <<link "Flowers">>
-<<set $currentRule.lipsTat = "flowers">>
+<<set $currentRule.lipsTat to "flowers">>
 <<RAChangeFaceTattoos>>
 <</link>>
 |
 <<link "Permanent makeup">>
-<<set $currentRule.lipsTat = "permanent makeup">>
+<<set $currentRule.lipsTat to "permanent makeup">>
 <<RAChangeFaceTattoos>>
 <</link>>
 |
 <<link "Asian art">>
-<<set $currentRule.lipsTat = "Asian art">>
+<<set $currentRule.lipsTat to "Asian art">>
 <<RAChangeFaceTattoos>>
 <</link>>
 |
 <<link "Degradation">>
-<<set $currentRule.lipsTat = "degradation">>
+<<set $currentRule.lipsTat to "degradation">>
 <<RAChangeFaceTattoos>>
 <</link>>
 |
 <<link "Counting">>
-<<set $currentRule.lipsTat = "counting">>
+<<set $currentRule.lipsTat to "counting">>
 <<RAChangeFaceTattoos>>
 <</link>>
 |
 <<link "Advertisements">>
-<<set $currentRule.lipsTat = "advertisements">>
+<<set $currentRule.lipsTat to "advertisements">>
 <<RAChangeFaceTattoos>>
 <</link>>
 |
 <<link "Rude words">>
-<<set $currentRule.lipsTat = "rude words">>
+<<set $currentRule.lipsTat to "rude words">>
 <<RAChangeFaceTattoos>>
 <</link>>
 |
 <<link "Bovine patterns">>
-<<set $currentRule.lipsTat = "bovine patterns">>
+<<set $currentRule.lipsTat to "bovine patterns">>
 <<RAChangeFaceTattoos>>
 <</link>>
 <br>
@@ -986,52 +986,52 @@ Shoulder tattoos: ''
 </span>
 '' <br>&nbsp;&nbsp;&nbsp;&nbsp;
 <<link "No default setting">>
-<<set $currentRule.shouldersTat = "no default setting">>
+<<set $currentRule.shouldersTat to "no default setting">>
 <<RAChangeShoulderTattoos>>
 <</link>>
 |
 <<link "None">>
-<<set $currentRule.shouldersTat = 0>>
+<<set $currentRule.shouldersTat to 0>>
 <<RAChangeShoulderTattoos>>
 <</link>>
 |
 <<link "Tribal patterns">>
-<<set $currentRule.shouldersTat = "tribal patterns">>
+<<set $currentRule.shouldersTat to "tribal patterns">>
 <<RAChangeShoulderTattoos>>
 <</link>>
 |
 <<link "Flowers">>
-<<set $currentRule.shouldersTat = "flowers">>
+<<set $currentRule.shouldersTat to "flowers">>
 <<RAChangeShoulderTattoos>>
 <</link>>
 |
 <<link "Scenes">>
-<<set $currentRule.shouldersTat = "scenes">>
+<<set $currentRule.shouldersTat to "scenes">>
 <<RAChangeShoulderTattoos>>
 <</link>>
 |
 <<link "Asian art">>
-<<set $currentRule.shouldersTat = "Asian art">>
+<<set $currentRule.shouldersTat to "Asian art">>
 <<RAChangeShoulderTattoos>>
 <</link>>
 |
 <<link "Degradation">>
-<<set $currentRule.shouldersTat = "degradation">>
+<<set $currentRule.shouldersTat to "degradation">>
 <<RAChangeShoulderTattoos>>
 <</link>>
 |
 <<link "Counting">>
-<<set $currentRule.shouldersTat = "counting">>
+<<set $currentRule.shouldersTat to "counting">>
 <<RAChangeShoulderTattoos>>
 <</link>>
 |
 <<link "Advertisements">>
-<<set $currentRule.shouldersTat = "advertisements">>
+<<set $currentRule.shouldersTat to "advertisements">>
 <<RAChangeShoulderTattoos>>
 <</link>>
 |
 <<link "Rude words">>
-<<set $currentRule.shouldersTat = "rude words">>
+<<set $currentRule.shouldersTat to "rude words">>
 <<RAChangeShoulderTattoos>>
 <</link>>
 <br>
@@ -1042,57 +1042,57 @@ Arm tattoos: ''
 </span>
 '' <br>&nbsp;&nbsp;&nbsp;&nbsp;
 <<link "No default setting">>
-<<set $currentRule.armsTat = "no default setting">>
+<<set $currentRule.armsTat to "no default setting">>
 <<RAChangeArmTattoos>>
 <</link>>
 |
 <<link "None">>
-<<set $currentRule.armsTat = 0>>
+<<set $currentRule.armsTat to 0>>
 <<RAChangeArmTattoos>>
 <</link>>
 |
 <<link "Tribal patterns">>
-<<set $currentRule.armsTat = "tribal patterns">>
+<<set $currentRule.armsTat to "tribal patterns">>
 <<RAChangeArmTattoos>>
 <</link>>
 |
 <<link "Flowers">>
-<<set $currentRule.armsTat = "flowers">>
+<<set $currentRule.armsTat to "flowers">>
 <<RAChangeArmTattoos>>
 <</link>>
 |
 <<link "Scenes">>
-<<set $currentRule.armsTat = "scenes">>
+<<set $currentRule.armsTat to "scenes">>
 <<RAChangeArmTattoos>>
 <</link>>
 |
 <<link "Asian art">>
-<<set $currentRule.armsTat = "Asian art">>
+<<set $currentRule.armsTat to "Asian art">>
 <<RAChangeArmTattoos>>
 <</link>>
 |
 <<link "Degradation">>
-<<set $currentRule.armsTat = "degradation">>
+<<set $currentRule.armsTat to "degradation">>
 <<RAChangeArmTattoos>>
 <</link>>
 |
 <<link "Counting">>
-<<set $currentRule.armsTat = "counting">>
+<<set $currentRule.armsTat to "counting">>
 <<RAChangeArmTattoos>>
 <</link>>
 |
 <<link "Advertisements">>
-<<set $currentRule.armsTat = "advertisements">>
+<<set $currentRule.armsTat to "advertisements">>
 <<RAChangeArmTattoos>>
 <</link>>
 |
 <<link "Rude words">>
-<<set $currentRule.armsTat = "rude words">>
+<<set $currentRule.armsTat to "rude words">>
 <<RAChangeArmTattoos>>
 <</link>>
 |
 <<link "Bovine patterns">>
-<<set $currentRule.armsTat = "bovine patterns">>
+<<set $currentRule.armsTat to "bovine patterns">>
 <<RAChangeArmTattoos>>
 <</link>>
 <br>
@@ -1103,57 +1103,57 @@ Leg tattoos: ''
 </span>
 '' <br>&nbsp;&nbsp;&nbsp;&nbsp;
 <<link "No default setting">>
-<<set $currentRule.legsTat = "no default setting">>
+<<set $currentRule.legsTat to "no default setting">>
 <<RAChangeLegTattoos>>
 <</link>>
 |
 <<link "None">>
-<<set $currentRule.legsTat = 0>>
+<<set $currentRule.legsTat to 0>>
 <<RAChangeLegTattoos>>
 <</link>>
 |
 <<link "Tribal patterns">>
-<<set $currentRule.legsTat = "tribal patterns">>
+<<set $currentRule.legsTat to "tribal patterns">>
 <<RAChangeLegTattoos>>
 <</link>>
 |
 <<link "Flowers">>
-<<set $currentRule.legsTat = "flowers">>
+<<set $currentRule.legsTat to "flowers">>
 <<RAChangeLegTattoos>>
 <</link>>
 |
 <<link "Scenes">>
-<<set $currentRule.legsTat = "scenes">>
+<<set $currentRule.legsTat to "scenes">>
 <<RAChangeLegTattoos>>
 <</link>>
 |
 <<link "Asian art">>
-<<set $currentRule.legsTat = "Asian art">>
+<<set $currentRule.legsTat to "Asian art">>
 <<RAChangeLegTattoos>>
 <</link>>
 |
 <<link "Degradation">>
-<<set $currentRule.legsTat = "degradation">>
+<<set $currentRule.legsTat to "degradation">>
 <<RAChangeLegTattoos>>
 <</link>>
 |
 <<link "Counting">>
-<<set $currentRule.legsTat = "counting">>
+<<set $currentRule.legsTat to "counting">>
 <<RAChangeLegTattoos>>
 <</link>>
 |
 <<link "Advertisements">>
-<<set $currentRule.legsTat = "advertisements">>
+<<set $currentRule.legsTat to "advertisements">>
 <<RAChangeLegTattoos>>
 <</link>>
 |
 <<link "Rude words">>
-<<set $currentRule.legsTat = "rude words">>
+<<set $currentRule.legsTat to "rude words">>
 <<RAChangeLegTattoos>>
 <</link>>
 |
 <<link "Bovine patterns">>
-<<set $currentRule.legsTat = "bovine patterns">>
+<<set $currentRule.legsTat to "bovine patterns">>
 <<RAChangeLegTattoos>>
 <</link>>
 <br>
@@ -1164,57 +1164,57 @@ Upper back tattoo: ''
 </span>
 '' <br>&nbsp;&nbsp;&nbsp;&nbsp;
 <<link "No default setting">>
-<<set $currentRule.backTat = "no default setting">>
+<<set $currentRule.backTat to "no default setting">>
 <<RAChangeBackTattoos>>
 <</link>>
 |
 <<link "None">>
-<<set $currentRule.backTat = 0>>
+<<set $currentRule.backTat to 0>>
 <<RAChangeBackTattoos>>
 <</link>>
 |
 <<link "Tribal patterns">>
-<<set $currentRule.backTat = "tribal patterns">>
+<<set $currentRule.backTat to "tribal patterns">>
 <<RAChangeBackTattoos>>
 <</link>>
 |
 <<link "Flowers">>
-<<set $currentRule.backTat = "flowers">>
+<<set $currentRule.backTat to "flowers">>
 <<RAChangeBackTattoos>>
 <</link>>
 |
 <<link "Scenes">>
-<<set $currentRule.backTat = "scenes">>
+<<set $currentRule.backTat to "scenes">>
 <<RAChangeBackTattoos>>
 <</link>>
 |
 <<link "Asian art">>
-<<set $currentRule.backTat = "Asian art">>
+<<set $currentRule.backTat to "Asian art">>
 <<RAChangeBackTattoos>>
 <</link>>
 |
 <<link "Degradation">>
-<<set $currentRule.backTat = "degradation">>
+<<set $currentRule.backTat to "degradation">>
 <<RAChangeBackTattoos>>
 <</link>>
 |
 <<link "Counting">>
-<<set $currentRule.backTat = "counting">>
+<<set $currentRule.backTat to "counting">>
 <<RAChangeBackTattoos>>
 <</link>>
 |
 <<link "Advertisements">>
-<<set $currentRule.backTat = "advertisements">>
+<<set $currentRule.backTat to "advertisements">>
 <<RAChangeBackTattoos>>
 <</link>>
 |
 <<link "Rude words">>
-<<set $currentRule.backTat = "rude words">>
+<<set $currentRule.backTat to "rude words">>
 <<RAChangeBackTattoos>>
 <</link>>
 |
 <<link "Bovine patterns">>
-<<set $currentRule.backTat = "bovine patterns">>
+<<set $currentRule.backTat to "bovine patterns">>
 <<RAChangeBackTattoos>>
 <</link>>
 <br>
@@ -1226,57 +1226,57 @@ Lower back tattoo: ''
 '' <br>&nbsp;&nbsp;&nbsp;&nbsp;
 
 <<link "No default setting">>
-<<set $currentRule.stampTat = "no default setting">>
+<<set $currentRule.stampTat to "no default setting">>
 <<RAChangeStampTattoos>>
 <</link>>
 |
 <<link "None">>
-<<set $currentRule.stampTat = 0>>
+<<set $currentRule.stampTat to 0>>
 <<RAChangeStampTattoos>>
 <</link>>
 |
 <<link "Tribal patterns">>
-<<set $currentRule.stampTat = "tribal patterns">>
+<<set $currentRule.stampTat to "tribal patterns">>
 <<RAChangeStampTattoos>>
 <</link>>
 |
 <<link "Flowers">>
-<<set $currentRule.stampTat = "flowers">>
+<<set $currentRule.stampTat to "flowers">>
 <<RAChangeStampTattoos>>
 <</link>>
 |
 <<link "Scenes">>
-<<set $currentRule.stampTat = "scenes">>
+<<set $currentRule.stampTat to "scenes">>
 <<RAChangeStampTattoos>>
 <</link>>
 |
 <<link "Asian art">>
-<<set $currentRule.stampTat = "Asian art">>
+<<set $currentRule.stampTat to "Asian art">>
 <<RAChangeStampTattoos>>
 <</link>>
 |
 <<link "Degradation">>
-<<set $currentRule.stampTat = "degradation">>
+<<set $currentRule.stampTat to "degradation">>
 <<RAChangeStampTattoos>>
 <</link>>
 |
 <<link "Counting">>
-<<set $currentRule.stampTat = "counting">>
+<<set $currentRule.stampTat to "counting">>
 <<RAChangeStampTattoos>>
 <</link>>
 |
 <<link "Advertisements">>
-<<set $currentRule.stampTat = "advertisements">>
+<<set $currentRule.stampTat to "advertisements">>
 <<RAChangeStampTattoos>>
 <</link>>
 |
 <<link "Rude words">>
-<<set $currentRule.stampTat = "rude words">>
+<<set $currentRule.stampTat to "rude words">>
 <<RAChangeStampTattoos>>
 <</link>>
 |
 <<link "Bovine patterns">>
-<<set $currentRule.stampTat = "bovine patterns">>
+<<set $currentRule.stampTat to "bovine patterns">>
 <<RAChangeStampTattoos>>
 <</link>>
 <br>
@@ -1287,57 +1287,57 @@ Abdominal tattoo: ''
 </span>
 '' <br>&nbsp;&nbsp;&nbsp;&nbsp;
 <<link "No default setting">>
-<<set $currentRule.vaginaTat = "no default setting">>
+<<set $currentRule.vaginaTat to "no default setting">>
 <<RAChangeVaginaTattoos>>
 <</link>>
 |
 <<link "None">>
-<<set $currentRule.vaginaTat = 0>>
+<<set $currentRule.vaginaTat to 0>>
 <<RAChangeVaginaTattoos>>
 <</link>>
 |
 <<link "Tribal patterns">>
-<<set $currentRule.vaginaTat = "tribal patterns">>
+<<set $currentRule.vaginaTat to "tribal patterns">>
 <<RAChangeVaginaTattoos>>
 <</link>>
 |
 <<link "Flowers">>
-<<set $currentRule.vaginaTat = "flowers">>
+<<set $currentRule.vaginaTat to "flowers">>
 <<RAChangeVaginaTattoos>>
 <</link>>
 |
 <<link "Scenes">>
-<<set $currentRule.vaginaTat = "scenes">>
+<<set $currentRule.vaginaTat to "scenes">>
 <<RAChangeVaginaTattoos>>
 <</link>>
 |
 <<link "Asian art">>
-<<set $currentRule.vaginaTat = "Asian art">>
+<<set $currentRule.vaginaTat to "Asian art">>
 <<RAChangeVaginaTattoos>>
 <</link>>
 |
 <<link "Degradation">>
-<<set $currentRule.vaginaTat = "degradation">>
+<<set $currentRule.vaginaTat to "degradation">>
 <<RAChangeVaginaTattoos>>
 <</link>>
 |
 <<link "Counting">>
-<<set $currentRule.vaginaTat = "counting">>
+<<set $currentRule.vaginaTat to "counting">>
 <<RAChangeVaginaTattoos>>
 <</link>>
 |
 <<link "Advertisements">>
-<<set $currentRule.vaginaTat = "advertisements">>
+<<set $currentRule.vaginaTat to "advertisements">>
 <<RAChangeVaginaTattoos>>
 <</link>>
 |
 <<link "Rude words">>
-<<set $currentRule.vaginaTat = "rude words">>
+<<set $currentRule.vaginaTat to "rude words">>
 <<RAChangeVaginaTattoos>>
 <</link>>
 |
 <<link "Bovine patterns">>
-<<set $currentRule.vaginaTat = "bovine patterns">>
+<<set $currentRule.vaginaTat to "bovine patterns">>
 <<RAChangeVaginaTattoos>>
 <</link>>
 
@@ -1349,52 +1349,52 @@ Dick tattoo: ''
 </span>
 '' <br>&nbsp;&nbsp;&nbsp;&nbsp;
 <<link "No default setting">>
-<<set $currentRule.dickTat = "no default setting">>
+<<set $currentRule.dickTat to "no default setting">>
 <<RAChangeDickTattoos>>
 <</link>>
 |
 <<link "None">>
-<<set $currentRule.dickTat = 0>>
+<<set $currentRule.dickTat to 0>>
 <<RAChangeDickTattoos>>
 <</link>>
 |
 <<link "Tribal patterns">>
-<<set $currentRule.dickTat = "tribal patterns">>
+<<set $currentRule.dickTat to "tribal patterns">>
 <<RAChangeDickTattoos>>
 <</link>>
 |
 <<link "Flowers">>
-<<set $currentRule.dickTat = "flowers">>
+<<set $currentRule.dickTat to "flowers">>
 <<RAChangeDickTattoos>>
 <</link>>
 |
 <<link "Asian art">>
-<<set $currentRule.dickTat = "Asian art">>
+<<set $currentRule.dickTat to "Asian art">>
 <<RAChangeDickTattoos>>
 <</link>>
 |
 <<link "Degradation">>
-<<set $currentRule.dickTat = "degradation">>
+<<set $currentRule.dickTat to "degradation">>
 <<RAChangeDickTattoos>>
 <</link>>
 |
 <<link "Counting">>
-<<set $currentRule.dickTat = "counting">>
+<<set $currentRule.dickTat to "counting">>
 <<RAChangeDickTattoos>>
 <</link>>
 |
 <<link "Advertisements">>
-<<set $currentRule.dickTat = "advertisements">>
+<<set $currentRule.dickTat to "advertisements">>
 <<RAChangeDickTattoos>>
 <</link>>
 |
 <<link "Rude words">>
-<<set $currentRule.dickTat = "rude words">>
+<<set $currentRule.dickTat to "rude words">>
 <<RAChangeDickTattoos>>
 <</link>>
 |
 <<link "Bovine patterns">>
-<<set $currentRule.dickTat = "bovine patterns">>
+<<set $currentRule.dickTat to "bovine patterns">>
 <<RAChangeDickTattoos>>
 <</link>>
 <</if>>
@@ -1407,51 +1407,51 @@ Anal tattoo or bleaching: ''
 </span>
 '' <br>&nbsp;&nbsp;&nbsp;&nbsp;
 <<link "No default setting">>
-<<set $currentRule.anusTat = "no default setting">>
+<<set $currentRule.anusTat to "no default setting">>
 <<RAChangeAnusTattoos>>
 <</link>>
 |
 <<link "None">>
-<<set $currentRule.anusTat = 0>>
+<<set $currentRule.anusTat to 0>>
 <<RAChangeAnusTattoos>>
 <</link>>
 |
 <<link "Bleached">>
-<<set $currentRule.anusTat = "bleached">>
+<<set $currentRule.anusTat to "bleached">>
 <<RAChangeAnusTattoos>>
 <</link>>
 |
 <<link "Tribal pattern">>
-<<set $currentRule.anusTat = "tribal patterns">>
+<<set $currentRule.anusTat to "tribal patterns">>
 <<RAChangeAnusTattoos>>
 <</link>>
 |
 <<link "Flowers">>
-<<set $currentRule.anusTat = "flowers">>
+<<set $currentRule.anusTat to "flowers">>
 <<RAChangeAnusTattoos>>
 <</link>>
 |
 <<link "Degradation">>
-<<set $currentRule.anusTat = "degradation">>
+<<set $currentRule.anusTat to "degradation">>
 <<RAChangeAnusTattoos>>
 <</link>>
 |
 <<link "Counting">>
-<<set $currentRule.anusTat = "counting">>
+<<set $currentRule.anusTat to "counting">>
 <<RAChangeAnusTattoos>>
 <</link>>
 |
 <<link "Advertisements">>
-<<set $currentRule.anusTat = "advertisements">>
+<<set $currentRule.anusTat to "advertisements">>
 <<RAChangeAnusTattoos>>
 <</link>>
 |
 <<link "Rude words">>
-<<set $currentRule.anusTat = "rude words">>
+<<set $currentRule.anusTat to "rude words">>
 <<RAChangeAnusTattoos>>
 <</link>>
 |
 <<link "Bovine patterns">>
-<<set $currentRule.anusTat = "bovine patterns">>
+<<set $currentRule.anusTat to "bovine patterns">>
 <<RAChangeAnusTattoos>>
 <</link>>

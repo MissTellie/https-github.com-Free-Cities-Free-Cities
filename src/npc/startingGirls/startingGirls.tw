@@ -26,18 +26,18 @@
 	<<set _tempSlave = clone($activeSlave)>>
 	<<set $activeSlave = $slaveWithoutBonuses>>
 	<<if _tempSlave.relation != 0>>
-		<<if _tempSlave.relation == "sister">>
+		<<if _tempSlave.relation is "sister">>
 			<<set $activeSlave.relation = "sister">>
 			<<set $activeSlave.age -= 5>>
 			<<set $activeSlave.age += random(0,10)>>
-		<<elseif _tempSlave.relation == "mother">>
+		<<elseif _tempSlave.relation is "mother">>
 			<<set $activeSlave.relation = "daughter">>
 			<<set $activeSlave.age -= random(16,24)>>
-		<<elseif _tempSlave.relation == "daughter">>
+		<<elseif _tempSlave.relation is "daughter">>
 			<<set $activeSlave.relation = "mother">>
 			<<set $activeSlave.age += random(16,24)>>
 			<<if $activeSlave.vagina == 0>><<set $activeSlave.vagina++>><</if>>
-		<<elseif _tempSlave.relation == "twin">>
+		<<elseif _tempSlave.relation is "twin">>
 			<<set $activeSlave.relation = "twin">>
 		<</if>>
 		<<set $activeSlave.relationTarget = _tempSlave.ID>>
@@ -51,7 +51,7 @@
 		<<set $activeSlave.attrXY = random(0,100)>>
 		<<set $activeSlave.energy = random(1,90)>>
 	<</if>>
-	<<if $activeSlave.fetish == "mindbroken">>
+	<<if $activeSlave.fetish is "mindbroken">>
 	<<elseif $activeSlave.fetishKnown == 0>>
 		<<set $activeSlave.fetishStrength = random(0,90)>>
 		<<set $activeSlave.fetish = either("none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "submissive", "cumslut", "humiliation", "buttslut", "boobs", "pregnancy", "dom", "sadist", "masochist")>>
@@ -69,7 +69,7 @@ __You are customizing this slave:__
 	<<StartingGirlsWorkaround>>
 <</if>>
 
-<<if ($activeSlave.dick == 0) && ($activeSlave.vagina == -1)>>
+<<if ($activeSlave.dick == 0) && ($activeSlave.vagina is -1)>>
 	<<set $activeSlave.vagina = 0>>
 <</if>>
 <<if ($activeSlave.dick == 0)>>
@@ -78,13 +78,13 @@ __You are customizing this slave:__
 <<if ($activeSlave.balls == 0)>>
 	<<set $activeSlave.scrotum = 0>>
 <</if>>
-<<if ($activeSlave.vagina == -1)>>
+<<if ($activeSlave.vagina is -1)>>
 	<<set $activeSlave.vaginaLube = 0>>
 <</if>>
 <<set $activeSlave.age = Math.clamp($activeSlave.age, 18, 44)>>
-<<set $activeSlave.age = Number($activeSlave.age)>>
+<<set $activeSlave.age to Number($activeSlave.age)>>
 <<set $activeSlave.birthWeek = Math.clamp($activeSlave.birthWeek, 0, 51)>>
-<<set $activeSlave.birthWeek = Number($activeSlave.birthWeek)>>
+<<set $activeSlave.birthWeek to Number($activeSlave.birthWeek)>>
 <<set $activeSlave.trust = Math.clamp($activeSlave.trust, -100, 100)>>
 <<set $activeSlave.trust = Number($activeSlave.trust)>>
 <<set $activeSlave.devotion = Math.clamp($activeSlave.devotion, -100, 100)>>
@@ -219,7 +219,7 @@ __You are customizing this slave:__
 <<if $activeSlave.indenture > 0>>
 <span id="restrictions">
 <br>''Indenture restrictions:''
-<<if $activeSlave.indentureRestrictions == 2>>Restrictive.
+<<if $activeSlave.indentureRestrictions is 2>>Restrictive.
 <<elseif $activeSlave.indentureRestrictions == 1>>Protective.
 <<else>>None.
 <</if>>
@@ -235,8 +235,8 @@ __You are customizing this slave:__
 <span id="voice">
 <<if $activeSlave.voice == 0>>Mute.
 <<elseif $activeSlave.voice == 1>>Deep.
-<<elseif $activeSlave.voice == 2>>Normal.
-<<elseif $activeSlave.voice == 3>>High.
+<<elseif $activeSlave.voice is 2>>Normal.
+<<elseif $activeSlave.voice is 3>>High.
 <</if>>
 </span>
 <<link "Mute">><<set $activeSlave.voice = 0>><<replace "#voice">>Mute.<</replace>><<StartingGirlsCost>><</link>> |
@@ -251,7 +251,7 @@ __You are customizing this slave:__
 <span id="language">
 <<if $activeSlave.accent == 0>>Unaccented.
 <<elseif $activeSlave.accent == 1>>Pretty $activeSlave.nationality accent.
-<<elseif $activeSlave.accent == 2>>Thick $activeSlave.nationality accent.
+<<elseif $activeSlave.accent is 2>>Thick $activeSlave.nationality accent.
 <<else>>Not fluent.
 <</if>>
 </span>
@@ -277,9 +277,9 @@ __You are customizing this slave:__
 
 ''Health:''
 <span id="health">
-<<if $activeSlave.health == -40>>@@color:red;Unhealthy.@@
+<<if $activeSlave.health is -40>>@@color:red;Unhealthy.@@
 <<elseif $activeSlave.health == 0>>@@color:yellow;Healthy.@@
-<<elseif $activeSlave.health == 40>>@@color:green;Very healthy.@@
+<<elseif $activeSlave.health is 40>>@@color:green;Very healthy.@@
 <<else>>@@color:green;Extremely healthy.@@
 <</if>>
 </span>
@@ -303,12 +303,22 @@ __You are customizing this slave:__
 &nbsp;&nbsp;&nbsp;&nbsp;
 ''Waist:''
 <span id="waist">
-<<if $activeSlave.waist == 1>>Hourglass.
-<<else>>Normal.
+<<if $activeSlave.waist > 95>>Masculine.
+<<elseif $activeSlave.waist > 40>>Ugly.
+<<elseif $activeSlave.waist > 10>>Unattractive.
+<<elseif $activeSlave.waist >= -10>>Average.
+<<elseif $activeSlave.waist >= -40>>Feminine.
+<<elseif $activeSlave.waist >= -95>>Hourglass.
+<<else>>Absurd.
 <</if>>
 </span>
-<<link "Normal">><<set $activeSlave.waist = 0>><<replace "#waist">>Normal.<</replace>><<StartingGirlsCost>><</link>> |
-<<link "Hourglass">><<set $activeSlave.waist = 1>><<replace "#waist">>Hourglass.<</replace>><<StartingGirlsCost>><</link>>
+<<link "Absurd">><<set $activeSlave.waist = -100>><<replace "#waist">>Absurd.<</replace>><<StartingGirlsCost>><</link>> |
+<<link "Hourglass">><<set $activeSlave.waist = -55>><<replace "#waist">>Hourglass.<</replace>><<StartingGirlsCost>><</link>> |
+<<link "Feminine">><<set $activeSlave.waist = -15>><<replace "#waist">>Feminine.<</replace>><<StartingGirlsCost>><</link>> |
+<<link "Average">><<set $activeSlave.waist = 0>><<replace "#waist">>Average.<</replace>><<StartingGirlsCost>><</link>> |
+<<link "Unattractive">><<set $activeSlave.waist = 15>><<replace "#waist">>Unattractive.<</replace>><<StartingGirlsCost>><</link>> |
+<<link "Ugly">><<set $activeSlave.waist = 55>><<replace "#waist">>Ugly.<</replace>><<StartingGirlsCost>><</link>> |
+<<link "Masculine">><<set $activeSlave.waist = 100>><<replace "#waist">>Masculine.<</replace>><<StartingGirlsCost>><</link>>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <<if $seeExtreme == 1>>
 ''Limbs:''
@@ -415,22 +425,22 @@ Her nationality is $activeSlave.nationality.
 
 ''Facial attractiveness:''
 <span id="face">
-<<if $activeSlave.face < -2>>Very ugly.
-<<elseif $activeSlave.face == -2>>Ugly.
-<<elseif $activeSlave.face == -1>>Unattractive.
-<<elseif $activeSlave.face == 0>>Average.
-<<elseif $activeSlave.face == 1>>Attractive.
-<<elseif $activeSlave.face == 2>>Beautiful.
+<<if $activeSlave.face < -95>>Very ugly.
+<<elseif $activeSlave.face < -40>>Ugly.
+<<elseif $activeSlave.face < -10>>Unattractive.
+<<elseif $activeSlave.face <= 10>>Average.
+<<elseif $activeSlave.face <= 40>>Attractive.
+<<elseif $activeSlave.face <= 95>>Beautiful.
 <<else>>Very beautiful.
 <</if>>
 </span>
-<<link "Very ugly">><<set $activeSlave.face = -3>><<replace "#face">>Very ugly.<</replace>><<StartingGirlsCost>><</link>> |
-<<link "Ugly">><<set $activeSlave.face = -2>><<replace "#face">>Ugly.<</replace>><<StartingGirlsCost>><</link>> |
-<<link "Unattractive">><<set $activeSlave.face = -1>><<replace "#face">>Unattractive.<</replace>><<StartingGirlsCost>><</link>> |
+<<link "Very ugly">><<set $activeSlave.face = -100>><<replace "#face">>Very ugly.<</replace>><<StartingGirlsCost>><</link>> |
+<<link "Ugly">><<set $activeSlave.face = -55>><<replace "#face">>Ugly.<</replace>><<StartingGirlsCost>><</link>> |
+<<link "Unattractive">><<set $activeSlave.face = -15>><<replace "#face">>Unattractive.<</replace>><<StartingGirlsCost>><</link>> |
 <<link "Average">><<set $activeSlave.face = 0>><<replace "#face">>Average.<</replace>><<StartingGirlsCost>><</link>> |
-<<link "Attractive">><<set $activeSlave.face = 1>><<replace "#face">>Attractive.<</replace>><<StartingGirlsCost>><</link>> |
-<<link "Beautiful">><<set $activeSlave.face = 2>><<replace "#face">>Beautiful.<</replace>><<StartingGirlsCost>><</link>> |
-<<link "Very beautiful">><<set $activeSlave.face = 3>><<replace "#face">>Very beautiful.<</replace>><<StartingGirlsCost>><</link>>
+<<link "Attractive">><<set $activeSlave.face = 15>><<replace "#face">>Attractive.<</replace>><<StartingGirlsCost>><</link>> |
+<<link "Beautiful">><<set $activeSlave.face = 55>><<replace "#face">>Beautiful.<</replace>><<StartingGirlsCost>><</link>> |
+<<link "Very beautiful">><<set $activeSlave.face = 100>><<replace "#face">>Very beautiful.<</replace>><<StartingGirlsCost>><</link>>
 
 <br>
 
@@ -456,8 +466,8 @@ Her nationality is $activeSlave.nationality.
 &nbsp;&nbsp;&nbsp;&nbsp;
 ''Teeth:''
 <span id="teeth">
-<<if $activeSlave.teeth == "crooked">>Crooked.
-<<elseif $activeSlave.teeth == "straightening braces">>Braces.
+<<if $activeSlave.teeth is "crooked">>Crooked.
+<<elseif $activeSlave.teeth is "straightening braces">>Braces.
 <<else>>Straight.
 <</if>>
 </span>
@@ -470,12 +480,12 @@ Her nationality is $activeSlave.nationality.
 ''Vision:''
 <span id="vision">
 <<if $seeExtreme == 1>>
-	<<if $activeSlave.eyes == -2>>Blind.
-	<<elseif $activeSlave.eyes == -1>>Nearsighted.
+	<<if $activeSlave.eyes is -2>>Blind.
+	<<elseif $activeSlave.eyes is -1>>Nearsighted.
 	<<else>>Normal.
 	<</if>>
 <<else>>
-<<if $activeSlave.eyes == -1>>Nearsighted.
+<<if $activeSlave.eyes is -1>>Nearsighted.
 <<else>>Normal.
 	<</if>>
 <</if>>
@@ -505,7 +515,7 @@ Her nationality is $activeSlave.nationality.
 &nbsp;&nbsp;&nbsp;&nbsp;
 ''Lactation:''
 <span id="lactation">
-<<if $activeSlave.lactation == 2>>Artificial.
+<<if $activeSlave.lactation is 2>>Artificial.
 <<elseif $activeSlave.lactation == 1>>Natural.
 <<else>>None.
 <</if>>
@@ -527,9 +537,9 @@ Her nationality is $activeSlave.nationality.
 <span id="areolae">
 <<if $activeSlave.areolae == 1>>
 	Large.
-<<elseif $activeSlave.areolae == 2>>
+<<elseif $activeSlave.areolae is 2>>
 	Wide.
-<<elseif $activeSlave.areolae == 3>>
+<<elseif $activeSlave.areolae is 3>>
 	Huge.
 <<else>>
 	Normal.
@@ -603,7 +613,7 @@ Her nationality is $activeSlave.nationality.
 <span id="anus">
 <<if $activeSlave.anus == 0>>@@color:lime;Virgin.@@
 <<elseif $activeSlave.anus == 1>>Normal.
-<<elseif $activeSlave.anus == 2>>Veteran.
+<<elseif $activeSlave.anus is 2>>Veteran.
 <<else>>Gaping.
 <</if>>
 </span>
@@ -616,10 +626,10 @@ Her nationality is $activeSlave.nationality.
 
 ''Vagina:''
 <span id="vagina">
-<<if $activeSlave.vagina == -1>>//No vagina.//
+<<if $activeSlave.vagina is -1>>//No vagina.//
 <<elseif $activeSlave.vagina == 0>>@@color:lime;Virgin.@@
 <<elseif $activeSlave.vagina == 1>>Normal.
-<<elseif $activeSlave.vagina == 2>>Veteran.
+<<elseif $activeSlave.vagina is 2>>Veteran.
 <<else>>Gaping.
 <</if>>
 </span>
@@ -647,7 +657,7 @@ Her nationality is $activeSlave.nationality.
 &nbsp;&nbsp;&nbsp;&nbsp;
 ''Labia:''
 <span id="labia">
-<<if $activeSlave.labia == 2>>Huge.
+<<if $activeSlave.labia is 2>>Huge.
 <<elseif $activeSlave.labia == 1>>Large.
 <<else>>Normal.
 <</if>>
@@ -694,9 +704,9 @@ Her nationality is $activeSlave.nationality.
 <span id="dick">
 <<if $activeSlave.dick == 0>>None.
 <<elseif $activeSlave.dick == 1>>Tiny.
-<<elseif $activeSlave.dick == 2>>Small.
-<<elseif $activeSlave.dick == 3>>Normal.
-<<elseif $activeSlave.dick == 4>>Large.
+<<elseif $activeSlave.dick is 2>>Small.
+<<elseif $activeSlave.dick is 3>>Normal.
+<<elseif $activeSlave.dick is 4>>Large.
 <<else>>Massive.
 <</if>>
 </span>
@@ -712,9 +722,9 @@ Her nationality is $activeSlave.nationality.
 <span id="foreskin">
 <<if $activeSlave.foreskin == 0>>None.
 <<elseif $activeSlave.foreskin == 1>>Tiny.
-<<elseif $activeSlave.foreskin == 2>>Small.
-<<elseif $activeSlave.foreskin == 3>>Normal.
-<<elseif $activeSlave.foreskin == 4>>Large.
+<<elseif $activeSlave.foreskin is 2>>Small.
+<<elseif $activeSlave.foreskin is 3>>Normal.
+<<elseif $activeSlave.foreskin is 4>>Large.
 <<else>>Massive.<</if>>
 </span>
 <<if $seeCircumcision == 1>><<link "Circumcised">><<set $activeSlave.foreskin = 0>><<replace "#foreskin">>None.<</replace>><<StartingGirlsCost>><</link>> |<</if>>
@@ -728,9 +738,9 @@ Her nationality is $activeSlave.nationality.
 <span id="balls">
 <<if $activeSlave.balls == 0>>None.
 <<elseif $activeSlave.balls == 1>>Vestigial.
-<<elseif $activeSlave.balls == 2>>Small.
-<<elseif $activeSlave.balls == 3>>Normal.
-<<elseif $activeSlave.balls == 4>>Large.
+<<elseif $activeSlave.balls is 2>>Small.
+<<elseif $activeSlave.balls is 3>>Normal.
+<<elseif $activeSlave.balls is 4>>Large.
 <<else>>Massive.<</if>>
 </span>
 <<link "No testicles">><<set $activeSlave.balls = 0>><<replace "#balls">>None.<</replace>><<StartingGirlsCost>><</link>> |
@@ -745,9 +755,9 @@ Her nationality is $activeSlave.nationality.
 <span id="scrotum">
 <<if $activeSlave.scrotum == 0>>None.
 <<elseif $activeSlave.scrotum == 1>>Tiny.
-<<elseif $activeSlave.scrotum == 2>>Small.
-<<elseif $activeSlave.scrotum == 3>>Normal.
-<<elseif $activeSlave.scrotum == 4>>Large.
+<<elseif $activeSlave.scrotum is 2>>Small.
+<<elseif $activeSlave.scrotum is 3>>Normal.
+<<elseif $activeSlave.scrotum is 4>>Large.
 <<else>>Massive.<</if>>
 </span>
 <<link "None">><<set $activeSlave.scrotum = 0>><<replace "#scrotum">>None.<</replace>><<StartingGirlsCost>><</link>> |
@@ -833,12 +843,12 @@ Her nationality is $activeSlave.nationality.
 
 ''Intelligence:''
 <span id="intelligence">
-<<if $activeSlave.intelligence == 3>>@@color:deepskyblue;Brilliant.@@
-<<elseif $activeSlave.intelligence == 2>>@@color:deepskyblue;Very smart.@@
+<<if $activeSlave.intelligence is 3>>@@color:deepskyblue;Brilliant.@@
+<<elseif $activeSlave.intelligence is 2>>@@color:deepskyblue;Very smart.@@
 <<elseif $activeSlave.intelligence == 1>>@@color:deepskyblue;Smart.@@
 <<elseif $activeSlave.intelligence == 0>>Average.
-<<elseif $activeSlave.intelligence == -1>>@@color:orangered;Stupid.@@
-<<elseif $activeSlave.intelligence == -2>>@@color:orangered;Very stupid.@@
+<<elseif $activeSlave.intelligence is -1>>@@color:orangered;Stupid.@@
+<<elseif $activeSlave.intelligence is -2>>@@color:orangered;Very stupid.@@
 <<else>>@@color:orangered;Moronic.@@
 <</if>>
 </span>
@@ -867,7 +877,7 @@ Her nationality is $activeSlave.nationality.
 <span id="fetishblock">
 <span id="fetish">
 <<if $activeSlave.fetishKnown == 1>>
-	<<if $activeSlave.fetish == "none">>
+	<<if $activeSlave.fetish is "none">>
 		@@color:pink;$activeSlave.fetish.@@
 	<<else>>
 		@@color:lightcoral;$activeSlave.fetish.@@
@@ -1055,7 +1065,7 @@ XY attraction:
 
 ''Behavioral Flaw:''
 <span id="behavioralFlaw">
-<<if $activeSlave.behavioralFlaw == "none">>
+<<if $activeSlave.behavioralFlaw is "none">>
 	//$activeSlave.behavioralFlaw.//
 <<else>>
 	@@color:red;$activeSlave.behavioralFlaw.@@
@@ -1077,7 +1087,7 @@ XY attraction:
 
 ''Sexual Flaw:''
 <span id="sexualFlaw">
-<<if $activeSlave.sexualFlaw == "none">>
+<<if $activeSlave.sexualFlaw is "none">>
 	//$activeSlave.sexualFlaw.//
 <<else>>
 	@@color:red;$activeSlave.sexualFlaw.@@
@@ -1103,7 +1113,7 @@ XY attraction:
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;
 		<<link "Add this slave">>
 			<<set $returnTo = "Commit Starting Girl", $createRelatedSlave = 0, $applyCareerBonus = 1, $careerBonusApplied = 0>>
-			<<set $activeSlave.age = Number($activeSlave.age)>>
+			<<set $activeSlave.age to Number($activeSlave.age)>>
 			<<set $activeSlave.devotion = Number($activeSlave.devotion)>>
 			<<set $activeSlave.trust = Number($activeSlave.trust)>>
 			<<if $activeSlave.indenture >= 0>>
@@ -1119,17 +1129,17 @@ XY attraction:
 			<<goto "RG AS Dump">>
 		<</link>>
 		//This will apply your @@color:springgreen;career bonus@@ to her:
-		<<if $PC.career == "capitalist">>
+		<<if $PC.career is "capitalist">>
 			one free level of @@color:cyan;prostitution skill.@@
-		<<elseif $PC.career == "mercenary">>
+		<<elseif $PC.career is "mercenary">>
 			@@color:mediumaquamarine;+10 trust.@@
-		<<elseif $PC.career == "slaver">>
+		<<elseif $PC.career is "slaver">>
 			@@color:hotpink;+10 devotion.@@
-		<<elseif $PC.career == "medicine">>
+		<<elseif $PC.career is "medicine">>
 			free @@color:lime;basic implants.@@
-		<<elseif $PC.career == "celebrity">>
+		<<elseif $PC.career is "celebrity">>
 			one free level of @@color:cyan;entertainment skill.@@
-		<<elseif $PC.career == "wealth">>
+		<<elseif $PC.career is "wealth">>
 			two free levels of @@color:cyan;sex skills.@@
 		<<else>>
 			@@color:hotpink;+10 devotion,@@ one free level of @@color:cyan;prostitution skill@@ and @@color:cyan;entertainment skill,@@ and two free levels of @@color:cyan;sex skills.@@
@@ -1137,7 +1147,7 @@ XY attraction:
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;
 		<<link "Add slave without career bonus">>
 			<<set $returnTo = "Commit Starting Girl", $createRelatedSlave = 0, $applyCareerBonus = 0, $careerBonusApplied = 0>>
-			<<set $activeSlave.age = Number($activeSlave.age)>>
+			<<set $activeSlave.age to Number($activeSlave.age)>>
 			<<set $activeSlave.devotion = Number($activeSlave.devotion)>>
 			<<set $activeSlave.trust = Number($activeSlave.trust)>>
 			<<if $activeSlave.indenture >= 0>>
@@ -1156,7 +1166,7 @@ XY attraction:
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;
 		<<link "Add slave">>
 			<<set $returnTo = "Commit Starting Girl", $createRelatedSlave = 0, $applyCareerBonus = 0, $careerBonusApplied = 0>>
-			<<set $activeSlave.age = Number($activeSlave.age)>>
+			<<set $activeSlave.age to Number($activeSlave.age)>>
 			<<set $activeSlave.devotion = Number($activeSlave.devotion)>>
 			<<set $activeSlave.trust = Number($activeSlave.trust)>>
 			<<if $activeSlave.indenture >= 0>>
@@ -1248,11 +1258,11 @@ __Archetypes:__&nbsp;&nbsp;&nbsp;&nbsp;//Convenient combinations of slave attrib
 __Start over by selecting a nationality:__
 
 <<for _i = 0; _i < $basenationalities.length; _i++>>
-<<set _nation = $basenationalities[_i]>>
+<<set _nation to $basenationalities[_i]>>
 
 <<print "
 <<link _nation>>
-	<<set $fixedNationality = $basenationalities[" + _i + "]>>
+	<<set $fixedNationality to $basenationalities[" + _i + "]>>
 	<<StartingGirlsWorkaround>>
 	<<StartingGirlsRefresh>>
 	<<SaleDescription>>

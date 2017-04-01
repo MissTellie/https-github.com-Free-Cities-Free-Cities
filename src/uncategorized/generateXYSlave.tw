@@ -52,17 +52,17 @@
 <<set $activeSlave.fetish = either("none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "submissive", "cumslut", "humiliation", "buttslut", "buttslut", "boobs", "dom", "sadist", "masochist")>>
 
 <<set $activeSlave.behavioralFlaw = either("none", "none", "none", "arrogant", "bitchy", "odd", "hates men", "hates men", "hates men", "hates women", "anorexic", "gluttonous", "devout", "liberated")>>
-<<if ($activeSlave.behavioralFlaw == "devout")>>
+<<if ($activeSlave.behavioralFlaw is "devout")>>
 	<<set $activeSlave.sexualFlaw = either("none", "repressed",  "shamefast", "apathetic", "crude", "judgemental")>>
 <<else>>
 	<<set $activeSlave.sexualFlaw = either("none", "none", "none", "none", "hates oral", "hates anal", "hates anal", "repressed", "idealistic", "shamefast", "apathetic", "crude", "judgemental")>>
 <</if>>
-<<if ($activeSlave.behavioralFlaw == "none")>>
+<<if ($activeSlave.behavioralFlaw is "none")>>
 	<<if random(1,10) == 1>>
 	<<set $activeSlave.behavioralQuirk = either("confident", "cutting", "funny", "adores women", "adores men", "fitness", "insecure", "sinful", "advocate")>>
 	<</if>>
 <</if>>
-<<if ($activeSlave.sexualFlaw == "none")>>
+<<if ($activeSlave.sexualFlaw is "none")>>
 	<<if random(1,10) == 1>>
 	<<set $activeSlave.sexualQuirk = either("gagfuck queen", "painal queen", "strugglefuck queen", "tease", "romantic", "perverted", "caring", "unflinching", "size queen")>>
 	<</if>>
@@ -85,8 +85,12 @@
 <</if>>
 
 <<set $activeSlave.weight = random (-100,100)>>
-<<if ($activeSlave.weight < -10)>>
-	<<set $activeSlave.waist = either(0,0,1)>>
+<<if ($activeSlave.weight < -30)>>
+	<<set $activeSlave.waist = random(-45,45)>>
+<<elseif ($activeSlave.weight <= 30)>>
+	<<set $activeSlave.waist = random(-15,65)>>
+<<else>>
+	<<set $activeSlave.waist = random(5,100)>>
 <</if>>
 
 <<if ($activeSlave.age > random(0,100))>>
@@ -111,9 +115,9 @@
 <</if>>
 
 <<set $seed = 4+$activeSlave.intelligence+$activeSlave.intelligenceImplant>>
-<<if "American" == $activeSlave.nationality>>
+<<if "American" is $activeSlave.nationality>>
 	<<set $seed += 2>>
-<<elseif ["Canadian", "Israeli", "Japanese", "Korean", "Irish", "Icelandic", "Finnish", "Swiss", "Danish", "Norwegian", "Austrian", "Slovak", "Dutch", "Belgian", "Czech", "Portuguese", "Hungarian", "Portuguese", "Estonian", "Polish", "Lithuanian", "Romanian", "German", "Swedish", "French", "Italian", "Spanish", "British", "Australian", "a New Zealander"].includes($activeSlave.nationality)>>
+<<elseif ["Canadian", "Israeli", "Japanese", "Korean", "Irish", "Icelandic", "Finnish", "Swiss", "Danish", "Norwegian", "Austrian", "Slovak", "Dutch", "Belgian", "Czech", "Portuguese", "Hungarian", "Portuguese", "Estonian", "Polish", "Lithuanian", "Romanian", "German", "Swedish", "French", "Italian", "Spanish", "British", "Australian", "a New Zealander"].contains($activeSlave.nationality)>>
 <<else>>
 	<<set $seed -= 2>>
 <</if>>
@@ -121,26 +125,26 @@
 	<<set $activeSlave.teeth = "crooked">>
 <</if>>
 
-<<if $activeSlave.race == "black">>
+<<if $activeSlave.race is "black">>
 	<<set $activeSlave.butt = either(1, 1, 2, 3)>>
 	<<set $activeSlave.boobs = either(100, 200, 200, 300, 300, 400, 500)>>
 	<<set $activeSlave.lips = random(5,30)>>
 	<<set $activeSlave.skin = either("black", "brown", "light brown")>>
 	<<set $activeSlave.hColor = either("black", "black", "black", "brown")>>
 	<<set $activeSlave.hStyle = either("neat", "crinkled")>>
-<<elseif $activeSlave.race == "white">>
+<<elseif $activeSlave.race is "white">>
 	<<set $activeSlave.butt = either(1, 1, 2, 3)>>
 	<<set $activeSlave.boobs = either(100, 200, 200, 300, 300, 400, 500)>>
 	<<set $activeSlave.lips = random(5,25)>>
-	<<if $activeSlave.nationality == "German">>
+	<<if $activeSlave.nationality is "German">>
 		<<set $activeSlave.skin = either("pale", "tanned", "fair")>>
 		<<set $activeSlave.eyeColor = either("blue", "blue", "blue", "brown", "green")>>
 		<<set $activeSlave.hColor = either("black", "blonde", "blonde", "blonde", "red", "brown")>>
-	<<elseif $activeSlave.nationality == "Icelandic">>
+	<<elseif $activeSlave.nationality is "Icelandic">>
 		<<set $activeSlave.skin = either("pale", "pale", "tanned", "fair")>>
 		<<set $activeSlave.eyeColor = either("blue", "blue", "blue", "brown", "green")>>
 		<<set $activeSlave.hColor = either("black", "blonde", "blonde", "blonde", "red", "brown")>>
-	<<elseif $activeSlave.nationality == "Irish">>
+	<<elseif $activeSlave.nationality is "Irish">>
 		<<set $activeSlave.skin = either("pale", "pale", "tanned", "fair")>>
 		<<set $activeSlave.eyeColor = either("blue", "brown", "green", "green", "green")>>
 		<<set $activeSlave.hColor = either("black", "blonde", "red", "red", "red", "brown")>>
@@ -150,28 +154,28 @@
 		<<set $activeSlave.hColor = either("black", "blonde", "red", "brown")>>
 	<</if>>
 	<<set $activeSlave.hStyle = "neat">>
-<<elseif $activeSlave.race == "latina">>
+<<elseif $activeSlave.race is "latina">>
 	<<set $activeSlave.butt = either(1, 1, 2, 3)>>
 	<<set $activeSlave.boobs = either(100, 200, 200, 300, 300, 400, 500)>>
 	<<set $activeSlave.lips = random(5,25)>>
 	<<set $activeSlave.skin = either("olive", "brown", "light brown")>>
 	<<set $activeSlave.hColor = either("black", "black", "brown", "brown")>>
 	<<set $activeSlave.hStyle = "neat">>
-<<elseif ($activeSlave.race == "indo-aryan") || ($activeSlave.race == "malay") || ($activeSlave.race == "pacific islander") || ($activeSlave.race == "amerindian")>>
+<<elseif ($activeSlave.race is "indo-aryan") || ($activeSlave.race is "malay") || ($activeSlave.race is "pacific islander") || ($activeSlave.race is "amerindian")>>
 	<<set $activeSlave.butt = either(1, 1, 2, 3)>>
 	<<set $activeSlave.boobs = either(100, 200, 200, 300, 300, 400, 500)>>
 	<<set $activeSlave.lips = random(5,25)>>
 	<<set $activeSlave.skin = either("dark", "light")>>
 	<<set $activeSlave.hColor = either("black")>>
 	<<set $activeSlave.hStyle = "neat">>
-<<elseif $activeSlave.race == "asian">>
+<<elseif $activeSlave.race is "asian">>
 	<<set $activeSlave.butt = either(1, 1, 2, 3)>>
 	<<set $activeSlave.boobs = either(100, 200, 200, 300, 300, 400, 500)>>
 	<<set $activeSlave.lips = random(5,25)>>
 	<<set $activeSlave.skin = either("pale", "dark", "light")>>
 	<<set $activeSlave.hColor = either("black")>>
 	<<set $activeSlave.hStyle = "neat">>
-<<elseif ($activeSlave.race == "middle eastern") || ($activeSlave.race == "semitic") || ($activeSlave.race == "southern European")>>
+<<elseif ($activeSlave.race is "middle eastern") || ($activeSlave.race is "semitic") || ($activeSlave.race is "southern European")>>
 	<<set $activeSlave.butt = either(1, 1, 2, 3)>>
 	<<set $activeSlave.boobs = either(100, 200, 200, 300, 300, 400, 500)>>
 	<<set $activeSlave.lips = random(5,25)>>
@@ -186,7 +190,7 @@
 	<<set $activeSlave.hColor = either("black", "black", "black", "black", "brown", "brown", "blonde", "red")>>
 	<<set $activeSlave.hStyle = "neat">>
 <</if>>
-<<if ($activeSlave.skin == "pale") || ($activeSlave.skin == "fair")>>
+<<if ($activeSlave.skin is "pale") || ($activeSlave.skin is "fair")>>
 	<<if random(1,4) == 1>>
 	<<set $activeSlave.markings = either("freckles", "freckles", "freckles", "heavily freckled", "beauty mark", "beauty mark", "birthmark", "birthmark")>>
 	<</if>>
@@ -234,14 +238,26 @@
 <<set $activeSlave.navelPiercing = either(0,0,0,0,1)>>
 <<set $activeSlave.nipplesPiercing = either(0,0,0,0,1)>>
 
-<<if $activeSlave.age > 35>>
-	<<set $activeSlave.face = either(-3,-2,-2,-2,-1,-1,-1,-1,0,0,0,1,1,2)>>
-<<elseif $activeSlave.age > 25>>
-	<<set $activeSlave.face = either(-3,-2,-2,-1,-1,-1,0,0,0,1,1,1,2,2)>>
-<<else>>
-	<<set $activeSlave.face = either(-3,-2,-1,-1,0,0,0,1,1,1,1,2,2,2)>>
-<</if>>
 <<set $activeSlave.faceShape = either("masculine", "masculine", "masculine", "androgynous")>>
+<<set $activeSlave.face = random(-70,20)>>
+<<if random(0,2) == 1>><<set $activeSlave.face = random(-40,-10)>><</if>>
+<<if $activeSlave.age > 40>>
+	<<set $activeSlave.face -= random(0,20)>>
+<<elseif $activeSlave.age > 35>>
+	<<set $activeSlave.face -= random(0,10)>>
+<<elseif $activeSlave.age <= 20>>
+	<<set $activeSlave.face += random(0,20)>>
+<<elseif $activeSlave.age <= 25>>
+	<<set $activeSlave.face += random(0,10)>>
+<</if>>
+<<switch $activeSlave.faceShape>>
+<<case "sensual" "cute">>
+	<<set $activeSlave.face += random(0,20)>>
+<<case "exotic" "androgynous">>
+	<<set $activeSlave.face += random(-10,10)>>
+<<case "masculine">>
+	<<set $activeSlave.face += random(-10,0)>>
+<</switch>>
 
 <<if $activeSlave.boobs < 250>>
 	<<set $activeSlave.nipples = either("tiny", "tiny", "tiny", "tiny", "cute", "cute", "puffy", "partially inverted")>>
@@ -268,7 +284,7 @@
 <</if>>
 <<if $activeSlave.balls == 0>>
 	<<if random(0,1) == 1>>
-	<<if $activeSlave.faceShape == "masculine">>
+	<<if $activeSlave.faceShape is "masculine">>
 		<<set $activeSlave.faceShape = either("androgynous", "cute")>>
 	<</if>>
 	<</if>>
