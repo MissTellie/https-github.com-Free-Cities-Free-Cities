@@ -5,37 +5,37 @@
 %/
 <<widget "StartingGirlsWorkaround">>
 	<<include "Generate New Slave">>
-	<<set $startingGirlCopied to 0>>
+	<<set $startingGirlCopied = 0>>
 	<<set $activeSlave.health = 0>>
 	<<set $activeSlave.devotion = 0>>
 	<<set $activeSlave.trust = 0>>
-	<<set $activeSlave.sexualQuirk to "none">>
-	<<set $activeSlave.behavioralQuirk to "none">>
-	<<set $activeSlave.fetishKnown to 1>>
-	<<if $PC.career is "capitalist">>
-	<<set $activeSlave.origin to "You acquired her in the last stages of your career as a successful venture capitalist.">>
-	<<set $activeSlave.customTat to "She has a famous corporate logo tattooed on the nape of her neck.">>
-	<<elseif $PC.career is "mercenary">>
-	<<set $activeSlave.origin to "You acquired her in the last stages of your career as a noted private military contractor.">>
-	<<set $activeSlave.customTat to "She has a small tattoo of a private military company's coat of arms on the nape of her neck.">>
-	<<elseif $PC.career is "slaver">>
-	<<set $activeSlave.origin to "You enslaved her personally during the last stages of your slaving career.">>
-	<<set $activeSlave.customTat to "She has your tiny slaving emblem tattooed behind her left ear.">>
-	<<elseif $PC.career is "engineer">>
-	<<set $activeSlave.origin to "You received her as a gift from an arcology owner impressed by your work.">>
-	<<set $activeSlave.customTat to "She has the geometric symbol of your old arcology engineering firm laser tattooed into the nape of her neck.">>
-	<<elseif $PC.career is "medicine">>
-	<<set $activeSlave.origin to "You kept her after her owner failed to pay your bill for performing surgery on her.">>
-	<<set $activeSlave.customTat to "She has your personal symbol tattooed on the back of her neck: it's invisible to the naked eye, but shows up starkly on medical imaging.">>
-	<<elseif $PC.career is "celebrity">>
-	<<set $activeSlave.origin to "She was one of your groupies during your celebrity career.">>
-	<<set $activeSlave.customTat to "She has your signature, surrounded by hearts, tattooed on the back of her neck. She got the tattoo when she was still free.">>
-	<<elseif $PC.career is "wealth">>
-	<<set $activeSlave.origin to "You won her at cards, a memento from your life as one of the idle rich before you became an arcology owner.">>
-	<<set $activeSlave.customTat to "She has a small tattoo of a winning hand of cards on the nape of her neck.">>
+	<<set $activeSlave.sexualQuirk = "none">>
+	<<set $activeSlave.behavioralQuirk = "none">>
+	<<set $activeSlave.fetishKnown = 1>>
+	<<if $PC.career == "capitalist">>
+	<<set $activeSlave.origin = "You acquired her in the last stages of your career as a successful venture capitalist.">>
+	<<set $activeSlave.customTat = "She has a famous corporate logo tattooed on the nape of her neck.">>
+	<<elseif $PC.career == "mercenary">>
+	<<set $activeSlave.origin = "You acquired her in the last stages of your career as a noted private military contractor.">>
+	<<set $activeSlave.customTat = "She has a small tattoo of a private military company's coat of arms on the nape of her neck.">>
+	<<elseif $PC.career == "slaver">>
+	<<set $activeSlave.origin = "You enslaved her personally during the last stages of your slaving career.">>
+	<<set $activeSlave.customTat = "She has your tiny slaving emblem tattooed behind her left ear.">>
+	<<elseif $PC.career == "engineer">>
+	<<set $activeSlave.origin = "You received her as a gift from an arcology owner impressed by your work.">>
+	<<set $activeSlave.customTat = "She has the geometric symbol of your old arcology engineering firm laser tattooed into the nape of her neck.">>
+	<<elseif $PC.career == "medicine">>
+	<<set $activeSlave.origin = "You kept her after her owner failed to pay your bill for performing surgery on her.">>
+	<<set $activeSlave.customTat = "She has your personal symbol tattooed on the back of her neck: it's invisible to the naked eye, but shows up starkly on medical imaging.">>
+	<<elseif $PC.career == "celebrity">>
+	<<set $activeSlave.origin = "She was one of your groupies during your celebrity career.">>
+	<<set $activeSlave.customTat = "She has your signature, surrounded by hearts, tattooed on the back of her neck. She got the tattoo when she was still free.">>
+	<<elseif $PC.career == "wealth">>
+	<<set $activeSlave.origin = "You won her at cards, a memento from your life as one of the idle rich before you became an arcology owner.">>
+	<<set $activeSlave.customTat = "She has a small tattoo of a winning hand of cards on the nape of her neck.">>
 	<<else>>
-	<<set $activeSlave.origin to "You won her at cards, a memento from your life as one of the idle rich before you became an arcology owner.">>
-	<<set $activeSlave.customTat to "She has the silhouette of an arcology tattooed on the nape of her neck.">>
+	<<set $activeSlave.origin = "You won her at cards, a memento from your life as one of the idle rich before you became an arcology owner.">>
+	<<set $activeSlave.customTat = "She has the silhouette of an arcology tattooed on the nape of her neck.">>
 	<</if>>
 	<<if $activeSlave.vagina < 1>>
 	<<set $activeSlave.vaginalSkill = 0>>
@@ -44,17 +44,17 @@
 	<<set $activeSlave.analSkill = 0>>
 	<</if>>
 	<<if $activeSlave.dick > 0>>
-	<<set $activeSlave.ovaries to 0>>
+	<<set $activeSlave.ovaries = 0>>
 	<</if>>
-	<<if $activeSlave.fetish is "mindbroken">>
+	<<if $activeSlave.fetish == "mindbroken">>
 	<<if $activeSlave.amp != 1>>
-		<<set $activeSlave.origin to "You brought her into the arcology mindbroken, little more than a walking collection of fuckable holes.">>
+		<<set $activeSlave.origin = "You brought her into the arcology mindbroken, little more than a walking collection of fuckable holes.">>
 	<<else>>
-		<<set $activeSlave.origin to "You brought her into the arcology mindbroken, little more than a human onahole.">>
+		<<set $activeSlave.origin = "You brought her into the arcology mindbroken, little more than a human onahole.">>
 	<</if>>
 	<</if>>
 
-	<<set $activeSlave.age to Number($activeSlave.age)>>
+	<<set $activeSlave.age = Number($activeSlave.age)>>
 	<<set $activeSlave.devotion = Number($activeSlave.devotion)>>
 	<<set $activeSlave.trust = Number($activeSlave.trust)>>
 	<<if $activeSlave.indenture >= 0>>
@@ -86,15 +86,15 @@
 	<<replace "#voice">>
 		<<if $activeSlave.voice == 0>>Mute.
 		<<elseif $activeSlave.voice == 1>>Deep.
-		<<elseif $activeSlave.voice is 2>>Normal.
-		<<elseif $activeSlave.voice is 3>>High.
+		<<elseif $activeSlave.voice == 2>>Normal.
+		<<elseif $activeSlave.voice == 3>>High.
 		<</if>>
 	<</replace>>
 
 	<<replace "#language">>
 		<<if $activeSlave.accent == 0>>Unaccented.
 		<<elseif $activeSlave.accent == 1>>Pretty $activeSlave.nationality accent.
-		<<elseif $activeSlave.accent is 2>>Thick $activeSlave.nationality accent.
+		<<elseif $activeSlave.accent == 2>>Thick $activeSlave.nationality accent.
 		<<else>>Not fluent.
 		<</if>>
 	<</replace>>
@@ -180,20 +180,20 @@
 	<</replace>>
 
 	<<replace "#teeth">>
-		<<if $activeSlave.teeth is "crooked">>Crooked.
-		<<elseif $activeSlave.teeth is "straightening braces">>Braces.
+		<<if $activeSlave.teeth == "crooked">>Crooked.
+		<<elseif $activeSlave.teeth == "straightening braces">>Braces.
 		<<else>>Straight.
 		<</if>>
 	<</replace>>
 
 	<<replace "#vision">>
 		<<if $seeExtreme == 1>>
-			<<if $activeSlave.eyes is -2>>Blind.
-			<<elseif $activeSlave.eyes is -1>>Nearsighted.
+			<<if $activeSlave.eyes == -2>>Blind.
+			<<elseif $activeSlave.eyes == -1>>Nearsighted.
 			<<else>>Normal.
 			<</if>>
 		<<else>>
-			<<if $activeSlave.eyes is -1>>Nearsighted.
+			<<if $activeSlave.eyes == -1>>Nearsighted.
 			<<else>>Normal.
 			<</if>>
 		<</if>>
@@ -268,16 +268,16 @@
 	<<replace "#anus">>
 		<<if $activeSlave.anus == 0>>@@color:lime;Virgin.@@
 		<<elseif $activeSlave.anus == 1>>Normal.
-		<<elseif $activeSlave.anus is 2>>Veteran.
+		<<elseif $activeSlave.anus == 2>>Veteran.
 		<<else>>Gaping.
 		<</if>>
 	<</replace>>
 
 	<<replace "#vagina">>
-		<<if $activeSlave.vagina is -1>>//No vagina.//
+		<<if $activeSlave.vagina == -1>>//No vagina.//
 		<<elseif $activeSlave.vagina == 0>>@@color:lime;Virgin.@@
 		<<elseif $activeSlave.vagina == 1>>Normal.
-		<<elseif $activeSlave.vagina is 2>>Veteran.
+		<<elseif $activeSlave.vagina == 2>>Veteran.
 		<<else>>Gaping.
 		<</if>>
 	<</replace>>
@@ -294,21 +294,21 @@
 			<</if>>
 		</span>
 		<<link "Normal">>
-			<<set $customSlave.clit to 0>>
+			<<set $customSlave.clit = 0>>
 			<<replace #clit>>
 				Normal.
 			<</replace>>
 		<</link>>
 		|
 		<<link "Large">>
-			<<set $customSlave.clit to 1>>
+			<<set $customSlave.clit = 1>>
 			<<replace #clit>>
 				Large.
 			<</replace>>
 		<</link>>
 		|
 		<<link "Huge">>
-			<<set $customSlave.clit to 2>>
+			<<set $customSlave.clit = 2>>
 			<<replace #clit>>
 				Huge.
 			<</replace>>
@@ -318,27 +318,27 @@
 		&nbsp;&nbsp;&nbsp;&nbsp;
 		''Labia:''
 		<span id="labia">
-			<<if $activeSlave.labia is 2>>Huge.
+			<<if $activeSlave.labia == 2>>Huge.
 			<<elseif $activeSlave.labia == 1>>Large.
 			<<else>>Normal.
 			<</if>>
 		</span>
 		<<link "Normal">>
-			<<set $customSlave.labia to 0>>
+			<<set $customSlave.labia = 0>>
 			<<replace #labia>>
 				Normal.
 			<</replace>>
 		<</link>>
 		|
 		<<link "Large">>
-			<<set $customSlave.labia to 1>>
+			<<set $customSlave.labia = 1>>
 			<<replace #labia>>
 				Large.
 			<</replace>>
 		<</link>>
 		|
 		<<link "Huge">>
-			<<set $customSlave.labia to 2>>
+			<<set $customSlave.labia = 2>>
 			<<replace #labia>>
 				Huge.
 			<</replace>>
@@ -382,9 +382,9 @@
 		<span id="dick">
 		<<if $activeSlave.dick == 0>>None.
 		<<elseif $activeSlave.dick == 1>>Tiny.
-		<<elseif $activeSlave.dick is 2>>Small.
-		<<elseif $activeSlave.dick is 3>>Normal.
-		<<elseif $activeSlave.dick is 4>>Large.
+		<<elseif $activeSlave.dick == 2>>Small.
+		<<elseif $activeSlave.dick == 3>>Normal.
+		<<elseif $activeSlave.dick == 4>>Large.
 		<<else>>Massive.
 		<</if>>
 		</span>
@@ -400,9 +400,9 @@
 		<span id="foreskin">
 		<<if $activeSlave.foreskin == 0>>None.
 		<<elseif $activeSlave.foreskin == 1>>Tiny.
-		<<elseif $activeSlave.foreskin is 2>>Small.
-		<<elseif $activeSlave.foreskin is 3>>Normal.
-		<<elseif $activeSlave.foreskin is 4>>Large.
+		<<elseif $activeSlave.foreskin == 2>>Small.
+		<<elseif $activeSlave.foreskin == 3>>Normal.
+		<<elseif $activeSlave.foreskin == 4>>Large.
 		<<else>>Massive.<</if>>
 		</span>
 		<<if $seeCircumcision == 1>><<link "Circumcised">><<set $activeSlave.foreskin = 0>><<replace "#foreskin">>None.<</replace>><<StartingGirlsCost>><</link>> |<</if>>
@@ -416,9 +416,9 @@
 		<span id="balls">
 		<<if $activeSlave.balls == 0>>None.
 		<<elseif $activeSlave.balls == 1>>Vestigial.
-		<<elseif $activeSlave.balls is 2>>Small.
-		<<elseif $activeSlave.balls is 3>>Normal.
-		<<elseif $activeSlave.balls is 4>>Large.
+		<<elseif $activeSlave.balls == 2>>Small.
+		<<elseif $activeSlave.balls == 3>>Normal.
+		<<elseif $activeSlave.balls == 4>>Large.
 		<<else>>Massive.<</if>>
 		</span>
 		<<link "No testicles">><<set $activeSlave.balls = 0>><<replace "#balls">>None.<</replace>><<StartingGirlsCost>><</link>> |
@@ -433,9 +433,9 @@
 		<span id="scrotum">
 		<<if $activeSlave.scrotum == 0>>None.
 		<<elseif $activeSlave.scrotum == 1>>Tiny.
-		<<elseif $activeSlave.scrotum is 2>>Small.
-		<<elseif $activeSlave.scrotum is 3>>Normal.
-		<<elseif $activeSlave.scrotum is 4>>Large.
+		<<elseif $activeSlave.scrotum == 2>>Small.
+		<<elseif $activeSlave.scrotum == 3>>Normal.
+		<<elseif $activeSlave.scrotum == 4>>Large.
 		<<else>>Massive.<</if>>
 		</span>
 		<<link "None">><<set $activeSlave.scrotum = 0>><<replace "#scrotum">>None.<</replace>><<StartingGirlsCost>><</link>> |
@@ -479,7 +479,7 @@
 	<<replace "#vaginalSkillsBlock">>
 		<<if $activeSlave.vagina == 0>>
 			//Virgins cannot be given vaginal skills//
-		<<elseif $activeSlave.vagina is -1>>
+		<<elseif $activeSlave.vagina == -1>>
 			//Must have a vagina to have vaginal skills//
 		<<else>>
 			''Vaginal sex:''
@@ -520,12 +520,12 @@
 	<</replace>>
 
 	<<replace "#intelligence">>
-		<<if $activeSlave.intelligence is 3>>@@color:deepskyblue;Brilliant.@@
-		<<elseif $activeSlave.intelligence is 2>>@@color:deepskyblue;Very smart.@@
+		<<if $activeSlave.intelligence == 3>>@@color:deepskyblue;Brilliant.@@
+		<<elseif $activeSlave.intelligence == 2>>@@color:deepskyblue;Very smart.@@
 		<<elseif $activeSlave.intelligence == 1>>@@color:deepskyblue;Smart.@@
 		<<elseif $activeSlave.intelligence == 0>>Average.
-		<<elseif $activeSlave.intelligence is -1>>@@color:orangered;Stupid.@@
-		<<elseif $activeSlave.intelligence is -2>>@@color:orangered;Very stupid.@@
+		<<elseif $activeSlave.intelligence == -1>>@@color:orangered;Stupid.@@
+		<<elseif $activeSlave.intelligence == -2>>@@color:orangered;Very stupid.@@
 		<<else>>@@color:orangered;Moronic.@@
 		<</if>>
 	<</replace>>
@@ -549,7 +549,7 @@
 	<</if>>
 
 	<<replace "#behavioralFlaw">>
-		<<if $activeSlave.behavioralFlaw is "none">>
+		<<if $activeSlave.behavioralFlaw == "none">>
 		//$activeSlave.behavioralFlaw.//
 		<<else>>
 			@@color:red;$activeSlave.behavioralFlaw.@@
@@ -557,7 +557,7 @@
 	<</replace>>
 
 	<<replace "#sexualFlaw">>
-		<<if $activeSlave.sexualFlaw is "none">>
+		<<if $activeSlave.sexualFlaw == "none">>
 			//$activeSlave.sexualFlaw.//
 		<<else>>
 			@@color:red;$activeSlave.sexualFlaw.@@
@@ -596,7 +596,7 @@
 	<<replace "#vaginalSkillsBlock">>
 		<<if $activeSlave.vagina == 0>>
 		//Virgins cannot be given vaginal skills//
-		<<elseif $activeSlave.vagina is -1>>
+		<<elseif $activeSlave.vagina == -1>>
 		//Must have a vagina to have vaginal skills//
 		<<else>>
 		''Vaginal sex:''
@@ -641,7 +641,7 @@
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;
 		<<link "Add this slave">>
 			<<set $returnTo = "Commit Starting Girl", $createRelatedSlave = 0, $applyCareerBonus = 1, $careerBonusApplied = 0>>
-			<<set $activeSlave.age to Number($activeSlave.age)>>
+			<<set $activeSlave.age = Number($activeSlave.age)>>
 			<<set $activeSlave.devotion = Number($activeSlave.devotion)>>
 			<<set $activeSlave.trust = Number($activeSlave.trust)>>
 			<<if $activeSlave.indenture >= 0>>
@@ -657,17 +657,17 @@
 			<<goto "RG AS Dump">>
 		<</link>>
 		//This will apply your @@color:springgreen;career bonus@@ to her:
-		<<if $PC.career is "capitalist">>
+		<<if $PC.career == "capitalist">>
 			one free level of @@color:cyan;prostitution skill.@@
-		<<elseif $PC.career is "mercenary">>
+		<<elseif $PC.career == "mercenary">>
 			@@color:mediumaquamarine;+10 trust.@@
-		<<elseif $PC.career is "slaver">>
+		<<elseif $PC.career == "slaver">>
 			@@color:hotpink;+10 devotion.@@
-		<<elseif $PC.career is "medicine">>
+		<<elseif $PC.career == "medicine">>
 			free @@color:lime;basic implants.@@
-		<<elseif $PC.career is "celebrity">>
+		<<elseif $PC.career == "celebrity">>
 			one free level of @@color:cyan;entertainment skill.@@
-		<<elseif $PC.career is "wealth">>
+		<<elseif $PC.career == "wealth">>
 			two free levels of @@color:cyan;sex skills.@@
 		<<else>>
 			@@color:hotpink;+10 devotion,@@ one free level of @@color:cyan;prostitution skill@@ and @@color:cyan;entertainment skill,@@ and two free levels of @@color:cyan;sex skills.@@
@@ -675,7 +675,7 @@
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;
 		<<link "Add slave without career bonus">>
 			<<set $returnTo = "Commit Starting Girl", $createRelatedSlave = 0, $applyCareerBonus = 0, $careerBonusApplied = 0>>
-			<<set $activeSlave.age to Number($activeSlave.age)>>
+			<<set $activeSlave.age = Number($activeSlave.age)>>
 			<<set $activeSlave.devotion = Number($activeSlave.devotion)>>
 			<<set $activeSlave.trust = Number($activeSlave.trust)>>
 			<<if $activeSlave.indenture >= 0>>
@@ -694,7 +694,7 @@
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;
 		<<link "Add slave">>
 			<<set $returnTo = "Commit Starting Girl", $createRelatedSlave = 0, $applyCareerBonus = 0, $careerBonusApplied = 0>>
-			<<set $activeSlave.age to Number($activeSlave.age)>>
+			<<set $activeSlave.age = Number($activeSlave.age)>>
 			<<set $activeSlave.devotion = Number($activeSlave.devotion)>>
 			<<set $activeSlave.trust = Number($activeSlave.trust)>>
 			<<if $activeSlave.indenture >= 0>>
@@ -738,7 +738,7 @@
 		<<replace "#fetishblock">>
 		<span id="fetish">
 		<<if $activeSlave.fetishKnown == 1>>
-			<<if $activeSlave.fetish is "none">>
+			<<if $activeSlave.fetish == "none">>
 				@@color:pink;$activeSlave.fetish.@@
 			<<else>>
 				@@color:lightcoral;$activeSlave.fetish.@@
@@ -1424,7 +1424,7 @@
 %/
 <<widget "CustomSlaveBoobs">>
 	<<replace #boobs>>
-		<<if $customSlave.boobs is 200>>Flat chest.
+		<<if $customSlave.boobs == 200>>Flat chest.
 		<<elseif $customSlave.boobs <= 500>>Healthy breasts.
 		<<else>>Big breasts.
 		<</if>>
@@ -1448,13 +1448,13 @@
 %/
 <<widget "CustomSlaveVagina">>
 	<<replace #vagina>>
-		<<if $customSlave.vagina is -1>>No vagina.
+		<<if $customSlave.vagina == -1>>No vagina.
 		<<elseif $customSlave.vagina == 0>>Vaginal virgin.
 		<<else>>Normal vagina.
 		<</if>>
 		<<if $customSlave.dick > 0>>
 		<<link "No vagina">>
-			<<set $customSlave.vagina to -1, $customSlave.preg to -2, $customSlave.ovaries to 0>>
+			<<set $customSlave.vagina = -1, $customSlave.preg = -2, $customSlave.ovaries = 0>>
 			<<CustomSlaveVagina>>
 		<</link>>
 		<<else>>//No vagina//
@@ -1468,7 +1468,7 @@
 <<widget "CustomSlaveDick">>
 	<<replace #dick>>
 		<<if $customSlave.dick == 0>>No penis.
-		<<elseif $customSlave.dick is 2>>Small penis.
+		<<elseif $customSlave.dick == 2>>Small penis.
 		<<else>>Large penis.
 		<</if>>
 	<</replace>>
@@ -1480,56 +1480,56 @@
 <<widget "CustomSlaveClitBalls">>
 	<<replace #clitballs>>
 	<<if $customSlave.dick > 0>>
-	<<if $customSlave.balls == 0>>No testicles.<<elseif $customSlave.balls is 3>>Small testicles.<<else>>Large testicles.<</if>>
+	<<if $customSlave.balls == 0>>No testicles.<<elseif $customSlave.balls == 3>>Small testicles.<<else>>Large testicles.<</if>>
 	<<link "No testicles">>
-		<<set $customSlave.balls to 0,$customSlave.clit to 0>>
+		<<set $customSlave.balls = 0,$customSlave.clit = 0>>
 		<<CustomSlaveClitBalls>>
 	<</link>>
 	|
 	<<link "Small testicles">>
-		<<set $customSlave.balls to 2,$customSlave.clit to 0>>
+		<<set $customSlave.balls = 2,$customSlave.clit = 0>>
 		<<CustomSlaveClitBalls>>
 	<</link>>
 	|
 	<<link "Large testicles">>
-		<<set $customSlave.balls to 4,$customSlave.clit to 0>>
+		<<set $customSlave.balls = 4,$customSlave.clit = 0>>
 		<<CustomSlaveClitBalls>>
 	<</link>>
 	<<else>>
 	<<if $customSlave.clit == 0>>Normal clitoris.<<elseif $customSlave.clit == 0>>Big clitoris.<<else>>Enormous clitoris.<</if>>
 	<<link "Normal clitoris">>
-		<<set $customSlave.clit to 0>>
+		<<set $customSlave.clit = 0>>
 		<<CustomSlaveClitBalls>>
 	<</link>>
 	|
 	<<link "Big clitoris">>
-		<<set $customSlave.clit to 1>>
+		<<set $customSlave.clit = 1>>
 		<<CustomSlaveClitBalls>>
 	<</link>>
 	|
 	<<link "Enormous clitoris">>
-		<<set $customSlave.clit to 2>>
+		<<set $customSlave.clit = 2>>
 		<<CustomSlaveClitBalls>>
 	<</link>>
 	<br>
-	<<if $customSlave.labia == 0>>Minimal labia.<<elseif $customSlave.labia == 1>>Normal labia.<<elseif $customSlave.labia is 2>>Huge labia.<<else>>Enormous labia.<</if>>
+	<<if $customSlave.labia == 0>>Minimal labia.<<elseif $customSlave.labia == 1>>Normal labia.<<elseif $customSlave.labia == 2>>Huge labia.<<else>>Enormous labia.<</if>>
 	<<link "Minimal labia">>
-		<<set $customSlave.labia to 0>>
+		<<set $customSlave.labia = 0>>
 		<<CustomSlaveClitBalls>>
 	<</link>>
 	|
 	<<link "Normal labia">>
-		<<set $customSlave.labia to 1>>
+		<<set $customSlave.labia = 1>>
 		<<CustomSlaveClitBalls>>
 	<</link>>
 	|
 	<<link "Huge labia">>
-		<<set $customSlave.labia to 2>>
+		<<set $customSlave.labia = 2>>
 		<<CustomSlaveClitBalls>>
 	<</link>>
 	|
 	<<link "Enormous labia">>
-		<<set $customSlave.labia to 3>>
+		<<set $customSlave.labia = 3>>
 		<<CustomSlaveClitBalls>>
 	<</link>>
 	<</if>>
@@ -1590,11 +1590,11 @@
 <<widget "CustomSlaveIntelligence">>
 	<<replace #intelligence>>
 		<<if $customSlave.intelligence >= 3>>Brilliant.
-		<<elseif $customSlave.intelligence is 2>>Very smart..
+		<<elseif $customSlave.intelligence == 2>>Very smart..
 		<<elseif $customSlave.intelligence == 1>>Smart.
 		<<elseif $customSlave.intelligence == 0>>Average intelligence.
-		<<elseif $customSlave.intelligence is -1>>Stupid.
-		<<elseif $customSlave.intelligence is -2>>Very stupid.
+		<<elseif $customSlave.intelligence == -1>>Stupid.
+		<<elseif $customSlave.intelligence == -2>>Very stupid.
 		<<else>>Moronic.
 		<</if>>
 	<</replace>>

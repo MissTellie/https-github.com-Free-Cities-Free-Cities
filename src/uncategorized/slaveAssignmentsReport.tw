@@ -250,7 +250,7 @@
 <<if $fighterIDs.contains($slaves[_i])>>
 	<<if canWalk($slaves[_i]) != true>>
 		''__@@color:pink;$slaves[_i].slaveName@@__'' is no longer independently mobile @@color:yellow;and cannot fight any more.@@ She has been removed from $pitName roster<br>.
-		<<for _k to 0; _k < $fighterIDs.length; _k++>>
+		<<for _k = 0; _k < $fighterIDs.length; _k++>>
 		<<if $slaves[_i].ID == $fighterIDs[_k]>>
 			<<set $dump to $fighterIDs.pluck([_k],[_k])>>
 			<<set _k-->>

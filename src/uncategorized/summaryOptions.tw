@@ -17,11 +17,11 @@
 
 <<if $sortSlavesBy is "name">>
 	Slaves are sorted on the main menu by @@color:yellow;NAME.@@
-<<elseif $sortSlavesBy is "seniority">>
+<<elseif $sortSlavesBy == "seniority">>
 	Slaves are sorted on the main menu by @@color:yellow;SENIORITY.@@
-<<elseif $sortSlavesBy is "age">>
+<<elseif $sortSlavesBy == "age">>
 	Slaves are sorted on the main menu by @@color:yellow;AGE.@@
-<<elseif $sortSlavesBy is "assignment">>
+<<elseif $sortSlavesBy == "assignment">>
 	Slaves are sorted on the main menu by @@color:yellow;ASSIGNMENT.@@
 <<else>>
 	Slaves are sorted on the main menu by @@color:yellow;DEVOTION.@@
@@ -31,7 +31,7 @@
 
 <br>
 
-<<if $sortSlavesOrder is "ascending">>
+<<if $sortSlavesOrder == "ascending">>
 	Slaves are sorted in @@color:cyan;ASCENDING@@ order.
 	//[[Sort descending|Summary Options][$sortSlavesOrder = "descending"]]//
 <<else>>

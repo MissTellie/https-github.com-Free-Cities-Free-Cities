@@ -57,12 +57,12 @@
 <<else>>
 	<<set $activeSlave.sexualFlaw = either("none", "none", "none", "none", "hates oral", "hates anal", "hates penetration", "repressed", "idealistic", "shamefast", "apathetic", "crude", "judgemental")>>
 <</if>>
-<<if ($activeSlave.behavioralFlaw is "none")>>
+<<if ($activeSlave.behavioralFlaw == "none")>>
 	<<if random(1,10) == 1>>
 	<<set $activeSlave.behavioralQuirk = either("confident", "cutting", "funny", "adores women", "adores men", "fitness", "insecure", "sinful", "advocate")>>
 	<</if>>
 <</if>>
-<<if ($activeSlave.sexualFlaw is "none")>>
+<<if ($activeSlave.sexualFlaw == "none")>>
 	<<if random(1,10) == 1>>
 	<<set $activeSlave.sexualQuirk = either("gagfuck queen", "painal queen", "strugglefuck queen", "tease", "romantic", "perverted", "caring", "unflinching", "size queen")>>
 	<</if>>
@@ -191,7 +191,7 @@
 	<<set $activeSlave.hColor = either("black", "black", "black", "black", "brown", "brown", "blonde", "red")>>
 	<<set $activeSlave.hStyle = "neat">>
 <</switch>>
-<<if ($activeSlave.skin is "pale") || ($activeSlave.skin is "fair")>>
+<<if ($activeSlave.skin == "pale") || ($activeSlave.skin == "fair")>>
 	<<if random(1,4) == 1>>
 	<<set $activeSlave.markings = either("freckles", "freckles", "freckles", "heavily freckled", "beauty mark", "beauty mark", "birthmark", "birthmark")>>
 	<</if>>
@@ -261,13 +261,13 @@
 <</switch>>
 
 <<if ($weightAffectsAssets != 0)>>
-	<<if $activeSlave.weight < -10 and $activeSlave.butt > 1>>
+	<<if $activeSlave.weight < -10 && $activeSlave.butt > 1>>
 		<<set $activeSlave.butt -= 1>>
-	<<elseif $activeSlave.weight > 10 and $activeSlave.butt < 4>>
+	<<elseif $activeSlave.weight > 10 && $activeSlave.butt < 4>>
 		<<set $activeSlave.butt += 1>>
 	<</if>>
 
-	<<if $activeSlave.weight < -10 and $activeSlave.boobs > 200>>
+	<<if $activeSlave.weight < -10 && $activeSlave.boobs > 200>>
 		<<set $activeSlave.boobs -= 100>>
 	<</if>>
 <</if>>

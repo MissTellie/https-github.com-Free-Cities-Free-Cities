@@ -1,13 +1,13 @@
 :: P rivalry hostage [nobr]
 
-<<set $nextButton to "Continue">>
-<<set $nextLink to "Nonrandom Event">>
+<<set $nextButton = "Continue">>
+<<set $nextLink = "Nonrandom Event">>
 
-<<set $hostageAnnounced to 1>>
+<<set $hostageAnnounced = 1>>
 
-<<set $activeSlave to $hostage>>
+<<set $activeSlave = $hostage>>
 
-<<set $activeSlave.origin to "You were acquainted with her before you were an arcology owner; your rival tried to use her to manipulate you, but you rescued her.">>
+<<set $activeSlave.origin = "You were acquainted with her before you were an arcology owner; your rival tried to use her to manipulate you, but you rescued her.">>
 <<set $activeSlave.height += random(-5,5)>>
 <<set $activeSlave.boobs to 400>>
 <<set $activeSlave.butt to 3>>
@@ -29,14 +29,14 @@
 <<set $activeSlave.relationTarget to 0>>
 <<if $arcologies[0].FSSupremacistRace != 0>><<set $activeSlave.race to $arcologies[0].FSSupremacistRace>><</if>>
 <<NationalityToName $activeSlave>>
-<<set $activeSlave.slaveName to $activeSlave.birthName>>
+<<set $activeSlave.slaveName = $activeSlave.birthName>>
 
-<<set $activeSlave.age to Number($activeSlave.age)>>
+<<set $activeSlave.age = Number($activeSlave.age)>>
 <<set $activeSlave.devotion = Number($activeSlave.devotion)>>
 <<set $activeSlave.trust = Number($activeSlave.trust)>>
 <<set $activeSlave.boobs = Number($activeSlave.boobs)>>
 
-<<set $hostage to $activeSlave>>
+<<set $hostage = $activeSlave>>
 
 Only a few days into your inter-arcology war, you receive a video message from your rival. Once $assistantName is satisfied that the file is clean, you clear your office and pull it up. To your surprise, there are two faces on your desk, not one. One of them is your rival, and after a moment, you remember who the other is. You recognize her from your
 <<switch $PC.career>>
@@ -79,8 +79,8 @@ Only a few days into your inter-arcology war, you receive a video message from y
 	<<set $activeSlave.intelligenceImplant to 1>>
 <<case "slaver">>
 	career as a slaver. She was a guard in one of the slave receiving pens, and a notorious one, at that. Nobody was quite as eager to break in new girls as she was. You were never that close,
-	<<set $activeSlave.career to "a prison guard">>
-	<<set $activeSlave.age to random(20,24)>>
+	<<set $activeSlave.career = "a prison guard">>
+	<<set $activeSlave.age = random(20,24)>>
 	<<set $activeSlave.energy = 100>>
 	<<set $activeSlave.face = 55>>
 	<<set $activeSlave.intelligence to 2>>
@@ -88,7 +88,7 @@ Only a few days into your inter-arcology war, you receive a video message from y
 	<<set $activeSlave.muscles to 20>>
 	<<set $activeSlave.fetish to "sadist">>
 	<<set $activeSlave.fetishStrength = 100>>
-	<<set $activeSlave.fetishKnown to 1>>
+	<<set $activeSlave.fetishKnown = 1>>
 <<case "celebrity">>
 	time as a minor celebrity. She was a pretty little groupie who flitted from entourage to entourage. You were never particularly close,
 	<<set $activeSlave.career to "a party girl">>
@@ -170,7 +170,7 @@ but look what I have here! I just acquired her recently. Lovely, isn't she? I kn
 	She's going to be my lover. She'll have everything she could ever want, and I'll be sure to let her know all about what you do to your slaves. Isn't that right, $activeSlave.slaveName?" The slave nods uncertainly.
 <<case "Body Purism">>
 	I'm going to give her a nice pair of fake tits. No reason to be excessively clever when I can just make her tits so huge she won't be able to walk. Isn't that right, $activeSlave.slaveName?" The slave begins to sob.
-	<<set $activeSlave.boobs to 300>>
+	<<set $activeSlave.boobs = 300>>
 <<case "Transformation Fetishism">>
 	She's going to be my lover. I'll be sure to let her know all about what you do to your slaves, and rest assured, I'll never treat her that way. Isn't that right, $activeSlave.slaveName?" The slave nods uncertainly.
 <<case "Youth Preferentialism">>
@@ -180,17 +180,17 @@ but look what I have here! I just acquired her recently. Lovely, isn't she? I kn
 <<case "Slimness Enthusiasm">>
 	I think I'll make her IV line permanent. After all, she's never going off breast growth hormones. I'd estimate she shouldn't be able to walk within a month. Isn't that right, $activeSlave.slaveName?" The slave begins to sob.
 	<<set $activeSlave.weight = -20>>
-	<<set $activeSlave.boobs to 800>>
+	<<set $activeSlave.boobs = 800>>
 <<case "Asset Expansionism">>
 	She's going to be my lover. I'll be sure to let her know all about what you do to your slaves, and rest assured, I'll never give her growth hormones, not one single dose. Isn't that right, $activeSlave.slaveName?" The slave nods uncertainly.
 <<case "Pastoralism">>
 	She's going to be my spotter. Girls should be strong, smoking hot ladies, not disgusting cows. Isn't that right, $activeSlave.slaveName?"  The slave nods uncertainly.
-	<<set $activeSlave.weight to 100>>
-	<<set $activeSlave.muscles to 0>>
-	<<set $activeSlave.boobs to 1200>>
+	<<set $activeSlave.weight = 100>>
+	<<set $activeSlave.muscles = 0>>
+	<<set $activeSlave.boobs = 1200>>
 <<case "Physical Idealism">>
 	She's going to be my personal milk dispenser. I shouldn't have to chain her to my desk after the first month, since her udders will pin her in place. Isn't that right, $activeSlave.slaveName?" The slave begins to sob.
-	<<set $activeSlave.boobs to 800>>
+	<<set $activeSlave.boobs = 800>>
 	<<set $activeSlave.weight = -20>>
 <<case "Chattel Religionism">>
 	She's going to be the perfect courtesan. No preaching, no praying, just good, clean sex for money. Isn't that right, $activeSlave.slaveName?" The slave nods uncertainly.
@@ -206,4 +206,4 @@ Your rival smiles icily. "I'll keep you informed of her progress. I wouldn't wan
 <br><br>
 You're forging a new frontier in warfare here. This, then, is the new frontier in psychological warfare.
 
-<<set $hostage to $activeSlave>>
+<<set $hostage = $activeSlave>>

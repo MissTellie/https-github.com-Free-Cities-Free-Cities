@@ -1,6 +1,6 @@
 :: SA hormone effects [nobr]
 
-<<set $hormones to $slaves[$i].hormones>>
+<<set $hormones = $slaves[$i].hormones>>
 <<if ($hormones > -2)>>
 <<if ($slaves[$i].balls != 0)>>
 <<if ($hormones != 0) || ($hormoneUpgradePower < 2)>>
@@ -82,9 +82,9 @@
 	<<if (($slaves[$i].face-$slaves[$i].faceImplant) < 0) && ($slaves[$i].face <= 95)>>
 		<<set _Effects.push("FaceSofter")>>
 	<</if>>
-	<<if ($slaves[$i].faceShape is "masculine")>>
+	<<if ($slaves[$i].faceShape == "masculine")>>
 		<<set _Effects.push("FaceSofterAndrogynous")>>
-	<<elseif ($slaves[$i].faceShape is "androgynous")>>
+	<<elseif ($slaves[$i].faceShape == "androgynous")>>
 		<<set _Effects.push("FaceNormal")>>
 	<</if>>
 	<<if ($slaves[$i].age < 25)>>
@@ -98,7 +98,7 @@
 	<<if ($slaves[$i].muscles > 30) && ($slaves[$i].diet != "muscle building")>>
 		<<set _Effects.push("MusclesSofter")>>
 	<</if>>
-	<<if ($slaves[$i].nipples is "tiny")>>
+	<<if ($slaves[$i].nipples == "tiny")>>
 		<<set _Effects.push("NipplesBigger")>>
 	<</if>>
 	<<if ($slaves[$i].height > 180)>>
@@ -144,7 +144,7 @@
 	<<if (($slaves[$i].face-$slaves[$i].faceImplant) < 0) && ($slaves[$i].face < 40)>>
 		<<set _Effects.push("FaceSofter")>>
 	<</if>>
-	<<if ($slaves[$i].faceShape is "masculine")>>
+	<<if ($slaves[$i].faceShape == "masculine")>>
 		<<set _Effects.push("FaceSofterAndrogynous")>>
 	<</if>>
 	<<if ($slaves[$i].age < 22)>>
@@ -192,7 +192,7 @@
 	<<if (($slaves[$i].face-$slaves[$i].faceImplant) < 0) && ($slaves[$i].face > 10)>>
 		<<set _Effects.push("FaceHarder")>>
 	<</if>>
-	<<if ($slaves[$i].faceShape is "androgynous")>>
+	<<if ($slaves[$i].faceShape == "androgynous")>>
 		<<set _Effects.push("FaceMasculine")>>
 	<<else>>
 		<<set _Effects.push("FaceHarderAndrogynous")>>
@@ -208,7 +208,7 @@
 	<<if ($slaves[$i].muscles <= 95) && ($slaves[$i].diet != "slimming")>>
 		<<set _Effects.push("MusclesHarder")>>
 	<</if>>
-	<<if ($slaves[$i].nipples is "huge")>>
+	<<if ($slaves[$i].nipples == "huge")>>
 		<<set _Effects.push("NipplesSmaller")>>
 	<</if>>
 	<<if ($slaves[$i].height < 155)>>
@@ -251,7 +251,7 @@
 	<<if (($slaves[$i].face-$slaves[$i].faceImplant) < 0) && ($slaves[$i].face > 40)>>
 		<<set _Effects.push("FaceHarder")>>
 	<</if>>
-	<<if ($slaves[$i].faceShape is "androgynous")>>
+	<<if ($slaves[$i].faceShape == "androgynous")>>
 		<<set _Effects.push("FaceMasculine")>>
 	<</if>>
 	<<if ($slaves[$i].age < 22)>>
@@ -329,16 +329,16 @@
 	<<set $slaves[$i].face = Math.trunc($slaves[$i].face-20,-100,100)>>
 <<case "FaceSofterAndrogynous">>
 	Hormonal effects cause @@color:lime;$possessive face to soften into androgyny.@@
-	<<set $slaves[$i].faceShape to "androgynous">>
+	<<set $slaves[$i].faceShape = "androgynous">>
 <<case "FaceHarderAndrogynous">>
 	Hormonal effects cause @@color:orange;$possessive face to harden into androgyny.@@
-	<<set $slaves[$i].faceShape to "androgynous">>
+	<<set $slaves[$i].faceShape = "androgynous">>
 <<case "FaceNormal">>
 	Hormonal effects cause @@color:lime;$possessive face to soften into femininity.@@
-	<<set $slaves[$i].faceShape to "normal">>
+	<<set $slaves[$i].faceShape = "normal">>
 <<case "FaceMasculine">>
 	Hormonal effects cause @@color:orange;$possessive face to harden into masculinity.@@
-	<<set $slaves[$i].faceShape to "masculine">>
+	<<set $slaves[$i].faceShape = "masculine">>
 <<case "ClitSmaller">>
 	Hormonal effects cause @@color:orange;$possessive clit to shrink significantly.@@
 	<<set $slaves[$i].clit -= 1>>
@@ -365,10 +365,10 @@
 	<<set $slaves[$i].muscles += 2>>
 <<case "NipplesBigger">>
 	Hormonal effects cause $possessive tiny @@color:lime;nipples to grow to a more normal size.@@
-	<<set $slaves[$i].nipples to "cute">>
+	<<set $slaves[$i].nipples = "cute">>
 <<case "NipplesSmaller">>
 	Hormonal effects cause $possessive huge @@color:orange;nipples to shrink to a more reasonable size.@@
-	<<set $slaves[$i].nipples to "cute">>
+	<<set $slaves[$i].nipples = "cute">>
 <<case "Shorter">>
 	$pronounCap has not yet reached the age at which height becomes fixed. Hormonal effects cause @@color:orange;$object to lose a bit of height@@ that $pronoun would  naturally have maintained.
 	<<set $slaves[$i].height -= 1>>
@@ -405,13 +405,13 @@
 <<if ($hormones < 0)>>
 <<if ($slaves[$i].dick > 0)>>
 <<if ($slaves[$i].devotion > 0)>>
-<<if ($slaves[$i].career is "a Futanari Sister")>>
+<<if ($slaves[$i].career == "a Futanari Sister")>>
 	$pronounCap wishes $pronoun were more feminine, but isn't unhappy to be off hormones, since $pronoun likes being a stiff dicked futa.
-<<elseif ($slaves[$i].fetish is "buttslut") && ($slaves[$i].fetishStrength > 60) && ($slaves[$i].fetishKnown == 1)>>
+<<elseif ($slaves[$i].fetish == "buttslut") && ($slaves[$i].fetishStrength > 60) && ($slaves[$i].fetishKnown == 1)>>
 	$pronounCap wishes $pronoun were more feminine, but $pronoun loves getting fucked in the butt so much that it doesn't much bother $object.
-<<elseif ($slaves[$i].fetish is "sadist") && ($slaves[$i].fetishStrength > 60) && ($slaves[$i].fetishKnown == 1)>>
+<<elseif ($slaves[$i].fetish == "sadist") && ($slaves[$i].fetishStrength > 60) && ($slaves[$i].fetishKnown == 1)>>
 	Life is easier for effeminate slaves, but $pronoun loves abusing other slaves so much that $pronoun likes being able to get hard.
-<<elseif ($slaves[$i].fetish is "dom") && ($slaves[$i].fetishStrength > 60) && ($slaves[$i].fetishKnown == 1)>>
+<<elseif ($slaves[$i].fetish == "dom") && ($slaves[$i].fetishStrength > 60) && ($slaves[$i].fetishKnown == 1)>>
 	Life is easier for effeminate slaves, but $pronoun loves dominating other girls so much that $pronoun likes being able to get hard.
 <<elseif ($slaves[$i].energy > 95)>>
 	$pronounCap wishes $pronoun were more feminine, but $pronoun loves getting fucked like a good little sex slave so much that $pronoun doesn't think about it much.
