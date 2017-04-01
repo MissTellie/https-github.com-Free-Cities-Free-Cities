@@ -250,6 +250,8 @@
 	<</if>>
 	<</for>>
 	<<if ($cellblockSlaves < 5)>>
+		<<set _seed = random(1,10)+((5-$cellblockSlaves)*(random(150,170)+(_idleBonus*10))), $cash += _seed>>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;Since she doesn't have enough prisoners to manage to keep her busy, she works on citizens' slaves, earning @@color:yellowgreen;¤_seed.@@
 		<<set $seed to random(1,10)+((5-$cellblockSlaves)*(random(150,170)+($idleBonus*10)))>>
 		<<set $cash += $seed>>
 		Since she doesn't have enough prisoners to occupy all her time, the cellblock takes in citizens' slaves on a contract basis, and she works on them too, earning @@color:yellowgreen;¤$seed.@@

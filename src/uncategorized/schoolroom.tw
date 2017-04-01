@@ -112,7 +112,9 @@ $schoolroomNameCaps is well-equipped, with wall screens to display lessons. Thes
 	<<include "Slave Summary">>
 <</if>>
 
-<<if $notSchoolroomSlaves > 0>>
+<<if $schoolroom <= _DL>>
+	<br><br>''$schoolroomNameCaps is full and cannot hold any more slaves''
+<<elseif (_SL > _DL)>>
 	<br><br>''Send a slave to study in $schoolroomName:''
 	<<set $Flag to 0>>
 	<<include "Slave Summary">>

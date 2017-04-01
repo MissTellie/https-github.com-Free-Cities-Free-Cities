@@ -3,11 +3,11 @@
 &nbsp;&nbsp;&nbsp;&nbsp;
 __''$arcologies[0].name''__, your arcology, is located in a Free City in <<if $terrain == "oceanic">>the middle of the ocean<<else>>$continent<</if>>. It is a huge structure whose<<if $AProsperityCap >= 120>> solar-panelled<</if>> skin gleams in the sunshine<<if $AProsperityCap >= 100>>, while verdant exterior hydroponics bays lend it an air of growth<</if>>.<<if $weatherCladding > 0>> Much of its beautiful exterior is now hidden behind dull panels of weather cladding<<if $AProsperityCap >= 300>>, though its highest point is capped by tall, elegant spire<</if>>.<</if>>
 Its<<if $weatherCladding > 0>> dull<<elseif $AProsperityCap >= 120>> shining<</if>> bulk
-<<if $terrain is "urban">>
+<<if $terrain == "urban">>
 	towers above the city around it; it is part of a cluster of arcologies that form a Free City in the midst of an old world urban area.
-<<elseif $terrain is "rural">>
+<<elseif $terrain == "rural">>
 	rises above the buildings around it; it is part of a cluster of arcologies and smaller structures that form a Free City in the middle of a barren wilderness.
-<<elseif $terrain is "marine">>
+<<elseif $terrain == "marine">>
 	rises above the shallow water all around it; it is part of a cluster of arcologies that form a Free City near the seashore.
 <<else>>
 	rises above the blue water all around it; it is part of a cluster of arcologies that form a Free City anchored over a seamount.
@@ -123,7 +123,7 @@ Its<<if $weatherCladding > 0>> dull<<elseif $AProsperityCap >= 120>> shining<</i
 	<</if>>
 <</if>>
 
-<<if ($arcologies[0].FSSupremacistDecoration >= 40) || ($arcologies[0].FSSubjugationistDecoration >= 40) || ($arcologies[0].FSGenderRadicalistDecoration >= 40) || ($arcologies[0].FSGenderFundamentalistDecoration >= 40) || ($arcologies[0].FSPaternalistDecoration >= 40) || ($arcologies[0].FSDegradationistDecoration >= 40) || ($arcologies[0].FSBodyPuristDecoration >= 40) || ($arcologies[0].FSTransformationFetishistDecoration >= 40) || ($arcologies[0].FSYouthPreferentialistDecoration is 40) || ($arcologies[0].FSMaturityPreferentialistDecoration is 40) || ($arcologies[0].FSSlimnessEnthusiastDecoration >= 40) || ($arcologies[0].FSAssetExpansionistDecoration >= 40) || ($arcologies[0].FSPastoralistDecoration >= 40) || ($arcologies[0].FSPhysicalIdealistDecoration >= 40) || ($arcologies[0].FSChattelReligionistDecoration >= 40) || ($arcologies[0].FSRomanRevivalistDecoration >= 40) || ($arcologies[0].FSEgyptianRevivalistDecoration >= 40) || ($arcologies[0].FSEdoRevivalistDecoration is 40) || ($arcologies[0].FSArabianRevivalistDecoration is 40) || ($arcologies[0].FSChineseRevivalistDecoration is 40)>>
+<<if ($arcologies[0].FSSupremacistDecoration >= 40) || ($arcologies[0].FSSubjugationistDecoration >= 40) || ($arcologies[0].FSGenderRadicalistDecoration >= 40) || ($arcologies[0].FSGenderFundamentalistDecoration >= 40) || ($arcologies[0].FSPaternalistDecoration >= 40) || ($arcologies[0].FSDegradationistDecoration >= 40) || ($arcologies[0].FSBodyPuristDecoration >= 40) || ($arcologies[0].FSTransformationFetishistDecoration >= 40) || ($arcologies[0].FSYouthPreferentialistDecoration == 40) || ($arcologies[0].FSMaturityPreferentialistDecoration == 40) || ($arcologies[0].FSSlimnessEnthusiastDecoration >= 40) || ($arcologies[0].FSAssetExpansionistDecoration >= 40) || ($arcologies[0].FSPastoralistDecoration >= 40) || ($arcologies[0].FSPhysicalIdealistDecoration >= 40) || ($arcologies[0].FSChattelReligionistDecoration >= 40) || ($arcologies[0].FSRomanRevivalistDecoration >= 40) || ($arcologies[0].FSEgyptianRevivalistDecoration >= 40) || ($arcologies[0].FSEdoRevivalistDecoration == 40) || ($arcologies[0].FSArabianRevivalistDecoration == 40) || ($arcologies[0].FSChineseRevivalistDecoration == 40)>>
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
 	The entryway features the first of $arcologies[0].name's many banks of public screens.
 	<<if $arcologies[0].FSSupremacistDecoration >= 40>>
@@ -187,14 +187,14 @@ Its<<if $weatherCladding > 0>> dull<<elseif $AProsperityCap >= 120>> shining<</i
 	Pornographic advertisements for the brothel are interspersed with the programming.
 	<<if $brothelAdsOld == 1>>
 		The featured slave actresses are all MILFs.
-	<<elseif $brothelAdsOld is -1>>
+	<<elseif $brothelAdsOld == -1>>
 		The featured slave actresses are all nice and young.
 	<<else>>
 		The featured slave actresses vary in age.
 	<</if>>
 	<<if $brothelAdsStacked == 1>>
 		Lots of bouncing breasts and butts
-	<<elseif $brothelAdsStacked is -1>>
+	<<elseif $brothelAdsStacked == -1>>
 		Lots of trim breasts and shapely butts
 	<<else>>
 		A variety of breast and butt sizes and shapes
@@ -202,14 +202,14 @@ Its<<if $weatherCladding > 0>> dull<<elseif $AProsperityCap >= 120>> shining<</i
 	are on display, and
 	<<if $brothelAdsImplanted == 1>>
 		most of these are augmented by implants.
-	<<elseif $brothelAdsImplanted is -1>>
+	<<elseif $brothelAdsImplanted == -1>>
 		they're all natural.
 	<<else>>
 		some are augmented by implants.
 	<</if>>
 	<<if $brothelAdsModded == 1>>
 		Everything is heavily pierced and tattooed.
-	<<elseif $brothelAdsModded is -1>>
+	<<elseif $brothelAdsModded == -1>>
 		Everything is free of tattoos and piercings.
 	<<else>>
 		Some of these assets are tattooed and pierced, and some aren't.
@@ -217,7 +217,7 @@ Its<<if $weatherCladding > 0>> dull<<elseif $AProsperityCap >= 120>> shining<</i
 	The slaves in the ads are
 	<<if $brothelAdsXX == 1>>
 		sucking dick and taking cock in their pussies and asses.
-	<<elseif $brothelAdsXX is -1>>
+	<<elseif $brothelAdsXX == -1>>
 		sucking cock and being assfucked while their dicks flop around.
 	<<else>>
 		sucking dick and taking anal, and the ones that have pussies are being fucked there, too.
@@ -226,9 +226,9 @@ Its<<if $weatherCladding > 0>> dull<<elseif $AProsperityCap >= 120>> shining<</i
 		As a result, the brothel is known as the place to go if you want to rent a bimbo's pussy.
 	<<elseif ($brothelAdsXX == 1) && ($brothelAdsOld == 1)>>
 		As a result, the brothel is known as the place to go if you want to rent a MILF's tits.
-	<<elseif ($brothelAdsXX is -1) && ($brothelAdsStacked == 1)>>
+	<<elseif ($brothelAdsXX == -1) && ($brothelAdsStacked == 1)>>
 		As a result, the brothel is known as the place to go if you want to rent a shemale's asspussy.
-	<<elseif ($brothelAdsXX is -1) && ($brothelAdsStacked is -1)>>
+	<<elseif ($brothelAdsXX == -1) && ($brothelAdsStacked == -1)>>
 		As a result, the brothel is known as the place to go if you want to rent a trap's tight ass.
 	<</if>>
 	<</if>>
@@ -236,14 +236,14 @@ Its<<if $weatherCladding > 0>> dull<<elseif $AProsperityCap >= 120>> shining<</i
 	Music videos set in $clubName are also shown frequently.
 	<<if $clubAdsOld == 1>>
 		The featured strippers are all MILFs.
-	<<elseif $clubAdsOld is -1>>
+	<<elseif $clubAdsOld == -1>>
 		The featured strippers are all nice and young.
 	<<else>>
 		The featured strippers vary in age.
 	<</if>>
 	<<if $clubAdsStacked == 1>>
 		Lots of bouncing breasts and butts
-	<<elseif $clubAdsStacked is -1>>
+	<<elseif $clubAdsStacked == -1>>
 		Lots of trim breasts and shapely butts
 	<<else>>
 		A variety of breast and butt sizes and shapes
@@ -251,14 +251,14 @@ Its<<if $weatherCladding > 0>> dull<<elseif $AProsperityCap >= 120>> shining<</i
 	are on display, and
 	<<if $clubAdsImplanted == 1>>
 		most of these are augmented by implants.
-	<<elseif $clubAdsImplanted is -1>>
+	<<elseif $clubAdsImplanted == -1>>
 		they're all natural.
 	<<else>>
 		some are augmented by implants.
 	<</if>>
 	<<if $clubAdsModded == 1>>
 		Everything is heavily pierced and tattooed.
-	<<elseif $clubAdsModded is -1>>
+	<<elseif $clubAdsModded == -1>>
 		Everything is free of tattoos and piercings.
 	<<else>>
 		Some of these assets are tattooed and pierced, and some aren't.
@@ -266,7 +266,7 @@ Its<<if $weatherCladding > 0>> dull<<elseif $AProsperityCap >= 120>> shining<</i
 	The strippers get naked quickly, and show off
 	<<if $clubAdsXX == 1>>
 		their pussies and assholes.
-	<<elseif $clubAdsXX is -1>>
+	<<elseif $clubAdsXX == -1>>
 		their assholes.
 	<<else>>
 		their holes.
@@ -276,9 +276,9 @@ Its<<if $weatherCladding > 0>> dull<<elseif $AProsperityCap >= 120>> shining<</i
 		As a result, the club is known as the place to spend a night partying with bimbos.
 	<<elseif ($clubAdsXX == 1) && ($clubAdsOld == 1)>>
 		As a result, the club is known as the place to spend a night partying with MILFs.
-	<<elseif ($clubAdsXX is -1) && ($clubAdsStacked == 1)>>
+	<<elseif ($clubAdsXX == -1) && ($clubAdsStacked == 1)>>
 		As a result, the club is known as the place to spend a night partying with shemales.
-	<<elseif ($clubAdsXX is -1) && ($clubAdsStacked is -1)>>
+	<<elseif ($clubAdsXX == -1) && ($clubAdsStacked == -1)>>
 		As a result, the club is known as the place to spend a night partying with traps.
 	<</if>>
 	<</if>>
@@ -348,7 +348,7 @@ Its<<if $weatherCladding > 0>> dull<<elseif $AProsperityCap >= 120>> shining<</i
 	<<if $AProsperityCap > 60>>The central plaza is a large atrium; a security drone occasionally flies across the open space.<</if>>
 <</if>>
 
-<<if ($arcologies[0].FSSupremacistDecoration >= 80) || ($arcologies[0].FSSubjugationistDecoration >= 80) || ($arcologies[0].FSGenderRadicalistDecoration >= 80) || ($arcologies[0].FSGenderFundamentalistDecoration >= 80) || ($arcologies[0].FSPaternalistDecoration >= 80) || ($arcologies[0].FSDegradationistDecoration >= 80) || ($arcologies[0].FSBodyPuristDecoration >= 80) || ($arcologies[0].FSTransformationFetishistDecoration >= 80) || ($arcologies[0].FSYouthPreferentialistDecoration is 80) || ($arcologies[0].FSMaturityPreferentialistDecoration is 80) || ($arcologies[0].FSSlimnessEnthusiastDecoration >= 80) || ($arcologies[0].FSAssetExpansionistDecoration >= 80) || ($arcologies[0].FSPastoralistDecoration >= 80) || ($arcologies[0].FSPhysicalIdealistDecoration >= 80) || ($arcologies[0].FSChattelReligionistDecoration >= 80) || ($arcologies[0].FSRomanRevivalistDecoration >= 80) || ($arcologies[0].FSEgyptianRevivalistDecoration >= 80) || ($arcologies[0].FSEdoRevivalistDecoration is 80) || ($arcologies[0].FSArabianRevivalistDecoration is 80) || ($arcologies[0].FSChineseRevivalistDecoration is 80)>>
+<<if ($arcologies[0].FSSupremacistDecoration >= 80) || ($arcologies[0].FSSubjugationistDecoration >= 80) || ($arcologies[0].FSGenderRadicalistDecoration >= 80) || ($arcologies[0].FSGenderFundamentalistDecoration >= 80) || ($arcologies[0].FSPaternalistDecoration >= 80) || ($arcologies[0].FSDegradationistDecoration >= 80) || ($arcologies[0].FSBodyPuristDecoration >= 80) || ($arcologies[0].FSTransformationFetishistDecoration >= 80) || ($arcologies[0].FSYouthPreferentialistDecoration == 80) || ($arcologies[0].FSMaturityPreferentialistDecoration == 80) || ($arcologies[0].FSSlimnessEnthusiastDecoration >= 80) || ($arcologies[0].FSAssetExpansionistDecoration >= 80) || ($arcologies[0].FSPastoralistDecoration >= 80) || ($arcologies[0].FSPhysicalIdealistDecoration >= 80) || ($arcologies[0].FSChattelReligionistDecoration >= 80) || ($arcologies[0].FSRomanRevivalistDecoration >= 80) || ($arcologies[0].FSEgyptianRevivalistDecoration >= 80) || ($arcologies[0].FSEdoRevivalistDecoration == 80) || ($arcologies[0].FSArabianRevivalistDecoration == 80) || ($arcologies[0].FSChineseRevivalistDecoration == 80)>>
 	There are numerous slaves stationed down on the plaza to greet visitors.
 	<<if $arcologies[0].FSPaternalistDecoration >= 80>>
 	They're intelligent and articulate.
@@ -491,18 +491,18 @@ Its lingua franca is $language.
 <<link "View neighboring arcologies">>
 <<replace "#neighbors">>
 
-<<set $averageProsperity to 0>>
-<<set $seed to 0>>
-<<for $i to 0; $i < $arcologies.length; $i++>>
+<<set $averageProsperity = 0>>
+<<set $seed = 0>>
+<<for $i = 0; $i < $arcologies.length; $i++>>
 	<<set $averageProsperity += $arcologies[$i].prosperity>>
 	<<set $seed += 1>>
 <</for>>
-<<set $averageProsperity to $averageProsperity/$seed>>
+<<set $averageProsperity = $averageProsperity/$seed>>
 
-<<for $i to 0; $i < $arcologies.length; $i++>>
+<<for $i = 0; $i < $arcologies.length; $i++>>
 	<<if $arcologies[$i].direction != 0>>
 	<<include "Neighbor Description">>
-	<<print "[[Diplomacy|Neighbor Interact][$activeArcology to $arcologies[" + $i + "]]]">>
+	<<print "[[Diplomacy|Neighbor Interact][$activeArcology = $arcologies[" + $i + "]]]">>
 	<</if>>
 <</for>>
 

@@ -1,20 +1,20 @@
 :: SE Birth [nobr]
 
-<<set $nextButton to "Continue">>
-<<set $nextLink to "Scheduled Event">>
+<<set $nextButton = "Continue">>
+<<set $nextLink = "Scheduled Event">>
 
-<<for $i to 0; $i < $slaves.length; $i++>>
-<<if $slaves[$i].labor is 1>>
+<<for $i = 0; $i < $slaves.length; $i++>>
+<<if $slaves[$i].labor == 1>>
 
 <<SlavePronouns $slaves[$i]>>
 
-<<set $humiliation to 0>>
-<<set $suddenBirth to 1>>
-<<set $seed to random(1,100)>>
-<<set $csec to 0>>
-<<set $slaveDead to 0>>
-<<set $birthed to 1>>
-<<set $birthDamage to 0>>
+<<set $humiliation = 0>>
+<<set $suddenBirth = 1>>
+<<set $seed = random(1,100)>>
+<<set $csec = 0>>
+<<set $slaveDead = 0>>
+<<set $birthed = 1>>
+<<set $birthDamage = 0>>
 
 /* birth complications calcs */
 <<if $slaves[$i].vagina < 2>>
@@ -66,10 +66,10 @@
 <<if !canWalk($slaves[$i])>>
 	<<set $suddenBirth += 10>>
 <</if>>
-<<if $slaves[$i].fetish is "mindbroken">>
+<<if $slaves[$i].fetish == "mindbroken">>
 	<<set $suddenBirth += 18>>
 <</if>>
-<<if $slaves[$i].fetish is "humiliation">>
+<<if $slaves[$i].fetish == "humiliation">>
 	<<set $suddenBirth += 1 + $slaves[$i].fetishStrength/25>>
 <</if>>
 <<if $slaves[$i].weight >= 95>>
@@ -93,7 +93,7 @@
 <<if $slaves[$i].balls >= 6>>
 	<<set $suddenBirth += 1>>
 <</if>>
-<<if $slaves[$i].shoes is "extreme heels">>
+<<if $slaves[$i].shoes == "extreme heels">>
 	<<set $suddenBirth += 2>>
 <</if>>
 <<if $slaves[$i].vagina > 2>>
@@ -147,10 +147,10 @@
 
 <<else>>
 <br>
-  <<if $dairyRestraintsSetting > 1 and $slaves[$i].career is "a bioreactor">>
+  <<if $dairyRestraintsSetting > 1 and $slaves[$i].career == "a bioreactor">>
 	As $slaves[$i].slaveName's water breaks, a mechanical basket is extended under her laboring cunt. Once the child<<if $slaves[$i].pregType > 1>>ren are<<else>> is<</if>> secure, the basket retracts allowing access to her vagina.<<if $dairyPregSetting > 0>> The impregnation tube is promptly reinserted, bloating her empty womb with fresh cum, where it will remain until she is pregnant once more.<</if>> All these events are meaningless to her, as her consciousness has long since been snuffed out.
   <<elseif $dairyRestraintsSetting > 1>>
-	<<if $slaves[$i].fetish is "mindbroken">>
+	<<if $slaves[$i].fetish == "mindbroken">>
 	  As $slaves[$i].slaveName's water breaks, a mechanical basket is extended under her laboring cunt. Once the child<<if $slaves[$i].pregType > 1>>ren are<<else>> is<</if>> secure, the basket retracts allowing access to her vagina.<<if $dairyPregSetting > 0>> The impregnation tube is promptly reinserted, bloating her empty womb with fresh cum, where it will remain until she is pregnant once more.<</if>> She doesn't care about any of this, as the only thoughts left in her empty mind revolve around the sensations in her crotch and breasts.
 	<<else>>
 	  As $slaves[$i].slaveName's water breaks, a mechanical basket is extended under her laboring cunt. She struggles in her bindings, attempting to break free in order to birth her coming child, but her efforts are pointless. She is forced to give birth, restrained, into the waiting holder. Once the child<<if $slaves[$i].pregType > 1>>ren are<<else>> is<</if>> secure, the basket retracts allowing access to her vagina.<<if $dairyPregSetting > 0>> The impregnation tube is promptly reinserted, bloating her empty womb with fresh cum, where it will remain until she is pregnant once more. $slaves[$i].slaveName moans, partially with pleasure and partially with defeat, under the growing pressure within her body. Tears stream down her face as <<if $slaves[$i].births > 0>>she is forcibly impregnated once more<<else>>she attempts to shift in her restraints to peek around her swollen breasts, but she is too well secured. She'll realize what is happening when her belly grows large enough to brush against her breasts as the milker sucks from them<<if $slaves[$i].dick > 0>> or her dick begins rubbing its underside<</if>><</if>>.<</if>> Her mind slips slightly more as she focuses on her fate as nothing more than animal, destined to be milked and bare offspring until her body gives out.
@@ -158,7 +158,7 @@
 	  <<set $slaves[$i].devotion -= 10>>
 	<</if>>
   <<else>>
-	<<if $slaves[$i].fetish is "mindbroken">>
+	<<if $slaves[$i].fetish == "mindbroken">>
 		While getting milked, $slaves[$i].slaveName's water breaks. She show little interest and continues kneading her breasts. Instinctively she begins to push out her bab<<if $slaves[$i].pregType > 1>>ies<<else>>y<</if>>. She shows no interest in her child<<if $slaves[$i].pregType > 1>>ren<</if>> being removed from the milking stall, instead focusing entirely on draining her breasts.
 	<<else>>
 		While getting milked, $slaves[$i].slaveName's water breaks,<<if $dairyPregSetting > 0>> this is a regular occurrence to her now so<<else>> but<</if>> she continues enjoying her milking. She begins to push out her bab<<if $slaves[$i].pregType > 1>>ies<<else>>y<</if>>. She catches <<if canSee($slaves[$i])>>a glimpse<<else>>the sound<</if>> of her child<<if $slaves[$i].pregType > 1>>ren<</if>> being removed from the milking stall before returning her focus to draining her breasts.
@@ -181,34 +181,34 @@
 	It barely comprehends what has happened, nor will it realize when another child is conceived in it.
 <</if>> /* close fuckdoll birth */
 
-<<if $slaves[$i].assignment is "work in the dairy" and $dairyPregSetting > 0>>
+<<if $slaves[$i].assignment == "work in the dairy" && $dairyPregSetting > 0>>
 
 <br>
 <br>
 As a human cow, she @@color:orange;gave birth@@
 <<if $slaves[$i].pregType <= 1>>
   to a single calf.
-<<elseif $slaves[$i].pregType is 5>>
+<<elseif $slaves[$i].pregType == 5>>
   to calf quintuplets.
-<<elseif $slaves[$i].pregType is 4>>
+<<elseif $slaves[$i].pregType == 4>>
   to calf quadruplets.
-<<elseif $slaves[$i].pregType is 3>>
+<<elseif $slaves[$i].pregType == 3>>
   to calf triplets.
 <<else>>
   to calf twins.
 <</if>>
 
 
-<<set $slaves[$i].preg to 0>>
+<<set $slaves[$i].preg = 0>>
 <<set $slaves[$i].births += $slaves[$i].pregType>>
 <<set $birthsTotal += $slaves[$i].pregType>>
-<<set $slaves[$i].pregType to 0>>
-<<set $slaves[$i].pregSource to 0>>
+<<set $slaves[$i].pregType = 0>>
+<<set $slaves[$i].pregSource = 0>>
 
 
 <br><br>
 Childbirth has @@color:lime;stretched out her vagina.@@
-<<if ($dairyPregSetting > 1) and ($slaves[$i].vagina < 4)>>
+<<if ($dairyPregSetting > 1) && ($slaves[$i].vagina < 4)>>
 	<<set $slaves[$i].vagina += 1>>
 <<elseif ($slaves[$i].vagina < 3)>>
 	<<set $slaves[$i].vagina += 1>>
@@ -225,9 +225,9 @@ Childbirth has @@color:lime;stretched out her vagina.@@
 
 <<if $csec == 1>>
 
-<<for $j to 0; $j < $slaves.length; $j++>>
-	<<if $slaves[$i].pregSource is $slaves[$j].ID>>
-	<<set $daddy to $slaves[$j].slaveName>>
+<<for $j = 0; $j < $slaves.length; $j++>>
+	<<if $slaves[$i].pregSource == $slaves[$j].ID>>
+	<<set $daddy = $slaves[$j].slaveName>>
 	<<break>>
 	<</if>>
 <</for>>
@@ -237,11 +237,11 @@ Childbirth has @@color:lime;stretched out her vagina.@@
 $pronounCap was given @@color:orange;a cesarean section@@ due to health concerns. From $possessive womb,
 <<if $slaves[$i].pregType <= 1>>
   a single baby,
-<<elseif $slaves[$i].pregType is 5>>
+<<elseif $slaves[$i].pregType == 5>>
   quintuplets,
-<<elseif $slaves[$i].pregType is 4>>
+<<elseif $slaves[$i].pregType == 4>>
   quadruplets,
-<<elseif $slaves[$i].pregType is 3>>
+<<elseif $slaves[$i].pregType == 3>>
   triplets,
 <<else>>
   twins,
@@ -253,7 +253,7 @@ your magnificent dick,
 your arcology's eager citizens,
 <<elseif $slaves[$i].pregSource == 0>>
 an unknown father,
-<<elseif $slaves[$i].ID is $daddy.ID>>
+<<elseif $slaves[$i].ID == $daddy.ID>>
 $possessive own curiosity over if $pronoun could fuck <<print $possessive>>self,
 <<else>>
 $daddy's virile cock and balls,
@@ -291,23 +291,23 @@ Since $possessive vagina was spared from childbirth, @@color:lime;it retained it
 <</if>>
 
 
-<<set _tmp to lastPregRule($slaves[$i], $defaultRules)>>
-<<if ($slaves[$i].assignmentVisible == 0) and (_tmp != null)>>
-	<<set $slaves[$i].preg to -1>>
+<<set _tmp = lastPregRule($slaves[$i], $defaultRules)>>
+<<if ($slaves[$i].assignmentVisible == 0) && (_tmp != null)>>
+	<<set $slaves[$i].preg = -1>>
 <<else>>
-	<<set $slaves[$i].preg to 0>>
+	<<set $slaves[$i].preg = 0>>
 <</if>>
 <<set $slaves[$i].births += $slaves[$i].pregType>>
 <<set $birthsTotal += $slaves[$i].pregType>>
-<<set $slaves[$i].pregType to 0>>
-<<set $slaves[$i].pregSource to 0>>
-<<set $csec to 0>>
+<<set $slaves[$i].pregType = 0>>
+<<set $slaves[$i].pregSource = 0>>
+<<set $csec = 0>>
 
 <<else>> /* normal birth */
 
-<<for $j to 0; $j < $slaves.length; $j++>>
-	<<if $slaves[$i].pregSource is $slaves[$j].ID>>
-	<<set $daddy to $slaves[$j].slaveName>>
+<<for $j = 0; $j < $slaves.length; $j++>>
+	<<if $slaves[$i].pregSource == $slaves[$j].ID>>
+	<<set $daddy = $slaves[$j].slaveName>>
 	<<break>>
 	<</if>>
 <</for>>
@@ -316,11 +316,11 @@ Since $possessive vagina was spared from childbirth, @@color:lime;it retained it
 <br>
 <br>
 	Giving birth in such a manner was completely humiliating,
-	<<if $slaves[$i].fetish is "humiliation">>
+	<<if $slaves[$i].fetish == "humiliation">>
 		and a complete turn on to $object. $possessiveCap humiliation fetish @@color:lightcoral;strengthens@@ as $pronoun eagerly fantasizes about giving birth in public again.
 		<<set $slaves[$i].fetishStrength += 4>>
-	<<elseif $slaves[$i].fetish is "none" or $slaves[$i].fetishStrength <= 60>>
-		and a curious experience to $object. <<if random(1,5) == 1>>@@color:lightcoral;$possessiveCap has developed a humiliation fetish.@@<<set $slaves[$i].fetish to "humiliation">><<else>>$pronounCap hopes to never repeat it.<</if>>
+	<<elseif $slaves[$i].fetish == "none" || $slaves[$i].fetishStrength <= 60>>
+		and a curious experience to $object. <<if random(1,5) == 1>>@@color:lightcoral;$possessiveCap has developed a humiliation fetish.@@<<set $slaves[$i].fetish = "humiliation">><<else>>$pronounCap hopes to never repeat it.<</if>>
 	<<elseif $slaves[$i].devotion <= 20>>
 		and completely devastating to $possessive image of herself. The experience @@color:hotpink;habituates $object@@ to cruelties of slavery.
 		<<set $slaves[$i].devotion += 5>>
@@ -334,11 +334,11 @@ Since $possessive vagina was spared from childbirth, @@color:lime;it retained it
 $pronounCap @@color:orange;gave birth@@
 <<if $slaves[$i].pregType <= 1>>
   to a single baby,
-<<elseif $slaves[$i].pregType is 5>>
+<<elseif $slaves[$i].pregType == 5>>
   to quintuplets,
-<<elseif $slaves[$i].pregType is 4>>
+<<elseif $slaves[$i].pregType == 4>>
   to quadruplets,
-<<elseif $slaves[$i].pregType is 3>>
+<<elseif $slaves[$i].pregType == 3>>
   to triplets,
 <<else>>
   to twins,
@@ -350,7 +350,7 @@ your magnificent dick.
 your arcology's eager citizens.
 <<elseif $slaves[$i].pregSource == 0>>
 an unknown father.
-<<elseif $slaves[$i].ID is $daddy.ID>>
+<<elseif $slaves[$i].ID == $daddy.ID>>
 $possessive own curiosity over if $pronoun could fuck <<print $possessive>>self.
 <<else>>
 $daddy's virile cock and balls.
@@ -449,7 +449,7 @@ Childbirth has @@color:lime;ruined $possessive virgin vagina.@@
 Childbirth has @@color:lime;greatly stretched out $possessive vagina.@@
 <<elseif ($slaves[$i].vagina == 2)>>
 Childbirth has @@color:lime;stretched out $possessive vagina.@@
-<<elseif ($slaves[$i].vagina is 3)>>
+<<elseif ($slaves[$i].vagina == 3)>>
 $possessiveCap vagina was loose enough to not be stretched by childbirth.
 <<elseif ($slaves[$i].vagina < 6)>>
 Childbirth stood no chance of stretching $possessive gaping vagina.
@@ -481,18 +481,18 @@ Childbirth has @@color:lime;stretched out $possessive vagina.@@
 <</if>>
 <</if>>
 
-<<set _tmp to lastPregRule($slaves[$i], $defaultRules)>>
-<<if ($slaves[$i].assignmentVisible == 0) and (_tmp != null)>>
-	<<set $slaves[$i].preg to -1>>
+<<set _tmp = lastPregRule($slaves[$i], $defaultRules)>>
+<<if ($slaves[$i].assignmentVisible == 0) && (_tmp != null)>>
+	<<set $slaves[$i].preg = -1>>
 <<else>>
-	<<set $slaves[$i].preg to 0>>
+	<<set $slaves[$i].preg = 0>>
 <</if>>
 <<set $slaves[$i].births += $slaves[$i].pregType>>
 <<set $birthsTotal += $slaves[$i].pregType>>
-<<set $slaves[$i].pregType to 0>>
-<<set $slaves[$i].pregSource to 0>>
+<<set $slaves[$i].pregType = 0>>
+<<set $slaves[$i].pregSource = 0>>
 <<if $slaves[$i].vagina < 3>>
-	<<set $slaves[$i].vagina to 3>>
+	<<set $slaves[$i].vagina = 3>>
 <</if>>
 
 <</if>> /* closes c-section */
@@ -511,13 +511,13 @@ Childbirth has @@color:lime;stretched out $possessive vagina.@@
 	While attempting to recover, $slaves[$i].slaveName @@color:red;passes away@@ from complications. $possessiveCap body was fatally damaged during childbirth, but $possessive offspring is healthy, so $possessive legacy will carry on.
 	<<set $activeSlave = $slaves[$i]>>
 	<<include "Remove activeSlave">>
-	<<set $slaveDead to 1>>
+	<<set $slaveDead = 1>>
 <</if>>
 
 <<if $slaveDead != 1>>
-    <<set $slaves[$i].labor to 0>>
+    <<set $slaves[$i].labor = 0>>
 <<else>>
-    <<set $slaveDead to 0>>
+    <<set $slaveDead = 0>>
 <</if>>
 <br><br><hr style="margin:0"><br>
 <</if>>

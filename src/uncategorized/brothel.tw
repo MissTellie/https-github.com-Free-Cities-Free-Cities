@@ -156,7 +156,9 @@ $brothelNameCaps
 	<<include "Slave Summary">>
 <</if>>
 
-<<if $notBrothelSlaves > 0>>
+<<if $brothel <= _DL>>
+	<br><br>''$brothelNameCaps is full and cannot hold any more slaves''
+<<elseif (_SL > _DL)>>
 	<br><br>''Send a slave to $brothelName:''
 	<<set $Flag to 0>>
 	<<include "Slave Summary">>

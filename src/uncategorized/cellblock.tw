@@ -97,7 +97,9 @@ $cellblockNameCaps
 	<<include "Slave Summary">>
 <</if>>
 
-<<if $notCellblockSlaves > 0>>
+<<if $cellblock <= _DL>>
+	<br><br>''$cellblockNameCaps is full and cannot hold any more slaves''
+<<elseif (_SL > _DL)>>
 	<br><br>''Send a resistant slave to be broken in the cellblock:''
 	<<set $Flag to 0>>
 	<<include "Slave Summary">>
