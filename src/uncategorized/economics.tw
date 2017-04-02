@@ -161,7 +161,7 @@ __Personal Business__
 	<</if>>
 <<elseif ($cash > 1000) && ($personalAttention == "business")>>
 	<<set $seed = random(1000,1500)>>
-	<<if $PC.career == "capitalist">>
+	<<if $PC.trading >= 100>>
 		You focus on business and leverage your @@color:springgreen;venture capital experience@@ to make good money:
 		<<set $seed += random(500,1000)>>
 	<<elseif $PC.career == "arcology owner">>
@@ -957,7 +957,7 @@ earning you @@color:yellowgreen;¤$seed.@@
 		<<set _AWeekGrowth-->>
 	<</if>>
 	<<if $personalAttention == "business">>
-		<<if ($PC.career == "capitalist") || ($PC.career == "arcology owner")>>
+		<<if ($PC.trading >= 100) || ($PC.career == "arcology owner")>>
 			Your @@color:springgreen;business focus and your experience@@ allow you to greatly assist in advancing the arcology's prosperity.
 			<<set _AWeekGrowth += 2>>
 		<<else>>
@@ -999,7 +999,7 @@ earning you @@color:yellowgreen;¤$seed.@@
 			<<set _AWeekGrowth += 2>>
 		<</if>>
 	<</if>>
-	<<if $PC.career == "capitalist">>
+	<<if $PC.trading >= 100>>
 		Your @@color:springgreen;business skills@@ drive increased prosperity.
 		<<set _AWeekGrowth++>>
 	<<elseif $PC.career == "arcology owner">>
