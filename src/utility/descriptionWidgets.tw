@@ -2754,6 +2754,10 @@ $pronounCap's got a
 <</if>>
 <</if>>
 
+<<if $activeSlave.prostate == 0>>
+	Though it's not externally apparent, $possessive's prostate has been removed, giving her ejaculations less body<<if $activeSlave.anus != 0>> and reducing the stimulation $pronoun feels during anal sex<</if>>.
+<</if>>
+
 <</if>> /* CLOSES DETAILED DICK DESCRIPTION */
 
 <<if $activeSlave.fuckdoll == 0>>
@@ -2866,75 +2870,98 @@ $pronounCap's got a
 <<if ($activeSlave.vagina > -1)>>
 <<if ($activeSlave.vaginaLube == 0)>>
 	<<if ($activeSlave.vagina > 0) && ($activeSlave.vaginalAccessory != "chastity belt")>>
-	$pronounCap produces very little natural wetness, so $pronoun is <<if $activeSlave.fuckdoll == 0>>required to keep <<print $object>>self<<else>>is kept<</if>> artificially lubricated for anyone who wishes to use $possessive cunt.
+		$pronounCap produces very little natural wetness, so $pronoun is <<if $activeSlave.fuckdoll == 0>>required to keep <<print $object>>self<<else>>is kept<</if>> artificially lubricated for anyone who wishes to use $possessive cunt.
 	<<else>>
-	$pronounCap produces very little natural wetness.
+		$pronounCap produces very little natural wetness.
+	<</if>>
+	<<if $activeSlave.prostate != 0>>
+	<<if $activeSlave.dick == 0>>
+		In stark contrast, however, she's been given a functional prostate gland. It's attached to her urethra, of course, so despite her dryness, she squirts fluid when she orgasms.
+	<</if>>
 	<</if>>
 <<elseif ($activeSlave.vaginaLube < 2)>>
 	<<if ($activeSlave.assignment == "work in the dairy") && ($dairyPregSetting > 1)>>
-	The dildo's ejaculate includes a drug that causes copious, constant vaginal lubrication, allowing it to fuck $possessive despite its giant size. The excess female fluid drips off $possessive and into a catchbasin.
+		The dildo's ejaculate includes a drug that causes copious, constant vaginal lubrication, allowing it to fuck $possessive despite its giant size. The excess female fluid drips off $possessive and into a catchbasin.
 	<<elseif ($activeSlave.aphrodisiacs > 0)>>
-	The aphrodisiacs have them <<if ($activeSlave.aphrodisiacs > 0)>>sopping <</if>>wet.
+		The aphrodisiacs have them <<if ($activeSlave.aphrodisiacs > 0)>>sopping <</if>>wet.
 	<<elseif ($activeSlave.energy > 95)>>
-	As a nympho, $pronoun's almost constantly wet.
+		As a nympho, $pronoun's almost constantly wet.
 	<<elseif ($activeSlave.fetishStrength > 60) && ($activeSlave.fetishKnown == 1)>>
-	<<if ($activeSlave.fetish == "buttslut")>>
-		Judging by how wet $pronoun is, $pronoun's probably fantasizing about being buttfucked.
-	<<elseif ($activeSlave.fetish == "cumslut")>>
-		Judging by how wet $pronoun is, $pronoun's probably fantasizing about being facefucked.
-	<<elseif ($activeSlave.fetish == "humiliation")>>
-		Judging by how wet $pronoun is, $pronoun's probably fantasizing about being humiliated.
-	<<elseif ($activeSlave.fetish == "submissive")>>
-		Judging by how wet $pronoun is, $pronoun's probably fantasizing about submission.
-	<<elseif ($activeSlave.fetish == "dom")>>
-		Judging by how wet $pronoun is, $pronoun's probably fantasizing about dominating someone.
-	<<elseif ($activeSlave.fetish == "sadist")>>
-		Judging by how wet $pronoun is, $pronoun's probably fantasizing about hurting someone.
-	<<elseif ($activeSlave.fetish == "masochist")>>
-		Judging by how wet $pronoun is, $pronoun's probably fantasizing about pain.
-	<<elseif ($activeSlave.fetish == "pregnancy")>>
-		Judging by how wet $pronoun is, $pronoun's probably fantasizing about getting pregnant.
-	<<elseif ($activeSlave.fetish == "boobs")>>
-		Judging by how wet $pronoun is, $pronoun's probably fantasizing about boobs.
-	<</if>>
+		Judging by how wet $pronoun is, $pronoun's probably fantasizing about
+		<<switch $activeSlave.fetish
+		<<case "buttslut">>
+			being buttfucked.
+		<<case "cumslut">>
+			being facefucked.
+		<<case "humiliation">>
+			being humiliated.
+		<<case "submissive">>
+			submission.
+		<<case "dom">>
+			dominating someone.
+		<<case "sadist">>
+			hurting someone.
+		<<case "masochist">>
+			pain.
+		<<case "pregnancy">>
+			getting pregnant.
+		<<case "boobs">>
+			boobs.
+		<<default>>
+			getting fucked.
+		<</switch>>
 	<<elseif ($activeSlave.devotion > 50)>>
-	As a devoted sex slave, $pronoun has no trouble keeping herself wet for $possessive <<if def $PC.customTitle>>$PC.customTitle<<elseif $PC.title != 0>>Master<<else>>Mistress<</if>>.
+		As a devoted sex slave, $pronoun has no trouble keeping herself wet for $possessive <<if def $PC.customTitle>>$PC.customTitle<<elseif $PC.title != 0>>Master<<else>>Mistress<</if>>.
 	<<elseif ($activeSlave.devotion > 20)>>
-	As an obedient sex slave, $pronoun does $possessive best to keep herself wet for $possessive <<if def $PC.customTitle>>$PC.customTitle<<elseif $PC.title != 0>>Master<<else>>Mistress<</if>>.
+		As an obedient sex slave, $pronoun does $possessive best to keep herself wet for $possessive <<if def $PC.customTitle>>$PC.customTitle<<elseif $PC.title != 0>>Master<<else>>Mistress<</if>>.
+	<</if>>
+	<<if $activeSlave.prostate != 0>>
+	<<if $activeSlave.dick == 0>>
+		Bizarrely, she's been given a functional prostate gland. It's attached to her urethra, of course, so she squirts copiously when she orgasms.
+	<</if>>
 	<</if>>
 <<else>>
 	<<if ($activeSlave.assignment == "work in the dairy") && ($dairyPregSetting > 1)>>
-	The dildo's ejaculate includes a drug that encourages vaginal lubrication, which is having a drastic effect on $possessive, since $pronoun's already very gifted in that regard. The dildo makes a wet noise every time it thrusts into $possessive, and femcum streams into a catchbasin beneath $object. The smell of pussy is overwhelming.
+		The dildo's ejaculate includes a drug that encourages vaginal lubrication, which is having a drastic effect on $possessive, since $pronoun's already very gifted in that regard. The dildo makes a wet noise every time it thrusts into $possessive, and femcum streams into a catchbasin beneath $object. The smell of pussy is overwhelming.
 	<<elseif ($activeSlave.aphrodisiacs > 0) || ($gingering == "vasodiolator")>>
-	The combination of the aphrodisiacs and $possessive natural tendency to produce a lot of female lubricant is having a drastic effect. $possessiveCap cunt is absolutely beribboned with femcum, and $pronoun smells strongly of wet, clean pussy.
+		The combination of the aphrodisiacs and $possessive natural tendency to produce a lot of female lubricant is having a drastic effect. $possessiveCap cunt is absolutely beribboned with femcum, and $pronoun smells strongly of wet, clean pussy.
 	<<elseif ($activeSlave.energy > 95)>>
-	$pronounCap has a naturally wet cunt, and in combination with $possessive nymphomania, it's soaking. $pronounCap smells of good clean female arousal.
+		$pronounCap has a naturally wet cunt, and in combination with $possessive nymphomania, it's soaking. $pronounCap smells of good clean female arousal.
 	<<elseif ($activeSlave.fetishStrength > 60) && ($activeSlave.fetishKnown == 1)>>
-	<<if ($activeSlave.fetish == "buttslut")>>
-		$possessiveCap naturally wet cunt is almost dripping female lubricant, and $pronoun smells of good clean female arousal. $pronounCap's probably fantasizing about being buttfucked.
-	<<elseif ($activeSlave.fetish == "cumslut")>>
-		$possessiveCap naturally wet cunt is almost dripping female lubricant, and $pronoun smells of good clean female arousal. $pronounCap's probably fantasizing about being facefucked.
-	<<elseif ($activeSlave.fetish == "humiliation")>>
-		$possessiveCap naturally wet cunt is almost dripping female lubricant, and $pronoun smells of good clean female arousal. $pronounCap's probably fantasizing about being humiliated.
-	<<elseif ($activeSlave.fetish == "submissive")>>
-		$possessiveCap naturally wet cunt is almost dripping female lubricant, and $pronoun smells of good clean female arousal. $pronounCap's probably fantasizing about submission.
-	<<elseif ($activeSlave.fetish == "dom")>>
-		$possessiveCap naturally wet cunt is almost dripping female lubricant, and $pronoun smells of good clean female arousal. $pronounCap's probably fantasizing about dominating someone.
-	<<elseif ($activeSlave.fetish == "sadist")>>
-		$possessiveCap naturally wet cunt is almost dripping female lubricant, and $pronoun smells of good clean female arousal. $pronounCap's probably fantasizing about hurting someone.
-	<<elseif ($activeSlave.fetish == "masochist")>>
-		$possessiveCap naturally wet cunt is almost dripping female lubricant, and $pronoun smells of good clean female arousal. $pronounCap's probably fantasizing about pain.
-	<<elseif ($activeSlave.fetish == "pregnancy")>>
-		$possessiveCap naturally wet cunt is almost dripping female lubricant, and $pronoun smells of good clean female arousal. $pronounCap's probably fantasizing about getting pregnant.
-	<<elseif ($activeSlave.fetish == "boobs")>>
-		$possessiveCap naturally wet cunt is almost dripping female lubricant, and $pronoun smells of good clean female arousal. $pronounCap's probably fantasizing about boobs.
-	<</if>>
+		$possessiveCap naturally wet cunt is almost dripping female lubricant, and $pronoun smells of good clean female arousal. $pronounCap's probably fantasizing about
+		<<switch $activeSlave.fetish
+		<<case "buttslut">>
+			being buttfucked.
+		<<case "cumslut">>
+			being facefucked.
+		<<case "humiliation">>
+			being humiliated.
+		<<case "submissive">>
+			submission.
+		<<case "dom">>
+			dominating someone.
+		<<case "sadist">>
+			hurting someone.
+		<<case "masochist">>
+			pain.
+		<<case "pregnancy">>
+			getting pregnant.
+		<<case "boobs">>
+			boobs.
+		<<default>>
+			getting fucked.
+		<</switch>>
 	<<elseif ($activeSlave.devotion > 50)>>
-	$possessiveCap cunt is almost always soaking wet, but being near you has $possessive almost dripping.
+		$possessiveCap cunt is almost always soaking wet, but being near you has $possessive almost dripping.
 	<<elseif ($activeSlave.devotion > 20)>>
-	$possessiveCap cunt is almost always soaking wet, and being near you isn't affecting that.
+		$possessiveCap cunt is almost always soaking wet, and being near you isn't affecting that.
 	<<else>>
-	$possessiveCap cunt is almost always soaking wet, regardless of $possessive feelings.
+		$possessiveCap cunt is almost always soaking wet, regardless of $possessive feelings.
+	<</if>>
+	<<if $activeSlave.prostate != 0>>
+	<<if $activeSlave.dick == 0>>
+		Bizarrely, she's been given a functional prostate gland. It's attached to her urethra, of course, meaning that when she orgasms, she squirts an unreasonable volume of fluid.
+	<</if>>
 	<</if>>
 <</if>>
 <</if>>

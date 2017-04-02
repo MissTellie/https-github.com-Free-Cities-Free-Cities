@@ -725,7 +725,7 @@ The fabricator has completed $possessive $activeOrgan.type.
 		|
 		<<link "Discard">><<for $i to 0; $i < $organs.length; $i++>><<if $activeSlave.ID == $organs[$i].ID>><<set $dump to $organs.pluck([$i], [$i])>><<break>><</if>><</for>><<goto "Remote Surgery">><</link>>
 	<</if>>
-<<elseif $activeOrgan.type is "prostate">>
+<<elseif $activeOrgan.type == "prostate">>
 	<<if $activeSlave.prostate != 0>>
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;
 		ERROR: this slave already has a prostate.
