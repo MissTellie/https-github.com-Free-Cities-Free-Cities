@@ -1095,6 +1095,29 @@ The Fuckdoll continues to struggle. Since it is new, it is not yet able to obey 
 		<<set $activeSlave.devotion -= 5>>
 	<</if>>
 
+<<case "addProstate">>
+	It's not immediately apparent to her what kind of surgery she received, since all she's left with is a terrible nonspecific ache in her lower parts. As with all surgery @@color:red;her health has been slightly affected.@@
+	<<if ($activeSlave.devotion > 50)>>
+		<<if $activeSlave.anus == 0>>
+			Since she's still an anal virgin, she's denied the most obvious way of discovering what's been added to her. The revelation is deferred until the next time she orgasms:
+		<<elseif ($activeSlave.fetishKnown == 1) && ($activeSlave.fetish == "buttslut")>>
+			The next tiem she's penetrated, though, it's obvious:
+		<</if>>
+		she's shocked by the astounding volume of her<<if $activeSlave.dick == 0>> squirting female<</if>> ejaculation, since her new organ is of course hooked into her urethra and does its duty whenever she climaxes<<if $activeSlave.balls == 0>> despite her lack of testicles to add actual semen to her copious emissions<</if>>.
+		<<if ($activeSlave.fetishKnown == 1) && ($activeSlave.fetish == "buttslut")>>
+			She was already an anal slut, but she can now experience anal pleasure along an entirely new dimension. She's @@color:hotpink;extremely grateful,@@ and @@color:lightsalmon;a more eager buttslut than ever.@@
+			<<set $activeSlave.devotion += 5, $activeSlave.fetishStrength = Math.clamp(activeSlave.fetishStrength+20,0,100)>>
+		<<else>>
+			As a sex slave, she has of course heard of the pleasure of prostate stimulation,<<if $activeSlave.dick != 0>> not to mention having once had one herself,<</if>> and she's @@color:hotpink;duly grateful@@ that you've altered her in a way that will make sexual duties more enjoyable.
+		<</if>>
+		<<set $activeSlave.devotion += 5>>
+	<<elseif ($activeSlave.devotion > 20)>>
+		The next time she orgasms, she's shocked by the astounding volume of her<<if $activeSlave.dick == 0>> squirting female<</if>> ejaculation, since her new organ is of course hooked into her urethra and does its duty whenever she climaxes<<if $activeSlave.balls == 0>> despite her lack of testicles to add actual semen to her copious emissions<</if>>. Her main reaction is confusion; this alteration is pretty far outside any of the more conventional surgeries slaves might expect to receive, and her mixed feeling tend to cancel each other out.
+	<<else>>
+		She doesn't have to know exactly what you did, though, to be @@color:gold;mortified@@ and @@color:mediumorchid;infuriated@@ by your messing around inside her body. She hasn't yet learned to accept that you control her completely, down to the arrangement and even presence of her internal organs.
+		<<set $activeSlave.trust -= 10, $activeSlave.devotion -= 10>>
+	<</if>>
+
 <<case "addDick">>
 	<<if ($activeSlave.devotion > 50)>>
 		The surgery is invasive, and she spends some time in the autosurgery, slowly recovering. As feeling slowly returns to the lower half of her body and her thoughts coalesce against the dissipating fog of surgical pharmacology, she strains to focus on her groin<<if canSee($activeSlave)>>, visible in a ceiling mirror above her<</if>>. As a devoted slave, she knew the essentials of the surgery before it was performed, so she's excited to <<if canSee($activeSlave)>>see<<else>>feel<</if>> the result. Her eyes open wide as she takes in the new member between her legs. Suddenly, it twitches for the first time. The mixed pain of the terribly sore area and pleasure of new sensations floods her, and she jerks against the surgical restrains, gasping for breath. She is @@color:mediumaquamarine;tremendously impressed@@ that you would devote such immense resources to altering her body, and is more willing than ever to @@color:hotpink;submit to your plans@@ for her future. @@color:red;Her health has been severely affected@@ by the intrusive surgery.
