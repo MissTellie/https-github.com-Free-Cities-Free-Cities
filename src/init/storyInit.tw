@@ -88,12 +88,13 @@
 	<<set $slaves[$i].vaginalCount = 0>>
 	<</for>>
 	<<set $slavesOriginal = $slaves>>
-	<<set $organs = []>>
 <<else>>
 	<<set $slaves = []>>
 	<<set $slavesOriginal = []>>
-	<<set $organs = []>>
 <</if>>
+<<set $organs = []>>
+<<set $ArcadeiIDs = [], $BrothiIDs = [], $CellBiIDs = [], $CliniciIDs = [], $ClubiIDs = [], $DairyiIDs = [], $HGSuiteiIDs = [], $MastSiIDs = [], $SchlRiIDs = [], $ServQiIDs = [], $SpaiIDs = []>>
+
 <<if ndef $saveImported>>
 	<<set $saveImported = 0>>
 <</if>>
