@@ -248,9 +248,8 @@
 	<</link>>
 	<<if $arcade > 0>>
 	<br><<link "Enslave her and sentence her to a month in the arcade">>
-		<<set $activeSlave.assignment to "be confined in the arcade">><<set $activeSlave.assignmentVisible to 0>>
-		<<set $activeSlave.choosesOwnAssignment to 0>>
-		<<set $activeSlave.sentence to 4>>
+		<<set $activeSlave.choosesOwnAssignment = 0>>
+		<<set $activeSlave.sentence = 4>>
 		<<AddSlave $activeSlave>>
 		<<set $cash -= $contractCost>>
 		<<replace "#result">>
@@ -276,9 +275,7 @@
 	<<if $dairy > 0>>
 	<<if $dairyRestraintsSetting > 1>>
 	<br><<link "Enslave her and send her straight to the industrial dairy">>
-		<<set $activeSlave.assignment to "work in the dairy">>
-		<<set $activeSlave.assignmentVisible to 0>>
-		<<set $activeSlave.choosesOwnAssignment to 0>>
+		<<set $activeSlave.assignment = "work in the dairy">>
 		<<AddSlave $activeSlave>>
 		<<set $cash -= $contractCost>>
 		<<replace "#result">>
