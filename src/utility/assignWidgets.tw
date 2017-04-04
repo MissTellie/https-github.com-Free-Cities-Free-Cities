@@ -9,6 +9,7 @@
 %/
 <<widget assignJob>>
 <<if ($args[1] != "Pit") && ($args[1] != "Coursing Association")>>
+<<removeJob $args[0] $args[0].assignment>>
 <<set _wID = $args[0].ID, _SL = $slaves.length>>
 
 /% Get slaves[_wi] index # %/
@@ -22,7 +23,6 @@
 	<</for>>
 <</if>>
 
-<<removeJob $args[0] $args[0].assignment>>
 /% use .toLowerCase() to get rid of a few dupe conditions. %/
 <<switch $args[1].toLowerCase()>>
 <<case "clinic" "get treatment in the clinic">>
