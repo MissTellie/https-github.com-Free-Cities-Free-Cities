@@ -33,7 +33,7 @@
 	<<if _BG > -1>>
 		''__@@color:pink;$Bodyguard.slaveName@@__'' is serving as your bodyguard. <span id="manageBG"><strong><<link "Manage Bodyguard">><<goto "BG Select">><</link>></strong></span> @@color:cyan;[B]@@
 	<<else>>
-		You have not selected a Bodyguard. <span id="manageBG"><strong><<link "Select One">><<goto "BG Select">><</link>></strong></span> @@color:cyan;[B]@@
+		You have not selected a Bodyguard. <span id="manageBG"><strong><<link "Select one">><<goto "BG Select">><</link>></strong></span> @@color:cyan;[B]@@
 	<</if>>
 <</if>>
 <<if $organsCompleted > 0>>
@@ -7026,7 +7026,7 @@ $pronounCap has
 <</if>>
 
 <<if $activeSlave.fuckdoll == 0>>
-<<if $fakeBellies.contains($bellyAccessory)>>
+<<if $fakeBellies.includes($bellyAccessory)>>
 	<<switch $activeSlave.bellyAccessory>>
 	<<case "a huge empathy belly">>
 		$pronounCap is wearing a carefully sculpted silicone belly modeled after a full-term pregnant woman carrying twins.
