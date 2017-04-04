@@ -51,9 +51,6 @@
 
 <<set $args[0].assignmentVisible = 0, $args[0].choosesOwnAssignment = 0>>
 <<if _wID == $personalAttention>><<set $personalAttention = "business">><</if>>
-<<if _wID == $HeadGirl.ID>><<set $HeadGirl = 0>><</if>>
-<<if _wID == $Recruiter.ID>><<set $Recruiter = 0>><</if>>
-<<if _wID == $Bodyguard.ID>><<set $Bodyguard = 0>><</if>>
 
 <<set $slaves[_wi] = $args[0], $i = _wi>>
 <<if $slaves[_wi].choosesOwnClothes == 1>><<include "SA chooses own clothes">><</if>>
