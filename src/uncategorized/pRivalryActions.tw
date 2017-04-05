@@ -2517,7 +2517,7 @@ You remind yourself that success in this conflict will not be defined by the tra
 	<<set $rivalryPower += 5>>
 	<</replace>>
 <</link>>
-<<if ($PC.career == "mercenary") || ($PC.career == "arcology owner")>>
+<<if ($PC.warafare >= 100) || ($PC.career == "arcology owner")>>
 <<if $mercenaries >= 3>>
 <br><<link "Your peers will tolerate an attack if it's covert">>
 	<<replace "#result">>

@@ -275,6 +275,14 @@ __You are customizing this slave:__
 
 <br>
 
+''Genes:''
+@@color:yellow;<span id="originalSex">$activeSlave.genes</span>.@@&nbsp;
+<<link "XX">><<set $activeSlave.genes = "XX">><<replace "#originalSex">>$activeSlave.genes<</replace>><</link>>
+ | 
+<<link "XY">><<set $activeSlave.genes = "XY">><<replace "#originalSex">>$activeSlave.genes<</replace>><</link>>
+
+<br>
+
 ''Health:''
 <span id="health">
 <<if $activeSlave.health == -40>>@@color:red;Unhealthy.@@
