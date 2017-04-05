@@ -2,7 +2,6 @@
 
 <<set $implanted = 0, $legendaryWhoreID = 0, $madamCashBonus = 0, $modded = 0, $old = 0, $pure = 0, $slim = 0, $stacked = 0, $unmodded = 0, $XX = 0, $XY = 0, $young = 0, _FLsFetish = 0, _profits = 0, _SL = $slaves.length, _FLs = -1, _DL = $BrothiIDs.length, $brothelSlaves = _DL>>
 
-<<if $brothelSlaves > 0>>
 <<for _dI = 0; _dI < _DL; _dI++>>
 <<set _i = $BrothiIDs[_dI].Index, _ID = $BrothiIDs[_dI].ID>>
 <<if _ID != $slaves[_i].ID>>
@@ -16,7 +15,6 @@
 <</if>>
 <</for>>
 <<SlaveSort $BrothiIDs>>
-<</if>>
 
 <<if ($Madam != 0)>>
 	<<for _FLs = 0; _FLs < _SL; _FLs++>>
@@ -160,16 +158,16 @@
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;Since she doesn't have enough whores to manage to keep her busy, she sees $beauty customers herself (<<print Math.trunc($beauty/7)>> a day), earning you @@color:yellowgreen;¤_seed@@. She can charge more for her time, since many citizens find it erotic to fuck the Madam.
 <</if>>
 <</if>>
-	<br>
+	<<if ($brothelSlaves > 0)>><br><</if>>
 <</if>>
 
 <<if ($brothelSlaves > 0)>>
 	&nbsp;&nbsp;&nbsp;&nbsp;<<if $brothelSlaves != 1>>''There are $brothelSlaves slave whores working out of $brothelName.''<<else>>''There is one slave whore working out of $brothelName.''<</if>>
 <</if>>
-<br><br>
 
 <<if $Madam != 0>>
 <<if $showEWD != 0>>
+	<br><br>
 	/* 000-250-006 */
 	<<if $seeImages == 1 && $imageChoice == 0>>
 	<div class="imageRef tinyImg">
@@ -178,7 +176,7 @@
 	<</if>>
 	/* 000-250-006 */
 	''__@@color:pink;$slaves[_FLs].slaveName@@__'' is serving as the madam.
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	<br>&nbsp;&nbsp;&nbsp;
 	<<if $slaves[_FLs].choosesOwnClothes == 1>>
 	<<include "SA chooses own clothes">>
 	<<if ($slaves[_FLs].devotion <= 20)>>
@@ -193,7 +191,6 @@
 	<<include "SA relationships">>
 	<<include "SA rivalries">>
 	<br><<include "SA devotion">>
-	<br><br>
 <<else>>
 	<<silently>>
 	<<if $slaves[_FLs].choosesOwnClothes == 1>>
@@ -231,6 +228,7 @@
 	<</if>>
 	<<set $slaves[_i].health += _healthBonus, $slaves[_i].aphrodisiacs = _aphrod>>
 	<<if $showEWD != 0>>
+		<br><br>
 		/* 000-250-006 */
 		<<if $seeImages == 1 && $imageChoice == 0>>
 		<div class="imageRef tinyImg">
@@ -240,7 +238,7 @@
 		/* 000-250-006 */
 		''__@@color:pink;$slaves[$i].slaveName@@__'' is working out of $brothelName.
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;She <<include "SA whore">>
-		<br>&nbsp;&nbsp;&nbsp;&nbsp;
+		<br>&nbsp;&nbsp;&nbsp;
 		<<if $slaves[$i].choosesOwnClothes == 1>>
 		<<include "SA chooses own clothes">>
 		<<if ($slaves[$i].devotion <= 20)>>
@@ -255,7 +253,6 @@
 		<<include "SA relationships">>
 		<<include "SA rivalries">>
 		<br><<include "SA devotion">>
-		<br><br>
 	<<else>>
 		<<silently>>
 		<<include "SA whore">>
@@ -353,10 +350,9 @@
 	<<set $slaves[_i].trust += 5>>
 	<</if>>
 <</for>>
-	<<set _profits += $cash-$oldCash>>
+	<<set _profits += $cash-$oldCash, $oldCash = $cash, _possibleBonuses = 0, _brothelBonuses = 0>>
 
-	&nbsp;&nbsp;&nbsp;&nbsp;
-	<<set $oldCash = $cash, _possibleBonuses = 0, _brothelBonuses = 0>>
+	<br><br>&nbsp;&nbsp;&nbsp;
 	<<if $brothelAdsSpending != 0>>
 		An ad campaign is supporting business there, and whores that match it make more ¤.
 	<</if>>
@@ -414,17 +410,18 @@
 	<<set _profits += $cash-$oldCash>>
 	$brothelNameCaps makes you @@color:yellowgreen;¤_profits@@ this week.
 
+	<<if $brothelDecoration != "standard">>
+		$brothelNameCaps's customers enjoy @@color:green;fucking whores in $brothelDecoration surroundings.@@
+	<</if>>
+
 	<<if $brothel <= $brothelSlaves>>
 	<<set $brothelSpots = 0>>
 	<<else>>
 	<<set $brothelSpots = $brothel - $brothelSlaves>>
 	<</if>>
-
-	<<if $brothelDecoration != "standard">>
-	$brothelNameCaps's customers enjoy @@color:green;fucking whores in $brothelDecoration surroundings.@@
-	<</if>>
 <<else>>
-	''$brothelNameCaps is empty''<<if (_FLs > -1)>> except for the Madam<</if>>.
 	<<set $brothelSpots = $brothel>>
 <</if>>
-<br><br>
+<<if $brothelSlaves || $Madam>>
+	<br><br>
+<</if>>
