@@ -27,7 +27,7 @@
 		<<set $slaves[$i].relationshipTarget += 50000>>
 		<</if>>
 	<<else>>
-		<<set $dump = $slaves.pluck([$i], [$i])>><<set $i-->>
+		<<set _dump = $slaves.deleteAt($i), $i-->>
 	<</if>>
 	<</for>>
 	<<for $i = 0; $i < $slaves.length; $i++>>
@@ -156,34 +156,34 @@
 <<set $slaveDead = 0>>
 <<set $rulesAssistantMain = 1>>
 <<set $rulesAssistantAuto = 0>>
-<<set $abbreviateDevotion to 2>>
-<<set $abbreviateRules to 2>>
-<<set $abbreviateClothes to 2>>
-<<set $abbreviateOrigins to 2>>
-<<set $abbreviateRulesets to 2>>
-<<set $abbreviateNationality to 2>>
-<<set $abbreviateHealth to 2>>
-<<set $abbreviateDiet to 2>>
-<<set $abbreviateDrugs to 2>>
-<<set $abbreviateRace to 2>>
-<<set $abbreviateGenitalia to 2>>
-<<set $abbreviatePhysicals to 2>>
-<<set $abbreviateSkills to 2>>
-<<set $abbreviateMental to 2>>
-<<set $abbreviateSidebar to 2>>
-<<set $summaryStats to 1>>
-<<set $nicknamesAllowed to 1>>
-<<set $modRequestsAllowed to 1>>
-<<set $expansionRequestsAllowed to 1>>
-<<set $plot to 1>>
-<<set $continent to "North America">>
-<<set $terrain to "rural">>
-<<set $language to "English">>
-<<set $headGirlTrainsSkills to 1>>
-<<set $headGirlTrainsHealth to 1>>
-<<set $headGirlTrainsObedience to 1>>
-<<set $headGirlTrainsFlaws to 1>>
-<<set $headGirlTrainsParaphilias to 1>>
+<<set $abbreviateDevotion = 2>>
+<<set $abbreviateRules = 2>>
+<<set $abbreviateClothes = 2>>
+<<set $abbreviateOrigins = 2>>
+<<set $abbreviateRulesets = 2>>
+<<set $abbreviateNationality = 2>>
+<<set $abbreviateHealth = 2>>
+<<set $abbreviateDiet = 2>>
+<<set $abbreviateDrugs = 2>>
+<<set $abbreviateRace = 2>>
+<<set $abbreviateGenitalia = 2>>
+<<set $abbreviatePhysicals = 2>>
+<<set $abbreviateSkills = 2>>
+<<set $abbreviateMental = 2>>
+<<set $abbreviateSidebar = 2>>
+<<set $summaryStats = 1>>
+<<set $nicknamesAllowed = 1>>
+<<set $modRequestsAllowed = 1>>
+<<set $expansionRequestsAllowed = 1>>
+<<set $plot = 1>>
+<<set $continent = "North America">>
+<<set $terrain = "rural">>
+<<set $language = "English">>
+<<set $headGirlTrainsSkills = 1>>
+<<set $headGirlTrainsHealth = 1>>
+<<set $headGirlTrainsObedience = 1>>
+<<set $headGirlTrainsFlaws = 1>>
+<<set $headGirlTrainsParaphilias = 1>>
 
 <<include "Init Rules">>
 <<set $autoSurgery = {lactation: 0, cosmetic: 1, accent: 0, shoulders: 0, shouldersImplant: 0, boobs: 0, hips: 0, hipsImplant: 0, butt: 0, faceShape: "normal", lips: 10, holes: 0}>>
@@ -708,11 +708,11 @@
 
 <<set $asianNationalities = ["American", "Saudi", "Chinese", "Korean", "Japanese", "Thai", "Vietnamese", "Indonesian", "Filipina", "Burmese", "Nepalese", "Uzbek", "Malaysian", "Kazakh", "Australian"]>>
 
-<<set $latinaNationalities = ["American", "Puerto Rican"Cuban", "Mexican", "Peruvian", "Venezuelan", "Bolivian", "Guatemalan", "Brazilian", "Argentinian", "Chilean", "Colombian"]>>
+<<set $latinaNationalities = ["American", "Puerto Rican", "Cuban", "Mexican", "Peruvian", "Venezuelan", "Bolivian", "Guatemalan", "Brazilian", "Argentinian", "Chilean", "Colombian"]>>
 
 <<set $middleEasternNationalities = ["American", "Egyptian", "Turkish", "Israeli", "Saudi", "Moroccan", "Ethiopian", "Afghan", "Algerian", "Libyan", "Tunisian", "Lebanese", "Jordanian", "Emirati", "Omani", "Malian", "Sudanese", "Yemeni", "Iraqi", "German", "Swedish", "French", "Italian"]>>
 
-<<set $blackNationalities = ["American"Cuban", "Haitian", "Jamaican", "Brazilian", "Egyptian", "Saudi", "Moroccan", "Nigerian", "Kenyan", "Zimbabwean", "Ugandan", "Tanzanian", "Ghanan", "Congolese", "Ethiopian", "South African", "Malian", "Sudanese", "Yemeni", "German", "Swedish", "French", "Australian"]>>
+<<set $blackNationalities = ["American", "Cuban", "Haitian", "Jamaican", "Brazilian", "Egyptian", "Saudi", "Moroccan", "Nigerian", "Kenyan", "Zimbabwean", "Ugandan", "Tanzanian", "Ghanan", "Congolese", "Ethiopian", "South African", "Malian", "Sudanese", "Yemeni", "German", "Swedish", "French", "Australian"]>>
 
 <<set $indoAryanNationalities = ["Iranian", "Armenian", "Burmese", "Nepalese", "Afghan", "Emirati", "Omani", "Indian", "Kazakh", "Pakistani", "Bangladeshi", "Slovak", "Hungarian", "Romanian", "British"]>>
 
