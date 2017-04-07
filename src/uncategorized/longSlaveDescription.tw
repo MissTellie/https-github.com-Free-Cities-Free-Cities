@@ -11,9 +11,6 @@
 <</if>>
 /* 000-250-006 */
 
-
-&nbsp;&nbsp;&nbsp;&nbsp;
-
 <<if ndef $activeSlave.boobsImplantType>>
   <<set $activeSlave.boobsImplantType = 0>>
 <</if>>
@@ -29,18 +26,14 @@
 <<if ndef $activeSlave.labor>>
   <<set $activeSlave.labor = 0>>
 <</if>>
-<<if ndef $activeSlave.induce>>
-  <<set $activeSlave.induce = 0>>
-<</if>>
 
-''@@color:pink;$activeSlave.slaveName@@''<<if ($activeSlave.customLabel != "")>> (@@color:yellow;''<<print $activeSlave.customLabel>>''@@)<</if>>
+&nbsp;&nbsp;&nbsp;&nbsp;''@@color:pink;$activeSlave.slaveName@@''<<if ($activeSlave.customLabel != "")>> (@@color:yellow;''<<print $activeSlave.customLabel>>''@@)<</if>>
 
 <<if $ui == "start">>
 <<elseif $saleDescription == 1>>
 <<if $applyLaw == 1>>
 	<<include "Law Compliance">>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	$activeSlave.slaveName
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;$activeSlave.slaveName
 <<else>>
 	is for sale and is available to inspect. She
 <</if>>
