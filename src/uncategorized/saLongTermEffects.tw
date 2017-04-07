@@ -3515,12 +3515,14 @@ and ($slaves[$i].clothes != "a slutty qipao") and ($slaves[$i].clothes != "restr
 <<if $arcologies[0].FSYouthPreferentialist != "unset">>
 	<<if ($slaves[$i].age < 30)>>
 	Society @@color:green;approves@@ of $slaves[$i].slaveName's youthful body; $pronoun furthers the fashion for young slaves.
-	<<FSChangePorn "YouthPreferentialist" ((30-$slaves[$i].age)/5)>>
+	<<set _youth_rep_change = (30-$slaves[$i].age)/5>>
+	<<FSChangePorn "YouthPreferentialist" _youth_rep_change>>
 	<</if>>
 <<elseif $arcologies[0].FSMaturityPreferentialist != "unset">>
 	<<if ($slaves[$i].age >= 30)>>
 	Society @@color:green;approves@@ of $slaves[$i].slaveName's mature body; $pronoun furthers the fashion for older ladies.
-	<<FSChangePorn "MaturityPreferentialist" (($slaves[$i].age-25)/5)>>
+	<<set _maturity_rep_change = ($slaves[$i].age-25)/5>>
+	<<FSChangePorn "MaturityPreferentialist" _maturity_rep_change>>
 	<</if>>
 <</if>>
 
