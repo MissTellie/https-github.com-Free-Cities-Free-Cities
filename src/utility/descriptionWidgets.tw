@@ -742,8 +742,12 @@ $possessiveCap
 	They're wider than $possessive hips,
 	<<if $activeSlave.boobs > 2000*($activeSlave.shoulders- $activeSlave.hips)>>
 	but $possessive massive breasts make it hard to discern.
+	<<elseif $arcologies[0].FSGenderRadicalist != "unset">>
+	giving $object a somewhat mannish appearance.
+	<<elseif $arcologies[0].FSGenderFundamentalist != "unset">>
+	giving $object a @@color:red;ugly, mannish appearance.@@
 	<<else>>
-	giving $possessive a somewhat mannish appearance.
+	giving $object an @@color:red;unattractive, somewhat mannish, appearance.@@
 	<</if>>
 <</if>>
 <</if>>
@@ -766,11 +770,11 @@ $possessiveCap
 		$pronounCap cannot get to $possessive feet unaided, and uses a wheeled stand to support $possessive boobs when $pronoun must walk or remain upright.
 		<</if>>
 	<<else>>
-		Together they are nearly the same size as $possessive torso, making $possessive about half boob.
+		Together they are nearly the same size as $possessive torso, making $object about half boob.
 	<</if>>
 	<<if ($activeSlave.assignment != "work in the dairy") || ($dairyRestraintsSetting < 2)>>
 		<<if $boobAccessibility == 1>>
-		Fortunately for $possessive, the penthouse is adapted for daily life with a bosom
+		Fortunately for $object, the penthouse is adapted for daily life with a bosom
 		<<else>>
 		$pronounCap has trouble living in your penthouse, which is not designed for girls with chests
 		<</if>>
