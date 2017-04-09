@@ -1069,8 +1069,9 @@
 	<<else>>
 		<<set $activeSlave.attrXX = 0>>
 	<</if>>
-	<<set $activeSlave.attrXX = Math.clamp($activeSlave.attrXX, 0, 100)>>
+	<<if $activeSlave.attrXX == Math.clamp($activeSlave.attrXX, 0, 100)>>
 	<<set $activeSlave.attrKnown = 1>>
+	<</if>>
 	<<replace "#attrXX">>
 		<<if $activeSlave.attrXX <= 5>>
 			@@color:red;disgusted by women.@@
@@ -1125,8 +1126,9 @@
 	<<else>>
 		<<set $activeSlave.attrXX = 100>>
 	<</if>>
-	<<set $activeSlave.attrXX = Math.clamp(0, 100)>>
+	<<if $activeSlave.attrXX == Math.clamp(0, 100)>>
 	<<set $activeSlave.attrKnown = 1>>
+	<</if>>	
 	<<replace "#attrXX">>
 		<<if $activeSlave.attrXX <= 5>>
 			@@color:red;disgusted by women.@@
@@ -1182,8 +1184,9 @@
 		<<set $activeSlave.attrXY = 0>>
 	<</if>>
 
-	<<set $activeSlave.attrXY = Math.clamp(0, 100)>>
+	<<if $activeSlave.attrXY == Math.clamp(0, 100)>>
 	<<set $activeSlave.attrKnown = 1>>
+	<</if>>
 	<<replace "#attrXY">>
 		<<if $activeSlave.attrXY <= 5>>
 			@@color:red;Disgusted by men,@@
@@ -1239,8 +1242,9 @@
 	<<else>>
 		<<set $activeSlave.attrXY = 100>>
 	<</if>>
-	<<set $activeSlave.attrXY = Math.clamp(0, 100)>>
+	<<if $activeSlave.attrXY == Math.clamp(0, 100)>>
 	<<set $activeSlave.attrKnown = 1>>
+	<</if>>
 	<<replace "#attrXY">>
 		<<if $activeSlave.attrXY <= 5>>
 			@@color:red;Disgusted by men,@@
