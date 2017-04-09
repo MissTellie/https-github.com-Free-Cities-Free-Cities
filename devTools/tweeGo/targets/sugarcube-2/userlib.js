@@ -879,6 +879,63 @@ window.lastClitSettingRule = function(slave, rules) {
         }return null;
     }
 };
+window.lastClitSettingXYRule = function(slave, rules) {
+    if (!slave) {
+        return null;
+    }else if (!rules) {
+        return null;
+    }else if (!slave.currentRules) {
+        return null;
+    }else {
+        for(var d=rules.length-1; d >= 0;--d){
+            for(var e=0; e < slave.currentRules.length;++e){
+                if(slave.currentRules[e] == rules[d].ID){
+                    if (rules[d].clitSettingXY != "no default setting"){
+                        return rules[d];
+                    }
+                }
+            }
+        }return null;
+    }
+};
+window.lastClitSettingXXRule = function(slave, rules) {
+    if (!slave) {
+        return null;
+    }else if (!rules) {
+        return null;
+    }else if (!slave.currentRules) {
+        return null;
+    }else {
+        for(var d=rules.length-1; d >= 0;--d){
+            for(var e=0; e < slave.currentRules.length;++e){
+                if(slave.currentRules[e] == rules[d].ID){
+                    if (rules[d].clitSettingXX != "no default setting"){
+                        return rules[d];
+                    }
+                }
+            }
+        }return null;
+    }
+};
+window.lastClitSettingEnergyRule = function(slave, rules) {
+    if (!slave) {
+        return null;
+    }else if (!rules) {
+        return null;
+    }else if (!slave.currentRules) {
+        return null;
+    }else {
+        for(var d=rules.length-1; d >= 0;--d){
+            for(var e=0; e < slave.currentRules.length;++e){
+                if(slave.currentRules[e] == rules[d].ID){
+                    if (rules[d].clitSettingEnergy != "no default setting"){
+                        return rules[d];
+                    }
+                }
+            }
+        }return null;
+    }
+};
 window.lastVaginaPiercingRule = function(slave, rules) {
 	if (!slave) {
 		return null;
@@ -1465,6 +1522,9 @@ window.cumAmount = function(slave) {
 		calcs = slave.hormones
 		cum *= (1-(calcs*0.1))
 		if (slave.scrotum == 0) {
+			cum *= 0.8
+		}
+		if (slave.prostate == 0) {
 			cum *= 0.8
 		}
 		if (slave.devotion > 50) {
