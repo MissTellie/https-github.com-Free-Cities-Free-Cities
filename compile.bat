@@ -1,5 +1,5 @@
 @echo off
-:: Free Cities Basic Compiler - Windows x86_64
+:: Free Cities Basic Compiler - Windows
 
 :: Will add all *.tw files to StoryIncludes.
 del src\config\start.tw
