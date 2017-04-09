@@ -293,79 +293,63 @@ __Fucktoy use preference__: <strong><span id="hole"><<print $activeSlave.toyHole
 
 <<if $activeSlave.fuckdoll == 0>>
 <<if $brothel+$club+$dairy+$servantsQuarters+$masterSuite+$spa+$clinic+$schoolroom+$cellblock+$arcade > 0>>
-<br>__Transfer to__:
+	<<for _i = 0; _i < $slaves.length; _i++>>
+	<<if $activeSlave.ID == $slaves[_i].ID>>
+		<<break>>
+	<</if>>
+	<</for>>
+	<br>__Transfer to__:
 	<<if $brothel != 0>>
-	<<if $brothel > $brothelSlaves>>
-	<<if ($activeSlave.devotion > 50) || (($activeSlave.devotion >= -50) && ($activeSlave.trust < -20)) ||  ($activeSlave.trust < -50) || ($activeSlave.trust > 50)>>
-		[[Brothel|Assign][$returnTo = "Brothel"]]
-	<<else>>Brothel<</if>>
+	<<if $brothel > $brothelSlaves && ($activeSlave.devotion > 50) || (($activeSlave.devotion >= -50) && ($activeSlave.trust < -20)) || ($activeSlave.trust < -50) || ($activeSlave.trust > 50)>>
+		[[Brothel|Assign][$returnTo = "Brothel", $i = _i]]
 	<<else>>Brothel<</if>>
 	<</if>>
-	<<if $club != 0>>
-	<<if $club > $clubSlaves>>
-	<<if $brothel != 0>><<if $brothel > $brothelSlaves>>|<</if>><</if>>
-	<<if ($activeSlave.devotion > 50) || (($activeSlave.devotion >= -50) && ($activeSlave.trust < -20)) ||  ($activeSlave.trust < -50) || ($activeSlave.trust > 50)>>
-		[[Club|Assign][$returnTo = "Club"]]
-	<<else>>Club<</if>>
+	<<if $club != 0>>|
+	<<if $club > $clubSlaves && ($activeSlave.devotion > 50) || (($activeSlave.devotion >= -50) && ($activeSlave.trust < -20)) || ($activeSlave.trust < -50) || ($activeSlave.trust > 50)>>
+		[[Club|Assign][$returnTo = "Club", $i = _i]]
 	<<else>>Club<</if>>
 	<</if>>
-	<<if $dairy != 0>>
-	<<if $dairy > $dairySlaves>>|
-	<<if (($activeSlave.indentureRestrictions > 0) && ($dairyRestraintsSetting > 1)) || (($activeSlave.indentureRestrictions > 1) && ($dairyRestraintsSetting > 0))>>
+	<<if $dairy != 0>>|
+	<<if $dairy > $dairySlaves && (($activeSlave.indentureRestrictions > 0) && ($dairyRestraintsSetting > 1)) || (($activeSlave.indentureRestrictions > 1) && ($dairyRestraintsSetting > 0))>>
 		Dairy
 	<<elseif (($activeSlave.lactation > 0) || ($activeSlave.balls > 0)) || (($dairyFeedersUpgrade == 1) && ($dairyFeedersSetting > 0) && ($dairySlimMaintainUpgrade == 0))>>
-		[[Dairy|Assign][$returnTo = "Dairy"]]
-	<<else>>Dairy<</if>>
+		 [[Dairy|Assign][$returnTo = "Dairy", $i = _i]]
 	<<else>>Dairy<</if>>
 	<</if>>
-	<<if $servantsQuarters != 0>>
-	<<if $servantsQuarters > $servantsQuartersSlaves>>|
-	<<if ($activeSlave.devotion >= -20) || (($activeSlave.devotion >= -50) && ($activeSlave.trust <= 20)) || ($activeSlave.trust < -20)>>
-		[[Servants' Quarters|Assign][$returnTo = "Servants' Quarters"]]
-	<<else>>Servants' Quarters<</if>>
+	<<if $servantsQuarters != 0>>|
+	<<if $servantsQuarters > $servantsQuartersSlaves && ($activeSlave.devotion >= -20) || (($activeSlave.devotion >= -50) && ($activeSlave.trust <= 20)) || ($activeSlave.trust < -20)>>
+		[[Servants' Quarters|Assign][$returnTo = "Servants' Quarters", $i = _i]]
 	<<else>>Servants' Quarters<</if>>
 	<</if>>
-	<<if $masterSuite != 0>>
-	<<if $masterSuite > $masterSuiteSlaves>>|
-	<<if ($activeSlave.devotion > 20) || (($activeSlave.devotion >= -50) && ($activeSlave.trust < -20)) || ($activeSlave.trust < -50)>>
-		[[Master Suite|Assign][$returnTo = "Master Suite"]]
-	<<else>>Master Suite<</if>>
+	<<if $masterSuite != 0>>|
+	<<if $masterSuite > $masterSuiteSlaves && ($activeSlave.devotion > 20) || (($activeSlave.devotion >= -50) && ($activeSlave.trust < -20)) || ($activeSlave.trust < -50)>>
+		[[Master Suite|Assign][$returnTo = "Master Suite", $i = _i]]
 	<<else>>Master Suite<</if>>
 	<</if>>
-	<<if $spa != 0>>
-	<<if $spa > $spaSlaves>>|
-	<<if ($activeSlave.health < 20) || ($activeSlave.trust < 60) || ($activeSlave.devotion <= 60) || ($activeSlave.fetish == "mindbroken")>>
-		[[Spa|Assign][$returnTo = "Spa"]]
-	<<else>>Spa<</if>>
+	<<if $spa != 0>>|
+	<<if $spa > $spaSlaves && ($activeSlave.health < 20) || ($activeSlave.trust < 60) || ($activeSlave.devotion <= 60) || ($activeSlave.fetish == "mindbroken")>>
+		[[Spa|Assign][$returnTo = "Spa", $i = _i]]
 	<<else>>Spa<</if>>
 	<</if>>
-	<<if $clinic != 0>>
-	<<if $clinic > $clinicSlaves>>|
-	<<if ($activeSlave.health < 20) || (($activeSlave.chem > 15) && ($clinicUpgradeFilters == 1))>>
-		[[Clinic|Assign][$returnTo = "Clinic"]]
-	<<else>>Clinic<</if>>
+	<<if $clinic != 0>>|
+	<<if $clinic > $clinicSlaves && ($activeSlave.health < 20) || (($activeSlave.chem > 15) && ($clinicUpgradeFilters == 1))>>
+		[[Clinic|Assign][$returnTo = "Clinic", $i = _i]]
 	<<else>>Clinic<</if>>
 	<</if>>
-	<<if $schoolroom != 0>>
-	<<if $schoolroom > $schoolroomSlaves>>|
-	<<if ($activeSlave.devotion >= -20) || (($activeSlave.devotion >= -50) && ($activeSlave.trust < -20)) || ($activeSlave.trust < -50)>>
-		[[Schoolroom|Assign][$returnTo = "Schoolroom"]]
-	<<else>>Schoolroom<</if>>
+	<<if $schoolroom != 0>>|
+	<<if $schoolroom > $schoolroomSlaves && ($activeSlave.devotion >= -20) || (($activeSlave.devotion >= -50) && ($activeSlave.trust < -20)) || ($activeSlave.trust < -50)>>
+		[[Schoolroom|Assign][$returnTo = "Schoolroom", $i = _i]]
 	<<else>>Schoolroom<</if>>
 	<</if>>
-	<<if $cellblock != 0>>
-	<<if $cellblock > $cellblockSlaves>>|
-	<<if (($activeSlave.devotion < -20) && ($activeSlave.trust >= -20)) || (($activeSlave.devotion < -50) && ($activeSlave.trust >= -50))>>
-		[[Cellblock|Assign][$returnTo = "Cellblock"]]
-	<<else>>Cellblock<</if>>
+	<<if $cellblock != 0>>|
+	<<if $cellblock > $cellblockSlaves && (($activeSlave.devotion < -20) && ($activeSlave.trust >= -20)) || (($activeSlave.devotion < -50) && ($activeSlave.trust >= -50))>>
+		[[Cellblock|Assign][$returnTo = "Cellblock", $i = _i]]
 	<<else>>Cellblock<</if>>
 	<</if>>
 <</if>>
-<<if $arcade != 0>>
-<<if $arcade > $cellblockSlaves>>|
-<<if ($activeSlave.indentureRestrictions <= 0)>>
-	[[Arcade|Assign][$returnTo = "Arcade"]]
-<<else>>Arcade<</if>>
+<<if $arcade != 0>>|
+<<if $arcade > $cellblockSlaves && ($activeSlave.indentureRestrictions <= 0)>>
+	[[Arcade|Assign][$returnTo = "Arcade", $i = _i]]
 <<else>>Arcade<</if>>
 <</if>>
 <</if>>
@@ -527,8 +511,8 @@ __Diet__: <strong><span id="diet"><<print $activeSlave.diet>></span></strong>.
 <br>
 
 __Diet Base__: <strong><span id="dietBase"><<if $activeSlave.dietCum == 2>>Cum Based<<elseif ($activeSlave.dietCum == 1) && ($activeSlave.dietMilk == 0)>>Cum Added<<elseif ($activeSlave.dietCum == 1) && ($activeSlave.dietMilk == 1)>>Cum and Milk Added<<elseif ($activeSlave.dietMilk == 1) && ($activeSlave.dietCum == 0)>>Milk Added<<elseif ($activeSlave.dietMilk == 2)>>Milk Based<<elseif ($activeSlave.dietCum == 0) && ($activeSlave.dietMilk == 0)>>Normal<<else>>THERE HAS BEEN AN ERROR<</if>></span></strong>
-<<link "Normal">><<set $activeSlave.dietCum = 0>><<set $activeSlave.dietMilk = 0>><<replace "#dietBase">>Normal<</replace>><</link>> | 
-<<link "Cum Added">><<set $activeSlave.dietCum = 1>><<set $activeSlave.dietMilk = 0>><<replace "#dietBase">>Cum Added<</replace>><</link>> | 
+<<link "Normal">><<set $activeSlave.dietCum = 0>><<set $activeSlave.dietMilk = 0>><<replace "#dietBase">>Normal<</replace>><</link>> |
+<<link "Cum Added">><<set $activeSlave.dietCum = 1>><<set $activeSlave.dietMilk = 0>><<replace "#dietBase">>Cum Added<</replace>><</link>> |
 <<link "Milk Added">><<set $activeSlave.dietCum = 0>><<set $activeSlave.dietMilk = 1>><<replace "#dietBase">>Milk Added<</replace>><</link>> |
 <<link "Cum & Milk Added">><<set $activeSlave.dietCum = 1>><<set $activeSlave.dietMilk = 1>><<replace "#dietBase">>Cum & Milk Added<</replace>><</link>> |
 <<link "Cum Based">><<set $activeSlave.dietCum = 2>><<set $activeSlave.dietMilk = 0>><<replace "#dietBase">>Cum Based<</replace>><</link>> |
