@@ -141,21 +141,28 @@
 			<<else>>
 				is having idle sex with several of your other toys while they await your pleasure.
 				<<if ($activeSlave.fetishKnown == 1)>>
-					<<if ($activeSlave.fetish == "buttslut")>>
-					She's happily taking a strap-on up her asspussy.
-					<<elseif ($activeSlave.fetish == "cumslut")>>
-					She's happily performing oral on another slave.
-					<<elseif ($activeSlave.fetish == "dom")>>
-					She's holding another slave down while she fucks her.
-					<<elseif ($activeSlave.fetish == "submissive")>>
-					She's letting another slave hold her down as she fucks her.
-					<<elseif ($activeSlave.fetish == "sadist")>>
-					She's spanking another slave with one hand and giving her a handjob with the other.
-					<<elseif ($activeSlave.fetish == "masochist")>>
-					Another slave is spanking her and giving her a handjob at the same time.
-					<<elseif ($activeSlave.fetish == "boobs")>>
-					She has a slave sucking on each of her nipples while she gives each a handjob.
-					<</if>>
+					<<switch $activeSlave.fetish>>
+					<<case "buttslut">>
+						She's happily taking a strap-on up her asspussy.
+					<<case "cumslut">>
+						She's happily performing oral on another slave.
+					<<case "dom">>
+						She's holding another slave down while she fucks her.
+					<<case "submissive">>
+						She's letting another slave hold her down as she fucks her.
+					<<case "sadist">>
+						She's spanking another slave with one hand and giving her a handjob with the other.
+					<<case "masochist">>
+						Another slave is spanking her and giving her a handjob at the same time.
+					<<case "boobs">>
+						She has a slave sucking on each of her nipples while she gives each a handjob.
+					<<case "pregnancy">>
+						<<if $activeSlave.preg > 20>>
+							She's sighing contentedly as her rounded belly is sensually rubbed.
+						<<else>>
+							She's happily roleplaying conceiving a child as she gets fucked.
+						<</if>>
+					<</switch>>
 				<</if>>
 			<</if>>
 		<</if>>
@@ -363,7 +370,7 @@
 	<<case "work in the dairy">>
 		<<if ($dairyRestraintsSetting > 1)>>
 		is strapped to a milking machine in $dairyName.
-		<<elseif (_partnerSlave.race.lactation == 0) && (_partnerSlave.race.balls > 0)>>
+		<<elseif (_partnerSlave.lactation == 0) && (_partnerSlave.balls > 0)>>
 		is working in $dairyName, and is having her cock milked. As you watch, her balls tighten as the phallus up her butt brings her closer to a copious ejaculation.
 		<<elseif _seed > 50>>
 		is working in $dairyName, having her tits milked.
@@ -497,14 +504,14 @@
 	<<set _seed = random(1,3)>>
 	<<if _seed == 1>> /* SEXY TIMES */
 
-	<<if (($activeSlave.fetish == "dom") || ($activeSlave.fetish == "sadist")) && ($activeSlave.dick > 0) && ($activeSlave.balls > 0) && ($activeSlave.dickAccessory !== "chastity") && ($activeSlave.hormones <= 0) && ((_partnerSlave.fetish == "dom") || (_partnerSlave.fetish == "sadist")) && (_partnerSlave.dick > 0) && (_partnerSlave.balls > 0) && (_partnerSlave.dickAccessory !== "chastity") && (_partnerSlave.hormones <= 0)>>
+	<<if (($activeSlave.fetish == "dom") || ($activeSlave.fetish == "sadist")) && ($activeSlave.dick > 0) && canPenetrate($activeSlave) && ((_partnerSlave.fetish == "dom") || (_partnerSlave.fetish == "sadist")) && (_partnerSlave.dick > 0) && canPenetrate(_partnerSlave)>>
 		performing double anal on another slave. They're face to face over their sub's shoulders, looking into each other's eyes with every appearance of enjoyment and love, since for them rubbing dicks inside another slave's butt is what constitutes healthy sexual activity. _partnerSlave.slaveName is on the bottom, and holds their victim atop her with _partnerSlave.slaveName's cock already hilted in her ass so $activeSlave.slaveName can force herself inside as well. They enjoy the overstimulated girl's struggles.
 		<<set $activeSlave.penetrativeCount++, _partnerSlave.penetrativeCount++, $penetrativeTotal += 2>>
 	<<elseif ($activeSlave.energy > 95)>>
-		having loud sex <<if $activeSlave.livingRules == "spare">>in the nice little room they share.<<elseif ($activeSlave.ID == $HeadGirl.ID) && ($HGSuite == 1)>>in $activeSlave.ID's suite.<<else>>out in the open in the slave dormitory.<</if>> $activeSlave.slaveName is such a sexual addict that she wants it all the time, and _partnerSlave.slaveName does her best to help her _activeSlaveRel get off.
+		having loud sex <<if $activeSlave.livingRules == "luxurious">>in the nice little room they share.<<elseif ($activeSlave.ID == $HeadGirl.ID) && ($HGSuite == 1)>>in $activeSlave.ID's suite.<<else>>out in the open in the slave dormitory.<</if>> $activeSlave.slaveName is such a sexual addict that she wants it all the time, and _partnerSlave.slaveName does her best to help her _activeSlaveRel get off.
 		<<if ($activeSlave.vagina > 0) || ($activeSlave.anus > 0)>>
 			$activeSlave.slaveName is down on her knees in front of _partnerSlave.slaveName, taking
-			<<if (_partnerSlave.dick > 1) && (_partnerSlave.balls > 0) && (_partnerSlave.dickAccessory !== "chastity") && (_partnerSlave.dickAccessory !== "combined chastity") && (_partnerSlave.hormones < 1)>>
+			<<if (_partnerSlave.dick > 1) && canPenetrate(_partnerSlave)>>
 				her cock doggy style,
 			<<elseif (_partnerSlave.dick > 1)>>
 				a finger fuck, since her _activeSlaveRel is impotent,
@@ -523,10 +530,10 @@
 			They're scissoring enthusiastically and playing with each other's breasts.
 			<<set $activeSlave.mammaryCount++, _partnerSlave.mammaryCount++, $mammaryTotal += 2>>
 		<</if>>
-	<<elseif ($activeSlave.fetishStrength > 60) && ($activeSlave.fetishKnown == 1) && ($activeSlave.fetish !== "pregnancy")>>
+	<<elseif ($activeSlave.fetishStrength > 60) && ($activeSlave.fetishKnown == 1)>>
 	<<switch $activeSlave.fetish>>
 	<<case "boobs">>
-		snuggling rather sexually <<if $activeSlave.livingRules == "spare">>in the nice little room they share.<<elseif ($activeSlave.ID == $HeadGirl.ID) && ($HGSuite == 1)>>in $activeSlave.ID's suite.<<else>>out in the open in the slave dormitory.<</if>> $activeSlave.slaveName loves having her breasts touched and massaged, so _partnerSlave.slaveName looks after her _activeSlaveRel's tits.
+		snuggling rather sexually <<if $activeSlave.livingRules == "luxurious">>in the nice little room they share.<<elseif ($activeSlave.ID == $HeadGirl.ID) && ($HGSuite == 1)>>in $activeSlave.ID's suite.<<else>>out in the open in the slave dormitory.<</if>> $activeSlave.slaveName loves having her breasts touched and massaged, so _partnerSlave.slaveName looks after her _activeSlaveRel's tits.
 		<<if (_partnerSlave.amp == 1)>>
 			Since _partnerSlave.slaveName is an amputee $activeSlave.slaveName has her propped on her belly so she can easily suckle and nuzzle.
 		<<else>>
@@ -534,10 +541,10 @@
 		<</if>>
 		<<set $activeSlave.mammaryCount++, _partnerSlave.mammaryCount++, $mammaryTotal += 2>>
 	<<case "buttslut">>
-		having loud buttsex <<if $activeSlave.livingRules == "spare">>in the nice little room they share.<<elseif ($activeSlave.ID == $HeadGirl.ID) && ($HGSuite == 1)>>in $activeSlave.ID's suite.<<else>>out in the open in the slave dormitory.<</if>> $activeSlave.slaveName is such an anal addict that she wants it all the time, and _partnerSlave.slaveName does her best to keep her _activeSlaveRel satisfied.
+		having loud buttsex <<if $activeSlave.livingRules == "luxurious">>in the nice little room they share.<<elseif ($activeSlave.ID == $HeadGirl.ID) && ($HGSuite == 1)>>in $activeSlave.ID's suite.<<else>>out in the open in the slave dormitory.<</if>> $activeSlave.slaveName is such an anal addict that she wants it all the time, and _partnerSlave.slaveName does her best to keep her _activeSlaveRel satisfied.
 		<<if ($activeSlave.anus > 0)>>
 			$activeSlave.slaveName is down on her knees in front of _partnerSlave.slaveName, taking
-			<<if (_partnerSlave.dick > 1) && (_partnerSlave.balls > 0) && (_partnerSlave.hormones < 1) && (_partnerSlave.dickAccessory !== "chastity")>>
+			<<if (_partnerSlave.dick > 1) && canPenetrate(_partnerSlave)>>
 				her cock up the butt.
 				<<if ($activeSlave.anus > 2) && (_partnerSlave.dick > 2)>>
 					$activeSlave.slaveName is clearly enjoying getting buttfucked by a cock big enough to make her feel tight again.
@@ -578,8 +585,8 @@
 			<<set $activeSlave.oralCount++, _partnerSlave.oralCount++, $oralTotal += 2>>
 		<</if>>
 	<<case "cumslut">>
-		sharing oral pleasure <<if $activeSlave.livingRules == "spare">>in the nice little room they share.<<elseif ($activeSlave.ID == $HeadGirl.ID) && ($HGSuite == 1)>>in $activeSlave.ID's suite.<<else>>out in the open in the slave dormitory.<</if>> $activeSlave.slaveName is such an oral addict that she wants it all the time, and _partnerSlave.slaveName certainly doesn't mind all the loving oral attention. They're lying down to 69 comfortably,
-		<<if (_partnerSlave.dick > 1) && (_partnerSlave.balls > 0) && (_partnerSlave.dickAccessory !== "chastity") && (_partnerSlave.hormones < 1)>>
+		sharing oral pleasure <<if $activeSlave.livingRules == "luxurious">>in the nice little room they share.<<elseif ($activeSlave.ID == $HeadGirl.ID) && ($HGSuite == 1)>>in $activeSlave.ID's suite.<<else>>out in the open in the slave dormitory.<</if>> $activeSlave.slaveName is such an oral addict that she wants it all the time, and _partnerSlave.slaveName certainly doesn't mind all the loving oral attention. They're lying down to 69 comfortably,
+		<<if (_partnerSlave.dick > 1) && canPenetrate(_partnerSlave)>>
 			with $activeSlave.slaveName hungrily sucking her _activeSlaveRel's turgid cock.
 			<<set _partnerSlave.penetrativeCount++, $penetrativeTotal++>>
 		<<elseif (_partnerSlave.dick > 1) && (_partnerSlave.anus > 0)>>
@@ -594,8 +601,8 @@
 		<</if>>
 		<<set $activeSlave.oralCount++, $oralTotal++>>
 	<<case "submissive">>
-		wrestling <<if $activeSlave.livingRules == "spare">>in the nice little room they share.<<elseif ($activeSlave.ID == $HeadGirl.ID) && ($HGSuite == 1)>>in $activeSlave.ID's suite.<<else>>out in the open in the slave dormitory.<</if>> $activeSlave.slaveName is such a submissive that she wants it rough all the time, and _partnerSlave.slaveName does her best give her _activeSlaveRel the constant abuse she loves. $activeSlave.slaveName is down on her knees in front of _partnerSlave.slaveName, worshipping
-		<<if (_partnerSlave.dick > 1) && (_partnerSlave.balls > 0) && (_partnerSlave.dickAccessory !== "chastity") && (_partnerSlave.hormones < 1)>>
+		wrestling <<if $activeSlave.livingRules == "luxurious">>in the nice little room they share.<<elseif ($activeSlave.ID == $HeadGirl.ID) && ($HGSuite == 1)>>in $activeSlave.ID's suite.<<else>>out in the open in the slave dormitory.<</if>> $activeSlave.slaveName is such a submissive that she wants it rough all the time, and _partnerSlave.slaveName does her best give her _activeSlaveRel the constant abuse she loves. $activeSlave.slaveName is down on her knees in front of _partnerSlave.slaveName, worshipping
+		<<if (_partnerSlave.dick > 1) && canPenetrate(_partnerSlave)>>
 			her cock
 			<<set _partnerSlave.penetrativeCount++, $penetrativeTotal++>>
 		<<elseif (_partnerSlave.dick > 1)>>
@@ -608,8 +615,8 @@
 		while _partnerSlave.slaveName rains light slaps and loving insults down on her bitch of a _activeSlaveRel.
 		<<set $activeSlave.oralCount++, $oralTotal++>>
 	<<case "dom">>
-		wrestling <<if $activeSlave.livingRules == "spare">>in the nice little room they share.<<elseif ($activeSlave.ID == $HeadGirl.ID) && ($HGSuite == 1)>>in $activeSlave.ID's suite.<<else>>out in the open in the slave dormitory.<</if>> $activeSlave.slaveName is so dominant with other slaves that she prefers to take what she wants, and _partnerSlave.slaveName does her best give her _activeSlaveRel the struggle fucking she loves. $activeSlave.slaveName is on top of _partnerSlave.slaveName getting oral, though it's more of a rough facefuck as $activeSlave.slaveName forces
-		<<if ($activeSlave.dick > 1) && ($activeSlave.balls > 0) && (_partnerSlave.dickAccessory !== "chastity") && ($activeSlave.hormones < 1)>>
+		wrestling <<if $activeSlave.livingRules == "luxurious">>in the nice little room they share.<<elseif ($activeSlave.ID == $HeadGirl.ID) && ($HGSuite == 1)>>in $activeSlave.ID's suite.<<else>>out in the open in the slave dormitory.<</if>> $activeSlave.slaveName is so dominant with other slaves that she prefers to take what she wants, and _partnerSlave.slaveName does her best give her _activeSlaveRel the struggle fucking she loves. $activeSlave.slaveName is on top of _partnerSlave.slaveName getting oral, though it's more of a rough facefuck as $activeSlave.slaveName forces
+		<<if ($activeSlave.dick > 1) && canPenetrate($activeSlave)>>
 			her cock
 		<<else>>
 			a strap-on
@@ -617,19 +624,19 @@
 		down _partnerSlave.slaveName's throat.
 		<<set _partnerSlave.oralCount++, $activeSlave.penetrativeCount++, $oralTotal++, $penetrativeTotal++>>
 	<<case "sadist">>
-		playing pain games <<if $activeSlave.livingRules == "spare">>in the nice little room they share.<<elseif ($activeSlave.ID == $HeadGirl.ID) && ($HGSuite == 1)>>in $activeSlave.ID's suite.<<else>>out in the open in the slave dormitory.<</if>> $activeSlave.slaveName loves hurting other slaves, even her friends, and _partnerSlave.slaveName submits to her agonizing ministrations as often as $activeSlave.slaveName can cajole or force her into it. $activeSlave.slaveName has _partnerSlave.slaveName over her knee and is methodically tanning _partnerSlave.slaveName's $activeSlave.skin ass.
+		playing pain games <<if $activeSlave.livingRules == "luxurious">>in the nice little room they share.<<elseif ($activeSlave.ID == $HeadGirl.ID) && ($HGSuite == 1)>>in $activeSlave.ID's suite.<<else>>out in the open in the slave dormitory.<</if>> $activeSlave.slaveName loves hurting other slaves, even her friends, and _partnerSlave.slaveName submits to her agonizing ministrations as often as $activeSlave.slaveName can cajole or force her into it. $activeSlave.slaveName has _partnerSlave.slaveName over her knee and is methodically tanning _partnerSlave.slaveName's $activeSlave.skin ass.
 	<<case "masochist">>
-		playing pain games <<if $activeSlave.livingRules == "spare">>in the nice little room they share.<<elseif ($activeSlave.ID == $HeadGirl.ID) && ($HGSuite == 1)>>in $activeSlave.ID's suite.<<else>>out in the open in the slave dormitory.<</if>> $activeSlave.slaveName loves being hurt, so _partnerSlave.slaveName frequently indulges her with spanking, slapping, pinching, and more exotic forms of abuse. _partnerSlave.slaveName has $activeSlave.slaveName over her knee and is methodically tanning $activeSlave.slaveName's $activeSlave.skin ass.
+		playing pain games <<if $activeSlave.livingRules == "luxurious">>in the nice little room they share.<<elseif ($activeSlave.ID == $HeadGirl.ID) && ($HGSuite == 1)>>in $activeSlave.ID's suite.<<else>>out in the open in the slave dormitory.<</if>> $activeSlave.slaveName loves being hurt, so _partnerSlave.slaveName frequently indulges her with spanking, slapping, pinching, and more exotic forms of abuse. _partnerSlave.slaveName has $activeSlave.slaveName over her knee and is methodically tanning $activeSlave.slaveName's $activeSlave.skin ass.
 	<<case "humiliation">>
-		having open and visible sex <<if $activeSlave.livingRules == "spare">>in the doorway of the nice little room they share.<<else>>out in the hallway near the slave dormitory.<</if>> $activeSlave.slaveName pretends to hate fucking where other slaves can see her, but _partnerSlave.slaveName knows her _activeSlaveRel gets off on the mild humiliation. _partnerSlave.slaveName
+		having open and visible sex <<if $activeSlave.livingRules == "luxurious">>in the doorway of the nice little room they share.<<else>>out in the hallway near the slave dormitory.<</if>> $activeSlave.slaveName pretends to hate fucking where other slaves can see her, but _partnerSlave.slaveName knows her _activeSlaveRel gets off on the mild humiliation. _partnerSlave.slaveName
 		<<if ($activeSlave.vagina > 0) || ($activeSlave.anus > 0)>>
 			has her back propped up against a doorframe and $activeSlave.slaveName in her lap, so she can blush at any passing slave as she shyly rides _partnerSlave.slaveName's
-			<<if (_partnerSlave.dick > 1) && (_partnerSlave.balls > 0) && (_partnerSlave.dickAccessory !== "chastity") && (_partnerSlave.hormones < 1)>>
+			<<if (_partnerSlave.dick > 1) && canPenetrate(_partnerSlave)>>
 				cock
 			<<else>>
 				strap-on
 			<</if>>
-			<<if ($activeSlave.vagina > 0) && ($activeSlave.vaginalAccessory !== "chastity belt") && (random(1,100) > 50)>>
+			<<if ($activeSlave.vagina > 0) && canDoVaginal($activeSlave) && (random(1,100) > 50)>>
 				in her pussy.
 				<<VaginalVCheck>>
 			<<else>>
@@ -641,39 +648,61 @@
 			is giving $activeSlave.slaveName oral out in the open so she can blush and shiver as passing slaves see her climax.
 			<<set $activeSlave.oralCount++, _partnerSlave.oralCount++, $oralTotal += 2>>
 		<</if>>
+	<<case "pregnancy">>
+		having intimate sex <<if $activeSlave.livingRules == "luxurious">>in the nice little room they share.<<elseif ($activeSlave.ID == $HeadGirl.ID) && ($HGSuite == 1)>>in $activeSlave.ID's suite.<<else>>out in the open in the slave dormitory.<</if>> $activeSlave.slaveName's <<if $activeSlave.preg > 10>>middle is round with child<<else>>desire to be bred is raging<</if>>, and _partnerSlave.slaveName does her best to keep her _activeSlaveRel satisfied.
+		_partnerSlave.slaveName
+		<<if ($activeSlave.vagina > 0) || ($activeSlave.anus > 0)>>
+			<<if _partnerSlave.preg > 20>> is heavily pregnant herself, so she has $activeSlave.slaveName on her back so that she can penetrate her as best she can with her<<elseif _partnerSlave.preg > 10>> is pregnant herself, so she has $activeSlave.slaveName on her back so that she can penetrate her easier with her<<else>>has $activeSlave.slaveName on her back so that tease her belly as she fucks her with her<</if>>
+			<<if (_partnerSlave.dick > 1) && canPenetrate(_partnerSlave)>>
+				cock
+			<<else>>
+				strap-on
+			<</if>>
+			<<if ($activeSlave.vagina > 0) && canDoVaginal($activeSlave) && (random(1,100) > 50)>>
+				in her <<if $activeSlave.preg > 10>>pregnant <</if>>pussy.
+				<<VaginalVCheck>>
+			<<else>>
+				in her ass.
+				<<AnalVCheck>>
+			<</if>>
+			<<set _partnerSlave.penetrativeCount++, $penetrativeTotal++>>
+		<<else>>
+			is giving $activeSlave.slaveName oral to try and sate her lust.
+			<<set $activeSlave.oralCount++, _partnerSlave.oralCount++, $oralTotal += 2>>
+		<</if>>
 	<</switch>>
 	<<elseif ($release == 1)>>
 		just spooning in bed. Since $activeSlave.slaveName gets fucked at work, _partnerSlave.slaveName understands that what she really wants from her is emotional intimacy. They're cuddling quietly, offering each other silent comfort and companionship.
-	<<elseif ($activeSlave.dick > 1) && ($activeSlave.balls > 0) && $activeSlave.dickAccessory !== ("chastity") && ($activeSlave.hormones < 1) && (_partnerSlave.vagina > 0) && canDoVaginal(_partnerSlave) && (_partnerSlave.amp !== 1) && ($activeSlave.amp !== 1)>>
-		<<if $activeSlave.livingRules == "spare">>in bed in the nice little room they share,<<else>>out in the open on $activeSlave.slaveName's bedroll in the slave dormitory,<</if>> making love in the missionary position. _partnerSlave.slaveName has her legs wrapped around $activeSlave.slaveName's waist and her arms hugging her around the chest, and is looking deep into her eyes as she enjoys the wonderful feeling of her _activeSlaveRel's cock in her womanhood.
+	<<elseif ($activeSlave.dick > 1) && canPenetrate($activeSlave) && (_partnerSlave.vagina > 0) && canDoVaginal(_partnerSlave) && (_partnerSlave.amp != 1) && ($activeSlave.amp != 1)>>
+		<<if $activeSlave.livingRules == "luxurious">>in bed in the nice little room they share,<<else>>out in the open on $activeSlave.slaveName's bedroll in the slave dormitory,<</if>> making love in the missionary position. _partnerSlave.slaveName has her legs wrapped around $activeSlave.slaveName's waist and her arms hugging her around the chest, and is looking deep into her eyes as she enjoys the wonderful feeling of her _activeSlaveRel's cock in her womanhood.
 		<<set $activeSlave.penetrativeCount++, _partnerSlave.vaginalCount++, $vaginalTotal++, $penetrativeTotal++>>
-	<<elseif ($activeSlave.clit > 2) && ($activeSlave.vaginalAccessory !== "chastity belt") && (_partnerSlave.vagina > 0) && canDoVaginal(_partnerSlave) && (_partnerSlave.amp !== 1) && ($activeSlave.amp !== 1)>>
-		<<if $activeSlave.livingRules == "spare">>in bed in the nice little room they share,<<else>>out in the open on $activeSlave.slaveName's bedroll in the slave dormitory,<</if>> making love in the missionary position. _partnerSlave.slaveName has her legs wrapped around $activeSlave.slaveName's waist and her arms hugging her around the chest, and is looking deep into her eyes as she enjoys the wonderful feeling of her _activeSlaveRel's huge clit in her womanhood.
+	<<elseif ($activeSlave.clit > 2) && ($activeSlave.vaginalAccessory != "chastity belt") && (_partnerSlave.vagina > 0) && canDoVaginal(_partnerSlave) && (_partnerSlave.amp != 1) && ($activeSlave.amp != 1)>>
+		<<if $activeSlave.livingRules == "luxurious">>in bed in the nice little room they share,<<else>>out in the open on $activeSlave.slaveName's bedroll in the slave dormitory,<</if>> making love in the missionary position. _partnerSlave.slaveName has her legs wrapped around $activeSlave.slaveName's waist and her arms hugging her around the chest, and is looking deep into her eyes as she enjoys the wonderful feeling of her _activeSlaveRel's huge clit in her womanhood.
 		<<set _partnerSlave.vaginalCount++, $activeSlave.penetrativeCount++, $vaginalTotal++, $penetrativeTotal++>>
-	<<elseif ($activeSlave.dick > 1) && ($activeSlave.balls > 0) && $activeSlave.dickAccessory !== ("chastity") && ($activeSlave.hormones < 1) && canDoAnal(_partnerSlave) && (_partnerSlave.anus > 0) && (_partnerSlave.amp !== 1) && ($activeSlave.amp !== 1)>>
-		<<if $activeSlave.livingRules == "spare">>in bed in the nice little room they share,<<else>>out in the open on $activeSlave.slaveName's bedroll in the slave dormitory,<</if>> having gentle anal sex while spooning. $activeSlave.slaveName is enjoying _partnerSlave.slaveName's ass, and is doing her best to ensure her _activeSlaveRel enjoys being buttfucked. She's nibbling her _activeSlaveRel's ears and neck, cupping a breast with one hand, and lightly stimulating her with the other.
+	<<elseif ($activeSlave.dick > 1) && canPenetrate($activeSlave) && canDoAnal(_partnerSlave) && (_partnerSlave.anus > 0) && (_partnerSlave.amp != 1) && ($activeSlave.amp != 1)>>
+		<<if $activeSlave.livingRules == "luxurious">>in bed in the nice little room they share,<<else>>out in the open on $activeSlave.slaveName's bedroll in the slave dormitory,<</if>> having gentle anal sex while spooning. $activeSlave.slaveName is enjoying _partnerSlave.slaveName's ass, and is doing her best to ensure her _activeSlaveRel enjoys being buttfucked. She's nibbling her _activeSlaveRel's ears and neck, cupping a breast with one hand, and lightly stimulating her with the other.
 		<<set _partnerSlave.analCount++, $activeSlave.penetrativeCount++, $analTotal++, $penetrativeTotal++>>
-	<<elseif ($activeSlave.clit > 2) && canDoAnal(_partnerSlave) && (_partnerSlave.anus > 0) && (_partnerSlave.amp !== 1) && ($activeSlave.amp !== 1)>>
-		<<if $activeSlave.livingRules == "spare">>in bed in the nice little room they share,<<else>>out in the open on $activeSlave.slaveName's bedroll in the slave dormitory,<</if>> managing to have clitoral-anal sex. _partnerSlave.slaveName is facedown with her ass up, spreading her buttocks as wide as possible, giving her _activeSlaveRel the opportunity to squat over her and penetrate it with her huge, erect clit. $activeSlave.slaveName can't thrust much, but the shocking lewdness of the act is enough for both of them.
+	<<elseif ($activeSlave.clit > 2) && canDoAnal(_partnerSlave) && (_partnerSlave.anus > 0) && (_partnerSlave.amp != 1) && ($activeSlave.amp != 1)>>
+		<<if $activeSlave.livingRules == "luxurious">>in bed in the nice little room they share,<<else>>out in the open on $activeSlave.slaveName's bedroll in the slave dormitory,<</if>> managing to have clitoral-anal sex. _partnerSlave.slaveName is facedown with her ass up, spreading her buttocks as wide as possible, giving her _activeSlaveRel the opportunity to squat over her and penetrate it with her huge, erect clit. $activeSlave.slaveName can't thrust much, but the shocking lewdness of the act is enough for both of them.
 		<<set _partnerSlave.analCount++, $activeSlave.penetrativeCount++, $analTotal++, $penetrativeTotal++>>
-	<<elseif ($activeSlave.dick > 1) && ($activeSlave.balls > 0) && $activeSlave.dickAccessory !== ("chastity") && ($activeSlave.hormones < 1) && (_partnerSlave.amp !== 1) && ($activeSlave.amp !== 1)>>
-		<<if $activeSlave.livingRules == "spare">>in bed in the nice little room they share,<<else>>out in the open on $activeSlave.slaveName's bedroll in the slave dormitory,<</if>> spooning while $activeSlave.slaveName gently rubs her cock between _partnerSlave.slaveName's thighs, pressed tightly together. Since _partnerSlave.slaveName is a virgin, this is the closest they can come to penetrative intercourse, but $activeSlave.slaveName is enjoying _partnerSlave.slaveName's body anyway, and is doing her best to ensure her _activeSlaveRel enjoys herself. She's nibbling her _activeSlaveRel's ears and neck, cupping a breast with one hand, and lightly stimulating her with the other.
+	<<elseif ($activeSlave.dick > 1) && canPenetrate($activeSlave) && (_partnerSlave.amp != 1) && ($activeSlave.amp != 1)>>
+		<<if $activeSlave.livingRules == "luxurious">>in bed in the nice little room they share,<<else>>out in the open on $activeSlave.slaveName's bedroll in the slave dormitory,<</if>> spooning while $activeSlave.slaveName gently rubs her cock between _partnerSlave.slaveName's thighs, pressed tightly together. Since _partnerSlave.slaveName is a virgin, this is the closest they can come to penetrative intercourse, but $activeSlave.slaveName is enjoying _partnerSlave.slaveName's body anyway, and is doing her best to ensure her _activeSlaveRel enjoys herself. She's nibbling her _activeSlaveRel's ears and neck, cupping a breast with one hand, and lightly stimulating her with the other.
 		<<set $activeSlave.penetrativeCount++, $penetrativeTotal++>>
-	<<elseif ($activeSlave.clit > 2) && ($activeSlave.vaginalAccessory !== "chastity belt") && (_partnerSlave.amp !== 1) && ($activeSlave.amp !== 1)>>
-		<<if $activeSlave.livingRules == "spare">>in the nice little room they share,<<else>>out in the open in the slave dormitory,<</if>> with _partnerSlave.slaveName down on her knees in front of $activeSlave.slaveName. From behind _partnerSlave.slaveName it looks like she's giving her _activeSlaveRel a conventional, if enthusiastic, blowjob. Only on closer inspection does it become clear how unusual the oral is: $activeSlave.slaveName has such a huge clit that her _activeSlaveRel can suck her off just like it were a penis.
+	<<elseif ($activeSlave.clit > 2) && ($activeSlave.vaginalAccessory != "chastity belt") && (_partnerSlave.amp != 1) && ($activeSlave.amp != 1)>>
+		<<if $activeSlave.livingRules == "luxurious">>in the nice little room they share,<<else>>out in the open in the slave dormitory,<</if>> with _partnerSlave.slaveName down on her knees in front of $activeSlave.slaveName. From behind _partnerSlave.slaveName it looks like she's giving her _activeSlaveRel a conventional, if enthusiastic, blowjob. Only on closer inspection does it become clear how unusual the oral is: $activeSlave.slaveName has such a huge clit that her _activeSlaveRel can suck her off just like it were a penis.
 		<<set _partnerSlave.oralCount++, $activeSlave.penetrativeCount++, $oralTotal++, $penetrativeTotal++>>
-	<<elseif (_partnerSlave.vagina > 0) && canDoVaginal(_partnerSlave) && (_partnerSlave.amp !== 1) && ($activeSlave.amp !== 1)>>
-		<<if $activeSlave.livingRules == "spare">>in bed in the nice little room they share,<<else>>out in the open on $activeSlave.slaveName's bedroll in the slave dormitory,<</if>> making love in the missionary position. _partnerSlave.slaveName has her legs wrapped around $activeSlave.slaveName's waist and her arms hugging her around the chest, and is looking deep into her eyes as she enjoys the feeling of her _activeSlaveRel fucking her with a strap-on.
+	<<elseif (_partnerSlave.vagina > 0) && canDoVaginal(_partnerSlave) && (_partnerSlave.amp != 1) && ($activeSlave.amp != 1)>>
+		<<if $activeSlave.livingRules == "luxurious">>in bed in the nice little room they share,<<else>>out in the open on $activeSlave.slaveName's bedroll in the slave dormitory,<</if>> making love in the missionary position. _partnerSlave.slaveName has her legs wrapped around $activeSlave.slaveName's waist and her arms hugging her around the chest, and is looking deep into her eyes as she enjoys the feeling of her _activeSlaveRel fucking her with a strap-on.
 		<<set _partnerSlave.vaginalCount++, $activeSlave.penetrativeCount++, $vaginalTotal++, $penetrativeTotal++>>
-	<<elseif (_partnerSlave.anus > 0) && (_partnerSlave.amp !== 1) && ($activeSlave.amp !== 1) && canDoAnal(_partnerSlave)>>
-		<<if $activeSlave.livingRules == "spare">>in bed in the nice little room they share,<<else>>out in the open on $activeSlave.slaveName's bedroll in the slave dormitory,<</if>> having gentle anal sex while spooning. $activeSlave.slaveName is enjoying penetrating _partnerSlave.slaveName's ass  with a strap-on, and is doing her best to ensure her _activeSlaveRel enjoys being buttfucked. She's nibbling her _activeSlaveRel's ears and neck, cupping a breast with one hand, and lightly stimulating her with the other.
+	<<elseif (_partnerSlave.anus > 0) && (_partnerSlave.amp != 1) && ($activeSlave.amp != 1) && canDoAnal(_partnerSlave)>>
+		<<if $activeSlave.livingRules == "luxurious">>in bed in the nice little room they share,<<else>>out in the open on $activeSlave.slaveName's bedroll in the slave dormitory,<</if>> having gentle anal sex while spooning. $activeSlave.slaveName is enjoying penetrating _partnerSlave.slaveName's ass  with a strap-on, and is doing her best to ensure her _activeSlaveRel enjoys being buttfucked. She's nibbling her _activeSlaveRel's ears and neck, cupping a breast with one hand, and lightly stimulating her with the other.
 		<<set _partnerSlave.analCount++, $activeSlave.penetrativeCount++, $analTotal++, $penetrativeTotal++>>
-	<<elseif (_partnerSlave.amp !== 1) && ($activeSlave.amp !== 1)>>
-		<<if $activeSlave.livingRules == "spare">>in bed in the nice little room they share,<<else>>out in the open on $activeSlave.slaveName's bedroll in the slave dormitory,<</if>> enjoying some mutual masturbation.
+	<<elseif (_partnerSlave.amp != 1) && ($activeSlave.amp != 1)>>
+		<<if $activeSlave.livingRules == "luxurious">>in bed in the nice little room they share,<<else>>out in the open on $activeSlave.slaveName's bedroll in the slave dormitory,<</if>> enjoying some mutual masturbation.
 	<<elseif (_partnerSlave.amp == 1)>>
-		just cuddling <<if $activeSlave.livingRules == "spare">>in bed in the nice little room they share.<<else>>on $activeSlave.slaveName's bedroll in the slave dormitory.<</if>> $activeSlave.slaveName is using _partnerSlave.slaveName's limbless torso as a pillow, which _partnerSlave.slaveName seems to be enjoying, by her contented expression.
+		just cuddling <<if $activeSlave.livingRules == "luxurious">>in bed in the nice little room they share.<<else>>on $activeSlave.slaveName's bedroll in the slave dormitory.<</if>> $activeSlave.slaveName is using _partnerSlave.slaveName's limbless torso as a pillow, which _partnerSlave.slaveName seems to be enjoying, by her contented expression.
 	<<else>>
-		just cuddling <<if $activeSlave.livingRules == "spare">>in bed in the nice little room they share.<<else>>on $activeSlave.slaveName's bedroll in the slave dormitory.<</if>> They're lying quietly, offering each other silent comfort and companionship.
+		just cuddling <<if $activeSlave.livingRules == "luxurious">>in bed in the nice little room they share.<<else>>on $activeSlave.slaveName's bedroll in the slave dormitory.<</if>> They're lying quietly, offering each other silent comfort and companionship.
 	<</if>>
 
 	<<elseif _seed == 2>> /* CUDDLE TIME */
@@ -681,7 +710,7 @@
 		lying in bed together. _partnerSlave.slaveName has somehow managed to exhaust her _activeSlaveRel, and the sexually sated nympho is curled up with her head on _partnerSlave.slaveName's chest, snoring lightly. _partnerSlave.slaveName is smiling fondly at her.
 	<<elseif (_partnerSlave.dick > 6) && ($activeSlave.amp !== 1)>>
 		sleeping in bed together. $activeSlave.slaveName is cuddled up close to _partnerSlave.slaveName, and is cradling her _activeSlaveRel's enormous, soft cock with one hand.
-	<<elseif ($activeSlave.fetishKnown == 1) && ($activeSlave.fetish !== "pregnancy")>>
+	<<elseif ($activeSlave.fetishKnown == 1)>>
 		<<switch $activeSlave.fetish>>
 		<<case "boobs">>
 			sleeping in bed together. $activeSlave.slaveName is using _partnerSlave.slaveName's <<if _partnerSlave.boobs > 2000>>enormous breasts<<elseif _partnerSlave.boobs > 1000>>huge boobs<<elseif _partnerSlave.boobs > 300>>healthy tits<<else>>flat chest<</if>>, which she loves, as a pillow.
@@ -693,6 +722,17 @@
 			sleeping in bed together. $activeSlave.slaveName is being spooned by her _activeSlaveRel, smiling peacefully at being held.
 		<<case "dom" "sadist">>
 			sleeping in bed together. $activeSlave.slaveName is spooning her _activeSlaveRel possessively<<if $activeSlave.amp !== 1>>, and even in her sleep, has a proprietary hand on _partnerSlave.slaveName's <<if _partnerSlave.balls > 0>>balls<<elseif _partnerSlave.balls > 0>>soft cock<<else>>pussy<</if>><</if>>.
+		<<case "pregnancy">>
+			sleeping in bed together. 
+			<<if $activeSlave.preg > 20 && _activeSlaveRel.preg > 20>>
+				They are pressed as close as they can be with their rounded middles in the way.
+			<<elseif $activeSlave.preg > 20>>
+				$activeSlave.slaveName is spooning her _activeSlaveRel possessively, her rounded belly pushing into her back.
+			<<elseif _activeSlaveRel.preg > 20>>
+				$activeSlave.slaveName is spooning her _activeSlaveRel possessively<<if $activeSlave.amp != 1>>, and even in her sleep, has a proprietary hand on _partnerSlave.slaveName's belly<</if>>.
+			<<else>>
+				$activeSlave.slaveName is being spooned by her _activeSlaveRel, smiling peacefully at being held.
+			<</if>>
 		<</switch>>
 	<<elseif $activeSlave.height > _partnerSlave.height>>
 		sleeping in bed together, with the taller $activeSlave.slaveName curled around her little _activeSlaveRel.
@@ -823,7 +863,7 @@
 	<<case "work in the dairy">>
 		<<if ($dairyRestraintsSetting > 1)>>
 		is strapped to a milking machine in $dairyName.
-		<<elseif (_partnerSlave.race.lactation == 0) && (_partnerSlave.race.balls > 0)>>
+		<<elseif (_partnerSlave.lactation == 0) && (_partnerSlave.balls > 0)>>
 		is working in $dairyName, and is having her cock milked. As you watch, her balls tighten as the phallus up her butt brings her closer to a copious ejaculation.
 		<<elseif _seed > 50>>
 		is working in $dairyName, having her tits milked.
