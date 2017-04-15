@@ -4,37 +4,37 @@ __Society__
 <br>
 
 <<if $FSCredits > 0>>
-	@@color:yellow;$arcologies[0].name's society is ready to begin accepting a new societal direction.@@
+	@@.yellow;$arcologies[0].name's society is ready to begin accepting a new societal direction.@@
 <</if>>
 
 <<if ($FSGotRepCreditOne != 1)>>
 <<if ($rep > 6000)>>
-	@@color:yellow;Your reputation is so solid that $arcologies[0].name's society is ready to begin accepting a second societal direction.@@
+	@@.yellow;Your reputation is so solid that $arcologies[0].name's society is ready to begin accepting a second societal direction.@@
 	<<set $FSGotRepCreditOne = 1, $FSCredits += 1>>
 <</if>>
 <</if>>
 <<if ($FSGotRepCreditTwo != 1)>>
 <<if ($rep > 9000)>>
-	@@color:yellow;Your reputation is so solid that $arcologies[0].name's society is ready to begin accepting a third societal direction.@@
+	@@.yellow;Your reputation is so solid that $arcologies[0].name's society is ready to begin accepting a third societal direction.@@
 	<<set $FSGotRepCreditTwo = 1, $FSCredits += 1>>
 <</if>>
 <</if>>
 <<if ($FSGotRepCreditThree != 1)>>
 <<if ($rep > 12000)>>
-	@@color:yellow;Your reputation is so good that $arcologies[0].name's society is ready to begin accepting a fourth societal direction.@@
+	@@.yellow;Your reputation is so good that $arcologies[0].name's society is ready to begin accepting a fourth societal direction.@@
 	<<set $FSGotRepCreditThree = 1, $FSCredits += 1>>
 <</if>>
 <</if>>
 <<if ($FSGotRepCreditFour != 1)>>
 <<if ($rep > 15000)>>
-	@@color:yellow;Your reputation is so unparalleled that $arcologies[0].name's society is ready to begin accepting a fifth and final societal direction.@@
+	@@.yellow;Your reputation is so unparalleled that $arcologies[0].name's society is ready to begin accepting a fifth and final societal direction.@@
 	<<set $FSGotRepCreditFour = 1, $FSCredits += 1>>
 <</if>>
 <</if>>
 
 <<set $seed = 0>>
 <<if $FSSpending > 1>>
-	Your @@color:yellowgreen;societal spending@@ helps forward your goals for the arcology's future.
+	Your @@.yellowgreen;societal spending@@ helps forward your goals for the arcology's future.
 	<<set $seed += Math.trunc($FSSpending/(1000-(500*$arcologies[0].FSEdoRevivalistLaw)-(250*$arcologies[0].FSArabianRevivalistLaw)))>>
 <</if>>
 <<if $terrain == "urban">>
@@ -380,7 +380,7 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <<if $arcologies[0].FSSupremacist != "unset">>
 <<if $arcologies[0].FSSupremacist < 0>>
 	<<set $arcologies[0].FSSupremacist = "unset">><<set $FSCredits += 1>>
-	@@color:red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@color:yellow;You may select another option, or elect to try again.@@
+	@@.red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@.yellow;You may select another option, or elect to try again.@@
 <<elseif $arcologies[0].FSSupremacist > $arcologies[0].FSSupremacistDecoration>>
 	<<set $arcologies[0].FSSupremacist = $arcologies[0].FSSupremacistDecoration>>
 <</if>>
@@ -397,7 +397,7 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <</if>>
 <<if $arcologies[0].FSSupremacistDecoration < $FSLockinLevel>>
 <<if $arcologies[0].FSSupremacist == $arcologies[0].FSSupremacistDecoration>>
-	@@color:yellow;Your societal development in this direction is being limited by $arcologies[0].name's lack of customization to support it.@@
+	@@.yellow;Your societal development in this direction is being limited by $arcologies[0].name's lack of customization to support it.@@
 <<elseif $arcologies[0].FSSupremacistSMR == 1>>
 	<<set $arcologies[0].FSSupremacist += 0.1*$FSSingleSlaveRep>>
 <</if>>
@@ -407,7 +407,7 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <<if $arcologies[0].FSSubjugationist != "unset">>
 <<if $arcologies[0].FSSubjugationist < 0>>
 	<<set $arcologies[0].FSSubjugationist = "unset">><<set $FSCredits += 1>>
-	@@color:red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@color:yellow;You may select another option, or elect to try again.@@
+	@@.red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@.yellow;You may select another option, or elect to try again.@@
 <<elseif $arcologies[0].FSSubjugationist > $arcologies[0].FSSubjugationistDecoration>>
 	<<set $arcologies[0].FSSubjugationist = $arcologies[0].FSSubjugationistDecoration>>
 <</if>>
@@ -424,7 +424,7 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <</if>>
 <<if $arcologies[0].FSSubjugationistDecoration < $FSLockinLevel>>
 <<if $arcologies[0].FSSubjugationist == $arcologies[0].FSSubjugationistDecoration>>
-	@@color:yellow;Your societal development in this direction is being limited by $arcologies[0].name's lack of customization to support it.@@
+	@@.yellow;Your societal development in this direction is being limited by $arcologies[0].name's lack of customization to support it.@@
 <<elseif $arcologies[0].FSSubjugationistSMR == 1>>
 	<<set $arcologies[0].FSSubjugationist += 0.1*$FSSingleSlaveRep>>
 <</if>>
@@ -434,7 +434,7 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <<if $arcologies[0].FSGenderRadicalist != "unset">>
 <<if $arcologies[0].FSGenderRadicalist < 0>>
 	<<set $arcologies[0].FSGenderRadicalist = "unset">><<set $FSCredits += 1>>
-	@@color:red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@color:yellow;You may select another option, or elect to try again.@@
+	@@.red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@.yellow;You may select another option, or elect to try again.@@
 <<elseif $arcologies[0].FSGenderRadicalist > $arcologies[0].FSGenderRadicalistDecoration>>
 	<<set $arcologies[0].FSGenderRadicalist = $arcologies[0].FSGenderRadicalistDecoration>>
 <</if>>
@@ -451,7 +451,7 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <</if>>
 <<if $arcologies[0].FSGenderRadicalistDecoration < $FSLockinLevel>>
 <<if $arcologies[0].FSGenderRadicalist == $arcologies[0].FSGenderRadicalistDecoration>>
-	@@color:yellow;Your societal development in this direction is being limited by $arcologies[0].name's lack of customization to support it.@@
+	@@.yellow;Your societal development in this direction is being limited by $arcologies[0].name's lack of customization to support it.@@
 <<elseif $arcologies[0].FSGenderRadicalistSMR == 1>>
 	<<set $arcologies[0].FSGenderRadicalist += 0.1*$FSSingleSlaveRep>>
 <</if>>
@@ -461,7 +461,7 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <<if $arcologies[0].FSGenderFundamentalist != "unset">>
 <<if $arcologies[0].FSGenderFundamentalist < 0>>
 	<<set $arcologies[0].FSGenderFundamentalist = "unset">><<set $FSCredits += 1>>
-	@@color:red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@color:yellow;You may select another option, or elect to try again.@@
+	@@.red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@.yellow;You may select another option, or elect to try again.@@
 <<elseif $arcologies[0].FSGenderFundamentalist > $arcologies[0].FSGenderFundamentalistDecoration>>
 	<<set $arcologies[0].FSGenderFundamentalist = $arcologies[0].FSGenderFundamentalistDecoration>>
 <</if>>
@@ -478,7 +478,7 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <</if>>
 <<if $arcologies[0].FSGenderFundamentalistDecoration < $FSLockinLevel>>
 <<if $arcologies[0].FSGenderFundamentalist == $arcologies[0].FSGenderFundamentalistDecoration>>
-	@@color:yellow;Your societal development in this direction is being limited by $arcologies[0].name's lack of customization to support it.@@
+	@@.yellow;Your societal development in this direction is being limited by $arcologies[0].name's lack of customization to support it.@@
 <<elseif $arcologies[0].FSGenderFundamentalistSMR == 1>>
 	<<set $arcologies[0].FSGenderFundamentalist += 0.1*$FSSingleSlaveRep>>
 <</if>>
@@ -488,7 +488,7 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <<if $arcologies[0].FSPaternalist != "unset">>
 <<if $arcologies[0].FSPaternalist < 0>>
 	<<set $arcologies[0].FSPaternalist = "unset">><<set $FSCredits += 1>>
-	@@color:red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@color:yellow;You may select another option, or elect to try again.@@
+	@@.red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@.yellow;You may select another option, or elect to try again.@@
 <<elseif $arcologies[0].FSPaternalist > $arcologies[0].FSPaternalistDecoration>>
 	<<set $arcologies[0].FSPaternalist = $arcologies[0].FSPaternalistDecoration>>
 <</if>>
@@ -505,7 +505,7 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <</if>>
 <<if $arcologies[0].FSPaternalistDecoration < $FSLockinLevel>>
 <<if $arcologies[0].FSPaternalist == $arcologies[0].FSPaternalistDecoration>>
-	@@color:yellow;Your societal development in this direction is being limited by $arcologies[0].name's lack of customization to support it.@@
+	@@.yellow;Your societal development in this direction is being limited by $arcologies[0].name's lack of customization to support it.@@
 <<elseif $arcologies[0].FSPaternalistSMR == 1>>
 	<<set $arcologies[0].FSPaternalist += 0.1*$FSSingleSlaveRep>>
 <</if>>
@@ -515,7 +515,7 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <<if $arcologies[0].FSDegradationist != "unset">>
 <<if $arcologies[0].FSDegradationist < 0>>
 	<<set $arcologies[0].FSDegradationist = "unset">><<set $FSCredits += 1>>
-	@@color:red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@color:yellow;You may select another option, or elect to try again.@@
+	@@.red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@.yellow;You may select another option, or elect to try again.@@
 <<elseif $arcologies[0].FSDegradationist > $arcologies[0].FSDegradationistDecoration>>
 	<<set $arcologies[0].FSDegradationist = $arcologies[0].FSDegradationistDecoration>>
 <</if>>
@@ -532,7 +532,7 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <</if>>
 <<if $arcologies[0].FSDegradationistDecoration < $FSLockinLevel>>
 <<if $arcologies[0].FSDegradationist == $arcologies[0].FSDegradationistDecoration>>
-	@@color:yellow;Your societal development in this direction is being limited by $arcologies[0].name's lack of customization to support it.@@
+	@@.yellow;Your societal development in this direction is being limited by $arcologies[0].name's lack of customization to support it.@@
 <<elseif $arcologies[0].FSDegradationistSMR == 1>>
 	<<set $arcologies[0].FSDegradationist += 0.1*$FSSingleSlaveRep>>
 <</if>>
@@ -542,7 +542,7 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <<if $arcologies[0].FSBodyPurist != "unset">>
 <<if $arcologies[0].FSBodyPurist < 0>>
 	<<set $arcologies[0].FSBodyPurist = "unset">><<set $FSCredits += 1>>
-	@@color:red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@color:yellow;You may select another option, or elect to try again.@@
+	@@.red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@.yellow;You may select another option, or elect to try again.@@
 <<elseif $arcologies[0].FSBodyPurist > $arcologies[0].FSBodyPuristDecoration>>
 	<<set $arcologies[0].FSBodyPurist = $arcologies[0].FSBodyPuristDecoration>>
 <</if>>
@@ -559,7 +559,7 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <</if>>
 <<if $arcologies[0].FSBodyPuristDecoration < $FSLockinLevel>>
 <<if $arcologies[0].FSBodyPurist == $arcologies[0].FSBodyPuristDecoration>>
-	@@color:yellow;Your societal development in this direction is being limited by $arcologies[0].name's lack of customization to support it.@@
+	@@.yellow;Your societal development in this direction is being limited by $arcologies[0].name's lack of customization to support it.@@
 <<elseif $arcologies[0].FSBodyPuristSMR == 1>>
 	<<set $arcologies[0].FSBodyPurist += 0.1*$FSSingleSlaveRep>>
 <</if>>
@@ -569,7 +569,7 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <<if $arcologies[0].FSTransformationFetishist != "unset">>
 <<if $arcologies[0].FSTransformationFetishist < 0>>
 	<<set $arcologies[0].FSTransformationFetishist = "unset">><<set $FSCredits += 1>>
-	@@color:red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@color:yellow;You may select another option, or elect to try again.@@
+	@@.red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@.yellow;You may select another option, or elect to try again.@@
 <<elseif $arcologies[0].FSTransformationFetishist > $arcologies[0].FSTransformationFetishistDecoration>>
 	<<set $arcologies[0].FSTransformationFetishist = $arcologies[0].FSTransformationFetishistDecoration>>
 <</if>>
@@ -584,7 +584,7 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <</if>>
 <<if $arcologies[0].FSTransformationFetishistDecoration < $FSLockinLevel>>
 <<if $arcologies[0].FSTransformationFetishist == $arcologies[0].FSTransformationFetishistDecoration>>
-	@@color:yellow;Your societal development in this direction is being limited by $arcologies[0].name's lack of customization to support it.@@
+	@@.yellow;Your societal development in this direction is being limited by $arcologies[0].name's lack of customization to support it.@@
 <<elseif $arcologies[0].FSTransformationFetishistSMR == 1>>
 	<<set $arcologies[0].FSTransformationFetishist += 0.1*$FSSingleSlaveRep>>
 <</if>>
@@ -594,7 +594,7 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <<if $arcologies[0].FSMaturityPreferentialist != "unset">>
 <<if $arcologies[0].FSMaturityPreferentialist < 0>>
 	<<set $arcologies[0].FSMaturityPreferentialist = "unset">><<set $FSCredits += 1>>
-	@@color:red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@color:yellow;You may select another option, or elect to try again.@@
+	@@.red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@.yellow;You may select another option, or elect to try again.@@
 <<elseif $arcologies[0].FSMaturityPreferentialist > $arcologies[0].FSMaturityPreferentialistDecoration>>
 	<<set $arcologies[0].FSMaturityPreferentialist = $arcologies[0].FSMaturityPreferentialistDecoration>>
 <</if>>
@@ -609,7 +609,7 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <</if>>
 <<if $arcologies[0].FSMaturityPreferentialistDecoration < $FSLockinLevel>>
 <<if $arcologies[0].FSMaturityPreferentialist == $arcologies[0].FSMaturityPreferentialistDecoration>>
-	@@color:yellow;Your societal development in this direction is being limited by $arcologies[0].name's lack of customization to support it.@@
+	@@.yellow;Your societal development in this direction is being limited by $arcologies[0].name's lack of customization to support it.@@
 <<elseif $arcologies[0].FSMaturityPreferentialistSMR == 1>>
 	<<set $arcologies[0].FSMaturityPreferentialist += 0.1*$FSSingleSlaveRep>>
 <</if>>
@@ -619,7 +619,7 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <<if $arcologies[0].FSYouthPreferentialist != "unset">>
 <<if $arcologies[0].FSYouthPreferentialist < 0>>
 	<<set $arcologies[0].FSYouthPreferentialist = "unset">><<set $FSCredits += 1>>
-	@@color:red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@color:yellow;You may select another option, or elect to try again.@@
+	@@.red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@.yellow;You may select another option, or elect to try again.@@
 <<elseif $arcologies[0].FSYouthPreferentialist > $arcologies[0].FSYouthPreferentialistDecoration>>
 	<<set $arcologies[0].FSYouthPreferentialist = $arcologies[0].FSYouthPreferentialistDecoration>>
 <</if>>
@@ -634,7 +634,7 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <</if>>
 <<if $arcologies[0].FSYouthPreferentialistDecoration < $FSLockinLevel>>
 <<if $arcologies[0].FSYouthPreferentialist == $arcologies[0].FSYouthPreferentialistDecoration>>
-	@@color:yellow;Your societal development in this direction is being limited by $arcologies[0].name's lack of customization to support it.@@
+	@@.yellow;Your societal development in this direction is being limited by $arcologies[0].name's lack of customization to support it.@@
 <<elseif $arcologies[0].FSYouthPreferentialistSMR == 1>>
 	<<set $arcologies[0].FSYouthPreferentialist += 0.1*$FSSingleSlaveRep>>
 <</if>>
@@ -644,7 +644,7 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <<if $arcologies[0].FSSlimnessEnthusiast != "unset">>
 <<if $arcologies[0].FSSlimnessEnthusiast < 0>>
 	<<set $arcologies[0].FSSlimnessEnthusiast = "unset">><<set $FSCredits += 1>>
-	@@color:red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@color:yellow;You may select another option, or elect to try again.@@
+	@@.red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@.yellow;You may select another option, or elect to try again.@@
 <<elseif $arcologies[0].FSSlimnessEnthusiast > $arcologies[0].FSSlimnessEnthusiastDecoration>>
 	<<set $arcologies[0].FSSlimnessEnthusiast = $arcologies[0].FSSlimnessEnthusiastDecoration>>
 <</if>>
@@ -659,7 +659,7 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <</if>>
 <<if $arcologies[0].FSSlimnessEnthusiastDecoration < $FSLockinLevel>>
 <<if $arcologies[0].FSSlimnessEnthusiast == $arcologies[0].FSSlimnessEnthusiastDecoration>>
-	@@color:yellow;Your societal development in this direction is being limited by $arcologies[0].name's lack of customization to support it.@@
+	@@.yellow;Your societal development in this direction is being limited by $arcologies[0].name's lack of customization to support it.@@
 <<elseif $arcologies[0].FSSlimnessEnthusiastSMR == 1>>
 	<<set $arcologies[0].FSSlimnessEnthusiast += 0.1*$FSSingleSlaveRep>>
 <</if>>
@@ -669,7 +669,7 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <<if $arcologies[0].FSAssetExpansionist != "unset">>
 <<if $arcologies[0].FSAssetExpansionist < 0>>
 	<<set $arcologies[0].FSAssetExpansionist = "unset">><<set $FSCredits += 1>>
-	@@color:red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@color:yellow;You may select another option, or elect to try again.@@
+	@@.red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@.yellow;You may select another option, or elect to try again.@@
 <<elseif $arcologies[0].FSAssetExpansionist > $arcologies[0].FSAssetExpansionistDecoration>>
 	<<set $arcologies[0].FSAssetExpansionist = $arcologies[0].FSAssetExpansionistDecoration>>
 <</if>>
@@ -686,7 +686,7 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <</if>>
 <<if $arcologies[0].FSAssetExpansionistDecoration < $FSLockinLevel>>
 <<if $arcologies[0].FSAssetExpansionist == $arcologies[0].FSAssetExpansionistDecoration>>
-	@@color:yellow;Your societal development in this direction is being limited by $arcologies[0].name's lack of customization to support it.@@
+	@@.yellow;Your societal development in this direction is being limited by $arcologies[0].name's lack of customization to support it.@@
 <<elseif $arcologies[0].FSAssetExpansionistSMR == 1>>
 	<<set $arcologies[0].FSAssetExpansionist += 0.1*$FSSingleSlaveRep>>
 <</if>>
@@ -696,7 +696,7 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <<if $arcologies[0].FSPastoralist != "unset">>
 <<if $arcologies[0].FSPastoralist < 0>>
 	<<set $arcologies[0].FSPastoralist = "unset">><<set $FSCredits += 1>>
-	@@color:red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@color:yellow;You may select another option, or elect to try again.@@
+	@@.red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@.yellow;You may select another option, or elect to try again.@@
 <<elseif $arcologies[0].FSPastoralist > $arcologies[0].FSPastoralistDecoration>>
 	<<set $arcologies[0].FSPastoralist = $arcologies[0].FSPastoralistDecoration>>
 <</if>>
@@ -713,7 +713,7 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <</if>>
 <<if $arcologies[0].FSPastoralistDecoration < $FSLockinLevel>>
 <<if $arcologies[0].FSPastoralist == $arcologies[0].FSPastoralistDecoration>>
-	@@color:yellow;Your societal development in this direction is being limited by $arcologies[0].name's lack of customization to support it.@@
+	@@.yellow;Your societal development in this direction is being limited by $arcologies[0].name's lack of customization to support it.@@
 <<elseif $arcologies[0].FSPastoralistSMR == 1>>
 	<<set $arcologies[0].FSPastoralist += 0.1*$FSSingleSlaveRep>>
 <</if>>
@@ -723,7 +723,7 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <<if $arcologies[0].FSPhysicalIdealist != "unset">>
 <<if $arcologies[0].FSPhysicalIdealist < 0>>
 	<<set $arcologies[0].FSPhysicalIdealist = "unset">><<set $FSCredits += 1>>
-	@@color:red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@color:yellow;You may select another option, or elect to try again.@@
+	@@.red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@.yellow;You may select another option, or elect to try again.@@
 <<elseif $arcologies[0].FSPhysicalIdealist > $arcologies[0].FSPhysicalIdealistDecoration>>
 	<<set $arcologies[0].FSPhysicalIdealist = $arcologies[0].FSPhysicalIdealistDecoration>>
 <</if>>
@@ -740,7 +740,7 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <</if>>
 <<if $arcologies[0].FSPhysicalIdealistDecoration < $FSLockinLevel>>
 <<if $arcologies[0].FSPhysicalIdealist == $arcologies[0].FSPhysicalIdealistDecoration>>
-	@@color:yellow;Your societal development in this direction is being limited by $arcologies[0].name's lack of customization to support it.@@
+	@@.yellow;Your societal development in this direction is being limited by $arcologies[0].name's lack of customization to support it.@@
 <<elseif $arcologies[0].FSPhysicalIdealistSMR == 1>>
 	<<set $arcologies[0].FSPhysicalIdealist += 0.1*$FSSingleSlaveRep>>
 <</if>>
@@ -750,7 +750,7 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <<if $arcologies[0].FSChattelReligionist != "unset">>
 <<if $arcologies[0].FSChattelReligionist < 0>>
 	<<set $arcologies[0].FSChattelReligionist = "unset">><<set $FSCredits += 1>>
-	@@color:red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@color:yellow;You may select another option, or elect to try again.@@
+	@@.red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@.yellow;You may select another option, or elect to try again.@@
 <<elseif $arcologies[0].FSChattelReligionist > $arcologies[0].FSChattelReligionistDecoration>>
 	<<set $arcologies[0].FSChattelReligionist = $arcologies[0].FSChattelReligionistDecoration>>
 <</if>>
@@ -767,7 +767,7 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <</if>>
 <<if $arcologies[0].FSChattelReligionistDecoration < $FSLockinLevel>>
 <<if $arcologies[0].FSChattelReligionist == $arcologies[0].FSChattelReligionistDecoration>>
-	@@color:yellow;Your societal development in this direction is being limited by $arcologies[0].name's lack of customization to support it.@@
+	@@.yellow;Your societal development in this direction is being limited by $arcologies[0].name's lack of customization to support it.@@
 <<elseif $arcologies[0].FSChattelReligionistSMR == 1>>
 	<<set $arcologies[0].FSChattelReligionist += 0.1*$FSSingleSlaveRep>>
 <</if>>
@@ -777,7 +777,7 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <<if $arcologies[0].FSRomanRevivalist != "unset">>
 <<if $arcologies[0].FSRomanRevivalist < 0>>
 	<<set $arcologies[0].FSRomanRevivalist = "unset">><<set $FSCredits += 1>>
-	@@color:red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@color:yellow;You may select another option, or elect to try again.@@
+	@@.red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@.yellow;You may select another option, or elect to try again.@@
 <<elseif $arcologies[0].FSRomanRevivalist > $arcologies[0].FSRomanRevivalistDecoration>>
 	<<set $arcologies[0].FSRomanRevivalist = $arcologies[0].FSRomanRevivalistDecoration>>
 <</if>>
@@ -794,7 +794,7 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <</if>>
 <<if $arcologies[0].FSRomanRevivalistDecoration < $FSLockinLevel>>
 <<if $arcologies[0].FSRomanRevivalist == $arcologies[0].FSRomanRevivalistDecoration>>
-	@@color:yellow;Your societal development in this direction is being limited by $arcologies[0].name's lack of customization to support it.@@
+	@@.yellow;Your societal development in this direction is being limited by $arcologies[0].name's lack of customization to support it.@@
 <<elseif $arcologies[0].FSRomanRevivalistSMR == 1>>
 	<<set $arcologies[0].FSRomanRevivalist += 0.1*$FSSingleSlaveRep>>
 <</if>>
@@ -804,7 +804,7 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <<if $arcologies[0].FSEgyptianRevivalist != "unset">>
 <<if $arcologies[0].FSEgyptianRevivalist < 0>>
 	<<set $arcologies[0].FSEgyptianRevivalist = "unset">><<set $FSCredits += 1>>
-	@@color:red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@color:yellow;You may select another option, or elect to try again.@@
+	@@.red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@.yellow;You may select another option, or elect to try again.@@
 <<elseif $arcologies[0].FSEgyptianRevivalist > $arcologies[0].FSEgyptianRevivalistDecoration>>
 	<<set $arcologies[0].FSEgyptianRevivalist = $arcologies[0].FSEgyptianRevivalistDecoration>>
 <</if>>
@@ -821,7 +821,7 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <</if>>
 <<if $arcologies[0].FSEgyptianRevivalistDecoration < $FSLockinLevel>>
 <<if $arcologies[0].FSEgyptianRevivalist == $arcologies[0].FSEgyptianRevivalistDecoration>>
-	@@color:yellow;Your societal development in this direction is being limited by $arcologies[0].name's lack of customization to support it.@@
+	@@.yellow;Your societal development in this direction is being limited by $arcologies[0].name's lack of customization to support it.@@
 <<elseif $arcologies[0].FSEgyptianRevivalistSMR == 1>>
 	<<set $arcologies[0].FSEgyptianRevivalist += 0.1*$FSSingleSlaveRep>>
 <</if>>
@@ -831,7 +831,7 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <<if $arcologies[0].FSEdoRevivalist != "unset">>
 <<if $arcologies[0].FSEdoRevivalist < 0>>
 	<<set $arcologies[0].FSEdoRevivalist = "unset">><<set $FSCredits += 1>>
-	@@color:red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@color:yellow;You may select another option, or elect to try again.@@
+	@@.red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@.yellow;You may select another option, or elect to try again.@@
 <<elseif $arcologies[0].FSEdoRevivalist > $arcologies[0].FSEdoRevivalistDecoration>>
 	<<set $arcologies[0].FSEdoRevivalist = $arcologies[0].FSEdoRevivalistDecoration>>
 <</if>>
@@ -848,7 +848,7 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <</if>>
 <<if $arcologies[0].FSEdoRevivalistDecoration < $FSLockinLevel>>
 <<if $arcologies[0].FSEdoRevivalist == $arcologies[0].FSEdoRevivalistDecoration>>
-	@@color:yellow;Your societal development in this direction is being limited by $arcologies[0].name's lack of customization to support it.@@
+	@@.yellow;Your societal development in this direction is being limited by $arcologies[0].name's lack of customization to support it.@@
 <<elseif $arcologies[0].FSEdoRevivalistSMR == 1>>
 	<<set $arcologies[0].FSEdoRevivalist += 0.1*$FSSingleSlaveRep>>
 <</if>>
@@ -858,7 +858,7 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <<if $arcologies[0].FSArabianRevivalist != "unset">>
 <<if $arcologies[0].FSArabianRevivalist < 0>>
 	<<set $arcologies[0].FSArabianRevivalist = "unset">><<set $FSCredits += 1>>
-	@@color:red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@color:yellow;You may select another option, or elect to try again.@@
+	@@.red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@.yellow;You may select another option, or elect to try again.@@
 <<elseif $arcologies[0].FSArabianRevivalist > $arcologies[0].FSArabianRevivalistDecoration>>
 	<<set $arcologies[0].FSArabianRevivalist = $arcologies[0].FSArabianRevivalistDecoration>>
 <</if>>
@@ -875,7 +875,7 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <</if>>
 <<if $arcologies[0].FSArabianRevivalistDecoration < $FSLockinLevel>>
 <<if $arcologies[0].FSArabianRevivalist == $arcologies[0].FSArabianRevivalistDecoration>>
-	@@color:yellow;Your societal development in this direction is being limited by $arcologies[0].name's lack of customization to support it.@@
+	@@.yellow;Your societal development in this direction is being limited by $arcologies[0].name's lack of customization to support it.@@
 <<elseif $arcologies[0].FSArabianRevivalistSMR == 1>>
 	<<set $arcologies[0].FSArabianRevivalist += 0.1*$FSSingleSlaveRep>>
 <</if>>
@@ -885,7 +885,7 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <<if $arcologies[0].FSChineseRevivalist != "unset">>
 <<if $arcologies[0].FSChineseRevivalist < 0>>
 	<<set $arcologies[0].FSChineseRevivalist = "unset">><<set $FSCredits += 1>>
-	@@color:red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@color:yellow;You may select another option, or elect to try again.@@
+	@@.red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@.yellow;You may select another option, or elect to try again.@@
 <<elseif $arcologies[0].FSChineseRevivalist > $arcologies[0].FSChineseRevivalistDecoration>>
 	<<set $arcologies[0].FSChineseRevivalist = $arcologies[0].FSChineseRevivalistDecoration>>
 <</if>>
@@ -902,7 +902,7 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <</if>>
 <<if $arcologies[0].FSChineseRevivalistDecoration < $FSLockinLevel>>
 <<if $arcologies[0].FSChineseRevivalist == $arcologies[0].FSChineseRevivalistDecoration>>
-	@@color:yellow;Your societal development in this direction is being limited by $arcologies[0].name's lack of customization to support it.@@
+	@@.yellow;Your societal development in this direction is being limited by $arcologies[0].name's lack of customization to support it.@@
 <<elseif $arcologies[0].FSChineseRevivalistSMR == 1>>
 	<<set $arcologies[0].FSChineseRevivalist += 0.1*$FSSingleSlaveRep>>
 <</if>>

@@ -57,9 +57,9 @@
 		<<set _healthBonus += 2>>
 	<</if>>
 	<<if (_FLsFetish == 1)>>
-		Her job involves giving naked sex slaves orders for their own good. Even though most of these commands are medical rather than sexual, she can be forgiven for not always seeing the difference, and @@color:lightsalmon;becomes more dominant.@@
+		Her job involves giving naked sex slaves orders for their own good. Even though most of these commands are medical rather than sexual, she can be forgiven for not always seeing the difference, and @@.lightsalmon;becomes more dominant.@@
 	<<elseif (_FLsFetish == 2)>>
-		Every new patient in the clinic is a new target for her authority. @@color:lightsalmon;She becomes more dominant.@@
+		Every new patient in the clinic is a new target for her authority. @@.lightsalmon;She becomes more dominant.@@
 	<</if>>
 	<<if $nurseCareers.includes($Nurse.career)>>
 		She has experience with medicine from her life before she was a slave, and can often recognize conditions before even the medical scanners can.
@@ -134,7 +134,7 @@
 	<</if>>
 	<<if ($clinicSlaves < 5)>>
 		<<set _seed = random(1,10)+((5-$clinicSlaves)*(random(150,170)+(_idleBonus*10))), $cash += _seed>>
-		<br>&nbsp;&nbsp;&nbsp;&nbsp;Since she doesn't have enough girls to occupy all her time, the clinic takes in citizens' slaves on a contract basis and she helps them too, earning @@color:yellowgreen;¤_seed.@@
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;Since she doesn't have enough girls to occupy all her time, the clinic takes in citizens' slaves on a contract basis and she helps them too, earning @@.yellowgreen;¤_seed.@@
 	<</if>>
 	<<if ($clinicSlaves > 0)>><br><</if>>
 <</if>>
@@ -154,7 +154,7 @@
 		</div>
 		<</if>>
 		/* 000-250-006 */
-		''__@@color:pink;$slaves[_FLs].slaveName@@__'' is serving as the clinical nurse.
+		''__@@.pink;$slaves[_FLs].slaveName@@__'' is serving as the clinical nurse.
 		<br>&nbsp;&nbsp;&nbsp;
 		<<if $slaves[$i].choosesOwnClothes == 1>>
 		<<include "SA chooses own clothes">>
@@ -222,7 +222,7 @@
 		</div>
 		<</if>>
 		/* 000-250-006 */
-		''__@@color:pink;$slaves[$i].slaveName@@__'' is receiving treatment in the clinic.
+		''__@@.pink;$slaves[$i].slaveName@@__'' is receiving treatment in the clinic.
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;She<<include "SA rest">>
 		<br>&nbsp;&nbsp;&nbsp;
 		<<if $slaves[$i].choosesOwnClothes == 1>>
@@ -266,9 +266,9 @@
 	<<else>>
 		_restedSlaves slaves have
 	<</if>>
-	been returned to @@color:green;health@@<<if $clinicUpgradeFilters == 1>> and @@color:green;purity@@<</if>> and will be released from the clinic before the end of the week.
+	been returned to @@.green;health@@<<if $clinicUpgradeFilters == 1>> and @@.green;purity@@<</if>> and will be released from the clinic before the end of the week.
 	<<if $clinicDecoration != "standard">>
-		$clinicNameCaps's $clinicDecoration atmosphere @@color:hotpink;had an impact on <<if _restedSlaves == 1>>her while she<<else>>them while they<</if>>@@ were getting treatment.
+		$clinicNameCaps's $clinicDecoration atmosphere @@.hotpink;had an impact on <<if _restedSlaves == 1>>her while she<<else>>them while they<</if>>@@ were getting treatment.
 	<</if>>
 	<</if>>
 <</if>>
