@@ -1064,10 +1064,8 @@
 <<widget "ChangeAttr">>
 
 <<if ($args[0] == 0) && ($args[1] == 0)>>
-	<<if $activeSlave.attrXX-10 >= 0>>
+	<<if $activeSlave.attrXX > 0>>
 		<<set $activeSlave.attrXX -= 10>>
-	<<else>>
-		<<set $activeSlave.attrXX = 0>>
 	<</if>>
 	<<set $activeSlave.attrXX = Math.clamp($activeSlave.attrXX, 0, 100)>>
 	<<set $activeSlave.attrKnown = 1>>
@@ -1120,12 +1118,10 @@
 		<</replace>>
 	<</if>>
 <<elseif ($args[0] == 0) && ($args[1] == 1)>>
-	<<if $activeSlave.attrXX+10 <= 100>>
+	<<if $activeSlave.attrXX < 100>>
 		<<set $activeSlave.attrXX += 10>>
-	<<else>>
-		<<set $activeSlave.attrXX = 100>>
 	<</if>>
-	<<set $activeSlave.attrXX = Math.clamp(0, 100)>>
+	<<set $activeSlave.attrXX = Math.clamp($activeSlave.attrXX, 0, 100)>>
 	<<set $activeSlave.attrKnown = 1>>
 	<<replace "#attrXX">>
 		<<if $activeSlave.attrXX <= 5>>
@@ -1176,13 +1172,11 @@
 	<</replace>>
 <</if>>
 <<elseif ($args[0] == 1) && ($args[1] == 0)>>
-	<<if $activeSlave.attrXY-10 >= 0>>
+	<<if $activeSlave.attrXY > 0>>
 		<<set $activeSlave.attrXY -= 10>>
-	<<else>>
-		<<set $activeSlave.attrXY = 0>>
 	<</if>>
 
-	<<set $activeSlave.attrXY = Math.clamp(0, 100)>>
+	<<set $activeSlave.attrXY = Math.clamp($activeSlave.attrXY, 0, 100)>>
 	<<set $activeSlave.attrKnown = 1>>
 	<<replace "#attrXY">>
 		<<if $activeSlave.attrXY <= 5>>
@@ -1234,12 +1228,10 @@
 		<</replace>>
 	<</if>>
 <<elseif ($args[0] == 1) && ($args[1] == 1)>>
-	<<if $activeSlave.attrXY+10 <= 100>>
+	<<if $activeSlave.attrXY < 100>>
 		<<set $activeSlave.attrXY += 10>>
-	<<else>>
-		<<set $activeSlave.attrXY = 100>>
 	<</if>>
-	<<set $activeSlave.attrXY = Math.clamp(0, 100)>>
+	<<set $activeSlave.attrXY = Math.clamp($activeSlave.attrXY, 0, 100)>>
 	<<set $activeSlave.attrKnown = 1>>
 	<<replace "#attrXY">>
 		<<if $activeSlave.attrXY <= 5>>
