@@ -10,16 +10,15 @@
 
 <br><br>The world economy is
 <<if $economy == 1>>
-	in ''doubtful''
+	in ''doubtful'' shape.
 	[[Easier|MOD_Edit Arcology Cheat][$economy = 0.5]] | [[Harder|MOD_Edit Arcology Cheat][$economy = 1.5]]
 <<elseif $economy < 1>>
-	still in ''good''
+	still in ''good'' shape.
 	[[Harder|MOD_Edit Arcology Cheat][$economy = 1]]
 <<else>>
-	in ''terrible''
+	in ''terrible'' shape.
 	[[Easier|MOD_Edit Arcology Cheat][$economy = 1]]
 <</if>>
-shape.
 
 <<set $drugsCost = Math.trunc(100*$economy)>>
 <<set $rulesCost = Math.trunc(100*$economy)>>
@@ -54,13 +53,12 @@ Custom: <<textbox "$language" $language "MOD_Edit Arcology Cheat">>
 
 <br><br>The slave trade is
 <<if $internationalTrade == 0>>
-	''continental,'' so a narrower
+	''continental,'' so a narrower variety of slaves will be available.
 	[[Allow intercontinental trade|MOD_Edit Arcology Cheat][$internationalTrade = 1]]
 <<else>>
-	''international,'' so a wider
+	''international,'' so a wider variety of slaves will be available.
 	[[Restrict the trade to continental|MOD_Edit Arcology Cheat][$internationalTrade = 0]]
 <</if>>
-variety of slaves will be available.
 
 <br>
 <<if $internationalTrade == 1>>
@@ -76,20 +74,19 @@ International slave variety is
 
 <br>Ethnicity will
 <<if $seeRace == 1>>
-	''occasionally''
+	''occasionally'' be mentioned.
 	[[Disable most mentions of race|MOD_Edit Arcology Cheat][$seeRace = 0]]
 <<else>>
-	''almost never''
+	''almost never'' be mentioned.
 	[[Enable mentions of race|MOD_Edit Arcology Cheat][$seeRace = 1]]
 <</if>>
-be mentioned.
 
 <br>Nationality will
 <<if $seeNationality == 1>>
-	''occasionally''
+	''occasionally'' be mentioned.
 	[[Disable most mentions of nationality|MOD_Edit Arcology Cheat][$seeNationality = 0]]
 <<else>>
-	''almost never''
+	''almost never'' be mentioned.
 	[[Enable mentions of nationality|MOD_Edit Arcology Cheat][$seeNationality = 1]]
 <</if>>
 be mentioned.
@@ -121,37 +118,36 @@ be mentioned.
 
 <br>Slave girls will
 <<if $seeDicks >= 90>>
-	''almost always''
+	''almost always'' have dicks.
 	[[No chicks with dicks pls (0%)|MOD_Edit Arcology Cheat][$seeDicks = 0]]
 	 | [[Side order of girl dick (25%)|MOD_Edit Arcology Cheat][$seeDicks = 25]]
 	 | [[Balanced dick chick diet (50%)|MOD_Edit Arcology Cheat][$seeDicks = 50]]
 	 | [[Dickgirl main course (75%)|MOD_Edit Arcology Cheat][$seeDicks = 75]]
 <<elseif $seeDicks > 50>>
-	''more likely than not''
+	''more likely than not'' have dicks.
 	[[No chicks with dicks pls (0%)|MOD_Edit Arcology Cheat][$seeDicks = 0]]
 	 | [[Side order of girl dick (25%)|MOD_Edit Arcology Cheat][$seeDicks = 25]]
 	 | [[Balanced dick chick diet (50%)|MOD_Edit Arcology Cheat][$seeDicks = 50]]
 	 | [[All of the dicks (100%)|MOD_Edit Arcology Cheat][$seeDicks = 100]]
 <<elseif $seeDicks > 25>>
-	''occasionally''
+	''occasionally'' have dicks.
 	[[No chicks with dicks pls (0%)|MOD_Edit Arcology Cheat][$seeDicks = 0]]
 	 | [[Side order of girl dick (25%)|MOD_Edit Arcology Cheat][$seeDicks = 25]]
 	 | [[Dickgirl main course (75%)|MOD_Edit Arcology Cheat][$seeDicks = 75]]
 	 | [[All of the dicks (100%)|MOD_Edit Arcology Cheat][$seeDicks = 100]]
 <<elseif $seeDicks > 0>>
-	''rarely''
+	''rarely'' have dicks.
 	[[No chicks with dicks pls (0%)|MOD_Edit Arcology Cheat][$seeDicks = 0]]
 	 | [[Balanced dick chick diet (50%)|MOD_Edit Arcology Cheat][$seeDicks = 50]]
 	 | [[Dickgirl main course (75%)|MOD_Edit Arcology Cheat][$seeDicks = 75]]
 	 | [[All of the dicks (100%)|MOD_Edit Arcology Cheat][$seeDicks = 100]]
 <<else>>
-	''almost never''
+	''almost never'' have dicks.
 	 [[Side order of girl dick (25%)|MOD_Edit Arcology Cheat][$seeDicks = 25]]
 	 | [[Balanced dick chick diet (50%)|MOD_Edit Arcology Cheat][$seeDicks = 50]]
 	 | [[Dickgirl main course (75%)|MOD_Edit Arcology Cheat][$seeDicks = 75]]
 	 | [[All of the dicks (100%)|MOD_Edit Arcology Cheat][$seeDicks = 100]]
 <</if>>
-have dicks.
 
 <<link "Go your own dick way">>
 	<<textbox "$seeDicks" $seeDicks>>
@@ -160,13 +156,12 @@ have dicks.
 
 <br>Game mode:
 <<if $plot == 1>>
-	''two-handed''. Includes
+	''two-handed''. Includes non-erotic events concerning the changing world.
 	[[Disable non-erotic events|MOD_Edit Arcology Cheat][$plot = 0]]
 <<else>>
-	''one-handed''. No
+	''one-handed''. No non-erotic events concerning the changing world.
 	[[Enable non-erotic events|MOD_Edit Arcology Cheat][$plot = 1]]
 <</if>>
-non-erotic events concerning the changing world.
 
 <br><br>
 /*<<nobr>>
@@ -207,23 +202,21 @@ __Player Character__
 
 <br>Genitalia:
 <<if $PC.dick > 0>>
-	''penis''. Standard sex scenes; easier
+	''penis''. Standard sex scenes; easier reputation maintenance.
 	[[Switch to vagina|MOD_Edit Arcology Cheat][$PC.dick = 0]]
 <<else>>
-	''vagina''. Sex scene variations; more difficult
+	''vagina''. Sex scene variations; more difficult reputation maintenance.
 	[[Switch to penis|MOD_Edit Arcology Cheat][$PC.dick = 1]]
 <</if>>
-reputation maintenance.
 
 <br>Chest:
 <<if $PC.boobs > 0>>
-	''breasts''. Sex scene variations; more difficult
+	''breasts''. Sex scene variations; more difficult reputation maintenance.
 	[[Remove breasts|MOD_Edit Arcology Cheat][$PC.boobs = 0]]
 <<else>>
-	''masculine''. Standard sex scenes; easier
+	''masculine''. Standard sex scenes; easier reputation maintenance.
 	[[Add breasts|MOD_Edit Arcology Cheat][$PC.boobs = 1]]
 <</if>>
-reputation maintenance.
 
 <br>Age:
 <<if $PC.age == 3>>
