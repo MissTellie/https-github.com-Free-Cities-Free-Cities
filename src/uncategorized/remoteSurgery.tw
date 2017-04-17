@@ -1061,7 +1061,20 @@ The prosthesis facility has constructed $possessive prosthetic limbs.
 <</if>>
 <</if>>
 
-
+<<if $activeSlave.origHColor != "bald">> 
+	$pronounCap has normal hair. 
+	[[Remove hair|Surgery Degradation][$activeSlave.origHColor = "bald",$activeSlave.hStyle = "bald",$activeSlave.hLength = 0,$cash -= $surgeryCost,$surgeryType = "hair removal"]]
+<<else>>
+	$pronounCap is bald.
+<</if>>
+<br>
+<<if $activeSlave.pubicHStyle != "bald">>
+	$pronounCap has normal body hair. 
+	[[Remove body hair|Surgery Degradation][$activeSlave.pubicHStyle = "bald",$cash -= $surgeryCost,$surgeryType = "body hair removal"]]
+<<else>>
+	$pronounCap is completely hairless below $possessive neck.
+<</if>>
+<br>
 
 <<set $toSearch = $activeSlave.race>>
 <<if $toSearch.indexOf("surgically") == -1>>
