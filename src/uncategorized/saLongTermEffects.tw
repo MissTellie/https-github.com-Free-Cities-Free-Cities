@@ -4535,7 +4535,7 @@
 	<<set $birthee to 1>>
 <</if>>
 
-<<if ($slaves[$i].hStyle != "shaved")>>
+<<if ($slaves[$i].hStyle != "shaved") || ($slaves[$i].origHColor != "bald")>>
 	<<if ($slaves[$i].hLength < 150)>>
 	<<set $slaves[$i].hLength += 1>>
 	<</if>>
