@@ -341,6 +341,35 @@ $args[2]: icon UI Display for vector art, 1 for on.
 	<<print "<object type='image/svg+xml' data=" + _folderLoc + "/body/addon/boob " +_boobSize +" areola piercing.svg'" + "/></object>">>
 <</if>>
 
+/% Pubic hair %/
+
+<<if $args[0].pubicHStyle != "waxed">>
+	<<switch $args[0].pubicHColor>>
+	<<case "black">>
+		<<set _pubicHColor = "black">>
+	<<case "blonde">>
+		<<set _pubicHColor = "blonde">>
+	<<case "blue">>
+		<<set _pubicHColor = "blue">>
+	<<case "brown">>
+		<<set _pubicHColor = "brown">>
+	<<case "green">>
+		<<set _pubicHColor = "green">>
+	<<case "pink">>
+		<<set _pubicHColor = "pink">>
+	<<case "red">>
+		<<set _pubicHColor = "red">>
+	<<default>>
+		<<set _pubicHColor = "brown">>
+	<</switch>>
+	<<if $args[0].pubicHStyle == "in a strip">>
+		<<set _pubicHStyle = "strip">>
+	<<else>>
+		<<set _pubicHStyle = $args[0].pubicHStyle>>
+	<</if>>
+	<<print "<object type='image/svg+xml' data=" + _folderLoc + "/body/addon/" + _pubicHStyle + " " + _pubicHColor +".svg'" + "/></object>">>
+<</if>>
+
 /% Scrotum %/
 <<if $args[0].scrotum > 0>>
 	<<if $args[0].scrotum >= 6>>
