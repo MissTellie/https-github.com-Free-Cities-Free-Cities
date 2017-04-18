@@ -412,22 +412,17 @@ $pronounCap has
 	<</if>>
 <</if>>
 
-<<if $activeSlave.vagina > -1>
-<<if $activeSlave.indentureRestrictions < 1>>
-	<br>It's possible to remove $possessive vagina
-	<<if $activeSlave.dick > 0>
-		and leave $object sexually functional, since $pronoun has both a penis and a vagina.
-	<<else>>
-		but this will restrict $object sexually, since that will leave $object as a null.
-	<</if>>
-	[[Remove|Surgery Degradation][$activeSlave.vagina = -1,$activeSlave.ovaries = 0,$activeSlave.preg = -2,$activeSlave.pregSource = 0,$activeSlave.vaginalSkill = 0,$cash -= $surgeryCost,$activeSlave.health -= 20,$surgeryType = "vaginaRemoval"]] <<if $activeSlave.ovaries == 1>>//This will remove $possessive ovaries as well//<</if>>
-<</if>>
-<</if>>
-
 <<if ($activeSlave.cSec == 1)>>
 	<br>$pronounCap has an unsightly c-section scar.
 	[[Remove Caesarean scar|Surgery Degradation][$activeSlave.cSec = 0,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "bellyscar"]]
 	<br>
+<</if>>
+
+<<if ($activeSlave.vagina > -1) && ($activeSlave.dick > 0)>>
+	<<if $activeSlave.indentureRestrictions < 1>>
+	<br>Since $pronoun has both a penis and a vagina, it's possible to remove $possessive pussy and leave $possessive sexually functional.
+	[[Remove pussy|Surgery Degradation][$activeSlave.vagina = -1,$activeSlave.ovaries = 0,$activeSlave.preg = -2,$activeSlave.pregSource = 0,$activeSlave.vaginalSkill = 0,$cash -= $surgeryCost,$activeSlave.health -= 20,$surgeryType = "vaginaRemoval"]] <<if $activeSlave.ovaries == 1>>//This will remove $possessive ovaries as well//<</if>>
+	<</if>>
 <</if>>
 
 <<if ($activeSlave.anus > 3)>>
@@ -442,32 +437,27 @@ $pronounCap has
 	[[Restore anal virginity|Surgery Degradation][$activeSlave.anus = 0,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "anus"]] //This will reduce $possessive anal skills//
 	<</if>>
 <</if>>
-
-<<if $activeSlave.dick != 0>>
-<<if $activeSlave.indentureRestrictions < 1>>
-	<<if $activeSlave.vagina == -1>>
-		<br>$pronounCap has a penis.
-	<<elseif $activeSlave.ovaries != 0>>
-		<br>$pronounCap has a penis and a vagina.
-	<<else>>
-		<br>$pronounCap has a penis and an artificial vagina.
-	<</if>>
-	<<if $activeSlave.vagina == -1>>
-		[[Convert genitalia to female|Surgery Degradation][$activeSlave.dick = 0,$activeSlave.dickAccessory = "none",$activeSlave.foreskin = 0,$activeSlave.scrotum = 0,$activeSlave.balls = 0,$activeSlave.vagina = 0,$activeSlave.preg = -2,$activeSlave.vaginalSkill = 0,$cash -= $surgeryCost, $activeSlave.health -= 40, $surgeryType = "mtf"]]
-		<<if $surgeryUpgrade == 1>>
-			| [[Create surgical hermaphrodite|Surgery Degradation][$activeSlave.vagina = 0,$activeSlave.vaginalSkill = 0,$cash -= $surgeryCost, $activeSlave.health -= 40, $surgeryType = "herm"]]
-		<</if>>
-	<</if>>
-	<br>It's possible to remove $possessive penis
-	<<if $activeSlave.dick > 0>
-		and leave $object sexually functional, since $pronoun has both a penis and a vagina.
-	<<else>>
-		but this will restrict $object sexually, since that will leave $object as a null.
-	<</if>>
-	[[Remove|Surgery Degradation][$activeSlave.dick = 0,$activeSlave.dickAccessory = "none",$activeSlave.foreskin = 0,$activeSlave.scrotum = 0,$activeSlave.balls = 0,$activeSlave.vaginalSkill = 0,$cash -= $surgeryCost, $activeSlave.health -= 20, $surgeryType = "chop"]] <<if $activeSlave.prostate != 0>>//This will not remove $possessive prostate<<if $activeSlave.balls != 0>> or testicles<</if>>//<</if>>
+<<if ($activeSlave.dick != 0) && ($activeSlave.vagina == -1)>>
+	<br>$pronounCap has a penis.
+<<elseif ($activeSlave.dick != 0) && ($activeSlave.ovaries != 0)>>
+	<br>$pronounCap has a penis and a vagina.
+<<elseif ($activeSlave.dick != 0) && ($activeSlave.vagina != -1)>>
+	<br>$pronounCap has a penis and an artificial vagina.
 <</if>>
+<<if ($activeSlave.dick != 0) && ($activeSlave.vagina == -1)>>
+	<<if $activeSlave.indentureRestrictions < 1>>
+	[[Convert genitalia to female|Surgery Degradation][$activeSlave.dick = 0,$activeSlave.dickAccessory = "none",$activeSlave.foreskin = 0,$activeSlave.scrotum = 0,$activeSlave.balls = 0,$activeSlave.vagina = 0,$activeSlave.preg = -2,$activeSlave.vaginalSkill = 0,$cash -= $surgeryCost, $activeSlave.health -= 40, $surgeryType = "mtf"]]
+	<</if>>
+<<elseif ($activeSlave.dick != 0) && ($activeSlave.vagina != -1)>>
+	<<if $activeSlave.indentureRestrictions < 1>>
+	[[Remove penis|Surgery Degradation][$activeSlave.dick = 0,$activeSlave.dickAccessory = "none",$activeSlave.foreskin = 0,$activeSlave.scrotum = 0,$activeSlave.balls = 0,$activeSlave.vaginalSkill = 0,$cash -= $surgeryCost, $activeSlave.health -= 20, $surgeryType = "chop"]] //This will reset $possessive sexual skills//
+	<</if>>
 <</if>>
-
+<<if ($activeSlave.dick != 0) && ($activeSlave.vagina == -1) && ($surgeryUpgrade == 1)>>
+	<<if $activeSlave.indentureRestrictions < 1>>
+	 | [[Create surgical hermaphrodite|Surgery Degradation][$activeSlave.vagina = 0,$activeSlave.vaginalSkill = 0,$cash -= $surgeryCost, $activeSlave.health -= 40, $surgeryType = "herm"]]
+	<</if>>
+<</if>>
 <<if ($activeSlave.dick != 0)>>
 <<if ($activeSlave.foreskin > 0)>>
 <<if $seeCircumcision == 1>>

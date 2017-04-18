@@ -1,4 +1,6 @@
-:: FAnus [nobr]
+:: FAnus
+
+<<nobr>>
 
 <<set $activeSlave.analCount++, $analTotal++>>
 
@@ -41,12 +43,14 @@ You call her over so you can
 	Her perineum piercing has a big ring in it, which you should be able to feel when you hilt yourself in her ass.
 <</if>>
 
-<<if ($activeSlave.anusTat !== 0) && ($activeSlave.anusTat !== 4)>>
-Her anus is invitingly bleached,
+
+<<if ($activeSlave.anusTat != 0) && ($activeSlave.anusTat != 4)>>
 <<if ($activeSlave.vagina > -1)>>
-	which is appropriate: rather than looking like she has a hole for fucking and an ass, it looks like she has two fuckholes.
+	Her anus is invitingly bleached, which is appropriate: rather than looking like she has a hole for fucking and an ass, it looks like she has two fuckholes.
+<<elseif ($activeSlave.balls == 0)>>
+	Her anus is invitingly bleached, making it look like she has a natural fuckhole despite the fact that she's a gelding.
 <<else>>
-	making her sole fuckable hole look nice and natural.
+	Her anus is invitingly bleached, making it look like she has a natural fuckhole despite the fact that she's a shemale.
 <</if>>
 <</if>>
 
@@ -107,8 +111,6 @@ Her anus is invitingly bleached,
 		as her limp dick flops around.
 	<<elseif ($activeSlave.dick != 0)>>
 		as her erect dick waves in the air.
-	<<elseif $activeSlave.vagina == -1>>
-		as it does its duty as her sole fuckhole.
 	<<else>>
 		as it substitutes for her pussy.
 	<</if>>
@@ -209,3 +211,4 @@ Her anus is invitingly bleached,
 <</for>>
 <</if>>
 <<set _Anus = "">>
+<</nobr>>
