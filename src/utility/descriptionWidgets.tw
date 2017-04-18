@@ -3171,9 +3171,9 @@ $pronounCap's got a
 <</if>>
 <</if>>
 
-<<if ($activeSlave.vaginalAccessory == "chastity belt") && ($activeSlave.clothes == "no clothing")>>
+<<if ( ($activeSlave.vaginalAccessory == "chastity belt") || ($activeSlave.vaginalAccessory == "combined chastity") ) && ($activeSlave.clothes == "no clothing")>>
 	$possessiveCap pussy is protected by a chastity belt.
-<<elseif ($activeSlave.vaginalAccessory == "chastity belt")>>
+<<elseif ($activeSlave.vaginalAccessory == "chastity belt") || ($activeSlave.vaginalAccessory == "combined chastity")>>
 	$possessiveCap pussy is protected by a chastity belt worn under $possessive clothing.
 <<elseif ($activeSlave.vaginalAccessory == "dildo")>>
 	$possessiveCap pussy is filled by a dildo held in place by a strap, which $pronoun can remove for vaginal intercourse.
