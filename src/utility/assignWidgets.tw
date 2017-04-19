@@ -13,7 +13,7 @@
 <<set _wID = $args[0].ID, _SL = $slaves.length>>
 
 /% Get slaves[_wi] index # %/
-<<if _wID == $slaves[$i].ID>>
+<<if $i < _SL && _wID == $slaves[$i].ID>>
 	<<set _wi = $i>>
 <<else>>
 	<<for _wi = 0; _wi < _SL; _wi++>>
@@ -166,7 +166,7 @@
 <</switch>>
 
 <<set $args[0].assignmentVisible = 1, $args[0].assignment = "rest", $args[0].choosesOwnAssignment = 0>>
-<<if $slaves[$i].ID == _wID>>
+<<if $i < _SL && _wID == $slaves[$i].ID>>
 	<<set $slaves[$i] = $args[0]>>
 <<else>>
 	<<for _wi = 0; _wi < _SL; _wi++>>
