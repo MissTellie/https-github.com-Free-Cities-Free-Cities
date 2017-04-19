@@ -2927,12 +2927,12 @@ Your brand design is ''$brandDesign.''
  Call as <<RARemoveRule>>
 %/
 <<widget "RARemoveRule">>
-	<<for _s = 0; _s < $activeSlave.currentRules.length; _s++>>
-		<<if _currentRule.ID == $activeSlave.currentRules[_s]>>
-			<<set $dump = $activeSlave.currentRules.pluck([_s],[_s])>>
+	<<for _s = 0; _s < $args[0].currentRules.length; _s++>>
+		<<if _currentRule.ID == $args[0].currentRules[_s]>>
+			<<set _dump = $args[0].currentRules.deleteAt(_s)>>
 		<</if>>
 	<</for>>
-	<br>Rule _rule (_currentRule.name) is no longer applying to $activeSlave.slaveName.
+	<br>Rule _rule (_currentRule.name) is no longer applying to $args[0].slaveName.
 	<<include "Rules Facility Remove">>
 <</widget>>
 
@@ -3898,6 +3898,7 @@ is now _currentRule.hLength cm long.
 <<if (_tmp != null) && (_tmp.ID == _currentRule.ID)>>
 <<if (_currentRule.clitPiercing !== "no default setting")>>
 <<if ($args[0].clitPiercing != 3)>>
+<<if ($args[0].vagina != -1) || ($args[0].dick != 0)>>
 <<if (_currentRule.clitPiercing != 0)>>
 <<if $args[0].clitPiercing !== _currentRule.clitPiercing>>
 	<<set $args[0].clitPiercing = _currentRule.clitPiercing>>
@@ -3911,6 +3912,7 @@ is now _currentRule.hLength cm long.
 	<<else>>
 	 <<set $cash -= $modCost>>
 	<</if>>
+<</if>>
 <</if>>
 <</if>>
 <</if>>
@@ -4462,7 +4464,7 @@ consequences.
 <<if (def _currentRule.excludedSlaves) && (_currentRule.excludedSlaves.length > 0)>>
 	<<if ruleSlaveExcluded($args[0], _currentRule)>>
 		<<if ruleApplied($args[0], _currentRule.ID)>>
-			<<RARemoveRule>>
+			<<RARemoveRule $args[0]>>
 		<</if>>
 		<<continue>>
 	<</if>>
@@ -4471,7 +4473,7 @@ consequences.
 <<if (def _currentRule.selectedSlaves) && (_currentRule.selectedSlaves.length > 0)>>
 	<<if !ruleSlaveSelected($args[0], _currentRule)>>
 		<<if ruleApplied($args[0], _currentRule.ID)>>
-			<<RARemoveRule>>
+			<<RARemoveRule $args[0]>>
 		<</if>>
 		<<continue>>
 	<</if>>
@@ -4480,7 +4482,7 @@ consequences.
 <<if (def _currentRule.facility) && (_currentRule.facility.length > 0)>>
 	<<if !ruleAppliedToSlaveFacility(_currentRule, $args[0])>>
 		<<if ruleApplied($args[0], _currentRule.ID)>>
-			<<RARemoveRule>>
+			<<RARemoveRule $args[0]>>
 		<</if>>
 		<<continue>>
 	<</if>>
@@ -4489,7 +4491,7 @@ consequences.
 <<if (def _currentRule.excludeFacility) && (_currentRule.excludeFacility.length > 0)>>
 	<<if ruleExcludeSlaveFacility(_currentRule, $args[0])>>
 		<<if ruleApplied($args[0], _currentRule.ID)>>
-			<<RARemoveRule>>
+			<<RARemoveRule $args[0]>>
 		<</if>>
 		<<continue>>
 	<</if>>
@@ -4498,7 +4500,7 @@ consequences.
 <<if (def _currentRule.assignment) && (_currentRule.assignment.length > 0)>>
 	<<if !ruleAssignment(_currentRule.assignment, $args[0].assignment)>>
 		<<if ruleApplied($args[0], _currentRule.ID)>>
-			<<RARemoveRule>>
+			<<RARemoveRule $args[0]>>
 		<</if>>
 		<<continue>>
 	<</if>>
@@ -4506,7 +4508,7 @@ consequences.
 <<if (def _currentRule.excludeAssignment) && (_currentRule.excludeAssignment.length > 0)>>
 	<<if ruleAssignment(_currentRule.excludeAssignment, $args[0].assignment)>>
 		<<if ruleApplied($args[0], _currentRule.ID)>>
-			<<RARemoveRule>>
+			<<RARemoveRule $args[0]>>
 		<</if>>
 		<<continue>>
 	<</if>>
@@ -4520,7 +4522,7 @@ consequences.
 	<</if>>
 <<case "none">>
 	<<if ruleApplied($args[0], _currentRule.ID)>>
-		<<RARemoveRule>>
+		<<RARemoveRule $args[0]>>
 	<</if>>
 <<case "devotion">>
 	<<if checkThresholds($args[0].devotion, _currentRule)>>
@@ -4530,7 +4532,7 @@ consequences.
 		<</if>>
 	<<else>>
 		<<if ruleApplied($args[0], _currentRule.ID)>>
-			<<RARemoveRule>>
+			<<RARemoveRule $args[0]>>
 		<</if>>
 	<</if>>
 <<case "trust">>
@@ -4541,7 +4543,7 @@ consequences.
 		<</if>>
 	<<else>>
 		<<if ruleApplied($args[0], _currentRule.ID)>>
-			<<RARemoveRule>>
+			<<RARemoveRule $args[0]>>
 		<</if>>
 	<</if>>
 <<case "health">>
@@ -4553,7 +4555,7 @@ consequences.
 			<</if>>
 		<<else>>
 			<<if ruleApplied($args[0], _currentRule.ID)>>
-				<<RARemoveRule>>
+				<<RARemoveRule $args[0]>>
 			<</if>>
 		<</if>>
 	<<elseif $args[0].health <= 90>>
@@ -4564,12 +4566,12 @@ consequences.
 			<</if>>
 		<<else>>
 			<<if ruleApplied($args[0], _currentRule.ID)>>
-				<<RARemoveRule>>
+				<<RARemoveRule $args[0]>>
 			<</if>>
 		<</if>>
 	<<else>>
 		<<if ruleApplied($args[0], _currentRule.ID)>>
-			<<RARemoveRule>>
+			<<RARemoveRule $args[0]>>
 		<</if>>
 	<</if>>
 <<case "sex drive">>
@@ -4580,7 +4582,7 @@ consequences.
 		<</if>>
 	<<else>>
 		<<if ruleApplied($args[0], _currentRule.ID)>>
-			<<RARemoveRule>>
+			<<RARemoveRule $args[0]>>
 		<</if>>
 	<</if>>
 <<case "age">>
@@ -4591,7 +4593,7 @@ consequences.
 		<</if>>
 	<<else>>
 		<<if ruleApplied($args[0], _currentRule.ID)>>
-			<<RARemoveRule>>
+			<<RARemoveRule $args[0]>>
 		<</if>>
 	<</if>>
 <<case "weight">>
@@ -4602,7 +4604,7 @@ consequences.
 		<</if>>
 	<<else>>
 		<<if ruleApplied($args[0], _currentRule.ID)>>
-			<<RARemoveRule>>
+			<<RARemoveRule $args[0]>>
 		<</if>>
 	<</if>>
 <</switch>>

@@ -3171,9 +3171,9 @@ $pronounCap's got a
 <</if>>
 <</if>>
 
-<<if ($activeSlave.vaginalAccessory == "chastity belt") && ($activeSlave.clothes == "no clothing")>>
+<<if ( ($activeSlave.vaginalAccessory == "chastity belt") || ($activeSlave.vaginalAccessory == "combined chastity") ) && ($activeSlave.clothes == "no clothing")>>
 	$possessiveCap pussy is protected by a chastity belt.
-<<elseif ($activeSlave.vaginalAccessory == "chastity belt")>>
+<<elseif ($activeSlave.vaginalAccessory == "chastity belt") || ($activeSlave.vaginalAccessory == "combined chastity")>>
 	$possessiveCap pussy is protected by a chastity belt worn under $possessive clothing.
 <<elseif ($activeSlave.vaginalAccessory == "dildo")>>
 	$possessiveCap pussy is filled by a dildo held in place by a strap, which $pronoun can remove for vaginal intercourse.
@@ -3203,6 +3203,14 @@ $pronounCap's got a
 	$possessiveCap pubic hair has been removed to prevent chafing.
 	<<else>>
 	$pronounCap's waxed and smooth.
+	<</if>>
+<<elseif ($activeSlave.pubicHStyle == "bald")>>
+	<<if $activeSlave.fuckdoll > 0>>
+	$possessiveCap pubic hair has been removed to prevent chafing.
+	<<elseif ($activeSlave.assignment == "work in the dairy") && ($dairyRestraintsSetting > 1)>>
+	$possessiveCap pubic hair has been removed to prevent chafing.
+	<<else>>
+	$pronounCap's hairless and smooth.
 	<</if>>
 <<elseif ($activeSlave.pubicHStyle == "in a strip")>>
 	$possessiveCap $activeSlave.pubicHColor pubic hair is waxed into a narrow strip above $possessive <<if $activeSlave.dick > 0>>cock<<elseif $activeSlave.vagina == -1>>smoothness<<else>>pussy<</if>>.
@@ -4640,6 +4648,9 @@ $pronounCap has a corset piercing, a ladder of steel rings running up each side 
 $possessiveCap
 <<if $activeSlave.fuckdoll == 0>>
 <<switch $activeSlave.hStyle>>
+
+<<case "bald">>
+	head is completely bald.
 
 <<case "shaved bald">>
 	hair has been shaved. If $possessive hair were visible, it would be $activeSlave.hColor.
@@ -6117,6 +6128,8 @@ $possessiveCap
 		<<default>>
 			is shaved into a strip.
 		<</switch>>
+	<<elseif $activeSlave.hStyle == "bald">>
+			is completely bald.
 	<<else>>
 		is shaved into a mohawk.
 	<</if>>
