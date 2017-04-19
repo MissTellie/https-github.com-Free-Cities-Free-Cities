@@ -63,16 +63,14 @@
 	<</if>>
 	<</if>>
 
-	<<set $activeSlave.age = Number($activeSlave.age)>>
-	<<set $activeSlave.devotion = Number($activeSlave.devotion)>>
-	<<set $activeSlave.trust = Number($activeSlave.trust)>>
+	<<set $activeSlave.age = Number($activeSlave.age) || 18>>
+	<<set $activeSlave.devotion = Number($activeSlave.devotion) || 0>>
+	<<set $activeSlave.trust = Number($activeSlave.trust) || 0>>
 	<<if $activeSlave.indenture >= 0>>
-		<<set $activeSlave.indenture = Math.clamp($activeSlave.indenture, 26, 208)>>
+		<<set $activeSlave.indenture = Math.clamp($activeSlave.indenture, 26, 208) || 26>>
 	<</if>>
-	<<set $activeSlave.height = Math.clamp($activeSlave.height, 91, 274)>>
-	<<set $activeSlave.boobs = Math.clamp($activeSlave.boobs, 0, 10000)>>
-	<<set $activeSlave.boobs = Number($activeSlave.boobs)>>
-	<<set $activeSlave.boobs = Math.trunc($activeSlave.boobs/50)*50>>
+	<<set $activeSlave.height = Math.clamp($activeSlave.height, 91, 274) || 140>>
+	<<set $activeSlave.boobs = Math.clamp(Math.trunc($activeSlave.boobs/50)*50, 0, 10000) || 200>>
 <</widget>>
 
 /%
@@ -646,21 +644,19 @@
 <</replace>>
 <<replace "#finalize">>
 <<if $cash >= $slaveCost>>
+	<<set $activeSlave.age = Number($activeSlave.age) || 18>>
+	<<set $activeSlave.devotion = Number($activeSlave.devotion) || 0>>
+	<<set $activeSlave.trust = Number($activeSlave.trust) || 0>>
+	<<if $activeSlave.indenture >= 0>>
+		<<set $activeSlave.indenture = Math.clamp($activeSlave.indenture, 26, 208) || 26>>
+	<</if>>
+	<<set $activeSlave.height = Math.clamp($activeSlave.height, 91, 274) || 140>>
+	<<set $activeSlave.boobs = Math.clamp(Math.trunc($activeSlave.boobs/50)*50, 0, 10000) || 200>>
+	<<set $slaveWithoutBonuses = $activeSlave>>
 	<<if $PC.career != "engineer">>
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;
 		<<link "Add this slave">>
 			<<set $returnTo = "Commit Starting Girl", $createRelatedSlave = 0, $applyCareerBonus = 1, $careerBonusApplied = 0>>
-			<<set $activeSlave.age = Number($activeSlave.age)>>
-			<<set $activeSlave.devotion = Number($activeSlave.devotion)>>
-			<<set $activeSlave.trust = Number($activeSlave.trust)>>
-			<<if $activeSlave.indenture >= 0>>
-				<<set $activeSlave.indenture = Math.clamp($activeSlave.indenture, 26, 208)>>
-			<</if>>
-			<<set $activeSlave.height = Math.clamp($activeSlave.height, 91, 274)>>
-			<<set $activeSlave.boobs = Math.clamp($activeSlave.boobs, 0, 10000)>>
-			<<set $activeSlave.boobs = Number($activeSlave.boobs)>>
-			<<set $activeSlave.boobs = Math.trunc($activeSlave.boobs/50)*50>>
-			<<set $slaveWithoutBonuses = $activeSlave>>
 			<<slaveCost $activeSlave>>
 			<<set $cash -= $slaveCost>>
 			<<goto "RG AS Dump">>
@@ -684,17 +680,6 @@
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;
 		<<link "Add slave without career bonus">>
 			<<set $returnTo = "Commit Starting Girl", $createRelatedSlave = 0, $applyCareerBonus = 0, $careerBonusApplied = 0>>
-			<<set $activeSlave.age = Number($activeSlave.age)>>
-			<<set $activeSlave.devotion = Number($activeSlave.devotion)>>
-			<<set $activeSlave.trust = Number($activeSlave.trust)>>
-			<<if $activeSlave.indenture >= 0>>
-				<<set $activeSlave.indenture = Math.clamp($activeSlave.indenture, 26, 208)>>
-			<</if>>
-			<<set $activeSlave.height = Math.clamp($activeSlave.height, 91, 274)>>
-			<<set $activeSlave.boobs = Math.clamp($activeSlave.boobs, 0, 10000)>>
-			<<set $activeSlave.boobs = Number($activeSlave.boobs)>>
-			<<set $activeSlave.boobs = Math.trunc($activeSlave.boobs/50)*50>>
-			<<set $slaveWithoutBonuses = $activeSlave>>
 			<<slaveCost $activeSlave>>
 			<<set $cash -= $slaveCost>>
 			<<goto "RG AS Dump">>
@@ -703,17 +688,6 @@
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;
 		<<link "Add slave">>
 			<<set $returnTo = "Commit Starting Girl", $createRelatedSlave = 0, $applyCareerBonus = 0, $careerBonusApplied = 0>>
-			<<set $activeSlave.age = Number($activeSlave.age)>>
-			<<set $activeSlave.devotion = Number($activeSlave.devotion)>>
-			<<set $activeSlave.trust = Number($activeSlave.trust)>>
-			<<if $activeSlave.indenture >= 0>>
-				<<set $activeSlave.indenture = Math.clamp($activeSlave.indenture, 26, 208)>>
-			<</if>>
-			<<set $activeSlave.height = Math.clamp($activeSlave.height, 91, 274)>>
-			<<set $activeSlave.boobs = Math.clamp($activeSlave.boobs, 0, 10000)>>
-			<<set $activeSlave.boobs = Number($activeSlave.boobs)>>
-			<<set $activeSlave.boobs = Math.trunc($activeSlave.boobs/50)*50>>
-			<<set $slaveWithoutBonuses = $activeSlave>>
 			<<slaveCost $activeSlave>>
 			<<set $cash -= $slaveCost>>
 			<<goto "RG AS Dump">>
@@ -723,8 +697,7 @@
 <<else>>
 	<br>//You lack the necessary funds to add this slave.//
 <</if>>
-<br>&nbsp;&nbsp;&nbsp;&nbsp;
-[[Discard this slave and continue|Acquisition]]
+<br>&nbsp;&nbsp;&nbsp;&nbsp;[[Discard this slave and continue|Acquisition]]
 <</replace>>
 <</widget>>
 
@@ -1064,14 +1037,11 @@
 <<widget "ChangeAttr">>
 
 <<if ($args[0] == 0) && ($args[1] == 0)>>
-	<<if $activeSlave.attrXX-10 >= 0>>
+	<<if $activeSlave.attrXX > 0>>
 		<<set $activeSlave.attrXX -= 10>>
-	<<else>>
-		<<set $activeSlave.attrXX = 0>>
 	<</if>>
-	<<if $activeSlave.attrXX == Math.clamp($activeSlave.attrXX, 0, 100)>>
+	<<set $activeSlave.attrXX = Math.clamp($activeSlave.attrXX, 0, 100)>>
 	<<set $activeSlave.attrKnown = 1>>
-	<</if>>
 	<<replace "#attrXX">>
 		<<if $activeSlave.attrXX <= 5>>
 			@@color:red;disgusted by women.@@
@@ -1121,14 +1091,11 @@
 		<</replace>>
 	<</if>>
 <<elseif ($args[0] == 0) && ($args[1] == 1)>>
-	<<if $activeSlave.attrXX+10 <= 100>>
+	<<if $activeSlave.attrXX < 100>>
 		<<set $activeSlave.attrXX += 10>>
-	<<else>>
-		<<set $activeSlave.attrXX = 100>>
 	<</if>>
-	<<if $activeSlave.attrXX == Math.clamp(0, 100)>>
+	<<set $activeSlave.attrXX = Math.clamp($activeSlave.attrXX, 0, 100)>>
 	<<set $activeSlave.attrKnown = 1>>
-	<</if>>	
 	<<replace "#attrXX">>
 		<<if $activeSlave.attrXX <= 5>>
 			@@color:red;disgusted by women.@@
@@ -1178,15 +1145,12 @@
 	<</replace>>
 <</if>>
 <<elseif ($args[0] == 1) && ($args[1] == 0)>>
-	<<if $activeSlave.attrXY-10 >= 0>>
+	<<if $activeSlave.attrXY > 0>>
 		<<set $activeSlave.attrXY -= 10>>
-	<<else>>
-		<<set $activeSlave.attrXY = 0>>
 	<</if>>
 
-	<<if $activeSlave.attrXY == Math.clamp(0, 100)>>
+	<<set $activeSlave.attrXY = Math.clamp($activeSlave.attrXY, 0, 100)>>
 	<<set $activeSlave.attrKnown = 1>>
-	<</if>>
 	<<replace "#attrXY">>
 		<<if $activeSlave.attrXY <= 5>>
 			@@color:red;Disgusted by men,@@
@@ -1237,14 +1201,11 @@
 		<</replace>>
 	<</if>>
 <<elseif ($args[0] == 1) && ($args[1] == 1)>>
-	<<if $activeSlave.attrXY+10 <= 100>>
+	<<if $activeSlave.attrXY < 100>>
 		<<set $activeSlave.attrXY += 10>>
-	<<else>>
-		<<set $activeSlave.attrXY = 100>>
 	<</if>>
-	<<if $activeSlave.attrXY == Math.clamp(0, 100)>>
+	<<set $activeSlave.attrXY = Math.clamp($activeSlave.attrXY, 0, 100)>>
 	<<set $activeSlave.attrKnown = 1>>
-	<</if>>
 	<<replace "#attrXY">>
 		<<if $activeSlave.attrXY <= 5>>
 			@@color:red;Disgusted by men,@@

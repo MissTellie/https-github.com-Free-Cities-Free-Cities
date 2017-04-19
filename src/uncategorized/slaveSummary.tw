@@ -24,25 +24,25 @@
 	<<print "[[_Slave.slaveName|Personal Attention Select][$personalAttention = $slaves["+_i+"].ID, $activeSlave = $slaves["+_i+"], $personalAttentionChanged = 1]]">>
 <<case "Agent Select">>
 <<if (_Slave.assignmentVisible == 1) && (_Slave.fuckdoll == 0) && (_Slave.assignment != "guard you") && (_Slave.assignment != "recruit girls") && (_Slave.assignment != "be your Head Girl") && (_Slave.devotion >= 20) && (_Slave.intelligence > 0) && (_Slave.intelligenceImplant > 0) && canWalk(_Slave) && canSee(_Slave) && canTalk(_Slave)>>
-	<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if $seeImages == 1>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>><<print "[[_Slave.slaveName|Agent Workaround][$activeSlave = $slaves["+_i+"]]]">>
+	<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if $seeImages == 1>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>><<print "[[_Slave.slaveName|Agent Workaround][$i = "+_i+"]]">>
 <<else>>
 	<<continue>>
 <</if>>
 <<case "BG Select">>
 <<if (_Slave.assignmentVisible == 1) && (_Slave.fuckdoll == 0) && (_Slave.devotion > 50) && (_Slave.assignment != "guard you") && (_Slave.assignment != "recruit girls") && (_Slave.assignment != "be your Head Girl") && canWalk(_Slave) && canSee(_Slave)>>
-	<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if $seeImages == 1>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>><<print "[[_Slave.slaveName|Bodyguard Workaround][$Bodyguard = $slaves["+_i+"]]]">>
+	<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if $seeImages == 1>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>><<print "[[_Slave.slaveName|Bodyguard Workaround][$i = "+_i+"]]">>
 <<else>>
 	<<continue>>
 <</if>>
 <<case "Recruiter Select">>
 <<if (_Slave.assignmentVisible == 1) && (_Slave.fuckdoll == 0) && (_Slave.devotion > 50) && (_Slave.assignment != "guard you") && (_Slave.assignment != "recruit girls") && (_Slave.assignment != "be your Head Girl") && canWalk(_Slave) && canSee(_Slave) && canTalk(_Slave)>>
-	<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if $seeImages == 1>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>><<print "[[_Slave.slaveName|Recruiter Workaround][$Recruiter = $slaves["+_i+"]]]">>
+	<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if $seeImages == 1>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>><<print "[[_Slave.slaveName|Recruiter Workaround][$i = "+_i+"]]">>
 <<else>>
 	<<continue>>
 <</if>>
 <<case "HG Select">>
 <<if (_Slave.assignmentVisible == 1) && (_Slave.fuckdoll == 0) && (_Slave.devotion > 50) && (_Slave.assignment != "guard you") && (_Slave.assignment != "recruit girls") && (_Slave.assignment != "be your Head Girl") && canWalk(_Slave) && canSee(_Slave) && canTalk(_Slave)>>
-	<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if $seeImages == 1>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>><<print "[[_Slave.slaveName|HG Workaround][$HeadGirl = $slaves["+_i+"]]]">>
+	<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if $seeImages == 1>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>><<print "[[_Slave.slaveName|HG Workaround][$i = "+_i+"]]">>
 <<else>>
 	<<continue>>
 <</if>>
@@ -92,12 +92,12 @@
 	<<if _Slave.ID != $Attendant.ID>>
 		<<continue>>
 	<<else>>
-		<<print "[[_Slave.slaveName|Slave Interact][$activeSlave = $slaves["+_i+"]]]">>
+		<<if $seeImages == 1>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>><<print "[[_Slave.slaveName|Slave Interact][$activeSlave = $slaves["+_i+"]]]">>
 	<</if>>
 <</if>>
 <<case "Attendant Select">>
 <<if (_Slave.assignmentVisible == 1) && (_Slave.fuckdoll == 0) && (_Slave.devotion > 50) && canWalk(_Slave)>>
-	<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if $seeImages == 1>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>><<print "[[_Slave.slaveName|Attendant Workaround][$Attendant = $slaves["+_i+"]]]">>
+	<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if $seeImages == 1>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>><<print "[[_Slave.slaveName|Attendant Workaround][$i = "+_i+"]]">>
 <<else>>
 	<<continue>>
 <</if>>
@@ -121,12 +121,12 @@
 	<<if _Slave.ID != $Madam.ID>>
 		<<continue>>
 	<<else>>
-		<<print "[[_Slave.slaveName|Slave Interact][$activeSlave = $slaves["+_i+"]]]">>
+		<<if $seeImages == 1>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>><<print "[[_Slave.slaveName|Slave Interact][$activeSlave = $slaves["+_i+"]]]">>
 	<</if>>
 <</if>>
 <<case "Madam Select">>
 <<if (_Slave.assignmentVisible == 1) && (_Slave.fuckdoll == 0) && (_Slave.devotion > 50) && (_Slave.intelligence > -2) && canWalk(_Slave) && canSee(_Slave)>>
-	<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if $seeImages == 1>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>><<print "[[_Slave.slaveName|Madam Workaround][$Madam = $slaves["+_i+"]]]">>
+	<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if $seeImages == 1>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>><<print "[[_Slave.slaveName|Madam Workaround][$i = "+_i+"]]">>
 <<else>>
 	<<continue>>
 <</if>>
@@ -150,12 +150,12 @@
 	<<if _Slave.ID != $DJ.ID>>
 		<<continue>>
 	<<else>>
-		<<print "[[_Slave.slaveName|Slave Interact][$activeSlave = $slaves["+_i+"]]]">>
+		<<if $seeImages == 1>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>><<print "[[_Slave.slaveName|Slave Interact][$activeSlave = $slaves["+_i+"]]]">>
 	<</if>>
 <</if>>
 <<case "DJ Select">>
 <<if (_Slave.assignmentVisible == 1) && (_Slave.fuckdoll == 0) && (_Slave.devotion > 50) && (_Slave.intelligence > -2) && canWalk(_Slave)>>
-	<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if $seeImages == 1>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>><<print "[[_Slave.slaveName|DJ Workaround][$DJ = $slaves["+_i+"]]]">>
+	<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if $seeImages == 1>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>><<print "[[_Slave.slaveName|DJ Workaround][$i = "+_i+"]]">>
 <<else>>
 	<<continue>>
 <</if>>
@@ -179,12 +179,12 @@
 	<<if _Slave.ID != $Nurse.ID>>
 		<<continue>>
 	<<else>>
-		<<print "[[_Slave.slaveName|Slave Interact][$activeSlave = $slaves["+_i+"]]]">>
+		<<if $seeImages == 1>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>><<print "[[_Slave.slaveName|Slave Interact][$activeSlave = $slaves["+_i+"]]]">>
 	<</if>>
 <</if>>
 <<case "Nurse Select">>
 <<if (_Slave.assignmentVisible == 1) && (_Slave.fuckdoll == 0) && (_Slave.devotion > 50) && canWalk(_Slave) && canSee(_Slave)>>
-	<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if $seeImages == 1>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>><<print "[[_Slave.slaveName|Nurse Workaround][$Nurse = $slaves["+_i+"]]]">>
+	<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if $seeImages == 1>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>><<print "[[_Slave.slaveName|Nurse Workaround][$i = "+_i+"]]">>
 <<else>>
 	<<continue>>
 <</if>>
@@ -213,12 +213,12 @@
 	<<if _Slave.ID != $Schoolteacher.ID>>
 		<<continue>>
 	<<else>>
-		<<print "[[_Slave.slaveName|Slave Interact][$activeSlave = $slaves["+_i+"]]]">>
+		<<if $seeImages == 1>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>><<print "[[_Slave.slaveName|Slave Interact][$activeSlave = $slaves["+_i+"]]]">>
 	<</if>>
 <</if>>
 <<case "Schoolteacher Select">>
 <<if (_Slave.assignmentVisible == 1) && (_Slave.fuckdoll == 0) && (_Slave.devotion > 50) && canTalk(_Slave) && canWalk(_Slave) && canSee(_Slave)>>
-	<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if $seeImages == 1>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>><<print "[[_Slave.slaveName|Schoolteacher Workaround][$Schoolteacher = $slaves["+_i+"]]]">>
+	<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if $seeImages == 1>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>><<print "[[_Slave.slaveName|Schoolteacher Workaround][$i = "+_i+"]]">>
 <<else>>
 	<<continue>>
 <</if>>
@@ -268,12 +268,12 @@
 	<<if _Slave.ID != $Milkmaid.ID>>
 		<<continue>>
 	<<else>>
-		<<print "[[_Slave.slaveName|Slave Interact][$activeSlave = $slaves["+_i+"]]]">>
+		<<if $seeImages == 1>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>><<print "[[_Slave.slaveName|Slave Interact][$activeSlave = $slaves["+_i+"]]]">>
 	<</if>>
 <</if>>
 <<case "Milkmaid Select">>
 <<if (_Slave.assignmentVisible == 1) && (_Slave.fuckdoll == 0) && (_Slave.devotion > 20) && canWalk(_Slave) && canSee(_Slave)>>
-	<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if $seeImages == 1>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>><<print "[[_Slave.slaveName|Milkmaid Workaround][$Milkmaid = $slaves["+_i+"]]]">>
+	<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if $seeImages == 1>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>><<print "[[_Slave.slaveName|Milkmaid Workaround][$i = "+_i+"]]">>
 <<else>>
 	<<continue>>
 <</if>>
@@ -297,12 +297,12 @@
 	<<if _Slave.ID != $Stewardess.ID>>
 		<<continue>>
 	<<else>>
-		<<print "[[_Slave.slaveName|Slave Interact][$activeSlave = $slaves["+_i+"]]]">>
+		<<if $seeImages == 1>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>><<print "[[_Slave.slaveName|Slave Interact][$activeSlave = $slaves["+_i+"]]]">>
 	<</if>>
 <</if>>
 <<case "Stewardess Select">>
 <<if (_Slave.assignmentVisible == 1) && (_Slave.fuckdoll == 0) && (_Slave.devotion > 50) && (_Slave.intelligence > -2) && canWalk(_Slave) && canSee(_Slave)>>
-	<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if $seeImages == 1>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>><<print "[[_Slave.slaveName|Stewardess Workaround][$Stewardess = $slaves["+_i+"]]]">>
+	<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if $seeImages == 1>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>><<print "[[_Slave.slaveName|Stewardess Workaround][$i = "+_i+"]]">>
 <<else>>
 	<<continue>>
 <</if>>
@@ -326,12 +326,12 @@
 	<<if _Slave.ID != $Concubine.ID>>
 		<<continue>>
 	<<else>>
-		<<print "[[_Slave.slaveName|Slave Interact][$activeSlave = $slaves["+_i+"]]]">>
+		<<if $seeImages == 1>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>><<print "[[_Slave.slaveName|Slave Interact][$activeSlave = $slaves["+_i+"]]]">>
 	<</if>>
 <</if>>
 <<case "Concubine Select">>
 <<if (_Slave.assignmentVisible == 1) && (_Slave.fuckdoll == 0) && (_Slave.devotion > 50) && canWalk(_Slave) && canSee(_Slave)>>
-	<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if $seeImages == 1>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>><<print "[[_Slave.slaveName|Concubine Workaround][$Concubine = $slaves["+_i+"]]]">>
+	<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if $seeImages == 1>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>><<print "[[_Slave.slaveName|Concubine Workaround][$i = "+_i+"]]">>
 <<else>>
 	<<continue>>
 <</if>>
@@ -352,13 +352,13 @@
 	<<if _Slave.ID != $Wardeness.ID>>
 		<<continue>>
 	<<else>>
-		<<print "[[_Slave.slaveName|Slave Interact][$activeSlave = $slaves["+_i+"]]]">>
+		<<if $seeImages == 1>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>><<print "[[_Slave.slaveName|Slave Interact][$activeSlave = $slaves["+_i+"]]]">>
 	<</if>>
 <</if>>
 <<case "Wardeness Select">>
 <<if (_Slave.assignmentVisible == 1) && (_Slave.fuckdoll == 0) && (_Slave.devotion > 50) && canWalk(_Slave) & canSee(_Slave)>>
 	<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if $seeImages == 1>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>>
-	<<print "[[_Slave.slaveName|Wardeness Workaround][$Wardeness = $slaves["+_i+"]]]">>
+	<<print "[[_Slave.slaveName|Wardeness Workaround][$i = "+_i+"]]">>
 <<else>>
 	<<continue>>
 <</if>>
@@ -517,48 +517,48 @@ will
 
 <<if ($displayAssignments == 1) && (_Pass == "Main") && (_Slave.ID != $HeadGirl.ID) && (_Slave.ID != $Recruiter.ID) && (_Slave.ID != $Bodyguard.ID)>>
 	<<if _Slave.assignment != "rest">>
-		<<print "[[Rest|Rest Workaround][$activeSlave = $slaves[" + _i + "]]]">> |
+		<<print "[[Rest|Rest Workaround][$i = "+_i+"]]">> |
 	<<else>>
 		Rest |
 	<</if>>
 	<<if _Slave.assignment != "please you">>
-		<<print "[[Fucktoy|Fucktoy Workaround][$activeSlave = $slaves[" + _i + "]]]">> |
+		<<print "[[Fucktoy|Fucktoy Workaround][$i = "+_i+"]]">> |
 	<<else>>
 		Fucktoy |
 	<</if>>
 	<<if _Slave.fuckdoll == 0>>
 	<<if (_Slave.assignment != "be a servant")>>
 		<<if ((_Slave.devotion >= -20) || ((_Slave.trust < -20) && (_Slave.devotion >= -50)) || (_Slave.trust < -50)) && canWalk(_Slave) && canSee(_Slave)>>
-			<<print "[[House Servant|Servant Workaround][$activeSlave = $slaves[" + _i + "]]]">> |
+			<<print "[[House Servant|Servant Workaround][$i = "+_i+"]]">> |
 		<</if>>
 	<<else>>
 		House Servant |
 	<</if>>
 	<<if (_Slave.assignment != "take classes")>>
 		<<if ((_Slave.devotion >= -20) || ((_Slave.trust < -20) && (_Slave.devotion >= -50)) || (_Slave.trust < -50)) && (_Slave.fetish != "mindbroken") && (_Slave.intelligenceImplant != 1)>>
-			<<print "[[Classes|Classes Workaround][$activeSlave = $slaves[" + _i + "]]]">> |
+			<<print "[[Classes|Classes Workaround][$i = "+_i+"]]">> |
 		<</if>>
 	<<else>>
 		Classes |
 	<</if>>
 	<<if (_Slave.assignment != "stay confined")>>
-		<<print "[[Confinement|Confinement Workaround][$activeSlave = $slaves[" + _i + "]]]">> |
+		<<print "[[Confinement|Confinement Workaround][$i = "+_i+"]]">> |
 	<<else>>
 		Confinement |
 	<</if>>
 	<<if (_Slave.assignment != "whore")>>
-		<<print "[[Whore|Whore Workaround][$activeSlave = $slaves[" + _i + "]]]">> |
+		<<print "[[Whore|Whore Workaround][$i = "+_i+"]]">> |
 	<<else>>
 		Whore |
 	<</if>>
 	<<if (_Slave.assignment != "serve the public")>>
-		<<print "[[Public Servant|Public Servant Workaround][$activeSlave = $slaves[" + _i + "]]]">> |
+		<<print "[[Public Servant|Public Servant Workaround][$i = "+_i+"]]">> |
 	<<else>>
 		Public Servant |
 	<</if>>
 	<<if (_Slave.lactation > 0) || (_Slave.balls > 0)>>
 		<<if (_Slave.assignment != "get milked")>>
-			<<print "[[Milking|Milking Workaround][$activeSlave = $slaves[" + _i + "]]]">> |
+			<<print "[[Milking|Milking Workaround][$i = "+_i+"]]">> |
 		<<else>>
 			Milking |
 		<</if>>
@@ -566,7 +566,7 @@ will
 	<</if>>
 	<<if _Slave.indentureRestrictions <= 0>>
 		<<if _Slave.assignment != "work a glory hole">>
-			<<print "[[Hole|Hole Workaround][$activeSlave = $slaves[" + _i + "]]]">>
+			<<print "[[Hole|Hole Workaround][$i = "+_i+"]]">>
 		<<else>>
 			Hole
 		<</if>>
@@ -3006,11 +3006,11 @@ _Slave.faceShape face.
 	<br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>@@color:lime;Has an applicable career experience.@@
 <</if>>
 <<case "New Game Plus">>
-<br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>
+	<br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>
 <<if $Flag == 0>>
-	<<print "[[Add to import list|NGP Workaround][$slavesToImport = 1, $activeSlave = $slaves[" + _i + "]]]">>
+	<<print "[[Add to import list|NGP Workaround][$slavesToImport = 1, $i = "+_i+"]]">>
 <<else>>
-	<<print "[[Remove from import list|NGP Workaround][$slavesToImport = 0, $activeSlave = $slaves[" + _i + "]]]">>
+	<<print "[[Remove from import list|NGP Workaround][$slavesToImport = 0, $i = "+_i+"]]">>
 	<<set $slavesToImport += 1>>
 <</if>>
 <<case "Matchmaking">>

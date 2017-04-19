@@ -1104,26 +1104,26 @@
 
 <<SlavePronouns $args[0]>>
 <<if $args[0].face <= -95>>
-	@@color:green;$pronounCap's face is no longer horrifying,@@ and is now merely ugly.
+	@@color:green;$possessiveCap face is no longer horrifying,@@ and is now merely ugly.
 <<elseif $args[0].face <= -40>>
 	<<if $args[0].face+$args[1] > -40>>
-		@@color:green;$pronounCap's face is no longer ugly,@@ and is now merely unattractive.
+		@@color:green;$possessiveCap face is no longer ugly,@@ and is now merely unattractive.
 	<</if>>
 <<elseif $args[0].face <= -10>>
 	<<if $args[0].face+$args[1] > -10>>
-		@@color:green;$pronounCap's face is no longer unattractive,@@ and is now somewhat tolerable.
+		@@color:green;$possessiveCap face is no longer unattractive,@@ and is now somewhat tolerable.
 	<</if>>
 <<elseif $args[0].face <= 10>>
 	<<if $args[0].face+$args[1] > 10>>
-		@@color:green;$pronounCap's face is now decently attractive,@@ rather than merely tolerable.
+		@@color:green;$possessiveCap face is now decently attractive,@@ rather than merely tolerable.
 	<</if>>
 <<elseif $args[0].face <= 40>>
 	<<if $args[0].face+$args[1] > 40>>
-		@@color:green;$pronounCap's face is now quite beautiful,@@ rather than merely pretty.
+		@@color:green;$possessiveCap face is now quite beautiful,@@ rather than merely pretty.
 	<</if>>
 <<elseif $args[0].face <= 95>>
 	<<if $args[0].face+$args[1] > 95>>
-		@@color:green;$pronounCap's face is now perfect.@@ It's difficult to imagine how it could be any more beautiful.
+		@@color:green;$possessiveCap face is now perfect.@@ It's difficult to imagine how it could be any more beautiful.
 	<</if>>
 <</if>>
 <<set $args[0].face = Math.clamp($args[0].face+$args[1],-100,100)>>
@@ -1174,10 +1174,8 @@
 <<if $universalRulesNewSlavesRA == 1>>
 <<if $rulesAssistantAuto != 0>>
 	<<silently>>
-	<<set $activeSlave = $args[0]>>
-	<<include "Check Auto Rules Activate">>
-	<<include "Default Rules">>
-	<<set $args[0] = $activeSlave>>
+	<<CheckAutoRulesActivate $args[0]>>
+	<<DefaultRules $args[0]>>
 	<</silently>>
 <</if>>
 <</if>>
@@ -1185,9 +1183,9 @@
 
 <<set $slaves.push($args[0]), $slavesOriginal.push($args[0])>>
 
-<<switch $activeSlave.assignment>>
+<<switch $args[0].assignment>>
 <<case "work in the dairy" "be confined in the arcade">>
-	<<assignJob $activeSlave $activeSlave.assignment>>
+	<<assignJob $args[0] $args[0].assignment>>
 <</switch>>
 
 <</widget>>

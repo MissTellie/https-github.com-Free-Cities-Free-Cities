@@ -2080,7 +2080,11 @@ $pronounCap's got a
 	<<if ($dairyPregSetting > 1) && ($activeSlave.ovaries == 1)>>
 		$activeSlave.slaveName's pussy is occupied by a massive dildo, servicing $possessive womb with its ejaculate.
 	<<elseif ($activeSlave.balls > 0)>>
-		$activeSlave.slaveName's dick is buried in $possessive milking machine's cum receptacle.
+		<<if $activeSlave.dick > 0>>
+			$activeSlave.slaveName's dick is buried in $possessive milking machine's cum receptacle.
+		<<else>>
+			The milking machine keeps a cup against $activeSlave.slaveName's tiny cumhole, since $pronoun has balls, but lacks a penis. This limits the machine to anal stimulation to milk $possessive's balls, and it's raping her ass forcefully.
+		<</if>>
 	<<elseif ($activeSlave.vagina > -1)>>
 		$activeSlave.slaveName's pussy is being serviced by a drug-ejaculating dildo.
 	<</if>>
@@ -2875,7 +2879,7 @@ $pronounCap's got a
 	<<case 1>>
 		a soft little trace of scrotum, since $possessive testicles are so small they have retreated up into $possessive abdomen.
 	<<default>>
-		a tiny hole in $possessive smooth $activeSlave.skin.
+		smooth $activeSlave.skin.
 	<</switch>>
 	<<if $activeSlave.fuckdoll == 0>>
 	<<if $activeSlave.balls > 0>>
@@ -2903,15 +2907,15 @@ $pronounCap's got a
 		<</if>>
 		<<elseif $activeSlave.balls > 1>>
 		<<if $seed == -1>>
-			They're held tightly by a very minimal scrotum that turns them into a soft little bump at $possessive base.
+			They're held tightly by a very minimal scrotum that turns them into a soft little bump.
 		<<elseif $seed == 0>>
-			$possessiveCap comfortable little scrotum allows them to rest softly at $possessive base.
+			$possessiveCap comfortable little scrotum allows them to rest softly.
 		<<else>>
 			They're almost lost in $possessive big soft scrotum, wrinkled for lack of anything to fill it properly.
 		<</if>>
 		<<else>>
 		<<if $seed == 0>>
-			$pronounCap has a soft little trace of scrotum at $possessive base.
+			$pronounCap has a soft little trace of scrotum.
 		<<else>>
 			They've left $possessive scrotum soft and empty.
 		<</if>>
@@ -2945,6 +2949,11 @@ $pronounCap's got a
 		<<elseif ($activeSlave.fetish == "boobs")>>
 			Judging by the little bead of precum forming at the hole, $pronoun's probably fantasizing about boobs.
 		<</if>>
+	<</if>>
+	<<if $activeSlave.balls != 0>>
+		This hole is normally almost invisible, making it quite surprising when $pronoun orgasms and shoots cum out of it.
+	<<elseif $activeSlave.prostate != 0>>
+		This hole is normally almost invisible, though it does leak some watery ejaculate when $pronoun orgasms.
 	<</if>>
 <</if>>
 
@@ -3162,9 +3171,9 @@ $pronounCap's got a
 <</if>>
 <</if>>
 
-<<if ($activeSlave.vaginalAccessory == "chastity belt") && ($activeSlave.clothes == "no clothing")>>
+<<if ( ($activeSlave.vaginalAccessory == "chastity belt") || ($activeSlave.vaginalAccessory == "combined chastity") ) && ($activeSlave.clothes == "no clothing")>>
 	$possessiveCap pussy is protected by a chastity belt.
-<<elseif ($activeSlave.vaginalAccessory == "chastity belt")>>
+<<elseif ($activeSlave.vaginalAccessory == "chastity belt") || ($activeSlave.vaginalAccessory == "combined chastity")>>
 	$possessiveCap pussy is protected by a chastity belt worn under $possessive clothing.
 <<elseif ($activeSlave.vaginalAccessory == "dildo")>>
 	$possessiveCap pussy is filled by a dildo held in place by a strap, which $pronoun can remove for vaginal intercourse.
@@ -3194,6 +3203,14 @@ $pronounCap's got a
 	$possessiveCap pubic hair has been removed to prevent chafing.
 	<<else>>
 	$pronounCap's waxed and smooth.
+	<</if>>
+<<elseif ($activeSlave.pubicHStyle == "bald")>>
+	<<if $activeSlave.fuckdoll > 0>>
+	$possessiveCap pubic hair has been removed to prevent chafing.
+	<<elseif ($activeSlave.assignment == "work in the dairy") && ($dairyRestraintsSetting > 1)>>
+	$possessiveCap pubic hair has been removed to prevent chafing.
+	<<else>>
+	$pronounCap's hairless and smooth.
 	<</if>>
 <<elseif ($activeSlave.pubicHStyle == "in a strip")>>
 	$possessiveCap $activeSlave.pubicHColor pubic hair is waxed into a narrow strip above $possessive <<if $activeSlave.dick > 0>>cock<<elseif $activeSlave.vagina == -1>>smoothness<<else>>pussy<</if>>.
@@ -4631,6 +4648,9 @@ $pronounCap has a corset piercing, a ladder of steel rings running up each side 
 $possessiveCap
 <<if $activeSlave.fuckdoll == 0>>
 <<switch $activeSlave.hStyle>>
+
+<<case "bald">>
+	head is completely bald.
 
 <<case "shaved bald">>
 	hair has been shaved. If $possessive hair were visible, it would be $activeSlave.hColor.
@@ -6108,6 +6128,8 @@ $possessiveCap
 		<<default>>
 			is shaved into a strip.
 		<</switch>>
+	<<elseif $activeSlave.hStyle == "bald">>
+			is completely bald.
 	<<else>>
 		is shaved into a mohawk.
 	<</if>>
