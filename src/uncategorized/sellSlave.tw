@@ -399,17 +399,29 @@ A reputable slave appraiser arrives promptly to inspect her and certify her qual
 		<</if>>
 	<</if>>
 <</if>>
-<<if $arcologies[0].FSGenderRadicalistLawDicks != 0>>
-	<<if $activeSlave.dick > 0>>
-	<<if $activeSlave.balls > 0>>
-	Slaves with cocks and balls appraise quite well, thanks to your leadership on gender.
-	<</if>>
-	<</if>>
-<<elseif $arcologies[0].FSGenderRadicalistLawFuta != 0>>
-	<<if $activeSlave.dick > 0>>
-	<<if $activeSlave.vagina > -1>>
-	Futas appraise better than ever, thanks to your leadership on gender.
-	<</if>>
+<<if $arcologies[0].FSGenderRadicalistLawFuta != 0>>
+	<<if $arcologies[0].FSGenderRadicalistLawFuta == 1>>
+		<<if $activeSlave.dick > 0>>
+		<<if $activeSlave.vagina > -1>>
+		Futas appraise better than ever, thanks to your leadership on gender.
+		<</if>>
+		<</if>>
+	<<elseif $arcologies[0].FSGenderRadicalistLawFuta == 2>>
+		<<if $activeSlave.dick > 0>>
+		<<if $activeSlave.balls > 0>>
+		Slaves with cocks and balls appraise quite well, thanks to your leadership on gender.
+		<</if>>
+		<</if>>
+	<<else>>
+		<<if $activeSlave.butt >= 5>>
+		<<if $activeSlave.anus >= 2>>
+		<<if $activeSlave.hips >= 1>>
+		<<if $activeSlave.analSkill > 60>>
+		Slaves with big butts and skilled anuses appraise quite well, thanks to your leadership on gender.
+		<</if>>
+		<</if>>
+		<</if>>
+		<</if>>
 	<</if>>
 <</if>>
 <<if $arcologies[0].FSArabianRevivalist > 50>>
