@@ -239,6 +239,18 @@
 	<<set $costs += 1000>>
 <</if>>
 
+<<if ($personalAttention == "trading")>>
+	<<set $costs += 10000>>
+<<elseif ($personalAttention == "warfare")>>
+	<<set $costs += 10000>>
+<<elseif ($personalAttention == "slaving")>>
+	<<set $costs += 10000>>
+<<elseif ($personalAttention == "engineering")>>
+	<<set $costs += 10000>>
+<<elseif ($personalAttention == "medicine")>>
+	<<set $costs += 10000>>
+<</if>>
+
 <<if $cyberMod == 1>>
 <<if $researchLab.built == "true">>
 	<<set $costs += ((100*$researchLab.maxSpace)+(300*$researchLab.hired)+(100*$researchLab.hired))>>
