@@ -81,15 +81,15 @@
 		<</if>>
 	<</if>>
 	<<if (_FLsFetish == 1)>>
-		In her line of work, she touches more breasts than even you do. She lives in an atmosphere of quivering, heaving, milky breastflesh; of girls who shudder and moan when she touches their creamy nipples. She has @@color:lightcoral;become more of a breast girl.@@
+		In her line of work, she touches more breasts than even you do. She lives in an atmosphere of quivering, heaving, milky breastflesh; of girls who shudder and moan when she touches their creamy nipples. She has @@.lightcoral;become more of a breast girl.@@
 	<<elseif (_FLsFetish == 2)>>
-		It's a hard life, pulling teats and washing cows, but it does @@color:lightsalmon;make her more of a breast fetishist.@@
+		It's a hard life, pulling teats and washing cows, but it does @@.lightsalmon;make her more of a breast fetishist.@@
 	<</if>>
 	<<if ($Milkmaid.muscles > 30)>>
 		<<set $milkmaidHealthBonus++>>
 		Her muscles help her handle the fattest or most reluctant cow.
 	<<else>>
-		Her constant handling of cows causes her to @@color:lime;gain muscle.@@
+		Her constant handling of cows causes her to @@.lime;gain muscle.@@
 	<</if>>
 	<<if ($Milkmaid.oralSkill > 30)>>
 		Her skilled tongue helps her keep her girls happy.
@@ -173,7 +173,7 @@
 		</div>
 		<</if>>
 		/* 000-250-006 */
-		''__@@color:pink;$slaves[_FLs].slaveName@@__'' is serving as your milkmaid.
+		''__@@.pink;$slaves[_FLs].slaveName@@__'' is serving as your milkmaid.
 		<br>&nbsp;&nbsp;&nbsp;
 		<<if $slaves[_FLs].choosesOwnClothes == 1>>
 		<<include "SA chooses own clothes">>
@@ -239,7 +239,7 @@
 		</div>
 		<</if>>
 		/* 000-250-006 */
-		''__@@color:pink;$slaves[$i].slaveName@@__'' is serving as a cow in $dairyName.
+		''__@@.pink;$slaves[$i].slaveName@@__'' is serving as a cow in $dairyName.
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;She <<include "SA get milked">>
 		<br>&nbsp;&nbsp;&nbsp;
 		<<include "SA diet">>
@@ -623,7 +623,7 @@ $dairyNameCaps produced _milkWeek liters of milk<<if _cumWeek > 0>> and _cumWeek
 <<elseif _births > 0>>
 	Additionally, one cow gave birth<<if _births > _birthers>> to a total of _births calves<</if>> this week.
 <</if>>
-These products sell for @@color:yellowgreen;¤_profits@@.
+These products sell for @@.yellowgreen;¤_profits@@.
 
 <<if ($arcologies[0].FSPastoralistLaw == 1)>>
 	Slave products have completely replaced traditional dairy, making the facility extremely lucrative.
@@ -676,7 +676,7 @@ These products sell for @@color:yellowgreen;¤_profits@@.
 
 <</if>>
 	<<if $dairyDecoration != "standard">>
-		$dairyNameCaps's @@color:green;$dairyDecoration style is well known.@@
+		$dairyNameCaps's @@.green;$dairyDecoration style is well known.@@
 	<</if>>
 <<else>>
 	<<set $dairySpots = $dairy>>

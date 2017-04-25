@@ -16,7 +16,7 @@
 
 <<if $mercenaries > 0>>
 	<<if ($PC.warfare >= 100) || ($PC.career == "arcology owner")>>
-	<br>__Mercenary__ expenses: ¤<<print ($mercenaries*500)>> //Reduced by your @@color:springgreen;mercenary contacts@@//
+	<br>__Mercenary__ expenses: ¤<<print ($mercenaries*500)>> //Reduced by your @@.springgreen;mercenary contacts@@//
 	<<else>>
 	<br>__Mercenary__ expenses: ¤<<print ($mercenaries*1000)>>
 	<</if>>
@@ -122,6 +122,18 @@
 
 <<if $CoursingAssociation == 1>>
 	<br>Coursing Association membership: ¤1000
+<</if>>
+
+<<if ($personalAttention == "trading")>>
+	<br>Trading trainer fees: ¤10000
+<<elseif ($personalAttention == "warfare")>>
+	<br>Warfare trainer fees: ¤10000
+<<elseif ($personalAttention == "slaving")>>
+	<br>Slaving trainer fees: ¤10000
+<<elseif ($personalAttention == "engineering")>>
+	<br>Engineering trainer fees: ¤10000
+<<elseif ($personalAttention == "medicine")>>
+	<br>Medicine trainer fees: ¤10000
 <</if>>
 
 <br>

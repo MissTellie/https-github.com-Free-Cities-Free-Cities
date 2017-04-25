@@ -161,11 +161,11 @@ of the slave girls will have dicks.
 
 /* Accordion 000-250-006 */
 <br />
-	Accordion effects on weekly reports are 
+	Accordion effects on weekly reports are
 <<if $useAccordion == 0>>
-	@@color:red;DISABLED@@. [[Enable|Intro Summary][$useAccordion = 1]]
+	@@.red;DISABLED@@. [[Enable|Intro Summary][$useAccordion = 1]]
 <<else>>
-	@@color:cyan;ENABLED@@. [[Disable|Intro Summary][$useAccordion = 0]]
+	@@.cyan;ENABLED@@. [[Disable|Intro Summary][$useAccordion = 0]]
 <</if>>
 /* Accordion 000-250-006 */
 
@@ -258,7 +258,7 @@ Career: ''$PC.career''.
 	[[Medicine|Intro Summary][$PC.career = "medicine"]] |
 	[[Celebrity|Intro Summary][$PC.career = "celebrity"]]
 <</if>>
-	
+
 <br>
 
 Method of acquiring your arcology: ''$PC.rumor''.
@@ -382,6 +382,12 @@ Image display
 	<<elseif $PC.career == "engineer">>
 		<<set $PC.engineering = 100>>
 	<<elseif $PC.career == "medicine">>
+		<<set $PC.medicine = 100>>
+	<<elseif $PC.career == "arcology owner">>
+		<<set $PC.trading = 100>>
+		<<set $PC.warfare = 100>>
+		<<set $PC.slaving = 100>>
+		<<set $PC.engineering = 100>>
 		<<set $PC.medicine = 100>>
 	<</if>>
 	<<set $girls = 2>>

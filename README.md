@@ -7,7 +7,7 @@ There are two methods of acquiring Free Cities:
 1. Downloading the latest compiled release from the [Blog](https://freecitiesblog.blogspot.com/).  
 2. Cloning this repository and manually compiling the game (see below).  
 
-### Compiling (Windows x86_64)
+### Compiling (Windows)
 
 1. Navigate to the Free Cities directory.
 2. Run compile.bat by double clicking the icon.
@@ -27,8 +27,6 @@ There are two methods of acquiring Free Cities:
 ### Notes
 
 * On Windows, compile.bat and compile_debug.bat perform the same functions. The only difference between the two is that compile.bat will exit automatically, while compile_debug.bat will wait for a keypress before exiting. The latter is useful when checking for TweeGo error output, while the former saves you a keypress (as TweeGo errors are rare unless you make a mistake). Use whichever one you prefer.
-
-* The compiler assumes that you will be working on a 64 bit Operating System. As such, the tools here will not work on 32 bit systems. If someone actually requires a 32 bit build of the compiler, email Spaghetti Code at the address below.
 
 ### Receiving credit for contributions to FC
 

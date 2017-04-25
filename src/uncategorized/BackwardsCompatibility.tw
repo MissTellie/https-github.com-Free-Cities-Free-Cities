@@ -469,6 +469,24 @@ Setting missing global variables:
 <<if ndef $menialDemandFactor>>
 	<<set $menialDemandFactor = 0>>
 <</if>>
+<<if ndef nicaeaAnnounceable>>
+	<<set $nicaeaAnnounceable = 0>>
+<</if>>
+<<if ndef $nicaeaAnnounced>>
+	<<set $nicaeaAnnounced = 0>>
+<</if>>
+<<if ndef $nicaeaPreparation>>
+	<<set $nicaeaPreparation = 0>>
+<</if>>
+<<if ndef $nicaeaInvolvement>>
+	<<set $nicaeaInvolvement = -1>>
+<</if>>
+<<if ndef $nicaeaPower>>
+	<<set $nicaeaPower = 0>>
+<</if>>
+<<if ndef $nicaeaHeld>>
+	<<set $nicaeaHeld = 0>>
+<</if>>
 
 <<if ndef $AProsperityCap>>
 	<<set $AProsperityCap to 60>>
@@ -1699,6 +1717,13 @@ Setting missing slave variables:
 	<<else>>
 		<<set _Slave.prostate = 0>>
 	<</if>>
+<</if>>
+
+<<if ndef _Slave.origEye>>
+	<<set _Slave.origEye = _Slave.eyeColor>>
+<</if>>
+<<if ndef _Slave.origHColor>>
+	<<set _Slave.origHColor = _Slave.hColor>>
 <</if>>
 
 <<set $slaves[_i] to _Slave>>
