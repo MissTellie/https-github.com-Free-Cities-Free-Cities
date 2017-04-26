@@ -21,6 +21,7 @@
 <<set $dormitoryPopulation = 0, $roomsPopulation = 0, $slavesVisible = 0, _PA = -1, _HG = -1, _RC = -1, _BG = -1, _SL = $slaves.length>>
 
 <<for $i = 0; $i < _SL; $i++>>
+	<<set $slaves[$i].accent = 1>>
 	<<if $slaves[$i].assignmentVisible == 1>>
 		<<set $slavesVisible++>>
 		<<if $slaves[$i].livingRules == "luxurious">>
