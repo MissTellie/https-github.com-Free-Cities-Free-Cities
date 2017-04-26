@@ -303,21 +303,21 @@
 			<</if>>
 		</span>
 		<<link "Normal">>
-			<<set $customSlave.clit = 0>>
+			<<set $activeSlave.clit = 0>>
 			<<replace #clit>>
 				Normal.
 			<</replace>>
 		<</link>>
 		|
 		<<link "Large">>
-			<<set $customSlave.clit = 1>>
+			<<set $activeSlave.clit = 1>>
 			<<replace #clit>>
 				Large.
 			<</replace>>
 		<</link>>
 		|
 		<<link "Huge">>
-			<<set $customSlave.clit = 2>>
+			<<set $activeSlave.clit = 2>>
 			<<replace #clit>>
 				Huge.
 			<</replace>>
@@ -333,21 +333,21 @@
 			<</if>>
 		</span>
 		<<link "Normal">>
-			<<set $customSlave.labia = 0>>
+			<<set $activeSlave.labia = 0>>
 			<<replace #labia>>
 				Normal.
 			<</replace>>
 		<</link>>
 		|
 		<<link "Large">>
-			<<set $customSlave.labia = 1>>
+			<<set $activeSlave.labia = 1>>
 			<<replace #labia>>
 				Large.
 			<</replace>>
 		<</link>>
 		|
 		<<link "Huge">>
-			<<set $customSlave.labia = 2>>
+			<<set $activeSlave.labia = 2>>
 			<<replace #labia>>
 				Huge.
 			<</replace>>
@@ -1120,36 +1120,36 @@
 		<</if>>
 	<</replace>>
 	<<StartingGirlsCost>>
-<<if $activeSlave.attrXX == 100>>
-	<<replace "#increaseXX">>
-	<</replace>>
-	<<replace "#decreaseXX">>
-		<<link "Decrease">>
-		<<ChangeAttr 0 0>>
-		<</link>>
-	<</replace>>
-<<elseif $activeSlave.attrXX == 0>>
-	<<replace "#decreaseXX">>
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	<</replace>>
-	<<replace "#increaseXX">>
-		<<link "Increase">>
-		<<ChangeAttr 0 1>>
-		<</link>>
-	<</replace>>
-<<else>>
-	<<replace "#decreaseXX">>
-		<<link "Decrease">>
-		<<ChangeAttr 0 0>>
-		<</link>>
-	<</replace>>
-	<<replace "#increaseXX">>
-	|
-		<<link "Increase">>
-		<<ChangeAttr 0 1>>
-		<</link>>
-	<</replace>>
-<</if>>
+	<<if $activeSlave.attrXX == 100>>
+		<<replace "#increaseXX">>
+		<</replace>>
+		<<replace "#decreaseXX">>
+			<<link "Decrease">>
+			<<ChangeAttr 0 0>>
+			<</link>>
+		<</replace>>
+	<<elseif $activeSlave.attrXX == 0>>
+		<<replace "#decreaseXX">>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<</replace>>
+		<<replace "#increaseXX">>
+			<<link "Increase">>
+			<<ChangeAttr 0 1>>
+			<</link>>
+		<</replace>>
+	<<else>>
+		<<replace "#decreaseXX">>
+			<<link "Decrease">>
+			<<ChangeAttr 0 0>>
+			<</link>>
+		<</replace>>
+		<<replace "#increaseXX">>
+		|
+			<<link "Increase">>
+			<<ChangeAttr 0 1>>
+			<</link>>
+		<</replace>>
+	<</if>>
 <<elseif ($args[0] == 1) && ($args[1] == 0)>>
 	<<if $activeSlave.attrXY > 0>>
 		<<set $activeSlave.attrXY -= 10>>
