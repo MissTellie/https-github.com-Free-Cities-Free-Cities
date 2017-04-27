@@ -1,29 +1,12 @@
 :: Salon [nobr]
 
-
-<<set $nextButton = "Continue">>
-<<set $nextLink = "Slave Interact">>
+<<set $nextButton = "Continue", $nextLink = "Slave Interact">>
 
 <<set $showEncyclopedia = 1>><<set $encyclopedia = "The Auto Salon">>
 
 $activeSlave.slaveName is seated in the auto salon. $pronounCap is awaiting your artistic pleasure.
 
-
-<<if ($activeSlave.eyes > -1)>>
-
-$possessiveCap vision is normal, and $pronoun
-<<if($activeSlave.origEye != "implant")>>
-	<<if $activeSlave.eyewear == "none">>
-		has no eyewear.
-	<<else>>
-		is wearing $activeSlave.eyewear.
-	<</if>>
-	[[Cosmetic glasses|Salon][$activeSlave.eyewear = "glasses",$cash -= $modCost]]
-	| [[Blurring glasses|Salon][$activeSlave.eyewear = "blurring glasses",$cash -= $modCost]]
-	| [[Blurring contacts|Salon][$activeSlave.eyewear = "blurring contacts",$cash -= $modCost]]
-	| [[None|Salon][$activeSlave.eyewear = "none"]]
-	<br>&nbsp;&nbsp;&nbsp;&nbsp; //Blurring options are annoying and impede performance on some assignments//
-<</if>>
+<<if $activeSlave.eyes > -2>>
 
 <br><br>
 <<if $activeSlave.origEye == "implant">>
@@ -61,7 +44,6 @@ $possessiveCap vision is normal, and $pronoun
 	| [[None|Salon][$activeSlave.eyewear = "none"]]
 	<br>&nbsp;&nbsp;&nbsp;&nbsp; //Blurring options are annoying and impede performance on some assignments//
 <<else>>
-
 	$pronounCap is nearsighted, and $pronoun
 	<<if $activeSlave.eyewear == "none">>
 		has no eyewear.

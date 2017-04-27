@@ -1,5 +1,7 @@
 :: init [nobr]
 
+<<set $ver = "0.10.0", $releaseID = 1001>>
+
 /* This needs to be broken down into individual files that can be added to StoryInit instead. */
 
 <<if def $slaves>>
@@ -193,9 +195,6 @@
 	<<set $cash = Math.clamp(1000*Math.trunc($cash/100000), 5000, 1000000)>>
 	<<set $PC.career = "arcology owner">>
 <</if>>
-
-<<set $ver = "0.10.0">>
-<<set $releaseID = 1000>>
 
 <<set $targetArcology = {type: "New"}>>
 
