@@ -2,8 +2,66 @@
 
 <<set $bellyAccessory = $slaves[$i].bellyAccessory>>
 
+<<if $slaves[$i].fetish == "mindbroken">>
+	She is fundamentally broken, but still follows some faint memories of standing within the wardrobe.
+	<<if $slaves[$i].amp != 1 && $slaves[$i].heels == 1>>
+		She finds she can inexplicably walk if she wears heels; a daily lesson for her, as she forgets shortly after leaving.
+		<<set $slaves[$i].shoes = either("heels", "extreme heels", "boots")>>
+	<</if>>
+	Faced with so many choices and no thought on the matter;
+	<<if ($arcologies[0].FSChattelReligionist > 0)>>
+		she commonly sees others wearing chattel habits and is drawn to doing so herself.
+		<<set $slaves[$i].clothes = "a chattel habit">>
+	<<elseif ($arcologies[0].FSEgyptianRevivalist > 0) && (random(1,3) == 1)>>
+		she commonly sees others wearing nothing but jewelry and is drawn to doing so herself.
+		<<set $slaves[$i].clothes = "slutty jewelry">>
+	<<elseif ($arcologies[0].FSRomanRevivalist > 0) && (random(1,3) == 1)>>
+		she commonly sees others wearing togas and is drawn to doing so herself.
+		<<set $slaves[$i].clothes = "a toga">>
+	<<elseif ($arcologies[0].FSEdoRevivalist > 0) && (random(1,3) == 1)>>
+		she commonly sees others wearing kimonos and is drawn to doing so herself.
+		<<set $slaves[$i].clothes = "a kimono">>
+	<<elseif ($arcologies[0].FSArabianRevivalist > 0) && (random(1,3) == 1)>>
+		she commonly sees others wearing silk and is drawn to doing so herself.
+		<<set $slaves[$i].clothes = "harem gauze">>
+	<<elseif ($arcologies[0].FSChineseRevivalist > 0) && (random(1,3) == 1)>>
+		she commonly sees others wearing qipaos and is drawn to doing so herself.
+		<<set $slaves[$i].clothes = "a slutty qipao">>
+	<<elseif ($arcologies[0].FSGenderFundamentalist > 0) && (random(1,3) == 1)>>
+		she commonly sees cheerleaders around and instinctually follows along.
+		<<set $slaves[$i].clothes = either("a cheerleader outfit", "a schoolgirl outfit")>>
+	<<elseif ($arcologies[0].FSGenderFundamentalist > 0) && (random(1,3) == 1)>>
+		she commonly sees bunnies around and instinctually follows along.
+		<<set $slaves[$i].clothes = "a bunny outfit">>
+	<<elseif ($arcologies[0].FSPaternalist > 0) && (random(1,3) == 1)>>
+		she commonly sees others wearing clothing and is drawn to doing so herself.
+		<<set $slaves[$i].clothes = "conservative clothing">>
+	<<elseif ($arcologies[0].FSMaturityPreferentialist > 0) && (random(1,3) == 1)>>
+		she commonly sees others wearing suits and is drawn to doing so herself.
+		<<set $slaves[$i].clothes = either("slutty business attire", "a nice maid outfit", "a military uniform", "nice business attire")>>
+	<<elseif ($arcologies[0].FSYouthPreferentialist > 0) && (random(1,3) == 1)>>
+		she commonly sees schoolgirls around and instinctually follows along.
+		<<set $slaves[$i].clothes = either("a schoolgirl outfit", "a cheerleader outfit")>>
+	<<elseif ($arcologies[0].FSDegradationist > 0) && (random(1,3) == 1)>>
+		she commonly sees others wearing chains and is drawn to doing so herself.
+		<<set $slaves[$i].clothes = either("chains", "uncomfortable straps", "shibari ropes")>>
+	<<elseif ($arcologies[0].FSPhysicalIdealist > 0) && (random(1,3) == 1)>>
+		she commonly sees naked girls around and seldom realizes they are coated in oil.
+		<<set $slaves[$i].clothes = either("body oil", "no clothing", "no clothing")>>
+	<<elseif ($arcologies[0].FSPastoralist > 0) && (random(1,3) == 1)>>
+		she commonly sees cowgirls around and instinctually follows along.
+		<<set $slaves[$i].clothes = "Western clothing">>
+	<<elseif ($arcologies[0].FSBodyPurist > 0) && (random(1,3) == 1)>>
+		she commonly sees others wearing tight, form fitting clothes and is drawn to doing so herself.
+		<<set $slaves[$i].clothes = either("a leotard", "a string bikini", "a slave gown", "a comfortable bodysuit", "restrictive latex", "clubslut netting", "a leotard", "a halter top dress")>>
+	<<else>>
+		she chooses to put on underwear, the reasons lost to her, and moves on.
+		<<set $slaves[$i].clothes = "attractive lingerie">>
+	<</if>>
+<<else>>
+
 <<if ($slaves[$i].devotion <= 20)>>
-	and uses the ability to select outfits to cover up with comfortable cut-offs and a t-shirt,
+	$pronounCap uses the ability to select outfits to cover up with comfortable cut-offs and a t-shirt,
 	<<set $slaves[$i].clothes = "cutoffs and a t-shirt">>
 	<<if ($slaves[$i].amp != 1)>>
 	<<if ($slaves[$i].heels == 0)>>
@@ -239,3 +297,5 @@
 <</if>>
 
 <</if>>
+
+<</if>> /* closes MB check */
