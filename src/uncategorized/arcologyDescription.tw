@@ -1,5 +1,95 @@
 :: Arcology Description [nobr]
 
+/*<style>
+	table.arcology {
+		text-align: center;
+		border-collapse: separate;
+		border-spacing: 10px;
+		border-style: hidden;
+		empty-cells: hide;
+	}
+    td#Empty {
+        border: 5px solid LightGray; 
+    }
+    td#Apartments {
+        border: 5px solid YellowGreen; 
+    }
+    td#Pens {
+        border: 5px solid GoldenRod; 
+    }
+    td#Entryway {
+        border: 5px solid SlateGray; 
+    }
+    td#Barracks {
+        border: 5px solid OliveDrab; 
+    }
+    td#Apron {
+        border: 5px solid Skyblue; 
+    }
+    td#Penthouse {
+        border: 5px solid Red; 
+    }
+    td#Brothel {
+        border: 5px solid Pink; 
+    }
+    td#Club {
+        border: 5px solid MediumSlateBlue; 
+    }
+    td#Arcade {
+        border: 5px solid DeepPink; 
+    }
+</style>
+
+<center>
+<table class="arcology" border="1">
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td id="Penthouse"><<link "Penthouse">><<set $nextButton = "Back", $nextLink = _Pass>><<goto "Manage Penthouse">><</link>></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+		<td id="Apartments">Apartments</td>
+		<td id="Club">[[$clubNameCaps|Club]]</td>
+		<td id="Empty">Empty</td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+		<td id="Brothel">[[$brothelNameCaps|Brothel]]</td>
+		<td id="Apartments">Apartments</td>
+		<td id="Arcade">[[$arcadeNameCaps|Club]]</td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td id="Empty">Empty</td>
+		<td id="Apartments">Apartments</td>
+		<td id="Apartments">Apartments</td>
+		<td id="Apartments">Apartments</td>
+		<td id="Apartments">Apartments</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td id="Apron">Apron</td>
+		<td id="Apartments">Apartments</td>
+		<td id="Empty">Empty</td>
+		<td id="Entryway">Entryway</td>
+		<td id="Pens">Pens</td>
+		<td id="Barracks">Barracks</td>
+		<td id="Apron">Apron</td>
+	</tr>
+</table>
+</center>*/
+
 &nbsp;&nbsp;&nbsp;&nbsp;
 __''$arcologies[0].name''__, your arcology, is located in a Free City in <<if $terrain == "oceanic">>the middle of the ocean<<else>>$continent<</if>>. It is a huge structure whose<<if $AProsperityCap >= 120>> solar-panelled<</if>> skin gleams in the sunshine<<if $AProsperityCap >= 100>>, while verdant exterior hydroponics bays lend it an air of growth<</if>>.<<if $weatherCladding > 0>> Much of its beautiful exterior is now hidden behind dull panels of weather cladding<<if $AProsperityCap >= 300>>, though its highest point is capped by tall, elegant spire<</if>>.<</if>>
 Its<<if $weatherCladding > 0>> dull<<elseif $AProsperityCap >= 120>> shining<</if>> bulk
