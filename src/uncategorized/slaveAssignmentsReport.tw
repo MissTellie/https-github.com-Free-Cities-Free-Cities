@@ -349,7 +349,7 @@
 	<<include "Full Report">>
 	<<if ($slaves[$i].assignment == "be your Head Girl") && ($HGSuiteSlaves > 0)>>
 		<<set _iTemp = $i, $i = $HGSuiteiIDs[0].Index, _ID = $HGSuiteiIDs[0].ID>>
-		<<if _ID != $slaves[$i].ID>>
+		<<if $i >= $slaves.length || _ID != $slaves[$i].ID>>
 			/% Slaves.ID and $HGSuiteiIDs.ID's don't match-up so let's find her %/
 			<<for $i = 0; $i < $slaves.length; $i++>>
 			<<if _ID == $slaves[$i].ID>>
