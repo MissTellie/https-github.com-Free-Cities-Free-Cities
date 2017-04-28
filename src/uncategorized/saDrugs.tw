@@ -308,7 +308,7 @@
 		<<set $slaves[$i].devotion += 5>>
 	<</if>>
 	<</if>>
-	<<if ($arcologies[0].FSBodyPuristLaw == 0) || ($healthyDrugsUpgrade == 0)>>
+	<<if ($arcologies[0].FSBodyPuristLaw == 0) && ($healthyDrugsUpgrade == 0)>>
 		Such a high dosage @@.red;isn't healthy@@.
 		<<set $slaves[$i].health -= 5>>
 	<</if>>
@@ -332,7 +332,7 @@
 <</if>>
 
 <<if $slaves[$i].drugs != "no drugs">>
-<<if $slaves[$i].FSBodyPuristLaw == 0>>
+<<if $arcologies[0].FSBodyPuristLaw == 0>>
 <<if $healthyDrugsUpgrade == 0>>
 	<<set $slaves[$i].chem += 1.5>>
 <</if>>
@@ -356,7 +356,7 @@
 
 <<if ($slaves[$i].addict > 0)>>
 	<<if $slaves[$i].aphrodisiacs > 0>>
-		<<set $slaves[$i].addict += $slaves[$i].aphrodisiacs >>
+		<<set $slaves[$i].addict += $slaves[$i].aphrodisiacs>>
 	<<elseif ($slaves[$i].addict < 2)>>
 		$pronounCap has finally been @@.cyan;weaned off aphrodisiacs.@@
 		<<set $slaves[$i].addict = 0>>
@@ -370,7 +370,7 @@
 	<</if>>
 <<else>>
 	<<if $slaves[$i].aphrodisiacs > 0>>
-	<<if random(1,100) > 40+(20*$slaves[$i].aphrodisiacs)>>
+	<<if random(1,100) < 40+(20*$slaves[$i].aphrodisiacs)>>
 		@@.cyan;$pronounCap has become an aphrodisiac addict.@@
 		<<set $slaves[$i].addict = 1>>
 	<</if>>

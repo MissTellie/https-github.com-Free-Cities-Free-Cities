@@ -8,7 +8,26 @@
 
 <</nobr>>\
 \
-<<if $assistant > 0>>While working at your desk, you are accompanied by the luscious sound of $assistantName humming to herself, which she does to indicate she's working on a difficult task. After this goes on for a while, <<if $assistantAppearance == "monstergirl">>her monstergirl avatar uses its tentacle hair to wave for your attention<<elseif $assistantAppearance == "shemale">>her avatar helicopters its dick until she has your attention<<elseif $assistantAppearance == "amazon">>her avatar jumps up and down for your attention, hooting cheerfully,<<elseif $assistantAppearance == "businesswoman">>her avatar takes off its reading glasses, straightens its suit jacket,<<elseif $assistantAppearance == "goddess">>her avatar hefts up her gravid body, glowing brighter than usual to get your attention,<<elseif $assistantAppearance == "schoolgirl">>her schoolgirl avatar bounces up and down for your attention<<else>>her symbol glows to get your attention<</if>> and says, "<<if def $PC.customTitle>>$PC.customTitle<<elseif $PC.title != 0>>Sir<<else>>Ma'am<</if>>, I have a suggestion. At your request I have been reviewing historical slave societies for parallels with our current situation. I calculate it would be very advantageous to bind your mercenaries more closely to the arcology. It would be expensive, but if they were all given slaves, better weapons, and some sort of title, they would defend this place to the death."<<else>><<if $assistantName == "your personal assistant">>Your personal assistant<<else>>$assistantName<</if>> catches your attention as you work at your desk. It says, "<<if def $PC.customTitle>>$PC.customTitle<<elseif $PC.title != 0>>Sir<<else>>Ma'am<</if>>, a suggestion. Review of historical slave societies for parallels with your current situation is complete. Analysis indicates it would be advantageous to increase the loyalty of your mercenaries. It would be expensive, but if they were given slaves, better weapons, and an honorary title, they would defend the arcology with increased effectiveness."<</if>>
+<<if $assistant > 0>>
+	While working at your desk, you are accompanied by the luscious sound of $assistantName humming to herself, which she does to indicate she's working on a difficult task. After this goes on for a while,
+	<<switch $assistantAppearance>>
+	<<case "monstergirl">>
+		her monstergirl avatar uses its tentacle hair to wave for your attention
+	<<case "shemale">>
+		her avatar helicopters its dick until she has your attention
+	<<case "amazon">>
+		her avatar jumps up and down for your attention, hooting cheerfully,
+	<<case "businesswoman">>
+		her avatar takes off its reading glasses, straightens its suit jacket,
+	<<case "goddess">>
+		her avatar hefts up her gravid body, glowing brighter than usual to get your attention,
+	<<case "schoolgirl">>
+		her schoolgirl avatar bounces up and down for your attention
+	<<default>>
+		her symbol glows to get your attention
+	<</switch>>
+	and says, "<<if def $PC.customTitle>>$PC.customTitle<<elseif $PC.title != 0>>Sir<<else>>Ma'am<</if>>, I have a suggestion. At your request I have been reviewing historical slave societies for parallels with our current situation. I calculate it would be very advantageous to bind your mercenaries more closely to the arcology. It would be expensive, but if they were all given slaves, better weapons, and some sort of title, they would defend this place to the death."<<else>><<if $assistantName == "your personal assistant">>Your personal assistant<<else>>$assistantName<</if>> catches your attention as you work at your desk. It says, "<<if def $PC.customTitle>>$PC.customTitle<<elseif $PC.title != 0>>Sir<<else>>Ma'am<</if>>, a suggestion. Review of historical slave societies for parallels with your current situation is complete. Analysis indicates it would be advantageous to increase the loyalty of your mercenaries. It would be expensive, but if they were given slaves, better weapons, and an honorary title, they would defend the arcology with increased effectiveness."
+<</if>>
 
 ''This is a unique and very important opportunity'' and must not be taken lightly. //All of these choices have the same gameplay effect, and only differ in theme.//
 \

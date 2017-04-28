@@ -160,7 +160,7 @@ Despite her devotion and trust, she is still a slave, and probably knows that he
 	<</if>>
 	<<if $eventSlave.dickAccessory == ("chastity")>>
 		Her slave dick is hidden by its chastity cage.
-	<<elseif ($eventSlave.dick > 0) && ($eventSlave.balls > 0) && ($eventSlave.hormones < 1)>>
+	<<elseif ($eventSlave.dick > 0) && canAchieveErection($eventSlave)>>
 		<<if ($eventSlave.dick > 4) && ($eventSlave.preg > 10)>>
 		She's hugely erect, with her lacy g-string only serving to hold her dick agonizingly pressed against the bottom of her pregnant belly.
 		<<elseif $eventSlave.dick > 4>>
@@ -220,6 +220,8 @@ Despite her devotion and trust, she is still a slave, and probably knows that he
 			slave wife's sadistic tendencies!"
 			<<elseif ($eventSlave.fetish == "masochist")>>
 			slave wife's pain!"
+			<<else>>
+			slave wife!"
 			<</if>>
 		<<else>>
 			slave wife!"

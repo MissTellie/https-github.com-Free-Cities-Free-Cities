@@ -452,7 +452,9 @@ $pronounCap has
 	<<if $activeSlave.vagina == -1>>
 		[[Convert genitalia to female|Surgery Degradation][$activeSlave.dick = 0,$activeSlave.dickAccessory = "none",$activeSlave.foreskin = 0,$activeSlave.scrotum = 0,$activeSlave.balls = 0,$activeSlave.vagina = 0,$activeSlave.preg = -2,$activeSlave.vaginalSkill = 0,$cash -= $surgeryCost, $activeSlave.health -= 40, $surgeryType = "mtf"]] |
 	<</if>>
+	<<if $activeSlave.dick > 0>>
 	[[Remove penis|Surgery Degradation][$activeSlave.dick = 0,$activeSlave.dickAccessory = "none",$activeSlave.foreskin = 0,$activeSlave.vaginalSkill = 0,$cash -= $surgeryCost, $activeSlave.health -= 20, $surgeryType = "chop"]]
+	<</if>>
 <</if>>
 <<if ($activeSlave.dick != 0) && ($activeSlave.vagina == -1) && ($surgeryUpgrade == 1)>>
 	<<if $activeSlave.indentureRestrictions < 1>>
@@ -533,7 +535,7 @@ $pronounCap has
 <br><br>
 <<set $activeOrgan to 0>>
 <<for $i to 0; $i < $organs.length; $i++>>
-<<if $activeSlave.ID == $organs[$i].ID>>
+	<<if $activeSlave.ID == $organs[$i].ID>>
 	<<set $activeOrgan to $organs[$i]>>
 	<<break>>
 	<</if>>
@@ -565,7 +567,9 @@ The fabricator is not currently growing an organ for $object. Extract tissue to 
 			<<set $cash -= 2500>>
 			<<set $activeOrgan to {type: "scrotum", weeksToCompletion: "5", ID: 0}>>
 			<<set $activeOrgan.ID to $activeSlave.ID>>
-			<<set $organs.push($activeOrgan)>><<goto "Remote Surgery">><</link>> //Costs ¤2500 and requires balls for successful implantation//
+			<<set $organs.push($activeOrgan)>>
+			<<goto "Remote Surgery">>
+		<</link>> //Costs ¤2500 and requires balls for successful implantation//
 	<</if>>
 	<<if $activeSlave.foreskin == 0>>
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -573,7 +577,9 @@ The fabricator is not currently growing an organ for $object. Extract tissue to 
 			<<set $cash -= 2500>>
 			<<set $activeOrgan to {type: "foreskin", weeksToCompletion: "5", ID: 0}>>
 			<<set $activeOrgan.ID to $activeSlave.ID>>
-			<<set $organs.push($activeOrgan)>><<goto "Remote Surgery">><</link>> //Costs ¤2500 and requires a penis for successful grafting//
+			<<set $organs.push($activeOrgan)>>
+			<<goto "Remote Surgery">>
+		<</link>> //Costs ¤2500 and requires a penis for successful grafting//
 	<</if>>
 <</if>>
 <br>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -592,7 +598,7 @@ The fabricator is not currently growing an organ for $object. Extract tissue to 
 	<<set $organs.push($activeOrgan)>>
 	<<goto "Remote Surgery">>
 <</link>> //Costs ¤5000 and does not require the presence any specific organ for successful implantation//
-			<<if $activeSlave.eyes <= -2 && $activeSlave.eyes != "implant">>
+<<if $activeSlave.eyes <= -2 && $activeSlave.eyes != "implant">>
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
 	<<link "Eyes">>
 		<<set $cash -= 10000>>
@@ -699,7 +705,7 @@ The fabricator has completed $possessive $activeOrgan.type.
 		<<link "Graft on">>
 			<<set $cash -= $surgeryCost>>
 			<<for $i to 0; $i < $organs.length; $i++>><<if $activeSlave.ID == $organs[$i].ID>><<set $dump to $organs.pluck([$i], [$i])>><<break>><</if>><</for>>
-			<<set $activeSlave.foreskin to $activeSlave.balls>>
+			<<set $activeSlave.foreskin to $activeSlave.penis>>
 			<<set $activeSlave.health -= 10>>
 			<<set $surgeryType = "addForeskin">>
 			<<goto "Surgery Degradation">>
@@ -749,7 +755,7 @@ The fabricator has completed $possessive $activeOrgan.type.
 		<<link "Discard">><<for $i to 0; $i < $organs.length; $i++>><<if $activeSlave.ID == $organs[$i].ID>><<set $dump to $organs.pluck([$i], [$i])>><<break>><</if>><</for>><<goto "Remote Surgery">><</link>>
 	<</if>>
 <<elseif $activeOrgan.type == "eyes">>
-	<<if $activeSlave.eyes > -2 or $activeSlave.origEye == "implant">>
+	<<if $activeSlave.eyes > -2 || $activeSlave.origEye == "implant">>
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;
 		ERROR: this slave has working eyes.
 		<<link "Discard">><<for $i to 0; $i < $organs.length; $i++>><<if $activeSlave.ID == $organs[$i].ID>><<set $dump to $organs.pluck([$i], [$i])>><<break>><</if>><</for>><<goto "Remote Surgery">><</link>>
@@ -826,7 +832,9 @@ The prosthesis facility is not currently building a set of artificial limbs for 
 			<<set $cash -= 10000>>
 			<<set $activeLimbs to {weeksToCompletion: 12, ID: 0, type: "simple"}>>
 			<<set $activeLimbs.ID to $activeSlave.ID>>
-			<<set $limbs.push($activeLimbs)>><<goto "Remote Surgery">><</link>> //Costs ¤10000//
+			<<set $limbs.push($activeLimbs)>>
+			<<goto "Remote Surgery">>
+		<</link>> //Costs ¤10000//
 		<</if>>
 	<<elseif $prostheticsUpgrade == 2>>
 		<<if $activeSlave.amp >= 0>>
@@ -845,7 +853,9 @@ The prosthesis facility is not currently building a set of artificial limbs for 
 			<<if $activeSlave.amp == 1>>
 				<<set $activeLimbs.weeksToCompletion += 3>>
 			<</if>>
-			<<set $limbs.push($activeLimbs)>><<goto "Remote Surgery">><</link>> //Costs ¤10000//
+			<<set $limbs.push($activeLimbs)>>
+			<<goto "Remote Surgery">>
+		<</link>> //Costs ¤10000//
 		<</if>>
 		|
 		<<if $activeSlave.amp != -2>>
@@ -856,7 +866,9 @@ The prosthesis facility is not currently building a set of artificial limbs for 
 			<<if $activeSlave.amp == 1>>
 				<<set $activeLimbs.weeksToCompletion += 3>>
 			<</if>>
-			<<set $limbs.push($activeLimbs)>><<goto "Remote Surgery">><</link>> //Costs ¤10000//
+			<<set $limbs.push($activeLimbs)>>
+			<<goto "Remote Surgery">>
+		<</link>> //Costs ¤10000//
 		<</if>>
 		|
 		<<if $activeSlave.amp != -3>>
@@ -867,7 +879,9 @@ The prosthesis facility is not currently building a set of artificial limbs for 
 			<<if $activeSlave.amp == 1>>
 				<<set $activeLimbs.weeksToCompletion += 3>>
 			<</if>>
-			<<set $limbs.push($activeLimbs)>><<goto "Remote Surgery">><</link>> //Costs ¤10000//
+			<<set $limbs.push($activeLimbs)>>
+			<<goto "Remote Surgery">>
+		<</link>> //Costs ¤10000//
 		<</if>>
 		|
 		<<if $activeSlave.amp != -4>>
@@ -878,7 +892,9 @@ The prosthesis facility is not currently building a set of artificial limbs for 
 			<<if $activeSlave.amp == 1>>
 				<<set $activeLimbs.weeksToCompletion += 3>>
 			<</if>>
-			<<set $limbs.push($activeLimbs)>><<goto "Remote Surgery">><</link>> //Costs ¤10000//
+			<<set $limbs.push($activeLimbs)>>
+			<<goto "Remote Surgery">>
+		<</link>> //Costs ¤10000//
 		<</if>>
 	<<else>>
 		<<if $activeSlave.amp >= 0>>
@@ -897,7 +913,9 @@ The prosthesis facility is not currently building a set of artificial limbs for 
 			<<if $activeSlave.amp == 1>>
 				<<set $activeLimbs.weeksToCompletion += 3>>
 			<</if>>
-			<<set $limbs.push($activeLimbs)>><<goto "Remote Surgery">><</link>> //Costs ¤5000//
+			<<set $limbs.push($activeLimbs)>>
+			<<goto "Remote Surgery">>
+		<</link>> //Costs ¤5000//
 		<</if>>
 		<<if $activeSlave.amp != -2>>
 		|
@@ -908,7 +926,9 @@ The prosthesis facility is not currently building a set of artificial limbs for 
 			<<if $activeSlave.amp == 1>>
 				<<set $activeLimbs.weeksToCompletion += 3>>
 			<</if>>
-			<<set $limbs.push($activeLimbs)>><<goto "Remote Surgery">><</link>> //Costs ¤10000//
+			<<set $limbs.push($activeLimbs)>>
+			<<goto "Remote Surgery">>
+		<</link>> //Costs ¤10000//
 		<</if>>
 		<<if $activeSlave.amp != -3>>
 		|
@@ -919,7 +939,9 @@ The prosthesis facility is not currently building a set of artificial limbs for 
 			<<if $activeSlave.amp == 1>>
 				<<set $activeLimbs.weeksToCompletion += 3>>
 			<</if>>
-			<<set $limbs.push($activeLimbs)>><<goto "Remote Surgery">><</link>> //Costs ¤10000//
+			<<set $limbs.push($activeLimbs)>>
+			<<goto "Remote Surgery">>
+		<</link>> //Costs ¤10000//
 		<</if>>
 		<<if $activeSlave.amp != -4>>
 		|
@@ -930,7 +952,9 @@ The prosthesis facility is not currently building a set of artificial limbs for 
 			<<if $activeSlave.amp == 1>>
 				<<set $activeLimbs.weeksToCompletion += 3>>
 			<</if>>
-			<<set $limbs.push($activeLimbs)>><<goto "Remote Surgery">><</link>> //Costs ¤10000//
+			<<set $limbs.push($activeLimbs)>>
+			<<goto "Remote Surgery">>
+		<</link>> //Costs ¤10000//
 		<</if>>
 		<<if $activeSlave.amp != -5>>
 		|
@@ -941,7 +965,9 @@ The prosthesis facility is not currently building a set of artificial limbs for 
 			<<if $activeSlave.amp == 1>>
 				<<set $activeLimbs.weeksToCompletion += 6>>
 			<</if>>
-			<<set $limbs.push($activeLimbs)>><<goto "Remote Surgery">><</link>> //Costs ¤15000//
+			<<set $limbs.push($activeLimbs)>>
+			<<goto "Remote Surgery">>
+		<</link>> //Costs ¤15000//
 		<</if>>
 	<</if>>
 <<elseif $activeLimbs.weeksToCompletion > 0>>
@@ -959,7 +985,8 @@ The prosthesis facility is currently building a set of
 	 standard artificial
 <</switch>>
  limbs for $object, which is projected to be ready for attachment in $activeLimbs.weeksToCompletion <<if $activeLimbs.weeksToCompletion == 1>>week<<else>>weeks<</if>>.
- <<link "Discard">><<for _i to 0; _i < $limbs.length; _i++>>
+ <<link "Discard">>
+	<<for _i to 0; _i < $limbs.length; _i++>>
 	  <<if $activeSlave.ID == $limbs[_i].ID>>
 		<<set $dump = $limbs.pluck([_i], [_i])>>
 		<<break>>
@@ -972,16 +999,23 @@ The prosthesis facility has constructed $possessive prosthetic limbs.
 	<<if $activeSlave.amp == 0>>
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;
 		ERROR: this slave is not amputated.
-		<<link "Discard">><<for _i to 0; _i < $limbs.length; _i++>>
+		<<link "Discard">>
+			<<for _i to 0; _i < $limbs.length; _i++>>
 			  <<if $activeSlave.ID == $limbs[_i].ID>>
-				<<set $dump to $limbs.pluck([_i], [_i])>><<break>>
-			  <</if>><</for>><<goto "Remote Surgery">><</link>>
+				<<set $dump to $limbs.pluck([_i], [_i])>>
+				<<break>>
+			  <</if>>
+			<</for>>
+			<<goto "Remote Surgery">>
+		<</link>>
 	<<else>>
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;
 		<<link "Attach">>
 			<<for _i to 0; _i < $limbs.length; _i++>>
-			  <<if $activeSlave.ID == $limbs[_i].ID>><<break>>
-			  <</if>><</for>>
+			  <<if $activeSlave.ID == $limbs[_i].ID>>
+				<<break>>
+			  <</if>>
+			<</for>>
 
 			<<switch $limbs[_i].type>>
 			<<case "simple">>
@@ -1010,10 +1044,15 @@ The prosthesis facility has constructed $possessive prosthetic limbs.
 			<<goto "Surgery Degradation">>
 		<</link>>
 		|
-		<<link "Discard">><<for _i to 0; _i < $limbs.length; _i++>>
+		<<link "Discard">>
+			<<for _i to 0; _i < $limbs.length; _i++>>
 			  <<if $activeSlave.ID == $limbs[_i].ID>>
-				<<set $dump to $limbs.pluck([_i], [_i])>><<break>>
-			  <</if>><</for>><<goto "Remote Surgery">><</link>>
+				<<set $dump to $limbs.pluck([_i], [_i])>>
+				<<break>>
+			  <</if>>
+			<</for>>
+			<<goto "Remote Surgery">>
+		<</link>>
 <</if>>
 <</if>>
 <</if>>
@@ -1042,12 +1081,12 @@ The prosthesis facility has constructed $possessive prosthetic limbs.
 <<else>>
 	$pronounCap has working eyes.
 <</if>>
-	<<if ($seeExtreme == 1)>>
+<<if ($seeExtreme == 1)>>
 	<<if $activeSlave.indentureRestrictions < 1>>
 		<<if $activeSlave.origEye != "implant">>
 			<<if ($activeSlave.eyes > -2)>>
 				[[Blind|Surgery Degradation][$activeSlave.eyes = -2,$activeSlave.eyeColor = "dulled " + $activeSlave.origEye,$activeSlave.eyeColor = $activeSlave.origEye,$activeSlave.assignment = "rest",$activeSlave.assignmentVisible = 1,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "blind"]]
-	<</if>>
+			<</if>>
 			/*<<if ($activeSlave.eyes != -3)>>
 				<<if ($activeSlave.eyes >= -2)>> | <</if>>
 				[[Remove eyes|Surgery Degradation][$activeSlave.eyeColor = "empty",$activeSlave.origEye = "none",$activeSlave.assignment = "rest",$activeSlave.assignmentVisible = 1,$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "remove eyes"]]
@@ -1057,9 +1096,9 @@ The prosthesis facility has constructed $possessive prosthetic limbs.
 		<<if ($cyberMod == 1) && ($stockpile.ocularImplant > 0) && ($activeSlave.origEye != "implant")>>
 			<<if ($activeSlave.eyes != -3)>> | <</if>>
 			[[Give her ocular implants|Surgery Degradation][$activeSlave.origEye = "implant",$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "ocular implant"]]
-	<</if>>
-	<br>
-<</if>>
+			<</if>>
+		<br>
+		<</if>>
 <</if>>
 
 <<if $activeSlave.origHColor != "bald">> 
@@ -1203,7 +1242,7 @@ The prosthesis facility has constructed $possessive prosthetic limbs.
 <<if $activeSlave.indentureRestrictions < 1>>
 	<br>
 	<<if ($activeSlave.shouldersImplant == 0)>>
-		$pronounCap has natural shoulder structure.
+		$pronounCap has a natural shoulder structure.
 	<<elseif ($activeSlave.shouldersImplant > 0)>>
 		$possessiveCap shoulders been restructured to broaden them.
 	<<elseif ($activeSlave.shouldersImplant < 0)>>

@@ -133,18 +133,18 @@
 		<<set $slaves[_i].devotion++>>
 	<</if>>
 	<<if $Milkmaid.rivalryTarget == $slaves[_i].ID>>
-		"She either neglects or harasses her <<if $Milkmaid.rivalry == 1>>growing rival<<elseif $Milkmaid.rivalry == 2>>rival<<elseif $Milkmaid.rivalry == 3>>bitter rival<</if>>, $slaves[_i].slaveName, making sure she is unhappy and uncomfortable.
+		She either neglects or harasses her <<if $Milkmaid.rivalry == 1>>growing rival<<elseif $Milkmaid.rivalry == 2>>rival<<elseif $Milkmaid.rivalry == 3>>bitter rival<</if>>, $slaves[_i].slaveName, making sure she is unhappy and uncomfortable.
 		<<set $slaves[_i].devotion -= 3, $slaves[_i].trust -= 3>>
 		<<if random(1,100) > 65>>
 			<<set $Milkmaid.rivalry++, $slaves[_FLs].rivalry++, $slaves[_i].rivalry++>>
 		<</if>>
 	<</if>>
 	<<if $slaves[_i].prestigeDesc == "She is remembered for winning best in show as a dairy cow.">>
-		"She spends extra time with $slaves[_i].slaveName, the well-known cow. $Milkmaid.slaveName is fascinated by her massive $slaves[_i].boobs cc breasts and spends extra time massaging and kneading them to maximize production.
+		She spends extra time with $slaves[_i].slaveName, the well-known cow. $Milkmaid.slaveName is fascinated by her massive $slaves[_i].boobs cc breasts and spends extra time massaging and kneading them to maximize production.
 		<<set $slaves[_i].devotion += 3, $slaves[_i].trust += 3>>
 	<</if>>
 	<<if $slaves[_i].prestigeDesc == "She is remembered for winning best in show as a cockmilker.">>
-		"She spends extra time with $slaves[_i].slaveName, the massive ejaculating cow.  She can't help but massage the cow's dick and testes to stimulate them further and coax more from them.
+		She spends extra time with $slaves[_i].slaveName, the massive ejaculating cow.  She can't help but massage the cow's dick and testes to stimulate them further and coax more from them.
 		<<set $slaves[_i].devotion += 3, $slaves[_i].trust += 3>>
 	<</if>>
 	<</for>>

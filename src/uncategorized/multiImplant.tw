@@ -50,7 +50,7 @@ You head down to your <<if $surgeryUpgrade == 1>>heavily upgraded and customized
 			<<case "foreskin">>
 				<<if ($activeSlave.foreskin == 0) && ($activeSlave.penis >= 0)>>
 					<<set $cash -= $surgeryCost>>
-					<<set $activeSlave.foreskin to $activeSlave.balls>>
+					<<set $activeSlave.foreskin to $activeSlave.penis>>
 					<<set $activeSlave.health -= 10>>
 					<<set $surgeryType = "addForeskin">>
 					<br><hr>

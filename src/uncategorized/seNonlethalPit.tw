@@ -433,47 +433,47 @@ You throw the victor's strap-on down to _winner.slaveName.
 <</if>>
 <<if (_winner.rivalry > 0) && (_loser.ID == _winner.rivalryTarget)>>
 	She @@.hotpink;relishes@@ the chance to abuse _loser.slaveName, who she dislikes.
-	<<set _winner.devotion += 1>>
-<<elseif (_winner.relationship >= 0) && (_loser.ID == _winner.relationshipTarget) && (_winner.devotion >= 4)>>
+	<<set _winner.devotion += 5>>
+<<elseif (_winner.relationship >= 0) && (_loser.ID == _winner.relationshipTarget) && (_winner.devotion >= 20)>>
 	She accepts having to abuse _loser.slaveName, and plans to make it up to her later.
 <<elseif (_winner.relationship >= 0) && (_loser.ID == _winner.relationshipTarget)>>
 	She @@.mediumorchid;hates@@ having to abuse _loser.slaveName.
-	<<set _winner.devotion -= 2>>
+	<<set _winner.devotion -= 10>>
 <<elseif (_winner.relation != 0) && (_loser.ID == _winner.relationTarget) && (_winner.devotion >= 4)>>
 	She accepts having to abuse _loser.slaveName, and plans to make it up to her later.
 <<elseif (_winner.relation != 0) && (_loser.ID is _winner.relationTarget)>>
 	She @@.mediumorchid;hates@@ having to abuse _loser.slaveName.
-	<<set _winner.devotion -= 2>>
+	<<set _winner.devotion -= 10>>
 <</if>>
 
 <<if (_loser.fetish == "masochist") && (_loser.fetishKnown == 1) && (_loser.fetishStrength > 60)>>
 	_loser.slaveName @@.hotpink;gets off@@ on being beaten and molested.
-	<<set _loser.devotion += 1>>
+	<<set _loser.devotion += 5>>
 <<elseif (_loser.fetish == "humiliation") && (_loser.fetishKnown == 1) && (_loser.fetishStrength > 60)>>
 	_loser.slaveName @@.hotpink;enjoys@@ the humiliation of being openly beaten and raped.
-	<<set _loser.devotion += 1>>
+	<<set _loser.devotion += 5>>
 <<elseif (_loser.devotion <= 50)>>
 	_loser.slaveName @@.mediumorchid;resents@@ being beaten and molested and @@.gold;fears@@ that it will happen again.
-	<<set _loser.devotion -= 2>>
-	<<set _loser.trust -= 2>>
+	<<set _loser.devotion -= 10>>
+	<<set _loser.trust -= 10>>
 <</if>>
 <<if (_loser.rivalry > 0) && (_winner.ID == _loser.rivalryTarget)>>
 	She is @@.mediumorchid;embarrassed@@ by losing to and being raped by _winner.slaveName, who she dislikes, and @@.gold;fears@@ that it will happen again.
-	<<set _loser.devotion -= 2>>
-	<<set _loser.trust -= 2>>
+	<<set _loser.devotion -= 10>>
+	<<set _loser.trust -= 10>>
 <<elseif (_loser.relationship >= 0) && (_winner.ID == _loser.relationshipTarget) && (_loser.devotion >= 4)>>
 	She accepts _winner.slaveName having to rape her.
 <<elseif (_loser.relationship >= 0) && (_winner.ID == _loser.relationshipTarget)>>
 	She @@.mediumorchid;hates@@ having to accept rape from _winner.slaveName, and @@.gold;fears@@ that it will happen again.
-	<<set _loser.trust -= 2>>
-	<<set _loser.devotion -= 2>>
+	<<set _loser.trust -= 10>>
+	<<set _loser.devotion -= 10>>
 <<elseif (_loser.relation != 0) && (_winner.ID == _loser.relationTarget) && (_loser.devotion >= 4)>>
 	She accepts _winner.slaveName having to rape her, but she @@.gold;fears@@ that it will happen again.
-	<<set _loser.trust -= 2>>
+	<<set _loser.trust -= 10>>
 <<elseif (_loser.relation != 0) && (_winner.ID == _loser.relationTarget)>>
 	She @@.mediumorchid;hates@@ having to accept rape from _winner.slaveName, and @@.gold;fears@@ that it will happen again.
-	<<set _loser.devotion -= 2>>
-	<<set _loser.trust -= 2>>
+	<<set _loser.devotion -= 10>>
+	<<set _loser.trust -= 10>>
 <</if>>
 
 <<if (_loser.relationship != 0)>>

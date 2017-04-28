@@ -93,8 +93,8 @@
 		Its @@.lightsalmon;slave relationship to you is effectively over,@@ since everyone in the world outside its suit is created equal to her. She'll probably forget to distinguish your <<if $PC.dick == 1>>dick if it's pushed inside her<<else>>pussy if it's pressed against her face hole<</if>> soon enough.
 	<</if>>
 	<<if $activeSlave.rivalry != 0>>
-		<<for $j to 0; $j < $slaves.length; $j++>>
-			<<if $slaves[$j].ID is $activeSlave.rivalryTarget>>
+		<<for $j = 0; $j < $slaves.length; $j++>>
+			<<if $slaves[$j].ID == $activeSlave.rivalryTarget>>
 				Naturally, its rivalry with $slaves[$j].slaveName is over. $slaves[$j].slaveName will be pleased she doesn't have to see $activeSlave.slaveName any more, though being a Fuckdoll is terrifying enough that it's not likely she'll derive much satisfaction from it.
 				<<set $slaves[$j].rivalry = 0>>
 				<<set $slaves[$j].rivalryTarget = 0>>
@@ -1059,7 +1059,7 @@
 		She's @@.gold;frightened,@@ once she discovers what she can do, and what she is. Her cybernetic limbs are restricted by the arcology systems, for now, but she quickly realizes what they are. She is not, to say the least, thrilled by the revelation that she is now a living weapon, and is kept awake by thoughts of what you might be planning for her.
 		<<set $activeSlave.trust -= 5>>
 	<<elseif ($activeSlave.combatSkill == 1) && ($activeSlave.devotion > 75)>>
-		She leaves the surgery with a purpose, her footsteps a bit heavier than before. She heads down to the armory's range, still naked, and when she gets there, she places her dominant hand over her thigh on that side. It folds open, revealing a handgun, which she draws and empties into a <<if canSee($activeSlave)>>target<<else>>beeping target<</if>>; as she fires the last rounds, she uses her off hand to reach down to that thigh, which folds open and reveals spare magazines. She @@.hotpink;thanks you profusely@@ the next time she sees you. She knows that her prosthetics are will enhance her combat effectiveness and she thinks they are //cool.//
+		She leaves the surgery with a purpose, her footsteps a bit heavier than before. She heads down to the armory's range, still naked, and when she gets there, she places her dominant hand over her thigh on that side. It folds open, revealing a handgun, which she draws and empties into a <<if canSee($activeSlave)>>target<<else>>beeping target<</if>>; as she fires the last rounds, she uses her off hand to reach down to that thigh, which folds open and reveals spare magazines. She @@.hotpink;thanks you profusely@@ the next time she sees you. She knows that her prosthetics will enhance her combat effectiveness and she thinks they are //cool.//
 		<<set $activeSlave.devotion += 5>>
 	<<else>>
 		She has mixed feelings about what she soon discovers. She's a living weapon now, and has to live with the constant knowledge that she can incapacitate or kill with nothing more than her arms and legs themselves. She's @@.hotpink;touched,@@ though, by the tremendous trust this shows. She knows that the arcology would instantly lock out her limbs if she were to misbehave, but she's still affected.
@@ -1342,15 +1342,15 @@
 <<case "body hair removal">>
 	When $pronoun <<if $activeSlave.amp == 1>>is carried<<else>>walks<</if>> out of the surgery $pronoun feels the breeze on $possessive skin and realizes that <<if $activeSlave.origHColor != "bald">>all hair below $possessive neck is missing<<else>>$pronoun is now completely hairless<</if>>.<br>
 	<<if $activeSlave.devotion > 50>>
-		$pronounCap is @@.hotpink;happy@@ with how smooth $possessive body has become and is already @@.mediumaquamarine;wondering@@ what new kinky things you have planned for $possessive
-		.<<set $activeSlave.trust += 5>>
+		$pronounCap is @@.hotpink;happy@@ with how smooth $possessive body has become and is already @@.mediumaquamarine;wondering@@ what new kinky things you have planned for $object.
+		<<set $activeSlave.trust += 5>>
 		<<set $activeSlave.devotion += 5>>
 	<<elseif $activeSlave.devotion >= -20>>
-		$possessiveCap new lack of body hair doesn't bother $possessive much, since it just means $pronoun needs to spend less time getting rid of any unseemly hairs.
+		$possessiveCap new lack of body hair doesn't bother $object much, since it just means $pronoun needs to spend less time getting rid of any unseemly hairs.
 		<<set $activeSlave.trust += 5>>
 	<<else>>
-		$pronounCap is @@.mediumorchid;sad@@ and @@.gold;frightened@@ that you would force this on $possessive
-		.<<set $activeSlave.trust -= 5>>
+		$pronounCap is @@.mediumorchid;sad@@ and @@.gold;frightened@@ that you would force this on $object.
+		<<set $activeSlave.trust -= 5>>
 		<<set $activeSlave.devotion -= 5>>
 	<</if>>
 	<br><br>As this was a non-invasive procedure $possessive health was not affected.
@@ -1388,7 +1388,7 @@
 
 <</switch>>
 
-<<if ($PC.career == "medicine")>>
+<<if ($PC.medicine >= 100)>>
 	<br><br>
 	Since you @@.springgreen;performed the surgery yourself,@@ and you do artist's work, her health is @@.green;less affected@@ by the surgery than it would have been if you'd paid some hack to do it remotely.
 	<<set $activeSlave.health += 5>>
