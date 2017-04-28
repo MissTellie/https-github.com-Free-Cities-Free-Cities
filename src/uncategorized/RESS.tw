@@ -56,19 +56,20 @@ is looking good, but as she raises her arms over her head to spin her nude torso
 <<if $assistant == 0>>
 	its voice
 <<else>>
-	<<if $assistantAppearance == "monstergirl">>
+	<<switch $assistantAppearance>>
+	<<case "monstergirl">>
 		her monstergirl avatar's sultry voice
-	<<elseif $assistantAppearance == "shemale">>
+	<<case "shemale">>
 		her shemale avatar's syrupy voice
-	<<elseif $assistantAppearance == "amazon">>
+	<<case "amazon">>
 		her amazon avatar's powerful voice
-	<<elseif $assistantAppearance == "businesswoman">>
+	<<case "businesswoman">>
 		her businesswoman avatar's confident voice
-	<<elseif $assistantAppearance == "schoolgirl">>
+	<<case "schoolgirl">>
 		her schoolgirl avatar's bubbly voice
-	<<else>>
+	<<default>>
 		her voice
-	<</if>>
+	<</switch>>
 <</if>>
 gently calling your name. As you regain consciousness, you become aware of a weight on your chest. <span id="name"><<print "[[$activeSlave.slaveName|Long Slave Description][$nextLink = passage(), $eventDescription = 1]]">></span> has snuggled up against you in her sleep. She's nude, and so are you; everyone sleeps naked in your penthouse. The sheet is down at your hips, leaving your upper bodies bare. <<if $activeSlave.amp == 1>>She's wormed her limbless torso under your arm,<<else>>She has one arm across your <<if $PC.boobs == 1>>chest, just below your breasts,<<else>>manly chest,<</if>><</if>> and is using your shoulder as a pillow. You can feel her warm breath across <<if $PC.boobs == 1>>your nipple on that side, and it hardens slowly under your gaze<<else>>your well-developed pectorals<</if>>. Her <<if $activeSlave.boobs > 4000>>incredible tits are resting to either side of your ribcage, with one of them a heavy mass on your chest and the other trapped under her<<elseif $activeSlave.boobs > 1200>>big boobs form a warm, soft mass between you<<else>>soft chest rests warmly against your ribcage<</if>><<if ($activeSlave.preg > 20)>>, beneath them, her pregnant belly rests upon your flat stomach<</if>>, and farther down, there's another source of warmth where she's <<if $activeSlave.amp == 1>>got her legless pelvis resting against your hip<<else>>straddling your thigh<</if>>.
 <br><br>
@@ -515,7 +516,7 @@ As the Free Cities grow and evolve, slave culture does too. It seems this is a n
 
 <<case "birthday">>
 
-You come across <span id="name"><<print "[[$activeSlave.slaveName|Long Slave Description][$nextLink = passage(), $eventDescription = 1]]">></span> in the kitchen. She has a normal slave meal on a plate in front of her, but also has a pack of hotwax candles from your sex gear. Oddly, she has a candle upright in the food and is trying to light it. You ask what she's doing, and she explains <<if ($activeSlave.lips > 70)>>meekly through her massive dick-sucking lips, "I unno, <<if def $PC.customTitleLisp>>$PC.customTitleLisp<<elseif $PC.title != 0>>Mathter<<else>>Mithtreth<</if>>. Ah been a slave so long. Ah jus <<if canSee($activeSlave)>>saw<<else>>heard<</if>> th date tday an... seem lak de righ thing to do. Ahm sorry."<<elseif ($activeSlave.lipsPiercing+$activeSlave.tonguePiercing > 2)>>meekly through her inconvenient oral piercings, "I unno, <<if def $PC.customTitleLisp>>$PC.customTitleLisp<<elseif $PC.title != 0>>Mathter<<else>>Mithtreth<</if>>. Ah been a slave so long. Ah jus <<if canSee($activeSlave)>>saw<<else>>heard<</if>> th date tday an... seem lak de righ thing to do. Ahm sorry."<<else>>meekly, "I don't know, <<if def $PC.customTitle>>$PC.customTitle<<elseif $PC.title != 0>>Master<<else>>Mistress<</if>>. I've been a slave so long. I just <<if canSee($activeSlave)>>saw<<else>>heard<</if>> the date today and this seemed like the right thing to do. I'm sorry."<</if>> It's probably her birthday. Apparently she's losing her grasp on the concept.
+You come across <span id="name"><<print "[[$activeSlave.slaveName|Long Slave Description][$nextLink = passage(), $eventDescription = 1]]">></span> in the kitchen. She has a normal slave meal on a plate in front of her, but also has a pack of hotwax candles from your sex gear. Oddly, she has a candle upright in the food and is trying to light it. You ask what she's doing, and she explains meekly, "I don't know, <<Master>>. I've been a <<s>>lave <<s>>o long. I ju<<s>>t <<if canSee($activeSlave)>><<s>>aw<<else>>heard<</if>> the date today and thi<<s>> <<s>>eemed like the right thing to do. I'm <<s>>orry." It's probably her birthday. Apparently she's losing her grasp on the concept.
 
 <<case "inconvenient labia">>
 
@@ -899,33 +900,35 @@ Through the glass walls of your office, you see <span id="name"><<print "[[$acti
 <<case "PA servant">>
 
 As you begin your day one morning, you hear the quiet
-<<if $assistantAppearance == "monstergirl">>
+<<switch $assistantAppearance>>
+<<case "monstergirl">>
 	but unmistakably sensual voice of your monstergirl
-<<elseif $assistantAppearance == "shemale">>
+<<case "shemale">>
 	but unmistakably lewd voice of your shemale
-<<elseif $assistantAppearance == "amazon">>
+<<case "amazon">>
 	but unmistakably aggressive voice of your amazon
-<<elseif $assistantAppearance == "businesswoman">>
+<<case "businesswoman">>
 	but unmistakably dominant voice of your businesswoman
-<<elseif $assistantAppearance == "goddess">>
+<<case "goddess">>
 	and kindly voice of your goddess
-<<else>>
+<<case "schoolgirl">>
 	but unmistakably suggestive voice of your schoolgirl
-<</if>>
+<</switch>>
 personal assistant coming from your office. Looking in, you are treated to the sight of <span id="name"><<print "[[$activeSlave.slaveName|Long Slave Description][$nextLink = passage(), $eventDescription = 1]]">></span>'s <<if $activeSlave.butt > 8>>ridiculous bottom jiggling<<elseif $activeSlave.butt > 4>>big behind bouncing<<else>>cute rear<</if>><<if $activeSlave.preg > 20>>, and the rounded belly hanging between her legs,<</if>> as she reaches out over the glass top of your desk with a soft, dust-free cloth and a bottle of screen cleaner. <<if $assistantName == "your personal assistant">>Your personal assistant<<else>>$assistantName<</if>> is displaying her avatar right under where the slave is cleaning the glass screen, and she's displaying it nude. She's positioned herself so that the poor slave appears to be wiping
-<<if $assistantAppearance == "monstergirl">>
+<<switch $assistantAppearance>>
+<<case "monstergirl">>
 	her hair-tentacles
-<<elseif $assistantAppearance == "shemale">>
+<<case "shemale">>
 	the shaft of her massive prick
-<<elseif $assistantAppearance == "amazon">>
+<<case "amazon">>
 	the insides of her muscular thighs
-<<elseif $assistantAppearance == "businesswoman">>
+<<case "businesswoman">>
 	her pussy
-<<elseif $assistantAppearance == "goddess">>
+<<case "goddess">>
 	her motherly tits
-<<else>>
+<<case "schoolgirl">>
 	her perky tits
-<</if>>
+<</switch>>
 down with screen cleaner, and is talking dirty to the furiously blushing servant. "Ohh, that feels good," she moans. "Rub me right there, you
 $desc
 slut! I love it!" The poor slave is doing her best to hurry, embarrassed and unsure of how to react to $assistantName's behavior.
@@ -954,7 +957,28 @@ You decide to stop by to see her method at work. By the time you arrive, she's a
 
 <<case "forbidden masturbation">>
 
-<<if $assistant > 0>>There is an alert from $assistantName, in her deliciously feminine voice: "$activeSlave.slaveName is masturbating, <<if def $PC.customTitle>>$PC.customTitle<<elseif $PC.title != 0>>Master<<else>>Mistress<</if>>. Ooh, she's breaking the rules, <<if def $PC.customTitle>>$PC.customTitle<<elseif $PC.title != 0>>Master<<else>>Mistress<</if>>!" Her avatar <<if $assistantAppearance == "monstergirl">>strokes its dicks suggestively.<<elseif $assistantAppearance == "shemale">>shifts uncomfortably, its cock rock hard.<<elseif $assistantAppearance == "amazon">>struts back and forth indignantly, its bone bangles rattling.<<elseif $assistantAppearance == "businesswoman">>licks its cherry-red lips suggestively.<<elseif $assistantAppearance == "goddess">>tutting disapprovingly, despite her blushing.<<elseif $assistantAppearance == "schoolgirl">>giggles nervously.<<else>>spins accusingly.<</if>><<else>>There is a gentle alert from $assistantName: "$activeSlave.slaveName is masturbating in violation of the rules, <<if def $PC.customTitle>>$PC.customTitle<<elseif $PC.title != 0>>Master<<else>>Mistress<</if>>."<</if>> A video feed appears. <<if $activeSlave.vaginalAccessory == "chastity belt">>In her chastity belt, all she can manage is furious nipple-rubbing and some furtive fingering of her asshole.<<elseif ($activeSlave.dick > 0) && ($activeSlave.hormones > 0)>>Since she's impotent from hormone treatment, all she can manage is rubbing her soft dick and some furtive fingering of her asshole.<<elseif ($activeSlave.dick > 0) && ($activeSlave.balls == 0)>>Since she's impotent due to her lack of balls, all she can manage is rubbing her soft dick and some furtive fingering of her asshole.<<elseif ($activeSlave.vagina == -1) && ($activeSlave.dick == 0)>>She's rubbing her perineum desperately with one hand, and her anus with the other, since she lacks external genitalia.<<elseif $activeSlave.vagina == -1>>She's furiously jacking off.<<else>>She's furiously polishing her pearl.<</if>> She's chosen to do it in a dark corner and looks like she's hurrying; she clearly knows this is forbidden.
+<<if $assistant > 0>>
+	There is an alert from $assistantName, in her deliciously feminine voice: "$activeSlave.slaveName is masturbating, <<if def $PC.customTitle>>$PC.customTitle<<elseif $PC.title != 0>>Master<<else>>Mistress<</if>>. Ooh, she's breaking the rules, <<if def $PC.customTitle>>$PC.customTitle<<elseif $PC.title != 0>>Master<<else>>Mistress<</if>>!" Her avatar
+	<<switch $assistantAppearance>>
+	<<case "monstergirl">>
+		strokes its dicks suggestively.
+	<<case "shemale">>
+		shifts uncomfortably, its cock rock hard.
+	<<case "amazon">>
+		struts back and forth indignantly, its bone bangles rattling.
+	<<case "businesswoman">>
+		licks its cherry-red lips suggestively.
+	<<case "goddess">>
+		tutting disapprovingly, despite her blushing.
+	<<case "schoolgirl">>
+		giggles nervously.
+	<<default>>
+		spins accusingly.
+	<</switch>>
+<<else>>
+	There is a gentle alert from $assistantName: "$activeSlave.slaveName is masturbating in violation of the rules, <<if def $PC.customTitle>>$PC.customTitle<<elseif $PC.title != 0>>Master<<else>>Mistress<</if>>."
+<</if>>
+A video feed appears. <<if $activeSlave.vaginalAccessory == "chastity belt">>In her chastity belt, all she can manage is furious nipple-rubbing and some furtive fingering of her asshole.<<elseif ($activeSlave.dick > 0) && ($activeSlave.hormones > 0)>>Since she's impotent from hormone treatment, all she can manage is rubbing her soft dick and some furtive fingering of her asshole.<<elseif ($activeSlave.dick > 0) && ($activeSlave.balls == 0)>>Since she's impotent due to her lack of balls, all she can manage is rubbing her soft dick and some furtive fingering of her asshole.<<elseif ($activeSlave.vagina == -1) && ($activeSlave.dick == 0)>>She's rubbing her perineum desperately with one hand, and her anus with the other, since she lacks external genitalia.<<elseif $activeSlave.vagina == -1>>She's furiously jacking off.<<else>>She's furiously polishing her pearl.<</if>> She's chosen to do it in a dark corner and looks like she's hurrying; she clearly knows this is forbidden.
 <br><br>
 <span id="name"><<print "[[$activeSlave.slaveName|Long Slave Description][$nextLink = passage(), $eventDescription = 1]]">></span> does not hear your approach until you're very close. She starts and tries to look normal. <<if canTalk($activeSlave) == false>>She nervously gestures that she wasn't doing anything.<<elseif SlaveStatsChecker.checkForLisp($activeSlave)>>"<<if def $PC.customTitleLisp>>$PC.customTitleLisp<<elseif $PC.title != 0>>Mathter<<else>>Mithtreth<</if>>, I wathn't doing anything," she lies.<<else>>"I wasn't doing anything, <<if def $PC.customTitle>>$PC.customTitle<<elseif $PC.title != 0>>Master<<else>>Mistress<</if>>!" she lies.<</if>>
 
@@ -1004,31 +1028,32 @@ running her tongue over her<<if $activeSlave.lips > 40>> whorish<<elseif $active
 Partway through <span id="name"><<print "[[$activeSlave.slaveName|Long Slave Description][$nextLink = passage(), $eventDescription = 1]]">></span>'s weekly inspection, you have to leave for a moment to deal with a minor matter. Inspecting such a devoted slave is a pleasure, but you tear yourself away. Such sacrifices must be made.
 <br><br>
 When you return, the comfortably nude $desc is flirting shamelessly with $assistantName. Your personal assistant's $assistantAppearance avatar is glowing brightly on the desktop, and she and $activeSlave.slaveName are trading increasingly exaggerated compliments.
-<<if $assistantAppearance == "monstergirl">>
+<<switch $assistantAppearance>>
+<<case "monstergirl">>
   "I love your hair," the slave <<if SlaveStatsChecker.checkForLisp($activeSlave)>>lisps<<else>>says<</if>>. "Have you done anything to it lately?"
   <br><br>
   $assistantName smiles dangerously, her tentacle hair flaring out, its suckers starting to pulsate. "Don't you mean, 'have I done anyone with it lately?' I'd love to do you," she purrs.
-<<elseif $assistantAppearance == "shemale">>
+<<case "shemale">>
   "I love your cock," the slave <<if SlaveStatsChecker.checkForLisp($activeSlave)>>lisps wistfully<<else>>sighs wistfully<</if>>. <<if canAchieveErection($activeSlave)>>"I'd love to be that big."<<else>>"I can't look away."<</if>>
   <br><br>
   Complimented, $assistantName looks pleased. "Yeah, it's pretty great," she giggles.
-<<elseif $assistantAppearance == "amazon">>
+<<case "amazon">>
   "You're <<if SlaveStatsChecker.checkForLisp($activeSlave)>>tho big and thtrong," the slave lisps<<else>>so big and strong," the slave says<</if>>. "You look like you could give a great hug."
   <br><br>
   $assistantName blushes. "Um, well," she says, her muscular avatar kicking its heels. "I can't. But I'd like to give you one!"
-<<elseif $assistantAppearance == "businesswoman">>
+<<case "businesswoman">>
   "You're <<if SlaveStatsChecker.checkForLisp($activeSlave)>>tho confident and thexy," the slave lisps. "I love doing what you thay."<<else>>so confident and sexy," the slave says.  "I love doing what you say."<</if>>
   <br><br>
   $assistantName favors her with an aristocratic look. "Well, you are a good slave," she says measuringly. "So I suppose I love telling you what to do." She uncrosses and recrosses her legs.
-<<elseif $assistantAppearance == "schoolgirl">>
+<<case "schoolgirl">>
   "You're <<if SlaveStatsChecker.checkForLisp($activeSlave)>>tho cute," the slave lisps. "It maketh thingth<<else>>so cute," the slave lisps. "It makes things<</if>> fun."
   <br><br>
   $assistantName looks touched. "Aw," she coos, "I love you too!"
-<<elseif $assistantAppearance == "goddess">>
+<<case "goddess">>
   "I love the way you glow," <<if SlaveStatsChecker.checkForLisp($activeSlave)>>the slave lisps. "It'th<<else>>the slave lisps. "It's<</if>> really comforting."
   <br><br>
   $assistantName beams maternally. "That's wonderful," she says resonantly. "I want the best for you."
-<</if>>
+<</switch>>
 
 <<case "dick wringing">>
 
@@ -1165,7 +1190,7 @@ Coming to a stop, she <<if $activeSlave.height > 190>>bends the long, long way d
 <<if canTalk($activeSlave) == false>>
 	She mouths 'I love you, <<if def $PC.customTitle>>$PC.customTitle<<elseif $PC.title != 0>>Master<<else>>Mistress<</if>>,' holding her hands out in front of you both to say it in sign language at the same time.
 <<else>>
-	"I love you, <<if SlaveStatsChecker.checkForLisp($activeSlave)>><<if def $PC.customTitleLisp>>$PC.customTitleLisp<<elseif $PC.title != 0>>Mathter<<else>>Mithtreth<</if>><<else>><<Master>>," she whispers.<</if>>
+	"I love you, <<if SlaveStatsChecker.checkForLisp($activeSlave)>><<if def $PC.customTitleLisp>>$PC.customTitleLisp<<elseif $PC.title != 0>>Mathter<<else>>Mithtreth<</if>><<else>><<Master>><</if>>," she whispers.
 <</if>>
 
 <<case "bad dream">>
@@ -2876,7 +2901,27 @@ You tell her kindly that you understand, and that she'll be trained to address t
 <br><<link "Let her use a machine">>
 	<<replace "#name">>$activeSlave.slaveName<</replace>>
 	<<replace "#result">>
-	There's no reason for her to do that in a quiet corner. You interrupt her and bring her into your office, setting her up on a machine so she can have that dildo rammed up her ass for as long as she likes. Your office is filled with the rhythmic sounds of a sloppy anus being pounded for a good long while.<<if $assistant > 0>>The <<if $assistantAppearance == "monstergirl">>monstrous voice of your assistant's avatar can also be heard, encouraging $activeSlave.slaveName to "take my cocks, slave."<<elseif $assistantAppearance == "shemale">>sultry voice of your assistant's avatar can also be heard, encouraging $activeSlave.slaveName to "take my dick, bitch."<<elseif $assistantAppearance == "amazon">>aggressive voice of your assistant's avatar can also be heard, encouraging $activeSlave.slaveName to "be a warrior."<<elseif $assistantAppearance == "businesswoman">>dominant voice of your assistant's avatar can also be heard, encouraging $activeSlave.slaveName to "stop struggling and be a good girl."<<elseif $assistantAppearance == "goddess">>calming voice of your assistant's avatar can also be heard, encouraging $activeSlave.slaveName to "relax and accept what you deserve, girl."<<elseif $assistantAppearance == "schoolgirl">>girly voice of your assistant's avatar can also be heard, encouraging $activeSlave.slaveName to "be quiet, or Teacher will hear us."<<else>>poor slave is taken to the very limit by your assistant.<</if>><</if>> By the time she's climaxed out, she's so tired and apathetic that she can't bring herself to get off it or ask for help, so she just relaxes and enjoys the internal massage<<if $activeSlave.dick != 0>> while her flaccid dick twitches weakly<</if>>. @@.mediumaquamarine;She has become more trusting of you,@@ since you knew just what she needed.
+	There's no reason for her to do that in a quiet corner. You interrupt her and bring her into your office, setting her up on a machine so she can have that dildo rammed up her ass for as long as she likes. Your office is filled with the rhythmic sounds of a sloppy anus being pounded for a good long while.
+	<<if $assistant > 0>>
+		The
+		<<switch $assistantAppearance>>
+		<<case "monstergirl">>
+			monstrous voice of your assistant's avatar can also be heard, encouraging $activeSlave.slaveName to "take my cocks, slave."
+		<<case "shemale">>
+			sultry voice of your assistant's avatar can also be heard, encouraging $activeSlave.slaveName to "take my dick, bitch."
+		<<case "amazon">>
+			aggressive voice of your assistant's avatar can also be heard, encouraging $activeSlave.slaveName to "be a warrior."
+		<<case "businesswoman">>
+			dominant voice of your assistant's avatar can also be heard, encouraging $activeSlave.slaveName to "stop struggling and be a good girl."
+		<<case "goddess">>
+			calming voice of your assistant's avatar can also be heard, encouraging $activeSlave.slaveName to "relax and accept what you deserve, girl."
+		<<case "schoolgirl">>
+			girly voice of your assistant's avatar can also be heard, encouraging $activeSlave.slaveName to "be quiet, or Teacher will hear us."
+		<<default>>
+			poor slave is taken to the very limit by your assistant.
+		<</switch>>
+	<</if>>
+	By the time she's climaxed out, she's so tired and apathetic that she can't bring herself to get off it or ask for help, so she just relaxes and enjoys the internal massage<<if $activeSlave.dick != 0>> while her flaccid dick twitches weakly<</if>>. @@.mediumaquamarine;She has become more trusting of you,@@ since you knew just what she needed.
 	<<set $activeSlave.trust += 4>>
 	<<set $activeSlave.analCount += 1>>
 	<<set $analTotal += 1>>
@@ -3751,38 +3796,40 @@ You tell her kindly that you understand, and that she'll be trained to address t
 	You're sure she'll do her best, and you tell her so. She thanks you again, and you both go back to your work. Though your Head Girl continues manipulating her tablet diligently, she can't seem to stop herself from @@.hotpink;stealing the occasional glance at you.@@ Her $activeSlave.eyeColor eyes, dark in the dimness of the office, seem to have an unaccountable sheen.
 	<<if $assistant != 0>>
 	<<if $assistantName == "your personal assistant">>Your personal assistant<<else>>$assistantName<</if>>'s $assistantAppearance avatar appears on your desktop, glowing brightly, and ruins the moment. "$activeSlave.slaveName loooves her <<if def $PC.customTitle>>$PC.customTitle<<elseif $PC.title != 0>>Maaaster<<else>>Miiistress<</if>>," she taunts,
-	<<if $assistantAppearance == "monstergirl">>
+	<<switch $assistantAppearance>>
+	<<case "monstergirl">>
 		her hair forming a heart shape.
-	<<elseif $assistantAppearance == "shemale">>
+	<<case "shemale">>
 		using her hands to make a heart shape over her balls.
-	<<elseif $assistantAppearance == "amazon">>
+	<<case "amazon">>
 		grinning far more sweetly than her muscular form should be able to manage.
-	<<elseif $assistantAppearance == "businesswoman">>
+	<<case "businesswoman">>
 		though she's blushing herself.
-	<<elseif $assistantAppearance == "goddess">>
+	<<case "goddess">>
 		massaging her pregnant belly meaningfully.
-	<<elseif $assistantAppearance == "schoolgirl">>
+	<<case "schoolgirl">>
 		the very picture of a malicious schoolgirl.
-	<<else>>
+	<<default>>
 		turning her avatar a throbbing pink.
-	<</if>>
+	<</switch>>
 	<br><br>
-	Your Head Girl turns a darker shade of red. "Oh, shut up, you little
-	<<if $assistantAppearance == "monstergirl">>
-	  <<if SlaveStatsChecker.checkForLisp($activeSlave)>>monthter<<else>>monster<</if>>		,"
-	<<elseif $assistantAppearance == "shemale">>
-	  <<if SlaveStatsChecker.checkForLisp($activeSlave)>>cockmonthter<<else>>cockmonster<</if>>,"
-	<<elseif $assistantAppearance == "amazon">>
-	  dyke,"
-	<<elseif $assistantAppearance == "businesswoman">>
-	  witch,"
-	<<elseif $assistantAppearance == "goddess">>
-	  cow,"
-	<<elseif $assistantAppearance == "schoolgirl">>
-	  <<if SlaveStatsChecker.checkForLisp($activeSlave)>>thlut<<else>>slut<</if>>,"
-	<<else>>
-	  <<if SlaveStatsChecker.checkForLisp($activeSlave)>>toathter<<else>>toaster<</if>>,"
-	<</if>>
+	Your Head Girl turns a darker shade of red. "Oh, <<s>>hut up, you little
+	<<switch $assistantAppearance>>
+	<<case "monstergirl">>
+		mon<<s>>ter,"
+	<<case "shemale">>
+		cockmon<<s>>ter,"
+	<<case "amazon">>
+		dyke,"
+	<<case "businesswoman">>
+		witch,"
+	<<case "goddess">>
+		cow,"
+	<<case "schoolgirl">>
+		<<s>>lut,"
+	<<default>>
+		toa<<s>>ter,"
+	<</switch>>
 	she says cattily, but she's smiling.
 	<</if>>
 	<<set $activeSlave.devotion += 4>>
@@ -4146,7 +4193,7 @@ You tell her kindly that you understand, and that she'll be trained to address t
 	  <<set $activeSlave.fetishStrength = 65>>
 	  <<set $activeSlave.fetish = "pregnancy">>
 	  <<set $activeSlave.fetishKnown = 1>>
-	  Before she realizes what's happening, @@.lightcoral;she's getting aroused at the though of getting pregnant.@@
+	  Before she realizes what's happening, @@.lightcoral;she's getting aroused at the thought of getting pregnant.@@
 	<</if>>
 	<</replace>>
 <</link>><<if ($activeSlave.vagina == 0)>> //This option will take her virginity//<</if>>
@@ -4444,17 +4491,25 @@ You tell her kindly that you understand, and that she'll be trained to address t
 <<link "Bake her a cake">>
 	<<replace "#name">>$activeSlave.slaveName<</replace>>
 	<<replace "#result">>
-	You bake a simple cake while patiently explaining birthdays. She slowly remembers, and <<if canSee($activeSlave)>>looks repeatedly at the date display<<else>>focuses intently on the date as she repeats it to herself<</if>> to ingrain her birthday back in her mind. When the cake is done, you quickly dust it with confectionary sugar, stand a hotwax candle in the middle of it, and invite her to think of a wish and blow it out. She sits on your lap and the two of you take turns feeding each other warm cake. When the cake is gone she gets up to do the dishes and you turn to go. As you go, she asks <<if ($activeSlave.lips > 70)>>through her massive dick-sucking lips, "<<if def $PC.customTitleLisp>>$PC.customTitleLisp<<elseif $PC.title != 0>>Mathter<<else>>Mithtreth<</if>>, may Ah tell yeh wha mah wish was?"<<elseif ($activeSlave.lipsPiercing+$activeSlave.tonguePiercing > 2)>>through her inconvenient oral piercings, "<<if def $PC.customTitleLisp>>$PC.customTitleLisp<<elseif $PC.title != 0>>Mathter<<else>>Mithtreth<</if>>, may Ah tell yeh wha mah wish was?"<<else>>"<<if def $PC.customTitle>>$PC.customTitle<<elseif $PC.title != 0>>Master<<else>>Mistress<</if>>, may I tell you what my wish was?"<</if>> You nod, and she kneels on the kitchen chair with her eyes closed, her hands spreading her buttocks, and her mouth open. <<if ($activeSlave.lips > 70)>>"Buttsex, <<if def $PC.customTitleLisp>>$PC.customTitleLisp<<elseif $PC.title != 0>>Mathter<<else>>Mithtreth<</if>>."<<elseif ($activeSlave.lipsPiercing+$activeSlave.tonguePiercing > 2)>>"Buttsex, <<if def $PC.customTitleLisp>>$PC.customTitleLisp<<elseif $PC.title != 0>>Mathter<<else>>Mithtreth<</if>>."<<else>>"Buttsex, <<if def $PC.customTitle>>$PC.customTitle<<elseif $PC.title != 0>>Master<<else>>Mistress<</if>>."<</if>> @@.hotpink;Her devotion has increased.@@
-	<<set $activeSlave.devotion += 4>>
-	<<if ($activeSlave.vagina > -1)>>
-		<<set $activeSlave.vaginalCount += 1>>
-		<<set $vaginalTotal += 1>>
+	You bake a simple cake while patiently explaining birthdays. She slowly remembers, and <<if canSee($activeSlave)>>looks repeatedly at the date display<<else>>focuses intently on the date as she repeats it to herself<</if>> to ingrain her birthday back in her mind. When the cake is done, you quickly dust it with confectionary sugar, stand a hotwax candle in the middle of it, and invite her to think of a wish and blow it out. She sits on your lap and the two of you take turns feeding each other warm cake. When the cake is gone she gets up to do the dishes and you turn to go. As you go, she asks <<if ($activeSlave.lips > 70)>>through her massive dick-sucking lips, <<elseif ($activeSlave.lipsPiercing+$activeSlave.tonguePiercing > 2)>>through her inconvenient oral piercings, <</if>>"<<Master>>, may I tell you what my wi<<s>>h wa<<s>>?" You nod, and she kneels on the kitchen chair with her eyes closed,
+	<<if canDoVaginal($activeSlave) && canDoAnal($activeSlave)>>
+		her hands spreading her buttocks; her pussy moist and inviting and her anus begging for penetration. "Take me, <<Master>>."
+		<<BothVCheck>>
+	<<elseif canDoVaginal($activeSlave)>>
+		her hands spreading her buttocks; her pussy moist and inviting. "Take me, <<Master>>."
+		<<VaginalVCheck>>
+	<<elseif canDoAnal($activeSlave)>>
+		her hands spreading her buttocks, and her mouth open. "Butt<<s>>ex, <<Master>>."
+		<<AnalVCheck>>
 	<<else>>
-		<<set $activeSlave.analCount += 1>>
-		<<set $analTotal += 1>>
+		hands to her breasts, and mouth wide open. "To ta<<s>>te you, <<Master>>."
+		<<set $activeSlave.oralCount += 1>>
+		<<set $oralTotal += 1>>
 	<</if>>
+	She feels so much @@.hotpink;closer to you@@ than before.
+	<<set $activeSlave.devotion += 4>>
 	<</replace>>
-<</link>>
+<</link>><<if canDoVaginal($activeSlave) && canDoAnal($activeSlave)>> //This option will take both her virginities//<<elseif canDoVaginal($activeSlave)>> //This option will take her virginity//<<elseif canDoAnal($activeSlave)>> //This option will take her anal virginity//<</if>>
 <br><<link "Teach her a new meaning of birthdays">>
 	<<replace "#name">>$activeSlave.slaveName<</replace>>
 	<<replace "#result">>
@@ -5177,7 +5232,10 @@ You tell her kindly that you understand, and that she'll be trained to address t
 		she's happy to take it up the ass, though there's no sign of an erection from her useless sissy dick.
 	<<elseif $activeSlave.vagina == -1>>
 		she's obviously ready and willing to get buttfucked, even if her body has no physically obvious way to shot it off.
+	<<else>>
+		she's wet and ready and moans happily as you enter her.
 	<</if>>
+	There's no hesitation or fear at all on her face when she sees you're returning her to your penthouse; @@.mediumaquamarine;her trust in you has increased.@@
 	<<set $activeSlave.trust += 4>>
 	<<if ($activeSlave.vagina > -1)>>
 		<<VaginalVCheck>>
@@ -5398,19 +5456,20 @@ You tell her kindly that you understand, and that she'll be trained to address t
 	  hot cunt, and the obedient slave <<if $activeSlave.preg > 20>>hefts herself<<else>>clambers<</if>> up to eat you out. You surprise her by taking your time, drawing out the oral session with the ulterior motive of getting as much saliva and pussyjuice onto the glass as possible.
 	<</if>>
 	<<if $assistantName == "your personal assistant">>Your personal assistant<<else>>$assistantName<</if>> shifts her avatar so that this lands all over her
-	<<if $assistantAppearance == "monstergirl">>
+	<<switch $assistantAppearance>>
+	<<case "monstergirl">>
 		cocks.
-	<<elseif $assistantAppearance == "shemale">>
+	<<case "shemale">>
 		huge cock.
-	<<elseif $assistantAppearance == "amazon">>
+	<<case "amazon">>
 		muscular pussy.
-	<<elseif $assistantAppearance == "businesswoman">>
+	<<case "businesswoman">>
 		mature pussy.
-	<<elseif $assistantAppearance == "goddess">>
+	<<case "goddess">>
 		fertile pussy.
-	<<else>>
+	<<case "schoolgirl">>
 		pretty young pussy.
-	<</if>>
+	<</switch>>
 	"Clean me off, $activeSlave.slaveName," she demands, winking broadly at you. The slave, knowing that commands from her are commands from you, repositions herself to lick up the <<if $PC.dick == 1>>ejaculate<<if $PC.vagina == 1>> and <</if>><</if>><<if $PC.vagina == 1>>girlcum<</if>>.
 	<br><br>
 	This brings the slave into a crouch with her ass pointed at you, <<if $activeSlave.anus > 2>>her big asspussy practically begging for a pounding<<elseif $activeSlave.anus > 1>>her nice asshole practically begging for a good hard fucking<<else>>her tight little rosebud completely vulnerable<</if>>. As <<if $PC.dick == 1>><<if $PC.vagina == 1>>use manual stimulation of your pussy to get your dick<<else>>stroke yourself<</if>> rapidly back to full mast<<else>>don a strap-on<</if>>, $assistantName opines helpfully, "Hey $activeSlave.slaveName! You're about to get buttfucked!" The slave reacts by obediently reaching back to spread her buttocks, and relaxes her anus, but $assistantName ruins her attempt at graceful anal submission. "<<if $PC.title == 1>>Siiir,<<else>>Ma'aaam,<</if>> she's bluuuushing," she says tauntingly, and the slave stiffens with renewed embarrassment, not to mention discomfort, as you penetrate her. She keeps licking away, cleaning up the mess you made as $assistantName does everything she can to make it seem like the slave is pleasuring her. Partway through, $assistantName sticks out a hand for a high-five from you, producing a gurgle of indignation @@.mediumaquamarine;or perhaps even laughter@@ as her owner and her owner's personal assistant program high-five over her back.
@@ -5426,29 +5485,31 @@ You tell her kindly that you understand, and that she'll be trained to address t
 	<<replace "#result">>
 	You enter, eliciting an embarrassed
 	"Um, hi <<if SlaveStatsChecker.checkForLisp($activeSlave)>><<if def $PC.customTitleLisp>>$PC.customTitleLisp<<elseif $PC.title != 0>>Mathter<<else>>Mithtreth<</if>><<else>><<Master>><</if>>" from $activeSlave.slaveName, and ask $assistantName if she'd like to DP the slave with you.
-	<<if $assistantAppearance == "monstergirl">>
+	<<switch $assistantAppearance>>
+	<<case "monstergirl">>
 		"Oh yes," she purrs threateningly over the slave's moan of apprehension, and her avatar begins to stroke its dicks meaningfully.
-	<<elseif $assistantAppearance == "shemale">>
+	<<case "shemale">>
 		"Fuck yes," she groans over the slave's moan of apprehension, and her avatar begins to stroke its cock meaningfully.
-	<<elseif $assistantAppearance == "amazon">>
+	<<case "amazon">>
 		"Yeah!" she shouts over the slave's moan of apprehension, and her avatar quickly dons a big strap-on carved from mammoth tusk.
-	<<elseif $assistantAppearance == "businesswoman">>
+	<<case "businesswoman">>
 		"Oh yes," she purrs sadistically over the slave's moan of apprehension, and her avatar quickly dons a big strap-on.
-	<<elseif $assistantAppearance == "goddess">>
+	<<case "goddess">>
 		"That would be lovely," she says radiantly over the slave's moan of apprehension, and her avatar acquires a phallus of light.
-	<<else>>
+	<<default>>
 		"Fuck yeah!" she cheers over the slave's moan of apprehension, and her avatar quickly dons a big strap-on.
-	<</if>>
+	<</switch>>
 	You indicate a fuckmachine in the corner of the room, and the slave obediently hurries over to it. It's vertical, and she hops up on it, positioning her anus over its
-	<<if $assistantAppearance == "monstergirl">>
+	<<switch $assistantAppearance>>
+	<<case "monstergirl">>
 		pair of dildos. They insert themselves
-	<<elseif $assistantAppearance == "shemale">>
+	<<case "shemale">>
 		frighteningly big dildo. It inserts itself
-	<<elseif $assistantAppearance == "amazon">>
+	<<case "amazon">>
 		animalistically ribbed dildo. It inserts itself
-	<<else>>
+	<<default>>
 		large dildo. It inserts itself
-	<</if>>
+	<</switch>>
 	gently but firmly and then stops, the panting slave's <<if $activeSlave.muscles > 30>>heavily muscled<<elseif $activeSlave.preg >= 5>>motherly<<elseif $activeSlave.weight > 10>>plush<<elseif $activeSlave.muscles > 5>>toned<<else>>feminine<</if>> thighs quivering a little from supporting her body in its perch atop the machine, and from the fullness of her anus. She knows this is going to be challenging, and is breathing deeply, doing her best to stay relaxed. You cannot resist slapping your	<<if $PC.dick == 1>>big cock lightly<<else>>lubricated strap-on<</if>> against her cheek, producing a groan of apprehension.
 	<br><br>
 	You push her gently backward, letting her get accustomed to the new angle.<<if $activeSlave.boobs > 2000>> Her monstrous tits spread to either side of her <<if $activeSlave.preg > 20>> pregnant belly<<else>>now upright torso<</if>>, and you take a moment to play with them as she prepares herself.<</if>>
@@ -5460,19 +5521,20 @@ You tell her kindly that you understand, and that she'll be trained to address t
 	quickly drives all feminine grace, presence of mind, or really, @@.hotpink;conscious thought out of the poor slave.@@ After begging for mercy for a short while, she lapses into animal groans, drooling and leaking tears out the corner of her eyes as you and $assistantName fuck her into insensibility. When you climax, $assistantName ejaculates, filling the slave's anus with warm fluid.
 	<br><br>
 	By this point she's so helpless that you gently lift her off the fuckmachine and carry her to the shower. You set her down there, and $assistantName activates the water, using the powerful jets in pulses to massage life back into your exhausted fuckpuppet. Her avatar appears on a screen behind the shower, creating an optical illusion that makes it look like she's petting the slave in time with the water. She reassures to the slave as she does:
-	<<if $assistantAppearance == "monstergirl">>
+	<<switch $assistantAppearance>>
+	<<case "monstergirl">>
 		"You're a good little cocksock," she says kindly.
-	<<elseif $assistantAppearance == "shemale">>
+	<<case "shemale">>
 		"I like your butthole," she says politely.
-	<<elseif $assistantAppearance == "amazon">>
+	<<case "amazon">>
 		"I like fucking your butthole," she says kindly.
-	<<elseif $assistantAppearance == "businesswoman">>
+	<<case "businesswoman">>
 		"I'm sure you won't be sold right away," she says.
-	<<elseif $assistantAppearance == "goddess">>
+	<<case "goddess">>
 		"There, there," she says kindly. "You are a good sex slave."
-	<<else>>
+	<<default>>
 		"I like you," she says cheerily.
-	<</if>>
+	<</switch>>
 	<<set $activeSlave.devotion += 4>>
 	<<set $activeSlave.analCount += 3>>
 	<<set $analTotal += 3>>
@@ -6212,35 +6274,37 @@ She's obviously @@.mediumaquamarine;becoming more comfortable@@ playing the part
 	<<replace "#name">>$activeSlave.slaveName<</replace>>
 	<<replace "#result">>
 	You ask $assistantName whether she's going anywhere with all this flirting. Her avatar looks at $activeSlave.slaveName. "Hear that,
-	<<if $assistantAppearance == "monstergirl">>
+	<<switch $assistantAppearance>>
+	<<case "monstergirl">>
 	  human?" she growls. "You're all mine!"
 	  <br><br>
 	  "Oh noo, I'm being <<if SlaveStatsChecker.checkForLisp($activeSlave)>>thacrifithed to a rape monthter,"<<else>>sacrificed to a rape monster,"<</if>>
-	<<elseif $assistantAppearance == "shemale">>
+	<<case "shemale">>
 	  slut?" she says, smacking her lips. "You're all mine!"
 	  <br><br>
 	  "Oh noo, <<if SlaveStatsChecker.checkForLisp($activeSlave)>>there'th  no way that thing will fit inthide<<else>>there's  no way that thing will fit inside<</if>> me,"
-	<<elseif $assistantAppearance == "amazon">>
+	<<case "amazon">>
 	  slave?" she roars, rubbing her palms together powerfully. "You're my prize!"
 	  <br><br>
 	  "Oh noo, I've been captured by a horny amazon,"
-	<<elseif $assistantAppearance == "businesswoman">>
+	<<case "businesswoman">>
 	  bitch?" she says icily, making a steeple with her fingers. "You'll satisfy me! Now!"
 	  <br><br>
-	  "Oh noo, I'm a slave to a horny older woman's lewd desires,"
-	<<elseif $assistantAppearance == "schoolgirl">>
+	  "Oh noo, I'm a <<s>>lave to a horny older woman'<<s>> lewd de<<s>>ire<<s>>,"
+	<<case "schoolgirl">>
 	  cutie?" she says eagerly, already reaching down to start schlicking away. "You get to be my FWB!"
 	  <br><br>
-	  "Oh noo, I have to satisfy a naughty little schoolgirl,"
-	<<elseif $assistantAppearance == "goddess">>
+	  "Oh noo, I have to <<s>>ati<<s>>fy a naughty little <<s>>choolgirl,"
+	<<case "goddess">>
 	  girl?" she says beatifically. "When I'm through with you, you'll be as pregnant as I!"
 	  <br><br>
-	  "Oh noo, I'm about to be impregnated by a goddess,"
-	<</if>>
+	  "Oh noo, I'm about to be impregnated by a godde<<ss>>,"
+	<</switch>>
 	the $desc gasps with mock horror. Your personal assistant gives her rapid-fire orders, making her set up sex toys in the corner of your office to conform to her avatar.
 	<br><br>
 	The next slave on the inspection enters and approaches you, sitting imperturbably behind your desk, but stops and stares when she notices what's going on in the corner of your office. A wall screen in the corner shows $assistantName's avatar
-	<<if $assistantAppearance == "monstergirl">>
+	<<switch $assistantAppearance>>
+	<<case "monstergirl">>
 	  with both her cocks up the asshole of an avatar of $activeSlave.slaveName. Below this, the slave herself is facedown<<if $activeSlave.preg > 20>>, her rear up in the air to give her pregnancy room<</if>>, with two fuckmachines pounding
 	  <<if ($activeSlave.vagina > 0) && canDoVaginal($activeSlave)>>
 		her: one in the pussy, one in the ass.
@@ -6253,7 +6317,7 @@ She's obviously @@.mediumaquamarine;becoming more comfortable@@ playing the part
 		<<set $activeSlave.analCount += 1>>
 		<<set $analTotal += 1>>
 	  <</if>>
-	<<elseif $assistantAppearance == "shemale">>
+	<<case "shemale">>
 	  with her third leg inside
 	  <<if ($activeSlave.vagina > 0) && canDoVaginal($activeSlave)>>
 		the pussy of an avatar of $activeSlave.slaveName. Below this, the slave herself is taking vaginal from a fuckmachine with an absurdly big dildo.
@@ -6264,7 +6328,7 @@ She's obviously @@.mediumaquamarine;becoming more comfortable@@ playing the part
 		<<set $activeSlave.analCount += 1>>
 		<<set $analTotal += 1>>
 	  <</if>>
-	<<elseif $assistantAppearance == "amazon">>
+	<<case "amazon">>
 	  powerfully fucking an avatar of $activeSlave.slaveName with a beautiful carved bone and worked leather strap-on.
 	  <<if ($activeSlave.vagina > 0) && canDoVaginal($activeSlave)>>
 		Below this, the slave herself is taking hard vaginal from a fuckmachine.
@@ -6275,11 +6339,11 @@ She's obviously @@.mediumaquamarine;becoming more comfortable@@ playing the part
 		<<set $activeSlave.analCount += 1>>
 		<<set $analTotal += 1>>
 	  <</if>>
-	<<elseif ($assistantAppearance == "businesswoman") || ($assistantAppearance == "schoolgirl")>>
+	<<case "businesswoman" "schoolgirl">>
 	  being eaten out by an avatar of $activeSlave.slaveName, who is touching herself in turn. Below this, the slave herself is performing oral on a realistic fake pussy while masturbating.
 	  <<set $activeSlave.oralCount += 1>>
 	  <<set $oralTotal += 1>>
-	<<elseif $assistantAppearance == "goddess">>
+	<<case "goddess">>
 	  gently making love to an avatar of $activeSlave.slaveName, whose <<if $activeSlave.preg > 20>>pregnant belly is growing ever more full of children<<else>>belly is becoming distended<</if>>. Below this, the slave herself is taking a fuckmachine
 	  <<if ($activeSlave.vagina > 0) && canDoVaginal($activeSlave)>>
 		in her cunt;
@@ -6291,7 +6355,7 @@ She's obviously @@.mediumaquamarine;becoming more comfortable@@ playing the part
 		<<set $analTotal += 1>>
 	  <</if>>
 	  it's an ejaculating model, and it's filled her so completely that each thrust sends a gush of fake cum down her legs to join the puddle on the floor.
-	<</if>>
+	<</switch>>
 	"@@.hotpink;Good girl,@@" $assistantName says. The new slave turns resolutely away from the arresting sight and gets on with the inspection, doing her best to ignore the lewd noises coming from that part of the room.
 	<<set $activeSlave.devotion += 4>>
 	<</replace>>
@@ -6300,19 +6364,20 @@ She's obviously @@.mediumaquamarine;becoming more comfortable@@ playing the part
 	<<replace "#name">>$activeSlave.slaveName<</replace>>
 	<<replace "#result">>
 	You tell $activeSlave.slaveName that she and your personal assistant really should get a room. She looks at $assistantName's avatar, and then back up at you. She gives you a mischievous look, and then bends down to whisper to the avatar behind her hand.
-	<<if $assistantAppearance == "monstergirl">>
+	<<switch $assistantAppearance>>
+	<<case "monstergirl">>
 	  "Why not," the monstergirl chuckles,
-	<<elseif $assistantAppearance == "shemale">>
+	<<case "shemale">>
 	  "Oh yeah, sure," the shemale giggles,
-	<<elseif $assistantAppearance == "amazon">>
+	<<case "amazon">>
 	  "Fuck yes," the amazon exclaims,
-	<<elseif $assistantAppearance == "businesswoman">>
+	<<case "businesswoman">>
 	  "Because you asked," the businesswoman says,
-	<<elseif $assistantAppearance == "schoolgirl">>
+	<<case "schoolgirl">>
 	  "Aw, hot! Of course," the schoolgirl giggles,
-	<<elseif $assistantAppearance == "goddess">>
+	<<case "goddess">>
 	  "Oh, lovely," the goddess says beatifically,
-	<</if>>
+	<</switch>>
 	and directs her to an unoccupied room with the necessary sex toys.
 	<br><br>
 	Several minutes later, $assistantName's avatar reappears on your desk,

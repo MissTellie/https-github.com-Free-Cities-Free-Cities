@@ -87,9 +87,8 @@
 	<<set $activeSlave.devotion = random(-10,-15)>>
 	<<set $activeSlave.trust = $activeSlave.devotion+4>>
 	<<set $activeSlave.oldDevotion = $activeSlave.devotion>>
-	<<set $activeSlave.health = random(0,20)>>
+	<<set $activeSlave.health = random(-20,20)>>
 	<<set $activeSlave.age = random(24,42)>>
-	<<set $activeSlave.health = random(-40,-30)>>
 	<<set $activeSlave.anus = 2>>
 	<<if $activeSlave.vagina > -1>>
 	<<set $activeSlave.vagina = 2>>
@@ -127,7 +126,9 @@
 	<<if $activeSlave.dick == 0>>
 		<<set $activeSlave.vagina = 2>>
 		<<set $activeSlave.ovaries = 1>>
-		<<set $activeSlave.preg = 1>>
+		<<if isFertile($activeSlave)>>
+			<<set $activeSlave.preg = 1>>
+		<</if>>
 	<</if>>
 <</if>>
 

@@ -251,10 +251,8 @@
 	<<set $costs += 10000>>
 <</if>>
 
-<<if $cyberMod == 1>>
-<<if $researchLab.built == "true">>
+<<if $cyberMod != 0 && $researchLab.built == "true">>
 	<<set $costs += ((100*$researchLab.maxSpace)+(300*$researchLab.hired)+(100*$researchLab.hired))>>
-<</if>>
 <</if>>
 
 <<if $costs < 0>>

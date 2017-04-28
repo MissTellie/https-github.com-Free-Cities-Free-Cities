@@ -648,7 +648,7 @@
 It is confined in a suit that limits its perception of the outside world to tonal commands from the suit itself and things that are inserted into its mouth<<if $activeSlave.vagina > -1>>, vagina,<</if>> and anus.
 <<if $slaves[$i].sexualFlaw == "self hating">>
 	Its self hatred @@.gold;cannot eliminate the growing fear@@ engendered by its remaining spark of self-preservation.
-	<<set $slaves[$i].trust += 5>>
+	<<set $slaves[$i].trust -= 5>>
 <<elseif $slaves[$i].trust > 50>>
 	It still hopes you'll let it out of its suit so it can be your good slave again, but @@.gold;fear and doubt creep in@@ by the minute. And there are a lot of them.
 <<else>>

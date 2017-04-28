@@ -68,11 +68,9 @@
 		<</if>>
 	<<elseif $slaves[$i].fuckdoll <= 75>>
 		This week it @@.green;begins to learn more advanced commands@@ from its suit. It is taught a command that instructs it to take a more active role in penetrative sex. When that command is given, it must fuck itself against any <<if $PC.dick == 1>>cocks<<else>>phalli<</if>> that are currently inside it, as hard as it possibly can.
-		<<if $slaves[$i].fetish != "none">>
-		<<if $slaves[$i].fetish != "mindbroken">>
+		<<if $slaves[$i].fetish != "none" || $slaves[$i].fetish != "mindbroken">>
 			It @@.pink;no longer retains any sexual preferences@@ at all. It just wants to be penetrated.
 			<<set $slaves[$i].fetish = "none", $slaves[$i].fetishStrength = 0>>
-		<</if>>
 		<</if>>
 		<<if $slaves[$i].intelligence > 1>>
 			It was once highly intelligent, but total concentration of all its mental abilities on simple tonal commands @@.red;dulls its intelligence.@@
@@ -2729,7 +2727,7 @@
 	<<if (($slaves[$i].boobs-$slaves[$i].boobsImplant) < 500)>>
 		<<set _Effects.push("BoobsBigger")>>
 	<</if>>
-	<<if (($slaves[$i].face-$slaves[$i].faceImplant) <= 10) && ($slaves[$i].face <= 95)>>
+	<<if (($slaves[$i].face-($slaves[$i].faceImplant*20)) <= 10) && ($slaves[$i].face <= 95)>>
 		<<set _Effects.push("FaceSofter")>>
 	<</if>>
 	<<if ($slaves[$i].faceShape is "masculine")>>
@@ -3584,6 +3582,7 @@
 	<<if ($slaves[$i].lips > 95)>>
 		Society @@.green;approves@@ of $possessive absurd facepussy as a transformation of $possessive mouth into nothing more than another fuckhole.
 		<<FSChangePorn "TransformationFetishist" 1>>
+		<<set _transformed = 1>>
 	<</if>>
 	<<if $slaves[$i].fuckdoll > 0>>
 		Society @@.green;approves@@ of your owning a Fuckdoll.
@@ -3997,7 +3996,7 @@
 					<<if $slaves[$i].fetishStrength > 60>>
 						is such a buttslut that $possessive's null status doesn't affect $possessive libido at all; $pronoun's got her prostate and that's all $pronoun cares about.
 					<<else>>
-						is a buttslut, but not enough of one that $pronoun's lack of<<if $seeDicks > 0>> a dick or<</if>> a pussy isn't frustrating.
+						is a buttslut, but not enough of one that $possessive lack of<<if $seeDicks > 0>> a dick or<</if>> a pussy isn't frustrating.
 						<<set _frustration = 1>>
 					<</if>>
 				<<else>>
@@ -4007,10 +4006,10 @@
 			<<else>>
 				<<if $slaves[$i].fetish == "buttslut">>
 					<<if $slaves[$i].fetishStrength > 95>>
-						is such a buttslut that $possessive's complete lack of <<if $seeDicks > 0>>a dick, a pussy, or a prostate<<else>>a pussy<</if>> only bothers $object slightly.
+						is such a buttslut that $possessive complete lack of <<if $seeDicks > 0>>a dick, a pussy, or a prostate<<else>>a pussy<</if>> only bothers $object slightly.
 						<<set _frustration = 1>>
 					<<else>>
-						is a buttslut, but not enough of to console $object for $possessives's complete lack of <<if $seeDicks > 0>>a dick, a pussy, or a prostate<<else>>a pussy<</if>>.
+						is a buttslut, but not enough of to console $object for $possessive complete lack of <<if $seeDicks > 0>>a dick, a pussy, or a prostate<<else>>a pussy<</if>>.
 						<<set _frustration = 2>>
 					<</if>>
 				<<else>>
@@ -4083,7 +4082,7 @@
 	<<if $slaves[$i].face > 80>>
 	<<if $slaves[$i].face <= 95>>
 	<<if $slaves[$i].trust > 95>>
-		$possessiveCap is so healthy and trusting that @@.lime;the minute flaws in her facial appearance seem to be smoothed away@@ every time she sleeps.
+		$pronounCap is so healthy and trusting that @@.lime;the minute flaws in her facial appearance seem to be smoothed away@@ every time she sleeps.
 		<<FaceIncrease $slaves[$i] 5>>
 	<</if>>
 	<</if>>
@@ -4107,7 +4106,7 @@
 	<<if $slaves[$i].trust < random(1,100)>>
 	<<if $slaves[$i].health < random(1,100)>>
 	<<if $slaves[$i].age-30 > random(1,100)>>
-		$pronounCap's face looks @@.orange;just a little older@@ than it did last week. $pronounCap's not getting any younger.
+		$possessiveCap face looks @@.orange;just a little older@@ than it did last week. $pronounCap's not getting any younger.
 		<<set $slaves[$i].face -= 2>>
 	<</if>>
 	<</if>>

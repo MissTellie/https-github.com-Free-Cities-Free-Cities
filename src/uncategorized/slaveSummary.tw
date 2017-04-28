@@ -887,24 +887,24 @@ Release rules: _Slave.releaseRules.
 	<<elseif _Slave.hormones < 0>>
 		''Male hormones.''
 	<</if>>
-	<<if ((_Slave.preg is -2) || (_Slave.ovaries == 0)) && (_Slave.vagina != -1)>>
+	<<if ((_Slave.preg == -2) || (_Slave.ovaries == 0)) && (_Slave.vagina != -1)>>
 		Barren.
-	<<elseif _Slave.preg is -1>>
+	<<elseif _Slave.preg == -1>>
 		On contraceptives.
 	<<elseif _Slave.preg == 0>>
 		Fertile.
 	<<elseif (_Slave.preg < 4) && (_Slave.preg > 0)>>
 		May be pregnant.
 	<<elseif _Slave.preg >= 4>>
-		<<if _Slave.pregType lt 2>>
+		<<if _Slave.pregType < 2>>
 		_Slave.preg weeks pregnant.
 		<<else>>
 		_Slave.preg weeks pregnant with
-		<<if _Slave.pregType gt 4>>
+		<<if _Slave.pregType > 4>>
 		quintuplets.
-		<<elseif _Slave.pregType is 4>>
+		<<elseif _Slave.pregType == 4>>
 		quadruplets.
-		<<elseif _Slave.pregType is 3>>
+		<<elseif _Slave.pregType == 3>>
 		triplets.
 		<<else>>
 		twins.
@@ -1354,7 +1354,7 @@ Release rules: _Slave.releaseRules.
 <<else>>
 	@@.pink;Face+++<<if $summaryStats == 1>>[_Slave.face]<</if>>@@
 <</if>>
-<<if _Slave.eyes is -2>>
+<<if _Slave.eyes == -2>>
 	@@.red;Blind@@
 <<elseif _Slave.eyes == -1 && (_Slave.eyewear != "corrective glasses") && (_Slave.eyewear != "corrective contacts")>>
 	@@.yellow;Sight-@@
@@ -2016,33 +2016,33 @@ _Slave.faceShape face.
 	<</if>>
 	<</if>>
 	<</if>>
-	<<if _Slave.clitPiercing is 3>>
+	<<if _Slave.clitPiercing == 3>>
 	<<if _Slave.fetishKnown == 1>>
-	<<if _Slave.clitSetting is "off">>
+	<<if _Slave.clitSetting == "off">>
 		SP-
-	<<elseif ((_Slave.fetish != "submissive") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting is "submissive")>>
+	<<elseif ((_Slave.fetish != "submissive") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting == "submissive")>>
 		SP:sub
-	<<elseif ((_Slave.fetish != "cumslut") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting is "oral")>>
+	<<elseif ((_Slave.fetish != "cumslut") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting == "oral")>>
 		SP:oral
-	<<elseif ((_Slave.fetish != "humiliation") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting is "humiliation")>>
+	<<elseif ((_Slave.fetish != "humiliation") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting == "humiliation")>>
 		SP:humil
-	<<elseif ((_Slave.fetish != "buttslut") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting is "anal")>>
+	<<elseif ((_Slave.fetish != "buttslut") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting == "anal")>>
 		SP:anal
-	<<elseif ((_Slave.fetish != "boobs") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting is "boobs")>>
+	<<elseif ((_Slave.fetish != "boobs") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting == "boobs")>>
 		SP:boobs
-	<<elseif ((_Slave.fetish != "sadist") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting is "sadist")>>
+	<<elseif ((_Slave.fetish != "sadist") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting == "sadist")>>
 		SP:sade
-	<<elseif ((_Slave.fetish != "masochist") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting is "masochist")>>
+	<<elseif ((_Slave.fetish != "masochist") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting == "masochist")>>
 		SP:pain
-	<<elseif ((_Slave.fetish != "dom") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting is "dom")>>
+	<<elseif ((_Slave.fetish != "dom") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting == "dom")>>
 		SP:dom
-	<<elseif ((_Slave.fetish != "pregnancy") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting is "pregnancy")>>
+	<<elseif ((_Slave.fetish != "pregnancy") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting == "pregnancy")>>
 		SP:preg
-	<<elseif ((_Slave.fetish != "none") && (_Slave.clitSetting is "vanilla"))>>
+	<<elseif ((_Slave.fetish != "none") && (_Slave.clitSetting == "vanilla"))>>
 		SP:vanilla
-	<<elseif (_Slave.energy <= 95) && (_Slave.clitSetting is "all")>>
+	<<elseif (_Slave.energy <= 95) && (_Slave.clitSetting == "all")>>
 		SP:all
-	<<elseif (_Slave.energy > 5) && (_Slave.clitSetting is "none")>>
+	<<elseif (_Slave.energy > 5) && (_Slave.clitSetting == "none")>>
 		SP:none
 	<</if>>
 	<<else>>
@@ -2120,7 +2120,7 @@ _Slave.faceShape face.
 	<<case "liberated">>
 		Lib
 	<<default>>
-		<<set _Slave.behavioralFlaw to "none">>
+		<<set _Slave.behavioralFlaw = "none">>
 	<</switch>>
 	@@
 	<<switch _Slave.sexualFlaw>>
@@ -2161,7 +2161,7 @@ _Slave.faceShape face.
 	<<case "breeder">>
 		@@.yellow;BreedObsess@@
 	<<default>>
-		<<set _Slave.sexualFlaw to "none">>
+		<<set _Slave.sexualFlaw = "none">>
 	<</switch>>
 	@@.green;
 	<<switch _Slave.behavioralQuirk>>
@@ -2184,7 +2184,7 @@ _Slave.faceShape face.
 	<<case "advocate">>
 		Advoc
 	<<default>>
-		<<set _Slave.behavioralQuirk to "none">>
+		<<set _Slave.behavioralQuirk = "none">>
 	<</switch>>
 	<<switch _Slave.sexualQuirk>>
 	<<case "gagfuck queen">>
@@ -2206,10 +2206,10 @@ _Slave.faceShape face.
 	<<case "size queen">>
 		SizeQ
 	<<default>>
-		<<set _Slave.sexualQuirk to "none">>
+		<<set _Slave.sexualQuirk = "none">>
 	<</switch>>
 	@@
-<<elseif $abbreviateMental is 2>>
+<<elseif $abbreviateMental == 2>>
 	<<if _Slave.fetish != "mindbroken">>
 	<<if _Slave.fetishKnown == 1>>
 	@@.lightcoral;
@@ -2346,33 +2346,33 @@ _Slave.faceShape face.
 	<</if>>
 	<</if>>
 	<</if>>
-	<<if _Slave.clitPiercing is 3>>
+	<<if _Slave.clitPiercing == 3>>
 	<<if _Slave.fetishKnown == 1>>
-	<<if _Slave.clitSetting is "off">>
+	<<if _Slave.clitSetting == "off">>
 		SP off.
-	<<elseif ((_Slave.fetish != "submissive") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting is "submissive")>>
+	<<elseif ((_Slave.fetish != "submissive") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting == "submissive")>>
 		SP: submissive.
-	<<elseif ((_Slave.fetish != "cumslut") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting is "oral")>>
+	<<elseif ((_Slave.fetish != "cumslut") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting == "oral")>>
 		SP: oral.
-	<<elseif ((_Slave.fetish != "humiliation") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting is "humiliation")>>
+	<<elseif ((_Slave.fetish != "humiliation") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting == "humiliation")>>
 		SP: humiliation.
-	<<elseif ((_Slave.fetish != "buttslut") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting is "anal")>>
+	<<elseif ((_Slave.fetish != "buttslut") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting == "anal")>>
 		SP: anal.
-	<<elseif ((_Slave.fetish != "boobs") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting is "boobs")>>
+	<<elseif ((_Slave.fetish != "boobs") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting == "boobs")>>
 		SP: breasts.
-	<<elseif ((_Slave.fetish != "sadist") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting is "sadist")>>
+	<<elseif ((_Slave.fetish != "sadist") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting == "sadist")>>
 		SP: sadism.
-	<<elseif ((_Slave.fetish != "masochist") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting is "masochist")>>
+	<<elseif ((_Slave.fetish != "masochist") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting == "masochist")>>
 		SP: masochism.
-	<<elseif ((_Slave.fetish != "dom") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting is "dom")>>
+	<<elseif ((_Slave.fetish != "dom") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting == "dom")>>
 		SP: dominance.
-	<<elseif ((_Slave.fetish != "pregnancy") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting is "pregnancy")>>
+	<<elseif ((_Slave.fetish != "pregnancy") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting == "pregnancy")>>
 		SP: pregnancy.
-	<<elseif (_Slave.fetish != "none") && (_Slave.clitSetting is "vanilla")>>
+	<<elseif (_Slave.fetish != "none") && (_Slave.clitSetting == "vanilla")>>
 		SP: vanilla.
-	<<elseif (_Slave.energy <= 95) && (_Slave.clitSetting is "all")>>
+	<<elseif (_Slave.energy <= 95) && (_Slave.clitSetting == "all")>>
 		SP: all.
-	<<elseif (_Slave.energy > 5) && (_Slave.clitSetting is "none")>>
+	<<elseif (_Slave.energy > 5) && (_Slave.clitSetting == "none")>>
 		SP: none.
 	<</if>>
 	<<else>>
@@ -2406,15 +2406,15 @@ _Slave.faceShape face.
 	<</switch>>
 	<</if>>
 	<<if _Slave.attrKnown == 1>>
-	<<if (_Slave.attrXX < 100) && (_Slave.clitSetting is "women")>>
+	<<if (_Slave.attrXX < 100) && (_Slave.clitSetting == "women")>>
 		SP: women.
-	<<elseif (_Slave.attrXY < 100) && (_Slave.clitSetting is "men")>>
+	<<elseif (_Slave.attrXY < 100) && (_Slave.clitSetting == "men")>>
 		SP: men.
 	<</if>>
 	<<else>>
-	<<if _Slave.clitSetting is "women">>
+	<<if _Slave.clitSetting == "women">>
 		SP: women.
-	<<elseif _Slave.clitSetting is "men">>
+	<<elseif _Slave.clitSetting == "men">>
 		SP: men.
 	<</if>>
 	<</if>>
@@ -2440,7 +2440,7 @@ _Slave.faceShape face.
 	<<case "liberated">>
 		Mentally liberated.
 	<<default>>
-		<<set _Slave.behavioralFlaw to "none">>
+		<<set _Slave.behavioralFlaw = "none">>
 	<</switch>>
 	@@
 	<<switch _Slave.sexualFlaw>>
@@ -2481,7 +2481,7 @@ _Slave.faceShape face.
 	<<case "breeder">>
 		@@.yellow;Breeding obsession.@@
 	<<default>>
-		<<set _Slave.sexualFlaw to "none">>
+		<<set _Slave.sexualFlaw = "none">>
 	<</switch>>
 	@@.green;
 	<<switch _Slave.behavioralQuirk>>
@@ -2504,7 +2504,7 @@ _Slave.faceShape face.
 	<<case "advocate">>
 		Advocate.
 	<<default>>
-		<<set _Slave.behavioralQuirk to "none">>
+		<<set _Slave.behavioralQuirk = "none">>
 	<</switch>>
 	<<switch _Slave.sexualQuirk>>
 	<<case "gagfuck queen">>
@@ -2526,14 +2526,14 @@ _Slave.faceShape face.
 	<<case "size queen">>
 		Size queen.
 	<<default>>
-		<<set _Slave.sexualQuirk to "none">>
+		<<set _Slave.sexualQuirk = "none">>
 	<</switch>>
 	@@
 <</if>>
 
 <<if _Slave.customLabel != "">>''@@.yellow;_Slave.customLabel@@''<</if>>
 
-<<if (_Slave.relationship != 0) || (_Slave.relationship != 0) || ($abbreviateClothes == 2) || ($abbreviateRulesets == 2)>>
+<<if (_Slave.relationship != 0) || (_Slave.relation != 0) || ($abbreviateClothes == 2) || ($abbreviateRulesets == 2)>>
 	<br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>
 <</if>>
 

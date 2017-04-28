@@ -41,8 +41,8 @@
 	<<if $PC.medicine >= 100>><<set $slaves[$i].health -= 5>><<else>><<set $slaves[$i].health -= 10>><</if>>
 <<elseif ($slaves[$i].faceImplant == 0) && ($slaves[$i].face <= 95) && ($thisSurgery.cosmetic != 0)>>
 	<<set $surgeries.push("a nicer face")>>
-	<<if $slaves[$i].faceShape is "masculine">><<set $slaves[$i].faceShape to "androgynous">><</if>>
-	<<set $slaves[$i].faceImplant to 1>>
+	<<if $slaves[$i].faceShape is "masculine">><<set $slaves[$i].faceShape = "androgynous">><</if>>
+	<<set $slaves[$i].faceImplant = 1>>
 	<<set $slaves[$i].face = Math.clamp($slaves[$i].face+20,-100,100)>>
 	<<set $cash -= $surgeryCost>>
 	<<if $PC.medicine >= 100>><<set $slaves[$i].health -= 5>><<else>><<set $slaves[$i].health -= 10>><</if>>

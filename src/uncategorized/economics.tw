@@ -148,7 +148,7 @@ __Personal Business__
 	<<set $cash -= (1+Math.trunc(Math.abs($cash)/100))>>
 	<<if $arcologies[0].FSRomanRevivalist != "unset">>
 		Society @@.red;very strongly disapproves@@ of your being in debt; this damages the idea that you model yourself on what a Roman leader should be.
-		<<FSChange "RomanRevivalist" 10>>
+		<<FSChange "RomanRevivalist" -10>>
 	<</if>>
 	<<if $cash < -9000>>
 		@@.red;WARNING: you are dangerously indebted.@@ Immediately acquire more liquid assets or you will be in danger of being enslaved yourself.
@@ -473,7 +473,7 @@ On formal occasions, you are announced as $PCTitle.
 	<<else>>
 		<<if $averageTrust > 50>>
 			@@.green;strongly approve@@ of the great trust your slaves place in you.
-			<<FSChange "ChattelReligionist" 2>>
+			<<FSChange "ChattelReligionist" 5>>
 		<<elseif $averageTrust > 20>>
 			@@.green;approve@@ of the trust your slaves place in you.
 			<<FSChange "ChattelReligionist" 2>>
@@ -574,7 +574,7 @@ On formal occasions, you are announced as $PCTitle.
 		Your reputation is so strong that society has accepted your feminine appearance despite how unusual it is for a prominent slaveowner to look like you do.
 		<<if $arcologies[0].FSGenderRadicalist > 30>>
 			Indeed, society sees you as entirely male, since you are powerful, and @@.green;strongly approves@@ of your nonconformity; this advances the redefinition of gender around power.
-			<<FSChange "GenderRadicalist" -5>>
+			<<FSChange "GenderRadicalist" 5>>
 		<<elseif $arcologies[0].FSGenderFundamentalist > 30>>
 			Indeed, society has been reconciled to your feminine appearance, seeing you as a person apart.
 		<</if>>
@@ -612,7 +612,7 @@ On formal occasions, you are announced as $PCTitle.
 		<<set $repLoss += Math.trunc($rep*0.03)>>
 		<<if $arcologies[0].FSGenderFundamentalist > 30>>
 			Society @@.red;strongly resents@@ your being an arcology owner; this damages the idea that people who are not men should not be in positions of responsibility.
-			<<FSChange "GenderFundamentalist" 5>>
+			<<FSChange "GenderFundamentalist" -5>>
 		<</if>>
 	<</if>>
 <</if>>

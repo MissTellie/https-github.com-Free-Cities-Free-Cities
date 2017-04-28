@@ -123,13 +123,13 @@ The crowd of nude slaves led up to the lawn and chained to rings along one edge 
 <<case "aid invitation">>
 
 <<set $seed = []>>
-<<if $seeDicks != 2>>
+<<if (random(1,100) > $seeDicks)>>
 	<<set $seed.push("convent")>>
 	<<set $seed.push("school")>>
 	<<set $seed.push("housewives")>>
 	<<set $seed.push("maternity")>>
 <</if>>
-<<if $seeDicks != 0>>
+<<if (random(0,99) < $seeDicks)>>
 	<<set $seed.push("conversion")>>
 <</if>>
 <<set $PAidTarget = $seed.random()>>

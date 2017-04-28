@@ -64,7 +64,7 @@
 <<set $activeSlave.oralSkill = 0>>
 <<set $activeSlave.analSkill = 0>>
 <<set $activeSlave.whoreSkill = 0>>
-<<set $activeSlave.sexualFlaw = "hates men">>
+<<set $activeSlave.sexualFlaw = "hates penetration">>
 <<set $activeSlave.behavioralFlaw = "odd">>
 
 <<if $assistantName == "your personal assistant">>Your personal assistant<<else>>$assistantName<</if>> alerts you that a criminal has been detected by your security systems and detained by the drones. Crime is extremely uncommon in your arcology, since nothing can escape the notice of the omnipresent monitoring systems. This is a simple case of vagrancy; sleeping on the streets (due to penury rather than inebriation) breaks an implicit contract all visitors to the arcology sign by coming here. The criminal is anything but usual, however. She bears signs of extreme hormone manipulation over a long period, and has had her Achilles tendons clipped. Camera records show her crawling in with a cargo shipment. She's clad in rags, and you cannot find any record of her anywhere. The growing crowd is convinced she's an escaped slave, and is growing ugly.
@@ -217,11 +217,11 @@
 	<br><<link "Sentence her to a day in the stocks, then enslave her">>
 		<<set $activeSlave.health -= 10>>
 		<<set $activeSlave.behavioralFlaw = "odd">>
-		<<set $activeSlave.sexualFlaw = "hates men">>
+		<<set $activeSlave.sexualFlaw = "hates penetration">>
 		<<set $activeSlave.anus = 2>>
 		<<if $activeSlave.vagina > -1>>
 		<<set $activeSlave.vagina = 2>>
-		<<if random(1,100) > 60>>
+		<<if random(1,100) > 60 && isFertile($activeSlave)>>
 			<<set $activeSlave.preg = 1>>
 		<</if>>
 		<</if>>
@@ -326,7 +326,7 @@
 		<<include "New Slave Intro">>
 		<</replace>>
 	<</link>>
-	<<if $malefactor == "rapist">>
+	<<if $malefactor == "rapist" && $activeSlave.balls > 0>>
 	<br><<link "Enslave the criminal and geld her">>
 		<<set $activeSlave.health -= 20>>
 		<<set $activeSlave.balls = 0>>

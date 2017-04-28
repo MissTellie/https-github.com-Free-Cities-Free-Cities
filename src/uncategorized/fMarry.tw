@@ -190,6 +190,8 @@ Despite her devotion and trust, she is still a slave, and probably knows that he
 			slave wife's sadistic tendencies!"
 			<<elseif ($activeSlave.fetish == "masochist")>>
 			slave wife's pain!"
+			<<else>>
+			slave wife!"
 			<</if>>
 		<<else>>
 			slave wife!"
@@ -221,7 +223,7 @@ Invite prominent citizens to a wedding (This will cost ¤10000):
 	<</replace>>
 <</link>> //This will involve the slave having sex with a very large number of citizens//
 <</if>>\
-<<if ($activeSlave.ovaries == 1) && ($activeSlave.preg > -2) && ($activeSlave.preg < 1) && ($PC.dick == 1)>>\
+<<if isFertile($activeSlave) && ($PC.dick == 1)>>\
 &nbsp;&nbsp;&nbsp;&nbsp;<<link "Impregnation ceremony">>
 	<<replace "#result">>
 	<<nobr>>

@@ -380,6 +380,8 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <<if $arcologies[0].FSSupremacist != "unset">>
 <<if $arcologies[0].FSSupremacist < 0>>
 	<<set $arcologies[0].FSSupremacist = "unset">><<set $FSCredits += 1>>
+	<<set $arcologies[0].FSSupremacistLawME = 0, $arcologies[0].FSSupremacistSMR = 0>>
+	<<ClearFacilityDecorations>>
 	@@.red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@.yellow;You may select another option, or elect to try again.@@
 <<elseif $arcologies[0].FSSupremacist > $arcologies[0].FSSupremacistDecoration>>
 	<<set $arcologies[0].FSSupremacist = $arcologies[0].FSSupremacistDecoration>>
@@ -407,6 +409,8 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <<if $arcologies[0].FSSubjugationist != "unset">>
 <<if $arcologies[0].FSSubjugationist < 0>>
 	<<set $arcologies[0].FSSubjugationist = "unset">><<set $FSCredits += 1>>
+	<<set $arcologies[0].FSSubjugationistLawME = 0, $arcologies[0].FSSubjugationistSMR = 0>>
+	<<ClearFacilityDecorations>>
 	@@.red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@.yellow;You may select another option, or elect to try again.@@
 <<elseif $arcologies[0].FSSubjugationist > $arcologies[0].FSSubjugationistDecoration>>
 	<<set $arcologies[0].FSSubjugationist = $arcologies[0].FSSubjugationistDecoration>>
@@ -434,6 +438,9 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <<if $arcologies[0].FSGenderRadicalist != "unset">>
 <<if $arcologies[0].FSGenderRadicalist < 0>>
 	<<set $arcologies[0].FSGenderRadicalist = "unset">><<set $FSCredits += 1>>
+	<<set $arcologies[0].FSGenderRadicalistSMR = 0, $arcologies[0].FSGenderRadicalistLawDicks = 0, $arcologies[0].FSGenderRadicalistLawFuta = 0, $arcologies[0].FSGenderRadicalistLawBeauty = 0>>
+	<<if $assistantFSAppearance == "gender radicalist">><<set $assistantFSAppearance = "default">><</if>>
+	<<ClearFacilityDecorations>>
 	@@.red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@.yellow;You may select another option, or elect to try again.@@
 <<elseif $arcologies[0].FSGenderRadicalist > $arcologies[0].FSGenderRadicalistDecoration>>
 	<<set $arcologies[0].FSGenderRadicalist = $arcologies[0].FSGenderRadicalistDecoration>>
@@ -461,6 +468,9 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <<if $arcologies[0].FSGenderFundamentalist != "unset">>
 <<if $arcologies[0].FSGenderFundamentalist < 0>>
 	<<set $arcologies[0].FSGenderFundamentalist = "unset">><<set $FSCredits += 1>>
+	<<set $arcologies[0].FSGenderFundamentalistSMR = 0, $arcologies[0].FSGenderFundamentalistLawBimbo = 0>>
+	<<if $assistantFSAppearance == "gender fundamentalist">><<set $assistantFSAppearance = "default">><</if>>
+	<<ClearFacilityDecorations>>
 	@@.red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@.yellow;You may select another option, or elect to try again.@@
 <<elseif $arcologies[0].FSGenderFundamentalist > $arcologies[0].FSGenderFundamentalistDecoration>>
 	<<set $arcologies[0].FSGenderFundamentalist = $arcologies[0].FSGenderFundamentalistDecoration>>
@@ -488,6 +498,9 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <<if $arcologies[0].FSPaternalist != "unset">>
 <<if $arcologies[0].FSPaternalist < 0>>
 	<<set $arcologies[0].FSPaternalist = "unset">><<set $FSCredits += 1>>
+	<<set $arcologies[0].FSPaternalistLaw = 0, $arcologies[0].FSPaternalistSMR = 0>>
+	<<if $assistantFSAppearance == "paternalist">><<set $assistantFSAppearance = "default">><</if>>
+	<<ClearFacilityDecorations>>
 	@@.red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@.yellow;You may select another option, or elect to try again.@@
 <<elseif $arcologies[0].FSPaternalist > $arcologies[0].FSPaternalistDecoration>>
 	<<set $arcologies[0].FSPaternalist = $arcologies[0].FSPaternalistDecoration>>
@@ -515,6 +528,8 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <<if $arcologies[0].FSDegradationist != "unset">>
 <<if $arcologies[0].FSDegradationist < 0>>
 	<<set $arcologies[0].FSDegradationist = "unset">><<set $FSCredits += 1>>
+	<<set $arcologies[0].FSDegradationistLaw = 0, $arcologies[0].FSDegradationistSMR = 0>>
+	<<ClearFacilityDecorations>>
 	@@.red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@.yellow;You may select another option, or elect to try again.@@
 <<elseif $arcologies[0].FSDegradationist > $arcologies[0].FSDegradationistDecoration>>
 	<<set $arcologies[0].FSDegradationist = $arcologies[0].FSDegradationistDecoration>>
@@ -542,6 +557,8 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <<if $arcologies[0].FSBodyPurist != "unset">>
 <<if $arcologies[0].FSBodyPurist < 0>>
 	<<set $arcologies[0].FSBodyPurist = "unset">><<set $FSCredits += 1>>
+	<<set $arcologies[0].FSBodyPuristLaw = 0, $arcologies[0].FSBodyPuristSMR = 0>>
+	<<ClearFacilityDecorations>>
 	@@.red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@.yellow;You may select another option, or elect to try again.@@
 <<elseif $arcologies[0].FSBodyPurist > $arcologies[0].FSBodyPuristDecoration>>
 	<<set $arcologies[0].FSBodyPurist = $arcologies[0].FSBodyPuristDecoration>>
@@ -569,6 +586,9 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <<if $arcologies[0].FSTransformationFetishist != "unset">>
 <<if $arcologies[0].FSTransformationFetishist < 0>>
 	<<set $arcologies[0].FSTransformationFetishist = "unset">><<set $FSCredits += 1>>
+	<<set $arcologies[0].FSTransformationFetishistLaw = 0, $arcologies[0].FSTransformationFetishistSMR = 0>>
+	<<if $assistantFSAppearance == "transformation fetishist">><<set $assistantFSAppearance = "default">><</if>>
+	<<ClearFacilityDecorations>>
 	@@.red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@.yellow;You may select another option, or elect to try again.@@
 <<elseif $arcologies[0].FSTransformationFetishist > $arcologies[0].FSTransformationFetishistDecoration>>
 	<<set $arcologies[0].FSTransformationFetishist = $arcologies[0].FSTransformationFetishistDecoration>>
@@ -594,6 +614,9 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <<if $arcologies[0].FSMaturityPreferentialist != "unset">>
 <<if $arcologies[0].FSMaturityPreferentialist < 0>>
 	<<set $arcologies[0].FSMaturityPreferentialist = "unset">><<set $FSCredits += 1>>
+	<<set $arcologies[0].FSYouthPreferentialistLaw = 0, $arcologies[0].FSYouthPreferentialistSMR = 0>>
+	<<if $assistantFSAppearance == "youth preferentialist">><<set $assistantFSAppearance = "default">><</if>>
+	<<ClearFacilityDecorations>>
 	@@.red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@.yellow;You may select another option, or elect to try again.@@
 <<elseif $arcologies[0].FSMaturityPreferentialist > $arcologies[0].FSMaturityPreferentialistDecoration>>
 	<<set $arcologies[0].FSMaturityPreferentialist = $arcologies[0].FSMaturityPreferentialistDecoration>>
@@ -619,6 +642,9 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <<if $arcologies[0].FSYouthPreferentialist != "unset">>
 <<if $arcologies[0].FSYouthPreferentialist < 0>>
 	<<set $arcologies[0].FSYouthPreferentialist = "unset">><<set $FSCredits += 1>>
+	<<set $arcologies[0].FSMaturityPreferentialistLaw = 0, $arcologies[0].FSMaturityPreferentialistSMR = 0>>
+	<<if $assistantFSAppearance == "maturity preferentialist">><<set $assistantFSAppearance = "default">><</if>>
+	<<ClearFacilityDecorations>>
 	@@.red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@.yellow;You may select another option, or elect to try again.@@
 <<elseif $arcologies[0].FSYouthPreferentialist > $arcologies[0].FSYouthPreferentialistDecoration>>
 	<<set $arcologies[0].FSYouthPreferentialist = $arcologies[0].FSYouthPreferentialistDecoration>>
@@ -644,6 +670,9 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <<if $arcologies[0].FSSlimnessEnthusiast != "unset">>
 <<if $arcologies[0].FSSlimnessEnthusiast < 0>>
 	<<set $arcologies[0].FSSlimnessEnthusiast = "unset">><<set $FSCredits += 1>>
+	<<set $arcologies[0].FSSlimnessEnthusiastSMR = 0, $arcologies[0].FSSlimnessEnthusiastSMR = 0>>
+	<<if $assistantFSAppearance == "slimness enthusiast">><<set $assistantFSAppearance = "default">><</if>>
+	<<ClearFacilityDecorations>>
 	@@.red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@.yellow;You may select another option, or elect to try again.@@
 <<elseif $arcologies[0].FSSlimnessEnthusiast > $arcologies[0].FSSlimnessEnthusiastDecoration>>
 	<<set $arcologies[0].FSSlimnessEnthusiast = $arcologies[0].FSSlimnessEnthusiastDecoration>>
@@ -669,6 +698,9 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <<if $arcologies[0].FSAssetExpansionist != "unset">>
 <<if $arcologies[0].FSAssetExpansionist < 0>>
 	<<set $arcologies[0].FSAssetExpansionist = "unset">><<set $FSCredits += 1>>
+	<<set $arcologies[0].FSAssetExpansionistSMR = 0, $arcologies[0].FSAssetExpansionistSMR = 0>>
+	<<if $assistantFSAppearance == "asset expansionist">><<set $assistantFSAppearance = "default">><</if>>
+	<<ClearFacilityDecorations>>
 	@@.red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@.yellow;You may select another option, or elect to try again.@@
 <<elseif $arcologies[0].FSAssetExpansionist > $arcologies[0].FSAssetExpansionistDecoration>>
 	<<set $arcologies[0].FSAssetExpansionist = $arcologies[0].FSAssetExpansionistDecoration>>
@@ -696,6 +728,9 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <<if $arcologies[0].FSPastoralist != "unset">>
 <<if $arcologies[0].FSPastoralist < 0>>
 	<<set $arcologies[0].FSPastoralist = "unset">><<set $FSCredits += 1>>
+	<<set $arcologies[0].FSPastoralistLaw = 0, $arcologies[0].FSPastoralistSMR = 0>>
+	<<if $assistantFSAppearance == "pastoralist">><<set $assistantFSAppearance = "default">><</if>>
+	<<ClearFacilityDecorations>>
 	@@.red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@.yellow;You may select another option, or elect to try again.@@
 <<elseif $arcologies[0].FSPastoralist > $arcologies[0].FSPastoralistDecoration>>
 	<<set $arcologies[0].FSPastoralist = $arcologies[0].FSPastoralistDecoration>>
@@ -723,6 +758,9 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <<if $arcologies[0].FSPhysicalIdealist != "unset">>
 <<if $arcologies[0].FSPhysicalIdealist < 0>>
 	<<set $arcologies[0].FSPhysicalIdealist = "unset">><<set $FSCredits += 1>>
+	<<set $arcologies[0].FSPhysicalIdealistSMR = 0, $arcologies[0].FSPhysicalIdealistSMR = 0>>
+	<<if $assistantFSAppearance == "physical idealist">><<set $assistantFSAppearance = "default">><</if>>
+	<<ClearFacilityDecorations>>
 	@@.red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@.yellow;You may select another option, or elect to try again.@@
 <<elseif $arcologies[0].FSPhysicalIdealist > $arcologies[0].FSPhysicalIdealistDecoration>>
 	<<set $arcologies[0].FSPhysicalIdealist = $arcologies[0].FSPhysicalIdealistDecoration>>
@@ -750,6 +788,9 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <<if $arcologies[0].FSChattelReligionist != "unset">>
 <<if $arcologies[0].FSChattelReligionist < 0>>
 	<<set $arcologies[0].FSChattelReligionist = "unset">><<set $FSCredits += 1>>
+	<<set $arcologies[0].FSChattelReligionistLaw = 0, $arcologies[0].FSChattelReligionistSMR = 0, $arcologies[0].FSChattelReligionistCreed = 0>>
+	<<if $assistantFSAppearance == "chattel religionist">><<set $assistantFSAppearance = "default">><</if>>
+	<<ClearFacilityDecorations>>
 	@@.red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@.yellow;You may select another option, or elect to try again.@@
 <<elseif $arcologies[0].FSChattelReligionist > $arcologies[0].FSChattelReligionistDecoration>>
 	<<set $arcologies[0].FSChattelReligionist = $arcologies[0].FSChattelReligionistDecoration>>
@@ -777,6 +818,9 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <<if $arcologies[0].FSRomanRevivalist != "unset">>
 <<if $arcologies[0].FSRomanRevivalist < 0>>
 	<<set $arcologies[0].FSRomanRevivalist = "unset">><<set $FSCredits += 1>>
+	<<set $arcologies[0].FSRomanRevivalistLaw = 0, $arcologies[0].FSRomanRevivalistSMR = 0>>
+	<<if $assistantFSAppearance == "roman revivalist">><<set $assistantFSAppearance = "default">><</if>>
+	<<ClearFacilityDecorations>>
 	@@.red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@.yellow;You may select another option, or elect to try again.@@
 <<elseif $arcologies[0].FSRomanRevivalist > $arcologies[0].FSRomanRevivalistDecoration>>
 	<<set $arcologies[0].FSRomanRevivalist = $arcologies[0].FSRomanRevivalistDecoration>>
@@ -804,6 +848,9 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <<if $arcologies[0].FSEgyptianRevivalist != "unset">>
 <<if $arcologies[0].FSEgyptianRevivalist < 0>>
 	<<set $arcologies[0].FSEgyptianRevivalist = "unset">><<set $FSCredits += 1>>
+	<<set $arcologies[0].FSEgyptianRevivalistLaw = 0, $arcologies[0].FSEgyptianRevivalistSMR = 0>>
+	<<if $assistantFSAppearance == "egyptian revivalist">><<set $assistantFSAppearance = "default">><</if>>
+	<<ClearFacilityDecorations>>
 	@@.red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@.yellow;You may select another option, or elect to try again.@@
 <<elseif $arcologies[0].FSEgyptianRevivalist > $arcologies[0].FSEgyptianRevivalistDecoration>>
 	<<set $arcologies[0].FSEgyptianRevivalist = $arcologies[0].FSEgyptianRevivalistDecoration>>
@@ -831,6 +878,9 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <<if $arcologies[0].FSEdoRevivalist != "unset">>
 <<if $arcologies[0].FSEdoRevivalist < 0>>
 	<<set $arcologies[0].FSEdoRevivalist = "unset">><<set $FSCredits += 1>>
+	<<set $arcologies[0].FSEdoRevivalistLaw = 0, $arcologies[0].FSEdoRevivalistSMR = 0>>
+	<<if $assistantFSAppearance == "edo revivalist">><<set $assistantFSAppearance = "default">><</if>>
+	<<ClearFacilityDecorations>>
 	@@.red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@.yellow;You may select another option, or elect to try again.@@
 <<elseif $arcologies[0].FSEdoRevivalist > $arcologies[0].FSEdoRevivalistDecoration>>
 	<<set $arcologies[0].FSEdoRevivalist = $arcologies[0].FSEdoRevivalistDecoration>>
@@ -858,6 +908,9 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <<if $arcologies[0].FSArabianRevivalist != "unset">>
 <<if $arcologies[0].FSArabianRevivalist < 0>>
 	<<set $arcologies[0].FSArabianRevivalist = "unset">><<set $FSCredits += 1>>
+	<<set $arcologies[0].FSArabianRevivalistLaw = 0, $arcologies[0].FSArabianRevivalistSMR = 0>>
+	<<if $assistantFSAppearance == "arabian revivalist">><<set $assistantFSAppearance = "default">><</if>>
+	<<ClearFacilityDecorations>>
 	@@.red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@.yellow;You may select another option, or elect to try again.@@
 <<elseif $arcologies[0].FSArabianRevivalist > $arcologies[0].FSArabianRevivalistDecoration>>
 	<<set $arcologies[0].FSArabianRevivalist = $arcologies[0].FSArabianRevivalistDecoration>>
@@ -885,6 +938,9 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <<if $arcologies[0].FSChineseRevivalist != "unset">>
 <<if $arcologies[0].FSChineseRevivalist < 0>>
 	<<set $arcologies[0].FSChineseRevivalist = "unset">><<set $FSCredits += 1>>
+	<<if $assistantFSAppearance == "chinese revivalist">><<set $assistantFSAppearance = "default">><</if>>
+	<<set $arcologies[0].FSChineseRevivalistLaw = 0, $arcologies[0].FSChineseRevivalistSMR = 0>>
+	<<ClearFacilityDecorations>>
 	@@.red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@.yellow;You may select another option, or elect to try again.@@
 <<elseif $arcologies[0].FSChineseRevivalist > $arcologies[0].FSChineseRevivalistDecoration>>
 	<<set $arcologies[0].FSChineseRevivalist = $arcologies[0].FSChineseRevivalistDecoration>>

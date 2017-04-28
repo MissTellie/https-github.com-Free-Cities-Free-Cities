@@ -6,7 +6,7 @@
 
 <<set $invasionVictory = 1>>
 
-The day that wasn't supposed to come is here. The troubled little country next door is falling apart. Last month, its stock market collapsed. Last week, its government fell. Yesterday, there was open looting in its cities. And today, a faction of disaffected citizens that blames the Free Cities for siphoning off business and causing the collapse seized weapons from unguarded army depots<<if ($terrain == "marine") || ($terrain == "oceanic")>>, armed merchant ships and private vessels, and are approaching the Free City over the water<<else>>and advanced towards your home<</if>>.
+The day that wasn't supposed to come is here. The troubled little country next door is falling apart. Last month, its stock market collapsed. Last week, its government fell. Yesterday, there was open looting in its cities. And today, a faction of disaffected citizens that blames the Free Cities for siphoning off business and causing the collapse seized weapons from unguarded army depots<<if ($terrain == "marine") || ($terrain == "oceanic")>>, armed merchant ships and private vessels, and are approaching the Free City over the water<<else>> and advanced towards your home<</if>>.
 
 <br><br>
 
@@ -15,21 +15,22 @@ Sirens are blaring; there is a crump far above as $arcologies[0].name's defensiv
 	Your personal assistant offers terse reports on the efficiency of the point defense fire.
 <<else>>
 	You get a report on the artillery battle from $assistantName, whose avatar is showing off her prowess at point defense.
-	<<if $assistantAppearance == "monstergirl">>
+	<<switch $assistantAppearance>>
+	<<case "monstergirl">>
 		Her tentacle hair is spread out and forward, forming a concave shape around her face, and she's firing beams from her eyes
-	<<elseif $assistantAppearance == "shemale">>
+	<<case "shemale">>
 		She's using both hands to aim her massive erection, and is firing blasts of cum
-	<<elseif $assistantAppearance == "amazon">>
+	<<case "amazon">>
 		She's holding a hide shield and a club, which she's using to swat
-	<<elseif $assistantAppearance == "businesswoman">>
+	<<case "businesswoman">>
 		She looks as immaculate as ever. The stern little businesswoman is cradling an expensive fowling piece, which she's using to fire
-	<<elseif $assistantAppearance == "goddess">>
+	<<case "goddess">>
 		Her expression is one of affronted maternal protectiveness, and she's using outstretched hands to project beams of pure light
-	<<elseif $assistantAppearance == "schoolgirl">>
+	<<case "schoolgirl">>
 		She's wearing a fierce expression and holding a baseball bat, using it to swat
-	<<else>>
+	<<default>>
 		The symbol radiates readouts of ammunition, power, and targeting, clean lines flashing
-	<</if>>
+	<</switch>>
 	at depictions of projectiles.
 <</if>>
 It's going well. Whoever's in command of the attackers sees that their fire is having no effect, and orders an advance. The mortars and other artillery systems maintain their fire, trying to occupy as many guns as possible.

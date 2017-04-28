@@ -591,6 +591,9 @@ $pronounCap has been with you
 		<</if>>
 	<</if>>
 <</if>>
+<<if $activeSlave.fetish == "mindbroken">>
+	However, her mind is fundamentally broken; everything she experiences will quickly be forgotten.
+<</if>>
 
 <<if ($activeSlave.behavioralFlaw == "arrogant")>>
   <<if ($activeSlave.devotion < -20) && ($activeSlave.trust >= -20)>>
@@ -1385,7 +1388,7 @@ and
 <<if $activeSlave.weight > 95>>@@.red;<<print either("overweight", "carrying a lot of extra weight", "fat")>>.@@
 <<elseif $activeSlave.weight > 30>>
   <<if $activeSlave.hips > 1>>
-	<<print either("quite curvy", "very plush")>>, but $possessive motherly hips make the extra weight attractive on $possessive.
+	<<print either("quite curvy", "very plush")>>, but $possessive motherly hips make the extra weight attractive on $object.
   <<else>>
 	@@.red;<<print either("chubby", "carrying extra weight")>>.@@
   <</if>>
@@ -1411,7 +1414,7 @@ $pronounCap has
 <<elseif $activeSlave.waist >= -10>>
 	an average waist for a <<if $activeSlave.age > 25>>girl<<else>>woman<</if>><<if $activeSlave.weight > 30>>, though it looks broader since $pronoun's fat<<elseif $activeSlave.weight < -30>>, though it looks narrower since $pronoun's thin<</if>>.
 <<elseif $activeSlave.waist >= -40>>
-	a nice @@.pink;feminine waist@@ that gives $possessive a <<if $activeSlave.age > 25>>girlish<<else>>womanly<</if>> figure<<if $activeSlave.weight > 30>> despite $possessive extra weight<<elseif $activeSlave.weight < -30>> and accentuates how thin $pronoun is<</if>>.
+	a nice @@.pink;feminine waist@@ that gives $object a <<if $activeSlave.age > 25>>girlish<<else>>womanly<</if>> figure<<if $activeSlave.weight > 30>> despite $possessive extra weight<<elseif $activeSlave.weight < -30>> and accentuates how thin $pronoun is<</if>>.
 <<elseif $activeSlave.waist >= -95>>
 	a hot @@.pink;wasp waist@@ that gives $possessive an hourglass figure<<if $activeSlave.weight > 30>> despite $possessive extra weight<<elseif $activeSlave.weight < -30>> further accentuated by how thin $pronoun is<</if>>.
 <<else>>
@@ -1498,9 +1501,9 @@ $pronounCap is
   <</if>>
 <<elseif $activeSlave.preg > 20>>
   <<if $activeSlave.pregType > 4>>
-	$pronounCap is @@.pink;massively pregnant,@@ despite how early in her pregnancy $pronoun is: $pronoun's carrying quintuplets.
+	$pronounCap is @@.pink;massively pregnant,@@ despite how early in $possessive pregnancy $pronoun is: $pronoun's carrying quintuplets.
   <<elseif $activeSlave.pregType > 2>>
-	$pronounCap is @@.pink;hugely pregnant,@@ despite how early in her pregnancy $pronoun is: $pronoun's carrying
+	$pronounCap is @@.pink;hugely pregnant,@@ despite how early in $possessive pregnancy $pronoun is: $pronoun's carrying
 	<<if $activeSlave.pregType == 4>>
 	  quadruplets.
 	<<else>>
@@ -1511,14 +1514,14 @@ $pronounCap is
 	<<if $activeSlave.pregType == 2>>
 	  $pronoun's carrying twins.
 	<<else>>
-	  the baby inside her is growing rapidly.
+	  the baby inside $object is growing rapidly.
 	<</if>>
   <</if>>
 <<elseif $activeSlave.preg > 10>>
   <<if $activeSlave.pregType > 4>>
-	$pronounCap is @@.pink;hugely pregnant,@@ despite how early in her pregnancy $pronoun is: $pronoun's carrying quintuplets.
+	$pronounCap is @@.pink;hugely pregnant,@@ despite how early in $possessive pregnancy $pronoun is: $pronoun's carrying quintuplets.
   <<elseif $activeSlave.pregType > 2>>
-	$pronounCap is @@.pink;very pregnant,@@ despite how early in her pregnancy $pronoun is: $pronoun's carrying
+	$pronounCap is @@.pink;very pregnant,@@ despite how early in $possessive pregnancy $pronoun is: $pronoun's carrying
 	<<if $activeSlave.pregType == 4>>
 	  quadruplets.
 	<<else>>
@@ -1716,7 +1719,7 @@ $pronounCap is
 <<if ($activeSlave.hLength >= 10)>>
 <<if ($activeSlave.markings == "freckles") || ($activeSlave.markings == "heavily freckled")>>
 <<if ($activeSlave.skin == "pale") || ($activeSlave.skin == "fair")>>
-  It goes perfectly with her $activeSlave.skin skin and freckles.
+  It goes perfectly with $possessive $activeSlave.skin skin and freckles.
 <</if>>
 <</if>>
 <</if>>
@@ -1822,7 +1825,7 @@ $pronounCap is
   <<if $activeSlave.amp != 1>>
 	<<if $activeSlave.nails == 1>>
 	  Her nails are long and elegant.
-	<<elseif ($activeSlave.nails is 2) && ($activeSlave.hColor is "blonde")>>
+	<<elseif ($activeSlave.nails == 2) && ($activeSlave.hColor == "blonde")>>
 	  Her nails are yellow to go with her $activeSlave.hColor hair.
 	<<elseif $activeSlave.nails == 2>>
 	  Her nails are color-coordinated with her $activeSlave.hColor hair.

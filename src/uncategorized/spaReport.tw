@@ -58,7 +58,7 @@
 	<<if $attendantCareers.includes($Attendant.career)>>
 		<<set _bonusToggle = 1>>
 	<<else>>
-		<<<<set _bonusToggle = 0>>
+		<<set _bonusToggle = 0>>
 	<</if>>
 	&nbsp;&nbsp;&nbsp;&nbsp;$Attendant.slaveName is serving as the spa attendant.<<if $Attendant.relationship == -3>> She tries her best to be your perfect attentive and caring wife.<</if>>
 	<<if (_FLsFetish == 1)>>
@@ -102,7 +102,7 @@
 	<<if ($slaves[_i].fetish == "mindbroken") && ($slaves[_i].health > 20) && (_attendantUsedCure == 0)>>
 		<<set _attendantUsedCure = 1>>
 		<<if (random(1,100) > 90-$Attendant.devotion)>>
-		<br>&nbsp;&nbsp;&nbsp;&nbsp;@@.green;Something almost miraculous has happened.@@ $Attendant.slaveName has always refused to believe that $slaves[_i].slaveName could not be reached, and has spent weeks lavishing patient tenderness on her in $spaName. $slaves[_i].slaveName has begun to respond, and is stirring from her mental torpor.
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;@@.green;Something almost miraculous has happened.@@ $Attendant.slaveName has always refused to believe that $slaves[_i].slaveName could not be reached, and has spent weeks lavishing patient tenderness on her in $spaName. $slaves[_i].slaveName has begun to respond, and is stirring from her mental torpor.
 		<<set $slaves[_i].devotion = -3, $slaves[_i].sexualFlaw = "apathetic", $slaves[_i].behavioralFlaw = either("hates men", "odd"), $slaves[_i].fetish = "none", $slaves[_i].fetishKnown = 1>>
 		<<if ($arcologies[0].FSPaternalist > 0)>>
 			Society @@.green;strongly approves@@ of $slaves[_i].slaveName being restored to sanity, which advances ideals about enlightened slave ownership.
@@ -305,7 +305,7 @@
 		<</if>>
 		/* 000-250-006 */
 		''__@@.pink;$slaves[$i].slaveName@@__'' is resting in the spa.
-		<br>&nbsp;&nbsp;&nbsp;&nbsp;She<<include "SA rest">>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;She <<include "SA rest">>
 		<br>&nbsp;&nbsp;&nbsp;
 		<<if $slaves[$i].choosesOwnClothes == 1>>
 		<<include "SA chooses own clothes">>
