@@ -212,10 +212,10 @@
 	<</switch>>
 	<</for>>
 	<</if>>
-	<<if ($spaSlaves < $spa)>>
-		<<set _seed = random(1,10)+(($spa-$spaSlaves)*(random(150,170)+(_idleBonus*10)))>>
+	<<if ($spaSlaves < 5)>>
+		<<set _seed = random(1,10)+((5-$spaSlaves)*(random(150,170)+(_idleBonus*10)))>>
 		<<set $cash += _seed>>
-		<br>&nbsp;&nbsp;&nbsp;&nbsp;Since she doesn't have enough girls to occupy all her time, the spa takes in citizens' slaves on a contract basis and she helps them too, earning @@.yellowgreen;¤_seed.@@
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;Since she doesn't have enough girls to occupy all her time, the spa takes in citizens' slaves on a contract basis and she helps them too, earning @@.yellowgreen;Â¤_seed.@@
 	<</if>>
 	<<if ($spaSlaves > 0)>><br><</if>>
 <</if>>
