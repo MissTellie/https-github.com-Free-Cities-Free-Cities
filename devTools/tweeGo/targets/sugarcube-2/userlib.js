@@ -792,6 +792,7 @@ window.lastNipplesPiercingRule = function(slave, rules) {
 		}return null;
 	}
 };
+
 window.lastAreolaePiercingRule = function(slave, rules) {
 	if (!slave) {
 		return null;
@@ -811,6 +812,7 @@ window.lastAreolaePiercingRule = function(slave, rules) {
 		}return null;
 	}
 };
+
 window.lastClitPiercingRule = function(slave, rules) {
 	if (!slave) {
 		return null;
@@ -830,6 +832,7 @@ window.lastClitPiercingRule = function(slave, rules) {
 		}return null;
 	}
 };
+
 window.lastClitSettingRule = function(slave, rules) {
     if (!slave) {
         return null;
@@ -849,6 +852,7 @@ window.lastClitSettingRule = function(slave, rules) {
         }return null;
     }
 };
+
 window.lastClitSettingXYRule = function(slave, rules) {
     if (!slave) {
         return null;
@@ -868,6 +872,7 @@ window.lastClitSettingXYRule = function(slave, rules) {
         }return null;
     }
 };
+
 window.lastClitSettingXXRule = function(slave, rules) {
     if (!slave) {
         return null;
@@ -887,6 +892,7 @@ window.lastClitSettingXXRule = function(slave, rules) {
         }return null;
     }
 };
+
 window.lastClitSettingEnergyRule = function(slave, rules) {
     if (!slave) {
         return null;
@@ -906,6 +912,7 @@ window.lastClitSettingEnergyRule = function(slave, rules) {
         }return null;
     }
 };
+
 window.lastVaginaPiercingRule = function(slave, rules) {
 	if (!slave) {
 		return null;
@@ -925,6 +932,7 @@ window.lastVaginaPiercingRule = function(slave, rules) {
 		}return null;
 	}
 };
+
 window.lastDickPiercingRule = function(slave, rules) {
 	if (!slave) {
 		return null;
@@ -944,6 +952,7 @@ window.lastDickPiercingRule = function(slave, rules) {
 		}return null;
 	}
 };
+
 window.lastAnusPiercingRule = function(slave, rules) {
 	if (!slave) {
 		return null;
@@ -963,6 +972,7 @@ window.lastAnusPiercingRule = function(slave, rules) {
 		}return null;
 	}
 };
+
 window.lastLipsPiercingRule = function(slave, rules) {
 	if (!slave) {
 		return null;
@@ -982,6 +992,7 @@ window.lastLipsPiercingRule = function(slave, rules) {
 		}return null;
 	}
 };
+
 window.lastTonguePiercingRule = function(slave, rules) {
 	if (!slave) {
 		return null;
@@ -1001,6 +1012,7 @@ window.lastTonguePiercingRule = function(slave, rules) {
 		}return null;
 	}
 };
+
 window.lastEarPiercingRule = function(slave, rules) {
 	if (!slave) {
 		return null;
@@ -1020,6 +1032,7 @@ window.lastEarPiercingRule = function(slave, rules) {
 		}return null;
 	}
 };
+
 window.lastEyebrowPiercingRule = function(slave, rules) {
 	if (!slave) {
 		return null;
@@ -1039,6 +1052,7 @@ window.lastEyebrowPiercingRule = function(slave, rules) {
 		}return null;
 	}
 };
+
 window.lastNosePiercingRule = function(slave, rules) {
 	if (!slave) {
 		return null;
@@ -1058,6 +1072,7 @@ window.lastNosePiercingRule = function(slave, rules) {
 		}return null;
 	}
 };
+
 window.lastNavelPiercingRule = function(slave, rules) {
 	if (!slave) {
 		return null;
@@ -1077,6 +1092,7 @@ window.lastNavelPiercingRule = function(slave, rules) {
 		}return null;
 	}
 };
+
 window.lastCorsetPiercingRule = function(slave, rules) {
 	if (!slave) {
 		return null;
@@ -1096,6 +1112,7 @@ window.lastCorsetPiercingRule = function(slave, rules) {
 		}return null;
 	}
 };
+
 window.lastBoobsTatRule = function(slave, rules) {
 	if (!slave) {
 		return null;
@@ -1115,6 +1132,7 @@ window.lastBoobsTatRule = function(slave, rules) {
 		}return null;
 	}
 };
+
 window.lastButtTatRule = function(slave, rules) {
 	if (!slave) {
 		return null;
@@ -1134,6 +1152,7 @@ window.lastButtTatRule = function(slave, rules) {
 		}return null;
 	}
 };
+
 window.lastVaginaTatRule = function(slave, rules) {
 	if (!slave) {
 		return null;
@@ -1153,6 +1172,7 @@ window.lastVaginaTatRule = function(slave, rules) {
 		}return null;
 	}
 };
+
 window.lastDickTatRule = function(slave, rules) {
 	if (!slave) {
 		return null;
@@ -1172,6 +1192,7 @@ window.lastDickTatRule = function(slave, rules) {
 		}return null;
 	}
 };
+
 window.lastAnusTatRule = function(slave, rules) {
 	if (!slave) {
 		return null;
@@ -1191,6 +1212,7 @@ window.lastAnusTatRule = function(slave, rules) {
 		}return null;
 	}
 };
+
 window.lastLipsTatRule = function(slave, rules) {
 	if (!slave) {
 		return null;
@@ -1210,6 +1232,7 @@ window.lastLipsTatRule = function(slave, rules) {
 		}return null;
 	}
 };
+
 window.lastShouldersTatRule = function(slave, rules) {
 	if (!slave) {
 		return null;
@@ -1229,6 +1252,7 @@ window.lastShouldersTatRule = function(slave, rules) {
 		}return null;
 	}
 };
+
 window.lastArmsTatRule = function(slave, rules) {
 	if (!slave) {
 		return null;
@@ -1248,6 +1272,7 @@ window.lastArmsTatRule = function(slave, rules) {
 		}return null;
 	}
 };
+
 window.lastLegsTatRule = function(slave, rules) {
 	if (!slave) {
 		return null;
