@@ -1459,13 +1459,6 @@ window.checkThresholds = function(number, rule) {
 	}
 };
 
-window.removeFromArray = function(arr, val) {
-	for (var i = 0; i < arr.length; i++)
-		if (val == arr[i])
-			return arr.splice(i,1);
-	return null;
-};
-
 window.milkAmount = function(slave) {
 	var milk;
 	var calcs;
