@@ -266,34 +266,17 @@ window.relationTargetWord = function(slave) {
 };
 
 window.ruleApplied = function(slave, ID) {
-	if (!slave) {
+	if (!slave || !slave.currentRules)
 		return null;
-	}else if (!slave.currentRules) {
-		return null;
-	} else {
-		for(var d=0; d < slave.currentRules.length; ++d){
-			if(slave.currentRules[d] == ID){
-				return true;
-			}
-		}return false;
-	}
+	return slave.currentRules.includes(ID);
 };
 
 window.ruleAssignment = function(applyAssignment, assignment) {
-	for(var d=0; d < applyAssignment.length; ++d){
-		if(applyAssignment[d] == assignment){
-
-			return true;
-		}
-	}return false;
+	return applyAssignment.includes(assignment);
 };
 
 window.ruleFacility = function(applyFacility, facility) {
-	for(var d=0; d < applyFacility.length; ++d){
-		if(applyFacility[d] == facility){
-			return true;
-		}
-	}return false;
+	return applyFacility.includes(facility);
 };
 
 window.ruleExcludeSlaveFacility = function(rule, slave) {
@@ -493,36 +476,23 @@ window.ruleAppliedToSlaveFacility = function(rule, slave) {
 };
 
 window.ruleSlaveSelected = function(slave, rule) {
-	if (!slave) {
+	if (!slave || !rule) {
 		return null;
-	}else if (!rule) {
-		return null;
-	}else if (!rule.selectedSlaves) {
+	} else if (!rule.selectedSlaves) {
 		return false;
-	} else {
-		for(var d=0; d < rule.selectedSlaves.length; ++d){
-			if(slave.ID == rule.selectedSlaves[d]){
-				return true;
-			}
-		}return false;
 	}
+	return rule.selectedSlaves.includes(slave.ID);
 };
 
 window.ruleSlaveExcluded = function(slave, rule) {
-	if (!slave) {
+	if (!slave || !rule) {
 		return null;
-	}else if (!rule) {
-		return null;
-	}else if (!rule.excludedSlaves) {
+	} else if (!rule.excludedSlaves) {
 		return false;
-	} else {
-		for(var d=0; d < rule.excludedSlaves.length; ++d){
-			if(slave.ID == rule.excludedSlaves[d]){
-				return true;
-			}
-		}return false;
 	}
+	return rule.excludedSlaves.includes(slave.ID);
 };
+
 window.hasSurgeryRule = function(slave, rules) {
 	if (!slave) {
 		return false;
@@ -1297,6 +1267,7 @@ window.lastLegsTatRule = function(slave, rules) {
 		}return null;
 	}
 };
+
 window.lastStampTatRule = function(slave, rules) {
 	if (!slave) {
 		return null;
@@ -1339,6 +1310,7 @@ window.lastLactationSurgeryRule = function(slave, rules) {
 		}return null;
 	}
 };
+
 window.lastLipSurgeryRule = function(slave, rules) {
 	if (!slave) {
 		return null;
@@ -1361,6 +1333,7 @@ window.lastLipSurgeryRule = function(slave, rules) {
 		}return null;
 	}
 };
+
 window.lastBoobSurgeryRule = function(slave, rules) {
 	if (!slave) {
 		return null;
@@ -1383,6 +1356,7 @@ window.lastBoobSurgeryRule = function(slave, rules) {
 		}return null;
 	}
 };
+
 window.lastButtSurgeryRule = function(slave, rules) {
 	if (!slave) {
 		return null;
