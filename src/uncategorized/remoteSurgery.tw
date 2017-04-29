@@ -1085,11 +1085,11 @@ The prosthesis facility has constructed $possessive prosthetic limbs.
 	<<if $activeSlave.indentureRestrictions < 1>>
 		<<if $activeSlave.origEye != "implant">>
 			<<if ($activeSlave.eyes > -2)>>
-				[[Blind|Surgery Degradation][$activeSlave.eyes = -2,$activeSlave.eyeColor = "dulled " + $activeSlave.origEye,$activeSlave.eyeColor = $activeSlave.origEye,$activeSlave.assignment = "rest",$activeSlave.assignmentVisible = 1,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "blind"]]
+				[[Blind|Surgery Degradation][$activeSlave.eyes = -2,$activeSlave.eyeColor = "dulled " + $activeSlave.origEye,$activeSlave.eyeColor = $activeSlave.origEye,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "blind"]]
 			<</if>>
 			/*<<if ($activeSlave.eyes != -3)>>
 				<<if ($activeSlave.eyes >= -2)>> | <</if>>
-				[[Remove eyes|Surgery Degradation][$activeSlave.eyeColor = "empty",$activeSlave.origEye = "none",$activeSlave.assignment = "rest",$activeSlave.assignmentVisible = 1,$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "remove eyes"]]
+				[[Remove eyes|Surgery Degradation][$activeSlave.eyeColor = "empty",$activeSlave.origEye = "none",$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "remove eyes"]]
 				<<if ($activeSlave.eyes != -2)>>//This will greatly restrict $possessive//<</if>>
 			<</if>>*/
 	<</if>>
@@ -1319,30 +1319,30 @@ The prosthesis facility has constructed $possessive prosthetic limbs.
 <<if $cyberMod != 1>>
 	<<if $activeSlave.amp == 0>>
 		<<if ($activeSlave.indentureRestrictions < 1) && ($seeExtreme == 1)>>
-			[[Remove arms and legs|Surgery Degradation][$activeSlave.amp = 1,$activeSlave.heels = 0,$activeSlave.heightImplant = 0,$activeSlave.legsTat = 0,$activeSlave.armsTat = 0,$activeSlave.assignment = "rest",$activeSlave.assignmentVisible = 1,$cash -= $surgeryCost, $activeSlave.health -= 40,$activeSlave.nails = 0,$surgeryType = "amp"]] //This will greatly restrict $possessive//
+			[[Remove arms and legs|Surgery Degradation][$activeSlave.amp = 1,$activeSlave.heels = 0,$activeSlave.heightImplant = 0,$activeSlave.legsTat = 0,$activeSlave.armsTat = 0,$cash -= $surgeryCost, $activeSlave.health -= 40,$activeSlave.nails = 0,$surgeryType = "amp"]] //This will greatly restrict $possessive//
 		<</if>>
 	<<elseif $activeSlave.amp != 1>>
 		<<if ($activeSlave.indentureRestrictions < 1) && ($seeExtreme == 1)>>
-			[[Detach artificial limbs|Surgery Degradation][$activeSlave.amp = 1,$activeSlave.heels = 0,$activeSlave.heightImplant = 0,$activeSlave.assignment = "rest",$activeSlave.assignmentVisible = 1,$cash -= $surgeryCost, $activeSlave.health -= 40,$activeSlave.nails = 0,$surgeryType = "removeLimbs"]] //This will greatly restrict $possessive//
+			[[Detach artificial limbs|Surgery Degradation][$activeSlave.amp = 1,$activeSlave.heels = 0,$activeSlave.heightImplant = 0,$cash -= $surgeryCost, $activeSlave.health -= 40,$activeSlave.nails = 0,$surgeryType = "removeLimbs"]] //This will greatly restrict $possessive//
 		<</if>>
 	<</if>>
 <<else>>
 	<<if $activeSlave.amp == 0>>
 		<<if ($activeSlave.indentureRestrictions < 1) && ($seeExtreme == 1) && (($stockpile.basicPLimbInterface + $stockpile.advPLimbInterface) == 0)>>
-			[[Remove arms and legs|Surgery Degradation][$activeSlave.amp = 1,$activeSlave.heels = 0,$activeSlave.heightImplant = 0,$activeSlave.legsTat = 0,$activeSlave.armsTat = 0,$activeSlave.assignment = "rest",$activeSlave.assignmentVisible = 1,$cash -= $surgeryCost, $activeSlave.health -= 40,$activeSlave.nails = 0,$surgeryType = "amp"]] //This will greatly restrict $possessive//
+			[[Remove arms and legs|Surgery Degradation][$activeSlave.amp = 1,$activeSlave.heels = 0,$activeSlave.heightImplant = 0,$activeSlave.legsTat = 0,$activeSlave.armsTat = 0,$cash -= $surgeryCost, $activeSlave.health -= 40,$activeSlave.nails = 0,$surgeryType = "amp"]] //This will greatly restrict $possessive//
 		<<elseif ($activeSlave.indentureRestrictions < 1) && ($seeExtreme == 1)>>
-			[[Remove arms and legs|Surgery Degradation][$activeSlave.amp = 1,$activeSlave.heels = 0,$activeSlave.heightImplant = 0,$activeSlave.legsTat = 0,$activeSlave.armsTat = 0,$activeSlave.assignment = "rest",$activeSlave.assignmentVisible = 1,$cash -= $surgeryCost, $activeSlave.health -= 40,$activeSlave.nails = 0,$surgeryType = "amp1"]] //This will greatly restrict $possessive//
+			[[Remove arms and legs|Surgery Degradation][$activeSlave.amp = 1,$activeSlave.heels = 0,$activeSlave.heightImplant = 0,$activeSlave.legsTat = 0,$activeSlave.armsTat = 0,$cash -= $surgeryCost, $activeSlave.health -= 40,$activeSlave.nails = 0,$surgeryType = "amp1"]] //This will greatly restrict $possessive//
 		<</if>>
 	<<elseif ($activeSlave.amp == 1) && ($activeSlave.PLimb == 0)>>
 		<<if ($stockpile.basicPLimbInterface > 0)>> | 
-			[[Install basic prosthetic interface|Surgery Degradation][$activeSlave.PLimb = 1,$activeSlave.assignment = "rest",$activeSlave.assignmentVisible = 1,$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "PLimb interface1"]]
+			[[Install basic prosthetic interface|Surgery Degradation][$activeSlave.PLimb = 1,$stockpile.basicPLimbInterface -= 1,$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "PLimb interface1"]]
 		<</if>>
 		<<if $stockpile.advPLimbInterface > 0>> | 
-			[[Install advanced prosthetic interface|Surgery Degradation][$activeSlave.PLimb = 2,$activeSlave.assignment = "rest",$activeSlave.assignmentVisible = 1,$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "PLimb interface2"]]
+			[[Install advanced prosthetic interface|Surgery Degradation][$activeSlave.PLimb = 2,$stockpile.advPLimbInterface -= 1,$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "PLimb interface2"]]
 		<</if>>
 	<<elseif $activeSlave.amp == 1 && $activeSlave.PLimb == 1 && $stockpile.advPLimbInterface > 0>> | 
-		[[Upgrade = advanced prosthetic interface|Surgery Degradation][$activeSlave.PLimb = 2,$activeSlave.assignment = "rest",$activeSlave.assignmentVisible = 1,$cash -= $surgeryCost, $activeSlave.health -= 5,$surgeryType = "PLimb interface3"]]
-  <</if>>
+		[[Upgrade = advanced prosthetic interface|Surgery Degradation][$activeSlave.PLimb = 2,$stockpile.advPLimbInterface -= 1,$cash -= $surgeryCost, $activeSlave.health -= 5,$surgeryType = "PLimb interface3"]]
+	<</if>>
 <</if>>
 
 <br>

@@ -76,7 +76,7 @@
 							<<set _SlaveI.trust -= 4>>
 						<</if>>
 					<</if>>
-				<<elseif (_SlaveJ.ID is $DJ.ID) && (_SlaveI.assignment == "serve in the club")>>
+				<<elseif (_SlaveJ.ID == $DJ.ID) && (_SlaveI.assignment == "serve in the club")>>
 					<<if _SlaveJ.relationshipRules != "restrictive">>
 						_SlaveI.slaveName manages to ingratiate herself with the DJ, _SlaveJ.slaveName. The two slaves have @@.lightgreen;struck up a friendship.@@
 						<<set _SlaveJ.relationship = 1, _SlaveJ.relationshipTarget = _SlaveI.ID, _SlaveI.relationship = 1, _SlaveI.relationshipTarget = _SlaveJ.ID>>
@@ -416,7 +416,7 @@
 				<<if (_SlaveI.energy > 95) && (_SlaveI.relation != 0) && (_SlaveI.relationTarget == _SlaveI.relationshipTarget) && (random(1, 100) > (90 - $seed))>>
 					She's such a desperate nympho that constant incest is nothing to her. She develops real feelings for _SlaveJ.slaveName as a romantic partner. Their relationship becomes @@.lightgreen;romantically emotional@@ as well as physical and familial.
 					<<set _SlaveI.relationship++, _SlaveJ.relationship = _SlaveI.relationship>>
-				<<elseif (_SlaveI.sexualQuirk == "perverted") && (_SlaveI.relation != 0) && (_SlaveI.relationTarget is _SlaveI.relationshipTarget) && (random(1, 100) > (80 - $seed))>>
+				<<elseif (_SlaveI.sexualQuirk == "perverted") && (_SlaveI.relation != 0) && (_SlaveI.relationTarget == _SlaveI.relationshipTarget) && (random(1, 100) > (80 - $seed))>>
 					Reveling in the taboo nature of her sexual relationship with _SlaveJ.slaveName, she not only enjoys _SlaveJ.slaveName's body, but looks after her pleasure, too. Their relationship becomes @@.lightgreen;romantically emotional@@ as well as physical and familial.
 					<<set _SlaveI.relationship++, _SlaveJ.relationship = _SlaveI.relationship>>
 				<<elseif (_SlaveI.behavioralQuirk == "sinful") && (_SlaveI.relation != 0) && (_SlaveI.relationTarget == _SlaveI.relationshipTarget) && (random(1, 100) > (80 - $seed))>>

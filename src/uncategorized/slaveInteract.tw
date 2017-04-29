@@ -60,18 +60,18 @@
 		<<if canDoVaginal($activeSlave)>>
 		<<link "Fuck her">><<replace "#miniscene">><<include "FVagina">><br><</replace>><</link>>
 		<<if canDoAnal($activeSlave)>>
-		| <<link "Use her holes">><<replace "#miniscene">><<include "FButt">><br>&nbsp;&nbsp;&nbsp;&nbsp;<</replace>><</link>> |
+		| <<link "Use her holes">><<replace "#miniscene">><<include "FButt">><br>&nbsp;&nbsp;&nbsp;&nbsp;<</replace>><</link>>
 		<</if>>
 		<<else>>
-		//Remove her chastity belt if you wish to fuck her// |
+		//Remove her chastity belt if you wish to fuck her//
 		<</if>>
 	<</if>>
 	</span>
 	<span id="analsexoption">
 	<<if canDoAnal($activeSlave)>>
-	<<link "Fuck her ass">><<replace "#miniscene">><<include "FAnus">><br>&nbsp;&nbsp;&nbsp;&nbsp;<</replace>><</link>>
+	| <<link "Fuck her ass">><<replace "#miniscene">><<include "FAnus">><br>&nbsp;&nbsp;&nbsp;&nbsp;<</replace>><</link>>
 	<<else>>
-		//Remove her chastity belt if you wish to fuck her ass// |
+	| //Remove her chastity belt if you wish to fuck her ass//
 	<</if>>
 	</span>
 	| <<link "Use her mouth">><<replace "#miniscene">><<include "FLips">><br>&nbsp;&nbsp;&nbsp;&nbsp;<</replace>><</link>>
@@ -107,7 +107,7 @@
 	<span id = "impreg">
 	<<if (canGetPregnant($activeSlave)) && ($activeSlave.clothes != "a Fuckdoll suit")>>
 		<<if ($PC.dick != 0)>>
-			| <<link "Impregnate her yourself">><<replace "#miniscene">><<include "FPCImpreg">><br>&nbsp;&nbsp;&nbsp;&nbsp;<</replace>><<SlaveInteractImpreg>><<SlaveInteractFertility>><</link>>
+		| <<link "Impregnate her yourself">><<replace "#miniscene">><<include "FPCImpreg">><br>&nbsp;&nbsp;&nbsp;&nbsp;<</replace>><<SlaveInteractImpreg>><<SlaveInteractFertility>><</link>>
 		<</if>>
 		| [[Use another slave to impregnate her|FSlaveImpreg]]
 	<</if>>
@@ -185,12 +185,12 @@ __Rules Assistant__
 	<</silently>>
 	<<goto "Slave Interact">>
 <</link>>//
-<br>&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
 <<if $activeSlave.useRulesAssistant != 0>>
 ''Subject'' to the rules assistant. [[Exempt her|Slave Interact][$activeSlave.useRulesAssistant = 0]]
 <<else>>
 ''Not subject'' to the rules assistant. [[Include her|Slave Interact][$activeSlave.useRulesAssistant = 1]]
-<</if>> | [[Rules Assistant]]
+<</if>> | [[Rules Assistant Options|Rules Assistant]]
 <<if (def $activeSlave.currentRules) && ($activeSlave.currentRules.length > 0)>>
 	<<for _r = 0; _r < $activeSlave.currentRules.length; _r++>>
 		<<for _s = 0; _s < $defaultRules.length; _s++>>
@@ -203,6 +203,26 @@ __Rules Assistant__
 <</if>>
 
 <br><br>
+
+<span id="fucktoypref">
+	<<if ($activeSlave.assignment == "please you") || ($activeSlave.assignment == "serve in the master suite") || ($activeSlave.assignment == "be your Concubine")>>
+		__Fucktoy use preference__: <strong><span id="hole">$activeSlave.toyHole</span></strong>.
+		  <<link "Mouth">><<set $activeSlave.toyHole = "mouth">><<replace "#hole">>$activeSlave.toyHole<</replace>><</link>>
+		| <<link "Tits">><<set $activeSlave.toyHole = "boobs">><<replace "#hole">>$activeSlave.toyHole<</replace>><</link>>
+		<<if ($activeSlave.vagina > 0) && canDoVaginal($activeSlave)>>
+		| <<link "Pussy">><<set $activeSlave.toyHole = "pussy">><<replace "#hole">>$activeSlave.toyHole<</replace>><</link>>
+		<<elseif ($activeSlave.vagina == 0)>>
+		| //Take her virginity before giving her pussy special attention//
+		<</if>>
+		<<if ($activeSlave.anus > 0) && canDoAnal($activeSlave)>>
+		| <<link "Ass">><<set $activeSlave.toyHole = "ass">><<replace "#hole">>$activeSlave.toyHole<</replace>><</link>>
+		<<else>>
+		| //Take her anal virginity before giving her ass special attention//
+		<</if>>
+		| <<link "No Preference">><<set $activeSlave.toyHole = "all her holes">><<replace "#hole">>$activeSlave.toyHole<</replace>><</link>>
+	<</if>>
+</span>
+
 <<switch $activeSlave.assignment>>
 <<case "recover from surgery">>
 	//She is recovering from surgery this week//
@@ -250,43 +270,29 @@ __Assignment__: <strong><span id="assign">$activeSlave.assignment</span>.</stron
 		/*| //Blind slaves cannot be servants// */
 	<</if>>
 <</if>>
-<<if (($activeSlave.devotion >= -20) || (($activeSlave.trust < -20) && ($activeSlave.devotion >= -50)) || ($activeSlave.trust < -50)) && ($activeSlave.fetish != "mindbroken") && ($activeSlave.intelligenceImplant != 1)>>
-	| __<<link "Take slave classes">><<set $activeSlave.assignment = "take classes", $activeSlave.assignmentVisible = 1, $activeSlave.sentence = 0, $activeSlave.choosesOwnAssignment = 0>><<replace "#assign">>$activeSlave.assignment<</replace>><</link>>__
+<<if $activeSlave.intelligenceImplant < 1  && $activeSlave.fetish != "mindbroken" && ($activeSlave.devotion >= -20 || ($activeSlave.trust < -20 && $activeSlave.devotion >= -50) || $activeSlave.trust < -50)>>
+	| __<<link "Take slave classes">>   <<assignJob $activeSlave "take classes">><<replace "#assign">>$activeSlave.assignment<</replace>><<SlaveInteractFucktoy>><</link>>__
 <<else>>
-	/*| //Too resistant to take classes// */
+    | Take slave classes
 <</if>>
-| <<link "Confine her">><<set $activeSlave.assignment = "stay confined", $activeSlave.assignmentVisible = 1, $activeSlave.sentence = 0, $activeSlave.choosesOwnAssignment = 0>><<replace "#assign">>$activeSlave.assignment<</replace>><</link>>
-| <<link "Whore">><<set $activeSlave.assignment = "whore", $activeSlave.assignmentVisible = 1, $activeSlave.sentence = 0, $activeSlave.choosesOwnAssignment = 0>><<replace "#assign">>$activeSlave.assignment<</replace>><</link>>
-| <<link "Public servant">><<set $activeSlave.assignment = "serve the public", $activeSlave.sentence = 0, $activeSlave.choosesOwnAssignment = 0>><<replace "#assign">>$activeSlave.assignment<</replace>><</link>>
+	| <<link "Confine her">>            <<assignJob $activeSlave "stay confined">><<replace "#assign">>$activeSlave.assignment<</replace>><<SlaveInteractFucktoy>><</link>>
+<<if $activeSlave.breedingMark != 1>>
+	| <<link "Whore">>                  <<assignJob $activeSlave "whore">><<replace "#assign">>$activeSlave.assignment<</replace>><<SlaveInteractFucktoy>><</link>>
+	| <<link "Public servant">>         <<assignJob $activeSlave "serve the public">><<replace "#assign">>$activeSlave.assignment<</replace>><<SlaveInteractFucktoy>><</link>>
+<</if>>
 <</if>>/* CLOSES FUCKDOLL CHECK */
 <<if ($activeSlave.indentureRestrictions <= 0)>>
-| <<link "Glory hole">><<set $activeSlave.assignment = "work a glory hole", $activeSlave.assignmentVisible = 1, $activeSlave.sentence = 0, $activeSlave.choosesOwnAssignment = 0>><<replace "#assign">>$activeSlave.assignment<</replace>><</link>>
+	| <<link "Glory hole">>             <<assignJob $activeSlave "work a glory hole">><<replace "#assign">>$activeSlave.assignment<</replace>><<SlaveInteractFucktoy>><</link>>
 <</if>>
 <<if $activeSlave.fuckdoll == 0>>
 <<if ($activeSlave.lactation > 0) || ($activeSlave.balls > 0)>>
-| <<link "Get milked">><<set $activeSlave.assignment = "get milked", $activeSlave.assignmentVisible = 1, $activeSlave.sentence = 0, $activeSlave.choosesOwnAssignment = 0>><<replace "#assign">>$activeSlave.assignment<</replace>><</link>>
+	| <<link "Get milked">>             <<assignJob $activeSlave "get milked">><<replace "#assign">>$activeSlave.assignment<</replace>><<SlaveInteractFucktoy>><</link>>
 <<else>>
-/*| //Not lactating// */
+	/*| //Not lactating// */
 <</if>>
-<<if ($activeSlave.sentence == 0)>>
-| [[Assign her to her current task for a month|Slave Interact][$activeSlave.sentence = 4]]
-| <<link "Let her choose her own assignment">><<set $activeSlave.assignment = "choose her own job", $activeSlave.assignmentVisible = 1, $activeSlave.sentence = 0, $activeSlave.choosesOwnAssignment = 1>><<replace "#assign">>$activeSlave.assignment<</replace>><</link>>
-<</if>>
+	| <<link "Let her choose her own assignment">><<assignJob $activeSlave "choose her own job">><<replace "#assign">>$activeSlave.assignment<</replace>><<SlaveInteractFucktoy>><</link>>
+	| <<link "Assign her to her current task for another month">><<set $activeSlave.sentence += 4>><<replace "#assign">>$activeSlave.assignment ($activeSlave.sentence weeks)<</replace>><</link>>
 <</if>>/* CLOSES FUCKDOLL CHECK */
-<<if ($activeSlave.assignment == "please you")>>
-__Fucktoy use preference__: <strong><span id="hole">$activeSlave.toyHole</span></strong>.
-<<link "Mouth">><<set $activeSlave.toyHole = "mouth">><<replace "#hole">>$activeSlave.toyHole<</replace>><</link>>
-| <<link "Tits">><<set $activeSlave.toyHole = "boobs">><<replace "#hole">>$activeSlave.toyHole<</replace>><</link>>
-<<if ($activeSlave.vagina > 0) && canDoVaginal($activeSlave)>>
-| <<link "Pussy">><<set $activeSlave.toyHole = "pussy">><<replace "#hole">>$activeSlave.toyHole<</replace>><</link>>
-<<elseif ($activeSlave.vagina == 0)>>| //Take her virginity before giving her pussy special attention//
-<</if>>
-<<if ($activeSlave.anus > 0) && canDoAnal($activeSlave)>>
-| <<link "Ass">><<set $activeSlave.toyHole = "ass">><<replace "#hole">>$activeSlave.toyHole<</replace>><</link>>
-<<else>>| //Take her anal virginity before giving her ass special attention//
-<</if>>
-| <<link "No Preference">><<set $activeSlave.toyHole = "all her holes">><<replace "#hole">>$activeSlave.toyHole<</replace>><</link>>
-<</if>>
 
 <<if $activeSlave.fuckdoll == 0>>
 <<if $brothel+$club+$dairy+$servantsQuarters+$masterSuite+$spa+$clinic+$schoolroom+$cellblock+$arcade > 0>>
@@ -298,55 +304,55 @@ __Fucktoy use preference__: <strong><span id="hole">$activeSlave.toyHole</span><
 	<br>__Transfer to__:
 	<<if $brothel != 0>>
 	<<if $brothel > $brothelSlaves && ($activeSlave.devotion > 50) || (($activeSlave.devotion >= -50) && ($activeSlave.trust < -20)) || ($activeSlave.trust < -50) || ($activeSlave.trust > 50)>>
-		[[Brothel|Assign][$returnTo = "Brothel", $i = _i]]
+		[[Brothel|Assign][$slaves[_i] = $activeSlave, $returnTo = "Brothel", $i = _i]]
 	<<else>>Brothel<</if>>
 	<</if>>
 	<<if $club != 0>>|
 	<<if $club > $clubSlaves && ($activeSlave.devotion > 50) || (($activeSlave.devotion >= -50) && ($activeSlave.trust < -20)) || ($activeSlave.trust < -50) || ($activeSlave.trust > 50)>>
-		[[Club|Assign][$returnTo = "Club", $i = _i]]
+		[[Club|Assign][$slaves[_i] = $activeSlave, $returnTo = "Club", $i = _i]]
 	<<else>>Club<</if>>
 	<</if>>
 	<<if $dairy != 0>>|
 	<<if $dairy > $dairySlaves && (($activeSlave.indentureRestrictions > 0) && ($dairyRestraintsSetting > 1)) || (($activeSlave.indentureRestrictions > 1) && ($dairyRestraintsSetting > 0))>>
 		Dairy
 	<<elseif (($activeSlave.lactation > 0) || ($activeSlave.balls > 0)) || (($dairyFeedersUpgrade == 1) && ($dairyFeedersSetting > 0) && ($dairySlimMaintainUpgrade == 0))>>
-		 [[Dairy|Assign][$returnTo = "Dairy", $i = _i]]
+		 [[Dairy|Assign][$slaves[_i] = $activeSlave, $returnTo = "Dairy", $i = _i]]
 	<<else>>Dairy<</if>>
 	<</if>>
 	<<if $servantsQuarters != 0>>|
 	<<if $servantsQuarters > $servantsQuartersSlaves && ($activeSlave.devotion >= -20) || (($activeSlave.devotion >= -50) && ($activeSlave.trust <= 20)) || ($activeSlave.trust < -20)>>
-		[[Servants' Quarters|Assign][$returnTo = "Servants' Quarters", $i = _i]]
+		[[Servants' Quarters|Assign][$slaves[_i] = $activeSlave, $returnTo = "Servants' Quarters", $i = _i]]
 	<<else>>Servants' Quarters<</if>>
 	<</if>>
 	<<if $masterSuite != 0>>|
 	<<if $masterSuite > $masterSuiteSlaves && ($activeSlave.devotion > 20) || (($activeSlave.devotion >= -50) && ($activeSlave.trust < -20)) || ($activeSlave.trust < -50)>>
-		[[Master Suite|Assign][$returnTo = "Master Suite", $i = _i]]
+		[[Master Suite|Assign][$slaves[_i] = $activeSlave, $returnTo = "Master Suite", $i = _i]]
 	<<else>>Master Suite<</if>>
 	<</if>>
 	<<if $spa != 0>>|
-	<<if $spa > $spaSlaves && ($activeSlave.health < 20) || ($activeSlave.trust < 60) || ($activeSlave.devotion <= 60) || ($activeSlave.fetish == "mindbroken")>>
-		[[Spa|Assign][$returnTo = "Spa", $i = _i]]
+	<<if $spa > $spaSlaves (_Slave.devotion >= -20 || _Slave.fetish == "mindbroken") && (_Slave.health < 20) || (_Slave.trust < 60) || (_Slave.devotion <= 60) || (_Slave.fetish == "mindbroken") || _Slave.sexualFlaw !== "none" || _Slave.behavioralFlaw !== "none">>
+		[[Spa|Assign][$slaves[_i] = $activeSlave, $returnTo = "Spa", $i = _i]]
 	<<else>>Spa<</if>>
 	<</if>>
 	<<if $clinic != 0>>|
-	<<if $clinic > $clinicSlaves && ($activeSlave.health < 20) || (($activeSlave.chem > 15) && ($clinicUpgradeFilters == 1))>>
-		[[Clinic|Assign][$returnTo = "Clinic", $i = _i]]
+	<<if $clinic > $clinicSlaves && ($activeSlave.health < 20 || ($activeSlave.chem > 0 && $clinicUpgradeFilters == 1 && $Nurse != 0))>>
+		[[Clinic|Assign][$slaves[_i] = $activeSlave, $returnTo = "Clinic", $i = _i]]
 	<<else>>Clinic<</if>>
 	<</if>>
 	<<if $schoolroom != 0>>|
-	<<if $schoolroom > $schoolroomSlaves && ($activeSlave.devotion >= -20) || (($activeSlave.devotion >= -50) && ($activeSlave.trust < -20)) || ($activeSlave.trust < -50)>>
-		[[Schoolroom|Assign][$returnTo = "Schoolroom", $i = _i]]
+	<<if $schoolroom > $schoolroomSlaves && $activeSlave.fetish != "mindbroken" && ($activeSlave.devotion >= -20 || ($activeSlave.devotion >= -50 && $activeSlave.trust < -20) || $activeSlave.trust < -50) && (($activeSlave.intelligenceImplant < 1) || ($activeSlave.voice != 0 && $activeSlave.accent+$schoolroomUpgradeLanguage > 2) || ($activeSlave.oralSkill <= 10+$schoolroomUpgradeSkills*20) || ($activeSlave.whoreSkill <= 10+$schoolroomUpgradeSkills*20) || ($activeSlave.entertainSkill <= 10+$schoolroomUpgradeSkills*20) || ($activeSlave.analSkill < 10+$schoolroomUpgradeSkills*20) || ($activeSlave.vagina >= 0 && $activeSlave.vaginalSkill < 10+$schoolroomUpgradeSkills*20))>>
+		[[Schoolroom|Assign][$slaves[_i] = $activeSlave, $returnTo = "Schoolroom", $i = _i]]
 	<<else>>Schoolroom<</if>>
 	<</if>>
 	<<if $cellblock != 0>>|
 	<<if $cellblock > $cellblockSlaves && (($activeSlave.devotion < -20) && ($activeSlave.trust >= -20)) || (($activeSlave.devotion < -50) && ($activeSlave.trust >= -50))>>
-		[[Cellblock|Assign][$returnTo = "Cellblock", $i = _i]]
+		[[Cellblock|Assign][$slaves[_i] = $activeSlave, $returnTo = "Cellblock", $i = _i]]
 	<<else>>Cellblock<</if>>
 	<</if>>
 <</if>>
 <<if $arcade != 0>>|
 <<if $arcade > $arcadeSlaves && ($activeSlave.indentureRestrictions <= 0)>>
-	[[Arcade|Assign][$returnTo = "Arcade", $i = _i]]
+	[[Arcade|Assign][$slaves[_i] = $activeSlave, $returnTo = "Arcade", $i = _i]]
 <<else>>Arcade<</if>>
 <</if>>
 <</if>>
@@ -408,6 +414,8 @@ __Drugs__: <span id="drugs"><strong>$activeSlave.drugs</strong></span>.
 | <<link "Hormone enhancers">><<set $activeSlave.drugs = "hormone enhancers">><<replace "#drugs">><strong>$activeSlave.drugs</strong><</replace>><</link>>
 <</if>>
 
+<br>
+
 __Health__: <span id="curatives"><strong><<if $activeSlave.curatives > 1>>curatives<<elseif $activeSlave.curatives > 0>>preventatives<<else>>none<</if>></strong></span>.
 <<if $activeSlave.curatives != 0>>
 	<<link "None">><<set $activeSlave.curatives = 0>><<replace "#curatives">><strong>none</strong><</replace>><</link>>
@@ -467,7 +475,8 @@ __Contraception__: <span id="fertility"><strong><<if $activeSlave.preg == -1>>us
 <</if>>
 </span>
 
-<br>&nbsp;&nbsp;&nbsp;&nbsp;__Hormones__: <strong><span id="hormones">
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+__Hormones__: <strong><span id="hormones">
 <<if $activeSlave.hormones == -2>>intensive male<<elseif $activeSlave.hormones == -1>>male<<elseif $activeSlave.hormones == 2>>intensive female<<elseif $activeSlave.hormones == 1>>female<<else>>none<</if>></span></strong>.
 <<link "Female ++">><<set $activeSlave.hormones = 2>><<replace "#hormones">>intensive female<</replace>><</link>> |
 <<link "Female">><<set $activeSlave.hormones = 1>><<replace "#hormones">>female<</replace>><</link>> |
@@ -729,17 +738,17 @@ __Contraception__: <span id="fertility"><strong><<if $activeSlave.preg == -1>>us
 <<if $activeSlave.anus >= 2>>| <<link "Huge">><<set $activeSlave.buttplug = "huge plug">><<replace "#buttplug">>$activeSlave.buttplug<</replace>><</link>><</if>>
 <<if $activeSlave.vagina > -1>>
 &nbsp;&nbsp;&nbsp;&nbsp;<<if $activeSlave.dick == 0>>__Accessory__<<else>>__Vaginal accessory__<</if>>: ''<span id="vaginalAccessory">$activeSlave.vaginalAccessory</span>.''
-<<link "None">><<set $activeSlave.vaginalAccessory = "none">><<replace "#vaginalAccessory">>$activeSlave.vaginalAccessory<</replace>><</link>>
+<<link "None">><<set $activeSlave.vaginalAccessory = "none">><<replace "#vaginalAccessory">>$activeSlave.vaginalAccessory<</replace>><<SlaveInteractImpreg>><<SlaveInteractFertility>><<SlaveInteractSexOption>><<SlaveInteractAnalSexOption>><<SlaveInteractGropeOption>><<SlaveInteractDickGropeOption>><<SlaveInteractAnalGropeOption>><</link>>
 | <<link "Dildo">><<set $activeSlave.vaginalAccessory = "dildo">><<replace "#vaginalAccessory">>$activeSlave.vaginalAccessory<</replace>><</link>>
 | <<link "Large dildo">><<set $activeSlave.vaginalAccessory = "large dildo">><<replace "#vaginalAccessory">>$activeSlave.vaginalAccessory<</replace>><</link>>
 <<if $activeSlave.vagina >= 2>>| <<link "Huge dildo">><<set $activeSlave.vaginalAccessory = "huge dildo">><<replace "#vaginalAccessory">>$activeSlave.vaginalAccessory<</replace>><</link>><</if>>
 | <<link "Chastity belt">><<set $activeSlave.vaginalAccessory = "chastity belt">><<replace "#vaginalAccessory">>$activeSlave.vaginalAccessory<</replace>><<SlaveInteractImpreg>><<SlaveInteractFertility>><<SlaveInteractSexOption>><<SlaveInteractAnalSexOption>><<SlaveInteractGropeOption>><<SlaveInteractDickGropeOption>><<SlaveInteractAnalGropeOption>><</link>>
 | <<link "Anal chastity belt">><<set $activeSlave.vaginalAccessory = "anal chastity">><<replace "#vaginalAccessory">>$activeSlave.vaginalAccessory<</replace>><<SlaveInteractSexOption>><<SlaveInteractAnalSexOption>><<SlaveInteractGropeOption>><<SlaveInteractDickGropeOption>><<SlaveInteractAnalGropeOption>><</link>>
-| <<link "Combined chastity belt">><<set $activeSlave.vaginalAccessory = "combined chastity">><<replace "#vaginalAccessory">>$activeSlave.vaginalAccessory<</replace>><<SlaveInteractImpreg>><<SlaveInteractFertility>><<SlaveInteractSexOption>><<SlaveInteractAnalSexOption>><<SlaveInteractGropeOption>><<SlaveInteractDickGropeOption>><<SlaveInteractAnalGropeOption>>g<</link>>
+| <<link "Combined chastity belt">><<set $activeSlave.vaginalAccessory = "combined chastity">><<replace "#vaginalAccessory">>$activeSlave.vaginalAccessory<</replace>><<SlaveInteractImpreg>><<SlaveInteractFertility>><<SlaveInteractSexOption>><<SlaveInteractAnalSexOption>><<SlaveInteractGropeOption>><<SlaveInteractDickGropeOption>><<SlaveInteractAnalGropeOption>><</link>>
 <</if>>
 <<if $activeSlave.dick > 0>>
 &nbsp;&nbsp;&nbsp;&nbsp;<<if $activeSlave.vagina == -1>>__Accessory__<<else>>__Dick accessory__<</if>>: ''<span id="dickAccessory">$activeSlave.dickAccessory</span>.''
-<<link "None">><<set $activeSlave.dickAccessory = "none">><<replace "#dickAccessory">>$activeSlave.dickAccessory<</replace>><</link>>
+<<link "None">><<set $activeSlave.dickAccessory = "none">><<replace "#dickAccessory">>$activeSlave.dickAccessory<</replace>><<SlaveInteractSexOption>><<SlaveInteractAnalSexOption>><<SlaveInteractGropeOption>><<SlaveInteractDickGropeOption>><<SlaveInteractAnalGropeOption>><</link>>
 | <<link "Chastity cage">><<set $activeSlave.dickAccessory = "chastity">><<replace "#dickAccessory">>$activeSlave.dickAccessory<</replace>><<SlaveInteractSexOption>><<SlaveInteractAnalSexOption>><<SlaveInteractGropeOption>><<SlaveInteractDickGropeOption>><<SlaveInteractAnalGropeOption>><</link>>
 | <<link "Anal chastity belt">><<set $activeSlave.dickAccessory = "anal chastity">><<replace "#dickAccessory">>$activeSlave.dickAccessory<<SlaveInteractSexOption>><<SlaveInteractAnalSexOption>><<SlaveInteractGropeOption>><<SlaveInteractDickGropeOption>><<SlaveInteractAnalGropeOption>><</replace>><</link>>
 | <<link "Combined chastity belt">><<set $activeSlave.dickAccessory = "combined chastity">><<replace "#dickAccessory">>$activeSlave.dickAccessory<</replace>><<SlaveInteractSexOption>><<SlaveInteractAnalSexOption>><<SlaveInteractGropeOption>><<SlaveInteractDickGropeOption>><<SlaveInteractAnalGropeOption>><</link>>

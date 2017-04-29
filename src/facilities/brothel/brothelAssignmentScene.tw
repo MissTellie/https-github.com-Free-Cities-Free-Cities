@@ -1,4 +1,9 @@
 :: Brothel Assignment Scene
+ 
+<<nobr>>
+
+<<set $nextButton to "Continue">>
+<<set $nextLink to $returnTo>>
 
 You could direct $assistantName to relay your orders to $activeSlave.slaveName, but you've decided to avoid relying too much on machine assistance. So, she is merely directed to report to your office. The
 <<if $activeSlave.devotion > 95>>
@@ -11,7 +16,7 @@ You could direct $assistantName to relay your orders to $activeSlave.slaveName, 
 	fearful slave <<if $activeSlave.amp != 1>>comes in promptly<<else>>comes in as soon as she can get another slave to carry her in<</if>>, afraid of what will happen to her if she doesn't.
 <<elseif ($activeSlave.trust < -50)>>
 	terrified slave <<if $activeSlave.amp != 1>>comes in hurriedly<<else>>comes in as soon as she can get another slave to carry her in<</if>>, almost paralyzed by terror of what will happen to her if she doesn't.
-<<else)>>
+<<else>>
 	rebellious slave <<if $activeSlave.amp != 1>>comes in slowly, having decided that she can always decide to resist once she hears what you want<<else>>comes in as soon as you order another slave to carry her in, since she can't exactly resist this without limbs<</if>>.
 <</if>>
 You tell her she's to report to <<if $Madam != 0>>$Madam.slaveName immediately, to serve in the $brothelName<<else>>the $brothelName immediately, to serve there<</if>> until further notice.
@@ -19,7 +24,7 @@ You tell her she's to report to <<if $Madam != 0>>$Madam.slaveName immediately, 
 <br><br>
 <<if $activeSlave.devotion > 50>>
 
-<<if ($activeSlave.fetishKnown == 1) && ($activeSlave.fetishStrength > 60) && ($activeSlave.fetishStrength > 60) && ($activeSlave.fetish != "none")>>
+<<if ($activeSlave.fetishKnown == 1) && ($activeSlave.fetishStrength > 60) && ($activeSlave.fetish != "none")>>
 	She looks excited. "<<if SlaveStatsChecker.checkForLisp($activeSlave)>><<if def $PC.customTitleLisp>>$PC.customTitleLisp<<elseif $PC.title != 0>>Mathter<<else>>Mithtreth<</if>><<else>><<if def $PC.customTitle>>$PC.customTitle<<elseif $PC.title != 0>>Master<<else>>Mistress<</if>><</if>>, I hoped you would <<if SlaveStatsChecker.checkForLisp($activeSlave)>>thend<<else>>send<</if>> me down there <<if SlaveStatsChecker.checkForLisp($activeSlave)>>thometime<<else>>sometime!<</if>>
 	<<if ($activeSlave.fetish == "submissive")>>
 		I mean, I'll have to do whatever the customer<<if SlaveStatsChecker.checkForLisp($activeSlave)>>th<<else>>s<</if>> pay for, right?" Her eyes go a little unfocused. "And, they'll hold me down..." She trails off.
@@ -170,3 +175,6 @@ You tell her she's to report to <<if $Madam != 0>>$Madam.slaveName immediately, 
 She manages to get "Oh fuck n-" out before the compliance systems activate and she's poleaxed to the ground. Anticipating this, you had <<if $Madam != 0>>$Madam.slaveName <<else>>another, more obedient slave<</if>> standing by to haul her away. It'll take a couple of hundred customers, but being sold in a brothel for rape should knock the resistance out of her.
 
 <</if>> /* CLOSES DEVOTION */
+
+<</nobr>>
+
