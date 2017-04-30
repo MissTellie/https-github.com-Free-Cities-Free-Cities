@@ -513,43 +513,6 @@ window.hasSurgeryRule = function(slave, rules) {
 	}
 };
 
-window.lastRuleFor = function(slave, rules, what) {
-	if (!slave  || !rules || !slave.currentRules)
-		return null;
-
-	for (var d = rules.length-1; d >= 0; --d) {
-		for (var e = 0; e < slave.currentRules.length; ++e) {
-			if (rules[d].ID == slave.currentRules[e]) {
-				if (rules[d][what] !== "no default setting") {
-					return rules[d];
-				}
-			}
-		}
-	}
-
-	return null;
-};
-
-window.lastPregRule = function(slave, rules) {
-	if (!slave) {
-		return null;
-	}else if (!rules) {
-		return null;
-	}else if (!slave.currentRules) {
-		return false;
-	}else {
-		for(var d=rules.length-1; d >= 0;--d){
-			for(var e=0; e < slave.currentRules.length;++e){
-				if(slave.currentRules[e] == rules[d].ID){
-					if (rules[d].preg == -1){
-						return rules[d];
-					}
-				}
-			}
-		}return null;
-	}
-};
-
 window.hasHColorRule = function(slave, rules) {
 	if (!slave) {
 		return false;
@@ -608,6 +571,38 @@ window.hasEyeColorRule = function(slave, rules) {
 			}
 		}return false;
 	}
+};
+
+window.lastRuleFor = function(slave, rules, what) {
+	if (!slave  || !rules || !slave.currentRules)
+		return null;
+
+	for (var d = rules.length-1; d >= 0; --d) {
+		if (ruleApplied(slave, rules[d].ID)) {
+			if (rules[d][what] !== "no default setting") {
+				return rules[d];
+			}
+		}
+	}
+
+	return null;
+};
+
+window.lastPregRule = function(slave, rules) {
+	if (!slave || !rules)
+		return null;
+	if (!slave.currentRules)
+		return false;
+
+	for (var d = rules.length-1; d >= 0; --d){
+		if (ruleApplied(slave, rules[d].ID)) {
+			if (rules[d].preg == -1){
+				return rules[d];
+			}
+		}
+	}
+
+	return null;
 };
 
 window.lastEyeWearRule = function(slave, rules) {
@@ -754,7 +749,7 @@ window.lastStampTatRule = function(slave, rules) {
 	return lastRuleFor(slave, rules, "stampTat");
 };
 
-window.lastRuleForSurgery = function(slave, rules, what) {
+window.lastSurgeryRuleFor = function(slave, rules, what) {
 	if (!slave || !rules || !slave.currentRules)
 		return null;
 
@@ -762,11 +757,9 @@ window.lastRuleForSurgery = function(slave, rules, what) {
 		if (!rules[d].surgery)
 			return null;
 
-		for (var e = 0; e < slave.currentRules.length; ++e) {
-			if (slave.currentRules[e] == rules[d].ID) {
-				if (rules[d].surgery[what] != "no default setting") {
-					return rules[d];
-				}
+		if (ruleApplied(slave, rules[d].ID)) {
+			if (rules[d].surgery[what] != "no default setting") {
+				return rules[d];
 			}
 		}
 	}
@@ -775,19 +768,19 @@ window.lastRuleForSurgery = function(slave, rules, what) {
 };
 
 window.lastLactationSurgeryRule = function(slave, rules) {
-	return lastRuleForSurgery(slave, rules, "lactation");
+	return lastSurgeryRuleFor(slave, rules, "lactation");
 }
 
 window.lastLipSurgeryRule = function(slave, rules) {
-	return lastRuleForSurgery(slave, rules, "lips");
+	return lastSurgeryRuleFor(slave, rules, "lips");
 };
 
 window.lastBoobSurgeryRule = function(slave, rules) {
-	return lastRuleForSurgery(slave, rules, "boobs");
+	return lastSurgeryRuleFor(slave, rules, "boobs");
 };
 
 window.lastButtSurgeryRule = function(slave, rules) {
-	return lastRuleForSurgery(slave, rules, "butt");
+	return lastSurgeryRuleFor(slave, rules, "butt");
 };
 
 window.checkThresholds = function(number, rule) {
