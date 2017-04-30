@@ -518,9 +518,6 @@ window.lastRuleFor = function(slave, rules, what) {
 		return null;
 
 	for (var d = rules.length-1; d >= 0; --d) {
-		if (!rules[d].surgery)
-			return null;
-
 		for (var e = 0; e < slave.currentRules.length; ++e) {
 			if (rules[d].ID == slave.currentRules[e]) {
 				if (rules[d][what] !== "no default setting") {
