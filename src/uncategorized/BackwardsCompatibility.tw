@@ -488,22 +488,6 @@ Setting missing global variables:
 	<<set $nicaeaHeld = 0>>
 <</if>>
 
-<<if ndef $AProsperityCap>>
-	<<set $AProsperityCap to 60>>
-<</if>>
-<<if ndef $ACitizens>>
-	<<set $ACitizens to ($AProsperityCap+200)*16>>
-<</if>>
-<<if ndef $ASlaves>>
-	<<set $ASlaves to ($AProsperityCap+200)*4>>
-<</if>>
-<<if ndef $AHelots>>
-	<<set $AHelots to $ASlaves*2>>
-<</if>>
-<<if ndef $helots>>
-	<<set $helots to 0>>
-<</if>>
-
 <<if ndef $facilityCost>>
 <<set $facilityCost to 500>>
 <</if>>

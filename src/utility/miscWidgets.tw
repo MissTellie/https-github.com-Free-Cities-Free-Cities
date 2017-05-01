@@ -914,8 +914,13 @@
 %/
 <<widget "MenialPopCap">>
 
-<<set _PopCap = 100*Math.trunc(($arcologies[0].ownership*$AProsperityCap)/1000)>>
-<<set _OverMenialCap = ($helots+$fuckdolls+$menialBioreactors)-_PopCap>>
+<<set $PopCap = 500>>
+<<for _i = 20; _i < _sectors.length; _i++>>
+	<<if _sectors[_i].type == "Pens">>
+		<<set $PopCap += 500>>
+	<</if>>
+<</for>>
+<<set _OverMenialCap = ($helots+$fuckdolls+$menialBioreactors)-$PopCap>>
 <<if _OverMenialCap > 0>>
 	<<set _Price = Math.trunc(($slaveCostFactor*1000)/100)*100>>
 	<<set _Price = Math.clamp(_Price, 500, 1500)>>

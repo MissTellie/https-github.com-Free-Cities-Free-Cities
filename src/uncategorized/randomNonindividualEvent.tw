@@ -539,7 +539,7 @@
 <<if ($HeadGirl.devotion > 50) && ($HeadGirl.whoreSkill >= 100)>>
 	<<set $recruit.push("whore recruit")>>
 <</if>>
-<<if ($AProsperityCap > 60)>>
+<<if $arcologyUpgrade.drones == 1)>>
 	<<set $events.push("RE malefactor")>>
 	<<set $malefactor = ["liberator", "whore", "businesswoman", "addict"]>>
 	<<if $seeDicks != 0>>
