@@ -3,6 +3,7 @@
 <<set $activeSlave = $slaves[$i], _ID = $activeSlave.ID>>
 
 <<assignJob $activeSlave $returnTo>>
+
 <<switch $returnTo>>
 <<case "Arcade">>
 	<<set $activeSlave.clothes = "no clothing">>

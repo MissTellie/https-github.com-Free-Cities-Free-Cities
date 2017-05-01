@@ -2815,7 +2815,7 @@
 		Being a pregnancy fetishist and hugely pregnant confers an @@.green;improvement in her sexual appetite.@@
 		<<set $slaves[$i].energy += 3>>
 	<<elseif ($slaves[$i].preg > 20)>>
-		Being a pregnancy fetishist and pregnant confers a 	@@.green;slow improvement in her sexual appetite.@@
+		Being a pregnancy fetishist and pregnant confers a @@.green;slow improvement in her sexual appetite.@@
 		<<set $slaves[$i].energy += 2>>
 	<<elseif ($slaves[$i].preg > 5)>>
 		Her new pregnancy excites her and produces @@.green;very slow improvement in her sexual appetite.@@
@@ -3987,7 +3987,7 @@
 
 <<if $slaves[$i].vagina == -1>>
 <<if $slaves[$i].dick == 0>>
-	<<set _frustration == 0>>
+	<<set _frustration = 0>>
 	<<if $slaves[$i].energy > 20>>
 		$pronounCap
 		<<if canDoAnal($slaves[$i])>>

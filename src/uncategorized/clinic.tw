@@ -82,6 +82,9 @@ $clinicNameCaps
 	It includes standard dialysis equipment. [[Install advanced blood treatment equipment to help address drug side effects|Clinic][$cash -= _Tmult2, $clinicUpgradeFilters = 1]] //Costs ¤_Tmult2//
 <</if>>
 
+<<if $Nurse == 0>>
+	<br>Without a nurse in attendance, the blood treatment equipment remains idle.
+<</if>>
 <br><br>
 <<if $Nurse != 0>>
 	<<set $Flag = 2>>

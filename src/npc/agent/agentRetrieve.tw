@@ -6,12 +6,12 @@
 <<if $slaves[_i].relationshipTarget > 0>>
 	<<for _j = 0; _j < _SL; _j++>>
 	<<if $slaves[_j].ID == $slaves[_i].relationshipTarget && $slaves[_j].assignment == "live with your agent">>
-		<<set $slaves[_j].assignment = "rest", $slaves[_j].assignmentVisible = 1, $slaves[_j].sentence = 0>>
+		<<removeJob $slaves[_j] $slaves[_j].assignment>>
 		<<break>>
 	<</if>>
 	<</for>>
 <</if>>
-<<set $slaves[_i].assignment = "rest", $slaves[_i].assignmentVisible = 1, $slaves[_i].sentence = 0>>
+<<removeJob $slaves[_i] $slaves[_i].assignment>>
 <<break>>
 <</if>>
 <</for>>

@@ -277,7 +277,7 @@
 		<<if ($PC.dick != 0)>>
 		| <<link "Impregnate her yourself">><<replace "#miniscene">><<include "FPCImpreg">><br>&nbsp;&nbsp;&nbsp;&nbsp;<</replace>><<SlaveInteractImpreg>><<SlaveInteractFertility>><</link>>
 		<</if>>
-	| [[Use another slave to impregnate her|FSlaveImpreg]]
+		| [[Use another slave to impregnate her|FSlaveImpreg]]
 	<</if>>
 	<</replace>>
 <</widget>>
@@ -313,12 +313,12 @@
 <<replace #sexoption>>
 	<<if ($activeSlave.vagina > -1)>>
 		<<if canDoVaginal($activeSlave)>>
-		<<link "Fuck her">><<replace "#miniscene">><<include "FVagina">><br><</replace>><</link>>
+		<<link "Fuck her">><<replace "#miniscene">><<include "FVagina">><br><</replace>><<SlaveInteractFertility>><</link>>
 		<<if canDoAnal($activeSlave)>>
-			| <<link "Use her holes">><<replace "#miniscene">><<include "FButt">><br>&nbsp;&nbsp;&nbsp;&nbsp;<</replace>><</link>> |
+			| <<link "Use her holes">><<replace "#miniscene">><<include "FButt">><br>&nbsp;&nbsp;&nbsp;&nbsp;<</replace>><<SlaveInteractFertility>><</link>>
 		<</if>>
 		<<else>>
-		//Remove her chastity belt if you wish to fuck her// |
+		//Remove her chastity belt if you wish to fuck her//
 		<</if>>
 	<</if>>
 <</replace>>
@@ -329,9 +329,9 @@
 <<widget "SlaveInteractAnalSexOption">>
 <<replace #analsexoption>>
 	<<if canDoAnal($activeSlave)>>
-		<<link "Fuck her ass">><<replace "#miniscene">><<include "FAnus">><br>&nbsp;&nbsp;&nbsp;&nbsp;<</replace>><</link>>
+		| <<link "Fuck her ass">><<replace "#miniscene">><<include "FAnus">><br>&nbsp;&nbsp;&nbsp;&nbsp;<</replace>><</link>>
 	<<else>>
-		//Remove her chastity belt if you wish to fuck her ass// |
+		| //Remove her chastity belt if you wish to fuck her ass//
 	<</if>>
 <</replace>>
 <</widget>>
@@ -2062,5 +2062,31 @@ This experience
 <</if>>
 <</if>>
 <</if>>
+
+<</widget>>
+
+/%
+ Call as <<SlaveInteractFucktoy>>
+%/
+<<widget "SlaveInteractFucktoy">>
+
+<<replace #fucktoypref>>
+	<<if ($activeSlave.assignment == "please you") || ($activeSlave.assignment == "serve in the master suite") || ($activeSlave.assignment == "be your Concubine")>>
+		__Fucktoy use preference__: <strong><span id="hole">$activeSlave.toyHole</span></strong>.
+		  <<link "Mouth">><<set $activeSlave.toyHole = "mouth">><<replace "#hole">>$activeSlave.toyHole<</replace>><</link>>
+		| <<link "Tits">><<set $activeSlave.toyHole = "boobs">><<replace "#hole">>$activeSlave.toyHole<</replace>><</link>>
+		<<if ($activeSlave.vagina > 0) && canDoVaginal($activeSlave)>>
+		| <<link "Pussy">><<set $activeSlave.toyHole = "pussy">><<replace "#hole">>$activeSlave.toyHole<</replace>><</link>>
+		<<elseif ($activeSlave.vagina == 0)>>
+		| //Take her virginity before giving her pussy special attention//
+		<</if>>
+		<<if ($activeSlave.anus > 0) && canDoAnal($activeSlave)>>
+		| <<link "Ass">><<set $activeSlave.toyHole = "ass">><<replace "#hole">>$activeSlave.toyHole<</replace>><</link>>
+		<<else>>
+		| //Take her anal virginity before giving her ass special attention//
+		<</if>>
+		| <<link "No Preference">><<set $activeSlave.toyHole = "all her holes">><<replace "#hole">>$activeSlave.toyHole<</replace>><</link>>
+	<</if>>
+<</replace>>
 
 <</widget>>
