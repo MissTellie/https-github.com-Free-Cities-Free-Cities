@@ -206,10 +206,10 @@
 	<<set $slaves[_i].trust += 4>>
 	<</if>>
 	<<set $slaves[_i].devotion += _devBonus, $slaves[_i].health += _healthBonus>>
-	<<if ($Nurse != 0) && ($slaves[_i].chem > 15) && ($clinicUpgradeFilters == 1)>>
+	<<if ($Nurse != 0) && ($slaves[_i].chem > 0) && ($clinicUpgradeFilters == 1)>>
 		<<set $slaves[_i].chem -= 5>>
 	<</if>>
-	<<if ($slaves[_i].health >= 40) && (($slaves[_i].chem <= 20) || ($clinicUpgradeFilters != 1))>>
+	<<if ($slaves[_i].health >= 40) && (($slaves[_i].chem <= 0) || ($clinicUpgradeFilters != 1))>>
 		<<removeJob $slaves[_i] "get treatment in the clinic">>
 		<<set _restedSlaves++, _dI--, _DL-->>
 		<<continue>>

@@ -1974,7 +1974,7 @@
 <<if ($slaves[$i].assignment != "work in the brothel")>>
 <<if ($slaves[$i].assignment != "serve in the club")>>
 <<if ($slaves[$i].assignment != "serve in the master suite") || ($masterSuiteUpgradeLuxury < 2)>>
-<<if ($slaves[$i].assignment != "work in the dairy") || ($dairyRestraintsSetting < 2)>>
+<<if ($slaves[$i].assignment != "work in the dairy") || ($dairyStimulatorsSetting == 0)>>
 <<if ($slaves[$i].vagina is 3) && ($slaves[$i].vaginalAccessory != "large dildo") && ($slaves[$i].vaginalAccessory != "huge dildo")>>
 	With a rest from strenuous use, @@.orange;$possessive loose vagina recovers a little.@@
 	<<set $slaves[$i].vagina -= 1>>
@@ -2815,7 +2815,7 @@
 		Being a pregnancy fetishist and hugely pregnant confers an @@.green;improvement in her sexual appetite.@@
 		<<set $slaves[$i].energy += 3>>
 	<<elseif ($slaves[$i].preg > 20)>>
-		Being a pregnancy fetishist and pregnant confers a 	@@.green;slow improvement in her sexual appetite.@@
+		Being a pregnancy fetishist and pregnant confers a @@.green;slow improvement in her sexual appetite.@@
 		<<set $slaves[$i].energy += 2>>
 	<<elseif ($slaves[$i].preg > 5)>>
 		Her new pregnancy excites her and produces @@.green;very slow improvement in her sexual appetite.@@
@@ -3987,7 +3987,7 @@
 
 <<if $slaves[$i].vagina == -1>>
 <<if $slaves[$i].dick == 0>>
-	<<set _frustration == 0>>
+	<<set _frustration = 0>>
 	<<if $slaves[$i].energy > 20>>
 		$pronounCap
 		<<if canDoAnal($slaves[$i])>>

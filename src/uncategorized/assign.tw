@@ -3,6 +3,7 @@
 <<set $activeSlave = $slaves[$i], _ID = $activeSlave.ID>>
 
 <<assignJob $activeSlave $returnTo>>
+
 <<switch $returnTo>>
 <<case "Arcade">>
 	<<set $activeSlave.clothes = "no clothing">>
@@ -52,7 +53,11 @@
 	<<goto "Industrial Dairy Assignment Scene">>
 <<elseif ($returnTo == "Dairy") && ($dairyRestraintsSetting == 0 && $activeSlave.devotion > 0)>>
 	<<goto "Free Range Dairy Assignment Scene">>
+<<else>>
+  <<goto $returnTo>>
 <</if>>
+<<else>>
+  <<goto $returnTo>>
 <</if>>
 
-<<goto $returnTo>>
+
