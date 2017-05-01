@@ -44,7 +44,15 @@ Image display
 
 <br><br>
 
-<<if ($seeArcology == 1)>>
+<<if $seeBuilding == 1>>
+Main menu arcology interface @@.cyan;ENABLED@@. [[Disable|Options][$seeBuilding = 0]]
+<<else>>
+Main menu arcology interface @@.red;DISABLED@@. [[Enable|Options][$seeBuilding = 1]]
+<</if>>
+
+<br>
+
+<<if $seeArcology == 1>>
 Main menu arcology description @@.cyan;ENABLED@@. [[Disable|Options][$seeArcology = 0]]
 <<else>>
 Main menu arcology description @@.red;DISABLED@@. [[Enable|Options][$seeArcology = 1]]
