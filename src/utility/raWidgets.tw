@@ -185,7 +185,7 @@ Apply to assignments:
 <<else>>
 	''Rest''
 	<<link Stop>>
-		<<set removeFromArray($currentRule.assignment, "rest")>>
+		<<set $currentRule.assignment.delete("rest")>>
 		<<RAChangeApplyAssignment>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -204,7 +204,7 @@ Apply to assignments:
 <<else>>
 	''Fucktoy''
 	<<link Stop>>
-		<<set removeFromArray($currentRule.assignment, "please you")>>
+		<<set $currentRule.assignment.delete("please you")>>
 		<<RAChangeApplyAssignment>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -223,7 +223,7 @@ Apply to assignments:
 <<else>>
 	''Subordinate Slave''
 	<<link Stop>>
-		<<set removeFromArray($currentRule.assignment, "be a subordinate slave")>>
+		<<set $currentRule.assignment.delete("be a subordinate slave")>>
 		<<RAChangeSetAssignment>>
 		<<RAChangeApplyAssignment>>
 		<<RAChangeSave>>
@@ -244,7 +244,7 @@ Apply to assignments:
 <<else>>
 	''House Servant''
 	<<link Stop>>
-		<<set removeFromArray($currentRule.assignment, "be a servant")>>
+		<<set $currentRule.assignment.delete("be a servant")>>
 		<<RAChangeApplyAssignment>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -263,7 +263,7 @@ Apply to assignments:
 <<else>>
 	''Confined''
 	<<link Stop>>
-		<<set removeFromArray($currentRule.assignment, "stay confined")>>
+		<<set $currentRule.assignment.delete("stay confined")>>
 		<<RAChangeApplyAssignment>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -282,7 +282,7 @@ Apply to assignments:
 <<else>>
 	''Whore''
 	<<link Stop>>
-		<<set removeFromArray($currentRule.assignment, "whore")>>
+		<<set $currentRule.assignment.delete("whore")>>
 		<<RAChangeApplyAssignment>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -301,7 +301,7 @@ Apply to assignments:
 <<else>>
 	''Public Servant''
 	<<link Stop>>
-		<<set removeFromArray($currentRule.assignment, "serve the public")>>
+		<<set $currentRule.assignment.delete("serve the public")>>
 		<<RAChangeApplyAssignment>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -320,7 +320,7 @@ Apply to assignments:
 <<else>>
 	''Milking''
 	<<link Stop>>
-		<<set removeFromArray($currentRule.assignment, "get milked")>>
+		<<set $currentRule.assignment.delete("get milked")>>
 		<<RAChangeApplyAssignment>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -339,7 +339,7 @@ Apply to assignments:
 <<else>>
 	''Gloryhole''
 	<<link Stop>>
-		<<set removeFromArray($currentRule.assignment, "work a glory hole")>>
+		<<set $currentRule.assignment.delete("work a glory hole")>>
 		<<RAChangeApplyAssignment>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -417,7 +417,7 @@ Exclude assignments:
 <<else>>
 	''Rest''
 	<<link Stop>>
-		<<set removeFromArray($currentRule.excludeAssignment, "rest")>>
+		<<set $currentRule.excludeAssignment.delete("rest")>>
 		<<RAChangeExcludeAssignment>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -436,7 +436,7 @@ Exclude assignments:
 <<else>>
 	''Fucktoy''
 	<<link Stop>>
-		<<set removeFromArray($currentRule.excludeAssignment, "please you")>>
+		<<set $currentRule.excludeAssignment.delete("please you")>>
 		<<RAChangeExcludeAssignment>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -455,7 +455,7 @@ Exclude assignments:
 <<else>>
 	''Subordinate Slave''
 	<<link Stop>>
-		<<set removeFromArray($currentRule.excludeAssignment, "be a subordinate slave")>>
+		<<set $currentRule.excludeAssignment.delete("be a subordinate slave")>>
 		<<RAChangeSetAssignment>>
 		<<RAChangeExcludeAssignment>>
 		<<RAChangeSave>>
@@ -475,7 +475,7 @@ Exclude assignments:
 <<else>>
 	''House Servant''
 	<<link Stop>>
-		<<set removeFromArray($currentRule.excludeAssignment, "be a servant")>>
+		<<set $currentRule.excludeAssignment.delete("be a servant")>>
 		<<RAChangeExcludeAssignment>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -494,7 +494,7 @@ Exclude assignments:
 <<else>>
 	''Confined''
 	<<link Stop>>
-		<<set removeFromArray($currentRule.excludeAssignment, "stay confined")>>
+		<<set $currentRule.excludeAssignment.delete("stay confined")>>
 		<<RAChangeExcludeAssignment>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -513,7 +513,7 @@ Exclude assignments:
 <<else>>
 	''Whore''
 	<<link Stop>>
-		<<set removeFromArray($currentRule.excludeAssignment, "whore")>>
+		<<set $currentRule.excludeAssignment.delete("whore")>>
 		<<RAChangeExcludeAssignment>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -532,7 +532,7 @@ Exclude assignments:
 <<else>>
 	''Public Servant''
 	<<link Stop>>
-		<<set removeFromArray($currentRule.excludeAssignment, "serve the public")>>
+		<<set $currentRule.excludeAssignment.delete("serve the public")>>
 		<<RAChangeExcludeAssignment>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -551,7 +551,7 @@ Exclude assignments:
 <<else>>
 	''Milking''
 	<<link Stop>>
-		<<set removeFromArray($currentRule.excludeAssignment, "get milked")>>
+		<<set $currentRule.excludeAssignment.delete("get milked")>>
 		<<RAChangeExcludeAssignment>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -570,7 +570,7 @@ Exclude assignments:
 <<else>>
 	''Gloryhole''
 	<<link Stop>>
-		<<set removeFromArray($currentRule.excludeAssignment, "work a glory hole")>>
+		<<set $currentRule.excludeAssignment.delete("work a glory hole")>>
 		<<RAChangeExcludeAssignment>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -613,7 +613,7 @@ Apply to facilities:
 <<else>>
 	''$HGSuiteNameCaps''
 	<<link Stop>>
-		<<set removeFromArray(_facility, "hgsuite")>>
+		<<set _facility.delete("hgsuite")>>
 		<<RAChangeApplyFacility>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -634,7 +634,7 @@ Apply to facilities:
 <<else>>
 	''$brothelNameCaps''
 	<<link Stop>>
-		<<set removeFromArray(_facility, "brothel")>>
+		<<set _facility.delete("brothel")>>
 		<<RAChangeApplyFacility>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -655,7 +655,7 @@ Apply to facilities:
 <<else>>
 	''$clubNameCaps''
 	<<link Stop>>
-		<<set removeFromArray(_facility, "club")>>
+		<<set _facility.delete("club")>>
 		<<RAChangeApplyFacility>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -676,7 +676,7 @@ Apply to facilities:
 <<else>>
 	''$arcadeNameCaps''
 	<<link Stop>>
-		<<set removeFromArray(_facility, "arcade")>>
+		<<set _facility.delete("arcade")>>
 		<<RAChangeApplyFacility>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -697,7 +697,7 @@ Apply to facilities:
 <<else>>
 	''$dairyNameCaps''
 	<<link Stop>>
-		<<set removeFromArray(_facility, "dairy")>>
+		<<set _facility.delete("dairy")>>
 		<<RAChangeApplyFacility>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -718,7 +718,7 @@ Apply to facilities:
 <<else>>
 	''$servantsQuartersNameCaps''
 	<<link Stop>>
-		<<set removeFromArray(_facility, "servantsquarters")>>
+		<<set _facility.delete("servantsquarters")>>
 		<<RAChangeApplyFacility>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -739,7 +739,7 @@ Apply to facilities:
 <<else>>
 	''$masterSuiteNameCaps''
 	<<link Stop>>
-		<<set removeFromArray(_facility, "mastersuite")>>
+		<<set _facility.delete("mastersuite")>>
 		<<RAChangeApplyFacility>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -760,7 +760,7 @@ Apply to facilities:
 <<else>>
 	''$schoolroomNameCaps''
 	<<link Stop>>
-		<<set removeFromArray(_facility, "schoolroom")>>
+		<<set _facility.delete("schoolroom")>>
 		<<RAChangeApplyFacility>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -781,7 +781,7 @@ Apply to facilities:
 <<else>>
 	''$spaNameCaps''
 	<<link Stop>>
-		<<set removeFromArray(_facility, "spa")>>
+		<<set _facility.delete("spa")>>
 		<<RAChangeApplyFacility>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -802,7 +802,7 @@ Apply to facilities:
 <<else>>
 ''$clinicNameCaps''
 	<<link Stop>>
-		<<set removeFromArray(_facility, "clinic")>>
+		<<set _facility.delete("clinic")>>
 		<<RAChangeApplyFacility>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -823,7 +823,7 @@ Apply to facilities:
 <<else>>
 	''$cellblockNameCaps''
 	<<link Stop>>
-		<<set removeFromArray(_facility, "cellblock")>>
+		<<set _facility.delete("cellblock")>>
 		<<RAChangeApplyFacility>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -887,7 +887,7 @@ Exclude facilities:
 <<else>>
 	''$HGSuiteNameCaps''
 	<<link Stop>>
-		<<set removeFromArray(_excludeFacility, "hgsuite")>>
+		<<set _excludeFacility.delete("hgsuite")>>
 		<<RAChangeExcludeFacility>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -908,7 +908,7 @@ Exclude facilities:
 <<else>>
 	''$brothelNameCaps''
 	<<link Stop>>
-		<<set removeFromArray(_excludeFacility, "brothel")>>
+		<<set _excludeFacility.delete("brothel")>>
 		<<RAChangeExcludeFacility>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -929,7 +929,7 @@ Exclude facilities:
 <<else>>
 	''$clubNameCaps''
 	<<link Stop>>
-		<<set removeFromArray(_excludeFacility, "club")>>
+		<<set _excludeFacility.delete("club")>>
 		<<RAChangeExcludeFacility>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -950,7 +950,7 @@ Exclude facilities:
 <<else>>
 	''$arcadeNameCaps''
 	<<link Stop>>
-		<<set removeFromArray(_excludeFacility, "arcade")>>
+		<<set _excludeFacility.delete("arcade")>>
 		<<RAChangeExcludeFacility>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -971,7 +971,7 @@ Exclude facilities:
 <<else>>
 	''$dairyNameCaps''
 	<<link Stop>>
-		<<set removeFromArray(_excludeFacility, "dairy")>>
+		<<set _excludeFacility.delete("dairy")>>
 		<<RAChangeExcludeFacility>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -992,7 +992,7 @@ Exclude facilities:
 <<else>>
 	''$servantsQuartersNameCaps''
 	<<link Stop>>
-		<<set removeFromArray(_excludeFacility, "servantsquarters")>>
+		<<set _excludeFacility.delete("servantsquarters")>>
 		<<RAChangeExcludeFacility>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -1013,7 +1013,7 @@ Exclude facilities:
 <<else>>
 	''$masterSuiteNameCaps''
 	<<link Stop>>
-		<<set removeFromArray(_excludeFacility, "mastersuite")>>
+		<<set _excludeFacility.delete("mastersuite")>>
 		<<RAChangeExcludeFacility>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -1034,7 +1034,7 @@ Exclude facilities:
 <<else>>
 	''$schoolroomNameCaps''
 	<<link Stop>>
-		<<set removeFromArray(_excludeFacility, "schoolroom")>>
+		<<set _excludeFacility.delete("schoolroom")>>
 		<<RAChangeExcludeFacility>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -1055,7 +1055,7 @@ Exclude facilities:
 <<else>>
 	''$spaNameCaps''
 	<<link Stop>>
-		<<set removeFromArray(_excludeFacility, "spa")>>
+		<<set _excludeFacility.delete("spa")>>
 		<<RAChangeExcludeFacility>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -1076,7 +1076,7 @@ Exclude facilities:
 <<else>>
 ''$clinicNameCaps''
 	<<link Stop>>
-		<<set removeFromArray(_excludeFacility, "clinic")>>
+		<<set _excludeFacility.delete("clinic")>>
 		<<RAChangeExcludeFacility>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -1097,7 +1097,7 @@ Exclude facilities:
 <<else>>
 	''$cellblockNameCaps''
 	<<link Stop>>
-		<<set removeFromArray(_excludeFacility, "cellblock")>>
+		<<set _excludeFacility.delete("cellblock")>>
 		<<RAChangeExcludeFacility>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>

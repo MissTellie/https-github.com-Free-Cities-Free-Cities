@@ -95,9 +95,9 @@ Attractiveness and Sexual scores are
 					Your title is now $PC.customTitle.
 					<<set $PC.customTitleLisp = $PC.customTitle, $PC.customTitleLisp = $PC.customTitleLisp.replace("ss", "th"), $PC.customTitleLisp = $PC.customTitleLisp.replace("S", "Th"), $PC.customTitleLisp = $PC.customTitleLisp.replace("s", "th")>>
 				<</replace>>
-			<</link "">>
+			<</link>>
 		<</replace>>
-	<</link "">>
+	<</link>>
 <<else>>
 	Your custom title is <<textbox "$PC.customTitle" $PC.customTitle>>
 	<<link "Apply">>
@@ -105,13 +105,13 @@ Attractiveness and Sexual scores are
 			Your title is now $PC.customTitle.
 			<<set $PC.customTitleLisp = $PC.customTitle, $PC.customTitleLisp = $PC.customTitleLisp.replace("ss", "th"), $PC.customTitleLisp = $PC.customTitleLisp.replace("S", "Th"), $PC.customTitleLisp = $PC.customTitleLisp.replace("s", "th")>>
 		<</replace>>
-	<</link "">> |
+	<</link>> |
 	<<link "Stop using a custom title">>
 		<<replace "#result">>
 			You stop using a custom title
 			<<set $PC.customTitle = undefined>>
 			<<set $PC.customTitleLisp = undefined>>
 		<</replace>>
-	<</link "">>
+	<</link>>
 <</if>>
 </span>
