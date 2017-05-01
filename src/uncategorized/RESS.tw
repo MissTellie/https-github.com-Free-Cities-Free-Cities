@@ -181,7 +181,7 @@ You have a lot of work to do with <span id="name"><<print "[[$activeSlave.slaveN
 
 An escape attempt occurs and is stopped almost before you are informed of it. <span id="name"><<print "[[$activeSlave.slaveName|Long Slave Description][$nextLink = passage(), $eventDescription = 1]]">></span> made a rash attempt to leave the penthouse, but $assistantName monitors everyone constantly and was able to enclose her before she got very far. <<if $assistant == 0>>It reports impersonally that the would-be escapee is locked in the entryway awaiting your judgment.<<else>>She reports suggestively that the would-be escapee is locked in the entryway awaiting your pleasure.<</if>>
 <br><br>
-<<if $AProsperityCap > 60>>Your advanced security systems are able to stop her promptly, and there is no indication to the public that any escape attempt was made.<<else>>Your basic security systems are only able to stop her by briefly locking down your penthouse, exciting @@.red;some adverse public comment.@@<<set $rep -= 100>><</if>>
+<<if $arcologyUpgrade.drones == 1>>Your advanced security systems are able to stop her promptly, and there is no indication to the public that any escape attempt was made.<<else>>Your basic security systems are only able to stop her by briefly locking down your penthouse, exciting @@.red;some adverse public comment.@@<<set $rep -= 100>><</if>>
 <<if $activeSlave.indentureRestrictions > 0>>
   <br><br>
   This behavior has violated her indenture contract, allowing you to apply more severe punishments that might otherwise breach it.

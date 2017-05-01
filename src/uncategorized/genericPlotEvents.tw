@@ -518,7 +518,7 @@ A screen opposite your desk springs to life, <<if $assistant == 0>>showing your 
 <<case "militia">>
 
 <<set $personalArms = 0>>
-<<if $AProsperityCap > 60>>
+<<if $arcologyUpgrade.drones == 1>>
 <<link "Arm yourself and your drones">>
 	<<replace "#result">>
 	In a time of uncertainty, the public adores people who protect them. So, in addition to publicly procuring yourself the latest weapons and armor, you update the arcology's drone systems. The security drones' riot cannons can be replaced for easy maintenance, so it's rather easy to provide them with alternate, lethal weaponry that they can switch to if it becomes necessary. $arcologies[0].name becomes known as one of the best-protected in the Free Cities. @@.green;Your reputation has greatly improved.@@
