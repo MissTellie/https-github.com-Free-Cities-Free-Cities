@@ -281,9 +281,9 @@ Selling this sector would relenquish a 4% interest in $arcologies[0].name. Such 
 <</if>>
 <<set $ACitizenLimit = 0>>
 <<for _i = 8; _i <= 19; _i++>>
-	<<if _sectors[_i].type == "DenseApartments">>
+	<<if $sectors[_i].type == "DenseApartments">>
 		<<set $ACitizenLimit += 600, $AProsperityCap += 10>>
-	<<elseif _sectors[_i].type == "LuxuryApartments">>
+	<<elseif $sectors[_i].type == "LuxuryApartments">>
 		<<set $ACitizenLimit += 400, $AProsperityCap += 15>>
 	<<else>>
 		<<set $ACitizenLimit += 400, $AProsperityCap += 10>>

@@ -278,9 +278,9 @@ $dairyNameCaps
 	$dairyNameCaps is empty and desolate.
 	<<link "Decommission the dairy">>
 		<<set $dairy = 0, $dairyFeedersUpgrade = 0, $dairyPregUpgrade = 0, $dairyStimulatorsUpgrade = 0, $dairyDecoration = "standard", $dairyFeedersSetting = 0, $dairyPregSetting = 0, $dairyStimulatorsSetting = 0>>
-		<<for _i = 0; _i < _sectors.length; _i++>>
-		<<if _sectors[_i].type == "Dairy">>
-			<<set _sectors[_i].type == "Manufacturing">><<break>>
+		<<for _i = 0; _i < $sectors.length; _i++>>
+		<<if $sectors[_i].type == "Dairy">>
+			<<set $sectors[_i].type == "Manufacturing">><<break>>
 		<</if>>
 		<</for>>
 		<<goto "Main">>
