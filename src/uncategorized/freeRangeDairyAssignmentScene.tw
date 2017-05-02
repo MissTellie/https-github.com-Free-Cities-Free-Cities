@@ -33,7 +33,7 @@ While walking to her designated stall, she passes the other cows currently at th
     <</if>>
 
     <<for $i to 0; $i < $slaves.length; $i++>>
-        <<if $slaves[$i].assignment is "work in the dairy" && $slaves[$i].slaveName != $activeSlave.slaveName && $slaves[$i].balls > 5 >>
+        <<if $slaves[$i].assignment is "work in the dairy" && $slaves[$i].ID != $activeSlave.ID && $slaves[$i].balls > 5 >>
             <<set $aroused to true >>
             The hyper-endowed cum-cow $slaves[$i].slaveName is the pride of $dairyName. $activeSlave.slaveName stops to watch her for a while. The constant suction on her dick has her panting. She is obviously nearing climax. Soon, her eyes bulge and her muscles tense.
             <<if  $dairyStimulatorsSetting == 1>>
@@ -272,7 +272,7 @@ The milking cups on her nipples switch from rhythmic pulsing into intense suctio
 <</if>>
 <<if $activeSlave.prostate != 0 && $activeSlave.dick == 0 >>
 <br>
-$activeSlave.slaveName has no cock, but a functional prostate gland. It's attached to her urethra, so she squirts copiously while she orgasms. The exotic fluid is caught by a basin positioned unter her dripping pussy.
+$activeSlave.slaveName has no cock, but a functional prostate gland. It's attached to her urethra, so she squirts copiously while she orgasms. The exotic fluid is caught by a basin positioned unter her <<if $activeSlave.vagina >= 0 >>dripping pussy<<else>>featureless crotch<</if>>.
 <</if>>
 <br><br>
 With the first milking cycle being over, $activeSlave.slaveName drifts into a relaxing slumber.
