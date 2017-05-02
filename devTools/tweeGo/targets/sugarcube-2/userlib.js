@@ -65,7 +65,7 @@ Mousetrap.bind("a", function () {
 Mousetrap.bind("b", function () {
 	$("#manageBG a.macro-link").trigger("click");
 });
-Mousetrap.bind("r", function () {
+Mousetrap.bind("u", function () {
 	$("#manageRecruiter a.macro-link").trigger("click");
 });
 Mousetrap.bind("o", function () {
@@ -77,17 +77,14 @@ Mousetrap.bind("y", function () {
 Mousetrap.bind("f", function () {
 	$("#story-caption #FSButton a.macro-link").trigger("click");
 });
-Mousetrap.bind("l", function () {
-	$("#story-caption #LanguageButton a.macro-link").trigger("click");
-});
 Mousetrap.bind("t", function () {
 	$("#story-caption #PAOButton a.macro-link").trigger("click");
 });
-Mousetrap.bind("u", function () {
+Mousetrap.bind("v", function () {
 	$("#story-caption #URButton a.macro-link").trigger("click");
 });
-Mousetrap.bind("w", function () {
-	$("#story-caption #WARButton a.macro-link").trigger("click");
+Mousetrap.bind("r", function () {
+	$("#RAButton a.macro-link").trigger("click");
 });
 
 /**
