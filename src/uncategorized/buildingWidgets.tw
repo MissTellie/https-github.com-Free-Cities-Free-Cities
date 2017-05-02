@@ -114,9 +114,9 @@ Yes, I am aware this is horrible. If anyone can figure out how to get widgets to
 		<<for _i = 5; _i <= 7; _i++>>
 			<<switch $sectors[_i].type>>
 			<<case "Club">>
-				<td colspan="2" id="Club"><<print "[[Club][$AS="+_i+"]]">></td>
+				<td colspan="2" id="Club"><<print "[[Club][$AS="+_i+"]]">> ($clubSlaves/<<print $club>><<if $DJ>>, L<</if>>)</td>
 			<<case "Brothel">>
-				<td colspan="2" id="Brothel"><<print "[[Brothel][$AS="+_i+"]]">></td>
+				<td colspan="2" id="Brothel"><<print "[[Brothel][$AS="+_i+"]]">> ($brothelSlaves/<<print $brothel>><<if $Madam>>,L<</if>>)</td>
 			<<case "Shops">>
 				<<if $sectors[_i].ownership == 1>>
 					<td colspan="2" id="Shops"><<print "[[Shops][$AS="+_i+"]]">></td>
@@ -217,7 +217,7 @@ Yes, I am aware this is horrible. If anyone can figure out how to get widgets to
 			<<case "Pit">>
 				<td colspan="2" id="Pit"><<print "[[Pit][$AS="+_i+"]]">></td>
 			<<case "Arcade">>
-				<td colspan="2" id="Arcade"><<print "[[Arcade][$AS="+_i+"]]">></td>
+				<td colspan="2" id="Arcade"><<print "[[Arcade][$AS="+_i+"]]">> ($arcadeSlaves/<<print $arcade>>)</td>
 			<<default>><td></td>
 			<</switch>>
 		<</for>>
@@ -240,7 +240,8 @@ Yes, I am aware this is horrible. If anyone can figure out how to get widgets to
 			<<case "Barracks">>
 				<td colspan="2" id="Barracks">Barracks</td>
 			<<case "Dairy">>
-				<td colspan="2" id="Dairy"><<print "[[Dairy][$AS="+_i+"]]">></td>
+				<<set _SCapT9 = $bioreactorsXY+$bioreactorsXX+$bioreactorsHerm+$bioreactorsBarren>>
+				<td colspan="2" id="Dairy"><<print "[[Dairy][$AS="+_i+"]]">> ($dairySlaves<<if _SCapT9>>+_SCapT9<</if>>/<<print $dairy>><<if $Milkmaid>>,L<</if>>)</td>
 			<<default>><td></td>
 			<</switch>>
 		<</for>>
@@ -252,7 +253,7 @@ Yes, I am aware this is horrible. If anyone can figure out how to get widgets to
 
 <<widget "SectorSell">>
 
-<<set $price = 1000*Math.trunc(2*$arcologies[0].prosperity*(1+($arcologies[0].demandFactor/100)))>>
+<<set $price = 1000*Math.trunc($arcologies[0].prosperity*(1+($arcologies[0].demandFactor/100)))>>
 Selling this sector would relenquish a 4% interest in $arcologies[0].name. Such an interest is worth ¤$price.
 <<if $arcologies[0].ownership >= 4>>
 	[[Sell|Manage Arcology][$cash += $price, $arcologies[0].ownership -= 4, $arcologies[0].demandFactor -= 20, $sectors[$AS].ownership = 0]]
