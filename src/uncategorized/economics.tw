@@ -899,7 +899,7 @@ $ACitizens citizens and <<print $ASlaves+$helots+$slaves.length>> slaves now liv
 <br>
 
 <<set $rents = random(1,100)>>
-<<for _i = 1; _i <= $sectors.length; _i++>>
+<<for _i = 1; _i < $sectors.length; _i++>>
 	<<if $sectors[_i].ownership == 1>>
 		<<switch $sectors[_i].type>>
 		<<case "DenseApartments" "LuxuryApartments" "Apartments" "Shops" "Markets" "Manufacturing">>

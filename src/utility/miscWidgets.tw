@@ -915,8 +915,8 @@
 <<widget "MenialPopCap">>
 
 <<set $PopCap = 500>>
-<<for _i = 20; _i < _sectors.length; _i++>>
-	<<if _sectors[_i].type == "Pens">>
+<<for _i = 20; _i < $sectors.length; _i++>>
+	<<if $sectors[_i].type == "Pens">>
 		<<set $PopCap += 500>>
 	<</if>>
 <</for>>
