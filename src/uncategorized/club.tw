@@ -113,9 +113,9 @@ $clubNameCaps
 	$clubNameCaps is doing business normally, without a complement of sex slaves to spice things up.
 	<<link "Decommission the club">>
 		<<set $club = 0, $clubDecoration = "standard", $clubUpgradePDAs = 0>>
-		<<for _i = 0; _i < _sectors.length; _i++>>
-		<<if _sectors[_i].type == "Club">>
-			<<set _sectors[_i].type == "Shops">><<break>>
+		<<for _i = 0; _i < $sectors.length; _i++>>
+		<<if $sectors[_i].type == "Club">>
+			<<set $sectors[_i].type == "Shops">><<break>>
 		<</if>>
 		<</for>>
 		<<goto "Main">>

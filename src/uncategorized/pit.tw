@@ -17,9 +17,9 @@ $pitNameCaps is clean and ready,
 	but no slaves are assigned fight.
 	<<link "Decommission the pit">>
 		<<set $pit = 0>>
-		<<for _i = 0; _i < _sectors.length; _i++>>
-		<<if _sectors[_i].type == "Pit">>
-			<<set _sectors[_i].type == "Pit">><<break>>
+		<<for _i = 0; _i < $sectors.length; _i++>>
+		<<if $sectors[_i].type == "Pit">>
+			<<set $sectors[_i].type == "Pit">><<break>>
 		<</if>>
 		<</for>>
 		<<goto "Main">>

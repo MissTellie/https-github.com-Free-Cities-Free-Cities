@@ -900,8 +900,8 @@ $ACitizens citizens and <<print $ASlaves+$helots+$slaves.length>> slaves now liv
 
 <<set $rents = random(1,100)>>
 <<for _i = 1; _i <= $sectors.length; _i++>>
-	<<if _sectors[_i].ownership == 1>>
-		<<switch _sectors[_i].type>>
+	<<if $sectors[_i].ownership == 1>>
+		<<switch $sectors[_i].type>>
 		<<case "DenseApartments" "LuxuryApartments" "Apartments" "Shops" "Markets" "Manufacturing">>
 			<<set $rents += $arcologies[0].prosperity*10>>
 		<</switch>>
