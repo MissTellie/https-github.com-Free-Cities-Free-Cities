@@ -60,9 +60,9 @@ $arcadeNameCaps
 	It's empty and quiet.
 	<<link "Decommission the arcade">>
 		<<set $arcade = 0, $arcadeUpgradeInjectors = 0, $arcadeUpgradeFuckdolls = 0, $arcadeUpgradeCollectors = 0>>
-		<<for _i = 0; _i < _sectors.length; _i++>>
-		<<if _sectors[_i].type == "Arcade">>
-			<<set _sectors[_i].type == "Markets">><<break>>
+		<<for _i = 0; _i < $sectors.length; _i++>>
+		<<if $sectors[_i].type == "Arcade">>
+			<<set $sectors[_i].type == "Markets">><<break>>
 		<</if>>
 		<</for>>
 		<<goto "Main">>
