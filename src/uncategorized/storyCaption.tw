@@ -508,7 +508,8 @@ _Pass $nextLink
 	<<else>>
 		<br><span id="manageArcology"><<link "Manage Arcology">><<set $nextButton = "Back", $nextLink = _Pass>><<goto "Manage Arcology">><</link>></span> @@.cyan;[C]@@
 		<br><span id="managePenthouse"><<link "Manage Penthouse">><<set $nextButton = "Back", $nextLink = _Pass>><<goto "Manage Penthouse">><</link>></span> @@.cyan;[P]@@
-		<br><span id="policyButton"><<link [[Policies]]>><</link>></span> @@.cyan;[Y]@@<br>
+		<br><span id="policyButton"><<link [[Policies]]>><</link>></span> @@.cyan;[Y]@@
+		<br>
 		<<if $FSAnnounced>>
 			<span id="FSButton"><<link [[Future Societies|Future Society]]>><</link>></span> @@.cyan;[F]@@
 		<</if>>
@@ -520,8 +521,8 @@ _Pass $nextLink
 	<</if>>
 	<br><span id="optionsButton"><<link "Game Options">><<set $nextButton = "Back", $nextLink = _Pass>><<goto "Options">><</link>></span> @@.cyan;[O]@@
 <<elseif _Pass == "Manage Arcology">>
-	<br><br><br>
-	<span id="managePenthouse"><<link "Manage Penthouse">><<set $nextButton = "Back", $nextLink = _Pass>><<goto "Manage Penthouse">><</link>></span> @@.cyan;[P]@@
+	<br><br>
+	<br><span id="managePenthouse"><<link "Manage Penthouse">><<set $nextButton = "Back", $nextLink = _Pass>><<goto "Manage Penthouse">><</link>></span> @@.cyan;[P]@@
 	<br><span id="policyButton"><<link [[Policies]]>><</link>></span> @@.cyan;[Y]@@
 	<br><<if $FSAnnounced>><span id="FSButton"><<link [[Future Societies|Future Society]]>><</link>></span> @@.cyan;[F]@@<</if>>
 	<br><span id="PAOButton"><<link [[Personal Assistant|Personal assistant options]]>><</link>></span> @@.cyan;[T]@@
