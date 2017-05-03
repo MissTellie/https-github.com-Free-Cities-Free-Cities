@@ -1,43 +1,74 @@
 #!/bin/bash
+if [ ! -d ".git" ]; then
+	#not running in git repo, so can't use git commands :-)
+	echo "No .git repo found - skipping sanity checks"
+	exit 0
+fi
+
+WARNING='\033[93m'
+WARNING='\033[93m'
+ENDC='\033[0m'
+
+myprint() {
+	while read data; do
+		echo -n -e "[$1]$WARNING"
+		echo "$data"
+	done
+}
+
+GREP="git grep -n --color"
 # Check for missing right angle bracket: <</if>
-git grep "<</[^>]*>[^>]" -- 'src/*'
-git grep "<<[^>]*>[^<>"$'\r]*\r'"\?$" -- 'src/*'
+$GREP "<</[^>]*>[^>]" -- 'src/*'  | myprint "MissingClosingAngleBracket"
+$GREP "<<[^>()]*>[^()<>"$'\r]*\r'"\?$" -- 'src/*' | myprint "MissingClosingAngleBracket"
 # Check for missing left angle bracket: </if>>
-git grep "[^<]</[^<>]*>>" -- 'src/*'
+$GREP "[^<]</[^<>]*>>" -- 'src/*' | myprint "MissingOpeningAngleBracket2"
 # Check for accidental assignment.  e.g.:   <<if $foo = "hello">>
-git grep "<<[ ]*if[^>=]*[^><\!=]=[^=][^>]*>>" -- 'src/*'
+$GREP "<<[ ]*if[^>=]*[^><\!=]=[^=][^>]*>>" -- 'src/*' | myprint "AccidentalAssignmentInIf"
 # Check for missing ".  e.g.:   <<if $foo = "hello>>
-git grep "<<[^\"<>]*\"[^\"<>]*>>" -- 'src/*'
+$GREP "<<[^\"<>]*\"[^\"<>]*>>" -- 'src/*' | myprint "MissingSpeachMark"
 # Check for missing ".  e.g.:   <<if $foo = "hello)
-git grep "<<[^\"<>]*\([^\"<>]*\"[^><\"]*\"\| [<>] \)*\"\([^\"<>]*\"[^><\"]*\"\| [<>] \)*\([^\"<>]\| [<>] \)*>>" -- 'src/*'
+$GREP "<<[^\"<>]*\([^\"<>]*\"[^><\"]*\"\| [<>] \)*\"\([^\"<>]*\"[^><\"]*\"\| [<>] \)*\([^\"<>]\| [<>] \)*>>" -- 'src/*' | myprint "MissingSpeachMark2"
 # Check for colors like: @@color:red   - should be @@.red
-git grep -e "@@color:" --and --not -e  "@@color:rgb([0-9 ]\+,[0-9 ]\+,[0-9 ]\+)" -- "src/*"
+$GREP -e "@@color:" --and --not -e  "@@color:rgb([0-9 ]\+,[0-9 ]\+,[0-9 ]\+)" -- "src/*" | myprint "UseCssColors"
 # Check for missing $ in activeSlave or PC
-git grep "<<[ ]*[^\$><_\[]*\(activeSlave\|PC\)[.]"  -- "src/*"
+$GREP "<<[ ]*[^\$><_\[]*\(activeSlave\|PC\)[.]"  -- "src/*" | myprint "MissingDollar"
 # Check for closing bracket without opening bracket.  e.g.:  <<if foo)>>      (but  <<case "foo")>>   is valid, so ignore those
-git grep -e "<<[ a-zA-Z]\+[^()<>]*)" --and --not -e "<< *case"  -- "src/*"
+$GREP -e "<<[ a-zA-Z]\+[^()<>]*)" --and --not -e "<< *case"  -- "src/*" | myprint "MissingOpeningBracket"
 # Check for opening bracket without closing bracket.  e.g.:  <<if (foo>>
-git grep -e "<<[ a-zA-Z]\+([^()<>]*>>" -- "src/*"
+$GREP -e "<<[ a-zA-Z]\+([^()<>]*>>" -- "src/*" | myprint "MissingClosingBracket"
 # Check for two closing brackets but one opening bracket.  e.g.:  <<if (foo))>>
-git grep -e "<<[ a-zA-Z]\+[^()<>]*([^()]*)[^()]*)[^()<>]*>>"  -- "src/*"
+$GREP -e "<<[ a-zA-Z]\+[^()<>]*([^()]*)[^()]*)[^()<>]*>>"  -- "src/*" | myprint "MissingOpeningBracket2"
 # Check for one closing bracket but two opening brackets.  e.g.:  <<if ((foo)>>
-git grep -e "<<[ a-zA-Z]\+[^()<>]*([^()]*([^()]*)[^()<>]*>>"  -- "src/*"
+$GREP -e "<<[ a-zA-Z]\+[^()<>]*([^()]*([^()]*)[^()<>]*>>"  -- "src/*" | myprint "MissingClosingBracket2"
 # Check for missing >>.  e.g.:   <<if $foo
-git grep "<<[^<>]*[^,\"\[{"$'\r]\r'"\?$" -- 'src/*'
+$GREP "<<[^<>]*[^,\"\[{"$'\r]\r'"\?$" -- 'src/*' | myprint "MissingClosingAngleBrackets"
 # Check for too many >>>.  e.g.: <</if>>> 
-git grep "<<[^<>]*[<>]\?[^<>]*>>>" -- "src/*.tw"
+$GREP "<<[^<>]*[<>]\?[^<>]*>>>" -- "src/*.tw" | myprint "TooManyAngleBrackets"
 # Check for wrong capitilization on 'activeslave' and other common typos
-git grep -e "\$act" --and --not -e "\$\(activeSlave\|activeArcology\|activeStandard\|activeOrgan\|activeLimbs\)" -- "src/*"
-git grep  "\(csae\|[a-z] She \|attepmts\|youreslf\|advnaces\)" -- 'src/*'
-git grep "\$slave\[" -- 'src/*'
+$GREP -e "\$act" --and --not -e "\$\(activeSlave\|activeArcology\|activeStandard\|activeOrgan\|activeLimbs\)" -- "src/*" | myprint "WrongCapitilization"
+$GREP  "\(csae\|[a-z] She \|attepmts\|youreslf\|advnaces\)" -- 'src/*' | myprint "SpellCheck"
+$GREP "\$slave\[" -- 'src/*' | myprint "ShouldBeSlaves"
 # Check for strange spaces e.g.  $slaves[$i]. lips
-git grep "\$slaves\[\$i\]\. " -- 'src/*'
+$GREP "\$slaves\[\$i\]\. " -- 'src/*' | myprint "MissingPropertyAfterSlaves"
 # Check using refreshmentType instead of refreshment
-git grep "\$PC.refreshmentType[^ =]" -- 'src/*'
+$GREP "\$PC.refreshmentType[^ =]" -- 'src/*' | myprint "ShouldBeRefreshment"
 # Check, e.g., <<//if>>
-git grep "<</[a-zA-Z]*[^a-zA-Z<>]\+[a-zA-Z]*>>" -- 'src/*'
+$GREP "<</[a-zA-Z]*[^a-zA-Z<>]\+[a-zA-Z]*>>" -- 'src/*' | myprint "DoubleSlash"
+# Check, e.g.  <<else $foo==4
+$GREP "<<else >\?[^>]" -- 'src/*' | myprint "ShouldBeElseIf"
 # Check, e.g., =to
-git grep "=to" -- 'src/*'
+$GREP "=to" -- 'src/*' | myprint "EqualAndTo"
+# Check doing  $slaves.foo instead of $slaves[i].foo
+$GREP -e "[$]slaves[.]"  --and --not -e '[$]slaves[.]\(length\|random\|map\|filter\|deleteAt\|push\)' -- 'src/*' | myprint "MissingSlavesIndex"
+# Try to check for accidentally mixing slaves[] and activeSlave.  This can have a lot of false matches, but has caught a lot of bugs so it's worth the pain
+$GREP -e "activeSlave[.]" --and -e "slaves\[..\?\][.]" --and --not -e '[.]ID' --and --not -e 'slaves\[..\?\][.]\(slaveName\|actualAge\|relation\|assignment\|age\|devotion\|trust\|vagina\)' -- 'src/*' | myprint "MaybeAccidentalMixingOfSlavesAndActiveSlave"
+
+# Check that we do not have any variables that we use only once.   e.g.     $onlyUsedOnce
+(
+cd src/
+strings $(find . -name "*.tw" ) | tr -c '$a-zA-Z' '\n'  | sed -n '/^[$]/p' | sort | uniq -c | grep ' 1 ' | sed 's/^ *1 [$]/-e[$]/' | sed 's/$/\\\\W/' | xargs -r  git grep -n --color | myprint "OnlyUsedOnce"
+)
+
 
 # Check that all the tags are properly opened and closed
 git ls-files "src/*.tw" | xargs -d '\n' ./devTools/check.py
