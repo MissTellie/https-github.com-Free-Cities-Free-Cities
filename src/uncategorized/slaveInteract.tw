@@ -334,7 +334,7 @@ __Assignment__: <strong><span id="assign">$activeSlave.assignment</span>.</stron
 	<<else>>Master Suite<</if>>
 	<</if>>
 	<<if $spa != 0>>|
-	<<if $spa > $spaSlaves (_Slave.devotion >= -20 || _Slave.fetish == "mindbroken") && (_Slave.health < 20) || (_Slave.trust < 60) || (_Slave.devotion <= 60) || (_Slave.fetish == "mindbroken") || _Slave.sexualFlaw !== "none" || _Slave.behavioralFlaw !== "none">>
+	<<if $spa > $spaSlaves && ($activeSlave.devotion >= -20 || $activeSlave.fetish == "mindbroken") && ($activeSlave.health < 20) || ($activeSlave.trust < 60) || ($activeSlave.devotion <= 60) || ($activeSlave.fetish == "mindbroken") || $activeSlave.sexualFlaw !== "none" || $activeSlave.behavioralFlaw !== "none">>
 		[[Spa|Assign][$slaves[_i] = $activeSlave, $returnTo = "Spa", $i = _i]]
 	<<else>>Spa<</if>>
 	<</if>>
