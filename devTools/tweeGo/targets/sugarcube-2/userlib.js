@@ -65,7 +65,7 @@ Mousetrap.bind("a", function () {
 Mousetrap.bind("b", function () {
 	$("#manageBG a.macro-link").trigger("click");
 });
-Mousetrap.bind("r", function () {
+Mousetrap.bind("u", function () {
 	$("#manageRecruiter a.macro-link").trigger("click");
 });
 Mousetrap.bind("o", function () {
@@ -77,17 +77,14 @@ Mousetrap.bind("y", function () {
 Mousetrap.bind("f", function () {
 	$("#story-caption #FSButton a.macro-link").trigger("click");
 });
-Mousetrap.bind("l", function () {
-	$("#story-caption #LanguageButton a.macro-link").trigger("click");
-});
 Mousetrap.bind("t", function () {
 	$("#story-caption #PAOButton a.macro-link").trigger("click");
 });
-Mousetrap.bind("u", function () {
+Mousetrap.bind("v", function () {
 	$("#story-caption #URButton a.macro-link").trigger("click");
 });
-Mousetrap.bind("w", function () {
-	$("#story-caption #WARButton a.macro-link").trigger("click");
+Mousetrap.bind("r", function () {
+	$("#RAButton a.macro-link").trigger("click");
 });
 
 /**
@@ -129,31 +126,59 @@ if (typeof SlaveStatsChecker == "undefined") {
 	window.SlaveStatsChecker = SlaveStatsChecker;
 };
 
+window.removeFromArray = function(arr, val) {
+	for (var i = 0; i < arr.length; i++) {
+		if (val == arr[i])
+			return arr.splice(i,1);
+	}
+	return null;
+};
+
 window.canGetPregnant = function(slave) {
 	if (!slave) {
 		return null;
-	} else if (slave.preg != 0) {
+	} else if (slave.preg == -1) { /* contraceptives check */
 		return false;
-	} else if (slave.ovaries != 1) {
+	} else if (isFertile(slave) == false) { /* check other fertility factors */
 		return false;
-	} else if (canDoVaginal(slave) == false) {
+	} else if ((slave.ovaries == 1) && (canDoVaginal(slave) == true)) {
+		return true;
+	} else {
+		return false;
+	}
+};
+
+/* assuming slave1 is fertile, could slave2 impregnate slave1? slave2 must have dick and balls; both slaves must not be in chastity; slave2 need not achieve erection */
+window.canImpreg = function(slave1, slave2) {
+	if (!slave1 || !slave2) {
+		return null;
+	} else if (slave2.dick < 1) {
+		return false;
+	} else if (slave2.balls < 1) {
+		return false;
+	} else if (slave2.dickAccessory == "chastity") {
+		return false;
+	} else if (slave2.dickAccessory == "combined chastity") {
+		return false;
+	} else if (canGetPregnant(slave1) == false) { /* includes chastity checks */
 		return false;
 	} else {
 		return true;
 	}
 };
 
+/* contraceptives (.preg == -1) do not negate this function */
 window.isFertile = function(slave) {
 	if (!slave) {
 		return null;
-	} else if (slave.preg > 0) {
+	} else if (slave.preg > 0) { /* currently pregnant */
 		return false;
-	} else if (slave.preg < -1) {
+	} else if (slave.preg < -1) { /* sterile */
 		return false;
-	} else if (slave.ovaries != 1) {
-		return false;
-	} else {
+	} else if (slave.ovaries == 1) {
 		return true;
+	} else {
+		return false;
 	}
 };
 
@@ -272,20 +297,20 @@ window.ruleApplied = function(slave, ID) {
 };
 
 window.ruleAssignment = function(applyAssignment, assignment) {
+	if (!applyAssignment)
+		return false;
 	return applyAssignment.includes(assignment);
 };
 
 window.ruleFacility = function(applyFacility, facility) {
+	if (!applyFacility)
+		return false;
 	return applyFacility.includes(facility);
 };
 
 window.ruleExcludeSlaveFacility = function(rule, slave) {
-	if (!slave) {
+	if (!slave || !rule || !rule.excludeFacility) {
 		return null;
-	}else if (!rule) {
-		return null;
-	}else if (!rule.excludeFacility) {
-		return false;
 	} else {
 		for(var d=0; d < rule.excludeFacility.length; ++d){
 			if(rule.excludeFacility[d] == "hgsuite"){
@@ -374,16 +399,13 @@ window.ruleExcludeSlaveFacility = function(rule, slave) {
 				}
 			}
 		}
+		return false;
 	}
 };
 
 window.ruleAppliedToSlaveFacility = function(rule, slave) {
-	if (!slave) {
+	if (!slave || !rule || !rule.facility) {
 		return null;
-	}else if (!rule) {
-		return null;
-	}else if (!rule.facility) {
-		return false;
 	} else {
 		for(var d=0; d < rule.facility.length; ++d){
 			if(rule.facility[d] == "hgsuite"){
@@ -494,11 +516,7 @@ window.ruleSlaveExcluded = function(slave, rule) {
 };
 
 window.hasSurgeryRule = function(slave, rules) {
-	if (!slave) {
-		return false;
-	}else if (!rules) {
-		return false;
-	}else if (!slave.currentRules) {
+	if (!slave || !rules || !slave.currentRules) {
 		return false;
 	}else {
 		for(var d=rules.length-1; d >= 0; --d){
@@ -514,63 +532,15 @@ window.hasSurgeryRule = function(slave, rules) {
 };
 
 window.hasHColorRule = function(slave, rules) {
-	if (!slave) {
-		return false;
-	}else if (!rules) {
-		return false;
-	}else if (!slave.currentRules) {
-		return false;
-	}else {
-		for(var d=rules.length-1; d >= 0;--d){
-			for(var e=0; e < slave.currentRules.length;++e){
-				if(slave.currentRules[e] == rules[d].ID){
-					if (rules[d].hColor != "no default setting"){
-						return true;
-					}
-				}
-			}
-		}return false;
-	}
+	return lastRuleFor(slave, rules, "hColor") ? true : false;
 };
 
 window.hasHStyleRule = function(slave, rules) {
-	if (!slave) {
-		return false;
-	}else if (!rules) {
-		return false;
-	}else if (!slave.currentRules) {
-		return false;
-	}else {
-		for(var d=rules.length-1; d >= 0;--d){
-			for(var e=0; e < slave.currentRules.length;++e){
-				if(slave.currentRules[e] == rules[d].ID){
-					if (rules[d].hStyle != "no default setting"){
-						return true;
-					}
-				}
-			}
-		}return false;
-	}
+	return lastRuleFor(slave, rules, "hStyle") ? true : false;
 };
 
 window.hasEyeColorRule = function(slave, rules) {
-	if (!slave) {
-		return false;
-	}else if (!rules) {
-		return false;
-	}else if (!slave.currentRules) {
-		return false;
-	}else {
-		for(var d=rules.length-1; d >= 0;--d){
-			for(var e=0; e < slave.currentRules.length;++e){
-				if(slave.currentRules[e] == rules[d].ID){
-					if (rules[d].hStyle != "no default setting"){
-						return true;
-					}
-				}
-			}
-		}return false;
-	}
+	return lastRuleFor(slave, rules, "eyeColor") ? true : false;
 };
 
 window.lastRuleFor = function(slave, rules, what) {
@@ -912,3 +882,4 @@ window.cumAmount = function(slave) {
 		return cum
 	}
 };
+
