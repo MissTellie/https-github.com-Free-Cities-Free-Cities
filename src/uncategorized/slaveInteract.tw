@@ -395,11 +395,17 @@ __Drugs__: <span id="drugs"><strong>$activeSlave.drugs</strong></span>.
 <</if>>
 | <<link "Fertility">><<set $activeSlave.drugs = "fertility drugs">><<replace "#drugs">><strong>$activeSlave.drugs</strong><</replace>><</link>>
 <<if ($activeSlave.dick > 0)>>
-<<if ($activeSlave.dick < 10)>>
-	| <<link "Dick +">><<set $activeSlave.drugs = "penis enhancement">><<replace "#drugs">><strong>$activeSlave.drugs</strong><</replace>><</link>>
+	<<if ($activeSlave.dick < 10)>>
+		| <<link "Dick +">><<set $activeSlave.drugs = "penis enhancement">><<replace "#drugs">><strong>$activeSlave.drugs</strong><</replace>><</link>>
+	<<else>>
+		| Dick +
+	<</if>>
 <<else>>
-	| Dick +
-<</if>>
+	<<if ($activeSlave.clit < 5)>>
+		| <<link "Dick +">><<set $activeSlave.drugs = "penis enhancement">><<replace "#drugs">><strong>$activeSlave.drugs</strong><</replace>><</link>>
+	<<else>>
+		| Dick +
+	<</if>>
 <</if>>
 <<if ($activeSlave.balls > 0)>>
 <<if ($activeSlave.balls < 6)>>
