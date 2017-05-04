@@ -276,7 +276,7 @@
 	<<if $dairy > 0>>
 	<<if $dairyRestraintsSetting > 1>>
 	<br><<link "Enslave her and send her straight to the industrial dairy">>
-		<<set $activeSlave.assignment = "work in the dairy">>
+		<<assignJob $activeSlave "work in the dairy">>
 		<<AddSlave $activeSlave>>
 		<<set $cash -= $contractCost>>
 		<<replace "#result">>
