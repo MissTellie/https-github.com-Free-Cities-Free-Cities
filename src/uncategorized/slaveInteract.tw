@@ -424,6 +424,8 @@ __Aphrodisiacs__: <span id="aphrodisiacs"><strong><<if $activeSlave.aphrodisiacs
 	| <<link "Apply">><<set $activeSlave.aphrodisiacs = 1>><<replace "#aphrodisiacs">><strong>applied</strong><</replace>><</link>>
 	| <<link "Extreme">><<set $activeSlave.aphrodisiacs = 2>><<replace "#aphrodisiacs">><strong>extreme</strong><</replace>><</link>>
 
+<</if>> /* closes drugs (assignmentVisible == 0) */
+
 <br>&nbsp;&nbsp;&nbsp;&nbsp;
 <span id="fertilityblock">
 <<if ($activeSlave.preg < -1) || ($activeSlave.ovaries == 0)>>
@@ -463,8 +465,6 @@ __Hormones__: <strong><span id="hormones">
 <<link "None">><<set $activeSlave.hormones = 0>><<replace "#hormones">>none<</replace>><</link>> |
 <<link "Male">><<set $activeSlave.hormones = -1>><<replace "#hormones">>male<</replace>><</link>> |
 <<link "Male ++">><<set $activeSlave.hormones = -2>><<replace "#hormones">>intensive male<</replace>><</link>>
-
-<</if>> /* closes drugs (assignmentVisible == 0) */
 
 <br>__Diet__: <strong><span id="diet">$activeSlave.diet</span></strong>.
 <<link "Healthy">><<set $activeSlave.diet = "healthy">><<replace "#diet">>$activeSlave.diet<</replace>><</link>>
