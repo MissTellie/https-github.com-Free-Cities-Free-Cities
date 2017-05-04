@@ -366,7 +366,7 @@ My favorite part of my body i<<s>>
 	<<elseif ($activeSlave.fetish == "pregnancy") && ($activeSlave.fetishStrength > 60)>>
 		<<if $PC.boobs == 1>>You, uh." She looks down, hesitating. "You have really ni<<c>>e breast<<s>>, <<Master>>.<</if>>
 	<<elseif ($activeSlave.fetish == "boobs") && ($activeSlave.fetishStrength > 60)>>
-		<<if $PC.boobs == 1>>Your brea<<s>>t<<s>> are incredible, <<Master>>," she <<say>>s	eagerly. "I love them.
+		<<if $PC.boobs == 1>>Your brea<<s>>t<<s>> are incredible, <<Master>>," she <<say>>s eagerly. "I love them.<</if>>
 	<<elseif ($activeSlave.attrKnown == 1) && ($activeSlave.attrXX > 80)>>
 		<<if $PC.boobs == 1>>You're, uh." She looks down, hesitating. "You're really hot, <<Master>>.<</if>>
 	<<elseif ($activeSlave.attrKnown == 1) && ($activeSlave.attrXY > 80)>>
@@ -449,14 +449,14 @@ My favorite part of my body i<<s>>
 		<<if $activeSlave.devotion > 75>>
 			I love you, <<Master>>,	<<s>>o I don't mind how the hormone<<s>> I'm on keep me <<s>>oft, if that'<<s>> how you want me.
 		<<else>>
-			I <<s>>ometime<<s>> wish the hormone<<s>> I'm on let me get hard.
+			I <<s>>ometime<<s>> wish the hormone<<s>> I'm on would let me get hard.
 		<</if>>
 	<</if>>
 	<<else>>
 		<<if $activeSlave.devotion > 75>>
 			I love you, <<Master>>,	<<s>>o I don't mind how the hormone<<s>> I'm on keep me <<s>>oft, if that'<<s>> how you want me.
 		<<else>>
-			I <<s>>ometime<<s>> wish the hormone<<s>> I'm on let me get hard.
+			I <<s>>ometime<<s>> wish the hormone<<s>> I'm on would let me get hard.
 		<</if>>
 	<</if>>
 <</if>> /* closes balls check */
@@ -541,7 +541,7 @@ My favorite part of my body i<<s>>
 		It'<<s>> great being a whore. I can't imagine being <<s>>ati<<s>>fied doing anything el<<s>>e.
 	<<elseif ($activeSlave.fetishStrength > 60) && ($activeSlave.fetish != "pregnancy")>>
 	<<switch $activeSlave.fetish>>
-	<<case "submissive">>-
+	<<case "submissive">>
 		It'<<s>> ni<<c>>e being a whore, I get treated like I de<<s>>erve.
 	<<case "dom">>
 		Being a whore i<<s>> okay, <<s>>ometime<<s>> <<s>>omebody want<<s>> to be dommed.
@@ -570,7 +570,7 @@ My favorite part of my body i<<s>>
 		It'<<s>> great being a public <<s>>lut. I can't imagine being <<s>>ati<<s>>fied doing anything el<<s>>e.
 	<<elseif ($activeSlave.fetishStrength > 60) && ($activeSlave.fetish != "pregnancy")>>
 	<<switch $activeSlave.fetish>>
-	<<case "submissive">>-
+	<<case "submissive">>
 		It'<<s>> ni<<c>>e being a public <<s>>lut, I get treated like I de<<s>>erve.
 	<<case "dom">>
 		Being a public <<s>>lut i<<s>> okay, <<s>>ometime<<s>> <<s>>omebody want<<s>> to be dommed.
@@ -708,13 +708,12 @@ My favorite part of my body i<<s>>
 
 <<if ($arcologies[0].FSSupremacistDecoration > 50) || ($arcologies[0].FSSubjugationistDecoration > 50) || ($arcologies[0].FSGenderRadicalistDecoration > 50) || ($arcologies[0].FSGenderFundamentalistDecoration > 50) || ($arcologies[0].FSPaternalistDecoration > 50) || ($arcologies[0].FSDegradationistDecoration > 50) || ($arcologies[0].FSBodyPuristDecoration > 50) || ($arcologies[0].FSTransformationFetishistDecoration > 50) || ($arcologies[0].FSSlimnessEnthusiastDecoration > 50) || ($arcologies[0].FSMaturityPreferentialistDecoration > 50) || ($arcologies[0].FSYouthPreferentialistDecoration > 50) || ($arcologies[0].FSAssetExpansionistDecoration > 50) || ($arcologies[0].FSPastoralistDecoration > 50) || ($arcologies[0].FSPhysicalIdealistDecoration > 50) || ($arcologies[0].FSChattelReligionistDecoration > 50) || ($arcologies[0].FSRomanRevivalistDecoration > 50) || ($arcologies[0].FSEgyptianRevivalistDecoration > 50)>>
 
-<<if ($activeSlave.devotion > 20)>>
+<<if ($activeSlave.devotion > 75)>>
 	I'll do everything I can to	<<s>>upport your vi<<s>>ion for the future.
 <<elseif ($activeSlave.devotion > 50)>>
 	I do my be<<s>>t to <<s>>upport your vi<<s>>ion for the future.
 <<else>>
 	I try to conform to your vi<<s>>ion for the future.
-	<</if>>
 <</if>>
 
 <<if $arcologies[0].FSRomanRevivalist >= 10>>
@@ -858,7 +857,7 @@ My favorite part of my body i<<s>>
 		I wish I could make milk for the arcology.
 	<</if>>
 <</if>>
-<</if>>
+<</if>> /* closes FS */
 
 <<if ($activeSlave.devotion > 75)>>
 <<if ($activeSlave.weekAcquired == 1) && ($week > 104)>>

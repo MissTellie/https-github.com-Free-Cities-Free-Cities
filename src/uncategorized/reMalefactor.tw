@@ -213,17 +213,16 @@
 		<<include "New Slave Intro">>
 		<</replace>>
 	<</link>>
-<</if>>
 	<br><<link "Sentence her to a day in the stocks, then enslave her">>
 		<<set $activeSlave.health -= 10>>
 		<<set $activeSlave.behavioralFlaw = "odd">>
 		<<set $activeSlave.sexualFlaw = "hates penetration">>
 		<<set $activeSlave.anus = 2>>
 		<<if $activeSlave.vagina > -1>>
-		<<set $activeSlave.vagina = 2>>
-		<<if random(1,100) > 60 && isFertile($activeSlave)>>
-			<<set $activeSlave.preg = 1>>
-		<</if>>
+			<<set $activeSlave.vagina = 2>>
+			<<if random(1,100) > 60 && isFertile($activeSlave)>>
+				<<set $activeSlave.preg = 1>>
+			<</if>>
 		<</if>>
 		<<AddSlave $activeSlave>>
 		<<set $cash -= $contractCost>>
@@ -276,7 +275,7 @@
 	<<if $dairy > 0>>
 	<<if $dairyRestraintsSetting > 1>>
 	<br><<link "Enslave her and send her straight to the industrial dairy">>
-		<<set $activeSlave.assignment = "work in the dairy">>
+		<<assignJob $activeSlave "work in the dairy">>
 		<<AddSlave $activeSlave>>
 		<<set $cash -= $contractCost>>
 		<<replace "#result">>
@@ -298,7 +297,7 @@
 		<</replace>>
 	<</link>>
 	<</if>>
-	<</if>>
+	<</if>> /* closes dairy > 0 */
 	<<if $seeExtreme > 0>>
 	<br><<link "Punitively amputate her limbs, and then enslave her">>
 		<<set $activeSlave.health -= 20>>
@@ -340,10 +339,11 @@
 		<<set $arcologies[0].prosperity += 10>>
 		<</replace>>
 	<</link>>
-	<<else>>
+	<</if>>
+	<</if>> /* closes seeExtreme */
+<<else>>
 	//You lack the necessary funds to enslave her.//
-	<</if>>
-	<</if>>
+<</if>>
 <br><<link "Publicly flog the criminal">>
 	<<replace "#result">>
 	<<if $malefactor == "addict">>
