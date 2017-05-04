@@ -862,14 +862,27 @@ As the remote surgery's long recovery cycle completes,
 	<</if>>
 
 <<case "circumcision">>
-	<<if ($activeSlave.devotion > 50)>>
-		She exits the surgery gingerly, since she can feel that something was done to her dick. She examines it carefully <<if canSee($activeSlave)>>in the mirror<<else>>by feeling alone<</if>>. Realizing that she's been circumcised, @@.hotpink;she's very happy you'd take an interest in her penis,@@ and looks forward to having a slightly easier time keeping herself clean through her life as a sex slave. Circumcision of an adult is not a trivial procedure, so @@.red;her health has been slightly affected.@@
-		<<set $activeSlave.devotion += 4>>
-	<<elseif ($activeSlave.devotion > 20)>>
-		She exits the surgery gingerly, since she can feel that something was done to her dick. She examines it carefully <<if canSee($activeSlave)>>in the mirror<<else>>by feeling alone<</if>>. Realizing that she's been circumcised, she's flooded with relief. She's so elated that she hasn't been severely damaged that she doesn't mind your taking surgical control of her member. Circumcision of an adult is not a trivial procedure, so @@.red;her health has been slightly affected.@@
+	<<if ($activeSlave.dick > 0)>>
+		<<if ($activeSlave.devotion > 50)>>
+			She exits the surgery gingerly, since she can feel that something was done to her dick. She examines it carefully <<if canSee($activeSlave)>>in the mirror<<else>>by feeling alone<</if>>. Realizing that she's been circumcised, @@.hotpink;she's very happy you'd take an interest in her penis,@@ and looks forward to having a slightly easier time keeping herself clean through her life as a sex slave. Circumcision of an adult is not a trivial procedure, so @@.red;her health has been slightly affected.@@
+			<<set $activeSlave.devotion += 4>>
+		<<elseif ($activeSlave.devotion > 20)>>
+			She exits the surgery gingerly, since she can feel that something was done to her dick. She examines it carefully <<if canSee($activeSlave)>>in the mirror<<else>>by feeling alone<</if>>. Realizing that she's been circumcised, she's flooded with relief. She's so elated that she hasn't been severely damaged that she doesn't mind your taking surgical control of her member. Circumcision of an adult is not a trivial procedure, so @@.red;her health has been slightly affected.@@
+		<<else>>
+			She exits the surgery gingerly, since she can feel that something was done to her dick. She examines it carefully <<if canSee($activeSlave)>>in the mirror<<else>>by feeling alone<</if>>. Realizing that she's been circumcised, she's flooded with relief, since she was afraid that you'd done something far more terrible. Once she has time to think about it, though, she's somewhat @@.mediumorchid;resentful,@@ since she naturally feels a certain proprietary interest in her own penis. Circumcision of an adult is not a trivial procedure, so @@.red;her health has been slightly affected.@@
+			<<set $activeSlave.devotion -= 5>>
+		<</if>>
 	<<else>>
-		She exits the surgery gingerly, since she can feel that something was done to her dick. She examines it carefully <<if canSee($activeSlave)>>in the mirror<<else>>by feeling alone<</if>>. Realizing that she's been circumcised, she's flooded with relief, since she was afraid that you'd done something far more terrible. Once she has time to think about it, though, she's somewhat @@.mediumorchid;resentful,@@ since she naturally feels a certain proprietary interest in her own penis. Circumcision of an adult is not a trivial procedure, so @@.red;her health has been slightly affected.@@
-		<<set $activeSlave.devotion -= 5>>
+		<<set $activeSlave.health += 5>>
+		<<if ($activeSlave.devotion > 50)>>
+			She exits the surgery gingerly, since she can feel that her crotch was operated on. She examines it carefully <<if canSee($activeSlave)>>in the mirror<<else>>by feeling alone<</if>>. Realizing that she's been circumcised, @@.hotpink;she's very happy you'd take an interest in her sex,@@ and looks forward to having a slightly easier time keeping herself clean through her life as a sex slave. @@.red;Her health has been slightly affected.@@
+			<<set $activeSlave.devotion += 4>>
+		<<elseif ($activeSlave.devotion > 20)>>
+			She exits the surgery gingerly, since she can feel that her crotch was operated on. She examines it carefully <<if canSee($activeSlave)>>in the mirror<<else>>by feeling alone<</if>>. Realizing that she's been circumcised, she's flooded with relief. She's so elated that she hasn't been severely damaged that she doesn't mind minor surgical alteration. @@.red;Her health has been slightly affected.@@
+		<<else>>
+			She exits the surgery gingerly, since she can feel that her crotch was operated on. She examines it carefully <<if canSee($activeSlave)>>in the mirror<<else>>by feeling alone<</if>>. Realizing that she's been circumcised, she's flooded with relief, since she was afraid that you'd done something far more terrible. Once she has time to think about it, though, she's somewhat @@.mediumorchid;resentful,@@ since she naturally feels a certain proprietary interest in her sex. @@.red;Her health has been slightly affected.@@
+			<<set $activeSlave.devotion -= 5>>
+		<</if>>
 	<</if>>
 
 <<case "hips">>
