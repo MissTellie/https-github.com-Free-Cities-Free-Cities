@@ -14,6 +14,10 @@
 	<</if>>
 	<</for>>
 <</if>>
+<<if _i >= _SL || $slaves[_i].assignment != "work in the dairy">>
+	<<set $DairyiIDs.deleteAt(_dI), _dI--, _DL-->>
+	<<continue>>
+<</if>>
 <</for>>
 <<SlaveSort $DairyiIDs>>
 

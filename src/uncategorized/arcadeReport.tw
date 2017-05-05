@@ -33,6 +33,10 @@
 		<</if>>
 		<</for>>
 	<</if>>
+	<<if _i >= _SL || $slaves[_i].assignment != "be confined in the arcade">>
+		<<set $ArcadeiIDs.deleteAt(_dI), _dI--, _DL-->>
+		<<continue>>
+	<</if>>
 	/% Onward bound as normal %/
 	<<set $oldCash = $cash, $i = _i>>
 
