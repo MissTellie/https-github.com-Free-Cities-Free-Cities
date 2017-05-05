@@ -478,7 +478,7 @@
 <<else>>
 	''Rest''
 	<<link Stop>>
-		<<set removeFromArray($currentRule.excludeAssignment, "rest")>>
+		<<set $currentRule.excludeAssignment.delete("rest")>>
 		<<RAChangeExcludeAssignment>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -499,7 +499,7 @@
 <<else>>
 	''Fucktoy''
 	<<link Stop>>
-		<<set removeFromArray($currentRule.excludeAssignment, "please you")>>
+		<<set $currentRule.excludeAssignment.delete("please you")>>
 		<<RAChangeExcludeAssignment>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -520,7 +520,7 @@
 <<else>>
 	''Subordinate Slave''
 	<<link Stop>>
-		<<set removeFromArray($currentRule.excludeAssignment, "be a subordinate slave")>>
+		<<set $currentRule.excludeAssignment.delete("be a subordinate slave")>>
 		<<RAChangeSetAssignment>>
 		<<RAChangeExcludeAssignment>>
 		<<RAChangeSave>>
@@ -542,7 +542,7 @@
 <<else>>
 	''House Servant''
 	<<link Stop>>
-		<<set removeFromArray($currentRule.excludeAssignment, "be a servant")>>
+		<<set $currentRule.excludeAssignment.delete("be a servant")>>
 		<<RAChangeExcludeAssignment>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -563,7 +563,7 @@
 <<else>>
 	''Confined''
 	<<link Stop>>
-		<<set removeFromArray($currentRule.excludeAssignment, "stay confined")>>
+		<<set $currentRule.excludeAssignment.delete("stay confined")>>
 		<<RAChangeExcludeAssignment>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -584,7 +584,7 @@
 <<else>>
 	''Whore''
 	<<link Stop>>
-		<<set removeFromArray($currentRule.excludeAssignment, "whore")>>
+		<<set $currentRule.excludeAssignment.delete("whore")>>
 		<<RAChangeExcludeAssignment>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -605,7 +605,7 @@
 <<else>>
 	''Public Servant''
 	<<link Stop>>
-		<<set removeFromArray($currentRule.excludeAssignment, "serve the public")>>
+		<<set $currentRule.excludeAssignment.delete("serve the public")>>
 		<<RAChangeExcludeAssignment>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -626,7 +626,7 @@
 <<else>>
 	''Classes''
 	<<link Stop>>
-		<<set removeFromArray($currentRule.excludeAssignment, "take classes")>>
+		<<set $currentRule.excludeAssignment.delete("take classes")>>
 		<<RAChangeExcludeAssignment>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -647,7 +647,7 @@
 <<else>>
 	''Milking''
 	<<link Stop>>
-		<<set removeFromArray($currentRule.excludeAssignment, "get milked")>>
+		<<set $currentRule.excludeAssignment.delete("get milked")>>
 		<<RAChangeExcludeAssignment>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -668,7 +668,7 @@
 <<else>>
 	''Gloryhole''
 	<<link Stop>>
-		<<set removeFromArray($currentRule.excludeAssignment, "work a glory hole")>>
+		<<set $currentRule.excludeAssignment.delete("work a glory hole")>>
 		<<RAChangeExcludeAssignment>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -719,7 +719,7 @@
 <<else>>
 	''$HGSuiteNameCaps''
 	<<link Stop>>
-		<<set removeFromArray($currentRule.facility, "hgsuite")>>
+		<<set $currentRule.facility.delete("hgsuite")>>
 		<<RAChangeApplyFacility>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -743,7 +743,7 @@
 <<else>>
 	''$brothelNameCaps''
 	<<link Stop>>
-		<<set removeFromArray($currentRule.facility, "brothel")>>
+		<<set $currentRule.facility.delete("brothel")>>
 		<<RAChangeApplyFacility>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -767,7 +767,7 @@
 <<else>>
 	''$clubNameCaps''
 	<<link Stop>>
-		<<set removeFromArray($currentRule.facility, "club")>>
+		<<set $currentRule.facility.delete("club")>>
 		<<RAChangeApplyFacility>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -791,7 +791,7 @@
 <<else>>
 	''$arcadeNameCaps''
 	<<link Stop>>
-		<<set removeFromArray($currentRule.facility, "arcade")>>
+		<<set $currentRule.facility.delete("arcade")>>
 		<<RAChangeApplyFacility>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -815,7 +815,7 @@
 <<else>>
 	''$dairyNameCaps''
 	<<link Stop>>
-		<<set removeFromArray($currentRule.facility, "dairy")>>
+		<<set $currentRule.facility.delete("dairy")>>
 		<<RAChangeApplyFacility>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -839,7 +839,7 @@
 <<else>>
 	''$servantsQuartersNameCaps''
 	<<link Stop>>
-		<<set removeFromArray($currentRule.facility, "servantsquarters")>>
+		<<set $currentRule.facility.delete("servantsquarters")>>
 		<<RAChangeApplyFacility>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -863,7 +863,7 @@
 <<else>>
 	''$masterSuiteNameCaps''
 	<<link Stop>>
-		<<set removeFromArray($currentRule.facility, "mastersuite")>>
+		<<set $currentRule.facility.delete("mastersuite")>>
 		<<RAChangeApplyFacility>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -887,7 +887,7 @@
 <<else>>
 	''$schoolroomNameCaps''
 	<<link Stop>>
-		<<set removeFromArray($currentRule.facility, "schoolroom")>>
+		<<set $currentRule.facility.delete("schoolroom")>>
 		<<RAChangeApplyFacility>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -911,7 +911,7 @@
 <<else>>
 	''$spaNameCaps''
 	<<link Stop>>
-		<<set removeFromArray($currentRule.facility, "spa")>>
+		<<set $currentRule.facility.delete("spa")>>
 		<<RAChangeApplyFacility>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -935,7 +935,7 @@
 <<else>>
 ''$clinicNameCaps''
 	<<link Stop>>
-		<<set removeFromArray($currentRule.facility, "clinic")>>
+		<<set $currentRule.facility.delete("clinic")>>
 		<<RAChangeApplyFacility>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -959,7 +959,7 @@
 <<else>>
 	''$cellblockNameCaps''
 	<<link Stop>>
-		<<set removeFromArray($currentRule.facility, "cellblock")>>
+		<<set $currentRule.facility.delete("cellblock")>>
 		<<RAChangeApplyFacility>>
 		<<RAChangeSave>>
 		<<RAChangeApply>>
@@ -1012,7 +1012,7 @@
 <<else>>
 	''$HGSuiteNameCaps''
 	<<link Stop>>
-		<<set removeFromArray($currentRule.excludeFacility, "hgsuite")>>
+		<<set $currentRule.excludeFacility.delete("hgsuite")>>
 		<<if $currentRule.assignFacility == "hgsuite">>
 			<<set $currentRule.assignFacility = "none">>
 			<<set $currentRule.facilityRemove = false>>
@@ -1041,7 +1041,7 @@
 <<else>>
 	''$brothelNameCaps''
 	<<link Stop>>
-		<<set removeFromArray($currentRule.excludeFacility, "brothel")>>
+		<<set $currentRule.excludeFacility.delete("brothel")>>
 		<<if $currentRule.assignFacility == "brothel">>
 			<<set $currentRule.assignFacility = "none">>
 			<<set $currentRule.facilityRemove = false>>
@@ -1070,7 +1070,7 @@
 <<else>>
 	''$clubNameCaps''
 	<<link Stop>>
-		<<set removeFromArray($currentRule.excludeFacility, "club")>>
+		<<set $currentRule.excludeFacility.delete("club")>>
 		<<if $currentRule.assignFacility == "club">>
 			<<set $currentRule.assignFacility = "none">>
 			<<set $currentRule.facilityRemove = false>>
@@ -1099,7 +1099,7 @@
 <<else>>
 	''$arcadeNameCaps''
 	<<link Stop>>
-		<<set removeFromArray($currentRule.excludeFacility, "arcade")>>
+		<<set $currentRule.excludeFacility.delete("arcade")>>
 		<<if $currentRule.assignFacility == "arcade">>
 			<<set $currentRule.assignFacility = "none">>
 			<<set $currentRule.facilityRemove = false>>
@@ -1128,7 +1128,7 @@
 <<else>>
 	''$dairyNameCaps''
 	<<link Stop>>
-		<<set removeFromArray($currentRule.excludeFacility, "dairy")>>
+		<<set $currentRule.excludeFacility.delete("dairy")>>
 		<<if $currentRule.assignFacility == "dairy">>
 			<<set $currentRule.assignFacility = "none">>
 			<<set $currentRule.facilityRemove = false>>
@@ -1157,7 +1157,7 @@
 <<else>>
 	''$servantsQuartersNameCaps''
 	<<link Stop>>
-		<<set removeFromArray($currentRule.excludeFacility, "servantsquarters")>>
+		<<set $currentRule.excludeFacility.delete("servantsquarters")>>
 		<<if $currentRule.assignFacility == "servantsquarters">>
 			<<set $currentRule.assignFacility = "none">>
 			<<set $currentRule.facilityRemove = false>>
@@ -1186,7 +1186,7 @@
 <<else>>
 	''$masterSuiteNameCaps''
 	<<link Stop>>
-		<<set removeFromArray($currentRule.excludeFacility, "mastersuite")>>
+		<<set $currentRule.excludeFacility.delete("mastersuite")>>
 		<<if $currentRule.assignFacility == "mastersuite">>
 			<<set $currentRule.assignFacility = "none">>
 			<<set $currentRule.facilityRemove = false>>
@@ -1215,7 +1215,7 @@
 <<else>>
 	''$schoolroomNameCaps''
 	<<link Stop>>
-		<<set removeFromArray($currentRule.excludeFacility, "schoolroom")>>
+		<<set $currentRule.excludeFacility.delete("schoolroom")>>
 		<<if $currentRule.assignFacility == "schoolroom">>
 			<<set $currentRule.assignFacility = "none">>
 			<<set $currentRule.facilityRemove = false>>
@@ -1244,7 +1244,7 @@
 <<else>>
 	''$spaNameCaps''
 	<<link Stop>>
-		<<set removeFromArray($currentRule.excludeFacility, "spa")>>
+		<<set $currentRule.excludeFacility.delete("spa")>>
 		<<if $currentRule.assignFacility == "spa">>
 			<<set $currentRule.assignFacility = "none">>
 			<<set $currentRule.facilityRemove = false>>
@@ -1273,7 +1273,7 @@
 <<else>>
 ''$clinicNameCaps''
 	<<link Stop>>
-		<<set removeFromArray($currentRule.excludeFacility, "clinic")>>
+		<<set $currentRule.excludeFacility.delete("clinic")>>
 		<<if $currentRule.assignFacility == "clinic">>
 			<<set $currentRule.assignFacility = "none">>
 			<<set $currentRule.facilityRemove = false>>
@@ -1302,7 +1302,7 @@
 <<else>>
 	''$cellblockNameCaps''
 	<<link Stop>>
-		<<set removeFromArray($currentRule.excludeFacility, "cellblock")>>
+		<<set $currentRule.excludeFacility.delete("cellblock")>>
 		<<if $currentRule.assignFacility == "cellblock">>
 			<<set $currentRule.assignFacility = "none">>
 			<<set $currentRule.facilityRemove = false>>
@@ -1447,7 +1447,7 @@
 		<<RAChangeApply>>
 	<</link>>
 <<else>>
-	''Milking''
+	''Classes''
 <</if>>
 |
 <<if ($currentRule.setAssignment != "get milked")>>
@@ -1511,7 +1511,7 @@
 	<<link $HGSuiteNameCaps>>
 		<<set $currentRule.assignFacility = "hgsuite">>
 		<<set $currentRule.setAssignment = "none">>
-		<<set removeFromArray($currentRule.facility, "hgsuite")>>
+		<<set $currentRule.facility.delete("hgsuite")>>
 		<<if $currentRule.facility.length == 0>>
 			<<set $currentRule.excludeFacility.push("hgsuite")>>
 			<<RAChangeExcludeFacility>>
@@ -1532,7 +1532,7 @@
 	<<link $brothelNameCaps>>
 		<<set $currentRule.assignFacility = "brothel">>
 		<<set $currentRule.setAssignment = "none">>
-		<<set removeFromArray($currentRule.facility, "brothel")>>
+		<<set $currentRule.facility.delete("brothel")>>
 		<<if $currentRule.facility.length == 0>>
 			<<set $currentRule.excludeFacility.push("brothel")>>
 			<<RAChangeExcludeFacility>>
@@ -1553,7 +1553,7 @@
 	<<link $clubNameCaps>>
 		<<set $currentRule.assignFacility = "club">>
 		<<set $currentRule.setAssignment = "none">>
-		<<set removeFromArray($currentRule.facility, "club")>>
+		<<set $currentRule.facility.delete("club")>>
 		<<if $currentRule.facility.length == 0>>
 			<<set $currentRule.excludeFacility.push("club")>>
 			<<RAChangeExcludeFacility>>
@@ -1574,7 +1574,7 @@
 	<<link $arcadeNameCaps>>
 		<<set $currentRule.assignFacility = "arcade">>
 		<<set $currentRule.setAssignment = "none">>
-		<<set removeFromArray($currentRule.facility, "arcade")>>
+		<<set $currentRule.facility.delete("arcade")>>
 		<<if $currentRule.facility.length == 0>>
 			<<set $currentRule.excludeFacility.push("arcade")>>
 			<<RAChangeExcludeFacility>>
@@ -1595,7 +1595,7 @@
 	<<link $dairyNameCaps>>
 		<<set $currentRule.assignFacility = "dairy">>
 		<<set $currentRule.setAssignment = "none">>
-		<<set removeFromArray($currentRule.facility, "dairy")>>
+		<<set $currentRule.facility.delete("dairy")>>
 		<<if $currentRule.facility.length == 0>>
 			<<set $currentRule.excludeFacility.push("dairy")>>
 			<<RAChangeExcludeFacility>>
@@ -1616,7 +1616,7 @@
 	<<link $servantsQuartersNameCaps>>
 		<<set $currentRule.assignFacility = "servantsquarters">>
 		<<set $currentRule.setAssignment = "none">>
-		<<set removeFromArray($currentRule.facility, "servantsquarters")>>
+		<<set $currentRule.facility.delete("servantsquarters")>>
 		<<if $currentRule.facility.length == 0>>
 			<<set $currentRule.excludeFacility.push("servantsquarters")>>
 			<<RAChangeExcludeFacility>>
@@ -1637,7 +1637,7 @@
 	<<link $masterSuiteNameCaps>>
 		<<set $currentRule.assignFacility = "mastersuite">>
 		<<set $currentRule.setAssignment = "none">>
-		<<set removeFromArray($currentRule.facility, "mastersuite")>>
+		<<set $currentRule.facility.delete("mastersuite")>>
 		<<if $currentRule.facility.length == 0>>
 			<<set $currentRule.excludeFacility.push("mastersuite")>>
 			<<RAChangeExcludeFacility>>
@@ -1658,7 +1658,7 @@
 	<<link $schoolroomNameCaps>>
 		<<set $currentRule.assignFacility = "schoolroom">>
 		<<set $currentRule.setAssignment = "none">>
-		<<set removeFromArray($currentRule.facility, "schoolroom")>>
+		<<set $currentRule.facility.delete("schoolroom")>>
 		<<if $currentRule.facility.length == 0>>
 			<<set $currentRule.excludeFacility.push("schoolroom")>>
 			<<RAChangeExcludeFacility>>
@@ -1679,7 +1679,7 @@
 	<<link $spaNameCaps>>
 		<<set $currentRule.assignFacility = "spa">>
 		<<set $currentRule.setAssignment = "none">>
-		<<set removeFromArray($currentRule.facility, "spa")>>
+		<<set $currentRule.facility.delete("spa")>>
 		<<if $currentRule.facility.length == 0>>
 			<<set $currentRule.excludeFacility.push("spa")>>
 			<<RAChangeExcludeFacility>>
@@ -1700,7 +1700,7 @@
 	<<link $clinicNameCaps>>
 		<<set $currentRule.assignFacility = "clinic">>
 		<<set $currentRule.setAssignment = "none">>
-		<<set removeFromArray($currentRule.facility, "clinic")>>
+		<<set $currentRule.facility.delete("clinic")>>
 		<<if $currentRule.facility.length == 0>>
 			<<set $currentRule.excludeFacility.push("clinic")>>
 			<<RAChangeExcludeFacility>>
@@ -1721,7 +1721,7 @@
 	<<link $cellblockNameCaps>>
 		<<set $currentRule.assignFacility = "cellblock">>
 		<<set $currentRule.setAssignment = "none">>
-		<<set removeFromArray($currentRule.facility, "cellblock")>>
+		<<set $currentRule.facility.delete("cellblock")>>
 		<<if $currentRule.facility.length == 0>>
 			<<set $currentRule.excludeFacility.push("cellblock")>>
 			<<RAChangeExcludeFacility>>
@@ -4502,7 +4502,7 @@ consequences.
 <<if !_exclude>>
 <<switch _currentRule.assignFacility>>
 <<case "hgsuite">>
-	<<if ($HGSuiteSlaves == 0) && ($args[0].indentureRestrictions <= 0) && ($args[0].assignment != "live with your Head Girl") && >>
+	<<if ($HGSuiteSlaves == 0) && ($args[0].indentureRestrictions <= 0) && ($args[0].assignment != "live with your Head Girl")>>
 		<br>$args[0].slaveName has been automatically assigned to live in your Head Girl's private suite.
 		<<if ($personalAttention == $args[0].ID)>>
 			$args[0].slaveName no longer has your personal attention; you plan to focus on business.
