@@ -209,6 +209,32 @@ __Rule $r Automatic Activation__
 	<<RAChangeSave>>
 	<<RAChangeApply>>
 <</link>>
+|
+<<link "Custom">>
+	<<set _customCondition = unparseExpr($currentRule.condition)>>
+	<<replace "#activation">>
+		(custom): <br>
+		<<textinput "_customCondition" _customCondition>>
+			<<RAChangeSave>>
+			<<RAChangeApply>>
+		<</textinput>>
+	<</replace>>
+	<<RAChangeSave>>
+	<<RAChangeApply>>
+<</link>>
+
+<<else>>
+	<<set _customCondition = unparseExpr($currentRule.condition)>>
+	<<timed 50ms>>
+	<<replace "#activation">>
+		(custom): <br>
+		//Sir, I'm afraid the condition you have given me is too complex to display in the usual interface.//
+		<<textinput "_customCondition" _customCondition>>
+			<<RAChangeSave>>
+			<<RAChangeApply>>
+		<</textinput>>
+	<</replace>>
+	<</timed>>
 <</if>>
 
 <br><br>

@@ -2418,6 +2418,19 @@ Relationship rules: ''$currentRule.relationshipRules.''
     <br><br>
     <<for _t = 0; _t < $defaultRules.length; _t++>>
         <<if ($args[0] == $defaultRules[_t].ID)>>
+            <<if (def _customCondition)>>
+                <<set _parsedCondition = parseCondition(_customCondition)>>
+                <<if (_parsedCondition.error)>>
+                    //There seems to be something wrong with the condition that you have given me sir,
+                    <br> <<print printError(_customCondition, _parsedCondition.error)>>
+                    <br> _parsedCondition.error.message//
+                    <br>
+                    <<break>>
+                <<else>>
+                    <<set $currentRule.condition = _parsedCondition.expr>>
+                <</if>>
+            <</if>>
+
             <<set $defaultRules[_t] = $currentRule>>
             //Rule $r saved//
             <<break>>
