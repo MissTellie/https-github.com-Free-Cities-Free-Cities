@@ -1,121 +1,139 @@
 :: RA widgets [widget nobr]
 
 /%
- Call as <<RAChangeActivation>>
-%/
+ % Call as <<RAChangeActivation>>
+ %/
 <<widget "RAChangeActivation">>
-
 <<replace #activation>>
-	<<print "($currentRule.activation):">>
-	<br>
-	<<if ($currentRule.activation != "none") && ($currentRule.activation != "always")>>
-		<span id="lower">
-			<<if ($currentRule.thresholdLower == "none")>>
-			(no lower limit)
-			<<else>>
-				<<if $currentRule.eqLower>>
-					When ''$currentRule.activation'' is
-					<<textbox "$currentRule.thresholdLower" $currentRule.thresholdLower>> ''or more''
-				<<else>>
-					When ''$currentRule.activation'' is ''more than''
-					<<textbox "$currentRule.thresholdLower" $currentRule.thresholdLower>>
-				<</if>>
-			<</if>>
-		</span>
 
-		<<link ">">>
-			<<set $currentRule.eqLower = false>>
-			<<replace "#lower">>
-				When ''$currentRule.activation'' is ''more than''
-				<<textbox "$currentRule.thresholdLower" $currentRule.thresholdLower>>
-			<</replace>>
-		<</link>>
-	 |
-		<<link ">=">>
-			<<set $currentRule.eqLower = true>>
-			<<replace "#lower">>
-				When ''$currentRule.activation'' is
-				<<textbox "$currentRule.thresholdLower" $currentRule.thresholdLower>> ''or more''
-			<</replace>>
-		<</link>>
-	 |
-		<<link "No lower limit">>
-			<<set $currentRule.thresholdLower = "none">>
-			<<replace "#lower">>
-				(no lower limit)
-			<</replace>>
-		<</link>>
+    <<if ($currentRule.condition.id === "true")>>
+        (always): <br> ''always.''
 
-		<br>and<br>
+    <<elseif ($currentRule.condition.id === "false")>>
+        (never): <br> ''never''
 
-		<span id="upper">
-			<<if ($currentRule.thresholdUpper == "none")>>
-				(no upper limit)
-			<<else>>
-				<<if $currentRule.eqUpper>>
-					When ''$currentRule.activation'' is
-					<<textbox "$currentRule.thresholdUpper" $currentRule.thresholdUpper>> ''or less''
-				<<else>>
-					When ''$currentRule.activation'' is ''less than''
-					<<textbox "$currentRule.thresholdUpper" $currentRule.thresholdUpper>>
-				<</if>>
-			<</if>>
-		</span>
+    <<else>>
+        <<set _activation = getVariable($currentRule.condition)>>
 
-		<<link "<">>
-			<<set $currentRule.eqUpper = false>>
-			<<replace "#upper">>
-				When ''$currentRule.activation'' is ''less than''
-				<<textbox "$currentRule.thresholdUpper" $currentRule.thresholdUpper>>
-			<</replace>>
-		<</link>>
-	 |
-		<<link "<=">>
-			<<set $currentRule.eqUpper = true>>
-			<<replace "#upper">>
-				When ''$currentRule.activation'' is
-				<<textbox "$currentRule.thresholdUpper" $currentRule.thresholdUpper>> ''or less''
-			<</replace>>
-		<</link>>
-	 |
-		<<link "No upper limit">>
-			<<set $currentRule.thresholdUpper = "none">>
-			<<replace "#upper">>
-				(no upper limit)
-			<</replace>>
-		<</link>>
+        (_activation): <br>
 
-		<<if ($currentRule.thresholdLower == "none") && ($currentRule.thresholdUpper == "none")>>
-			<<set $currentRule.activation = "always">>
-		<<elseif ($currentRule.thresholdLower != "none") && ($currentRule.thresholdUpper != "none")>>
-			<<if (def $currentRule.thresholdLower) && ($currentRule.thresholdLower > $currentRule.thresholdUpper)>>
-				<<set $currentRule.thresholdLower = $currentRule.thresholdUpper>>
-			<</if>>
-			<<if (def $currentRule.thresholdUpper) && ($currentRule.thresholdUpper < $currentRule.thresholdLower)>>
-				<<set $currentRule.thresholdUpper = $currentRule.thresholdLower>>
-			<</if>>
-		<</if>>
-	<</if>>
-	<<switch $currentRule.activation>>
-		<<case "none">>
-		''None.''
-		<<case "always">>
-		''Always.''
-		<<case "devotion">>
-		<br>@@.darkviolet;Very hateful@@: under -95, @@.darkviolet;Hateful@@: -95 to under -50, @@.mediumorchid;Resistant@@: -50 to under -20,
-		<br>@@.yellow;Ambivalent@@: -20 to 20, @@.hotpink;Accepting@@: over 20 to 50, @@.deeppink;Devoted@@: over 50 to 95, @@.magenta;Worshipful@@: over 95
-		<<case "trust">>
-		<br>@@.goldenrod;Extremely terrified@@: under -95, @@.goldenrod;Terrified@@: -95 to under -50, @@.gold;Frightened@@: -50 to under -20,
-		<br>@@.yellow;Fearful@@: -20 to 20, @@.mediumaquamarine;Careful@@: over 40 to 50, @@.mediumseagreen;Trusting@@: 50 to 95, @@.seagreen;Total trust@@: over 95
-		<<case "health">>
-		<br>@@.red;Death@@: under -100, @@.red;Near death@@: -100 to less than -90, @@.red;Extremely unhealthy@@: -90 to less than -50, @@.red;Unhealthy@@: -50 to less than -20 @@.green;Healthy@@: -20 to 20, @@.green;Very healthy@@: 20 to 50, @@.green;Extremely healthy@@: over 50 to 90, @@.green;Unnaturally healthy@@: over 90
-		<<case "sex drive">>
-		<br>@@.red;Frigid@@: 20 or under, @@.red;Poor@@: 21 to 40, @@.yellow;Average@@: 41 to 60, @@.green;Powerful@@: 61 to 80, @@.green;Sex addict@@: 81 to 99, @@.green;Nympho@@: 100
-		<<case "weight">>
-		<br>@@.red;Emaciated@@: under -95, @@.red;Skinny@@: -95 to less than -30, Thin: -30 to less than -10 Average weight: -10 to 10, Plush: over 10 to 30, @@.red;Fat@@: over 30 to 95, @@.red;Overweight@@: over 95
-		<<case "lactation">>
-		<br>// 0 - none, 1 - natural, 2 - lactation implant. //
-	<</switch>>
+        <<switch $currentRule.condition.id>>
+        <<case "<">>
+            When ''_activation'' is ''less than''
+            <<textbox "$currentRule.condition.second.value" $currentRule.condition.second.value>>
+        <<case "<=">>
+            When ''_activation'' is
+            <<textbox "$currentRule.condition.second.value" $currentRule.condition.second.value>> ''or less''
+
+        <<case ">" ">=">>
+            (no upper limit)
+
+        <<case "&&" "||">>
+            <<if $currentRule.condition.first.id == "<">>
+                When ''_activation'' is ''less than''
+                <<textbox "$currentRule.condition.first.second.value" $currentRule.condition.first.second.value>>
+            <<else>>
+                When ''_activation'' is
+                <<textbox "$currentRule.condition.first.second.value" $currentRule.condition.first.second.value>> ''or less''
+            <</if>>
+        <</switch>>
+
+        <<link "<">>
+            <<set $currentRule.condition = changeComparison($currentRule.condition, "<")>>
+            <<RAChangeActivation>>
+        <</link>>
+        |
+        <<link "&le;">>
+            <<set $currentRule.condition = changeComparison($currentRule.condition, "<=")>>
+            <<RAChangeActivation>>
+        <</link>>
+        |
+        <<link "no upper limit">>
+            <<set $currentRule.condition = removeComparison($currentRule.condition, "upper")>>
+            <<RAChangeActivation>>
+        <</link>>
+
+        <br>
+        <<switch $currentRule.condition.id>>
+        <<case "<" "<=" ">" ">=">>
+            and
+        <<case "&&">>
+            ''and''
+            |
+            <<link "or">>
+                <<set $currentRule.condition = changeConnective($currentRule.condition, "||")>>
+                <<RAChangeActivation>>
+            <</link>>
+        <<case "||">>
+            <<link "and">>
+                <<set $currentRule.condition = changeConnective($currentRule.condition, "&&")>>
+                <<RAChangeActivation>>
+            <</link>>
+            |
+            ''or''
+        <</switch>>
+        <br>
+
+        <<switch $currentRule.condition.id>>
+        <<case "<" "<=">>
+            (no lower limit)
+
+        <<case ">">>
+            When ''_activation'' is ''more than''
+            <<textbox "$currentRule.condition.second.value" $currentRule.condition.second.value>>
+        <<case ">=">>
+            When ''_activation'' is
+            <<textbox "$currentRule.condition.second.value" $currentRule.condition.second.value>> ''or more''
+
+        <<case "&&" "||">>
+            <<if ($currentRule.condition.second.id == ">")>>
+                When ''_activation'' is ''more than''
+                <<textbox "$currentRule.condition.second.second.value" $currentRule.condition.second.second.value>>
+            <<else>>
+                When ''_activation'' is
+                <<textbox "$currentRule.condition.second.second.value" $currentRule.condition.second.second.value>> ''or more''
+            <</if>>
+        <</switch>>
+
+        <<link ">">>
+            <<set $currentRule.condition = changeComparison($currentRule.condition, ">")>>
+            <<RAChangeActivation>>
+        <</link>>
+        |
+        <<link "&ge;">>
+            <<set $currentRule.condition = changeComparison($currentRule.condition, ">=")>>
+            <<RAChangeActivation>>
+        <</link>>
+        |
+        <<link "no lower limit">>
+            <<set $currentRule.condition = removeComparison($currentRule.condition, "lower")>>
+            <<RAChangeActivation>>
+        <</link>>
+
+        <<switch _activation>>
+        <<case "devotion">>
+            <br>@@.darkviolet;Very hateful@@: under -95, @@.darkviolet;Hateful@@: -95 to under -50, @@.mediumorchid;Resistant@@: -50 to under -20,
+            <br>@@.yellow;Ambivalent@@: -20 to 20, @@.hotpink;Accepting@@: over 20 to 50, @@.deeppink;Devoted@@: over 50 to 95, @@.magenta;Worshipful@@: over 95
+        <<case "trust">>
+            <br>@@.goldenrod;Extremely terrified@@: under -95, @@.goldenrod;Terrified@@: -95 to under -50, @@.gold;Frightened@@: -50 to under -20,
+            <br>@@.yellow;Fearful@@: -20 to 20, @@.mediumaquamarine;Careful@@: over 40 to 50, @@.mediumseagreen;Trusting@@: 50 to 95, @@.seagreen;Total trust@@: over 95
+        <<case "health">>
+            <br>@@.red;Death@@: under -100, @@.red;Near death@@: -100 to less than -90, @@.red;Extremely unhealthy@@: -90 to less than -50, @@.red;Unhealthy@@: -50 to less than -20
+            <br>@@.green;Healthy@@: -20 to 20, @@.green;Very healthy@@: 20 to 50, @@.green;Extremely healthy@@: over 50 to 90, @@.green;Unnaturally healthy@@: over 90
+        <<case "sexDrive">>
+            <br>@@.red;Frigid@@: 20 or under, @@.red;Poor@@: 21 to 40, @@.yellow;Average@@: 41 to 60, @@.green;Powerful@@: 61 to 80, @@.green;Sex addict@@: 81 to 99, @@.green;Nympho@@: 100
+        <<case "weight">>
+            <br>@@.red;Emaciated@@: under -95, @@.red;Skinny@@: -95 to less than -30,
+            <br>Thin: -30 to less than -10 Average weight: -10 to 10, Plush: over 10 to 30,
+            <br>@@.red;Fat@@: over 30 to 95, @@.red;Overweight@@: over 95
+        <<case "lactation">>
+            <br>// 0 - none, 1 - natural, 2 - lactation implant. //
+        <</switch>>
+
+        <br><br>
+        ''DEBUG'': <<print unparseExpr($currentRule.condition)>>
+
+    <</if>>
 <</replace>>
 <</widget>>
 
@@ -2391,72 +2409,63 @@ Relationship rules: ''$currentRule.relationshipRules.''
 <</replace>>
 <</widget>>
 
+
 /%
- Call as <<RAChangeSave>>
-%/
-<<widget "RAChangeSave">>
+ % Call as <<RASaveRule ruleID>>
+ %/
+<<widget "RASaveRule">>
 <<replace #saveresult>>
-	<br><br>
-	<<link _text>>
-		<<replace "#saveresult">>
-			<br><br>
-			<<for _t = 0; _t < $defaultRules.length; _t++>>
-				<<if $currentRule.ID == $defaultRules[_t].ID>>
-					<<if $currentRule.thresholdLower != "none">>
-						<<set $currentRule.thresholdLower = Number($currentRule.thresholdLower)>>
-					<</if>>
-					<<if $currentRule.thresholdUpper != "none">>
-						<<set $currentRule.thresholdUpper = Number($currentRule.thresholdUpper)>>
-					<</if>>
-					<<set $defaultRules[_t] = $currentRule>>
-					//Rule $r saved//
-					<<break>>
-				<</if>>
-			<</for>>
-		<</replace>>
-	<</link>>
+    <br><br>
+    <<for _t = 0; _t < $defaultRules.length; _t++>>
+        <<if ($args[0] == $defaultRules[_t].ID)>>
+            <<set $defaultRules[_t] = $currentRule>>
+            //Rule $r saved//
+            <<break>>
+        <</if>>
+    <</for>>
 <</replace>>
 <</widget>>
-/%
- Call as <<RAChangeApply>>
-%/
-<<widget "RAChangeApply">>
-<<replace #apply>>
-	<span id="applyresult">
-	<<link "Apply rules">>
-		<<set State.variables._parseFailed = false>>
-		<<replace "#saveresult">>
-			<br><br>
-			<<for _t = 0; _t < $defaultRules.length; _t++>>
-				<<if $currentRule.ID == $defaultRules[_t].ID>>
-					<<if $currentRule.thresholdLower != "none">>
-						<<set $currentRule.thresholdLower = Number($currentRule.thresholdLower)>>
-					<</if>>
-					<<if $currentRule.thresholdUpper != "none">>
-						<<set $currentRule.thresholdUpper = Number($currentRule.thresholdUpper)>>
-					<</if>>
-					<<set $defaultRules[_t] = $currentRule>>
-					//Rule $r saved//
-					<<break>>
-				<</if>>
-			<</for>>
-		<</replace>>
-		<<replace "#applied">>
-			<<for $i = 0; $i < $slaves.length; $i++>>
-				<<if $slaves[$i].useRulesAssistant == 1>> /* skip RA-exempt slaves */
-				  <<set $activeSlave = $slaves[$i]>>
-				  <<CheckAutoRulesActivate $activeSlave>> /* does not use or modify $currentRule */
-				  <<DefaultRules $activeSlave>> /* does not use or modify $currentRule */
-				<</if>>
-			<</for>>
-		<</replace>>
-		<<replace "#applyresult">>
-			//Rules applied.//<br>
-		<</replace>>
 
-	<</link>>
-	</span>
-	<span id="applied"></span>
+
+/%
+ % Call as <<RAChangeSave>>
+ %/
+<<widget "RAChangeSave">>
+<<replace #saveresult>>
+    <br><br>
+    <<link _text>>
+        <<RASaveRule $currentRule.ID>>
+    <</link>>
+<</replace>>
+<</widget>>
+
+
+/%
+ % Call as <<RAChangeApply>>
+ %/
+<<widget "RAChangeApply">>
+<<replace "#apply">>
+    <span id="applyresult">
+    <<link "Apply rules">>
+        <<RASaveRule $currentRule.ID>>
+        <<replace "#applied">>
+            <<for $i = 0; $i < $slaves.length; $i++>>
+                <<if (!$slaves[$i].useRulesAssistant)>> /* skip RA-exempt slaves */
+                    <<continue>>
+                <</if>>
+
+                <<set $activeSlave = $slaves[$i]>>
+                <<CheckAutoRulesActivate $activeSlave>> /* does not use or modify $currentRule */
+                <<DefaultRules $activeSlave>>           /* does not use or modify $currentRule */
+            <</for>>
+        <</replace>>
+
+        <<replace "#applyresult">>
+            //Rules applied.//<br>
+        <</replace>>
+    <</link>>
+    </span>
+    <span id="applied"></span>
 <</replace>>
 <</widget>>
 
@@ -4689,52 +4698,18 @@ consequences.
 <</widget>>
 
 /%
-	Call as <<CheckAutoRulesActivate SlaveObject>>
-	Does not use or modify $currentRule
-%/
+ % Call as <<CheckAutoRulesActivate SlaveObject>>
+ % Does not use or modify $currentRule
+ %/
 <<widget "CheckAutoRulesActivate">>
 	<<if (ndef $args[0].currentRules) || ($args[0].currentRules.length < 1)>>
 		<<set $args[0].currentRules = []>>
 	<</if>>
 
 	<<for _r = 0; _r < $defaultRules.length; _r++>>
-		<<set _currentRule = $defaultRules[_r], _rule = _r+1, _ruleAppliesToThisSlave = true>> /* starting assumption, to be tested below */
+		<<set _currentRule = $defaultRules[_r], _rule = _r+1>> /* starting assumption, to be tested below */
 
-		<<switch _currentRule.activation>> /* check activation conditions */
-
-			<<case "always">>
-				/* _ruleAppliesToThisSlave remains true, but still need to pass inclusion/exclusion checks below */
-			<<case "none">>
-					<<set _ruleAppliesToThisSlave = false>>
-			<<case "devotion">>
-				<<if !checkThresholds($args[0].devotion, _currentRule)>>
-					<<set _ruleAppliesToThisSlave = false>>
-				<</if>>
-			<<case "trust">>
-				<<if !checkThresholds($args[0].trust, _currentRule)>>
-					<<set _ruleAppliesToThisSlave = false>>
-				<</if>>
-			<<case "health">>
-				<<if !checkThresholds($args[0].health, _currentRule)>>
-					<<set _ruleAppliesToThisSlave = false>>
-				<</if>>
-			<<case "sex drive">> /* rule can only be applied if slave's sexuality is known */
-				<<if ($args[0].attrKnown == 0) || !checkThresholds($args[0].energy, _currentRule)>>
-					<<set _ruleAppliesToThisSlave = false>>
-				<</if>>
-			<<case "age">>
-				<<if !checkThresholds($args[0].age, _currentRule)>>
-					<<set _ruleAppliesToThisSlave = false>>
-				<</if>>
-			<<case "weight">>
-				<<if !checkThresholds($args[0].weight, _currentRule)>>
-					<<set _ruleAppliesToThisSlave = false>>
-				<</if>>
-			<<case "lactation">>
-				<<if !checkThresholds($args[0].lactation, _currentRule)>>
-					<<set _ruleAppliesToThisSlave = false>>
-				<</if>>
-		<</switch>> /* closes activation condition checks */
+		<<set _ruleAppliesToThisSlave = evalExpr(_currentRule.condition, $args[0])>>
 
 		<<if _ruleAppliesToThisSlave == true>> /* passed activation conditions check - next check inclusion/exclusion rules */
 			<<if   (def _currentRule.excludedSlaves && _currentRule.excludedSlaves.length > 0 && ruleSlaveExcluded($args[0], _currentRule))
