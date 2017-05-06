@@ -1866,9 +1866,8 @@ Assignment on removal: $currentRule.removalAssignment |
 %/
 <<widget "RAChangeClothes">>
 <<replace #clothes>>
-<<if $currentRule.choosesOwnClothes == 1>>
+<<if ($currentRule.clothes == "choosing her own clothes")>>
 	''slave's choice.''
-	<<set $currentRule.clothes = "choosing her own clothes">>
 <<else>>
 	''$currentRule.clothes.''
 <</if>>
@@ -3218,16 +3217,16 @@ Your brand design is ''$brandDesign.''
 <</if>>
 
 <<if (_currentRule.clothes !== "no default setting")>>
-<<if (_currentRule.choosesOwnClothes == 1)>>
- <<if ($args[0].choosesOwnClothes == 0)>>
-	<br>$args[0].slaveName is now allowed to choose her own clothes.
-	<<set $args[0].choosesOwnClothes = 1>>
+<<if (_currentRule.clothes == "choosing her own clothes")>>
+<<if ($args[0].choosesOwnClothes == 0)>>
 	<<set $args[0].clothes = "choosing her own clothes">>
-  <</if>>
+	<<set $args[0].choosesOwnClothes = 1>>
+	<br>$args[0].slaveName is now allowed to choose her own clothes.
+<</if>>
 <<elseif ($args[0].clothes !== _currentRule.clothes)>>
 	<<set $args[0].clothes = _currentRule.clothes>>
-	<br>$args[0].slaveName is now wearing $args[0].clothes.
 	<<set $args[0].choosesOwnClothes = 0>>
+	<br>$args[0].slaveName is now wearing $args[0].clothes.
 <</if>>
 <</if>>
 
