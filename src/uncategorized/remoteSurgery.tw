@@ -650,6 +650,16 @@ The fabricator has completed $possessive $activeOrgan.type.
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;
 		ERROR: this slave lacks the penis necessary to accept testicles.
 		<<link "Discard">><<for $i to 0; $i < $organs.length; $i++>><<if $activeSlave.ID == $organs[$i].ID>><<set $dump to $organs.pluck([$i], [$i])>><<break>><</if>><</for>><<goto "Remote Surgery">><</link>>
+		<br>You can forgo standard procedure and implant testicles directly into $possessive abdomen.
+		<<link "Implant">>
+			<<set $cash -= $surgeryCost>>
+			<<for $i to 0; $i < $organs.length; $i++>><<if $activeSlave.ID == $organs[$i].ID>><<set $dump to $organs.pluck([$i], [$i])>><<break>><</if>><</for>>
+			<<if $activeSlave.prostate > 1>><<set $activeSlave.prostate = 1>><</if>>
+			<<set $activeSlave.balls to 2>>
+			<<set $activeSlave.health -= 20>>
+			<<set $surgeryType = "addTesticles">>
+			<<goto "Surgery Degradation">>
+		<</link>>
 	<<else>>
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;
 		<<link "Implant">>
