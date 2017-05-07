@@ -695,32 +695,30 @@ window.mergeRules = function(rules) {
             //   * or it sets autoBrand,
             //   * or it sets setAssignment to something other that "none",
             //   * or it sets assignFacility to something other that "none",
-            //   * or it sets choosesOwnAssignment,
             //   * or it sets none of the above and is not "no default setting"
             var applies = (
                 combinedRule[attr] === undefined
                 || (attr === "autoBrand" && rules[i][attr])
                 || (attr === "setAssignment" && rules[i][attr] !== "none")
                 || (attr === "assignFacility" && rules[i][attr] !== "none")
-                || (attr === "choosesOwnAssignment" && rules[i][attr])
                 || (
                     attr !== "autoBrand"
                     && attr !== "setAssignment"
                     && attr !== "assignFacility"
-                    && attr !== "choosesOwnAssignment"
                     && rules[i][attr] !== "no default setting"
                 )
             );
 
-
             if (applies) {
-                if (attr == "setAssignment" && combinedRule.assignFacility !== "none")
+                if (attr == "setAssignment" && combinedRule.assignFacility !== "none") {
                     // If the rules so far have set assignFacility, unset it,
                     // since the assignment overrides it.  We assume that a
                     // given rule won't set both assignFacility and
                     // setAssignment.  If that happens, which one will prevail
                     // is down to the enumeration order of "for ... in".
                     combinedRule.assignFacility = "none";
+                    combinedRule.facilityRemove = false;
+                }
                 if (attr == "assignFacility" && combinedRule.setAssignment !== "none")
                     // Similarly, if setAssignment is set, unset it.
                     combinedRule.setAssignment = "none";
@@ -729,12 +727,6 @@ window.mergeRules = function(rules) {
             }
         }
     }
-
-    if (combinedRule.choosesOwnAssignment && combinedRule.setAssignment !== "none")
-        // These two are mutually exclusive.  Setting them both wouldn't hurt,
-        // setAssignment will override choosesOwnAssignment, but it leads to
-        // silly messages.
-        combinedRule.choosesOwnAssignment = 0;
 
     return combinedRule;
 }

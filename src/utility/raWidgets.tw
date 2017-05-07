@@ -1495,6 +1495,20 @@
 <<else>>
 	''Gloryhole''
 <</if>>
+|
+<<if ($currentRule.setAssignment != "choose her own job")>>
+	<<link "Let her choose herself">>
+		<<set $currentRule.setAssignment = "choose her own job">>
+		<<set $currentRule.assignFacility = "none">>
+		<<set $currentRule.facilityRemove = false>>
+		<<RAChangeSetAssignment>>
+		<<RAChangeAssignFacility>>
+		<<RAChangeSave>>
+		<<RAChangeApply>>
+	<</link>>
+<<else>>
+	''Let her choose herself''
+<</if>>
 <</replace>>
 <</widget>>
 
@@ -2222,30 +2236,6 @@ Assistant-applied implants:
 		<<set $currentRule.autoSurgery = 1>>
 		<<RAChangeAssistantImplants>>
 	<</link>>
-<</if>>
-<</replace>>
-<</widget>>
-
-/%
- Call as <<RAChangeAssignment>>
-%/
-<<widget "RAChangeAssignment">>
-<<replace #chooseassignment>>
-Assignments:
-
-<<if $currentRule.choosesOwnAssignment == 0>>
-  ''selected by the player.''
-
-<<link "Slave's choice">>
-	<<set $currentRule.choosesOwnAssignment = 1>>
-	<<RAChangeAssignment>>
-<</link>>
-<<else>>
-  ''selected by the slave.''
-<<link "Player control">>
-	<<set $currentRule.choosesOwnAssignment = 0>>
-	<<RAChangeAssignment>>
-<</link>>
 <</if>>
 <</replace>>
 <</widget>>
@@ -3402,31 +3392,20 @@ Your brand design is ''$brandDesign.''
     <</switch>>
 
     <<if (_currentRule.setAssignment !== "none")>>
-    <<if ($args[0].assignment !== _currentRule.setAssignment)>>
-        <br>$args[0].slaveName has been automatically assigned to _currentRule.setAssignment.
+    <<if (_currentRule.setAssignment == "choose her own job")>>
+        <<if ($args[0].choosesOwnAssignment == 0)>>
+            <<assignJob $args[0] _currentRule.setAssignment>>
+            <br>$args[0].slaveName is now allowed to select her own assignments.
+        <</if>>
+    <<elseif ($args[0].assignment !== _currentRule.setAssignment)>>
         <<assignJob $args[0] _currentRule.setAssignment>>
+        <br>$args[0].slaveName has been automatically assigned to _currentRule.setAssignment.
     <</if>>
     <</if>>
 
 <</for>>
 
 <<if $args[0].fuckdoll == 0>>
-
-<<if (_combinedRule.choosesOwnAssignment == 1)>>
-<<if ($args[0].choosesOwnAssignment == 0)>>
-<<if ($args[0].assignmentVisible == 1)>>
-<<if ($args[0].assignment != "recruit girls")>>
-<<if ($args[0].assignment != "be your Head Girl")>>
-<<if ($args[0].assignment != "guard you")>>
-	<br>$args[0].slaveName is now allowed to select her own assignments.
-	<<set $args[0].choosesOwnAssignment = 1>>
-	<<set $args[0].assignment = "choose her own job">>
-<</if>>
-<</if>>
-<</if>>
-<</if>>
-<</if>>
-<</if>>
 
 <<if (_combinedRule.clothes !== "no default setting")>>
 <<if (_combinedRule.clothes == "choosing her own clothes")>>
