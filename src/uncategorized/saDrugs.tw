@@ -193,7 +193,7 @@
 	<</if>>
 
 <<case "penis enhancement">>
-	<<if ($activeSlave.dick > 0)>>
+	<<if ($slaves[$i].dick > 0)>>
 		<<if (random(1,100) > (40-($injectionUpgrade*10)+($slaves[$i].dick*5))) && ($slaves[$i].dick < 10)>>
 		@@.lime;$possessiveCap cock grows painfully,@@ becoming both longer and girthier.
 		<<set $slaves[$i].dick += 1>>
