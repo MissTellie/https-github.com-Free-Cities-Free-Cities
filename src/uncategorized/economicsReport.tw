@@ -1,0 +1,38 @@
+:: Economics [nobr]
+
+<h1> <<print $arcologies[0].name + " Weekly Financial Report - Week " + $week>></h1>
+
+<<set $nextButton = "Continue", $nextLink = "Scheduled Event">>
+
+<<if $cash > -10000>>
+	<<set $debtWarned = 0>>
+<</if>>
+
+<<for $i = 0; $i < $slaves.length; $i++>>
+<<if $slaves[$i].health <= -100>>
+	<<set $activeSlave = $slaves[$i]>>
+	<<include "Remove activeSlave">>
+	<<set $i -= 1>>
+<</if>>
+<</for>>
+
+<<ApartmentEffects>>
+<<UpdateOwnership>>
+
+<<include "Markets Report">>
+
+<br><br>
+
+<<include "Neighbors Development">>
+
+<br><br>
+
+<<include "Personal Business">>
+
+<br><br>
+
+<<include "Reputation">>
+
+<br><br>
+
+<<include "Arcology Management">>
