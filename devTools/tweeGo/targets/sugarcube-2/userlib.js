@@ -753,59 +753,6 @@ window.lastButtSurgeryRule = function(slave, rules) {
 	return lastSurgeryRuleFor(slave, rules, "butt");
 };
 
-window.checkThresholds = function(number, rule) {
-	if (!rule) {
-		return null;
-	} else {
-		if ((rule.thresholdUpper != "none") && (rule.thresholdLower != "none")){
-			if (!rule.eqLower && !rule.eqUpper){
-				if((number < rule.thresholdUpper) && (number > rule.thresholdLower)){
-					return true;
-				}
-			}
-			else if (rule.eqLower && !rule.eqUpper){
-				if((number < rule.thresholdUpper) && (number >= rule.thresholdLower)){
-					return true;
-				}
-			}
-			else if (!rule.eqLower && rule.eqUpper){
-				if((number <= rule.thresholdUpper) && (number > rule.thresholdLower)){
-					return true;
-				}
-			}
-			else {
-				if((number <= rule.thresholdUpper) && (number >= rule.thresholdLower)){
-					return true;
-				}
-			}
-		}
-		else if (rule.thresholdUpper != "none"){
-			if (!rule.eqUpper) {
-				if(number < rule.thresholdUpper){
-					return true;
-				}
-			}
-			else{
-				if(number <= rule.thresholdUpper){
-					return true;
-				}
-			}
-		}
-		else if (rule.thresholdLower != "none"){
-			if (!rule.eqLower) {
-				if(number > rule.thresholdLower){
-					return true;
-				}
-			}
-			else{
-				if(number >= rule.thresholdLower){
-					return true;
-				}
-			}
-		}return false;
-	}
-};
-
 window.milkAmount = function(slave) {
 	var milk;
 	var calcs;
