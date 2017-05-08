@@ -120,7 +120,7 @@
         <<case "health">>
             <br>@@.red;Death@@: under -100, @@.red;Near death@@: -100 to less than -90, @@.red;Extremely unhealthy@@: -90 to less than -50, @@.red;Unhealthy@@: -50 to less than -20
             <br>@@.green;Healthy@@: -20 to 20, @@.green;Very healthy@@: 20 to 50, @@.green;Extremely healthy@@: over 50 to 90, @@.green;Unnaturally healthy@@: over 90
-        <<case "sexDrive">>
+        <<case "sex drive">>
             <br>@@.red;Frigid@@: 20 or under, @@.red;Poor@@: 21 to 40, @@.yellow;Average@@: 41 to 60, @@.green;Powerful@@: 61 to 80, @@.green;Sex addict@@: 81 to 99, @@.green;Nympho@@: 100
         <<case "weight">>
             <br>@@.red;Emaciated@@: under -95, @@.red;Skinny@@: -95 to less than -30,
@@ -129,10 +129,6 @@
         <<case "lactation">>
             <br>// 0 - none, 1 - natural, 2 - lactation implant. //
         <</switch>>
-
-        <br><br>
-        ''DEBUG'': <<print unparseExpr($currentRule.condition)>>
-
     <</if>>
 <</replace>>
 <</widget>>

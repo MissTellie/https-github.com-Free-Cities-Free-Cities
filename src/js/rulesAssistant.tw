@@ -48,9 +48,9 @@ window.getVariable = function(expr) {
     case "false":
         return "none";
     case "<": case "<=": case ">": case ">=":
-        return expr.first.name;
+        return expr.first.name === "energy" ? "sex drive" : expr.first.name;
     case "&&": case "||":
-        return expr.first.first.name;
+        return getVariable(expr.first);
     }
 }
 

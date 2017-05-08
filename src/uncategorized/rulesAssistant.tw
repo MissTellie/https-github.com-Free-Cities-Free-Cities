@@ -147,7 +147,7 @@
 __Rule $r Automatic Activation__
 <span id="activation"></span>
 
-<<if isSimpleCondition($currentRule.condition, ["devotion", "trust", "health", "sexDrive", "weight", "age"])>>
+<<if isSimpleCondition($currentRule.condition, ["devotion", "trust", "health", "energy", "weight", "age"])>>
 
 <<timed 50ms>>
     <<RAChangeActivation>>
@@ -190,7 +190,7 @@ __Rule $r Automatic Activation__
 <</link>>
 |
 <<link "Sex drive">>
-	<<set $currentRule.condition = changeVariable($currentRule.condition, "sexDrive")>>
+	<<set $currentRule.condition = changeVariable($currentRule.condition, "energy")>>
 	<<RAChangeActivation>>
 	<<RAChangeSave>>
 	<<RAChangeApply>>
