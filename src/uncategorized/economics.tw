@@ -14,7 +14,7 @@
 <</if>>
 <</for>>
 
-<<ApartmentEffects>>
+<<SectorCounts>>
 <<UpdateOwnership>>
 
 //FC Markets Report://
@@ -161,18 +161,18 @@ __Personal Business__
 		<</if>>
 	<</if>>
 <<elseif ($cash > 1000) && ($personalAttention == "business")>>
-	<<set $seed = random(1000,1500)>>
+	<<set _earnings = random(1000,1500)>>
 	<<if $PC.trading >= 100>>
 		You focus on business and leverage your @@.springgreen;venture capital experience@@ to make good money:
-		<<set $seed += random(500,1000)>>
+		<<set _earnings += random(500,1000)>>
 	<<elseif $PC.career == "arcology owner">>
 		You focus on business and leverage your @@.springgreen;Free Cities experience@@ to make good money:
-		<<set $seed += random(500,1000)>>
+		<<set _earnings += random(500,1000)>>
 	<<else>>
 		You focus on business this week and make money:
 	<</if>>
-	@@.yellowgreen;¤<<print ($seed+Math.trunc(Math.abs($cash)/40))>>.@@
-	<<set $cash += ($seed+Math.trunc(Math.abs($cash)/40))>>
+	@@.yellowgreen;¤<<print (_earnings+Math.trunc(Math.abs($cash)/40))>>.@@
+	<<set $cash += (_earnings+Math.trunc(Math.abs($cash)/40))>>
 	<<if $arcologies[0].FSRomanRevivalist != "unset">>
 		Society @@.green;approves@@ of your close attention to your own affairs; this advances your image as a <<if def $PC.customTitle>>$PC.customTitle<<elseif $PC.title == 1>>well-rounded Roman man<<else>>responsible Roman lady<</if>>.
 		<<FSChange "RomanRevivalist" 2>>
@@ -323,23 +323,23 @@ Routine upkeep of your demesne costs @@.yellow;¤$costs.@@
 <<if $weatherToday.severity-$weatherCladding > 2>>
 	<<set $weatherAwareness = 1>>
 	<<if $weatherCladding == 1>>
-	<<set $seed = Math.trunc((($weatherToday.severity-3)*($arcologies[0].prosperity*random(50,100)))+random(1,100))>>
-	$arcologies[0].name's hardened exterior only partially resisted the extreme weather this week, and it requires repairs costing @@.yellow;¤$seed.@@ Your citizens are @@.green;grateful@@ to you for upgrading $arcologies[0].name to provide a safe haven from the terrible climate.
+	<<set _damage = Math.trunc((($weatherToday.severity-3)*($arcologies[0].prosperity*random(50,100)))+random(1,100))>>
+	$arcologies[0].name's hardened exterior only partially resisted the extreme weather this week, and it requires repairs costing @@.yellow;¤_damage.@@ Your citizens are @@.green;grateful@@ to you for upgrading $arcologies[0].name to provide a safe haven from the terrible climate.
 	<<set $rep += 100>>
 	<<else>>
-	<<set $seed = Math.trunc((($weatherToday.severity-2)*($arcologies[0].prosperity*random(50,100)))+random(1,100))>>
-	Severe weather damaged the arcology this week, requiring repairs costing @@.yellow;¤$seed.@@ Your citizens are @@.red;unhappy@@ that the arcology has proven vulnerable to the terrible climate.
+	<<set _damage = Math.trunc((($weatherToday.severity-2)*($arcologies[0].prosperity*random(50,100)))+random(1,100))>>
+	Severe weather damaged the arcology this week, requiring repairs costing @@.yellow;¤_damage.@@ Your citizens are @@.red;unhappy@@ that the arcology has proven vulnerable to the terrible climate.
 	<<set $rep -= 100>>
 	<</if>>
 	<<if $cash > 0>>
-	<<set $cash -= $seed>>
+	<<set $cash -= _damage>>
 	<<else>>
 	Since you lack the resources to effect prompt repairs yourself, prominent citizens step in to repair their own parts of the arcology. This is @@.red;terrible for your reputation,@@ and it also @@.red;severely reduces the arcology's prosperity.@@
 	<<if $arcologies[0].prosperity > 50>>
 		<<set $arcologies[0].prosperity -= random(5,10)>>
 	<</if>>
 	<<set $rep = Math.trunc($rep*0.8)>>
-	<<set $cash -= Math.trunc($seed/4)>>
+	<<set $cash -= Math.trunc(_damage/4)>>
 	<</if>>
 <<elseif $weatherToday.severity-$weatherCladding == 2>>
 	<<if $weatherCladding == 1>>
@@ -354,7 +354,7 @@ Routine upkeep of your demesne costs @@.yellow;¤$costs.@@
 
 <br>
 
-<<set $seed = random(1,100)>>
+<<set _roll = random(1,100)>>
 <<if $arcologies[0].FSRomanRevivalist > random(1,150)>>
 	<<if $slaveCostFactor > 0.6>>
 	@@.yellow;Your Roman Revivalism is having an effect on the slave market and has driven local prices down@@ by convincing slave traders that this is a staunchly pro-slavery area.<br>
@@ -368,7 +368,7 @@ Routine upkeep of your demesne costs @@.yellow;¤$costs.@@
 <<elseif ($slaveCostFactor < 0.7)>>
 	@@.yellow;Natural market forces drive the very low price of slaves up.@@<br>
 	<<set $slaveCostFactor += 0.2>>
-<<elseif ($seed > 30)>>
+<<elseif (_roll > 30)>>
 	<<if ($slaveCostFactor > 1)>>
 		@@.yellow;Natural market forces drive the high price of slaves slowly down.@@<br>
 		<<set $slaveCostFactor -= 0.1>>
@@ -376,10 +376,10 @@ Routine upkeep of your demesne costs @@.yellow;¤$costs.@@
 		@@.yellow;Natural market forces drive the low price of slaves slowly up.@@<br>
 		<<set $slaveCostFactor += 0.1>>
 	<<else>>
-		<<if $seed > 80>>
+		<<if _roll > 80>>
 		@@.yellow;The price of slaves has naturally risen slightly.@@<br>
 		<<set $slaveCostFactor += 0.1>>
-	<<elseif $seed > 60>>
+	<<elseif _roll > 60>>
 		@@.yellow;The price of slaves has naturally fallen slightly.@@<br>
 		<<set $slaveCostFactor -= 0.1>>
 	<</if>>
@@ -642,11 +642,11 @@ On formal occasions, you are announced as $PCTitle.
 		<<FSChange "EgyptianRevivalist" -2>>
 	<</if>>
 <<elseif $arcologies[0].FSEdoRevivalist != "unset">>
-	<<set $seed = Math.trunc($rep/5000)>>
-	<<if $publicServants < $seed>>
+	<<set _threshold = Math.trunc($rep/5000)>>
+	<<if $publicServants < _threshold>>
 		Society @@.red;disapproves@@ of your failure to provide for cultural development by offering public servants or club slaves in a number that befits your reputation.
 		<<FSChange "EdoRevivalist" -2>>
-	<<elseif $publicServants > $seed>>
+	<<elseif $publicServants > _threshold>>
 		Society @@.green;approves@@ of your provision for cultural development by offering public servants and club slaves in a number that befits your reputation.
 		<<FSChange "EdoRevivalist" 2>>
 	<</if>>
@@ -764,134 +764,121 @@ On formal occasions, you are announced as $PCTitle.
 __Arcology Management__
 <br>
 
-<<if $ASlaves < 100>>
-	<<set $ASlaves = random(90,110)>>
-<<else>>
-	<<set $ASlaves += random(-10,10)>>
-<</if>>
-<<set $ACitizens += random(-10,10)>>
-
-<<if $ProImmigrationRep == 1>>
-	<<if $ACitizens < $ACitizenLimit>>
-		Your welcome program for new citizens helps encourage wealthy people from the old world to immigrate, but @@.red;annoys some longstanding citizens.@@
-		<<set $ACitizens += random(10,20)>>
-		<<set $rep -= 100>>
-	<</if>>
-<<elseif $AntiImmigrationCash == 1>>
-	<<if $ACitizens > 100>>
-		You covertly @@.yellowgreen;sell@@ the private information of potential arcology immigrants on the old world black market.
-		<<set $cash += random(500,1500)>>
-		<<set $ACitizens -= random(5,15)>>
-	<</if>>
-<</if>>
-<<if $ProImmigrationCash == 1>>
-	<<if $ACitizens < $ACitizenLimit>>
-		The rent promotion for new immigrants brings new citizens to the arcology.
-		<<set $ACitizens += random(10,20)>>
-	<</if>>
-<<elseif $AntiImmigrationRep == 1>>
-	<<if $ACitizens > 100>>
-		You allow citizens input on potential immigrants, a @@.green;popular@@ program.
-		<<set $rep += 100>>
-		<<set $ACitizens -= random(5,15)>>
-	<</if>>
-<</if>>
-
-<<set $seed = random(20,40)>>
+<<set _flux = random(20,40)>>
 <<if $arcologies[0].FSPaternalist != "unset">>
 	Poor citizens can rely on their better-off peers in $arcologies[0].name.
-	<<set $seed -= Math.trunc($arcologies[0].FSPaternalist/10)>>
+	<<set _flux -= Math.trunc($arcologies[0].FSPaternalist/10)>>
 <<elseif $arcologies[0].FSDegradationist != "unset">>
 	The arcology is a cutthroat place in which falling into slavery is very easy.
-	<<set $seed += Math.trunc($arcologies[0].FSDegradationist/10)>>
+	<<set _flux += Math.trunc($arcologies[0].FSDegradationist/10)>>
 <</if>>
 <<if $arcologies[0].FSEgyptianRevivalist != "unset">>
 	Egyptian Revivalism is benevolent in some ways, and charity is common here.
-	<<set $seed -= Math.trunc($arcologies[0].FSEgyptianRevivalist/10)>>
+	<<set _flux -= Math.trunc($arcologies[0].FSEgyptianRevivalist/10)>>
 <<elseif $arcologies[0].FSRomanRevivalist != "unset">>
 	Your citizens take pride in looking after each other.
-	<<set $seed -= Math.trunc($arcologies[0].FSRomanRevivalist/10)>>
+	<<set _flux -= Math.trunc($arcologies[0].FSRomanRevivalist/10)>>
 <</if>>
 <<if $arcologies[0].FSChattelReligionist != "unset">>
 	Chattel Religionism helps some poor citizens see slavery as a spiritually pure fate.
-	<<set $seed += Math.trunc($arcologies[0].FSChattelReligionist/10)>>
+	<<set _flux += Math.trunc($arcologies[0].FSChattelReligionist/10)>>
 <<elseif $arcologies[0].FSNull != "unset">>
 	Your arcology's vibrant, open culture helps everyone succeed, preventing many struggling citizens from falling into slavery.
-	<<set $seed -= Math.trunc($arcologies[0].FSNull/5)>>
+	<<set _flux -= Math.trunc($arcologies[0].FSNull/5)>>
 <</if>>
 <<if $arcologies[0].FSPastoralist != "unset">>
 	The pastoralization of $arcologies[0].name helps concentrate wealth in the hands of a few.
-	<<set $seed += Math.trunc($arcologies[0].FSPastoralist/10)>>
+	<<set _flux += Math.trunc($arcologies[0].FSPastoralist/10)>>
 <</if>>
 <<if $AntiEnslavementCash == 1>>
 	Your charity purse prevents a few citizens from falling into slavery.
-	<<set $seed -= 10>>
+	<<set _flux -= 10>>
 <<elseif $ProEnslavementCash == 1>>
 	You @@.yellowgreen;take kickbacks@@ for ignoring enslavement of citizens.
-	<<set $seed += 10>>
+	<<set _flux += 10>>
 	<<set $cash += random(500,1500)>>
 <</if>>
 <<if $AntiEnslavementRep == 1>>
 	You use your personal influence to help struggling citizens.
-	<<set $seed -= 10>>
-	<<set $rep -= 100>>
+	<<set _flux -= 10, $rep -= 100>>
 <<elseif $ProEnslavementRep == 1>>
 	You @@.green;make friends@@ by tacitly supporting enslavement of upstart citizens.
-	<<set $seed += 10>>
-	<<set $rep += 100>>
+	<<set _flux += 10, $rep += 100>>
 <</if>>
-<<if $seed < 0>>
-	<<if $ACitizens < $ASlaves*5>>
-		<<if $ACitizens > 100>>
-			<<set $ACitizens -= $seed>>
-		<</if>>
-		<<set $ASlaves += $seed>>
+<<set $ACitizens -= _flux, $ASlaves += _flux>>
+This week, <<if _flux > 0>>few or no<<else>>many<</if>> of $arcology[0].name's citizens fell into slavery.
+
+<<if $ACitizens < $ACitizenLimit>>
+	<<if $AntiImmigrationCash == 1>>
+		You covertly @@.yellowgreen;sell@@ the private information of potential arcology immigrants on the old world black market.
+		<<set $cash += random(500,1500), $ACitizens -= random(5,15)>>
 	<</if>>
-<<else>>
-	<<if $ACitizens > $ASlaves*0.1>>
-		<<if $ACitizens > 100>>
-			<<set $ACitizens -= $seed>>
-		<</if>>
-		<<set $ASlaves += $seed>>
+	<<if $AntiImmigrationRep == 1>>
+		You allow citizens input on potential immigrants, a @@.green;popular@@ program.
+		<<set $rep += 100, $ACitizens -= random(5,15)>>
 	<</if>>
 <</if>>
 
 <<if $ACitizens >= $ACitizenLimit>>
 	<<set $ACitizens = $ACitizenLimit>>
 	Your arcology is currently home to as many citizens as it can house; unless the living areas are reconfigured, the citizen population will not increase.
-<<elseif $ACitizens <= 100>>
-	<<set $ACitizens = 100>>
-	Your arcology is home to an extremely small number of very wealthy citizens; wealth is as concentrated as possible and the citizen population will not decrease further.
-<<elseif $ACitizens < $ACitizenLimit*0.6>>
-	<<set $ACitizens += random(10,20)>>
-	The availability of a large number of apartments encourages many new citizens to immigrate.
+<<else>>
+	<<set $ACitizens += random(-10,10)>>
+	<<if $ProImmigrationRep == 1>>
+		Your welcome program for new citizens helps encourage wealthy people from the old world to immigrate, but @@.red;annoys some longstanding citizens.@@
+		<<set $ACitizens += random(10,20), $rep -= 100>>
+	<</if>>
+	<<if $ProImmigrationCash == 1>>
+		The rent promotion for new immigrants brings new citizens to the arcology.
+		<<set $ACitizens += random(10,20)>>
+	<</if>>
+	<<if $ACitizens < $ACitizenLimit*0.6>>
+		The availability of a large number of apartments encourages many new citizens to immigrate.
+		<<set $ACitizens += random(10,20)>>
+	<</if>>
+	<<if $ACitizens <= 100>>
+		Your arcology is home to an extremely small number of very wealthy citizens; wealth is as concentrated as possible and the citizen population will not decrease further.
+		<<set $ACitizens = 100>>
+	<</if>>
+<</if>>
+
+<<if $ASlaves >= $ASlaveLimit>>
+	<<set $ASlaves = $ASlaveLimit>>
+	The living areas of the arcology are packed with sex slaves; your citizens cannot find space for any more.
+<<else>>
+	<<set $ASlaves -= random(1,10)+Math.trunc(10*(1-$slaveCostFactor))>>
+	<<if $slaveCostFactor >= 1.2>>
+		With the price of slaves so high, some of your citizens make money by selling a few of their girls.
+	<<elseif $slaveCostFactor <= 0.8>>
+		With the price of slaves so low, some of your citizens gratify themselves with new purchases.
+	<</if>>
+	<<if $ASlaves < $ASlaveLimit*0.8>>
+		<<if $ASlaves < $ASlaveLimit*0.6>>
+			Since there's a lot of space for sex slaves in the living areas, it's fashionable for your citizens to buy up cheap girls and fill their apartments.
+			<<set $ASlaves += random(1,10)+Math.trunc($arcologies[0].prosperity/5)>>
+		<<else>>
+			Since the living areas can comfortably house more sex slaves, it's fashionable for your citizens to buy more girls.
+			<<set $ASlaves += random(1,10)+Math.trunc($arcologies[0].prosperity/10)>>
+		<</if>>
+		<<if $arcologies[0].prosperity > 200>>
+			$arcologies[0].name is extremely prosperous, and they can afford to buy many of the best.
+		<<elseif $arcologies[0].prosperity > 100>>
+			$arcologies[0].name is quite prosperous, and they can afford to buy many pretty slaves.
+		<</if>>
+	<</if>>
+	<<if $ASlaves <= 4000>><<set $ASlaves = 4000>><</if>>
 <</if>>
 
 $ACitizens citizens and <<print $ASlaves+$helots+$slaves.length>> slaves now live in your arcology.
-<<if $arcologies[0].FSSupremacistLawME == 1>>The citizenry is entirely $arcologies[0].FSSupremacistRace.<</if>>
-<<if $arcologies[0].FSRomanRevivalistLaw == 1>>The citizens take pride in their martial duties, preferring to wear utilitarian clothing even when off duty.<</if>>
-<<if $arcologies[0].FSGenderRadicalistLaw == 1>>Every single one of the slaves is female by virtue of her fuckable asshole.
-<<elseif $arcologies[0].FSGenderFundamentalistSMR == 1>>Almost every citizen is an upstanding man, while the slave population is almost completely female.<</if>>
-<<if $arcologies[0].FSEgyptianRevivalistLaw == 1>>Close relationships between citizens and slaves, especially slave siblings, are common.<</if>>
-<<if $arcologies[0].FSSubjugationistLawME == 1>>$arcologies[0].FSSubjugationistRace subhumans form a majority of the slaves.<</if>>
-<<if $arcologies[0].FSChattelReligionistLaw == 1>>The slave population as a whole is unusually accepting of its station.<</if>>
-<<if $arcologies[0].FSPaternalistLaw == 1>>The slaves are well cared for, and it can sometimes be difficult to tell slaves from citizens.
-<<elseif $arcologies[0].FSDegradationistLaw == 1>>Most of the slaves are recent captures, since the vicious society that's taken root here uses people up quickly.<</if>>
-<<if $arcologies[0].FSBodyPuristLaw == 1>>The average slave is quite healthy.
-<<elseif $arcologies[0].FSTransformationFetishistLaw == 1>>Breast implants are almost universal; a D cup bust is below average among the slave population.<</if>>
-<<if $arcologies[0].FSSlimnessEnthusiastSMR == 1>>Most of the slave population is quite slim and physically fit.
-<<elseif $arcologies[0].FSAssetExpansionistSMR == 1>>The arcology's consumption of pharmaceuticals is impressive, since slave growth hormones are nearly ubiquitous.<</if>>
-<<if $arcologies[0].FSPastoralistLaw == 1>>Much of the menial slave labor force works to service the arcology's hundreds of human cattle.<</if>>
-<<if $arcologies[0].FSPhysicalIdealistSMR == 1>>The arcology must import a very large quantity of nutritive protein to nourish its slaves.<</if>>
 
 <<if $ACitizens > $ASlaves*2>>
-	Since most citizens cannot afford their own sex slaves, @@.yellowgreen;demand for sexual services is intense.@@
+	Since most citizens do not own sex slaves, @@.yellowgreen;demand for sexual services is intense.@@
 <<elseif $ACitizens > $ASlaves>>
-	Since many citizens cannot afford their own sex slaves, @@.yellowgreen;demand for sexual services is healthy.@@
+	Since many citizens do not own sex slaves, @@.yellowgreen;demand for sexual services is healthy.@@
 <<elseif $ACitizens > $ASlaves*0.5>>
-	Since many citizens can afford to keep a sex slave, @@.yellow;demand for sexual services is only moderate.@@
+	Since many citizens keep a personal sex slave, @@.yellow;demand for sexual services is only moderate.@@
 <<elseif $ACitizens > $ASlaves*0.25>>
-	Since most citizens can afford to keep at least one sex slave, @@.gold;local demand for sexual services is low,@@ though visitors to the arcology will always keep it above a certain minimum.
+	Since most citizens keep at least one sex slave, @@.gold;local demand for sexual services is low,@@ though visitors to the arcology will always keep it above a certain minimum.
 <<else>>
 	Since most of your citizens now keep private harems of sex slaves, @@.gold;local demand for sexual services is very low,@@ though visitors to the arcology will always keep it above a certain minimum.
 <</if>>
@@ -945,56 +932,54 @@ This week, rents from $arcologies[0].name came to
 <</if>>
 
 <<if $helots+$menialBioreactors+$fuckdolls > 0>>
-<<set $seed = 0>>
+<<set _earnings = 0>>
 You own
 <<if $helots > 0>>
-	<<set $seed += Math.trunc($helots*(random(90,110)/100)*20)>>
-	<<if $helots > 1>>
-	$helots menial slaves<<if ($menialBioreactors > 0) && ($fuckdolls == 0)>> and<<else>>,<</if>>
-	<<else>>
-	one menial slave<<if ($menialBioreactors > 0) && ($fuckdolls == 0)>> and<<else>>,<</if>>
+	<<set _earnings += $helots*10>>
+	<<if $Sweatshops > 0>>
+		<<if $Sweatshops*500 < $helots>>
+			<<set _earnings += $helots*10>>
+		<<else>>
+			<<set _earnings += $Sweatshops*2000>>
+		<</if>>
 	<</if>>
+	<<if $helots > 1>>$helots menial slaves<<if ($menialBioreactors > 0) && ($fuckdolls == 0)>> and<<else>>,<</if>><<else>>one menial slave<<if ($menialBioreactors > 0) && ($fuckdolls == 0)>> and<<else>>,<</if>><</if>>
 <</if>>
 <<if $menialBioreactors > 0>>
-	<<set $seed += Math.trunc($menialBioreactors*(random(90,110)/100)*(15+(10*$arcologies[0].FSPastoralistLaw)))>>
-	<<if $menialBioreactors > 1>>
-	$menialBioreactors standard bioreactors,
-	<<else>>
-	one standard bioreactor,
-	<</if>>
+	<<set _earnings += $menialBioreactors*(10+(10*$arcologies[0].FSPastoralistLaw))>>
+	<<if $dairy>><<if $dairyUpgradeMenials>><<set _earnings += $menialBioreactors*5>><</if>><</if>>
+	<<if $menialBioreactors > 1>>$menialBioreactors standard bioreactors,<<else>>one standard bioreactor,<</if>>
 	<<if $fuckdolls > 0>>and<</if>>
 <</if>>
 <<if $fuckdolls > 0>>
-	<<set $seed += Math.trunc($fuckdolls*(random(90,110)/100)*(25+(10*$arcologies[0].FSDegradationistLaw)))>>
-	<<if $fuckdolls > 1>>
-	$fuckdolls standard fuckdolls,
-	<<else>>
-	one fuckdoll,
-	<</if>>
+	<<set _earnings += $fuckdolls*(15+(10*$arcologies[0].FSDegradationistLaw))>>
+	<<if $arcade>><<if $arcadeUpgradeMenials>><<set _earnings += $fuckdolls*5>><</if>><</if>>
+	<<if $fuckdolls > 1>>$fuckdolls standard fuckdolls,<<else>>one fuckdoll,<</if>>
 <</if>>
-<<set $cash += $seed>>
-earning you @@.yellowgreen;¤$seed.@@
+<<set _earnings += random(1,10)>>
+<<set $cash += _earnings>>
+earning you @@.yellowgreen;¤_earnings.@@
 <</if>>
 
-<<set $seed = 0>>
+<<set _refugees = 0>>
 <<if $terrain == "urban">>
-	<<set $seed += random(0,5)>>
+	<<set _refugees += random(0,5)>>
 <<elseif $terrain == "rural">>
-	<<set $seed += random(0,3)>>
+	<<set _refugees += random(0,3)>>
 <<elseif $terrain == "marine">>
-	<<set $seed += random(0,1)>>
+	<<set _refugees += random(0,1)>>
 <</if>>
 <<if $ProRefugees == 1>>
-	<<set $seed += random(0,1)>>
+	<<set _refugees += random(0,1)>>
 <</if>>
 <<for $i = 0; $i < 3; $i++>>
 	<<if $rep > random(0,30000)>>
-	<<set $seed += 1>>
+	<<set _refugees += 1>>
 	<</if>>
 <</for>>
-<<if $seed > 0>>
-	Some desperate people filtered into the arcology during the week: as owner, you were able to enslave $seed of them.
-	<<set $helots += $seed>>
+<<if _refugees > 0>>
+	Some desperate people filtered into the arcology during the week: as owner, you were able to enslave _refugees of them.
+	<<set $helots += _refugees>>
 <</if>>
 
 <<set _AWeekGrowth = $AGrowth>>
@@ -1274,36 +1259,36 @@ The Futanari Sisters have a <<if $TFS.schoolProsperity > 4>>very prosperous<<els
 
 <<if $marketAssistantLimit != 0>>
 <<silently>><<MenialPopCap>><</silently>>
-<<set $seed = Math.clamp($slaveCostFactor*1000, 500, 1500)>>
+<<set _price = Math.clamp($slaveCostFactor*1000, 500, 1500)>>
 <br>
 Your ''business assistant'' manages the menial slave market.
-<<if $seed <= 800+$marketAssistantAggressiveness>>/* BUY */
+<<if _price <= 800+$marketAssistantAggressiveness>>/* BUY */
 	<<if $helots+$fuckdolls+$menialBioreactors >= $PopCap>>
 	There is no room in the parts of your arcology you own for more menial slaves.
 	<<else>>
-		<<if $cash > $marketAssistantLimit+$seed>>
+		<<if $cash > $marketAssistantLimit+_price>>
 			<<if $assistant == 0>>It<<else>>She<</if>> acquires more chattel, since it's a buyers' market.
 			<<if ($arcologies[0].FSPastoralist != "unset") && ($arcologies[0].FSPaternalist == "unset")>>
-				<<set $menialBioreactors += Math.trunc(($cash-$marketAssistantLimit)/($seed-100)), $cash -= Math.trunc(($cash-$marketAssistantLimit)/($seed-100))*($seed-100)>>
+				<<set $menialBioreactors += Math.trunc(($cash-$marketAssistantLimit)/(_price-100)), $cash -= Math.trunc(($cash-$marketAssistantLimit)/(_price-100))*(_price-100)>>
 			<<elseif ($arcologies[0].FSDegradationist != "unset")>>
-				<<set $fuckdolls += Math.trunc(($cash-$marketAssistantLimit)/($seed*2)), $cash -= Math.trunc(($cash-$marketAssistantLimit)/($seed*2))*($seed*2)>>
+				<<set $fuckdolls += Math.trunc(($cash-$marketAssistantLimit)/(_price*2)), $cash -= Math.trunc(($cash-$marketAssistantLimit)/(_price*2))*(_price*2)>>
 			<<else>>
-				<<set $helots += Math.trunc(($cash-$marketAssistantLimit)/($seed)), $cash -= Math.trunc(($cash-$marketAssistantLimit)/($seed))*($seed)>>
+				<<set $helots += Math.trunc(($cash-$marketAssistantLimit)/(_price)), $cash -= Math.trunc(($cash-$marketAssistantLimit)/(_price))*(_price)>>
 			<</if>>
 		<</if>>
 	<</if>>
-<<elseif $seed >= 1200-$marketAssistantAggressiveness>>/* SELL */
+<<elseif _price >= 1200-$marketAssistantAggressiveness>>/* SELL */
 	<<if $helots+$fuckdolls+$menialBioreactors > 0>>
 		<<if $assistant == 0>>It<<else>>She<</if>> liquidates your chattel holdings, since it's a sellers' market.
 	<</if>>
 	<<if $helots > 0>>
-		<<set $cash+=$helots*($seed),$helots = 0>>
+		<<set $cash+=$helots*(_price),$helots = 0>>
 	<</if>>
 	<<if $fuckdolls > 0>>
-		<<set $cash+=$fuckdolls*($seed),$fuckdolls = 0>>
+		<<set $cash+=$fuckdolls*(_price),$fuckdolls = 0>>
 	<</if>>
 	<<if $menialBioreactors > 0>>
-		<<set $cash+=$menialBioreactors*($seed),$menialBioreactors = 0>>
+		<<set $cash+=$menialBioreactors*(_price),$menialBioreactors = 0>>
 	<</if>>
 <<else>>
 	Prices are average, so <<if $assistant == 0>>it<<else>>she<</if>> does not make any significant moves.
