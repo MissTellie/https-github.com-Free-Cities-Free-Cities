@@ -1108,7 +1108,7 @@ Slaves can have various ''skin distinctions,'' including freckles, heavy freckli
 <<case "Lips">>\
 Slaves' ''lips'' contribute to beauty. At very large sizes, they will alter dialog, though this has no mechanical effect. They can be enlarged with targeted growth hormones or surgery, but such surgery can reduce [[Oral skill|Encyclopedia][$encyclopedia = "Oral Skill"]].
 <<case "Nipples">>\
-Slaves' ''nipples'' have varying effects, depending on their shape. Tiny nipples have a negative effect on beauty, puffy and inverted nipples improve it, huge nipples improve it more strongly, and all others have no effect. Inverted and partially inverted nipples can be permanently protruded by nipple piercings or milking: this is uncomfortable, and will reduce [[Devotion|Encyclopedia][$encyclopedia = "Devotion"]] unless the slave is a [[Masochist|Encyclopedia][$encyclopedia = "Masochist"]].  Tiny nipples can be enlarged with [[XX hormones|Encyclopedia][$encyclopedia = "Hormones (XX)"]], huge nipples can be reduced with [[XY hormones|Encyclopedia][$encyclopedia = "Hormones (XY)"]], breast growth hormones will grow and may invert nipples, and breast implantation may damage nipples enough to shrink them slightly.
+Slaves' ''nipples'' have varying effects, depending on their shape. Tiny nipples have a negative effect on beauty, puffy and inverted nipples improve it, huge nipples improve it more strongly, and all others have no effect. Inverted and partially inverted nipples can be permanently protruded by nipple piercings or milking: this is uncomfortable, and will reduce [[Devotion|Encyclopedia][$encyclopedia = "Devotion"]] unless the slave is a [[Masochist|Encyclopedia][$encyclopedia = "Masochists"]].  Tiny nipples can be enlarged with [[XX hormones|Encyclopedia][$encyclopedia = "Hormones (XX)"]], huge nipples can be reduced with [[XY hormones|Encyclopedia][$encyclopedia = "Hormones (XY)"]], breast growth hormones will grow and may invert nipples, and breast implantation may damage nipples enough to shrink them slightly.
 <<case "Breasts">>\
 Slaves' ''breasts'' contribute to beauty. They can be enlarged with [[XX hormones|Encyclopedia][$encyclopedia = "Hormones (XX)"]], intense [[Lactation|Encyclopedia][$encyclopedia = "Lactation"]], weight gain, or surgery (which [[Boob fetishists|Encyclopedia][$encyclopedia = "Boob Fetishists"]] will be grateful for).
 <<case "Weight">>\
@@ -1684,6 +1684,14 @@ At the beginning of the game, the lingua franca of the arcology will be determin
 &nbsp;&nbsp;&nbsp;&nbsp;@@.red;Low@@ access to refugees and other desperate people.
 &nbsp;&nbsp;&nbsp;&nbsp;@@.green;High@@ cultural independence.
 \
+<<case "Oceanic Terrain">>\
+''Oceanic'' terrain is one of the possible settings for the Free City in which the arcology is located. It provides:
+&nbsp;&nbsp;&nbsp;&nbsp;@@.yellow;High@@ minimum slave value and initial @@.yellow;bull market@@ for slaves.
+&nbsp;&nbsp;&nbsp;&nbsp;Moderate ease of commerce with the old world.
+&nbsp;&nbsp;&nbsp;&nbsp;@@.red;Very low@@ access to refugees and other desperate people.
+&nbsp;&nbsp;&nbsp;&nbsp;@@.green;Very high@@ cultural independence.
+&nbsp;&nbsp;&nbsp;&nbsp;Ensures access to slaves from all over the world and will not associate the arcology with a continent.
+\
 \<<case "Security Force">>\
 ''NOTE: The Security Force is an optional mod, and as such will only be initialized in-game if it is enabled at game start or in the options menu.''
 
@@ -1835,12 +1843,13 @@ Error: bad title.
 [[Customization (PC)|Encyclopedia][$encyclopedia = "PC Customization"]] | [[Age (PC)|Encyclopedia][$encyclopedia = "PC Age"]] | [[Body (PC)|Encyclopedia][$encyclopedia = "PC Body"]] | [[Wealth|Encyclopedia][$encyclopedia = "Wealth"]] | [[Business|Encyclopedia][$encyclopedia = "Business"]] | [[PMC Work|Encyclopedia][$encyclopedia = "PMC Work"]] | [[Slaving|Encyclopedia][$encyclopedia = "Slaving"]] | [[Engineering|Encyclopedia][$encyclopedia = "Engineering"]] | [[Medicine|Encyclopedia][$encyclopedia = "Medicine"]] | [[Celebrity|Encyclopedia][$encyclopedia = "Celebrity"]] | [[Hard Work|Encyclopedia][$encyclopedia = "Hard Work"]] | [[Force|Encyclopedia][$encyclopedia = "Force"]] | [[Social Engineering|Encyclopedia][$encyclopedia = "Social Engineering"]] | [[Luck|Encyclopedia][$encyclopedia = "Luck"]]
 <</if>>
 
-<<if ["Urban Terrain", "Rural Terrain", "Marine Terrain"].includes($encyclopedia)>>
+<<if ["Urban Terrain", "Rural Terrain", "Marine Terrain", "Oceanic Terrain"].includes($encyclopedia)>>
 <br><br>
 //Terrain settings//<br>
 [[Urban|Encyclopedia][$encyclopedia = "Urban Terrain"]] |
 [[Rural|Encyclopedia][$encyclopedia = "Rural Terrain"]] |
-[[Marine|Encyclopedia][$encyclopedia = "Marine Terrain"]]
+[[Marine|Encyclopedia][$encyclopedia = "Marine Terrain"]] |
+[[Oceanic|Encyclopedia][$encyclopedia = "Oceanic Terrain"]]
 <</if>>
 
 <<if ["Relationships", "Rivalries", "Romances", "Slave Marriages", "Slaveowner Marriages", "Emotional Slut", "Emotionally Bonded"].includes($encyclopedia)>>
