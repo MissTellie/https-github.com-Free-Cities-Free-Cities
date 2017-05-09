@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Find and insert current commit
+COMMIT=$(git rev-list HEAD --count)
+sed -i "s/COMMIT/$COMMIT/" ./src/init/storyInit.tw
+
+
 # Will add all *.tw files to StoryIncludes.
 ./sanityCheck
 rm -f src/config/start.tw
@@ -8,3 +13,6 @@ find src -name '*.tw' -print >>start.tw.tmp
 mv start.tw.tmp src/config/start.tw
 
 ./devTools/tweeGo/tweego_nix64 -o bin/FC.html src/config/start.tw
+
+# Revert ./src/init/storyInit.tw for next compilation
+git checkout -- ./src/init/storyInit.tw
