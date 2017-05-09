@@ -21,9 +21,9 @@
 
 <<case "nice guys">>
 
-One afternoon, $assistantName informs you she that she has a non-urgent matter that you might be interested in overseeing personally. 
+One afternoon, $assistantName informs you she that she has a non-urgent matter that you might be interested in overseeing personally.
 <<if $assistant > 0>>
-	Her $assistantAppearance avatar looks unusually curious. "<<if def $PC.customTitle>>$PC.customTitle<<elseif $PC.title != 0>>Master<<else>>Mistress<</if>>," she says, "a group of tourists have just entered the arcology. They seem strangely enthralled by <span id="name"><<print "[[$activeSlave.slaveName|Long Slave Description][$nextLink to passage(), $eventDescription to 1]]">></span>." Before you can ask why she deemed this important enough news to draw your attention to, she continues, "They're not using her or anything. Just look." She
+	Her $assistantAppearance avatar looks unusually curious. "<<Master>>," she says, "a group of tourists have just entered the arcology. They seem strangely enthralled by <span id="name"><<print "[[$activeSlave.slaveName|Long Slave Description][$nextLink to passage(), $eventDescription to 1]]">></span>." Before you can ask why she deemed this important enough news to draw your attention to, she continues, "They're not using her or anything. Just look." She
 <<else>>
 	She announces that a group of tourists have just entered the arcology, and seem unusually enthralled by <span id="name"><<print "[[$activeSlave.slaveName|Long Slave Description][$nextLink to passage(), $eventDescription to 1]]">></span>. Before you can ask why it's bothering you with this, it continues, "A business opportunity may exist," and
 <</if>>
@@ -64,7 +64,7 @@ says a third, obviously smitten. "I'd give anything to have a night with her."
 
 Although your life as an arcology owner comes with many associated privileges, extended idleness to bask in your luxury is not often among them. Thankfully, $assistantName knows better than to let you run yourself ragged from the weight of your assorted responsibilities and often alots time in the evenings of your active schedule to simply relax.
 <br><br>
-Of course, no self respecting arcology owner could be expected to enjoy a lazy night of idle relaxation on their own. As you resolve the last of your most pressing responsibilities for the evening, $assistantName directs one of your attentive slaves to gently guide you away from the unending burdens of running your arcology. Leaning against the doorway and wearing a facsimile of what an old world woman might wear on a casual night in, <span id="name"><<print "[[$activeSlave.slaveName|Long Slave Description][$nextLink to passage(), $eventDescription to 1]]">></span> <<if canTalk($activeSlave) == false>>asks with a gesture that carries just the right mixture of submission and exaggerated casualness if you'd like to 'hang out.'<<elseif SlaveStatsChecker.checkForLisp($activeSlave)>>lisps with exaggerated casualness, "Let'th hang out, <<if def $PC.customTitleLisp>>$PC.customTitleLisp<<elseif $PC.title != 0>>Mathter<<else>>Mithtreth<</if>>?"<<else>>asks with exaggerated casualness, "Want to hang out, <<if def $PC.customTitle>>$PC.customTitle<<elseif $PC.title != 0>>Master<<else>>Mistress<</if>>?"<</if>> 
+Of course, no self respecting arcology owner could be expected to enjoy a lazy night of idle relaxation on their own. As you resolve the last of your most pressing responsibilities for the evening, $assistantName directs one of your attentive slaves to gently guide you away from the unending burdens of running your arcology. Leaning against the doorway and wearing a facsimile of what an old world woman might wear on a casual night in, <span id="name"><<print "[[$activeSlave.slaveName|Long Slave Description][$nextLink to passage(), $eventDescription to 1]]">></span> <<if canTalk($activeSlave) == false>>asks with a gesture that carries just the right mixture of submission and exaggerated casualness if you'd like to 'hang out.'<<elseif SlaveStatsChecker.checkForLisp($activeSlave)>>lisps with exaggerated casualness, "Let'th hang out, <<Master>>?"<<else>>asks with exaggerated casualness, "Want to hang out, <<if def $PC.customTitle>>$PC.customTitle<<elseif $PC.title != 0>>Master<<else>>Mistress<</if>>?"<</if>>
 <br><br>
 She saunters over and kneels obediently in front of you, awaiting further direction.
 <<if $activeSlave.amp < 0>>
@@ -72,7 +72,7 @@ She saunters over and kneels obediently in front of you, awaiting further direct
 <<elseif $activeSlave.boobs > 4000>>
 	Her breasts are so massive that the front of her loose pyjama top must be unbuttoned. Even so, the protrusion of her immense breasts from her chest strains the soft pyjama top to it's breaking point.
 <<elseif $activeSlave.intelligence > 1>>
-	As a clever girl, her simple summer dress evokes memories of bygone warm weather days at elite old world colleges - and the sexual conquest of their youthful residents. 
+	As a clever girl, her simple summer dress evokes memories of bygone warm weather days at elite old world colleges - and the sexual conquest of their youthful residents.
 <<elseif $activeSlave.muscles > 30>>
 	Her simple sports bra and compression shorts ensemble does little to conceal her incredible musculature, glistening with sweat from a recent workout. Despite her recent exertions, she's able to maintain utter stillness in the perfect posture of an obedient slave.
 <<elseif $activeSlave.energy > 95>>
@@ -97,9 +97,9 @@ She saunters over and kneels obediently in front of you, awaiting further direct
 <<if canTalk($activeSlave) == false>>
 	She uses gestures to beg your pardon, even as she continues to blush rosily, and explains that she doesn't understand why you keep her in your penthouse, when there are such tall, beautiful slaves in abundance in your arcology. She pauses, shuffling about a little shamefacedly before signing that she thinks their bodies could be more fit to pleasure you.
 <<elseif SlaveStatsChecker.checkForLisp($activeSlave)>>
-	"<<if def $PC.customTitleLisp>>$PC.customTitleLisp<<elseif $PC.title != 0>>Mathter<<else>>Mithtreth<</if>>," she lisps. "Why do you keep a thhort, plain thlave like me in your penthouthe, when there are thuth beautiful, tall thlaveth out there in the arcology?." She shuffles about under your gaze a little shamefacedly before lisping in a quiet voice "Thurely, their bodieth are more fit for pleathuring you."
+	"<<Master>>," she lisps. "Why do you keep a thhort, plain thlave like me in your penthouthe, when there are thuth beautiful, tall thlaveth out there in the arcology?." She shuffles about under your gaze a little shamefacedly before lisping in a quiet voice "Thurely, their bodieth are more fit for pleathuring you."
 <<else>>
-	"<<if def $PC.customTitle>>$PC.customTitle<<elseif $PC.title != 0>>Master<<else>>Mistress<</if>>," she says. "Why do you keep a short, plain slave like me in your penthouse, when there are such beautiful, tall slaves out there in the arcology?" She shuffles about under your gaze a little shamefacedly before saying in a quiet voice, "Surely, their bodies are more fit for pleasuring you."
+	"<<Master>>," she says. "Why do you keep a short, plain slave like me in your penthouse, when there are such beautiful, tall slaves out there in the arcology?" She shuffles about under your gaze a little shamefacedly before saying in a quiet voice, "Surely, their bodies are more fit for pleasuring you."
 <</if>>
 
 <<case "desperate null">>
@@ -140,7 +140,8 @@ She does her very best to get through the inspection without disgrace, hugging h
 	<br><br>
 	Some time later, you return to the video feed to see $activeSlave.slaveName giving each of the boys a hug goodbye. The boys reciprocate her affection warmly, even as they try to ignore the fact that her $activeSlave.skin face and chest are spattered with their cum. $activeSlave.slaveName has certainly given the tourists a crash course in Free Cities culture and @@.green;improved your reputation@@ at the same time.
 	<<set $activeSlave.oralCount += 6, $oralTotal += 6, $rep += 250>>
-	<</link>>
+        <</replace>>
+<</link>>
 <<if (canDoVaginal($activeSlave) && $activeSlave.vagina != 0) || (canDoAnal($activeSlave) && $activeSlave.anus != 0)>>
 <br><<link "Instruct the slave to offer sex to the highest bidder">>
 	<<replace "#name">>$activeSlave.slaveName<</replace>>
@@ -165,11 +166,12 @@ She does her very best to get through the inspection without disgrace, hugging h
 	<<elseif $activeSlave.dick > 0>>
 		the lucky winner gingerly prodding the tiny cock slapping against his stomach as $activeSlave.slaveName rides him.
 	<<elseif $activeSlave.age > 35>>
-		the lucky winner double checking with $activeSlave.slaveName that she isn't his mother, even as she rides his cock and gives him pointers on his lack of technique. 
+		the lucky winner double checking with $activeSlave.slaveName that she isn't his mother, even as she rides his cock and gives him pointers on his lack of technique.
 	<<elseif $activeSlave.face > 2>>
-		the lucky winner staring in awe at the beautiful face of $activeSlave.slaveName, as she rides him tenderly. 
+		the lucky winner staring in awe at the beautiful face of $activeSlave.slaveName, as she rides him tenderly.
 	<<else>>
 		the lucky winner taking $activeSlave.slaveName in every position he can think of, which is amusingly not very many at all.
+        <</if>>
 	<br><br>
 	In the end, the boy sates his lust on $activeSlave.slaveName till he can't continue. His compatriots, having had their own voyeuristic fill, drag their overstimulated friend off and wander away in search of their accomadation.
 	<<if canDoVaginal($activeSlave) && $activeSlave.vagina != 0>>
@@ -239,14 +241,13 @@ She does her very best to get through the inspection without disgrace, hugging h
 		You inform her that short slaves like her might have to try harder, but they can still serve just as well as any of their taller peers. Understanding your meaning, she pushes herself up as far as she can with your hands still lightly pressing down on her shoulders, straining her neck until she can take you fully into her waiting mouth, keeping her eyes closed as she concentrates intently on her task. She lightly rocks back and forth on her knees in an attempt to gain a little height to better pleasure you with her mouth, an amusing sight to behold as you stand above her.
 		<br><br>
 		Eventually, you lift a hand off of her shoulder to run it possessively through her $activeSlave.hColor hair, letting her know that she's an excellent little cocksucker. In her eagerness to thank you, she ends up talking into your <<if $PC.dick == 0>>phallus<<else>>cock<</if>>, though these muffled attempts at speech soon devolve back into submissive moaning. In time, you silence even these moans as you blow your load down her throat, and she swallows it all. She opens her eyes slowly, endowed with a belly full of cum and a new understanding of @@.mediumaquamarine;her place as a short slave@@.
-	<</if>>
+	<</replace>>
 	<<set $activeSlave.oralCount += 1, $oralTotal += 1, $activeSlave.trust += 4>>
-	<<replace>>
 <</link>>
 <br><<link "Show her that short girls are easier to abuse">>
 	<<replace "#name">>$activeSlave.slaveName<</replace>>
 	<<replace "#result">>
-	You inform her that you find shorter slaves easier to abuse, smiling widely as an expression of horror spreads across her face. This expression soon changes to one of shock and pain as you slap her open-handed across the face, the sheer force of the strike sending her reeling. A few slaps later and you have $activeSlave.slaveName on all fours begging for mercy as you punish the cheeks of her ass with spank after spank.  When you suddenly shove <<if $PC.dick == 0>>a dildo<<else>>your cock<</if>> up her ass she spasms so harshly from the pain that she reflexively tries to get away, only to be subdued by the weight and strength of your larger, more powerful form. For the next ten minutes, she gets beaten and choked if she she offers even token resistance to the brutal anal rape. Soon, tears run down the short length of her body as she shakes from the force of each excessive thrust into her anus. The next time you decide to buttfuck her, she's @@.gold;terrified into compliance@@ by the knowledge of how little physical resistance she can muster against you.
+	You inform her that you find shorter slaves easier to abuse, smiling widely as an expression of horror spreads across her face. This expression soon changes to one of shock and pain as you slap her open-handed across the face, the sheer force of the strike sending her reeling. A few slaps later and you have $activeSlave.slaveName on all fours begging for mercy as you punish the cheeks of her ass with spank after spank.  When you suddenly shove <<if $PC.dick == 0>>a dildo<<else>>your cock<</if>> up her ass she spasms so harshly from the pain that she reflexively tries to get away, only to be subdued by the weight and strength of your larger, more powerful form. For the next ten minutes, she gets beaten and choked if she offers even token resistance to the brutal anal rape. Soon, tears run down the short length of her body as she shakes from the force of each excessive thrust into her anus. The next time you decide to buttfuck her, she's @@.gold;terrified into compliance@@ by the knowledge of how little physical resistance she can muster against you.
 	<<set $activeSlave.trust -= 5>>
 	<<AnalVCheck>>
 	<</replace>>
@@ -255,15 +256,11 @@ She does her very best to get through the inspection without disgrace, hugging h
 	<br><<link "Show her that short girls are amusing in the arcade">>
 	<<replace "#name">>$activeSlave.slaveName<</replace>>
 	<<replace "#result">>
-		You inform $activeSlave.slaveName that short girls like her are delightfully amusing when immured in the arcade. Magnanimous as you are, you have two other slaves drag her off to be installed in the arcade for a day, so that she too may see the humor in having short girls serve in the arcade.  Though $arcadeName has arcade pens to match any height of slave, you have $activeSlave.slaveName confined in a pen built for a much taller slave. Although her head and neck protrude from one side of the pen without issue, she is too short for her ass to fill the other opening. As a result, she must use the tips of her toes maintain an unsteady grip on the rear opening, forcing her to maintain an extremely taxing stretch just to keep her body held aloft within the pen. Costumers are unable to fuck her holes but readily delight in watching her squirm to keep her body extended and horizontal, even with hard cocks brutally fucking her face. Somewhere in the gruelling, 18-hour marathon of relentless throat fucking, her precarious position slips and her lower half tumbles into the interior of the pen proper. Until an attendant rescues her, her neck is held crooked at an unnatural angle by her restraints, as the rest of her body dangles beneath it. Her ordeal forces her to accept that a short girl's place is as an @@.hotpink;amusing arcade hole@@.  Though she can't find the humor@@.gold;in such a terrible plight@@. Furthermore, her intense exertions during her stay @@.red;negatively effects her health@@. Your other  slaves take note of what you do to short girls who ask questions about their place in your penthouse. 
+		You inform $activeSlave.slaveName that short girls like her are delightfully amusing when immured in the arcade. Magnanimous as you are, you have two other slaves drag her off to be installed in the arcade for a day, so that she too may see the humor in having short girls serve in the arcade.  Though $arcadeName has arcade pens to match any height of slave, you have $activeSlave.slaveName confined in a pen built for a much taller slave. Although her head and neck protrude from one side of the pen without issue, she is too short for her ass to fill the other opening. As a result, she must use the tips of her toes maintain an unsteady grip on the rear opening, forcing her to maintain an extremely taxing stretch just to keep her body held aloft within the pen. Costumers are unable to fuck her holes but readily delight in watching her squirm to keep her body extended and horizontal, even with hard cocks brutally fucking her face. Somewhere in the gruelling, 18-hour marathon of relentless throat fucking, her precarious position slips and her lower half tumbles into the interior of the pen proper. Until an attendant rescues her, her neck is held crooked at an unnatural angle by her restraints, as the rest of her body dangles beneath it. Her ordeal forces her to accept that a short girl's place is as an @@.hotpink;amusing arcade hole@@.  Though she can't find the humor@@.gold;in such a terrible plight@@. Furthermore, her intense exertions during her stay @@.red;negatively effects her health@@. Your other  slaves take note of what you do to short girls who ask questions about their place in your penthouse.
 		<<set $activeSlave.devotion += 5, $activeSlave.trust -= 5, $activeSlave.health -= 5, $activeSlave.oralCount += 55, $activeSlave.oralTotal += 55>>
 	<</replace>>
 <</link>>
 <</if>>
-
-<<default>>
-	ERROR: bad event
-<</switch>>
 
 <<case "desperate null">>
 
@@ -320,5 +317,9 @@ She does her very best to get through the inspection without disgrace, hugging h
 	<<set $activeSlave.energy -= 5>>
 	<</replace>>
 <</link>>
+<<default>>
+	ERROR: bad event
+<</switch>>
+
 
 </span>
