@@ -24,6 +24,18 @@ There are two methods of acquiring Free Cities:
 6. The game will be compiled into a .html file in the Free Cities/bin directory.
 7. Open the .html file with your web browser.
 
+### sanityCheck and fixSpellingMistakes
+
+These two tools check for common mistakes by grepping over the code.  It is worth running them frequently.
+
+They can output false positives, but it's usually better to just modify the code a bit to get rid of the false positive,
+to keep the output of the sanityCheck as clean as possible.
+
+fixSpellingMistake takes several minutes to run, but it's worth running occasionally to automatically fix the top 4000 spelling
+mistake according to wikipedia. 
+
+Both were written in linux, but should work in the windows bash environment that you get when you install git.
+
 ### Notes
 
 * On Windows, compile.bat and compile_debug.bat perform the same functions. The only difference between the two is that compile.bat will exit automatically, while compile_debug.bat will wait for a keypress before exiting. The latter is useful when checking for TweeGo error output, while the former saves you a keypress (as TweeGo errors are rare unless you make a mistake). Use whichever one you prefer.
