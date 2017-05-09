@@ -1,0 +1,183 @@
+:: RE royal blood [nobr]
+
+<<set $nextButton = "Continue", $nextLink = "RIE Eligibility Check">>
+
+One unfortunate consequence of existing in a global world is that business opportunities continue to crop up, even once you have already reclused yourself from your own arcology and drifted off into restful slumber. You are awoken by an alert from $assistantName, unusually intense for this late hour. 
+<<if $assistant > 0>>
+	" <<if def $PC.customTitle>>$PC.customTitle<<elseif $PC.title != 0>>Master<<else>>Mistress<</if>>, there is a time sensitive enslavement opportunity avaliable if you're interested." She continues, knowing full well you're wont to drift back to sleep unless given sufficient motivation. "You're going to want to see this one <<if def $PC.customTitle>>$PC.customTitle<<elseif $PC.title != 0>>Master<<else>>Mistress<</if>>.
+<<else>>
+	It informs you that there is a time sensitive enslavement opportuntiy for you to peruse, and that it has calculated the potential rewards are worthy of your consideration even in the middle of the night. 
+<</if>>
+	<br><br>
+A convenient video feed is brought up, displaying a quick visual summary of the opportunity to bring you up to speed.
+<br><br>
+It seems a bastion of the old world has fallen, a royal family of ancient blood and reputation has been overthrown by a local populist leader and his fellow revolutionaries. It seems the leader of the revolution has designs to transform the outmoded monarchy with an arcology of his own, and has transmitted a request for aid to every one of his new arcology owner peers that he can find.
+<br><br>
+Of course, nothing in the Free Cities is free, an international aid is no exception. This new arcology owner is no fool, however, and has outlined rewards to be delivered to the most generous benefactors.
+<br><br>
+Though the king himself is dead, murdered in his bed by bloodthirsty revolutionaries, the rest of his family and the majority of his court have been captured and enslaved by their former subjects. The new arcology owner, having decided that a large injection of credits or a shipment of goods is superior to deflowering a royal pussy or asshole, has directed his followers to slake their lust and vengence on the king's wife and court rather than his children, though they too are past the age of majority.
+<br><br>
+Time is short, but you are well placed to acquire a slave of your choice. With an adequate donation, of course. 
+<br><br>
+
+<span id="result">
+<<link "Go back to sleep">>
+	<<replace "#result">>
+	You inform your personal assistant that you aren't planning to take any action. If you took notice every time a crumbling monarchy collapsed, you'd never get a full night of sleep. The only interesting part of the interaction was the possible value of a pretty princess, but training her would likely be difficult and expensive, given her former wealth and high status.
+	<</replace>>
+<</link>>
+<br><<link "Leverage your reputation and credits to aid the new arcology in exchange for a pretty princess">>
+	<<replace "#result">>
+	You seize a tablet and practically roll out of your bed, working furiously and using every feature of $assistantName to the utmost. It's not easy, but you call in a number of favors and grease a handful of palms, and soon a flight of VTOLs are landing in the new arcology laden with goods. When they take off again, their new cargo is a princess clad in chains, to be brought to your penthouse immediately.
+<br><br>
+	Eventually she arrives in your penthouse, the perfect image of a demure yet composed princess. Her clearly practice facade of poise and grace might have fooled a lesser slave owner, but not you. The slightest trembling of her balled up fists, the minute tremors that mar her immaculate posture, her inability to meet your eyes with her own, no detail can evade you. You look forward to replacing her obvious court training with your own, somewhat more depraved instruction.
+	<<set $cash -= 50000>>
+	<<set $rep += 2000>>
+		<<display "Generate New Slave">>
+		<<set _origin = "She was a princess of a royal kingdom, till her family was overthrown and she was sold to you in exchange for aid.">>
+		<<set $activeSlave.origin = _origin>>
+		<<set $activeSlave.career = "a princess">>
+		<<set $activeSlave.prestige = 2>>
+		<<set $activeSlave.prestigeDesc = "She was the princess of an ancient kingdom.">>
+		<<set $activeSlave.age to random(18,19)>>
+		<<set $activeSlave.devotion = random(-80,-60)>>
+		<<set $activeSlave.trust = random(-50,-60)>>
+		<<set $activeSlave.face = random(25,100)>>
+		<<set $activeSlave.boobs = either(100, 200, 300)>>
+		<<set $activeSlave.vagina = 0>>
+		<<set $activeSlave.ovaries = 1>>
+		<<set $activeSlave.preg = -1>>
+		<<set $activeSlave.pubicHStyle = "waxed">>
+		<<set $activeSlave.height = random(140,180)>>
+		<<set $activeSlave.shoulders = random(-1,1)>>
+		<<set $activeSlave.hips = -1>>
+		<<set $activeSlave.butt = 0>>
+		<<set $activeSlave.anus = 0>>
+		<<set $activeSlave.weight = 0>>
+		<<set $activeSlave.intelligence = random(1,2,3)>>
+		<<set $activeSlave.entertainSkill = 45>>
+		<<set $activeSlave.analSkill = 0>>
+		<<set $activeSlave.oralSkill = 0>>
+		<<set $activeSlave.whoreSkill = 0>>
+		<<set $activeSlave.whoreSkill = 0>>
+		<<set $activeSlave.health = random(30,60)>>
+		<<set $activeSlave.behavioralFlaw = either("bitchy", "arrogant")>>
+		<<AddSlave $activeSlave>>
+	<br><br>
+<</replace>>
+<</link>> // You will need to utilize a portion of your reputation and ¤50000 to enslave her.//
+<br><<link "Dispatch a sizeable amount of aid in exchange for the crown prince">>
+	<<replace "#result">>
+	You seize a tablet and practically roll out of your bed, working furiously and using every feature of $assistantName to the utmost. It's not easy, but your credits pave your way to sending a flight of VTOLs laden with goods to the new arcology. When they take off again, their new cargo is a prince clad in chains, to be brought to your penthouse immediately.
+<br><br>
+	When he arrives in your penthouse, the former prince is beside himself with rage. When you try to have him submit to modification in the remote surgery, he tries to break free and fight his way out of your penthouse. His attempt at freedom is futile and he is soon overwhelmed by your guards and dragged back to the remote surgery. It doesn't take long for the prince to become a new dickgirl, though having him submit to you will be another question entirely.
+	<<set $cash -= 35000>>
+		<<display "Generate New Slave">>
+		<<set _origin = "She was the crown prince of a royal kingdom, till her family was overthrown and she was sold to you in exchange for aid.">>
+		<<set $activeSlave.origin = _origin>>
+		<<set $activeSlave.career = "a prince">>
+		<<set $activeSlave.prestige = 2>>
+		<<set $activeSlave.prestigeDesc = "She was the crown prince of an ancient kingdom.">>
+		<<set $activeSlave.age to random(20,21)>>
+		<<set $activeSlave.devotion = random(-80,-60)>>
+		<<set $activeSlave.trust = random(-50,-60)>>
+		<<set $activeSlave.boobs = either(100, 150)>>
+		<<set $activeSlave.boobs = 150>>
+		<<set $activeSlave.vagina = -1>>
+		<<set $activeSlave.clit = 0>>
+		<<set $activeSlave.ovaries = 0>>
+		<<set $activeSlave.preg = 0>>
+		<<set $activeSlave.dick = random(3,5)>>
+		<<set $activeSlave.balls = random(2,4)>>
+		<<set $activeSlave.anus = 0>>
+		<<set $activeSlave.weight = 0>>
+		<<set $activeSlave.muscles = 50>>
+		<<set $activeSlave.intelligence = random(1,2,3)>>
+		<<set $activeSlave.face = Math.clamp($activeSlave.face+20,-100,100)>>
+		<<set $activeSlave.faceImplant to 1>>
+		<<set $activeSlave.analSkill = 0>>
+		<<set $activeSlave.oralSkill = 0>>
+		<<set $activeSlave.whoreSkill = 0>>
+		<<set $activeSlave.combatSkill = 1>>
+		<<set $activeSlave.health = random(30,60)>>
+		<<set $activeSlave.behavioralFlaw = either("bitchy", "arrogant")>>
+		<<AddSlave $activeSlave>>
+	<br><br>
+<</replace>>
+<</link>> // The goods and VTOLs flight will cost about ¤35000 to hire.//
+<br><<link "Transfer a respectable quantity of credits for a handful of court ladies">>
+	<<replace "#result">>
+	You take a tablet and peruse the various court ladies on offer by the fledgeling arcology. You single out a few interesting individuals for purchase, though the paltry descriptions listed for each slave by the revolutionaries leave much to be desired. Satisfied with your selection of new slaves, you electronically transfer the credits to the new arcology and soon recieve a receipt for your donation and an estimated delivery schedule.
+<br><br>
+	When the ladies arrives at your penthouse, they seem almost relieved at the opulence of their new surroundings. Though they still retain much of their aristocratic arrogance, they each submit to biometric scanning with relative obedience. You suspect that they rationalize their new position as your property by telling themselves it is better to be enslaved by one master, than the unwashed masses they once lorded over.
+	<<set $cash -= 25000>>
+	<<for $i to 0; $i < 3; $i++>>
+		<<display "Generate New Slave">>
+		<<set _origin = "She was a member of the court in an ancient kingdom, till it was overthrown and she was sold to you in exchange for credits.">>
+		<<set $activeSlave.origin = _origin>>
+		<<set $activeSlave.career = "a lady courtier">>
+		<<set $activeSlave.prestige = 1>>
+		<<set $activeSlave.prestigeDesc = "She was once a lady of the court of an ancient kingdom.">>
+		<<set $activeSlave.age to random(21,$retirementAge-2)>>
+		<<set $activeSlave.face = random(25,76)>>
+		<<set $activeSlave.devotion = random(10,20)>>
+		<<set $activeSlave.trust = random(-20,-30)>>
+		<<set $activeSlave.boobs = random(3,10)*100>>
+		<<set $activeSlave.vagina = 1>>
+		<<set $activeSlave.ovaries = 1>>
+		<<set $activeSlave.pubicHStyle = "waxed">>
+		<<set $activeSlave.height = random(120,180)>>
+		<<set $activeSlave.shoulders = random(-1,1)>>
+		<<set $activeSlave.hips = 1>>
+		<<set $activeSlave.butt = 1>>
+		<<set $activeSlave.anus = 0>>
+		<<set $activeSlave.weight = 0>>
+		<<set $activeSlave.intelligence = random(-1,1,2)>>
+		<<set $activeSlave.entertainSkill = 25>>
+		<<set $activeSlave.whoreSkill = 0>>
+		<<set $activeSlave.health = random(30,60)>>
+		<<set $activeSlave.behavioralFlaw = either("bitchy", "arrogant")>>
+		<<AddSlave $activeSlave>>
+	<br><br>
+<</replace>>
+<</link>> // It will cost about 25000 to enslave them.//
+<br><<link "Transfer a modest quantity of credits for the Queen herself">>
+	<<replace "#result">>
+	You take a tablet and transmit a communication request to the new arcology owner. It doesn't take long for him to accept but when his video feed connects on your screen, you find yourself staring at the pained expression of an attractive middle-aged woman, the Queen herself. It becomes abundantly clear that someone is mounting her from behind as her body shakes and spasms from the intensity of their thrusts. You note with amusement that the Queen appears to be getting fucked on a extravagent, yet bloodstained, four-poster bed, surely the site of her former husband's demise. The mysterious individual unsurprisingly turns out to be the new arcology owner, revealing himself by shoving the Queen's face down against the stained bedsheets as he lowers his own face into frame. "How can I help you?"
+<br><br>
+	The man seems somewhat surprised that you want to purchase the Queen, given the breadth and quality of his other merchandise avaliable, but not unduly so. Soon enough negotiations begin and a short time later an equitable price is agreed upon. Your new peer even throws in a slight discount, in exchange for allowing him to use the Queen himself for the remainder of the night. 
+<br><br>
+	When the Queen arrives at your penthouse, she seems almost relieved at the opulence of her new surroundings. But you suspect that her relief has more to do with saving her from a lifetime of gangrape at the mercy of her former subjects, than it does the familiar luxury. She submits to biometric scanning obediently and without fuss, during which you discover to her surprise and your own that she is pregnant. Since she hasn't begin to show yet, it's unclear whether the child is the former King's or the new arcology owner's. Though you don't waste the time and resources to find out, you notice she cradles her flat stomach protectively nonetheless.
+	<<set $cash -= 15000>>
+		<<display "Generate New Slave">>
+		<<set _origin = "She was the Queen of a royal kingdom, till her husband was overthrown and she was sold to you in exchange for credits.">>
+		<<set $activeSlave.origin = _origin>>
+		<<set $activeSlave.career = "a Queen">>
+		<<set $activeSlave.prestige = 2>>
+		<<set $activeSlave.prestigeDesc = "She was the Queen of an ancient kingdom.">>
+		<<set $activeSlave.age to random(36,$retirementAge-2)>>
+		<<set $activeSlave.face = random(25,100)>>
+		<<set $activeSlave.devotion = random(10,20)>>
+		<<set $activeSlave.trust = random(-20,-30)>>
+		<<set $activeSlave.boobs = random(3,10)*100>>
+		<<set $activeSlave.vagina = 1>>
+		<<set $activeSlave.ovaries = 1>>
+		<<set $activeSlave.preg = 7>>
+		<<set $activeSlave.pubicHStyle = "waxed">>
+		<<set $activeSlave.height = random(180,200)>>
+		<<set $activeSlave.shoulders = random(-1,1)>>
+		<<set $activeSlave.hips = 1>>
+		<<set $activeSlave.butt = 1>>
+		<<set $activeSlave.anus = 0>>
+		<<set $activeSlave.weight = 0>>
+		<<set $activeSlave.intelligence = random(1,2,3)>>
+		<<set $activeSlave.entertainSkill = 45>>
+		<<set $activeSlave.whoreSkill = 0>>
+		<<set $activeSlave.health = random(30,60)>>
+		<<set $activeSlave.behavioralFlaw = either("bitchy", "arrogant")>>
+		<<AddSlave $activeSlave>>
+	<br><br>
+<</replace>>
+<</link>> // It will cost about 15000 to enslave her.//
+<</if>>
+</span>
