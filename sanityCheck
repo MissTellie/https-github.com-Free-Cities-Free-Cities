@@ -74,7 +74,9 @@ $GREP -e  " \(\b[a-zA-Z][a-zA-Z]\+\) \1\b " --and --not -e " her her " --and --n
 # Ignore  *Nationalities
 (
 cd src/
-cat $(find . -name "*.tw" ) | tr -c '$a-zA-Z' '\n'  | sed -n '/^[$]/p' | grep -v "Nationalities" | sort | uniq -c | grep ' 1 ' | sed 's/^ *1 [$]/-e[$]/' | sed 's/$/\\\\W/' | xargs -r  git grep -n --color | myprint "OnlyUsedOnce"
+cat $(find . -name "*.tw" ) | tr -c '$a-zA-Z' '\n'  | sed -n '/^[$]/p' | grep -v "Nationalities" | sort | uniq -u | sed 's/^[$]/-e[$]/' | sed 's/$/\\\\W/' | xargs -r  git grep -n --color | myprint "OnlyUsedOnce"
+cat $(find . -name "*.tw" ) | tr -c '.$a-zA-Z[]_' '\n' | sed -n -e 's/^[$]\(activeSlave\|\(slaves\|tanks\)\[[^]]*\]*\)[.]\([a-zA-Z]*\).*$/[.]\3/p' | sort | uniq -u |sed 's/^\(.*\)$/-e\1\\\\\b/'  | xargs -r git grep -n --color | myprint "SlaveAttributeUsedOnce"
+
 )
 
 
