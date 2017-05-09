@@ -140,7 +140,8 @@ She does her very best to get through the inspection without disgrace, hugging h
 	<br><br>
 	Some time later, you return to the video feed to see $activeSlave.slaveName giving each of the boys a hug goodbye. The boys reciprocate her affection warmly, even as they try to ignore the fact that her $activeSlave.skin face and chest are spattered with their cum. $activeSlave.slaveName has certainly given the tourists a crash course in Free Cities culture and @@.green;improved your reputation@@ at the same time.
 	<<set $activeSlave.oralCount += 6, $oralTotal += 6, $rep += 250>>
-	<</link>>
+        <</replace>>
+<</link>>
 <<if (canDoVaginal($activeSlave) && $activeSlave.vagina != 0) || (canDoAnal($activeSlave) && $activeSlave.anus != 0)>>
 <br><<link "Instruct the slave to offer sex to the highest bidder">>
 	<<replace "#name">>$activeSlave.slaveName<</replace>>
@@ -170,6 +171,7 @@ She does her very best to get through the inspection without disgrace, hugging h
 		the lucky winner staring in awe at the beautiful face of $activeSlave.slaveName, as she rides him tenderly.
 	<<else>>
 		the lucky winner taking $activeSlave.slaveName in every position he can think of, which is amusingly not very many at all.
+        <</if>>
 	<br><br>
 	In the end, the boy sates his lust on $activeSlave.slaveName till he can't continue. His compatriots, having had their own voyeuristic fill, drag their overstimulated friend off and wander away in search of their accomadation.
 	<<if canDoVaginal($activeSlave) && $activeSlave.vagina != 0>>
@@ -239,9 +241,8 @@ She does her very best to get through the inspection without disgrace, hugging h
 		You inform her that short slaves like her might have to try harder, but they can still serve just as well as any of their taller peers. Understanding your meaning, she pushes herself up as far as she can with your hands still lightly pressing down on her shoulders, straining her neck until she can take you fully into her waiting mouth, keeping her eyes closed as she concentrates intently on her task. She lightly rocks back and forth on her knees in an attempt to gain a little height to better pleasure you with her mouth, an amusing sight to behold as you stand above her.
 		<br><br>
 		Eventually, you lift a hand off of her shoulder to run it possessively through her $activeSlave.hColor hair, letting her know that she's an excellent little cocksucker. In her eagerness to thank you, she ends up talking into your <<if $PC.dick == 0>>phallus<<else>>cock<</if>>, though these muffled attempts at speech soon devolve back into submissive moaning. In time, you silence even these moans as you blow your load down her throat, and she swallows it all. She opens her eyes slowly, endowed with a belly full of cum and a new understanding of @@.mediumaquamarine;her place as a short slave@@.
-	<</if>>
+	<</replace>>
 	<<set $activeSlave.oralCount += 1, $oralTotal += 1, $activeSlave.trust += 4>>
-	<<replace>>
 <</link>>
 <br><<link "Show her that short girls are easier to abuse">>
 	<<replace "#name">>$activeSlave.slaveName<</replace>>
@@ -260,10 +261,6 @@ She does her very best to get through the inspection without disgrace, hugging h
 	<</replace>>
 <</link>>
 <</if>>
-
-<<default>>
-	ERROR: bad event
-<</switch>>
 
 <<case "desperate null">>
 
@@ -320,5 +317,9 @@ She does her very best to get through the inspection without disgrace, hugging h
 	<<set $activeSlave.energy -= 5>>
 	<</replace>>
 <</link>>
+<<default>>
+	ERROR: bad event
+<</switch>>
+
 
 </span>
