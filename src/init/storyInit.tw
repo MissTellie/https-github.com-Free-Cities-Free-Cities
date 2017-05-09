@@ -192,6 +192,9 @@
 <<set $autoSurgery = {lactation: 0, cosmetic: 1, accent: 0, shoulders: 0, shouldersImplant: 0, boobs: 0, hips: 0, hipsImplant: 0, butt: 0, faceShape: "normal", lips: 10, holes: 0}>>
 
 <<else>>
+	<<if def $arcologies[0].prosperity>>
+		<<set $cash += 250*$arcologies[0].prosperity*$arcologies[0].ownership>>
+	<</if>>
 	<<set $cash = Math.clamp(1000*Math.trunc($cash/100000), 5000, 1000000)>>
 	<<set $PC.career = "arcology owner">>
 <</if>>
