@@ -100,37 +100,6 @@
 <<set $used = 0>>
 <<for $i = 0; $i < $slaves.length; $i++>>
 <<if ($used == 0)>>
-<<if ($slaves[$i].relation == "mother")>>
-<<if ($slaves[$i].relationshipTarget != $slaves[$i].relationTarget)>>
-<<if ($slaves[$i].devotion < 10)>>
-	<<set $mother = $slaves[$i]>>
-	<<for $j = 0; $j < $slaves.length; $j++>>
-	<<if $slaves[$j].ID == $mother.relationTarget>>
-		<<set $daughter = $slaves[$j]>>
-		<<break>>
-	<</if>>
-	<</for>>
-	<<if ($daughter.devotion < 10)>>
-	<<if canWalk($daughter)>>
-		<<if canWalk($mother)>>
-		<<if ($daughter.anus != 0)>>
-			<<if ($mother.anus != 0)>>
-			<<set $events.push("RE resistant mother daughter")>>
-			<<set $used = 1>>
-			<</if>>
-		<</if>>
-		<</if>>
-	<</if>>
-	<</if>>
-<</if>>
-<</if>>
-<</if>>
-<</if>>
-<</for>>
-
-<<set $used = 0>>
-<<for $i = 0; $i < $slaves.length; $i++>>
-<<if ($used == 0)>>
 <<if ($slaves[$i].relation == "sister")>>
 <<if ($slaves[$i].dick == 1)>>
 	<<set $youngerSister = $slaves[$i]>>
