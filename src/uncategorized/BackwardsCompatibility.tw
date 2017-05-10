@@ -97,20 +97,20 @@
 			<<set _i-->>
 		<</if>>
 	<</for>>
-	<<if $brothel>>
-		<<set $sectors[5].type = "Brothel", $sectors[5].ownership = 1>>
-	<</if>>
-	<<if $club>>
-		<<set $sectors[7].type = "Club", $sectors[7].ownership = 1>>
-	<</if>>
-	<<if $arcade>>
-		<<set $sectors[22].type = "Arcade", $sectors[22].ownership = 1>>
-	<</if>>
-	<<if $dairy>>
-		<<set $sectors[27].type = "Dairy", $sectors[27].ownership = 1>>
-	<</if>>
 <</if>>
 
+<<if $brothel && $sectors[5].type != "Brothel" && $sectors[6].type != "Brothel" && $sectors[7].type != "Brothel">>
+	<<set $sectors[5].type = "Brothel", $sectors[5].ownership = 1>>
+<</if>>
+<<if $club && $sectors[5].type != "Club" && $sectors[6].type != "Club" && $sectors[7].type != "Club">>
+	<<set $sectors[7].type = "Club", $sectors[7].ownership = 1>>
+<</if>>
+<<if $arcade && $sectors[20].type != "Arcade" && $sectors[21].type != "Arcade" && $sectors[22].type != "Arcade" && $sectors[23].type != "Arcade" && $sectors[24].type != "Arcade">>
+	<<set $sectors[22].type = "Arcade", $sectors[22].ownership = 1>>
+<</if>>
+<<if $dairy && $sectors[25].type != "Dairy" && $sectors[26].type != "Dairy" && $sectors[27].type != "Dairy" && $sectors[28].type != "Dairy" && $sectors[29].type != "Dairy">>
+	<<set $sectors[27].type = "Dairy", $sectors[27].ownership = 1>>
+<</if>>
 
 <<for _i = 0; _i < $defaultRules.length; _i++>>
 	<<if ndef $defaultRules[_i].standardReward>>
