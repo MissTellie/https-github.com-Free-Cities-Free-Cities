@@ -274,10 +274,8 @@ __Assignment__: <strong><span id="assign">$activeSlave.assignment<<if $activeSla
 	/*| //Too resistant to take classes// */
 <</if>>
 	| <<link "Confine her">>            <<assignJob $activeSlave "stay confined">><<replace "#assign">>$activeSlave.assignment<</replace>><<SlaveInteractFucktoy>><</link>>
-<<if $activeSlave.breedingMark != 1>>
 	| <<link "Whore">>                  <<assignJob $activeSlave "whore">><<replace "#assign">>$activeSlave.assignment<</replace>><<SlaveInteractFucktoy>><</link>>
 	| <<link "Public servant">>         <<assignJob $activeSlave "serve the public">><<replace "#assign">>$activeSlave.assignment<</replace>><<SlaveInteractFucktoy>><</link>>
-<</if>>
 <</if>>/* CLOSES FUCKDOLL CHECK */
 <<if ($activeSlave.indentureRestrictions <= 0)>>
 	| <<link "Glory hole">>             <<assignJob $activeSlave "work a glory hole">><<replace "#assign">>$activeSlave.assignment<</replace>><<SlaveInteractFucktoy>><</link>>
