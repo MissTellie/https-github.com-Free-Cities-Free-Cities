@@ -744,7 +744,7 @@
 <</if>> /* END CLOTHES AND ACCESSORIES */
 
 <<if $slaves[$i].fetish == "mindbroken">>
-	<<set $slaves[$i].fetishStrength = 10, $slaves[$i].attrXY to 50, $slaves[$i].attrXX to 50, $slaves[$i].attrKnown to 1, $slaves[$i].devotion = 40, $slaves[$i].trust = -40, $slaves[$i].vaginalSkill = Math.clamp($slaves[$i].vaginalSkill,0,15), $slaves[$i].oralSkill = Math.clamp($slaves[$i].oralSkill,0,15), $slaves[$i].analSkill = Math.clamp($slaves[$i].analSkill,0,15), $slaves[$i].combatSkill = 0, $slaves[$i].whoreSkill = 0, $slaves[$i].entertainSkill = 0, $slaves[$i].intelligence to -2, $slaves[$i].intelligenceImplant to 0, $slaves[$i].sexualFlaw = "none", $slaves[$i].sexualQuirk = "none", $slaves[$i].behavioralFlaw = "none", $slaves[$i].behavioralQuirk = "none">>
+	<<set $slaves[$i].fetishStrength = 10, $slaves[$i].attrXY = 50, $slaves[$i].attrXX = 50, $slaves[$i].attrKnown = 1, $slaves[$i].devotion = 40, $slaves[$i].trust = -40, $slaves[$i].vaginalSkill = Math.clamp($slaves[$i].vaginalSkill,0,15), $slaves[$i].oralSkill = Math.clamp($slaves[$i].oralSkill,0,15), $slaves[$i].analSkill = Math.clamp($slaves[$i].analSkill,0,15), $slaves[$i].combatSkill = 0, $slaves[$i].whoreSkill = 0, $slaves[$i].entertainSkill = 0, $slaves[$i].intelligence to -2, $slaves[$i].intelligenceImplant to 0, $slaves[$i].sexualFlaw = "none", $slaves[$i].sexualQuirk = "none", $slaves[$i].behavioralFlaw = "none", $slaves[$i].behavioralQuirk = "none">>
 <<else>>
 <<if $slaves[$i].fuckdoll == 0>>
 
@@ -3013,9 +3013,9 @@
 	<</if>>
 
 	<<set $slaves[$i].preg = 1, $slaves[$i].pregSource = -1>>
-	<<set $activeSlave to $slaves[$i]>><<VaginalVCheck 10>><<set $slaves[$i] to $activeSlave>>
+	<<set $activeSlave = $slaves[$i]>><<VaginalVCheck 10>><<set $slaves[$i] = $activeSlave>>
 
-<<elseif ($HeadGirl != 0) && ($HeadGirl.dick > 0) && ($slaves[$i].ID != $HeadGirl.ID) && ($universalRulesImpregnation == "HG") && canImpreg($slaves[$i], $HeadGirl)>>
+<<elseif ($HeadGirl != 0) && ($HeadGirl.dick > 0) && ($slaves[$i].ID != $HeadGirl.ID) && ($universalRulesImpregnation == "HG") && canPenetrate($HeadGirl)>>
 	<<if $HGCum == 0>>
 		It's $HeadGirl.slaveName's responsibility to impregnate fertile slaves, but your Head Girl can only fuck a limited number of slaves enough to ensure impregnation each week.
 	<<else>>
@@ -3121,7 +3121,7 @@
 						<</if>>
 					<</if>>
 					/* found eligible father */
-					After all the unprotected sex she had this week, it's really no surprise when @@.lime;$pronoun ends up pregnant@@.
+					After all the unprotected sex $pronoun had this week, it's really no surprise when @@.lime;$pronoun ends up pregnant@@.
 					<<set $slaves[$i].preg = 1, $slaves[$i].pregSource = $MastSiIDs[_m].ID>>
 					<<break>>
 				<</if>>
@@ -3290,7 +3290,7 @@
 
 <<if $FSAnnounced > 0>>
 
-<<set $pornFameBonus to 1>>
+<<set $pornFameBonus = 1>>
 <<if $studio == 1>>
 <<if $slaves[$i].pornFameSpending > 0>>
 	<<set $pornFameBonus += 0.2 + ($slaves[$i].pornFameSpending/10000)>>
@@ -3676,7 +3676,7 @@
 	<</if>>
 <</if>>
 
-<</if>>
+<</if>> /* closes FSAnnounced */
 
 <<if $slaves[$i].fuckdoll == 0>>
 <<if $slaves[$i].fetish != "mindbroken">>
@@ -4285,22 +4285,22 @@
 		<<if ($week - $slaves[$i].weekAcquired) > _minweeks>>
 			<<set $slaves[$i].accent -= 1>>
 			<<if $slaves[$i].voice == 0 || $slaves[$i].lips > 95>>
-				She has managed to pick up enough $language that @@.green;she's now able to understand most of what she hears.@@
+				$pronounCap has managed to pick up enough $language that @@.green;$pronoun's now able to understand most of what $pronoun hears.@@
 			<<else>>
-				She has managed to pick up enough $language that @@.green;she's now reasonably fluent in the language.@@ Her accent is quite heavy, but she can make herself understood.
+				$pronounCap has managed to pick up enough $language that @@.green;$pronoun's now reasonably fluent in the language.@@ $possessiveCap accent is quite heavy, but $pronoun can make <<print $object>>self understood.
 			<</if>>
 		<</if>>
 	<<elseif canTalk($slaves[$i])>>
 		<<if ($slaves[$i].accent == 2)>>
 			<<if ($week - $slaves[$i].weekAcquired) > (5 + _minweeks)>>
 				<<set $slaves[$i].accent -= 1>>
-				She has heard and spoken a great deal of $language as your slave. @@.green;Her accent has diminished to a pleasant exoticism.@@
+				$pronounCap has heard and spoken a great deal of $language as your slave. @@.green;$possessiveCap accent has diminished to a pleasant exoticism.@@
 			<</if>>
 		<<elseif ($slaves[$i].accent == 1) && ($slaves[$i].speechRules == "accent elimination")>>
 			<<if ($week - $slaves[$i].weekAcquired) > (10 + _minweeks)>>
 		
 				<<set $slaves[$i].accent -= 1>>
-				She does her best to speak proper, unaccented $language, as encouraged by the rules. @@.green;Her accent has diminished to imperceptibility.@@
+				$pronounCap does her best to speak proper, unaccented $language, as encouraged by the rules. @@.green;$possessiveCap accent has diminished to imperceptibility.@@
 			<</if>>
 		<</if>>
 	<</if>>
@@ -4420,7 +4420,7 @@
 	<</if>>
 	so it is now very prestigious to own $object.
 	<<elseif ($slaves[$i].prestige < 1) && ($slaves[$i].pornFame >= 10) && ($seed < 10)>>
-	<<set $slaves[$i].prestige to 1>>
+	<<set $slaves[$i].prestige = 1>>
 	@@.green;$pronounCap has become well known from slave pornography!@@ Thousands have enjoyed
 	<<if $slaves[$i].fuckdoll > 0>>
 		<<set $slaves[$i].prestigeDesc = "It is well known from slave pornography. Its many fans relish the sight of it being used.">>
@@ -4519,11 +4519,11 @@
 <</if>>
 
 <<if ($slaves[$i].preg > 30) && (random(1,100) > 90)>>
-	<<set $slaves[$i].labor to 1>>
-	<<set $birthee to 1>>
+	<<set $slaves[$i].labor = 1>>
+	<<set $birthee = 1>>
 <<elseif ($slaves[$i].preg > 35)>>
-	<<set $slaves[$i].labor to 1>>
-	<<set $birthee to 1>>
+	<<set $slaves[$i].labor = 1>>
+	<<set $birthee = 1>>
 <</if>>
 
 <<if ($slaves[$i].hStyle != "shaved") || ($slaves[$i].origHColor != "bald")>>
