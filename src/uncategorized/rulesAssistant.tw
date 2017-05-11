@@ -1210,7 +1210,7 @@ Buttplugs for other slaves: ''$currentRule.buttplug.''
 
 <br><br>
 
-__Rule $r Drug Regimen:__
+__Rule $r Physical Regimen:__
 
 <br>
 
@@ -2095,21 +2095,21 @@ Smart piercing fetish target: <span id = "spf">''$currentRule.clitSetting.''</sp
     <<RAChangeApply>>
 <</link>>
 |
-<<link "Pregnancy">>
+<<link "Preg">>
     <<set $currentRule.clitSetting = "pregnancy">>
     <<RAChangeSPF>>
 	<<RAChangeSave>>
     <<RAChangeApply>>
 <</link>>
 |
-<<link "Masochist">>
+<<link "Pain">>
     <<set $currentRule.clitSetting = "masochist">>
     <<RAChangeSPF>>
 	<<RAChangeSave>>
     <<RAChangeApply>>
 <</link>>
 |
-<<link "Sadist">>
+<<link "Sadism">>
     <<set $currentRule.clitSetting = "sadist">>
     <<RAChangeSPF>>
 	<<RAChangeSave>>
@@ -2453,7 +2453,7 @@ Relationship rules: ''$currentRule.relationshipRules.''
 				<<set $currentRule.releaseRules = "restrictive">>
 				<<set $currentRule.standardPunishment = "confinement">>
 				<<set $currentRule.standardReward = "relaxation">>
-				<<set $currentRule.clitSetting = "all">>
+				<<set $currentRule.clitSetting = "anal", $currentRule.clitSettingXY = 100, $currentRule.clitSettingXX = 100, $currentRule.clitSettingEnergy = 100>>
 				<<set $currentRule.speechRules = "permissive">>
 				<<set $currentRule.relationshipRules = "permissive">>
 				<<set $currentRule.livingRules = "luxurious">>
@@ -2529,7 +2529,7 @@ Relationship rules: ''$currentRule.relationshipRules.''
 				<<set $currentRule.releaseRules = "restrictive">>
 				<<set $currentRule.standardPunishment = "whipping">>
 				<<set $currentRule.standardReward = "orgasm">>
-				<<set $currentRule.clitSetting = "all">>
+				<<set $currentRule.clitSetting = "anal", $currentRule.clitSettingXY = 100, $currentRule.clitSettingXX = 100, $currentRule.clitSettingEnergy = 100>>
 				<<set $currentRule.speechRules = "restrictive">>
 				<<set $currentRule.relationshipRules = "restrictive">>
 				<<set $currentRule.livingRules = "spare">>
@@ -2604,7 +2604,7 @@ Relationship rules: ''$currentRule.relationshipRules.''
 				<<set $currentRule.releaseRules = "no default setting">>
 				<<set $currentRule.standardPunishment = "no default setting">>
 				<<set $currentRule.standardReward = "no default setting">>
-				<<set $currentRule.clitSetting = "no default setting">>
+				<<set $currentRule.clitSetting = "no default setting", $currentRule.clitSettingXY = "no default setting", $currentRule.clitSettingXX = "no default setting", $currentRule.clitSettingEnergy = "no default setting">>
 				<<set $currentRule.speechRules = "no default setting">>
 				<<set $currentRule.relationshipRules = "no default setting">>
 				<<set $currentRule.livingRules = "no default setting">>
