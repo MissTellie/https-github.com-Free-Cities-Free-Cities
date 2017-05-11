@@ -289,14 +289,28 @@ __Rule $r Automatic Activation__
 &nbsp;&nbsp;&nbsp;&nbsp;
 
 <<if $currentRule.selectedSlaves.length < 1 && $currentRule.excludedSlaves.length < 1>>
-  @@.gray;Specific slaves:@@
-	''Not limited to nor excluding any specific slaves'' | [[Choose specific slaves|Rules Slave Select][$currentRule.excludedSlaves = []]] | [[Exclude specific slaves|Rules Slave Exclude][$currentRule.selectedSlaves = []]]
+  @@.gray;No specific slaves selected:@@
+	[[Limit to specific slaves|Rules Slave Select][$currentRule.excludedSlaves = []]] | [[Exclude specific slaves|Rules Slave Exclude][$currentRule.selectedSlaves = []]]
 <<elseif $currentRule.selectedSlaves.length < 1 && $currentRule.excludedSlaves.length > 0>>
-  Exclude specific slaves:
-	[[Currently excluding specific slaves|Rules Slave Exclude]] | [[Don't exclude specific slaves|Rules Assistant][$currentRule.excludedSlaves = []]]
+	<br>Excluding specific slaves:
+	<ul>
+	<<for _j = 0; _j < $slaves.length; _j++>>
+		<<if $currentRule.excludedSlaves.includes($slaves[_j].ID)>>
+			<li>$slaves[_j].slaveName</li>
+		<</if>>
+	<</for>>
+	</ul>
+	[[Change specific slaves|Rules Slave Exclude]] | [[Don't exclude specific slaves|Rules Assistant][$currentRule.excludedSlaves = []]]
 <<else>>
-  Apply to specific slaves:
-	[[Currently limited to specific slaves|Rules Slave Select]] | [[Don't limit to specific slaves|Rules Assistant][$currentRule.selectedSlaves = [], $currentRule.excludedSlaves = []]]
+	<br>Limited to specific slaves (this list does not override the exclude special slaves setting above):
+	<ul>
+	<<for _j = 0; _j < $slaves.length; _j++>>
+		<<if $currentRule.selectedSlaves.includes($slaves[_j].ID)>>
+			<li>$slaves[_j].slaveName</li>
+		<</if>>
+	<</for>>
+	</ul>
+	[[Change specific slaves|Rules Slave Select]] | [[Don't limit to specific slaves|Rules Assistant][$currentRule.selectedSlaves = [], $currentRule.excludedSlaves = []]]
 <</if>>
 
 <span id = "setassignment">
@@ -310,49 +324,6 @@ __Rule $r Automatic Activation__
 <<timed 50ms>>
 <<RAChangeAssignFacility>>
 <</timed>>
-
-<br><br>
-
-Apply to slaves:<br>
-<<if ((ndef $currentRule.selectedSlaves) || ($currentRule.selectedSlaves.length < 1)) && ((ndef $currentRule.excludedSlaves) || ($currentRule.excludedSlaves.length < 1))>>
-''Currently applied to all slaves'' | [[Choose specific slaves|Rules Slave Select]]
-<<elseif ((ndef $currentRule.selectedSlaves) || ($currentRule.selectedSlaves.length < 1)) && (def $currentRule.excludedSlaves) && ($currentRule.excludedSlaves.length > 0)>>
-''Currently applied to all slaves except excluded slaves'' | [[Choose specific slaves|Rules Slave Select]] | [[Apply to all slaves|Rules Assistant][$currentRule.selectedSlaves = [],$currentRule.excludedSlaves = []]]
-<<else>>
-	<ul>
-	<<for $i = 0; $i < $currentRule.selectedSlaves.length; $i++ >>
-	  <<for $j = 0; $j < $slaves.length; $j++ >>
-			<<if $slaves[$j].ID == $currentRule.selectedSlaves[$i]>>
-					<li>
-						$slaves[$j].slaveName
-					</li>
-			<</if>>
-		<</for>>
-	<</for>>
-	</ul>
-[[Change which slaves this rule applies to|Rules Slave Select]] | [[Apply to all slaves|Rules Assistant][$currentRule.selectedSlaves = [], $currentRule.excludedSlaves = []]]
-<</if>>
-
-<br>
-Exclude slaves:<br>
-<<if ndef $currentRule.excludedSlaves || $currentRule.excludedSlaves.length < 1>>
-''Not excluding any slaves'' |
-
-[[Exclude specific slaves|Rules Slave Exclude]]
-<<else>>
-	<ul>
-	<<for $i = 0; $i < $currentRule.excludedSlaves.length; $i++ >>
-	  <<for $j = 0; $j < $slaves.length; $j++ >>
-			<<if $slaves[$j].ID == $currentRule.excludedSlaves[$i]>>
-					<li>
-						$slaves[$j].slaveName
-					</li>
-			<</if>>
-		<</for>>
-	<</for>>
-	</ul>
-[[Change which slaves are excluded from this rule|Rules Slave Exclude]] | [[Don't exclude slaves|Rules Assistant][$currentRule.excludedSlaves = []]]
-<</if>>
 
 <br><br>
 
@@ -866,14 +837,14 @@ Body Accessory: ''$currentRule.bellyAccessory.''
 	<<RAChangeApply>>
 <</link>>
 |
-<<link "Tight">>
+<<link "Tight corset">>
 	<<set $currentRule.bellyAccessory = "a corset">>
 	<<RAChangeBelly>>
 	<<RAChangeSave>>
 	<<RAChangeApply>>
 <</link>>
 |
-<<link "Extreme">>
+<<link "Extreme corset">>
 	<<set $currentRule.bellyAccessory = "an extreme corset">>
 	<<RAChangeBelly>>
 	<<RAChangeSave>>

@@ -1,34 +1,23 @@
 :: Rules Slave Select
 
 <<nobr>>
-<<set $nextButton = "Continue">>
-<<set $nextLink = "Rules Assistant">>
+<<set $nextButton = "Continue", $nextLink = "Rules Assistant">>
 
 <<if ndef $currentRule.selectedSlaves>>
 	<<set $currentRule.selectedSlaves to []>>
 <</if>>
 
-<<if ((ndef $currentRule.selectedSlaves) || ($currentRule.selectedSlaves.length < 1)) && ((ndef $currentRule.excludedSlaves) || ($currentRule.excludedSlaves.length < 1))>>
-	Rule $r currently applied to all slaves.
-	<br><br>
+<<if ($currentRule.selectedSlaves.length < 1)>>
 	<<set $Flag = 0>>
-	Apply rule $r to selected slaves:
-	<<include "Slave Summary">>
-<<elseif ($currentRule.selectedSlaves.length < 1) && ($currentRule.excludedSlaves.length > 0)>>
-	Rule $r currently applied to all slaves except excluded slaves.
-	<br><br>
-	<<set $Flag = 0>>
-	Apply rule $r to selected slaves:
+	Choose specific slaves to limit Rule $r:
 	<<include "Slave Summary">>
 <<else>>
-	Rule $r currently applied to:
+	Rule $r currently limited to specific slaves: [[Clear list|Rules Slave Select][$currentRule.selectedSlaves = []]]
 	<<set $Flag = 1>>
 	<<include "Slave Summary">>
 	<br><br>
-	Apply rule $r to selected slaves:
+	Choose more specific slaves:
 	<<set $Flag = 0>>
 	<<include "Slave Summary">>
-
-	<br>[[Apply to all slaves|Rules Slave Select][$currentRule.selectedSlaves = []]]
 <</if>>
 <</nobr>>

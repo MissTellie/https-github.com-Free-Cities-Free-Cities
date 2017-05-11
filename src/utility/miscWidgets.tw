@@ -1207,6 +1207,7 @@
 		<<set $SEnunciate = "Th">>
 		<<set $ssEnunciate = "th">>
 		<<set $cEnunciate = "th">>
+		<<set $zEnunciate = "th">>
 	<<else>>
 		<<if def $PC.customTitle>><<set $titleEnunciate = $PC.customTitle>><<elseif $PC.title != 0>><<set $titleEnunciate = "Master">><<else>><<set $titleEnunciate = "Mistress">><</if>>
 		<<set $sayEnunciate = "say">>
@@ -1214,6 +1215,7 @@
 		<<set $SEnunciate = "S">>
 		<<set $ssEnunciate = "ss">>
 		<<set $cEnunciate = "c">>
+		<<set $zEnunciate = "z">>
 	<</if>>
 <</widget>>
 <<widget "Master">><<if def $args[0]>><<Enunciate $args[0]>><<else>><<Enunciate $activeSlave>>$titleEnunciate<</if>><</widget>>
@@ -1222,6 +1224,7 @@
 <<widget "S">>$SEnunciate<</widget>>
 <<widget "ss">>$ssEnunciate<</widget>>
 <<widget "c">>$cEnunciate<</widget>>
+<<widget "z">>$zEnunciate<</widget>>
 
 /%
  Call as <<SoftenBehavioralFlaw>>
@@ -2091,6 +2094,7 @@ This experience
 		| //Take her anal virginity before giving her ass special attention//
 		<</if>>
 		| <<link "No Preference">><<set $activeSlave.toyHole = "all her holes">><<replace "#hole">>$activeSlave.toyHole<</replace>><</link>>
+		<br>
 	<</if>>
 <</replace>>
 

@@ -709,7 +709,6 @@ window.mergeRules = function(rules) {
                 )
             );
 
-
             if (applies) {
                 if (attr == "setAssignment" && combinedRule.assignFacility !== "none") {
                     // If the rules so far have set assignFacility, unset it,
@@ -731,3 +730,5 @@ window.mergeRules = function(rules) {
 
     return combinedRule;
 }
+
+
