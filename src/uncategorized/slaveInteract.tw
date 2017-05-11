@@ -171,29 +171,30 @@
 <</if>>
 
 <br><br>
-__Rules Assistant__
-//<<link "Apply Rules Assistant to this slave">>
-	<<silently>>
-	<<CheckAutoRulesActivate $activeSlave>>
-	<<DefaultRules $activeSlave>>
-	<</silently>>
-	<<goto "Slave Interact">>
-<</link>>//
-&nbsp;&nbsp;&nbsp;&nbsp;
-<<if $activeSlave.useRulesAssistant != 0>>
-''Subject'' to the rules assistant. [[Exempt her|Slave Interact][$activeSlave.useRulesAssistant = 0]]
+<<if $activeSlave.useRulesAssistant == 0>>
+	@@.gray;''Not subject'' to the Rules Assistant.@@
+	[[Include her|Slave Interact][$activeSlave.useRulesAssistant = 1]]
+	<br>
 <<else>>
-''Not subject'' to the rules assistant. [[Include her|Slave Interact][$activeSlave.useRulesAssistant = 1]]
-<</if>> | [[Rules Assistant Options|Rules Assistant]]
-<<if (def $activeSlave.currentRules) && ($activeSlave.currentRules.length > 0)>>
-	<ul>
-	<<for _s = 0; _s < $defaultRules.length; _s++>>
-		<<set _currentRule = $defaultRules[_s], _num = (_s+1)>>
-		<<if ruleApplied($activeSlave, _currentRule.ID)>>
-			<li>Rule _num (_currentRule.name) applied.</li>
-		<</if>>
-	<</for>>
-	</ul>
+	__Rules Assistant__
+	<<link "//Apply Rules Assistant to this slave//">>
+		<<silently>>
+		<<CheckAutoRulesActivate $activeSlave>>
+		<<DefaultRules $activeSlave>>
+		<</silently>>
+		<<goto "Slave Interact">>
+	<</link>>
+	&nbsp;&nbsp;&nbsp;&nbsp;[[Exempt this slave from the Rules Assistant|Slave Interact][$activeSlave.useRulesAssistant = 0]] | [[Rules Assistant Options|Rules Assistant]]
+
+	<<if (def $activeSlave.currentRules) && ($activeSlave.currentRules.length > 0)>>
+		<ul>
+		<<for _r = 0; _r < $defaultRules.length; _r++>>
+			<<if ruleApplied($activeSlave, $defaultRules[_r].ID)>>
+				<li>Rule <<print (_r+1)>>: $defaultRules[_r].name applied.</li>
+			<</if>>
+		<</for>>
+		</ul>
+	<</if>>
 <</if>>
 
 <br>
