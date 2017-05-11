@@ -186,17 +186,17 @@ __Rules Assistant__
 ''Not subject'' to the rules assistant. [[Include her|Slave Interact][$activeSlave.useRulesAssistant = 1]]
 <</if>> | [[Rules Assistant Options|Rules Assistant]]
 <<if (def $activeSlave.currentRules) && ($activeSlave.currentRules.length > 0)>>
-	<<for _r = 0; _r < $activeSlave.currentRules.length; _r++>>
-		<<for _s = 0; _s < $defaultRules.length; _s++>>
-			<<set _currentRule = $defaultRules[_s], _num = (_s+1)>>
-			<<if $activeSlave.currentRules[_r] == _currentRule.ID>>
-				<br>Rule _num: _currentRule.name applied.
-			<</if>>
-		<</for>>
+	<ul>
+	<<for _s = 0; _s < $defaultRules.length; _s++>>
+		<<set _currentRule = $defaultRules[_s], _num = (_s+1)>>
+		<<if ruleApplied($activeSlave, _currentRule.ID)>>
+			<li>Rule _num (_currentRule.name) applied.</li>
+		<</if>>
 	<</for>>
+	</ul>
 <</if>>
 
-<br><br>
+<br>
 
 <span id="fucktoypref">
 	<<if ($activeSlave.assignment == "please you") || ($activeSlave.assignment == "serve in the master suite") || ($activeSlave.assignment == "be your Concubine")>>
