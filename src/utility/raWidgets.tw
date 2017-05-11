@@ -3445,6 +3445,13 @@ Your brand design is ''$brandDesign.''
 
 <</for>>
 
+/% In case a slave has no rules applying to them, _combinedRule would (should)
+be an empty object, and that would wreck havoc to the rest of the code. So, we
+check if a rule attribute, any one, is defined and otherwise skip everything.
+%/
+
+<<if (def _combinedRule.clothes)>> /* we have at least one non-default rule setting */
+
 <<if $args[0].fuckdoll == 0>>
 
 <<if (def _combinedRule.clothes) && (_combinedRule.clothes !== "no default setting")>>
@@ -4594,6 +4601,8 @@ is now _combinedRule.hLength cm long.
 <</if>>
 <</if>>
 <</if>>
+
+<</if>> /* closes we have at least one non-default rule setting */
 
 <</widget>>
 
