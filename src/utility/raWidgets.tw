@@ -2423,7 +2423,7 @@ Relationship rules: ''$currentRule.relationshipRules.''
                     <br>
                     <<break>>
                 <<else>>
-                    <<set $currentRule.condition = _parsedCondition.expr>>
+                    <<set $currentRule.condition = optimizeExpr(_parsedCondition.expr)>>
                 <</if>>
             <</if>>
 
@@ -3557,7 +3557,7 @@ Your brand design is ''$brandDesign.''
 			<<set $args[0].curatives = _currentRule.curatives>>
 		<</if>>
 	<<else>>
-		<br>$args[0].slaveName has been	<<if _currentRule.aphrodisiacs > 0>>put on preventatives<<else>>taken off health drugs<</if>>.
+		<br>$args[0].slaveName has been <<if _currentRule.curatives > 0>>put on preventatives<<else>>taken off health drugs<</if>>.
 		<<set $args[0].curatives = _currentRule.curatives>>
 	<</if>>
 <</if>>
