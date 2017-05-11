@@ -3164,6 +3164,101 @@ Your brand design is ''$brandDesign.''
 <</widget>>
 
 /%
+ % Call as <<RAFacilityRemove SlaveObject RuleObject>>
+ %/
+<<widget "RAFacilityRemove">>
+<<if $args[0].facilityRemove>>
+    <<switch $args[0].assignFacility>>
+    <<case "arcade">>
+        <<if $args[0].assignment == "be confined in the arcade">>
+            <br>$args[0].slaveName has been removed from $arcadeName and has been assigned to $args[1].removalAssignment.
+            <<assignJob $args[0] $args[1].removalAssignment>>
+        <</if>>
+
+    <<case "brothel">>
+        <<if $args[0].assignment == "work in the brothel">>
+            <<if ($Madam == 0) || ($Madam.ID != $args[0].ID)>>
+                <br>$args[0].slaveName has been removed from $brothelName and has been assigned to $args[1].removalAssignment.
+                <<assignJob $args[0] $args[1].removalAssignment>>
+            <</if>>
+        <</if>>
+
+    <<case "club">>
+        <<if $args[0].assignment == "serve in the club">>
+            <<if ($DJ == 0) || ($DJ.ID != $args[0].ID)>>
+                <br>$args[0].slaveName has been removed from $clubName and has been assigned to $args[1].removalAssignment.
+                <<assignJob $args[0] $args[1].removalAssignment>>
+            <</if>>
+        <</if>>
+
+    <<case "dairy">>
+        <<if $args[0].assignment == "work in the dairy">>
+            <<if ($Milkmaid == 0) || ($Milkmaid.ID != $args[0].ID)>>
+                <br>$args[0].slaveName has been removed from $dairyName and has been assigned to $args[1].removalAssignment.
+                <<assignJob $args[0] $args[1].removalAssignment>>
+            <</if>>
+        <</if>>
+
+    <<case "spa">>
+        <<if $args[0].assignment == "rest in the spa">>
+            <<if ($Attendant == 0) || ($Attendant.ID != $args[0].ID)>>
+                <br>$args[0].slaveName has been removed from $spaName and has been assigned to $args[1].removalAssignment.
+                <<assignJob $args[0] $args[1].removalAssignment>>
+            <</if>>
+        <</if>>
+
+    <<case "clinic">>
+        <<if $args[0].assignment == "get treatment in the clinic">>
+            <<if ($Nurse == 0) || ($Nurse.ID != $args[0].ID)>>
+                <br>$args[0].slaveName has been removed from $clinicName and has been assigned to $args[1].removalAssignment.
+                <<assignJob $args[0] $args[1].removalAssignment>>
+            <</if>>
+        <</if>>
+
+    <<case "mastersuite">>
+        <<if $args[0].assignment == "serve in the master suite">>
+            <<if ($Concubine == 0) || ($Concubine.ID != $args[0].ID)>>
+                <br>$args[0].slaveName has been removed from $masterSuiteName and has been assigned to $args[1].removalAssignment.
+                <<assignJob $args[0] $args[1].removalAssignment>>
+            <</if>>
+        <</if>>
+
+    <<case "hgsuite">>
+        <<if $args[0].assignment == "live with your Head Girl">>
+            <<if ($HeadGirl == 0) || ($HeadGirl.ID != $args[0].ID)>>
+                <br>$args[0].slaveName has been removed from $HGSuiteName and has been assigned to $args[1].removalAssignment.
+                <<assignJob $args[0] $args[1].removalAssignment>>
+            <</if>>
+        <</if>>
+
+    <<case "servantsquarters">>
+        <<if $args[0].assignment == "work as a servant">>
+            <<if ($Stewardess == 0) || ($Stewardess.ID != $args[0].ID)>>
+                <br>$args[0].slaveName has been removed from $servantsQuartersName and has been assigned to $args[1].removalAssignment.
+                <<assignJob $args[0] $args[1].removalAssignment>>
+            <</if>>
+        <</if>>
+
+    <<case "schoolroom">>
+        <<if $args[0].assignment == "learn in the schoolroom">>
+            <<if ($Schoolteacher == 0) || ($Schoolteacher.ID != $args[0].ID)>>
+                <br>$args[0].slaveName has been removed from $schoolroomName and has been assigned to $args[1].removalAssignment.
+                <<assignJob $args[0] $args[1].removalAssignment>>
+            <</if>>
+        <</if>>
+
+    <<case "cellblock">>
+        <<if $args[0].assignment == "be confined in the cellblock">>
+            <<if ($Wardeness == 0) || ($Wardeness.ID != $args[0].ID)>>
+                <br>$args[0].slaveName has been removed from $cellblockName and has been assigned to $args[1].removalAssignment.
+                <<assignJob $args[0] $args[1].removalAssignment>>
+            <</if>>
+        <</if>>
+    <</switch>>
+<</if>>
+<</widget>>
+
+/%
  Call as <<RARemoveRule SlaveObject>>
 %/
 <<widget "RARemoveRule">>
@@ -3172,7 +3267,7 @@ Your brand design is ''$brandDesign.''
 			<<set _dump = $args[0].currentRules.deleteAt(_s)>>
 			<br>//@@.tan;Rule _rule (_currentRule.name) is no longer applying to $args[0].slaveName, who is assigned to $args[0].assignment.@@//
 			<<if $args[0].assignmentVisible == 0>>
-				<<include "Rules Facility Remove">>
+				<<RAFacilityRemove $args[0] _currentRule>>
 			<</if>>
 			<<break>>
 		<</if>>
@@ -3237,7 +3332,7 @@ Your brand design is ''$brandDesign.''
                 <<assignJob $args[0] _currentRule.assignFacility>>
             <</if>>
         <<else>>
-            <<include "Rules Facility Remove">>
+            <<RAFacilityRemove $args[0] _currentRule>>
         <</if>>
 
     <<case "clinic">>
@@ -3250,7 +3345,7 @@ Your brand design is ''$brandDesign.''
                 <<assignJob $args[0] _currentRule.assignFacility>>
             <</if>>
         <<else>>
-            <<include "Rules Facility Remove">>
+            <<RAFacilityRemove $args[0] _currentRule>>
         <</if>>
 
     <<case "spa">>
@@ -3263,7 +3358,7 @@ Your brand design is ''$brandDesign.''
                 <<assignJob $args[0] _currentRule.assignFacility>>
             <</if>>
         <<else>>
-            <<include "Rules Facility Remove">>
+            <<RAFacilityRemove $args[0] _currentRule>>
         <</if>>
 
     <<case "brothel">>
@@ -3276,7 +3371,7 @@ Your brand design is ''$brandDesign.''
                 <<assignJob $args[0] _currentRule.assignFacility>>
             <</if>>
         <<else>>
-            <<include "Rules Facility Remove">>
+            <<RAFacilityRemove $args[0] _currentRule>>
         <</if>>
 
     <<case "club">>
@@ -3289,7 +3384,7 @@ Your brand design is ''$brandDesign.''
                 <<assignJob $args[0] _currentRule.assignFacility>>
             <</if>>
         <<else>>
-            <<include "Rules Facility Remove">>
+            <<RAFacilityRemove $args[0] _currentRule>>
         <</if>>
 
     <<case "dairy">>
@@ -3309,16 +3404,16 @@ Your brand design is ''$brandDesign.''
                                     <<assignJob $args[0] _currentRule.assignFacility>>
                                 <</if>>
                             <<else>>
-                                <<include "Rules Facility Remove">>
+                                <<RAFacilityRemove $args[0] _currentRule>>
                             <</if>>
                         <<else>>
-                            <<include "Rules Facility Remove">>
+                            <<RAFacilityRemove $args[0] _currentRule>>
                         <</if>>
                     <<else>>
-                        <<include "Rules Facility Remove">>
+                        <<RAFacilityRemove $args[0] _currentRule>>
                     <</if>>
                 <<else>>
-                    <<include "Rules Facility Remove">>
+                    <<RAFacilityRemove $args[0] _currentRule>>
                 <</if>>
             <</if>>
         <</if>>
@@ -3333,7 +3428,7 @@ Your brand design is ''$brandDesign.''
                 <<assignJob $args[0] _currentRule.assignFacility>>
             <</if>>
         <<else>>
-            <<include "Rules Facility Remove">>
+            <<RAFacilityRemove $args[0] _currentRule>>
         <</if>>
 
     <<case "schoolroom">>
@@ -3347,10 +3442,10 @@ Your brand design is ''$brandDesign.''
                     <<assignJob $args[0] _currentRule.assignFacility>>
                 <</if>>
             <<else>>
-                <<include "Rules Facility Remove">>
+                <<RAFacilityRemove $args[0] _currentRule>>
             <</if>>
         <<else>>
-            <<include "Rules Facility Remove">>
+            <<RAFacilityRemove $args[0] _currentRule>>
         <</if>>
 
     <<case "cellblock">>
@@ -3363,7 +3458,7 @@ Your brand design is ''$brandDesign.''
                 <<assignJob $args[0] _currentRule.assignFacility>>
             <</if>>
         <<else>>
-            <<include "Rules Facility Remove">>
+            <<RAFacilityRemove $args[0] _currentRule>>
         <</if>>
     <</switch>>
 
