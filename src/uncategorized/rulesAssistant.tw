@@ -336,6 +336,13 @@ Clothes:
 <<else>>
 	''$currentRule.clothes.''
 <</if>>
+<<if ($arcologies[0].FSRomanRevivalist != "unset") || ($cheatMode == 1) || ($clothesBoughtToga == 1)>>
+	<<set $currentRule.clothes = "choosing her own clothes">>
+	<<RAChangeClothes>>
+	<<RAChangeSave>>
+	<<RAChangeApply>>
+<</link>>
+<</if>>
 </span>
 <br>(Good clothes)<br>
 <<link "No default clothes setting">>
@@ -606,15 +613,6 @@ Clothes:
 	<<RAChangeSave>>
 	<<RAChangeApply>>
 <</link>> |
-<</if>>
-<<if ($arcologies[0].FSRomanRevivalist != "unset") || ($cheatMode == 1) || ($clothesBoughtToga == 1)>>
-   //FS//
-<<link "Select her own outfit">>
-	<<set $currentRule.clothes = "choosing her own clothes">>
-	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
-<</link>>
 <</if>>
 
 <br>(Bad clothes)<br>
