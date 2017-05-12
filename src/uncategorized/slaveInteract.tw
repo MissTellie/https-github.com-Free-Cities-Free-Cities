@@ -633,7 +633,7 @@ Aphrodisiacs: <span id="aphrodisiacs"><strong><<if $activeSlave.aphrodisiacs > 1
 	| <<link "Apply">><<set $activeSlave.aphrodisiacs = 1>><<replace "#aphrodisiacs">><strong>applied</strong><</replace>><</link>>
 	| <<link "Extreme">><<set $activeSlave.aphrodisiacs = 2>><<replace "#aphrodisiacs">><strong>extreme</strong><</replace>><</link>>
 
-<br>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
 <span id="fertilityblock">
 <<if ($activeSlave.preg < -1) || ($activeSlave.ovaries == 0)>>
 	//She is sterile//
@@ -664,7 +664,7 @@ Contraception: <span id="fertility"><strong><<if $activeSlave.preg == -1>>using 
 <</if>>
 </span>
 
-<br>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
 Hormones: <strong><span id="hormones">
 <<if $activeSlave.hormones == -2>>intensive male<<elseif $activeSlave.hormones == -1>>male<<elseif $activeSlave.hormones == 2>>intensive female<<elseif $activeSlave.hormones == 1>>female<<else>>none<</if>></span></strong>.
 <<link "Intensive Female">><<set $activeSlave.hormones = 2>><<replace "#hormones">>intensive female<</replace>><</link>> |
