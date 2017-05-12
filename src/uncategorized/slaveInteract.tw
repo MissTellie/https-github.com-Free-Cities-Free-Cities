@@ -824,9 +824,14 @@ Hormones: <strong><span id="hormones">
 	The media hub is not releasing highlights of her sex life. [[Release|Slave Interact][$activeSlave.pornFameSpending = 0]]
 	<<else>>
 	<<if $activeSlave.prestige < 3>>
-		The media hub is releasing highlights of her sex life. ¤$activeSlave.pornFameSpending weekly is spent to publicize them.
-		<<if $activeSlave.pornFameSpending < 5000>>
-		[[Increase|Slave Interact][$activeSlave.pornFameSpending += 1000]]
+		The media hub is releasing <<if $activeSlave.pornFameSpending  < 500>> minimal <</if>> highlights of her sex life. 
+		
+		<<if $activeSlave.pornFameSpending < 1>>
+			[[Begin publicizing?|Slave Interact][$activeSlave.pornFameSpending += 1000]]  
+			//Will cost ¤1000 weekly.//
+		<<elseif $activeSlave.pornFameSpending < 5000  && $activeSlave.pornFameSpending > 1>>
+			¤$activeSlave.pornFameSpending weekly is spent to publicize them.
+			[[Increase|Slave Interact][$activeSlave.pornFameSpending += 1000]]
 		<</if>>
 		<<if ($activeSlave.pornFameSpending < 5000) && ($activeSlave.pornFameSpending > 0)>>
 		|
