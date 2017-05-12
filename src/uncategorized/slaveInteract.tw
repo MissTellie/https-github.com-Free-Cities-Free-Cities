@@ -794,7 +794,7 @@ Hormones: <strong><span id="hormones">
 <</if>>
 
 	<<if $activeSlave.voice != 0>>
-	<br>Speech Rules: ''<span id="speechRules">$activeSlave.speechRules</span>.''
+	<br>Speech rules: ''<span id="speechRules">$activeSlave.speechRules</span>.''
 	<<if $activeSlave.speechRules == "restrictive">>
 		<<link "Permissive">><<set $activeSlave.speechRules = "permissive">><<replace "#speechRules">>$activeSlave.speechRules<</replace>><</link>><<if $activeSlave.accent > 0>> | <<link "Accent elimination">><<set $activeSlave.speechRules = "accent elimination">><<replace "#speechRules">>$activeSlave.speechRules<</replace>><</link>><</if>>
 	<<elseif $activeSlave.speechRules == "permissive">>
