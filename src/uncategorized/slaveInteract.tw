@@ -826,10 +826,10 @@ Hormones: <strong><span id="hormones">
 	<<if $activeSlave.prestige < 3>>
 		The media hub is releasing <<if $activeSlave.pornFameSpending  < 500>> minimal <</if>> highlights of her sex life. 
 		
-		<<if $activeSlave.pornFameSpending < 1>>
+		<<if $activeSlave.pornFameSpending == 0>>
 			[[Begin publicizing?|Slave Interact][$activeSlave.pornFameSpending += 1000]]  
 			//Will cost ¤1000 weekly.//
-		<<elseif $activeSlave.pornFameSpending < 5000  && $activeSlave.pornFameSpending > 1>>
+		<<elseif $activeSlave.pornFameSpending < 5000  && $activeSlave.pornFameSpending > 0>>
 			¤$activeSlave.pornFameSpending weekly is spent to publicize them.
 			[[Increase|Slave Interact][$activeSlave.pornFameSpending += 1000]]
 		<</if>>
