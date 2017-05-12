@@ -636,10 +636,11 @@ Aphrodisiacs: <span id="aphrodisiacs"><strong><<if $activeSlave.aphrodisiacs > 1
 
 <br>
 <span id="fertilityblock">
+Contraception: 
 <<if ($activeSlave.preg < -1) || ($activeSlave.ovaries == 0)>>
 	//She is sterile//
 <<elseif ($activeSlave.preg >= -1) && ($activeSlave.ovaries != 0)>>
-Contraception: <span id="fertility"><strong><<if $activeSlave.preg == -1>>using contraceptives<<elseif $activeSlave.preg == 0>>fertile<<elseif $activeSlave.preg < 4>>may be pregnant<<else>>$activeSlave.preg weeks pregnant<</if>></strong></span>.
+<span id="fertility"><strong><<if $activeSlave.preg == -1>>using contraceptives<<elseif $activeSlave.preg == 0>>fertile<<elseif $activeSlave.preg < 4>>may be pregnant<<else>>$activeSlave.preg weeks pregnant<</if>></strong></span>.
 <<if ($activeSlave.preg == 0) && ($activeSlave.clothes != "a Fuckdoll suit")>>
 	<<link "Use contraceptives">><<set $activeSlave.preg = -1>>
 	<<SlaveInteractFertility>>
