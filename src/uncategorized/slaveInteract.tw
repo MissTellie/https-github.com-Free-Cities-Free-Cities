@@ -414,7 +414,6 @@
 	<<if $arcade > $arcadeSlaves && ($activeSlave.indentureRestrictions <= 0)>>
 		[[Arcade|Assign][$slaves[_i] = $activeSlave, $assignTo = "Arcade", $i = _i]]
 	<<else>>Arcade<</if>>
-	<<if _numFacilities-- > 1>>|<</if>>
 	<</if>>
 
 	<</if>> /* closes _numFacilities */
