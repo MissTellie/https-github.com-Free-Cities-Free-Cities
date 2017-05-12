@@ -336,6 +336,16 @@ Clothes:
 <<else>>
 	''$currentRule.clothes.''
 <</if>>
+<<if ($arcologies[0].FSRomanRevivalist != "unset") || ($cheatMode == 1) || ($clothesBoughtToga == 1)>>
+| 
+<<link "Select her own outfit">>
+	<<set $currentRule.clothes = "choosing her own clothes">>
+	<<RAChangeClothes>>
+	<<RAChangeSave>>
+	<<RAChangeApply>>
+<</link>>
+<</if>>
+
 </span>
 <br>(Good clothes)<br>
 <<link "No default clothes setting">>
@@ -605,16 +615,8 @@ Clothes:
 	<<RAChangeClothes>>
 	<<RAChangeSave>>
 	<<RAChangeApply>>
-<</link>> |
-<</if>>
-<<if ($arcologies[0].FSRomanRevivalist != "unset") || ($cheatMode == 1) || ($clothesBoughtToga == 1)>>
-   //FS//
-<<link "Select her own outfit">>
-	<<set $currentRule.clothes = "choosing her own clothes">>
-	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
 <</link>>
+<</if>>
 
 <br>(Bad clothes)<br>
 <<link "Nude">>
@@ -624,15 +626,8 @@ Clothes:
 	<<RAChangeApply>>
 <</link>>
 |
-<<link "Uncomfortable straps">>
-	<<set $currentRule.clothes = "uncomfortable straps">>
-	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
-<</link>>
-|
-<<link "Shibari ropes">>
-	<<set $currentRule.clothes = "shibari ropes">>
+<<link "Penitent nun">>
+	<<set $currentRule.clothes = "a penitent nuns habit">>
 	<<RAChangeClothes>>
 	<<RAChangeSave>>
 	<<RAChangeApply>>
@@ -645,12 +640,20 @@ Clothes:
 	<<RAChangeApply>>
 <</link>>
 |
-<<link "Penitent nun">>
-	<<set $currentRule.clothes = "a penitent nuns habit">>
+<<link "Shibari ropes">>
+	<<set $currentRule.clothes = "shibari ropes">>
 	<<RAChangeClothes>>
 	<<RAChangeSave>>
 	<<RAChangeApply>>
 <</link>>
+|
+<<link "Uncomfortable straps">>
+	<<set $currentRule.clothes = "uncomfortable straps">>
+	<<RAChangeClothes>>
+	<<RAChangeSave>>
+	<<RAChangeApply>>
+<</link>>
+
 
 <br>
 <span id = "collar">
@@ -824,7 +827,7 @@ Shoes: ''$currentRule.shoes.''
 
 <br>
 <span id = "baccessory">
-Torso Accessory: ''$currentRule.bellyAccessory.''
+Torso accessory: ''$currentRule.bellyAccessory.''
 </span>
 <<link "No default setting">>
 	<<set $currentRule.bellyAccessory = "no default setting">>
@@ -1209,7 +1212,7 @@ Buttplugs for other slaves: ''$currentRule.buttplug.''
 //Will permanently gape assholes//
 
 <br><br>
-[[Cosmetic Rules Assistant Settings]] | [[Body Mod Rules Assistant Settings]] | [[Autosurgery Settings]]
+Body modification: [[Cosmetic Rules Assistant Settings]] | [[Body Mod Rules Assistant Settings]] | [[Autosurgery Settings]]
 
 <br><br>
 
@@ -1454,7 +1457,7 @@ Hormones for female slaves:
 	<<RAChangeApply>>
 <</link>>
 |
-<<link "No hormones">>
+<<link "None">>
 	<<set $currentRule.XX = 0>>
 	<<RAChangeXXHormones>>
 	<<RAChangeSave>>
@@ -1516,7 +1519,7 @@ Hormones for shemales:
 	<<RAChangeApply>>
 <</link>>
 |
-<<link "No hormones">>
+<<link "None">>
 	<<set $currentRule.XY = 0>>
 	<<RAChangeXYHormones>>
 	<<RAChangeSave>>
@@ -1578,7 +1581,7 @@ Hormones for geldings:
 	<<RAChangeApply>>
 <</link>>
 |
-<<link "No hormones">>
+<<link "None">>
 	<<set $currentRule.gelding = 0>>
 	<<RAChangeGeldHormones>>
 	<<RAChangeSave>>
@@ -1681,7 +1684,7 @@ Slave diets:
 <br>
 
 <span id = "dietBase">
-Diet Base:
+Diet base:
 
 <<if ($currentRule.dietCum == 2)>>
 	''slaves' diets are heavily based on cum.''
@@ -2659,8 +2662,6 @@ Relationship rules: ''$currentRule.relationshipRules.''
 	<<goto "Rules Assistant">>
 <</link>>
 </span>
-
-<</if>> /* closes if _length > 0 */
 
 <br><br>
 
