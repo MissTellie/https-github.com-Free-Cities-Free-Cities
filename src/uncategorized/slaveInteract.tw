@@ -702,6 +702,8 @@ __Hormones__: <strong><span id="hormones">
 <<link "Cum Based">><<set $activeSlave.dietCum = 2>><<set $activeSlave.dietMilk = 0>><<replace "#dietBase">>Cum Based<</replace>><</link>> |
 <<link "Milk Based">><<set $activeSlave.dietCum = 0>><<set $activeSlave.dietMilk = 2>><<replace "#dietBase">>Milk Based<</replace>><</link>>
 
+
+
 <br><br>__Behavior__:<br>
 <<if $activeSlave.fuckdoll > 0>>
 	//Rules have little meaning for living sex toys//
@@ -720,7 +722,7 @@ __Hormones__: <strong><span id="hormones">
 			<</if>>
 		<</if>>
 	<</for>>
-	__Living Standard__: ''<span id="livingRules">$activeSlave.livingRules</span>.''
+	__Living standard__: ''<span id="livingRules">$activeSlave.livingRules</span>.''
 	<<if $activeSlave.livingRules == "spare">>
 		<<link "Normal">><<set $activeSlave.livingRules = "normal">><<replace "#livingRules">>$activeSlave.livingRules<</replace>><</link>> |
 		<<if $roomsPopulation <= $rooms-0.5>><<link "Luxurious">><<set $activeSlave.livingRules = "luxurious">><<replace "#livingRules">>$activeSlave.livingRules<</replace>><</link>><<else>>//No luxurious rooms available//<</if>>
@@ -731,29 +733,10 @@ __Hormones__: <strong><span id="hormones">
 		<<link "Spare">><<set $activeSlave.livingRules = "spare">><<replace "#livingRules">>$activeSlave.livingRules<</replace>><</link>> |
 		<<link "Normal">><<set $activeSlave.livingRules = "normal">><<replace "#livingRules">>$activeSlave.livingRules<</replace>><</link>>
 	<</if>>
-	&nbsp;&nbsp;&nbsp;&nbsp;
-	<<if $activeSlave.voice != 0>>
-	__Speech Rules__: ''<span id="speechRules">$activeSlave.speechRules</span>.''
-	<<if $activeSlave.speechRules == "restrictive">>
-		<<link "Permissive">><<set $activeSlave.speechRules = "permissive">><<replace "#speechRules">>$activeSlave.speechRules<</replace>><</link>><<if $activeSlave.accent > 0>> | <<link "Accent elimination">><<set $activeSlave.speechRules = "accent elimination">><<replace "#speechRules">>$activeSlave.speechRules<</replace>><</link>><</if>>
-	<<elseif $activeSlave.speechRules == "permissive">>
-		<<if $activeSlave.accent > 0>><<link "Accent elimination">><<set $activeSlave.speechRules = "accent elimination">><<replace "#speechRules">>$activeSlave.speechRules<</replace>><</link>> | <</if>><<link "Restrictive">><<set $activeSlave.speechRules = "restrictive">><<replace "#speechRules">>$activeSlave.speechRules<</replace>><</link>>
-	<<else>>
-		<<link "Permissive">><<set $activeSlave.speechRules = "permissive">><<replace "#speechRules">>$activeSlave.speechRules<</replace>><</link>> | <<link "Restrictive">><<set $activeSlave.speechRules = "restrictive">><<replace "#speechRules">>$activeSlave.speechRules<</replace>><</link>>
-	<</if>>
-	<</if>>
-	&nbsp;&nbsp;&nbsp;&nbsp;__Relationship Rules__: ''<span id="relationshipRules">$activeSlave.relationshipRules</span>.''
-	<<if $activeSlave.relationshipRules == "restrictive">>
-		<<link "Just friends">><<set $activeSlave.relationshipRules = "just friends">><<replace "#relationshipRules">>$activeSlave.relationshipRules<</replace>><</link>>
-		| <<link "Permissive">><<set $activeSlave.relationshipRules = "permissive">><<replace "#relationshipRules">>$activeSlave.relationshipRules<</replace>><</link>>
-	<<elseif $activeSlave.relationshipRules == "just friends">>
-		<<link "Restrictive">><<set $activeSlave.relationshipRules = "restrictive">><<replace "#relationshipRules">>$activeSlave.relationshipRules<</replace>><</link>>
-		| <<link "Permissive">><<set $activeSlave.relationshipRules = "permissive">><<replace "#relationshipRules">>$activeSlave.relationshipRules<</replace>><</link>>
-	<<else>>
-		<<link "Just friends">><<set $activeSlave.relationshipRules = "just friends">><<replace "#relationshipRules">>$activeSlave.relationshipRules<</replace>><</link>>
-		| <<link "Restrictive">><<set $activeSlave.relationshipRules = "restrictive">><<replace "#relationshipRules">>$activeSlave.relationshipRules<</replace>><</link>>
-	<</if>>
-	<br>__Typical Punishment__: ''<span id="standardPunishment">$activeSlave.standardPunishment</span>.''
+	
+
+
+	<br>__Typical punishment__: ''<span id="standardPunishment">$activeSlave.standardPunishment</span>.''
 	<<if $activeSlave.standardPunishment !== "confinement">>
 		<<link "Confinement">><<set $activeSlave.standardPunishment = "confinement">><<replace "#standardPunishment">>$activeSlave.standardPunishment<</replace>><</link>> |
 	<</if>>
@@ -779,7 +762,7 @@ __Hormones__: <strong><span id="hormones">
 	<<if $activeSlave.standardReward !== "situational">>
 		<<link "Situational">><<set $activeSlave.standardReward = "situational">><<replace "#standardReward">>$activeSlave.standardReward<</replace>><</link>>
 	<</if>>
-	<br>__Non-Assignment Orgasm Rules__: ''$activeSlave.releaseRules.''
+	<br>__Non-assignment orgasm rules__: ''$activeSlave.releaseRules.''
 	[[Permit masturbation and interslave sex|Slave Interact][$activeSlave.releaseRules = "permissive"]]
 	| [[Let her get off with other slaves|Slave Interact][$activeSlave.releaseRules = "sapphic"]]
 	| [[Only with you|Slave Interact][$activeSlave.releaseRules = "restrictive"]]
@@ -809,6 +792,28 @@ __Hormones__: <strong><span id="hormones">
 | <<link "No sex">><<set $activeSlave.clitSetting = "none">><<replace "#setting">>$activeSlave.clitSetting<</replace>><</link>>
 <</if>>
 
+	<<if $activeSlave.voice != 0>>
+	<br>__Speech Rules__: ''<span id="speechRules">$activeSlave.speechRules</span>.''
+	<<if $activeSlave.speechRules == "restrictive">>
+		<<link "Permissive">><<set $activeSlave.speechRules = "permissive">><<replace "#speechRules">>$activeSlave.speechRules<</replace>><</link>><<if $activeSlave.accent > 0>> | <<link "Accent elimination">><<set $activeSlave.speechRules = "accent elimination">><<replace "#speechRules">>$activeSlave.speechRules<</replace>><</link>><</if>>
+	<<elseif $activeSlave.speechRules == "permissive">>
+		<<if $activeSlave.accent > 0>><<link "Accent elimination">><<set $activeSlave.speechRules = "accent elimination">><<replace "#speechRules">>$activeSlave.speechRules<</replace>><</link>> | <</if>><<link "Restrictive">><<set $activeSlave.speechRules = "restrictive">><<replace "#speechRules">>$activeSlave.speechRules<</replace>><</link>>
+	<<else>>
+		<<link "Permissive">><<set $activeSlave.speechRules = "permissive">><<replace "#speechRules">>$activeSlave.speechRules<</replace>><</link>> | <<link "Restrictive">><<set $activeSlave.speechRules = "restrictive">><<replace "#speechRules">>$activeSlave.speechRules<</replace>><</link>>
+	<</if>>
+	<</if>>
+
+	&nbsp;&nbsp;&nbsp;&nbsp;__Relationship Rules__: ''<span id="relationshipRules">$activeSlave.relationshipRules</span>.''
+	<<if $activeSlave.relationshipRules == "restrictive">>
+		<<link "Just friends">><<set $activeSlave.relationshipRules = "just friends">><<replace "#relationshipRules">>$activeSlave.relationshipRules<</replace>><</link>>
+		| <<link "Permissive">><<set $activeSlave.relationshipRules = "permissive">><<replace "#relationshipRules">>$activeSlave.relationshipRules<</replace>><</link>>
+	<<elseif $activeSlave.relationshipRules == "just friends">>
+		<<link "Restrictive">><<set $activeSlave.relationshipRules = "restrictive">><<replace "#relationshipRules">>$activeSlave.relationshipRules<</replace>><</link>>
+		| <<link "Permissive">><<set $activeSlave.relationshipRules = "permissive">><<replace "#relationshipRules">>$activeSlave.relationshipRules<</replace>><</link>>
+	<<else>>
+		<<link "Just friends">><<set $activeSlave.relationshipRules = "just friends">><<replace "#relationshipRules">>$activeSlave.relationshipRules<</replace>><</link>>
+		| <<link "Restrictive">><<set $activeSlave.relationshipRules = "restrictive">><<replace "#relationshipRules">>$activeSlave.relationshipRules<</replace>><</link>>
+	<</if>>
 
 <<if $studio == 1>>
 	<br>
