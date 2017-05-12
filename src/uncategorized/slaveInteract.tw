@@ -201,7 +201,7 @@
 
 <span id="fucktoypref">
 	<<if ($activeSlave.assignment == "please you") || ($activeSlave.assignment == "serve in the master suite") || ($activeSlave.assignment == "be your Concubine")>>
-		__Fucktoy use preference__: <strong><span id="hole">$activeSlave.toyHole</span></strong>.
+		Fucktoy use preference: <strong><span id="hole">$activeSlave.toyHole</span></strong>.
 		  <<link "Mouth">><<set $activeSlave.toyHole = "mouth">><<replace "#hole">>$activeSlave.toyHole<</replace>><</link>>
 		| <<link "Tits">><<set $activeSlave.toyHole = "boobs">><<replace "#hole">>$activeSlave.toyHole<</replace>><</link>>
 		<<if ($activeSlave.vagina > 0) && canDoVaginal($activeSlave)>>
@@ -250,7 +250,7 @@
 
 /* CAN BE REASSIGNED */
 
-	__Assignment__: <strong><span id="assign">$activeSlave.assignment<<if $activeSlave.sentence>> ($activeSlave.sentence weeks)<</if>></span>.</strong>
+	Assignment: <strong><span id="assign">$activeSlave.assignment<<if $activeSlave.sentence>> ($activeSlave.sentence weeks)<</if>></span>.</strong>
 	
 	<<if $activeSlave.fuckdoll == 0>>
 	| <<link "Stay on this assignment for another month">><<if $activeSlave.assignment != "choose her own job">><<set $activeSlave.sentence += 4>><<replace "#assign">>$activeSlave.assignment ($activeSlave.sentence weeks)<</replace>><</if>><</link>>
@@ -337,7 +337,7 @@
 		<</if>>
 	<</for>>
 
-	<br>__Transfer to__:
+	<br>Transfer to:
 	<br>&nbsp;&nbsp;&nbsp;&nbsp; //Improvement://
 
 	<<if $activeSlave.fuckdoll == 0>> /* NON-FUCKDOLL FACILITIES */
@@ -421,10 +421,10 @@
 
 <</switch>> /* END CAN BE REASSIGNED */
 
-<br>__Appearance:__
+<br><br>__Appearance:__
 
 <<if $activeSlave.fuckdoll == 0>>
-<br>__Clothes__: ''<span id="clothes">$activeSlave.clothes</span>.''
+<br>Clothes: ''<span id="clothes">$activeSlave.clothes</span>.''
 | <<link "Let her choose">><<set $activeSlave.clothes = "choosing her own clothes",$activeSlave.choosesOwnClothes = 1>><<replace "#clothes">>$activeSlave.clothes<</replace>><</link>>
 
 <br>(Good clothes)<br>
@@ -493,7 +493,7 @@
 | <<link "Uncomfortable straps">><<set $activeSlave.clothes = "uncomfortable straps",$activeSlave.choosesOwnClothes = 0>><<replace "#clothes">>$activeSlave.clothes<</replace>><</link>>
 
 
-<br>__Collar__: ''<span id="collar">$activeSlave.collar</span>.''
+<br>Collar: ''<span id="collar">$activeSlave.collar</span>.''
 <<link "None">><<set $activeSlave.collar = "none">><<replace "#collar">>$activeSlave.collar<</replace>><</link>>
 | //Harsh:// <<link "Tight steel">><<set $activeSlave.collar = "tight steel">><<replace "#collar">>$activeSlave.collar<</replace>><</link>>
 <<if ($seeAge != 0)>>
@@ -519,7 +519,7 @@
 <</if>>
 
 <<if $activeSlave.amp != 1>>
-<br>__Shoes__: ''<span id="shoes">$activeSlave.shoes</span>.''
+<br>Shoes: ''<span id="shoes">$activeSlave.shoes</span>.''
 <<link "Go barefoot">><<set $activeSlave.shoes = "none">><<replace "#shoes">>$activeSlave.shoes<</replace>><</link>>
 | <<link "Flats">><<set $activeSlave.shoes = "flats">><<replace "#shoes">>$activeSlave.shoes<</replace>><</link>>
 | <<link "Heels">><<set $activeSlave.shoes = "heels">><<replace "#shoes">>$activeSlave.shoes<</replace>><</link>>
@@ -527,7 +527,7 @@
 | <<link "Painfully extreme heels">><<set $activeSlave.shoes = "extreme heels">><<replace "#shoes">>$activeSlave.shoes<</replace>><</link>>
 <</if>>
 
-<br>__Torso accessory__: ''<span id="bellyAccessory">$activeSlave.bellyAccessory</span>.''
+<br>Torso accessory: ''<span id="bellyAccessory">$activeSlave.bellyAccessory</span>.''
 <<link "None">><<set $activeSlave.bellyAccessory = "none">><<replace "#bellyAccessory">>$activeSlave.bellyAccessory<</replace>><</link>>
 | <<link "Tight corset">><<set $activeSlave.bellyAccessory = "a corset">><<replace "#bellyAccessory">>$activeSlave.bellyAccessory<</replace>><</link>>
 | <<link "Extreme corset">><<set $activeSlave.bellyAccessory = "an extreme corset">><<replace "#bellyAccessory">>$activeSlave.bellyAccessory<</replace>><</link>>
@@ -538,13 +538,13 @@
 | <<link "3rd Trimester twins belly">><<set $activeSlave.bellyAccessory = "a huge empathy belly">><<replace "#bellyAccessory">>$activeSlave.bellyAccessory<</replace>><</link>>
 <</if>>
 
-<br>__Anal accessory__: ''<span id="buttplug">$activeSlave.buttplug</span>.''
+<br>Anal accessory: ''<span id="buttplug">$activeSlave.buttplug</span>.''
 <<link "None">><<set $activeSlave.buttplug = "none">><<replace "#buttplug">>$activeSlave.buttplug<</replace>><</link>>
 | <<link "Normal">><<set $activeSlave.buttplug = "plug">><<replace "#buttplug">>$activeSlave.buttplug<</replace>><</link>>
 | <<link "Large">><<set $activeSlave.buttplug = "large plug">><<replace "#buttplug">>$activeSlave.buttplug<</replace>><</link>>
 <<if $activeSlave.anus >= 2>>| <<link "Huge">><<set $activeSlave.buttplug = "huge plug">><<replace "#buttplug">>$activeSlave.buttplug<</replace>><</link>><</if>>
 <<if $activeSlave.vagina > -1>>
-<br>__Vaginal accessory__: ''<span id="vaginalAccessory">$activeSlave.vaginalAccessory</span>.''
+<br>Vaginal accessory: ''<span id="vaginalAccessory">$activeSlave.vaginalAccessory</span>.''
 <<link "None">><<set $activeSlave.vaginalAccessory = "none">><<replace "#vaginalAccessory">>$activeSlave.vaginalAccessory<</replace>><<SlaveInteractImpreg>><<SlaveInteractFertility>><<SlaveInteractSexOption>><<SlaveInteractAnalSexOption>><<SlaveInteractGropeOption>><<SlaveInteractDickGropeOption>><<SlaveInteractAnalGropeOption>><</link>>
 | <<link "Dildo">><<set $activeSlave.vaginalAccessory = "dildo">><<replace "#vaginalAccessory">>$activeSlave.vaginalAccessory<</replace>><</link>>
 | <<link "Large dildo">><<set $activeSlave.vaginalAccessory = "large dildo">><<replace "#vaginalAccessory">>$activeSlave.vaginalAccessory<</replace>><</link>>
@@ -555,7 +555,7 @@
 | <<link "Combined chastity belt">><<set $activeSlave.vaginalAccessory = "combined chastity">><<replace "#vaginalAccessory">>$activeSlave.vaginalAccessory<</replace>><<SlaveInteractImpreg>><<SlaveInteractFertility>><<SlaveInteractSexOption>><<SlaveInteractAnalSexOption>><<SlaveInteractGropeOption>><<SlaveInteractDickGropeOption>><<SlaveInteractAnalGropeOption>><</link>>
 <</if>>
 <<if $activeSlave.dick > 0>>
-<br>__Dick accessory__: ''<span id="dickAccessory">$activeSlave.dickAccessory</span>.''
+<br>Dick accessory: ''<span id="dickAccessory">$activeSlave.dickAccessory</span>.''
 <<link "None">><<set $activeSlave.dickAccessory = "none">><<replace "#dickAccessory">>$activeSlave.dickAccessory<</replace>><<SlaveInteractSexOption>><<SlaveInteractAnalSexOption>><<SlaveInteractGropeOption>><<SlaveInteractDickGropeOption>><<SlaveInteractAnalGropeOption>><</link>>
 | <<link "Chastity cage">><<set $activeSlave.dickAccessory = "chastity">><<replace "#dickAccessory">>$activeSlave.dickAccessory<</replace>><<SlaveInteractSexOption>><<SlaveInteractAnalSexOption>><<SlaveInteractGropeOption>><<SlaveInteractDickGropeOption>><<SlaveInteractAnalGropeOption>><</link>>
 | <<link "Anal chastity belt">><<set $activeSlave.dickAccessory = "anal chastity">><<replace "#dickAccessory">>$activeSlave.dickAccessory<<SlaveInteractSexOption>><<SlaveInteractAnalSexOption>><<SlaveInteractGropeOption>><<SlaveInteractDickGropeOption>><<SlaveInteractAnalGropeOption>><</replace>><</link>>
@@ -564,14 +564,14 @@
 
 <</if>> /* CLOSES FUCKDOLL CHECK */
 
-<br><br>__Body modification__:
+<br><br>Body modification:
   [[Use remote surgery|Remote Surgery][$degradation = 0]]
 | [[Use body mod studio|Body Modification][$degradation = 0]]
 | [[Use auto salon|Salon][$degradation = 0]]
 <<if $cyberMod == 1>>| [[Configure cybernetics|cyberConfig][$temp = 0]]<</if>>
 
 <br><br>__Physical Regimen__
-<br>__Drugs__: <span id="drugs"><strong>$activeSlave.drugs</strong></span>.
+<br>Drugs: <span id="drugs"><strong>$activeSlave.drugs</strong></span>.
 <<link "None">><<set $activeSlave.drugs = "no drugs">><<replace "#drugs">><strong>$activeSlave.drugs</strong><</replace>><</link>>
 <<if $activeSlave.indentureRestrictions < 2>>
 <<if ($activeSlave.intelligence > -2)>>
@@ -621,14 +621,14 @@
 
 <br>
 
-__Health__: <span id="curatives"><strong><<if $activeSlave.curatives > 1>>curatives<<elseif $activeSlave.curatives > 0>>preventatives<<else>>none<</if>></strong></span>.
+Health: <span id="curatives"><strong><<if $activeSlave.curatives > 1>>curatives<<elseif $activeSlave.curatives > 0>>preventatives<<else>>none<</if>></strong></span>.
 	<<link "None">><<set $activeSlave.curatives = 0>><<replace "#curatives">><strong>none</strong><</replace>><</link>>
 	| <<link "Preventatives">><<set $activeSlave.curatives = 1>><<replace "#curatives">><strong>preventatives</strong><</replace>><</link>>
 	| <<link "Curatives">><<set $activeSlave.curatives = 2>><<replace "#curatives">><strong>curatives</strong><</replace>><</link>>
 	
 &nbsp;&nbsp;&nbsp;&nbsp;
 
-__Aphrodisiacs__: <span id="aphrodisiacs"><strong><<if $activeSlave.aphrodisiacs > 1>>extreme<<elseif $activeSlave.aphrodisiacs > 0>>applied<<else>>none<</if>></strong></span>.
+Aphrodisiacs: <span id="aphrodisiacs"><strong><<if $activeSlave.aphrodisiacs > 1>>extreme<<elseif $activeSlave.aphrodisiacs > 0>>applied<<else>>none<</if>></strong></span>.
 	<<link "None">><<set $activeSlave.aphrodisiacs = 0>><<replace "#aphrodisiacs">><strong>none</strong><</replace>><</link>>
 	| <<link "Apply">><<set $activeSlave.aphrodisiacs = 1>><<replace "#aphrodisiacs">><strong>applied</strong><</replace>><</link>>
 	| <<link "Extreme">><<set $activeSlave.aphrodisiacs = 2>><<replace "#aphrodisiacs">><strong>extreme</strong><</replace>><</link>>
@@ -638,7 +638,7 @@ __Aphrodisiacs__: <span id="aphrodisiacs"><strong><<if $activeSlave.aphrodisiacs
 <<if ($activeSlave.preg < -1) || ($activeSlave.ovaries == 0)>>
 	//She is sterile//
 <<elseif ($activeSlave.preg >= -1) && ($activeSlave.ovaries != 0)>>
-__Contraception__: <span id="fertility"><strong><<if $activeSlave.preg == -1>>using contraceptives<<elseif $activeSlave.preg == 0>>fertile<<elseif $activeSlave.preg < 4>>may be pregnant<<else>>$activeSlave.preg weeks pregnant<</if>></strong></span>.
+Contraception: <span id="fertility"><strong><<if $activeSlave.preg == -1>>using contraceptives<<elseif $activeSlave.preg == 0>>fertile<<elseif $activeSlave.preg < 4>>may be pregnant<<else>>$activeSlave.preg weeks pregnant<</if>></strong></span>.
 <<if ($activeSlave.preg == 0) && ($activeSlave.clothes != "a Fuckdoll suit")>>
 	<<link "Use contraceptives">><<set $activeSlave.preg = -1>>
 	<<SlaveInteractFertility>>
@@ -665,7 +665,7 @@ __Contraception__: <span id="fertility"><strong><<if $activeSlave.preg == -1>>us
 </span>
 
 <br>&nbsp;&nbsp;&nbsp;&nbsp;
-__Hormones__: <strong><span id="hormones">
+Hormones: <strong><span id="hormones">
 <<if $activeSlave.hormones == -2>>intensive male<<elseif $activeSlave.hormones == -1>>male<<elseif $activeSlave.hormones == 2>>intensive female<<elseif $activeSlave.hormones == 1>>female<<else>>none<</if>></span></strong>.
 <<link "Female ++">><<set $activeSlave.hormones = 2>><<replace "#hormones">>intensive female<</replace>><</link>> |
 <<link "Female">><<set $activeSlave.hormones = 1>><<replace "#hormones">>female<</replace>><</link>> |
@@ -673,7 +673,7 @@ __Hormones__: <strong><span id="hormones">
 <<link "Male">><<set $activeSlave.hormones = -1>><<replace "#hormones">>male<</replace>><</link>> |
 <<link "Male ++">><<set $activeSlave.hormones = -2>><<replace "#hormones">>intensive male<</replace>><</link>>
 
-<br>__Diet__: <strong><span id="diet">$activeSlave.diet</span></strong>.
+<br>Diet: <strong><span id="diet">$activeSlave.diet</span></strong>.
 <<link "Healthy">><<set $activeSlave.diet = "healthy">><<replace "#diet">>$activeSlave.diet<</replace>><</link>>
 <<if ($activeSlave.weight >= -95)>>
 | <<link "Lose weight">><<set $activeSlave.diet = "restricted">><<replace "#diet">>$activeSlave.diet<</replace>><</link>>
@@ -694,7 +694,7 @@ __Hormones__: <strong><span id="hormones">
 | <<link "Slim down">><<set $activeSlave.diet = "slimming">><<replace "#diet">>$activeSlave.diet<</replace>><</link>>
 <</if>>
 
-<br>__Diet Base__: <strong><span id="dietBase"><<if $activeSlave.dietCum == 2>>Cum Based<<elseif ($activeSlave.dietCum == 1) && ($activeSlave.dietMilk == 0)>>Cum Added<<elseif ($activeSlave.dietCum == 1) && ($activeSlave.dietMilk == 1)>>Cum and Milk Added<<elseif ($activeSlave.dietMilk == 1) && ($activeSlave.dietCum == 0)>>Milk Added<<elseif ($activeSlave.dietMilk == 2)>>Milk Based<<elseif ($activeSlave.dietCum == 0) && ($activeSlave.dietMilk == 0)>>Normal<<else>>THERE HAS BEEN AN ERROR<</if>></span></strong>
+<br>Diet Base: <strong><span id="dietBase"><<if $activeSlave.dietCum == 2>>Cum Based<<elseif ($activeSlave.dietCum == 1) && ($activeSlave.dietMilk == 0)>>Cum Added<<elseif ($activeSlave.dietCum == 1) && ($activeSlave.dietMilk == 1)>>Cum and Milk Added<<elseif ($activeSlave.dietMilk == 1) && ($activeSlave.dietCum == 0)>>Milk Added<<elseif ($activeSlave.dietMilk == 2)>>Milk Based<<elseif ($activeSlave.dietCum == 0) && ($activeSlave.dietMilk == 0)>>Normal<<else>>THERE HAS BEEN AN ERROR<</if>></span></strong>
 <<link "Normal">><<set $activeSlave.dietCum = 0>><<set $activeSlave.dietMilk = 0>><<replace "#dietBase">>Normal<</replace>><</link>> |
 <<link "Cum Added">><<set $activeSlave.dietCum = 1>><<set $activeSlave.dietMilk = 0>><<replace "#dietBase">>Cum Added<</replace>><</link>> |
 <<link "Milk Added">><<set $activeSlave.dietCum = 0>><<set $activeSlave.dietMilk = 1>><<replace "#dietBase">>Milk Added<</replace>><</link>> |
@@ -722,7 +722,7 @@ __Hormones__: <strong><span id="hormones">
 			<</if>>
 		<</if>>
 	<</for>>
-	__Living standard__: ''<span id="livingRules">$activeSlave.livingRules</span>.''
+	Living standard: ''<span id="livingRules">$activeSlave.livingRules</span>.''
 	<<if $activeSlave.livingRules == "spare">>
 		<<link "Normal">><<set $activeSlave.livingRules = "normal">><<replace "#livingRules">>$activeSlave.livingRules<</replace>><</link>> |
 		<<if $roomsPopulation <= $rooms-0.5>><<link "Luxurious">><<set $activeSlave.livingRules = "luxurious">><<replace "#livingRules">>$activeSlave.livingRules<</replace>><</link>><<else>>//No luxurious rooms available//<</if>>
@@ -736,7 +736,7 @@ __Hormones__: <strong><span id="hormones">
 	
 
 
-	<br>__Typical punishment__: ''<span id="standardPunishment">$activeSlave.standardPunishment</span>.''
+	<br>Typical punishment: ''<span id="standardPunishment">$activeSlave.standardPunishment</span>.''
 	<<if $activeSlave.standardPunishment !== "confinement">>
 		<<link "Confinement">><<set $activeSlave.standardPunishment = "confinement">><<replace "#standardPunishment">>$activeSlave.standardPunishment<</replace>><</link>> |
 	<</if>>
@@ -749,7 +749,8 @@ __Hormones__: <strong><span id="hormones">
 	<<if $activeSlave.standardPunishment !== "situational">>
 		<<link "Situational">><<set $activeSlave.standardPunishment = "situational">><<replace "#standardPunishment">>$activeSlave.standardPunishment<</replace>><</link>>
 	<</if>>
-	&nbsp;&nbsp;&nbsp;&nbsp;__Typical Reward__: ''<span id="standardReward">$activeSlave.standardReward</span>.''
+	&nbsp;&nbsp;&nbsp;&nbsp;
+	Typical Reward: ''<span id="standardReward">$activeSlave.standardReward</span>.''
 	<<if $activeSlave.standardReward !== "relaxation">>
 		<<link "Relaxation">><<set $activeSlave.standardReward = "relaxation">><<replace "#standardReward">>$activeSlave.standardReward<</replace>><</link>> |
 	<</if>>
@@ -762,7 +763,7 @@ __Hormones__: <strong><span id="hormones">
 	<<if $activeSlave.standardReward !== "situational">>
 		<<link "Situational">><<set $activeSlave.standardReward = "situational">><<replace "#standardReward">>$activeSlave.standardReward<</replace>><</link>>
 	<</if>>
-	<br>__Non-assignment orgasm rules__: ''$activeSlave.releaseRules.''
+	<br>Non-assignment orgasm rules: ''$activeSlave.releaseRules.''
 	[[Permit masturbation and interslave sex|Slave Interact][$activeSlave.releaseRules = "permissive"]]
 	| [[Let her get off with other slaves|Slave Interact][$activeSlave.releaseRules = "sapphic"]]
 	| [[Only with you|Slave Interact][$activeSlave.releaseRules = "restrictive"]]
@@ -793,7 +794,7 @@ __Hormones__: <strong><span id="hormones">
 <</if>>
 
 	<<if $activeSlave.voice != 0>>
-	<br>__Speech Rules__: ''<span id="speechRules">$activeSlave.speechRules</span>.''
+	<br>Speech Rules: ''<span id="speechRules">$activeSlave.speechRules</span>.''
 	<<if $activeSlave.speechRules == "restrictive">>
 		<<link "Permissive">><<set $activeSlave.speechRules = "permissive">><<replace "#speechRules">>$activeSlave.speechRules<</replace>><</link>><<if $activeSlave.accent > 0>> | <<link "Accent elimination">><<set $activeSlave.speechRules = "accent elimination">><<replace "#speechRules">>$activeSlave.speechRules<</replace>><</link>><</if>>
 	<<elseif $activeSlave.speechRules == "permissive">>
@@ -803,7 +804,8 @@ __Hormones__: <strong><span id="hormones">
 	<</if>>
 	<</if>>
 
-	&nbsp;&nbsp;&nbsp;&nbsp;__Relationship Rules__: ''<span id="relationshipRules">$activeSlave.relationshipRules</span>.''
+	&nbsp;&nbsp;&nbsp;&nbsp;
+	Relationship Rules: ''<span id="relationshipRules">$activeSlave.relationshipRules</span>.''
 	<<if $activeSlave.relationshipRules == "restrictive">>
 		<<link "Just friends">><<set $activeSlave.relationshipRules = "just friends">><<replace "#relationshipRules">>$activeSlave.relationshipRules<</replace>><</link>>
 		| <<link "Permissive">><<set $activeSlave.relationshipRules = "permissive">><<replace "#relationshipRules">>$activeSlave.relationshipRules<</replace>><</link>>
