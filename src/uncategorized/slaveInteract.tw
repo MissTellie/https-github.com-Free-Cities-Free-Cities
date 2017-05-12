@@ -260,7 +260,7 @@
 	| <<link "Let her choose">>         <<assignJob $activeSlave "choose her own job">><<replace "#assign">>$activeSlave.assignment<</replace>><<SlaveInteractFucktoy>><</link>>
 	<</if>>
 	
-	<br>&nbsp;&nbsp;&nbsp;&nbsp; __Improvement:__
+	<br>&nbsp;&nbsp;&nbsp;&nbsp; //Improvement://
 	<<link "Rest">>                   <<removeJob $activeSlave $activeSlave.assignment>><<replace "#assign">>$activeSlave.assignment<</replace>><<SlaveInteractFucktoy>><</link>>
 	
 	<<if $activeSlave.fuckdoll == 0>>
@@ -279,7 +279,7 @@
 	<</if>>
 	<</if>>
 	
-		<br>&nbsp;&nbsp;&nbsp;&nbsp; __Working:__
+		<br>&nbsp;&nbsp;&nbsp;&nbsp; //Working://
 	
 	| <<link "Fucktoy">>                <<assignJob $activeSlave "please you">><<replace "#assign">>$activeSlave.assignment<</replace>><<SlaveInteractFucktoy>><</link>>
 	
@@ -338,7 +338,7 @@
 	<</for>>
 
 	<br>__Transfer to__:
-	<br>&nbsp;&nbsp;&nbsp;&nbsp; __Improvement:__
+	<br>&nbsp;&nbsp;&nbsp;&nbsp; //Improvement://
 
 	<<if $activeSlave.fuckdoll == 0>> /* NON-FUCKDOLL FACILITIES */
 
@@ -369,7 +369,7 @@
 		<<else>>Spa<</if>>
 	<</if>>
 
-	<br>&nbsp;&nbsp;&nbsp;&nbsp; __Working:__
+	<br>&nbsp;&nbsp;&nbsp;&nbsp; //Working://
 
 	<<if $masterSuite != 0>>
 		<<if $masterSuite > $masterSuiteSlaves && ($activeSlave.devotion > 20) || (($activeSlave.devotion >= -50) && ($activeSlave.trust < -20)) || ($activeSlave.trust < -50)>>
