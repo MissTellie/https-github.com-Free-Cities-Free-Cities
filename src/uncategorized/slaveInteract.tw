@@ -297,7 +297,7 @@
 	<</if>>/* CLOSES FUCKDOLL CHECK */
 
 	<<set _numFacilities = $brothel+$club+$dairy+$servantsQuarters+$masterSuite+$spa+$clinic+$schoolroom+$cellblock+$arcade+$HGSuite>>
-	
+
 	<<if _numFacilities > 0>>
 
 	/* find slave's array index so we can save changes before leaving this passage */
@@ -448,7 +448,7 @@ __Health__: <span id="curatives"><strong><<if $activeSlave.curatives > 1>>curati
 	<<link "None">><<set $activeSlave.curatives = 0>><<replace "#curatives">><strong>none</strong><</replace>><</link>>
 	| <<link "Preventatives">><<set $activeSlave.curatives = 1>><<replace "#curatives">><strong>preventatives</strong><</replace>><</link>>
 	| <<link "Curatives">><<set $activeSlave.curatives = 2>><<replace "#curatives">><strong>curatives</strong><</replace>><</link>>
-	
+
 &nbsp;&nbsp;&nbsp;&nbsp;
 
 __Aphrodisiacs__: <span id="aphrodisiacs"><strong><<if $activeSlave.aphrodisiacs > 1>>extreme<<elseif $activeSlave.aphrodisiacs > 0>>applied<<else>>none<</if>></strong></span>.
@@ -685,6 +685,9 @@ __Hormones__: <strong><span id="hormones">
 <</if>>
 <<if ($arcologies[0].FSRomanRevivalist != "unset") || ($cheatMode == 1) || ($clothesBoughtToga == 1)>>
 	| //FS// <<link "Toga">><<set $activeSlave.clothes = "a toga",$activeSlave.choosesOwnClothes = 0>><<replace "#clothes">>$activeSlave.clothes<</replace>><</link>>
+<</if>>
+<<if ($arcologies[0].FSAztecRevivalist != "unset") || ($cheatMode == 1) || ($clothesBoughtHuipil == 1)>>
+	| //FS// <<link "Huipil">><<set $activeSlave.clothes = "a huipil",$activeSlave.choosesOwnClothes = 0>><<replace "#clothes">>$activeSlave.clothes<</replace>><</link>>
 <</if>>
 <<if ($arcologies[0].FSEdoRevivalist != "unset") || ($cheatMode == 1) || ($clothesBoughtKimono == 1)>>
 	| //FS// <<link "Kimono">><<set $activeSlave.clothes = "a kimono",$activeSlave.choosesOwnClothes = 0>><<replace "#clothes">>$activeSlave.clothes<</replace>><</link>>

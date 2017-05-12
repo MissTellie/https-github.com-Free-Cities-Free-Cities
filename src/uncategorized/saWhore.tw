@@ -844,6 +844,8 @@ In total, you were paid @@.yellowgreen;¤<<print Math.trunc($beauty*$FResult)>>@
 <<switch $brothelDecoration>>
 <<case "Roman Revivalist">>
 	<<set $arcologies[0].FSRomanRevivalist += $seed>>
+<<case "Aztec Revivalist">>
+	<<set $arcologies[0].FSAztecRevivalist += $seed>>
 <<case "Egyptian Revivalist">>
 	<<set $arcologies[0].FSEgyptianRevivalist += $seed>>
 <<case "Edo Revivalist">>
@@ -1415,6 +1417,13 @@ In total, you were paid @@.yellowgreen;¤<<print Math.trunc($beauty*$FResult)>>@
 	<<if ($slaves[$i].race == "white")>>
 	<<if ($slaves[$i].height >= 185)>>
 	<<set $vignettes.push({text: "she attracted a customer who thought her appearance worthy of a lusty northern barbarian,", type: "cash", effect: 1})>>
+	<</if>>
+	<</if>>
+<</if>>
+<<if $arcologies[0].FSAztecRevivalist != "unset">>
+	<<if ($slaves[$i].devotion > 75)>>
+	<<if ($slaves[$i].inteligence >= 2)>>
+	<<set $vignettes.push({text: "she indulged a citizen by following a fertility ritual completely,", type: "rep", effect: 1})>>
 	<</if>>
 	<</if>>
 <</if>>

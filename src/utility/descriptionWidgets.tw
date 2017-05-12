@@ -207,6 +207,12 @@
 		<<else>>
 			$activeSlave.slaveName is wearing $possessive toga so as to leave one breast bare.
 		<</if>>
+	<<case "a huipil">>
+		<<if $activeSlave.boobs > 2000>>
+			$activeSlave.slaveName's breasts are so big that they pull up $possessive huipil uncomfortably high, so $pronoun needs to fold it between them.
+		<<else>>
+			$activeSlave.slaveName is wearing $possessive huipil which accentuates her breasts.
+		<</if>>
 	<<case "a slutty qipao">>
 		$activeSlave.slaveName's qipao
 		<<if $activeSlave.boobs > 6000>>
@@ -1239,6 +1245,13 @@ $possessiveCap
 	<<else>>
 	covers $possessive ass.
 	<</if>>
+<<case "a huipil">>
+	$possessiveCap huipil
+	<<if $activeSlave.butt > 6>>
+	covers $possessive butt, though it cannot stop it from spilling from the sides.
+	<<else>>
+	covers $possessive butt.
+	<</if>>
 <<case "a kimono">>
 	$possessiveCap kimono demurely covers $possessive
 	<<if $activeSlave.butt > 6>>
@@ -1954,7 +1967,7 @@ $pronounCap's got a
 		<<else>>
 			is made to be easily liftable for access to $possessive anus.
 		<</if>>
-	<<case "conservative clothing" "a toga" "cutoffs and a t-shirt" "battledress" "slutty business attire" "nice business attire" "a military uniform" "a bunny outfit" "a nice nurse outfit" "a kimono" >>
+	<<case "conservative clothing" "a toga" "huipil" "cutoffs and a t-shirt" "battledress" "slutty business attire" "nice business attire" "a military uniform" "a bunny outfit" "a nice nurse outfit" "a kimono" >>
 		/* We could use chastity belt descriptions! */
 	<<default>>
 		<<if ($activeSlave.anus > 2)>>
@@ -2240,6 +2253,17 @@ $pronounCap's got a
 <<case "a toga">>
 	<<if $activeSlave.dick > 3>>
 		Something is tenting the front of $activeSlave.slaveName's toga.
+	<</if>>
+<<case "a huipil">>
+	$activeSlave.slaveName's
+	<<if $activeSlave.dick > 3>>
+		dick is long enough that its head dangles down below the front of $possessive short huipil.
+	<<elseif $activeSlave.dick > 0>>
+		huipil occasionally tents in front when $pronoun moves.
+	<<elseif $activeSlave.vagina == -1>>
+		huipil barely comes down far enough to cover $possessive featureless groin.
+	<<else>>
+		huipil barely comes down far enough to cover $possessive pussy.
 	<</if>>
 <<case "a slutty qipao">>
 	$activeSlave.slaveName's
@@ -3796,6 +3820,30 @@ $activeSlave.slaveName is
 		$possessiveCap extreme corsetage is hidden by the toga.
 	<</if>>
 
+<<case "a huipil">>
+	made of beautiful
+	<<if ($activeSlave.amp == 1)>>
+		silk.
+	<<else>>
+		silk, and
+		<<if ($activeSlave.shoes == "flats")>>
+			little leather sandals.
+		<<elseif ($activeSlave.shoes == "boots")>>
+			high leather boots with thin rope laces and wooden heels.
+		<<elseif ($activeSlave.shoes == "heels")>>
+			beautiful wood and leather stilletos with an ornamented heel.
+		<<elseif ($activeSlave.shoes == "extreme heels")>>
+			high wooden heels with leather straps.
+		<<else>>
+			bare feet with a small ankle chain.
+		<</if>>
+	<</if>>
+	<<if $activeSlave.bellyAccessory == "a corset">>
+		$possessiveCap sturdy corset is visible through the sides.
+	<<elseif $activeSlave.bellyAccessory == "an extreme corset">>
+		$possessiveCap extreme corsetage is visible through the sides.
+	<</if>>
+
 <<case "a slutty qipao">>
 	made of beautiful
 	<<if ($activeSlave.amp == 1)>>
@@ -4761,6 +4809,9 @@ $pronounCap has a corset piercing, a ladder of steel rings running up each side 
 <<case "a toga">>
 	$possessive toga hides them completely, but they're laced tightly, so $pronoun's aware they're there.
 
+<<case "a huipil">>
+	$possessive huipil hides them partially, so the leather straps that pull on $possessive's skin are clearly evident.
+
 <<case "a slutty qipao">>
 	$possessive qipao hides them completely, but they're laced tightly with silk cord, so $pronoun's aware they're there.
 
@@ -5001,6 +5052,8 @@ $possessiveCap
 			rampages down $possessive back in the glorious feathering of an 80's perm.
 		<<case "a slutty qipao">>
 			cascades down $possessive back, ornamented with little silver talismans here and there.
+		<<case "a huipil">>
+			flows down $possessive back, rustling freely in the wind.
 		<<case "restrictive latex" "a latex catsuit">>
 			is allowed a gap at the back of $possessive head so it can escape to cascade down $possessive back.
 		<<case "harem gauze">>
@@ -5037,6 +5090,8 @@ $possessiveCap
 			is in a big, classic 80's perm.
 		<<case "a slutty qipao">>
 			is brushed back over $possessive shoulders, ornamented with little silver talismans here and there.
+		<<case "a huipil">>
+			flows down $possessive shoulders, giving $possessive a very innocent look.
 		<<case "restrictive latex" "a latex catsuit">>
 			is allowed a gap at the back of $possessive head so it can escape down $possessive back.
 		<<case "harem gauze">>
@@ -5073,6 +5128,8 @@ $possessiveCap
 			is in a classic 80's perm.
 		<<case "a slutty qipao">>
 			is brushed back and ornamented with a little jade talisman.
+		<<case "a huipil">>
+			is short and neat, giving $possesive an innocent look.
 		<<case "restrictive latex" "a latex catsuit">>
 			is crammed under $possessive latex hood.
 		<<case "harem gauze">>
@@ -5145,6 +5202,8 @@ $possessiveCap
 			is in an 80's perm and back in a scrunchy, from which it explodes backwards with 80's violence.
 		<<case "a slutty qipao">>
 			is in a perfect bun, secured with a jade comb; $possessive bun is so large it forms an artful arrangement down to the nape of $possessive neck.
+		<<case "a huipil">>
+			is twisted into two horns that rest on top of $possessive head, the rest is bulked on the back of her neck.
 		<<case "a kimono">>
 			is in a perfect bun, secured with an ivory comb; $possessive bun is so large it forms an artful arrangement down to the nape of $possessive neck.
 		<<case "restrictive latex" "a latex catsuit">>
@@ -5180,6 +5239,8 @@ $possessiveCap
 			is in an 80's perm and back in a scrunchy, from which it bursts backwards with 80's violence.
 		<<case "a slutty qipao">>
 			is in a perfect bun, secured with a jade comb.
+		<<case "a huipil">>
+			is twisted into two horns that rest on top of $possessive head, the rest sits tightly on the back of her neck.
 		<<case "a kimono">>
 			is in a perfect bun, secured with an ivory comb.
 		<<case "restrictive latex" "a latex catsuit">>
@@ -5215,6 +5276,8 @@ $possessiveCap
 			is in an 80's perm and back in a scrunchy, from which it shoots backwards with 80's violence.
 		<<case "a slutty qipao">>
 			is in a tight little bun, secured with a jade comb.
+		<<case "a huipil">>
+			is twisted into two horns that rest on top of $possessive head.
 		<<case "a kimono">>
 			is in a tight little bun, secured with an ivory comb.
 		<<case "restrictive latex" "a latex catsuit">>
@@ -5266,6 +5329,8 @@ $possessiveCap
 		<<case "a slutty qipao">>
 			is back in huge tails secured by jade rings etched with images of
 			<<ImageDesc>>
+		<<case "a huipil">>
+			is twisted into two huge tails that rest on top of $possessive shoulders.
 		<<case "a kimono">>
 			is in huge tails secured by ivory combs carved with images of
 			<<ImageDesc>>
@@ -5316,6 +5381,8 @@ $possessiveCap
 		<<case "a slutty qipao">>
 			is back in big tails secured by jade rings etched with images of
 			<<ImageDesc>>
+		<<case "a huipil">>
+			is twisted into two tails that rest on top of $possessive shoulders.
 		<<case "a kimono">>
 			is in big tails secured by ivory combs carved with images of
 			<<ImageDesc>>
@@ -5366,6 +5433,8 @@ $possessiveCap
 		<<case "a slutty qipao">>
 			is back in short tails secured by jade rings etched with images of
 			<<ImageDesc>>
+		<<case "a huipil">>
+			is twisted into two short tails that give $possessive the look of a little girl.
 		<<case "a kimono">>
 			is in short tails secured by ivory combs carved with images of
 			<<ImageDesc>>
@@ -5420,6 +5489,8 @@ $possessiveCap
 		<<case "a slutty qipao">>
 			is tied back in a huge ponytail secured by jade rings etched with images of
 			<<ImageDesc>>
+		<<case "a huipil">>
+			is tied into a huge ponytail, that leaves $possessive long hair to wave in the wind.
 		<<case "a kimono">>
 			is in a huge ponytail secured by ivory combs carved with images of
 			<<ImageDesc>>
@@ -5470,6 +5541,8 @@ $possessiveCap
 		<<case "a slutty qipao">>
 			is back in a big ponytail secured by jade rings etched with images of
 			<<ImageDesc>>
+		<<case "a huipil">>
+			is tied into a modest ponytail, that leaves $possessive hair to wave in the wind.
 		<<case "a kimono">>
 			is in a big ponytail secured by ivory combs carved with images of
 			<<ImageDesc>>
@@ -5520,6 +5593,8 @@ $possessiveCap
 		<<case "a slutty qipao">>
 			is back in short ponytail secured by jade rings etched with images of
 			<<ImageDesc>>
+		<<case "a huipil">>
+			is tied into a small ponytail, that leaves $possessive short hair to wave in the wind.
 		<<case "a kimono">>
 			is in short ponytail secured by ivory combs carved with images of
 			<<ImageDesc>>
@@ -5572,6 +5647,8 @@ $possessiveCap
 		<<case "a slutty qipao">>
 			is back in huge braids secured by jade rings etched with images of
 			<<ImageDesc>>
+		<<case "a huipil">>
+			is twisted into huge braids, that rest on $possessive shoulders.
 		<<case "a kimono">>
 			is in huge braids secured by ivory combs carved with images of
 			<<ImageDesc>>
@@ -5620,6 +5697,8 @@ $possessiveCap
 		<<case "a slutty qipao">>
 			is back in big braids secured by jade rings etched with images of
 			<<ImageDesc>>
+		<<case "a huipil">>
+			is twisted into braids, that rest on $possessive shoulders.
 		<<case "a kimono">>
 			is in long braids secured by ivory combs carved with images of
 			<<ImageDesc>>
@@ -5668,6 +5747,8 @@ $possessiveCap
 		<<case "a slutty qipao">>
 			is back in short braids secured by jade rings etched with images of
 			<<ImageDesc>>
+		<<case "a huipil">>
+			is twisted into short braids, that rest on $possessive shoulders.
 		<<case "a kimono">>
 			is in short braids secured by ivory combs carved with images of
 			<<ImageDesc>>
@@ -5720,6 +5801,8 @@ $possessiveCap
 		<<case "a slutty qipao">>
 			is in long dreadlocks, some with jade ornaments etched with images of
 			<<ImageDesc>>
+		<<case "a huipil">>
+			is in long dreadlocks, with a couple of small ornaments important to $possessive.
 		<<case "a kimono">>
 			is in long dreadlocks, some in ivory rings carved with images of
 			<<ImageDesc>>
@@ -5768,6 +5851,8 @@ $possessiveCap
 		<<case "a slutty qipao">>
 			is in dreadlocks, some with jade rings etched with images of
 			<<ImageDesc>>
+		<<case "a huipil">>
+			is in dreadlocks, with a couple of small ornaments important to $possessive.
 		<<case "a kimono">>
 			is in dreadlocks, some in ivory rings carved with images of
 			<<ImageDesc>>
@@ -5820,6 +5905,8 @@ $possessiveCap
 		<<case "a slutty qipao">>
 			is in short dreadlocks, some in jade rings etched with images of
 			<<ImageDesc>>
+		<<case "a huipil">>
+			is in short dreadlocks, with a couple of small ornaments important to $possessive.
 		<<case "a kimono">>
 			is in short dreadlocks, some with ivory rings carved with images of
 			<<ImageDesc>>
@@ -5872,6 +5959,8 @@ $possessiveCap
 		<<case "a slutty qipao">>
 			is curled into long flowing locks secured by jade rings etched with images of
 			<<ImageDesc>>
+		<<case "a huipil">>
+			is in long curls, and the locks flow down $possessive shoulders.
 		<<case "a kimono">>
 			is curled into long flowing locks secured by ivory combs carved with images of
 			<<ImageDesc>>
@@ -5920,6 +6009,8 @@ $possessiveCap
 		<<case "a slutty qipao">>
 			is curled into long locks, secured by jade rings etched with images of
 			<<ImageDesc>>
+		<<case "a huipil">>
+			is in curls, and the locks flow down $possessive shoulders.
 		<<case "a kimono">>
 			is curled into long locks, secured by ivory combs carved with images of
 			<<ImageDesc>>
@@ -5968,6 +6059,8 @@ $possessiveCap
 		<<case "a slutty qipao">>
 			is curled into short locks secured by jade rings etched with images of
 			<<ImageDesc>>
+		<<case "a huipil">>
+			is in short curls, and the locks flow down $possessive shoulders.
 		<<case "a kimono">>
 			is curled into short locks secured by ivory combs carved with images of
 			<<ImageDesc>>
@@ -6020,6 +6113,8 @@ $possessiveCap
 		<<case "a slutty qipao">>
 			is permed into long flowing curls secured by jade rings etched with images of
 			<<ImageDesc>>
+		<<case "a huipil">>
+			is permed into long curls, and the locks flow down $possessive shoulders.
 		<<case "a kimono">>
 			is permed into long flowing curls secured by ivory combs carved with images of
 			<<ImageDesc>>
@@ -6068,6 +6163,8 @@ $possessiveCap
 		<<case "a slutty qipao">>
 			is permed into long locks, secured by jade rings etched with images of
 			<<ImageDesc>>
+		<<case "a huipil">>
+			is permed into curls, and the locks flow down $possessive shoulders.
 		<<case "a kimono">>
 			is permed and secured by ivory combs carved with images of
 			<<ImageDesc>>
@@ -6116,6 +6213,8 @@ $possessiveCap
 		<<case "a slutty qipao">>
 			is permed into short waves secured by jade rings etched with images of
 			<<ImageDesc>>
+		<<case "a huipil">>
+			is permed into short curls, and the locks flow down $possessive shoulders.
 		<<case "a kimono">>
 			is permed into short waves secured by ivory combs carved with images of
 			<<ImageDesc>>
@@ -6159,7 +6258,7 @@ $possessiveCap
 		<<switch $activeSlave.clothes>>
 		<<case "chains">>
 			is in luxurious layered locks, caught painfully in $possessive chains here and there.
-		<<case "body oil">>
+		<<case "body oil" "a huipil">>
 			is in luxurious layered locks flowing gorgeously down $possessive back.
 		<<case "a slutty qipao">>
 			is in luxurious layered locks flowing gorgeously down $possessive back, ornamented with little silver talismans here and there.
@@ -6195,7 +6294,7 @@ $possessiveCap
 		<</switch>>
 	<<elseif $activeSlave.hLength > 30>>
 		<<switch $activeSlave.clothes>>
-		<<case "body oil">>
+		<<case "body oil" "a huipil">>
 			in luxurious layered locks.
 		<<case "a slutty qipao">>
 			is in luxurious layered locks flowing over $possessive shoulders, ornamented with little silver talismans here and there.
@@ -6231,7 +6330,7 @@ $possessiveCap
 		<</switch>>
 	<<elseif $activeSlave.hLength > 10>>
 		<<switch $activeSlave.clothes>>
-		<<case "body oil">>
+		<<case "body oil" "a huipil">>
 			is in luxuriously styled short locks.
 		<<case "a slutty qipao">>
 			is in luxuriously styled short locks, brushed back and ornamented with a little jade talisman.
@@ -6267,7 +6366,7 @@ $possessiveCap
 		<</switch>>
 	<<else>>
 		<<switch $activeSlave.clothes>>
-		<<case "body oil" "a military uniform" "a slave gown" "a halter top dress" "a ball gown" "conservative clothing" "nice business attire" "slutty business attire" "battledress">>
+		<<case "body oil" "a huipil" "a military uniform" "a slave gown" "a halter top dress" "a ball gown" "conservative clothing" "nice business attire" "slutty business attire" "battledress">>
 			is in luxuriously styled short locks.
 		<<case "restrictive latex" "a latex catsuit">>
 			fits under $possessive latex hood.
@@ -6293,7 +6392,7 @@ $possessiveCap
 			is shaved into a strip that runs down $possessive back and ends attached to a steel ring.
 		<<case "Western clothing">>
 			is shaved into a strip under $possessive cowboy hat, and cascades magnificently down $possessive back.
-		<<case "body oil">>
+		<<case "body oil" "a huipil">>
 			is shaved into a permed strip which cascades magnificently down $possessive back.
 		<<case "a kimono">>
 			is shaved into a strip that cascades magnificently down $possessive back, with scores of little ivory talismans woven into it.
@@ -6324,7 +6423,7 @@ $possessiveCap
 			is shaved into a long braided strip that ends attached to a steel ring.
 		<<case "Western clothing">>
 			is shaved into a strip under $possessive cowboy hat, but is visible as a party in the back.
-		<<case "body oil">>
+		<<case "body oil" "a huipil">>
 			is shaved into a permed strip which falls down $possessive back.
 		<<case "a kimono">>
 			is shaved into a long braided strip with little ivory talismans woven into it.
@@ -6355,7 +6454,7 @@ $possessiveCap
 			is shaved into a strip down the middle of $possessive head that ends attached to a steel ring.
 		<<case "Western clothing">>
 			is shaved into a strip under $possessive cowboy hat, with nothing but a little rat tail visible in back.
-		<<case "body oil">>
+		<<case "body oil" "a huipil">>
 			is shaved into a permed strip.
 		<<case "a kimono">>
 			is shaved into a strip down the middle of $possessive head with little ivory talismans woven into it.
@@ -6920,6 +7019,8 @@ $pronounCap has
 	$activeSlave.slaveName's huge belly is covered in a sheen of special oil meant to prevent stretch marks.
 <<case "a toga">>
 	$activeSlave.slaveName's huge pregnant belly parts $possessive toga.
+<<case "a huipil">>
+	$activeSlave.slaveName's pregnant belly lifts $possessive huipil.
 <<case "a slutty qipao">>
 	$possessiveCap qipao is slit up the side. However, it merely rests atop $possessive huge pregnant belly.
 <<case "uncomfortable straps">>
@@ -7039,6 +7140,8 @@ $pronounCap has
 	$activeSlave.slaveName's belly is covered in a sheen of special oil meant to prevent stretch marks.
 <<case "a toga">>
 	$activeSlave.slaveName's pregnant belly parts $possessive toga.
+<<case "a huipil">>
+	$activeSlave.slaveName's huipil gets lifted by $possessive fat belly, so it's useless for covering $possessive body.
 <<case "a slutty qipao">>
 	$possessiveCap qipao is slit up the side. However, it only covers the top of $possessive pregnant belly.
 <<case "uncomfortable straps">>
@@ -7160,6 +7263,8 @@ $pronounCap has
 	$activeSlave.slaveName's fat belly is covered in a sheen of oil.
 <<case "a toga">>
 	$activeSlave.slaveName's toga can barely be pulled shut over $possessive fat belly.
+<<case "a huipil">>
+	$activeSlave.slaveName's growing belly slightly bulges under $possessive huipil.
 <<case "a slutty qipao">>
 	$possessiveCap qipao is slit up the side. However, it only covers the top of $possessive fat belly, allowing it to hang free.
 <<case "uncomfortable straps">>
@@ -7282,6 +7387,8 @@ $pronounCap has
 	$activeSlave.slaveName's growing belly is covered in a sheen of oil.
 <<case "a toga">>
 	$activeSlave.slaveName's growing belly gently bulges under $possessive toga.
+<<case "a huipil">>
+	$activeSlave.slaveName's huipil conceals $possessive little belly.
 <<case "a slutty qipao">>
 	$possessiveCap qipao is slit up the side. The front is pushed out by $possessive growing belly.
 <<case "uncomfortable straps">>
