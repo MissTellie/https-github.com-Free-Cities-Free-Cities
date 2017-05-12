@@ -176,7 +176,7 @@
 	[[Include her|Slave Interact][$activeSlave.useRulesAssistant = 1]]
 	<br>
 <<else>>
-	__Rules Assistant__
+	__Rules Assistant:__
 	<<link "//Apply Rules Assistant to this slave//">>
 		<<silently>>
 		<<CheckAutoRulesActivate $activeSlave>>
@@ -571,7 +571,7 @@
 | [[Use auto salon|Salon][$degradation = 0]]
 <<if $cyberMod == 1>>| [[Configure cybernetics|cyberConfig][$temp = 0]]<</if>>
 
-<br><br>__Physical Regimen__
+<br><br>__Physical Regimen:__
 <br>Drugs: <span id="drugs"><strong>$activeSlave.drugs</strong></span>.
 <<link "None">><<set $activeSlave.drugs = "no drugs">><<replace "#drugs">><strong>$activeSlave.drugs</strong><</replace>><</link>>
 <<if $activeSlave.indentureRestrictions < 2>>
