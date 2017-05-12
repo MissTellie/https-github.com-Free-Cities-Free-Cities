@@ -197,7 +197,7 @@
 	<</if>>
 <</if>>
 
-<br>
+<br><br>
 
 <span id="fucktoypref">
 	<<if ($activeSlave.assignment == "please you") || ($activeSlave.assignment == "serve in the master suite") || ($activeSlave.assignment == "be your Concubine")>>
@@ -750,7 +750,7 @@ Hormones: <strong><span id="hormones">
 		<<link "Situational">><<set $activeSlave.standardPunishment = "situational">><<replace "#standardPunishment">>$activeSlave.standardPunishment<</replace>><</link>>
 	<</if>>
 	&nbsp;&nbsp;&nbsp;&nbsp;
-	Typical Reward: ''<span id="standardReward">$activeSlave.standardReward</span>.''
+	Typical reward: ''<span id="standardReward">$activeSlave.standardReward</span>.''
 	<<if $activeSlave.standardReward !== "relaxation">>
 		<<link "Relaxation">><<set $activeSlave.standardReward = "relaxation">><<replace "#standardReward">>$activeSlave.standardReward<</replace>><</link>> |
 	<</if>>
@@ -804,8 +804,8 @@ Hormones: <strong><span id="hormones">
 	<</if>>
 	<</if>>
 
-	&nbsp;&nbsp;&nbsp;&nbsp;
-	Relationship Rules: ''<span id="relationshipRules">$activeSlave.relationshipRules</span>.''
+	<br>
+	Relationship rules: ''<span id="relationshipRules">$activeSlave.relationshipRules</span>.''
 	<<if $activeSlave.relationshipRules == "restrictive">>
 		<<link "Just friends">><<set $activeSlave.relationshipRules = "just friends">><<replace "#relationshipRules">>$activeSlave.relationshipRules<</replace>><</link>>
 		| <<link "Permissive">><<set $activeSlave.relationshipRules = "permissive">><<replace "#relationshipRules">>$activeSlave.relationshipRules<</replace>><</link>>
