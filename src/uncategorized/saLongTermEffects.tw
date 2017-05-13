@@ -1014,7 +1014,7 @@
 	<<if ($slaves[$i].behavioralQuirk == "fitness")>>
 		<<if $slaves[$i].energy < 70>>
 		Her physical overachievement and her growing athletic prowess @@.green;increase her sex drive.@@
-		<<set $slaves[$i].energy += 2>>
+		<<set $slaves[$i].energy += 1>>
 		<</if>>
 	<</if>>
 	<<if ($slaves[$i].fetishStrength <= 95)>>
@@ -1181,7 +1181,7 @@
 			Her desire to be seen doing the forbidden has @@.lightcoral;advanced her humiliation fetish.@@
 			<<set $slaves[$i].fetishStrength += 4>>
 			<</if>>
-			<<if ($slaves[$i].energy < 95)>>
+			<<if ($slaves[$i].energy < 94)>>
 			She's such a pervert that the depravity all around her @@.green;improves her sex drive.@@
 			<<set $slaves[$i].energy += 1>>
 			<</if>>
@@ -3152,8 +3152,8 @@
 			<<elseif ($slaves[$i].subTarget != 0) && ($slaves[$i].assignment == "be a subordinate slave") && canAchieveErection($tempSub) && canImpreg($slaves[$i], _tempSub)>> /* subordinate must have erection to impregnate target */
 				<<set $slaves[$i].pregSource = _tempSub.ID>>
 			<<elseif (_seed > 95) && ($slaves[$i].rivalry > 2) && canAchieveErection(_tempRival) && canImpreg($slaves[$i], _tempRival)>> /* 5% chance to be raped and knocked up by bitter rival - erection needed */
-				Driven by the bitter rivalry between them, _tempRival.slaveName @@.red;violently raped@@ $slaves[$i].slaveName and $pronoun has @@.lime;become pregnant@@ as a result. $possessiveCap @@.gold;confidence has been shaken@@ by the experience.
-				<<set $slaves[$i].pregSource = _tempRival.ID, $slaves[$i].health -= 20, $slaves[$i].trust -= 80>>
+				Driven by the bitter rivalry between them, _tempRival.slaveName successfully overpowers $slaves[$i].slaveName and rapes $object, cumming deep in $possessive fertile pussy whenever she chooses. By the end of the week, $slaves[$i].slaveName is vowing revenge as $pronoun regains confidence.
+				<<set $slaves[$i].pregSource = _tempRival.ID>>
 			<<elseif (_seed > 60) && ($PC.dick == 1)>> /* still 40% chance of impregnation by PC */
 				<<set $slaves[$i].pregSource = -1>>
 			<<elseif (_seed > 95)>> /* 5% chance of impregnation by random citizen - TODO: make this optional for players who want random fathers from among their own slaves only */
@@ -3176,7 +3176,7 @@
 				<</for>>
 			<</if>>
 			<<if $slaves[$i].pregSource != 0>>
-				A routine scan reveals that @@.lime;$pronounCap has become pregnant@@.
+				A quick scan after a bout of morning nausea reveals that @@.lime;$pronoun has become pregnant@@.
 				<<set $slaves[$i].preg = 1>>
 			<</if>>
 		<</if>> /* closes random chance and non-zero sex acts check */
