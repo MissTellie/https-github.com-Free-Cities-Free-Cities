@@ -444,7 +444,7 @@
 			<<default>>	/% slave wives %/
 				has a slave wife, _SlaveJ.slaveName.
 				<<if $arcologies[0].FSChattelReligionist != "unset">>
-					Society @@.green;approves@@ of their marriage, which advances the slave sacrament.
+					<<if ($rep < 20000)>>Society @@.green;approves@@ of their marriage, which advances the slave sacrament.<</if>>
 					<<set $repGain += $FSSingleSlaveRep * ($arcologies[0].FSChattelReligionist / $FSLockinLevel), $arcologies[0].FSChattelReligionist += 0.05 * $FSSingleSlaveRep>>
 				<</if>>
 			<</switch>>
@@ -535,7 +535,7 @@
 				<</if>>
 			<</if>>
 			<<if $arcologies[0].FSEgyptianRevivalist != "unset">>
-				Society @@.green;strongly approves@@ of their incestuous relationship, which advances the Egyptian revivalist ideal of slave incest.
+				<<if ($rep < 20000)>>Society @@.green;strongly approves@@ of their incestuous relationship, which advances the Egyptian revivalist ideal of slave incest.<</if>>
 				<<set $repGain += 2 * $FSSingleSlaveRep * ($arcologies[0].FSEgyptianRevivalist / $FSLockinLevel), $arcologies[0].FSEgyptianRevivalist += 0.1 * $FSSingleSlaveRep>>
 				<<if (_SlaveI.preg > 0) && (_SlaveI.pregSource == _SlaveI.relationTarget)>>
 					@@.green;The effect is greatly enhanced@@ by _SlaveI.slaveName's pureblooded pregnancy.
