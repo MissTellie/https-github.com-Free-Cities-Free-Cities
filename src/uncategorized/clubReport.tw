@@ -178,29 +178,37 @@
 		<<set $ClubiIDs.deleteAt(_dI), _dI--, _DL-->>
 		<<continue>>
 	<</if>>
-	<<set $i = _i>>
+
 	<<if ($legendaryEntertainerID == 0) && ($slaves[_i].prestige == 0) && ($slaves[_i].entertainSkill >= 100) && ($slaves[_i].devotion > 50) && ($slaves[_i].prestige == 0)>>
 	<<set $legendaryEntertainerID = $slaves[_i].ID>>
 	<</if>>
 	<<if ($slaves[_i].devotion <= 20) && ($slaves[_i].trust > -20)>>
-	<<set $slaves[_i].devotion -= 5, $slaves[_i].trust -= 5>>
+		<<set $slaves[_i].devotion -= 5, $slaves[_i].trust -= 5>>
 	<<elseif ($slaves[_i].devotion < 45)>>
-	<<set $slaves[_i].devotion += 4>>
+		<<set $slaves[_i].devotion += 4>>
 	<<elseif ($slaves[_i].devotion >= 50)>>
-	<<set $slaves[_i].devotion -= 4>>
+		<<set $slaves[_i].devotion -= 4>>
 	<</if>>
+
 	<<if ($slaves[_i].trust < 30)>>
-	<<set $slaves[_i].trust += 5>>
+		<<set $slaves[_i].trust += 5>>
 	<</if>>
+
 	<<if ($slaves[_i].health < -80)>>
-	<<set $slaves[_i].health += 20>>
+		<<set $slaves[_i].health += 20>>
 	<<elseif ($slaves[_i].health < -40)>>
-	<<set $slaves[_i].health += 15>>
+		<<set $slaves[_i].health += 15>>
 	<<elseif ($slaves[_i].health < 0)>>
-	<<set $slaves[_i].health += 10>>
+		<<set $slaves[_i].health += 10>>
 	<<elseif ($slaves[_i].health < 90)>>
-	<<set $slaves[_i].health += 7>>
+		<<set $slaves[_i].health += 7>>
 	<</if>>
+
+	/* Perform facility based rule changes */
+	<<set $slaves[_i].curatives = ($slaves[_i].curatives == 2) ? 2 : Number($clubUpgradePreventatives)>>
+
+	<<set $i = _i>>
+
 	<<if $showEWD != 0>>
 		<br><br>
 		/* 000-250-006 */
