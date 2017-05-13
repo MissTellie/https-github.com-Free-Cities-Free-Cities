@@ -2674,7 +2674,7 @@ Relationship rules: ''$currentRule.relationshipRules.''
 
 		/* pick an ID higher than the highest ID of any existing rule */
 		<<for _tempRule.ID = 0, _r = 0; _r < _length; _r++>>
-			<<set _tempRule.ID = Math.max(_tempRule.ID, $defaultRules[_r] + 1)>>
+			<<set _tempRule.ID = Math.max(_tempRule.ID, $defaultRules[_r].ID + 1)>>
 		<</for>>
 
 		<<set _tempRule.name = "Rule " + (_length+1)>>
