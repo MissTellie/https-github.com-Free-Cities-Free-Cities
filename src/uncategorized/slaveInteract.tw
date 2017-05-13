@@ -176,7 +176,7 @@
 	[[Include her|Slave Interact][$activeSlave.useRulesAssistant = 1]]
 	<br>
 <<else>>
-	__Rules Assistant__
+	__Rules Assistant:__
 	<<link "//Apply Rules Assistant to this slave//">>
 		<<silently>>
 		<<CheckAutoRulesActivate $activeSlave>>
@@ -414,7 +414,6 @@
 	<<if $arcade > $arcadeSlaves && ($activeSlave.indentureRestrictions <= 0)>>
 		[[Arcade|Assign][$slaves[_i] = $activeSlave, $assignTo = "Arcade", $i = _i]]
 	<<else>>Arcade<</if>>
-	<<if _numFacilities-- > 1>>|<</if>>
 	<</if>>
 
 	<</if>> /* closes _numFacilities */
@@ -427,7 +426,7 @@
 <br>Clothes: ''<span id="clothes">$activeSlave.clothes</span>.''
 | <<link "Let her choose">><<set $activeSlave.clothes = "choosing her own clothes",$activeSlave.choosesOwnClothes = 1>><<replace "#clothes">>$activeSlave.clothes<</replace>><</link>>
 
-<br>(Good clothes)<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;//Nice:// 
  <<link "Bangles">><<set $activeSlave.clothes = "slutty jewelry",$activeSlave.choosesOwnClothes = 0>><<replace "#clothes">>$activeSlave.clothes<</replace>><</link>>
 | <<link "Bodysuit">><<set $activeSlave.clothes = "a comfortable bodysuit",$activeSlave.choosesOwnClothes = 0>><<replace "#clothes">>$activeSlave.clothes<</replace>><</link>>
 | <<link "Cheerleader outfit">><<set $activeSlave.clothes = "a cheerleader outfit",$activeSlave.choosesOwnClothes = 0>><<replace "#clothes">><<print $activeSlave.clothes>><</replace>><</link>>
@@ -485,7 +484,7 @@
 	| //FS// <<link "Western clothing">><<set $activeSlave.clothes = "Western clothing",$activeSlave.choosesOwnClothes = 0>><<replace "#clothes">>$activeSlave.clothes<</replace>><</link>>
 <</if>>
 
-<br>(Bad clothes)<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;//Harsh:// 
  <<link "Go naked">><<set $activeSlave.clothes = "no clothing", $activeSlave.choosesOwnClothes = 0>><<replace "#clothes">>$activeSlave.clothes<</replace>><</link>>
 | <<link "Penitent nun">><<set $activeSlave.clothes = "a penitent nuns habit",$activeSlave.choosesOwnClothes = 0>><<replace "#clothes">>$activeSlave.clothes<</replace>><</link>>
 | <<link "Restrictive latex">><<set $activeSlave.clothes = "restrictive latex",$activeSlave.choosesOwnClothes = 0>><<replace "#clothes">>$activeSlave.clothes<</replace>><</link>>
@@ -495,15 +494,8 @@
 
 <br>Collar: ''<span id="collar">$activeSlave.collar</span>.''
 <<link "None">><<set $activeSlave.collar = "none">><<replace "#collar">>$activeSlave.collar<</replace>><</link>>
-| //Harsh:// <<link "Tight steel">><<set $activeSlave.collar = "tight steel">><<replace "#collar">>$activeSlave.collar<</replace>><</link>>
-<<if ($seeAge != 0)>>
-	| <<link "Cruel retirement counter">><<set $activeSlave.collar = "cruel retirement counter">><<replace "#collar">>$activeSlave.collar<</replace>><</link>>
-<</if>>
-| <<link "Uncomfortable leather">><<set $activeSlave.collar = "uncomfortable leather">><<replace "#collar">>$activeSlave.collar<</replace>><</link>>
-| <<link "Shock punishment">><<set $activeSlave.collar = "shock punishment">><<replace "#collar">>$activeSlave.collar<</replace>><</link>>
-| <<link "Dildo gag">><<set $activeSlave.collar = "dildo gag">><<replace "#collar">>$activeSlave.collar<</replace>><</link>>
-| <<link "Neck corset">><<set $activeSlave.collar = "neck corset">><<replace "#collar">>$activeSlave.collar<</replace>><</link>>
-| //Nice:// <<link "Stylish leather">><<set $activeSlave.collar = "stylish leather">><<replace "#collar">>$activeSlave.collar<</replace>><</link>>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;//Nice:// 
+<<link "Stylish leather">><<set $activeSlave.collar = "stylish leather">><<replace "#collar">>$activeSlave.collar<</replace>><</link>>
 | <<link "Satin choker">><<set $activeSlave.collar = "satin choker">><<replace "#collar">>$activeSlave.collar<</replace>><</link>>
 | <<link "Heavy gold">><<set $activeSlave.collar = "heavy gold">><<replace "#collar">>$activeSlave.collar<</replace>><</link>>
 | <<link "Pretty jewelry">><<set $activeSlave.collar = "pretty jewelry">><<replace "#collar">>$activeSlave.collar<</replace>><</link>>
@@ -517,6 +509,15 @@
 <<if ($arcologies[0].FSEgyptianRevivalist != "unset") || ($cheatMode == 1) || ($clothesBoughtEgypt == 1)>>
 	| //FS// <<link "Ancient Egyptian">><<set $activeSlave.collar = "ancient Egyptian">><<replace "#collar">>$activeSlave.collar<</replace>><</link>>
 <</if>>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;//Harsh:// 
+<<link "Tight steel">><<set $activeSlave.collar = "tight steel">><<replace "#collar">>$activeSlave.collar<</replace>><</link>>
+<<if ($seeAge != 0)>>
+	| <<link "Cruel retirement counter">><<set $activeSlave.collar = "cruel retirement counter">><<replace "#collar">>$activeSlave.collar<</replace>><</link>>
+<</if>>
+| <<link "Uncomfortable leather">><<set $activeSlave.collar = "uncomfortable leather">><<replace "#collar">>$activeSlave.collar<</replace>><</link>>
+| <<link "Shock punishment">><<set $activeSlave.collar = "shock punishment">><<replace "#collar">>$activeSlave.collar<</replace>><</link>>
+| <<link "Dildo gag">><<set $activeSlave.collar = "dildo gag">><<replace "#collar">>$activeSlave.collar<</replace>><</link>>
+| <<link "Neck corset">><<set $activeSlave.collar = "neck corset">><<replace "#collar">>$activeSlave.collar<</replace>><</link>>
 
 <<if $activeSlave.amp != 1>>
 <br>Shoes: ''<span id="shoes">$activeSlave.shoes</span>.''
@@ -570,7 +571,7 @@
 | [[Use auto salon|Salon][$degradation = 0]]
 <<if $cyberMod == 1>>| [[Configure cybernetics|cyberConfig][$temp = 0]]<</if>>
 
-<br><br>__Physical Regimen__
+<br><br>__Physical Regimen:__
 <br>Drugs: <span id="drugs"><strong>$activeSlave.drugs</strong></span>.
 <<link "None">><<set $activeSlave.drugs = "no drugs">><<replace "#drugs">><strong>$activeSlave.drugs</strong><</replace>><</link>>
 <<if $activeSlave.indentureRestrictions < 2>>
@@ -635,10 +636,11 @@ Aphrodisiacs: <span id="aphrodisiacs"><strong><<if $activeSlave.aphrodisiacs > 1
 
 <br>
 <span id="fertilityblock">
+Contraception: 
 <<if ($activeSlave.preg < -1) || ($activeSlave.ovaries == 0)>>
 	//She is sterile//
 <<elseif ($activeSlave.preg >= -1) && ($activeSlave.ovaries != 0)>>
-Contraception: <span id="fertility"><strong><<if $activeSlave.preg == -1>>using contraceptives<<elseif $activeSlave.preg == 0>>fertile<<elseif $activeSlave.preg < 4>>may be pregnant<<else>>$activeSlave.preg weeks pregnant<</if>></strong></span>.
+<span id="fertility"><strong><<if $activeSlave.preg == -1>>using contraceptives<<elseif $activeSlave.preg == 0>>fertile<<elseif $activeSlave.preg < 4>>may be pregnant<<else>>$activeSlave.preg weeks pregnant<</if>></strong></span>.
 <<if ($activeSlave.preg == 0) && ($activeSlave.clothes != "a Fuckdoll suit")>>
 	<<link "Use contraceptives">><<set $activeSlave.preg = -1>>
 	<<SlaveInteractFertility>>
@@ -823,9 +825,14 @@ Hormones: <strong><span id="hormones">
 	The media hub is not releasing highlights of her sex life. [[Release|Slave Interact][$activeSlave.pornFameSpending = 0]]
 	<<else>>
 	<<if $activeSlave.prestige < 3>>
-		The media hub is releasing highlights of her sex life. ¤$activeSlave.pornFameSpending weekly is spent to publicize them.
-		<<if $activeSlave.pornFameSpending < 5000>>
-		[[Increase|Slave Interact][$activeSlave.pornFameSpending += 1000]]
+		The media hub is releasing <<if $activeSlave.pornFameSpending  < 500>> minimal <</if>> highlights of her sex life. 
+		
+		<<if $activeSlave.pornFameSpending == 0>>
+			[[Begin publicizing?|Slave Interact][$activeSlave.pornFameSpending += 1000]]  
+			//Will cost ¤1000 weekly.//
+		<<elseif $activeSlave.pornFameSpending < 5000  && $activeSlave.pornFameSpending > 0>>
+			¤$activeSlave.pornFameSpending weekly is spent to publicize them.
+			[[Increase|Slave Interact][$activeSlave.pornFameSpending += 1000]]
 		<</if>>
 		<<if ($activeSlave.pornFameSpending < 5000) && ($activeSlave.pornFameSpending > 0)>>
 		|
