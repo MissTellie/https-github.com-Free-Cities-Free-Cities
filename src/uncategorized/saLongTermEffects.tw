@@ -1015,7 +1015,7 @@
 	<<if ($slaves[$i].behavioralQuirk == "fitness")>>
 		<<if $slaves[$i].energy < 70>>
 		Her physical overachievement and her growing athletic prowess @@.green;increase her sex drive.@@
-		<<set $slaves[$i].energy += 2>>
+		<<set $slaves[$i].energy += 1>>
 		<</if>>
 	<</if>>
 	<<if ($slaves[$i].fetishStrength <= 95)>>
@@ -1182,7 +1182,7 @@
 			Her desire to be seen doing the forbidden has @@.lightcoral;advanced her humiliation fetish.@@
 			<<set $slaves[$i].fetishStrength += 4>>
 			<</if>>
-			<<if ($slaves[$i].energy < 95)>>
+			<<if ($slaves[$i].energy < 94)>>
 			She's such a pervert that the depravity all around her @@.green;improves her sex drive.@@
 			<<set $slaves[$i].energy += 1>>
 			<</if>>
@@ -1897,7 +1897,7 @@
 	@@.hotpink;Her acceptance of her life as a sex slave is driven faster@@ by how satisfied she is by the availability of her favorite activity.
 	<<set $slaves[$i].devotion += 2>>
 <<else>>
-	She loves being a nympho slut. @@.hotpink;She loves being your nympho slut.@@
+	@@.hotpink;She loves being your nympho slut.@@
 	<<set $slaves[$i].devotion += 2>>
 <</if>>
 <</if>>
@@ -3153,8 +3153,8 @@
 			<<elseif ($slaves[$i].subTarget != 0) && ($slaves[$i].assignment == "be a subordinate slave") && canAchieveErection($tempSub) && canImpreg($slaves[$i], _tempSub)>> /* subordinate must have erection to impregnate target */
 				<<set $slaves[$i].pregSource = _tempSub.ID>>
 			<<elseif (_seed > 95) && ($slaves[$i].rivalry > 2) && canAchieveErection(_tempRival) && canImpreg($slaves[$i], _tempRival)>> /* 5% chance to be raped and knocked up by bitter rival - erection needed */
-				Driven by the bitter rivalry between them, _tempRival.slaveName @@.red;violently raped@@ $slaves[$i].slaveName and $pronoun has @@.lime;become pregnant@@ as a result. $possessiveCap @@.gold;confidence has been shaken@@ by the experience.
-				<<set $slaves[$i].pregSource = _tempRival.ID, $slaves[$i].health -= 20, $slaves[$i].trust -= 80>>
+				Driven by the bitter rivalry between them, _tempRival.slaveName successfully overpowers $slaves[$i].slaveName and rapes $object, cumming deep in $possessive fertile pussy whenever she chooses. By the end of the week, $slaves[$i].slaveName is vowing revenge as $pronoun regains confidence.
+				<<set $slaves[$i].pregSource = _tempRival.ID>>
 			<<elseif (_seed > 60) && ($PC.dick == 1)>> /* still 40% chance of impregnation by PC */
 				<<set $slaves[$i].pregSource = -1>>
 			<<elseif (_seed > 95)>> /* 5% chance of impregnation by random citizen - TODO: make this optional for players who want random fathers from among their own slaves only */
@@ -3177,7 +3177,7 @@
 				<</for>>
 			<</if>>
 			<<if $slaves[$i].pregSource != 0>>
-				A routine scan reveals that @@.lime;$pronounCap has become pregnant@@.
+				A quick scan after a bout of morning nausea reveals that @@.lime;$pronoun has become pregnant@@.
 				<<set $slaves[$i].preg = 1>>
 			<</if>>
 		<</if>> /* closes random chance and non-zero sex acts check */
@@ -3319,13 +3319,13 @@
 			<</if>>
 			<<FSChangePorn "Supremacist" -1>>
 		<<elseif ($slaves[$i].assignment == "be your Head Girl")>>
-			Society @@.green;strongly approves@@ of your keeping a slave of the $arcologies[0].FSSupremacistRace race in a position of leadership as your head girl, advancing the notion that those of the  $arcologies[0].FSSupremacistRace race should be in positions of authority over others.
+			<<if ($rep < 20000)>>Society @@.green;strongly approves@@ of your keeping a slave of the $arcologies[0].FSSupremacistRace race in a position of leadership as your head girl, advancing the notion that those of the  $arcologies[0].FSSupremacistRace race should be in positions of authority over others.<</if>>
 			<<FSChangePorn "Supremacist" 2>>
 		<<elseif ($slaves[$i].assignment == "recruit girls")>>
-			Society @@.green;strongly approves@@ of your keeping a slave of the $arcologies[0].FSSupremacistRace race in a position of leadership as your recruiter, advancing the notion that it is only natural that those of the $arcologies[0].FSSupremacistRace race should lead the charge in enslaving others.
+			<<if ($rep < 20000)>>Society @@.green;strongly approves@@ of your keeping a slave of the $arcologies[0].FSSupremacistRace race in a position of leadership as your recruiter, advancing the notion that it is only natural that those of the $arcologies[0].FSSupremacistRace race should lead the charge in enslaving others.<</if>>
 			<<FSChangePorn "Supremacist" 2>>
 		<<elseif ($slaves[$i].assignment == "be your concubine")>>
-			Society @@.green;strongly approves@@ of your keeping a slave of the $arcologies[0].FSSupremacistRace race in a position of importance as your concubine, advancing the notion that the most favoured of your bedslaves should naturally be of the $arcologies[0].FSSupremacistRace race.
+			<<if ($rep < 20000)>>Society @@.green;strongly approves@@ of your keeping a slave of the $arcologies[0].FSSupremacistRace race in a position of importance as your concubine, advancing the notion that the most favoured of your bedslaves should naturally be of the $arcologies[0].FSSupremacistRace race.<</if>>
 			<<FSChangePorn "Supremacist" 2>>
 			/* Code contributed by Anon1888 */
 		<<else>>
@@ -3339,7 +3339,7 @@
 						Society @@.red;strongly disapproves@@ of your allowing a pure $arcologies[0].FSSupremacistRace slave to be miscegenated by $slaves[$j].slaveName.
 						<<FSChangePorn "Supremacist" -2>>
 					<<else>>
-						Society @@.green;strongly approves@@ of your using slave breeders like $slaves[$i].slaveName to propagate the $arcologies[0].FSSupremacistRace race.
+						<<if ($rep < 20000)>>Society @@.green;strongly approves@@ of your using slave breeders like $slaves[$i].slaveName to propagate the $arcologies[0].FSSupremacistRace race.<</if>>
 						<<FSChangePorn "Supremacist" 2>>
 					<</if>>
 					<<break>>
@@ -3353,13 +3353,13 @@
 		<</if>>
 	<<else>>
 		<<if $arcologies[0].FSSupremacist >= $FSLockinLevel*0.5>>
-			Society @@.green;approves@@ of your keeping a slave of an inferior race; this also advances $arcologies[0].FSSupremacistRace superiority.
+			<<if ($rep < 20000)>>Society @@.green;approves@@ of your keeping a slave of an inferior race; this also advances $arcologies[0].FSSupremacistRace superiority.<</if>>
 		<<else>>
-			Society @@.green;approves@@ of your keeping a slave of an inferior race; this also advances $arcologies[0].FSSupremacistRace superiority.
+			<<if ($rep < 20000)>>Society @@.green;approves@@ of your keeping a slave of an inferior race; this also advances $arcologies[0].FSSupremacistRace superiority.<</if>>
 		<</if>>
 		<<FSChangePorn "Supremacist" 1>>
 		<<if $slaves[$i].fuckdoll > 0>>
-			Society @@.green;approves@@ of your keeping a Fuckdoll of an inferior race.
+			<<if ($rep < 20000)>>Society @@.green;approves@@ of your keeping a Fuckdoll of an inferior race.<</if>>
 			<<FSChangePorn "Supremacist" 1>>
 		<</if>>
 	<</if>>
@@ -3368,19 +3368,19 @@
 <<if $arcologies[0].FSSubjugationist != "unset">>
 	<<if ($slaves[$i].race is $arcologies[0].FSSubjugationistRace)>>
 		<<if $arcologies[0].FSSubjugationist >= $FSLockinLevel*0.5>>
-			Society @@.green;approves@@ of your keeping a slave of the subject $arcologies[0].FSSubjugationistRace race; this also advances $arcologies[0].FSSubjugationistRace inferiority.
+			<<if ($rep < 20000)>>Society @@.green;approves@@ of your keeping a slave of the subject $arcologies[0].FSSubjugationistRace race; this also advances $arcologies[0].FSSubjugationistRace inferiority.<</if>>
 		<<else>>
-			Society @@.green;approves@@ of your keeping a slave of the subject $arcologies[0].FSSubjugationistRace race; this also advances $arcologies[0].FSSubjugationistRace inferiority.
+			<<if ($rep < 20000)>>Society @@.green;approves@@ of your keeping a slave of the subject $arcologies[0].FSSubjugationistRace race; this also advances $arcologies[0].FSSubjugationistRace inferiority.<</if>>
 		<</if>>
 		<<FSChangePorn "Subjugationist" 1>>
 		<<if $slaves[$i].ovaries == 0>>
 		<<if $slaves[$i].balls == 0>>
-			Society @@.green;approves@@ of $slaves[$i].slaveName <<if $slaves[$i].balls == 0>>sterilization<<else>>gelding<</if>>, which ensures that $pronoun will not propagate the $arcologies[0].FSSubjugationistRace race.
+			<<if ($rep < 20000)>>Society @@.green;approves@@ of $slaves[$i].slaveName <<if $slaves[$i].balls == 0>>sterilization<<else>>gelding<</if>>, which ensures that $pronoun will not propagate the $arcologies[0].FSSubjugationistRace race.<</if>>
 			<<FSChangePorn "Subjugationist" 1>>
 		<</if>>
 		<</if>>
 		<<if $slaves[$i].fuckdoll > 0>>
-			Society @@.green;approves@@ of your keeping a Fuckdoll of the $arcologies[0].FSSubjugationistRace race.
+			<<if ($rep < 20000)>>Society @@.green;approves@@ of your keeping a Fuckdoll of the $arcologies[0].FSSubjugationistRace race.<</if>>
 			<<FSChangePorn "Subjugationist" 1>>
 		<</if>>
 	<<else>>
@@ -3402,13 +3402,13 @@
 
 <<if $arcologies[0].FSYouthPreferentialist != "unset">>
 	<<if ($slaves[$i].age < 30)>>
-	Society @@.green;approves@@ of $slaves[$i].slaveName's youthful body; $pronoun furthers the fashion for young slaves.
+	<<if ($rep < 20000)>>Society @@.green;approves@@ of $slaves[$i].slaveName's youthful body; $pronoun furthers the fashion for young slaves.<</if>>
 	<<set _youth_rep_change = (30-$slaves[$i].age)/5>>
 	<<FSChangePorn "YouthPreferentialist" _youth_rep_change>>
 	<</if>>
 <<elseif $arcologies[0].FSMaturityPreferentialist != "unset">>
 	<<if ($slaves[$i].age >= 30)>>
-	Society @@.green;approves@@ of $slaves[$i].slaveName's mature body; $pronoun furthers the fashion for older ladies.
+	<<if ($rep < 20000)>>Society @@.green;approves@@ of $slaves[$i].slaveName's mature body; $pronoun furthers the fashion for older ladies.<</if>>
 	<<set _maturity_rep_change = ($slaves[$i].age-25)/5>>
 	<<FSChangePorn "MaturityPreferentialist" _maturity_rep_change>>
 	<</if>>
@@ -3416,13 +3416,13 @@
 
 <<if $arcologies[0].FSGenderRadicalist != "unset">>
 	<<if ($slaves[$i].balls > 0) && ($slaves[$i].hormones > 0)>>
-	Society @@.green;approves@@ of your heavy hormonal feminization of $slaves[$i].slaveName; this advances public interest in girls with soft little dicks.
+	<<if ($rep < 20000)>>Society @@.green;approves@@ of your heavy hormonal feminization of $slaves[$i].slaveName; this advances public interest in girls with soft little dicks.<</if>>
 	<<FSChangePorn "GenderRadicalist" 1>>
 	<<elseif ($slaves[$i].dick > 0) && ($slaves[$i].balls == 0)>>
-	Society @@.green;approves@@ of your keeping a gelded slave; this advances public interest in girls with soft dickclits.
+	<<if ($rep < 20000)>>Society @@.green;approves@@ of your keeping a gelded slave; this advances public interest in girls with soft dickclits.<</if>>
 	<<FSChangePorn "GenderRadicalist" 1>>
 	<<elseif ($slaves[$i].dick > 0) && ($slaves[$i].anus > 0) && ($slaves[$i].devotion > 20) && ($slaves[$i].trust > -20)>>
-	Society @@.green;approves@@ of your keeping a contented dickgirl bottom; this advances public interest in girls who get hard when assfucked.
+	<<if ($rep < 20000)>>Society @@.green;approves@@ of your keeping a contented dickgirl bottom; this advances public interest in girls who get hard when assfucked.<</if>>
 	<<FSChangePorn "GenderRadicalist" 1>>
 	<</if>>
 <<elseif $arcologies[0].FSGenderFundamentalist != "unset">>
@@ -3441,14 +3441,14 @@
 
 <<if $arcologies[0].FSPaternalist != "unset">>
 	<<if ($slaves[$i].intelligenceImplant > 0) && ($slaves[$i].fetish != "mindbroken")>>
-	Society @@.green;approves@@ of $slaves[$i].slaveName being properly educated; this advances ideas about slave improvement.
+	<<if ($rep < 20000)>>Society @@.green;approves@@ of $slaves[$i].slaveName being properly educated; this advances ideas about slave improvement.<</if>>
 	<<FSChangePorn "Paternalist" 1>>
 	<<elseif ($slaves[$i].intelligenceImplant == 0) && ($slaves[$i].intelligence < 0) && ($slaves[$i].fetish != "mindbroken")>>
 	Society @@.red;disapproves@@ of $slaves[$i].slaveName being stupid and uneducated; this holds back ideas about slave improvement.
 	<<FSChangePorn "Paternalist" -1>>
 	<</if>>
 	<<if ($slaves[$i].health > 80)>>
-	Society @@.green;approves@@ of $possessive shining health; this advances belief in a slaveowner's duty.
+	<<if ($rep < 20000)>>Society @@.green;approves@@ of $possessive shining health; this advances belief in a slaveowner's duty.<</if>>
 	<<FSChangePorn "Paternalist" 1>>
 	<</if>>
 	<<if ($slaves[$i].devotion+$slaves[$i].trust > 180)>>
@@ -3456,24 +3456,24 @@
 		Society @@.green;approves very strongly@@ of $possessive happiness as your wife; this advances paternalistic ideals.
 		<<FSChangePorn "Paternalist" 5>>
 		<<elseif ($slaves[$i].relationship is -2)>>
-		Society @@.green;strongly approves@@ of $possessive emotional bond to you; this advances paternalistic ideals.
+		<<if ($rep < 20000)>>Society @@.green;strongly approves@@ of $possessive emotional bond to you; this advances paternalistic ideals.<</if>>
 		<<FSChangePorn "Paternalist" 2>>
 		<<else>>
-		Society @@.green;approves@@ of $possessive attachment to you; this advances paternalistic ideals.
+		<<if ($rep < 20000)>>Society @@.green;approves@@ of $possessive attachment to you; this advances paternalistic ideals.<</if>>
 		<<FSChangePorn "Paternalist" 1>>
 		<</if>>
 	<<else>>
 		<<if ($slaves[$i].devotion > 95)>>
-		Society @@.green;approves@@ of $possessive attachment to you; this advances paternalistic ideals.
+		<<if ($rep < 20000)>>Society @@.green;approves@@ of $possessive attachment to you; this advances paternalistic ideals.<</if>>
 		<<FSChangePorn "Paternalist" 1>>
 		<</if>>
 		<<if ($slaves[$i].trust > 95)>>
-		Society @@.green;approves@@ of $possessive trust in you; this advances paternalistic ideals.
+		<<if ($rep < 20000)>>Society @@.green;approves@@ of $possessive trust in you; this advances paternalistic ideals.<</if>>
 		<<FSChangePorn "Paternalist" 1>>
 		<</if>>
 	<</if>>
 	<<if ($slaves[$i].choosesOwnAssignment == 1)>>
-	Society @@.green;approves@@ of $slaves[$i].slaveName being allowed to choose $possessive own job, advancing ideals about slave self-actualization.
+	<<if ($rep < 20000)>>Society @@.green;approves@@ of $slaves[$i].slaveName being allowed to choose $possessive own job, advancing ideals about slave self-actualization.<</if>>
 	<<FSChangePorn "Paternalist" 1>>
 	<</if>>
 	<<if ($modScore > 15 || ($piercingScore > 8 && $tatScore > 5))>>
@@ -3486,11 +3486,11 @@
 	<</if>>
 <<elseif $arcologies[0].FSDegradationist != "unset">>
 	<<if ($slaves[$i].fetish == "mindbroken")>>
-	Society @@.green;approves@@ of $possessive broken spirit; $pronoun serves as an example of a soulless fuckpuppet.
+	<<if ($rep < 20000)>>Society @@.green;approves@@ of $possessive broken spirit; $pronoun serves as an example of a soulless fuckpuppet.<</if>>
 	<<FSChangePorn "Degradationist" 1>>
 	<<else>>
 	<<if ($slaves[$i].trust <= 4)>>
-		Society @@.green;approves@@ of $slaves[$i].slaveName's fear of you.
+		<<if ($rep < 20000)>>Society @@.green;approves@@ of $slaves[$i].slaveName's fear of you.<</if>>
 		<<FSChangePorn "Degradationist" 1>>
 	<<else>>
 		<<if ($slaves[$i].assignment == "be your Head Girl")>>
@@ -3506,16 +3506,16 @@
 	<</if>>
 	<</if>>
 	<<if ($slaves[$i].assignment == "work a glory hole") || ($slaves[$i].assignment == "be confined in the arcade")>>
-	Society @@.green;approves@@ of how $pronoun is restrained for involuntary use, seeing this as the future of sexual relations.
+	<<if ($rep < 20000)>>Society @@.green;approves@@ of how $pronoun is restrained for involuntary use, seeing this as the future of sexual relations.<</if>>
 	<<FSChangePorn "Degradationist" 1>>
 	<</if>>
 	<<if ($modScore > 15 || ($piercingScore > 8 && $tatScore > 5))>>
-	Society @@.green;approves@@ of $possessive many body modifications, which advances the public taste for such degradation of slave bodies.
+	<<if ($rep < 20000)>>Society @@.green;approves@@ of $possessive many body modifications, which advances the public taste for such degradation of slave bodies.<</if>>
 	<<FSChangePorn "Degradationist" 1>>
 	<</if>>
 	<<if $slaves[$i].voice != 0>>
 	<<if $slaves[$i].lips > 95>>
-		Society @@.green;approves@@ of the way $possessive mouth, with its useless ability to speak, has been replaced with an appealing hole.
+		<<if ($rep < 20000)>>Society @@.green;approves@@ of the way $possessive mouth, with its useless ability to speak, has been replaced with an appealing hole.<</if>>
 		<<FSChangePorn "Degradationist" 1>>
 	<</if>>
 	<</if>>
@@ -3524,52 +3524,52 @@
 	<<FSChangePorn "Degradationist" -1>>
 	<</if>>
 	<<if $slaves[$i].fuckdoll > 0>>
-		Society @@.green;approves@@ of your owning a Fuckdoll.
+		<<if ($rep < 20000)>>Society @@.green;approves@@ of your owning a Fuckdoll.<</if>>
 		<<FSChangePorn "Degradationist" 1>>
 	<</if>>
 <</if>>
 
 <<if $arcologies[0].FSBodyPurist != "unset">>
 	<<if ($slaves[$i].boobsImplant == 0) && ($slaves[$i].buttImplant == 0) && ($slaves[$i].lipsImplant == 0)>>
-	Society @@.green;approves@@ of $slaves[$i].slaveName's natural body; this supports the fashion for surgically untouched slaves.
+	<<if ($rep < 20000)>>Society @@.green;approves@@ of $slaves[$i].slaveName's natural body; this supports the fashion for surgically untouched slaves.<</if>>
 	<<FSChangePorn "BodyPurist" 1>>
 	<<else>>
 	Society @@.red;disapproves@@ of $slaves[$i].slaveName's implants; this holds back acceptance of the idea that slaves should be all-natural.
 	<<FSChangePorn "BodyPurist" -1>>
 	<</if>>
 	<<if ($slaves[$i].corsetPiercing == 0 && $piercingScore < 3 && $tatScore < 2)>>
-	Society @@.green;approves@@ of $possessive unmarked, unblemished skin, advancing the fashion for unspoiled slaves.
+	<<if ($rep < 20000)>>Society @@.green;approves@@ of $possessive unmarked, unblemished skin, advancing the fashion for unspoiled slaves.<</if>>
 	<<FSChangePorn "BodyPurist" 1>>
 	<</if>>
 <<elseif $arcologies[0].FSTransformationFetishist != "unset">>
 	<<set _transformed = 0>>
 	<<if ($slaves[$i].boobsImplant > 0) && ($slaves[$i].buttImplant > 0) && ($slaves[$i].lipsImplant > 0)>>
-		Society @@.green;approves@@ of $slaves[$i].slaveName's thoroughly modified body; this supports the fashion for surgically upgraded slaves.
+		<<if ($rep < 20000)>>Society @@.green;approves@@ of $slaves[$i].slaveName's thoroughly modified body; this supports the fashion for surgically upgraded slaves.<</if>>
 		<<FSChangePorn "TransformationFetishist" 1>>
 		<<set _transformed = 1>>
 	<</if>>
 	<<if ($slaves[$i].amp == 1) || ($slaves[$i].waist < -95) || ($slaves[$i].teeth == "pointy") || ($slaves[$i].teeth == "removable")>>
-		Society @@.green;approves@@ of $possessive extreme surgeries; interest in $object stirs interest in transformations of all kinds.
+		<<if ($rep < 20000)>>Society @@.green;approves@@ of $possessive extreme surgeries; interest in $object stirs interest in transformations of all kinds.<</if>>
 		<<FSChangePorn "TransformationFetishist" 1>>
 		<<set _transformed = 1>>
 	<</if>>
 	<<if ($slaves[$i].amp < 0)>>
-		Society @@.green;strongly approves@@ of $possessive transhuman body.
+		<<if ($rep < 20000)>>Society @@.green;strongly approves@@ of $possessive transhuman body.<</if>>
 		<<FSChangePorn "TransformationFetishist" 1>>
 		<<set _transformed = 1>>
 	<</if>>
 	<<if ($slaves[$i].dick > 8)>>
-		Society @@.green;approves@@ of $possessive monolithic dick, since it's such an obvious transformation masterpiece.
+		<<if ($rep < 20000)>>Society @@.green;approves@@ of $possessive monolithic dick, since it's such an obvious transformation masterpiece.<</if>>
 		<<FSChangePorn "TransformationFetishist" 1>>
 		<<set _transformed = 1>>
 	<</if>>
 	<<if ($slaves[$i].lips > 95)>>
-		Society @@.green;approves@@ of $possessive absurd facepussy as a transformation of $possessive mouth into nothing more than another fuckhole.
+		<<if ($rep < 20000)>>Society @@.green;approves@@ of $possessive absurd facepussy as a transformation of $possessive mouth into nothing more than another fuckhole.<</if>>
 		<<FSChangePorn "TransformationFetishist" 1>>
 		<<set _transformed = 1>>
 	<</if>>
 	<<if $slaves[$i].fuckdoll > 0>>
-		Society @@.green;approves@@ of your owning a Fuckdoll.
+		<<if ($rep < 20000)>>Society @@.green;approves@@ of your owning a Fuckdoll.<</if>>
 		<<FSChangePorn "TransformationFetishist" 1>>
 		<<set _transformed = 1>>
 	<</if>>
@@ -3581,7 +3581,7 @@
 
 <<if $arcologies[0].FSSlimnessEnthusiast != "unset">>
 	<<if ($slaves[$i].boobs < 500) && ($slaves[$i].butt < 3) && ($slaves[$i].weight <= 10) && ($slaves[$i].muscles <= 30)>>
-	Society @@.green;approves@@ of $slaves[$i].slaveName's graceful, girlish form; $pronoun furthers the fashion for slaves like $object.
+	<<if ($rep < 20000)>>Society @@.green;approves@@ of $slaves[$i].slaveName's graceful, girlish form; $pronoun furthers the fashion for slaves like $object.<</if>>
 	<<FSChangePorn "SlimnessEnthusiast" 1>>
 	<</if>>
 	<<if ($slaves[$i].butt > 4) && ($slaves[$i].boobs > 800)>>
@@ -3590,68 +3590,68 @@
 	<</if>>
 <<elseif $arcologies[0].FSAssetExpansionist != "unset">>
 	<<if ($slaves[$i].boobs > 2000)>>
-	Society @@.green;approves@@ of $slaves[$i].slaveName's huge tits; $possessive breasts further the fashion for bouncing boobs on slaves.
+	<<if ($rep < 20000)>>Society @@.green;approves@@ of $slaves[$i].slaveName's huge tits; $possessive breasts further the fashion for bouncing boobs on slaves.<</if>>
 	<<FSChangePorn "AssetExpansionist" 1>>
 	<</if>>
 	<<if ($slaves[$i].butt > 7)>>
-	Society @@.green;approves@@ of $possessive massive ass; $possessive butt furthers the fashion for big behinds on slaves.
+	<<if ($rep < 20000)>>Society @@.green;approves@@ of $possessive massive ass; $possessive butt furthers the fashion for big behinds on slaves.<</if>>
 	<<FSChangePorn "AssetExpansionist" 1>>
 	<</if>>
 	<<if ($slaves[$i].dick > 8)>>
-	Society @@.green;approves@@ of $possessive massive member, which might be nonfunctional, but is a wonder of expansionism.
+	<<if ($rep < 20000)>>Society @@.green;approves@@ of $possessive massive member, which might be nonfunctional, but is a wonder of expansionism.<</if>>
 	<<set _Dic = $slaves[$i].dick-8>>
 	<<FSChangePorn "AssetExpansionist" _Dic>>
 	<<elseif ($slaves[$i].dick > 6)>>
-	Society @@.green;approves@@ of $possessive enormous penis; $possessive cock furthers the fashion for dangling dicks on slaves.
+	<<if ($rep < 20000)>>Society @@.green;approves@@ of $possessive enormous penis; $possessive cock furthers the fashion for dangling dicks on slaves.<</if>>
 		<<FSChangePorn "AssetExpansionist" 1>>
 	<</if>>
 	<<if ($slaves[$i].balls > 4) && ($slaves[$i].scrotum > 0)>>
-		Society @@.green;approves@@ of $possessive swinging balls; $possessive nuts further the fashion for tremendous testicles on slaves.
+		<<if ($rep < 20000)>>Society @@.green;approves@@ of $possessive swinging balls; $possessive nuts further the fashion for tremendous testicles on slaves.<</if>>
 		<<FSChangePorn "AssetExpansionist" 1>>
 	<</if>>
 	<<if ($slaves[$i].lips > 95)>>
-		Society @@.green;approves@@ of $possessive expanded lips.
+		<<if ($rep < 20000)>>Society @@.green;approves@@ of $possessive expanded lips.<</if>>
 		<<FSChangePorn "AssetExpansionist" 1>>
 	<</if>>
 <</if>>
 
 <<if $arcologies[0].FSPastoralist != "unset">>
 	<<if ($slaves[$i].lactation > 0)>>
-	Society @@.green;approves@@ of $slaves[$i].slaveName's milky udders; the sight of $possessive creamy milk encourages the public taste for dairy straight from the nipple.
+	<<if ($rep < 20000)>>Society @@.green;approves@@ of $slaves[$i].slaveName's milky udders; the sight of $possessive creamy milk encourages the public taste for dairy straight from the nipple.<</if>>
 	<<FSChangePorn "Pastoralist" 1>>
 	<</if>>
 	<<if ($slaves[$i].assignment == "get milked") && ($slaves[$i].balls > 0)>>
-	Society @@.green;approves@@ of how $slaves[$i].slaveName gets cockmilked; the sight of $possessive product encourages experimentation with cum-based concoctions.
+	<<if ($rep < 20000)>>Society @@.green;approves@@ of how $slaves[$i].slaveName gets cockmilked; the sight of $possessive product encourages experimentation with cum-based concoctions.<</if>>
 	<<FSChangePorn "Pastoralist" 1>>
 	<</if>>
 <<elseif $arcologies[0].FSPhysicalIdealist != "unset">>
 	<<if ($slaves[$i].muscles > 95)>>
-	Society @@.green;strongly approves@@ of $slaves[$i].slaveName's glorious muscles; everyone wants to train a slave to look as swole as $object.
+	<<if ($rep < 20000)>>Society @@.green;strongly approves@@ of $slaves[$i].slaveName's glorious muscles; everyone wants to train a slave to look as swole as $object.<</if>>
 	<<FSChangePorn "PhysicalIdealist" 2>>
 	<<elseif ($slaves[$i].muscles > 30)>>
-	Society @@.green;approves@@ of $slaves[$i].slaveName's fit body; physical enthusiasts see $possessive as on $possessive way to something great.
+	<<if ($rep < 20000)>>Society @@.green;approves@@ of $slaves[$i].slaveName's fit body; physical enthusiasts see $possessive as on $possessive way to something great.<</if>>
 	<<FSChangePorn "PhysicalIdealist" 1>>
 	<<elseif ($slaves[$i].muscles > 5)>>
-	Society @@.green;approves@@ of $slaves[$i].slaveName's toned form; the public sees potential in those guns.
+	<<if ($rep < 20000)>>Society @@.green;approves@@ of $slaves[$i].slaveName's toned form; the public sees potential in those guns.<</if>>
 	<<FSChangePorn "PhysicalIdealist" 1>>
 	<</if>>
 	<<if ($slaves[$i].height >= 185)>>
-	Society @@.green;approves@@ of how tall $pronoun is; the sexual advantages of $possessive height are impressed on  the public mind.
+	<<if ($rep < 20000)>>Society @@.green;approves@@ of how tall $pronoun is; the sexual advantages of $possessive height are impressed on  the public mind.<</if>>
 	<<FSChangePorn "PhysicalIdealist" 1>>
 	<</if>>
 	<<if ($slaves[$i].health > 80)>>
-	Society @@.green;approves@@ of $possessive health; the expectation that slaves should be kept perfectly healthy grows.
+	<<if ($rep < 20000)>>Society @@.green;approves@@ of $possessive health; the expectation that slaves should be kept perfectly healthy grows.<</if>>
 	<<FSChangePorn "PhysicalIdealist" 1>>
 	<</if>>
 <</if>>
 
 <<if $arcologies[0].FSChattelReligionist != "unset">>
 	<<if ($slaves[$i].collar == "tight steel") || ($slaves[$i].collar == "uncomfortable leather") || ($slaves[$i].collar == "cruel retirement counter")>>
-	Society @@.green;approves@@ of $slaves[$i].slaveName's collar as an expression of the old ideal of mortification of the flesh, advancing the combination of religious originalism and modern slavery.
+	<<if ($rep < 20000)>>Society @@.green;approves@@ of $slaves[$i].slaveName's collar as an expression of the old ideal of mortification of the flesh, advancing the combination of religious originalism and modern slavery.<</if>>
 	<<FSChangePorn "ChattelReligionist" 1>>
 	<</if>>
 	<<if ($slaves[$i].clothes == "a chattel habit") || ($slaves[$i].clothes == "a fallen nuns habit") || ($slaves[$i].clothes == "a penitent nuns habit") || ($slaves[$i].clothes == "a hijab and abaya") || ($slaves[$i].clothes == "a succubus outfit")>>
-		Society @@.green;approves@@ of $possessive religiously themed clothing, strengthening the connection between sexual servitude and faith.
+		<<if ($rep < 20000)>>Society @@.green;approves@@ of $possessive religiously themed clothing, strengthening the connection between sexual servitude and faith.<</if>>
 		<<FSChangePorn "ChattelReligionist" 1>>
 	<<elseif ($slaves[$i].clothes == "uncomfortable straps") or ($slaves[$i].clothes == "shibari ropes") or ($slaves[$i].clothes == "a nice maid outfit") or ($slaves[$i].clothes == "nice business attire") or ($slaves[$i].clothes == "a nice nurse outfit") or ($slaves[$i].clothes == "a kimono") or ($slaves[$i].clothes == "conservative clothing") or ($slaves[$i].clothes == "a military uniform") or ($slaves[$i].clothes == "no clothing")>>
 		Society accepts $possessive spartan clothing, seeing it as permissible under the new religious mores.
@@ -3660,17 +3660,17 @@
 		<<FSChangePorn "ChattelReligionist" -1>>
 	<</if>>
 	<<if ($slaves[$i].devotion > 95)>>
-	Society @@.green;approves@@ of $possessive devotion to you as a companion to religious devotion, seeing both as the model for holy slaves.
+	<<if ($rep < 20000)>>Society @@.green;approves@@ of $possessive devotion to you as a companion to religious devotion, seeing both as the model for holy slaves.<</if>>
 	<<FSChangePorn "ChattelReligionist" 1>>
 	<</if>>
 	<<if ($slaves[$i].trust > 95)>>
-	Society @@.green;strongly approves@@ of $possessive faith in you as a companion to faith in God, seeing both as the model for righteous slaves of the future.
+	<<if ($rep < 20000)>>Society @@.green;strongly approves@@ of $possessive faith in you as a companion to faith in God, seeing both as the model for righteous slaves of the future.<</if>>
 	<<FSChangePorn "ChattelReligionist" 2>>
 	<</if>>
 	<<if ($slaves[$i].behavioralFlaw == "devout")>>
 	Society does not disapprove of $possessive devout adherence to an old world faith, having confidence that you'll bring $object around, and looking forward to seeing $object converted into a holy sex object.
 	<<elseif ($slaves[$i].behavioralQuirk == "sinful")>>
-	Society @@.green;strongly approves@@ of $possessive eagerness to transgress against the old world religious mores $pronoun once held dear.
+	<<if ($rep < 20000)>>Society @@.green;strongly approves@@ of $possessive eagerness to transgress against the old world religious mores $pronoun once held dear.<</if>>
 	<<FSChangePorn "ChattelReligionist" 2>>
 	<</if>>
 <</if>>
@@ -3685,7 +3685,7 @@
 	<<if ($slaves[$i].assignment == "serve the public") || ($slaves[$i].assignment == "whore") || ($slaves[$i].assignment == "work in the brothel") || ($slaves[$i].assignment == "serve in the club")>>
 	<<if ($slaves[$i].health > -20) && ($slaves[$i].trust > 20) && ($slaves[$i].health > 40)>>
 	<<if $arcologies[0].FSPaternalist != "unset">>
-		Society @@.green;strongly approves@@ of how you've brought a shelter girl health and happiness.
+		<<if ($rep < 20000)>>Society @@.green;strongly approves@@ of how you've brought a shelter girl health and happiness.<</if>>
 		<<FSChangePorn "Paternalist" 2>>
 	<<elseif $arcologies[0].FSDegradationist == "unset">>
 		The public knows she's a shelter girl you took in, and is @@.green;touched@@ that she now seems happy and healthy.
@@ -3703,13 +3703,13 @@
 <<if $slaves[$i].fuckdoll == 0>>
 <<if ($slaves[$i].brand != 0)>>
 	<<if ($slaves[$i].assignment == "serve the public") || ($slaves[$i].assignment == "whore") || ($slaves[$i].assignment == "work in the brothel") || ($slaves[$i].assignment == "serve in the club")>>
-		Since she is in public, your brand against the $slaves[$i].skin skin of her $slaves[$i].brandLocation @@.green;slightly increases your reputation@@ as a slaveowner.
+		Since $pronoun is in public, your brand against the $slaves[$i].skin skin of $possessive $slaves[$i].brandLocation @@.green;slightly increases your reputation@@ as a slaveowner.
 		<<set $repGain += 5>>
 	<</if>>
 	<<if $rep > 10000>>
-	The brand is considered a minor enhancement to her beauty since you are very well liked.
+		$possessiveCap brand is considered a minor enhancement to her beauty since you are very well liked.
 	<<elseif $rep < 5000>>
-	The brand is considered a minor blemish on her beauty since you are not well liked.
+		$possessiveCap brand is considered a minor blemish on her beauty since you are not well liked.
 	<</if>>
 <</if>>
 <</if>>
@@ -4308,7 +4308,7 @@
 /* PRESTIGE */
 
 <<if ($slaves[$i].prestige > 0)>>
-	Merely owning such a prestigious slave @@.green;helps your reputation.@@
+	<<if ($rep < 20000)>>Merely owning such a prestigious slave @@.green;helps your reputation.@@<</if>>
 	<<set $repGain += (10*$slaves[$i].prestige)>>
 <</if>>
 

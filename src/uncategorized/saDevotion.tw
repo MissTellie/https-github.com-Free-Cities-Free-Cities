@@ -528,7 +528,7 @@
 <</if>>
 
 <<if ($slaves[$i].devotion > 100) && ($slaves[$i].trust > 100) && ($slaves[$i].energy > 95)>>
-	Her perfect devotion and trust @@.green;improve your reputation.@@
+	<<if ($rep < 20000)>>Her perfect devotion and trust @@.green;improve your reputation.@@<</if>>
 	<<set $repGain += 10*($slaves[$i].trust-100)>>
 	<<set $slaves[$i].devotion = 100>>
 	<<set $repGain += 10*($slaves[$i].trust-100)>>
@@ -540,7 +540,7 @@
 		<<elseif $slaves[$i].energy <= 50>>
 			<<set $energyPlus += Math.trunc($slaves[$i].devotion-100)>>
 		<<else>>
-			Her extreme devotion @@.green;improved your reputation.@@
+			<<if ($rep < 20000)>>Her extreme devotion @@.green;improved your reputation.@@<</if>>
 			<<set $repGain += 10*($slaves[$i].devotion-100)>>
 		<</if>>
 		<<set $slaves[$i].devotion = 100>>
@@ -555,7 +555,7 @@
 		<<elseif $slaves[$i].energy <= 50>>
 			<<set $energyPlus += Math.trunc($slaves[$i].trust-100)>>
 		<<else>>
-			Her extreme trust @@.green;improved your reputation.@@
+			<<if ($rep < 20000)>>Her extreme trust @@.green;improved your reputation.@@<</if>>
 			<<set $repGain += 25*($slaves[$i].trust-100)>>
 		<</if>>
 		<<set $slaves[$i].trust = 100>>
@@ -641,6 +641,11 @@
 	@@.green;She has gone from merely fearing you to actively being afraid of you!@@
 	<<set $slaves[$i].trust -= 2>>
 	<</if>>
+<</if>>
+
+/* done stealthily to make the slave's progression seem natural */
+<<if ($slaves[$i].rudeTitle == 1) && ($slaves[$i].devotion >= -50)>>
+	<<set $slaves[$i].customTitle = "", $slaves[$i].customTitleLisp = "", $slaves[$i].rudeTitle = 0>>
 <</if>>
 
 <<else>> /* IS FUCKDOLL */

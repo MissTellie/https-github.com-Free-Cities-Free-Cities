@@ -694,7 +694,7 @@ She
 		<<if $slaves[$i].relationship > 0>>
 			She often asks to save these breaks so she can spend them with her <<if $slaves[$i].relationship == 1>>friend<<elseif $slaves[$i].relationship == 2>>best friend<<elseif $slaves[$i].relationship == 3>>friend with benefits<<elseif $slaves[$i].relationship == 4>>sweetheart<<else>>wife<</if>>.
 		<</if>>
-		These breaks are @@.green;good for her.@@
+		<<if $slaves[$i].health < 90>>These breaks are @@.green;good for her.@@<</if>>
 		<<set $slaves[$i].health += _rewards>>
 	<<case "drugs">>
 		She's @@.hotpink;rewarded@@ with hits of mild recreational drugs, which @@.red;isn't healthy,@@ but helps bind her to you strongly.
