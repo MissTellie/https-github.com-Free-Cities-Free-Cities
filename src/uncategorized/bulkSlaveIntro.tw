@@ -58,12 +58,12 @@
 <<if ($newSlaveIndex >= $newSlaves.length) || ($newSlavesDone == 1)>>
 	<<if $newSlaves.length > 0>>
 		/* Push the induction changes for the final slave to the newSlave array */
-		<<set $newSlaves[$newSlaveIndex-1] = $activeSlave>>
+		<<AddSlave $activeSlave>>
 		
 		/* Push the new slaves into the slave list */
 		<<for _i = 0; _i < $newSlaves.length; _i++>>
        			<<if def $newSlaves[_i].slaveName>>
-				<<AddSlave $newSlaves[_i]>>
+				/*<<AddSlave $newSlaves[_i]>>*/
            		<</if>>
 		<</for>>
 
@@ -76,7 +76,7 @@
 <<else>>
 	/* If looking at 2nd slave, push the induction changes for the prior slave to the newSlave array */
 	<<if $newSlaveIndex > 0>>
-		<<set $newSlaves[$newSlaveIndex-1] = $activeSlave>>
+		<<AddSlave $activeSlave>>
 	<</if>>
 	<<if $newSlaves.length > 1>>
 		Showing new slave <<print $newSlaveIndex+1>> of <<print $newSlaves.length>>.
