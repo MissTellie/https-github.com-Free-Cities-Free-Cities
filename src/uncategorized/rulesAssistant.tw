@@ -336,8 +336,18 @@ Clothes:
 <<else>>
 	''$currentRule.clothes.''
 <</if>>
+<<if ($arcologies[0].FSRomanRevivalist != "unset") || ($cheatMode == 1) || ($clothesBoughtToga == 1)>>
+| 
+<<link "Select her own outfit">>
+	<<set $currentRule.clothes = "choosing her own clothes">>
+	<<RAChangeClothes>>
+	<<RAChangeSave>>
+	<<RAChangeApply>>
+<</link>>
+<</if>>
+
 </span>
-<br>(Good clothes)<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;//Nice:// 
 <<link "No default clothes setting">>
 	<<set $currentRule.clothes = "no default setting">>
 	<<RAChangeClothes>>
@@ -345,22 +355,15 @@ Clothes:
 	<<RAChangeApply>>
 <</link>>
 |
-<<link "Nice lingerie">>
-	<<set $currentRule.clothes = "attractive lingerie">>
+<<link "Bangles">>
+	<<set $currentRule.clothes = "slutty jewelry">>
 	<<RAChangeClothes>>
 	<<RAChangeSave>>
 	<<RAChangeApply>>
 <</link>>
 |
-<<link "String bikini">>
-	<<set $currentRule.clothes = "a string bikini">>
-	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
-<</link>>
-|
-<<link "Clubslut netting">>
-	<<set $currentRule.clothes = "clubslut netting">>
+<<link "Bodysuit">>
+	<<set $currentRule.clothes = "a comfortable bodysuit">>
 	<<RAChangeClothes>>
 	<<RAChangeSave>>
 	<<RAChangeApply>>
@@ -373,6 +376,13 @@ Clothes:
 	<<RAChangeApply>>
 <</link>>
 |
+<<link "Clubslut netting">>
+	<<set $currentRule.clothes = "clubslut netting">>
+	<<RAChangeClothes>>
+	<<RAChangeSave>>
+	<<RAChangeApply>>
+<</link>>
+|
 <<link "Cutoffs and a t-shirt">>
 	<<set $currentRule.clothes = "cutoffs and a t-shirt">>
 	<<RAChangeClothes>>
@@ -380,15 +390,8 @@ Clothes:
 	<<RAChangeApply>>
 <</link>>
 |
-<<link "Slave gown">>
-	<<set $currentRule.clothes = "a slave gown">>
-	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
-<</link>>
-|
-<<link "Ball gown">>
-	<<set $currentRule.clothes = "a ball gown">>
+<<link "Fallen nun">>
+	<<set $currentRule.clothes = "a fallen nuns habit">>
 	<<RAChangeClothes>>
 	<<RAChangeSave>>
 	<<RAChangeApply>>
@@ -401,50 +404,8 @@ Clothes:
 	<<RAChangeApply>>
 <</link>>
 |
-<<link "Mini dress">>
-	<<set $currentRule.clothes = "a mini dress">>
-	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
-<</link>>
-|
-<<link "Slutty suit">>
-	<<set $currentRule.clothes = "slutty business attire">>
-	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
-<</link>>
-|
-<<link "Nice suit">>
-	<<set $currentRule.clothes = "nice business attire">>
-	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
-<</link>>
-|
-<<link "Slutty nurse">>
-	<<set $currentRule.clothes = "a slutty nurse outfit">>
-	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
-<</link>>
-|
-<<link "Nice nurse">>
-	<<set $currentRule.clothes = "a nice nurse outfit">>
-	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
-<</link>>
-|
-<<link "Schoolgirl">>
-	<<set $currentRule.clothes = "a schoolgirl outfit">>
-	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
-<</link>>
-|
-<<link "Bodysuit">>
-	<<set $currentRule.clothes = "a comfortable bodysuit">>
+<<link "Hijab and abaya">>
+	<<set $currentRule.clothes = "a hijab and abaya">>
 	<<RAChangeClothes>>
 	<<RAChangeSave>>
 	<<RAChangeApply>>
@@ -464,8 +425,64 @@ Clothes:
 	<<RAChangeApply>>
 <</link>>
 |
+<<link "Maid (nice)">>
+	<<set $currentRule.clothes = "a nice maid outfit">>
+	<<RAChangeClothes>>
+	<<RAChangeSave>>
+	<<RAChangeApply>>
+<</link>>
+|
+<<link "Maid (slutty)">>
+	<<set $currentRule.clothes = "a slutty maid outfit">>
+	<<RAChangeClothes>>
+	<<RAChangeSave>>
+	<<RAChangeApply>>
+<</link>>
+|
 <<link "Military uniform">>
 	<<set $currentRule.clothes = "a military uniform">>
+	<<RAChangeClothes>>
+	<<RAChangeSave>>
+	<<RAChangeApply>>
+<</link>>
+|
+<<link "Mini dress">>
+	<<set $currentRule.clothes = "a mini dress">>
+	<<RAChangeClothes>>
+	<<RAChangeSave>>
+	<<RAChangeApply>>
+<</link>>
+|
+<<link "Nice lingerie">>
+	<<set $currentRule.clothes = "attractive lingerie">>
+	<<RAChangeClothes>>
+	<<RAChangeSave>>
+	<<RAChangeApply>>
+<</link>>
+|
+<<link "Nurse (nice)">>
+	<<set $currentRule.clothes = "a nice nurse outfit">>
+	<<RAChangeClothes>>
+	<<RAChangeSave>>
+	<<RAChangeApply>>
+<</link>>
+|
+<<link "Nurse (slutty)">>
+	<<set $currentRule.clothes = "a slutty nurse outfit">>
+	<<RAChangeClothes>>
+	<<RAChangeSave>>
+	<<RAChangeApply>>
+<</link>>
+|
+<<link "Schoolgirl">>
+	<<set $currentRule.clothes = "a schoolgirl outfit">>
+	<<RAChangeClothes>>
+	<<RAChangeSave>>
+	<<RAChangeApply>>
+<</link>>
+|
+<<link "Silken ballgown">>
+	<<set $currentRule.clothes = "a ball gown">>
 	<<RAChangeClothes>>
 	<<RAChangeSave>>
 	<<RAChangeApply>>
@@ -478,36 +495,15 @@ Clothes:
 	<<RAChangeApply>>
 <</link>>
 |
-<<link "Slutty maid">>
-	<<set $currentRule.clothes = "a slutty maid outfit">>
+<<link "Slave gown">>
+	<<set $currentRule.clothes = "a slave gown">>
 	<<RAChangeClothes>>
 	<<RAChangeSave>>
 	<<RAChangeApply>>
 <</link>>
 |
-<<link "Nice maid">>
-	<<set $currentRule.clothes = "a nice maid outfit">>
-	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
-<</link>>
-|
-<<link "Fallen nun">>
-	<<set $currentRule.clothes = "a fallen nuns habit">>
-	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
-<</link>>
-|
-<<link "Hijab and abaya">>
-	<<set $currentRule.clothes = "a hijab and abaya">>
-	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
-<</link>>
-|
-<<link "Bangles">>
-	<<set $currentRule.clothes = "slutty jewelry">>
+<<link "String bikini">>
+	<<set $currentRule.clothes = "a string bikini">>
 	<<RAChangeClothes>>
 	<<RAChangeSave>>
 	<<RAChangeApply>>
@@ -520,19 +516,32 @@ Clothes:
 	<<RAChangeApply>>
 <</link>>
 |
-<<if ($arcologies[0].FSGenderFundamentalist != "unset") || ($cheatMode == 1) || ($clothesBoughtBunny == 1)>>
+<<link "Suit (nice)">>
+	<<set $currentRule.clothes = "nice business attire">>
+	<<RAChangeClothes>>
+	<<RAChangeSave>>
+	<<RAChangeApply>>
+<</link>>
+|
+<<link "Suit (slutty)">>
+	<<set $currentRule.clothes = "slutty business attire">>
+	<<RAChangeClothes>>
+	<<RAChangeSave>>
+	<<RAChangeApply>>
+<</link>>
+<<if ($arcologies[0].FSPhysicalIdealist != "unset") || ($cheatMode == 1) || ($clothesBoughtOil == 1)>>
    //FS//
-<<link "Bunny outfit">>
-	<<set $currentRule.clothes = "a bunny outfit">>
+<<link "Body oil">>
+	<<set $currentRule.clothes = "body oil">>
 	<<RAChangeClothes>>
 	<<RAChangeSave>>
 	<<RAChangeApply>>
 <</link>> |
 <</if>>
-<<if ($arcologies[0].FSPaternalist != "unset") || ($cheatMode == 1) || ($clothesBoughtConservative == 1)>>
+<<if ($arcologies[0].FSGenderFundamentalist != "unset") || ($cheatMode == 1) || ($clothesBoughtBunny == 1)>>
    //FS//
-<<link "Conservative clothing">>
-	<<set $currentRule.clothes = "conservative clothing">>
+<<link "Bunny outfit">>
+	<<set $currentRule.clothes = "a bunny outfit">>
 	<<RAChangeClothes>>
 	<<RAChangeSave>>
 	<<RAChangeApply>>
@@ -547,24 +556,6 @@ Clothes:
 	<<RAChangeApply>>
 <</link>> |
 <</if>>
-<<if ($arcologies[0].FSPastoralist != "unset") || ($cheatMode == 1) || ($clothesBoughtWestern == 1)>>
-   //FS//
-<<link "Western clothing">>
-	<<set $currentRule.clothes = "Western clothing">>
-	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
-<</link>> |
-<</if>>
-<<if ($arcologies[0].FSPhysicalIdealist != "unset") || ($cheatMode == 1) || ($clothesBoughtOil == 1)>>
-   //FS//
-<<link "Body oil">>
-	<<set $currentRule.clothes = "body oil">>
-	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
-<</link>> |
-<</if>>
 <<if ($arcologies[0].FSChattelReligionist != "unset") || ($cheatMode == 1) || ($clothesBoughtHabit == 1)>>
    //FS//
 <<link "Chattel habit">>
@@ -574,10 +565,19 @@ Clothes:
 	<<RAChangeApply>>
 <</link>> |
 <</if>>
-<<if ($arcologies[0].FSRomanRevivalist != "unset") || ($cheatMode == 1) || ($clothesBoughtToga == 1)>>
+<<if ($arcologies[0].FSPaternalist != "unset") || ($cheatMode == 1) || ($clothesBoughtConservative == 1)>>
    //FS//
-<<link "Toga">>
-	<<set $currentRule.clothes = "a toga">>
+<<link "Conservative clothing">>
+	<<set $currentRule.clothes = "conservative clothing">>
+	<<RAChangeClothes>>
+	<<RAChangeSave>>
+	<<RAChangeApply>>
+<</link>> |
+<</if>>
+<<if ($arcologies[0].FSArabianRevivalist != "unset") || ($cheatMode == 1) || ($clothesBoughtHarem == 1)>>
+   //FS//
+<<link "Harem gauze">>
+	<<set $currentRule.clothes = "harem gauze">>
 	<<RAChangeClothes>>
 	<<RAChangeSave>>
 	<<RAChangeApply>>
@@ -591,31 +591,34 @@ Clothes:
 	<<RAChangeSave>>
 	<<RAChangeApply>>
 <</link>> |
-<<elseif ($arcologies[0].FSArabianRevivalist != "unset") || ($cheatMode == 1) || ($clothesBoughtHarem == 1)>>
-   //FS//
-<<link "Harem gauze">>
-	<<set $currentRule.clothes = "harem gauze">>
-	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
-<</link>> |
 <</if>>
 <<if ($arcologies[0].FSChineseRevivalist != "unset") || ($cheatMode == 1) || ($clothesBoughtQipao == 1)>>
    //FS//
-<<link "Qipao">>
+<<link "Slutty qipao">>
 	<<set $currentRule.clothes = "a slutty qipao">>
 	<<RAChangeClothes>>
 	<<RAChangeSave>>
 	<<RAChangeApply>>
 <</link>> |
 <</if>>
-<<link "Select her own outfit">>
-	<<set $currentRule.clothes = "choosing her own clothes">>
+<<link "Toga">>
+	<<set $currentRule.clothes = "a toga">>
+	<<RAChangeClothes>>
+	<<RAChangeSave>>
+	<<RAChangeApply>>
+<</link>> |
+<</if>>
+<<if ($arcologies[0].FSPastoralist != "unset") || ($cheatMode == 1) || ($clothesBoughtWestern == 1)>>
+   //FS//
+<<link "Western clothing">>
+	<<set $currentRule.clothes = "Western clothing">>
 	<<RAChangeClothes>>
 	<<RAChangeSave>>
 	<<RAChangeApply>>
 <</link>>
-<br>(Bad clothes)<br>
+<</if>>
+
+<br>&nbsp;&nbsp;&nbsp;&nbsp;//Harsh:// 
 <<link "Nude">>
 	<<set $currentRule.clothes = "no clothing">>
 	<<RAChangeClothes>>
@@ -623,15 +626,8 @@ Clothes:
 	<<RAChangeApply>>
 <</link>>
 |
-<<link "Uncomfortable straps">>
-	<<set $currentRule.clothes = "uncomfortable straps">>
-	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
-<</link>>
-|
-<<link "Shibari ropes">>
-	<<set $currentRule.clothes = "shibari ropes">>
+<<link "Penitent nun">>
+	<<set $currentRule.clothes = "a penitent nuns habit">>
 	<<RAChangeClothes>>
 	<<RAChangeSave>>
 	<<RAChangeApply>>
@@ -644,12 +640,20 @@ Clothes:
 	<<RAChangeApply>>
 <</link>>
 |
-<<link "Penitent nun">>
-	<<set $currentRule.clothes = "a penitent nuns habit">>
+<<link "Shibari ropes">>
+	<<set $currentRule.clothes = "shibari ropes">>
 	<<RAChangeClothes>>
 	<<RAChangeSave>>
 	<<RAChangeApply>>
 <</link>>
+|
+<<link "Uncomfortable straps">>
+	<<set $currentRule.clothes = "uncomfortable straps">>
+	<<RAChangeClothes>>
+	<<RAChangeSave>>
+	<<RAChangeApply>>
+<</link>>
+
 
 <br>
 <span id = "collar">
@@ -668,52 +672,9 @@ Collar: ''$currentRule.collar.''
 	<<RAChangeSave>>
 	<<RAChangeApply>>
 <</link>>
-|
-<<link "Steel">>
-	<<set $currentRule.collar = "tight steel">>
-	<<RAChangeCollar>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
-<</link>>
-|
-<<if $seeAge != 0>>
-<<link "Cruel retirement">>
-	<<set $currentRule.collar = "cruel retirement counter">>
-	<<RAChangeCollar>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
-<</link>>
-|
-<</if>>
-<<link "Harsh leather">>
-	<<set $currentRule.collar = "uncomfortable leather">>
-	<<RAChangeCollar>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
-<</link>>
-|
-<<link "Shock">>
-	<<set $currentRule.collar = "shock punishment">>
-	<<RAChangeCollar>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
-<</link>>
-|
-<<link "Dildo gag">>
-	<<set $currentRule.collar = "dildo gag">>
-	<<RAChangeCollar>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
-<</link>>
-|
-<<link "Neck corset">>
-	<<set $currentRule.collar = "neck corset">>
-	<<RAChangeCollar>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
-<</link>>
-|
-<<link "Nice leather">>
+
+<br>&nbsp;&nbsp;&nbsp;&nbsp;//Nice:// 
+<<link "Stylish leather">>
 	<<set $currentRule.collar = "stylish leather">>
 	<<RAChangeCollar>>
 	<<RAChangeSave>>
@@ -727,12 +688,12 @@ Collar: ''$currentRule.collar.''
 	<<RAChangeApply>>
 <</link>>
 |
-<<link "Gold">>
+<<link "Heavy Gold">>
 	<<set $currentRule.collar = "heavy gold">>
 	<<RAChangeCollar>>
 <</link>>
 |
-<<link "Pretty">>
+<<link "Pretty jewelry">>
 	<<set $currentRule.collar = "pretty jewelry">>
 	<<RAChangeCollar>>
 	<<RAChangeSave>>
@@ -740,7 +701,7 @@ Collar: ''$currentRule.collar.''
 <</link>>
 |
 <<if $seeAge != 0>>
-<<link "Nice retirement">>
+<<link "Nice retirement counter">>
 	<<set $currentRule.collar = "nice retirement counter">>
 	<<RAChangeCollar>>
 	<<RAChangeSave>>
@@ -772,6 +733,52 @@ Collar: ''$currentRule.collar.''
 	<<RAChangeApply>>
 <</link>>
 <</if>>
+
+<br>&nbsp;&nbsp;&nbsp;&nbsp;//Harsh:// 
+<<link "Tight steel">>
+	<<set $currentRule.collar = "tight steel">>
+	<<RAChangeCollar>>
+	<<RAChangeSave>>
+	<<RAChangeApply>>
+<</link>>
+|
+<<if $seeAge != 0>>
+<<link "Cruel retirement counter">>
+	<<set $currentRule.collar = "cruel retirement counter">>
+	<<RAChangeCollar>>
+	<<RAChangeSave>>
+	<<RAChangeApply>>
+<</link>>
+|
+<</if>>
+<<link "Uncomfortable leather">>
+	<<set $currentRule.collar = "uncomfortable leather">>
+	<<RAChangeCollar>>
+	<<RAChangeSave>>
+	<<RAChangeApply>>
+<</link>>
+|
+<<link "Shock punishment">>
+	<<set $currentRule.collar = "shock punishment">>
+	<<RAChangeCollar>>
+	<<RAChangeSave>>
+	<<RAChangeApply>>
+<</link>>
+|
+<<link "Dildo gag">>
+	<<set $currentRule.collar = "dildo gag">>
+	<<RAChangeCollar>>
+	<<RAChangeSave>>
+	<<RAChangeApply>>
+<</link>>
+|
+<<link "Neck corset">>
+	<<set $currentRule.collar = "neck corset">>
+	<<RAChangeCollar>>
+	<<RAChangeSave>>
+	<<RAChangeApply>>
+<</link>>
+
 
 <br>
 <span id = "shoes">
@@ -805,14 +812,14 @@ Shoes: ''$currentRule.shoes.''
 	<<RAChangeApply>>
 <</link>>
 |
-<<link "Boots">>
+<<link "Thigh boots">>
 	<<set $currentRule.shoes = "boots">>
 	<<RAChangeShoes>>
 	<<RAChangeSave>>
 	<<RAChangeApply>>
 <</link>>
 |
-<<link "Extreme heels">>
+<<link "Painfully extreme heels">>
 	<<set $currentRule.shoes = "extreme heels">>
 	<<RAChangeShoes>>
 	<<RAChangeSave>>
@@ -821,7 +828,7 @@ Shoes: ''$currentRule.shoes.''
 
 <br>
 <span id = "baccessory">
-Torso Accessory: ''$currentRule.bellyAccessory.''
+Torso accessory: ''$currentRule.bellyAccessory.''
 </span>
 <<link "No default setting">>
 	<<set $currentRule.bellyAccessory = "no default setting">>
@@ -1206,7 +1213,7 @@ Buttplugs for other slaves: ''$currentRule.buttplug.''
 //Will permanently gape assholes//
 
 <br><br>
-[[Cosmetic Rules Assistant Settings]] | [[Body Mod Rules Assistant Settings]] | [[Autosurgery Settings]]
+Body modification: [[Cosmetic Rules Assistant Settings]] | [[Body Mod Rules Assistant Settings]] | [[Autosurgery Settings]]
 
 <br><br>
 
@@ -1451,7 +1458,7 @@ Hormones for female slaves:
 	<<RAChangeApply>>
 <</link>>
 |
-<<link "No hormones">>
+<<link "None">>
 	<<set $currentRule.XX = 0>>
 	<<RAChangeXXHormones>>
 	<<RAChangeSave>>
@@ -1513,7 +1520,7 @@ Hormones for shemales:
 	<<RAChangeApply>>
 <</link>>
 |
-<<link "No hormones">>
+<<link "None">>
 	<<set $currentRule.XY = 0>>
 	<<RAChangeXYHormones>>
 	<<RAChangeSave>>
@@ -1575,7 +1582,7 @@ Hormones for geldings:
 	<<RAChangeApply>>
 <</link>>
 |
-<<link "No hormones">>
+<<link "None">>
 	<<set $currentRule.gelding = 0>>
 	<<RAChangeGeldHormones>>
 	<<RAChangeSave>>
@@ -1678,7 +1685,7 @@ Slave diets:
 <br>
 
 <span id = "dietBase">
-Diet Base:
+Diet base:
 
 <<if ($currentRule.dietCum == 2)>>
 	''slaves' diets are heavily based on cum.''
@@ -2656,8 +2663,6 @@ Relationship rules: ''$currentRule.relationshipRules.''
 	<<goto "Rules Assistant">>
 <</link>>
 </span>
-
-<</if>> /* closes if _length > 0 */
 
 <br><br>
 
