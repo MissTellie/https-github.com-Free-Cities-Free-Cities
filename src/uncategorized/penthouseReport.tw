@@ -6,7 +6,7 @@
 	<<if $slaves[$i].choosesOwnAssignment == 1>>
 		''__@@.pink;$slaves[$i].slaveName@@__''
 		<<include "SA chooses own job">> /* this calls <<SlavePronouns $slaves[$i]>> so we can use $pronounCap below */
-		<br><br>
+		<<if $slaves[$i].assignmentVisible == 0>><br><br><</if>>
 	<</if>>
 	<<if $slaves[$i].assignmentVisible == 1>>
 		<<if $slaves[$i].choosesOwnAssignment == 1>>
