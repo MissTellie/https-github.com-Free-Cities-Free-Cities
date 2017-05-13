@@ -59,13 +59,6 @@
 	<<if $newSlaves.length > 0>>
 		/* Push the induction changes for the final slave to the newSlave array */
 		<<AddSlave $activeSlave>>
-		
-		/* Push the new slaves into the slave list */
-		<<for _i = 0; _i < $newSlaves.length; _i++>>
-       			<<if def $newSlaves[_i].slaveName>>
-				/*<<AddSlave $newSlaves[_i]>>*/
-           		<</if>>
-		<</for>>
 
 		/* Variable Clean-up */
 		<<set $newSlaves = []>>
