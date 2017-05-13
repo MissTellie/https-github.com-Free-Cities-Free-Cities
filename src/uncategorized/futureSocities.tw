@@ -1289,7 +1289,7 @@ You are spending ¤$FSSpending each week to support your societal goals.
 <</if>>
 <</if>>
 
-<<if $arcologies[0].FSAztecRevivalist == "unset") && ($arcologies[0].FSEgyptianRevivalist == "unset") && ($arcologies[0].FSEdoRevivalist == "unset") && ($arcologies[0].FSArabianRevivalist == "unset") && ($arcologies[0].FSChineseRevivalist == "unset")>>
+<<if ($arcologies[0].FSAztecRevivalist == "unset") && ($arcologies[0].FSEgyptianRevivalist == "unset") && ($arcologies[0].FSEdoRevivalist == "unset") && ($arcologies[0].FSArabianRevivalist == "unset") && ($arcologies[0].FSChineseRevivalist == "unset")>>
 <<if $arcologies[0].FSRomanRevivalist != "unset">>
 	<br>''You are pursuing'' a vision of a new Rome.
 	//<<link [[Abandon|Future Society]]>><<set $arcologies[0].FSRomanRevivalist = "unset", $arcologies[0].FSRomanRevivalistDecoration = 20, $arcologies[0].FSRomanRevivalistLaw = 0, $arcologies[0].FSRomanRevivalistSMR = 0, $FSCredits += 1>><<if $assistantFSAppearance == "roman revivalist">><<set $assistantFSAppearance = "default">><</if>><<ClearFacilityDecorations>><</link>>//<br>&nbsp;&nbsp;&nbsp;&nbsp;
