@@ -71,7 +71,8 @@
 
 <<for _i = 0; _i < $numSlaves; _i++>>
     <<silently>>
-        <<GenerateMarketSlave $slaveMarket $numArcology>>
+		<<GenerateMarketSlave $slaveMarket $numArcology>>
+		<<include "Law Compliance">>
     <</silently>>
     <<set $slavesSeen += 1>>
     <<slaveCost $activeSlave>>
