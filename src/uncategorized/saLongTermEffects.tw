@@ -264,6 +264,7 @@
 <<if random(1,100) > 90>>
 <<if $slaves[$i].clothes != "conservative clothing">>
 <<if $slaves[$i].clothes != "a toga">>
+<<if $slaves[$i].clothes != "a huipil">>
 <<if $slaves[$i].clothes != "a slutty qipao">>
 <<if $slaves[$i].clothes != "restrictive latex">>
 <<if $slaves[$i].clothes != "cutoffs and a t-shirt">>
@@ -4296,7 +4297,7 @@
 			<</if>>
 		<<elseif ($slaves[$i].accent == 1) && ($slaves[$i].speechRules == "accent elimination")>>
 			<<if ($week - $slaves[$i].weekAcquired) > (10 + _minweeks)>>
-		
+
 				<<set $slaves[$i].accent -= 1>>
 				$pronounCap does her best to speak proper, unaccented $language, as encouraged by the rules. @@.green;$possessiveCap accent has diminished to imperceptibility.@@
 			<</if>>

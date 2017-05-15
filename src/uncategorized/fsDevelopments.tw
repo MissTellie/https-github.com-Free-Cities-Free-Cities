@@ -146,6 +146,12 @@
 	<<elseif $arcologies[0].FSRomanRevivalist != "unset">>
 	<<set $arcologies[0].FSRomanRevivalist += $seed>>
 	<</if>>
+	<<if $arcologies[0].FSAztecRevivalist > $FSLockinLevel>>
+	<<set $arcologies[0].influenceBonus += $arcologies[0].FSAztecRevivalist - $FSLockinLevel>>
+	<<set $arcologies[0].FSAztecRevivalist = $FSLockinLevel>>
+	<<elseif $arcologies[0].FSAztecRevivalist != "unset">>
+	<<set $arcologies[0].FSAztecRevivalist += $seed>>
+	<</if>>
 	<<if $arcologies[0].FSEgyptianRevivalist > $FSLockinLevel>>
 	<<set $arcologies[0].influenceBonus += $arcologies[0].FSEgyptianRevivalist - $FSLockinLevel>>
 	<<set $arcologies[0].FSEgyptianRevivalist = $FSLockinLevel>>
@@ -326,6 +332,16 @@
 	 <<set _seed2 = 2>>
 	<</if>>
 <</if>>
+<<if $arcologies[0].FSAztecRevivalist != "unset">>
+  <<if ($assistantAppearance == "amazon") || ($assistantAppearance == "businesswoman")>>
+	 <<set $arcologies[0].FSAztecRevivalist += 0.1*$FSSingleSlaveRep>>
+	 <<set _seed1 = 1>>
+	<</if>>
+	<<if ($assistantFSAppearance == "aztec revivalist")>>
+	 <<set $arcologies[0].FSAztecRevivalist += 0.1*$FSSingleSlaveRep>>
+	 <<set _seed2 = 2>>
+	<</if>>
+<</if>>
 <<if $arcologies[0].FSEgyptianRevivalist != "unset">>
 	<<if ($assistantAppearance == "goddess") || ($assistantAppearance == "monstergirl")>>
 	 <<set $arcologies[0].FSEgyptianRevivalist += 0.1*$FSSingleSlaveRep>>
@@ -373,7 +389,7 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <</if>>
 <</if>>
 
-<<if ($arcologies[0].FSSupremacistSMR + $arcologies[0].FSSubjugationistSMR + $arcologies[0].FSGenderRadicalistSMR + $arcologies[0].FSGenderFundamentalistSMR + $arcologies[0].FSPaternalistSMR + $arcologies[0].FSDegradationistSMR + $arcologies[0].FSBodyPuristSMR + $arcologies[0].FSTransformationFetishistSMR + $arcologies[0].FSYouthPreferentialistSMR + $arcologies[0].FSMaturityPreferentialistSMR + $arcologies[0].FSSlimnessEnthusiastSMR + $arcologies[0].FSAssetExpansionistSMR + $arcologies[0].FSPastoralistSMR + $arcologies[0].FSPhysicalIdealistSMR + $arcologies[0].FSChattelReligionistSMR + $arcologies[0].FSRomanRevivalistSMR + $arcologies[0].FSEgyptianRevivalistSMR + $arcologies[0].FSEdoRevivalistSMR + $arcologies[0].FSArabianRevivalistSMR + $arcologies[0].FSChineseRevivalistSMR) > 0>>
+<<if ($arcologies[0].FSSupremacistSMR + $arcologies[0].FSSubjugationistSMR + $arcologies[0].FSGenderRadicalistSMR + $arcologies[0].FSGenderFundamentalistSMR + $arcologies[0].FSPaternalistSMR + $arcologies[0].FSDegradationistSMR + $arcologies[0].FSBodyPuristSMR + $arcologies[0].FSTransformationFetishistSMR + $arcologies[0].FSYouthPreferentialistSMR + $arcologies[0].FSMaturityPreferentialistSMR + $arcologies[0].FSSlimnessEnthusiastSMR + $arcologies[0].FSAssetExpansionistSMR + $arcologies[0].FSPastoralistSMR + $arcologies[0].FSPhysicalIdealistSMR + $arcologies[0].FSChattelReligionistSMR + $arcologies[0].FSRomanRevivalistSMR + $arcologies[0].FSAztecRevivalistSMR + $arcologies[0].FSEgyptianRevivalistSMR + $arcologies[0].FSEdoRevivalistSMR + $arcologies[0].FSArabianRevivalistSMR + $arcologies[0].FSChineseRevivalistSMR) > 0>>
 	The slave market regulations help ensure the arcology's slaves fit within its society.
 <</if>>
 
@@ -841,6 +857,33 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 	@@.yellow;Your societal development in this direction is being limited by $arcologies[0].name's lack of customization to support it.@@
 <<elseif $arcologies[0].FSRomanRevivalistSMR == 1>>
 	<<set $arcologies[0].FSRomanRevivalist += 0.1*$FSSingleSlaveRep>>
+<</if>>
+<</if>>
+<</if>>
+
+<<if $arcologies[0].FSAztecRevivalist != "unset">>
+<<if $arcologies[0].FSAztecRevivalist < 0>>
+	<<set $arcologies[0].FSAztecRevivalist = "unset">><<set $FSCredits += 1>>
+	@@.red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@.yellow;You may select another option, or elect to try again.@@
+<<elseif $arcologies[0].FSAztecRevivalist > $arcologies[0].FSAztecRevivalistDecoration>>
+	<<set $arcologies[0].FSAztecRevivalist = $arcologies[0].FSAztecRevivalistDecoration>>
+<</if>>
+<<if $arcologies[0].FSAztecRevivalist >= $FSLockinLevel>>
+	$arcologies[0].name believes implicitly that it is the new Aztec Empire.
+	<<set $independenceDay = 1>>
+<<elseif $arcologies[0].FSAztecRevivalist >= $FSLockinLevel*0.6>>
+	$arcologies[0].name agrees strongly with your project to build the new Aztec Empire.
+	<<set $independenceDay = 1>>
+<<elseif $arcologies[0].FSAztecRevivalist >= $FSLockinLevel*0.3>>
+	$arcologies[0].name is sympathetic to your project to build the new Aztec Empire.
+<<elseif $arcologies[0].FSAztecRevivalist != "unset">>
+	$arcologies[0].name is unconvinced of the wisdom of your project to build the new Aztec Empire.
+<</if>>
+<<if $arcologies[0].FSAztecRevivalistDecoration < $FSLockinLevel>>
+<<if $arcologies[0].FSAztecRevivalist == $arcologies[0].FSAztecRevivalistDecoration>>
+	@@.yellow;Your societal development in this direction is being limited by $arcologies[0].name's lack of customization to support it.@@
+<<elseif $arcologies[0].FSAztecRevivalistSMR == 1>>
+	<<set $arcologies[0].FSAztecRevivalist += 0.1*$FSSingleSlaveRep>>
 <</if>>
 <</if>>
 <</if>>
