@@ -201,7 +201,8 @@ Her appearance attracted $beauty customers (<<print Math.trunc($beauty/7)>> a da
 <</if>>
 
 <<set $injury = 0>>
-<<if ($slaves[$i].curatives > 0)>>
+<<if $slaves[$i].assignment == "work in the brothel">>
+<<elseif $slaves[$i].curatives > 0>>
 	The drugs she's on protect her from the wear of whoring.
 <<elseif ($slaves[$i].health < -50)>>
 	The stress of whoring while ill is @@.red;very hard on her.@@
