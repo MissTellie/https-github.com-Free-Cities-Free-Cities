@@ -204,9 +204,6 @@
 		<<set $slaves[_i].health += 7>>
 	<</if>>
 
-	/* Perform facility based rule changes */
-	<<set $slaves[_i].curatives = ($slaves[_i].curatives == 2) ? 2 : Number($clubUpgradePreventatives)>>
-
 	<<set $i = _i>>
 
 	<<if $showEWD != 0>>

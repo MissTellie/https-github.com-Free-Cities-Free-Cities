@@ -217,7 +217,8 @@ Her appearance attracted $beauty members of the public (<<print Math.trunc($beau
 <</if>>
 
 <<set $injury = 0>>
-<<if ($slaves[$i].curatives > 0)>>
+<<if $slaves[$i].assignment == "serve in the club">>
+<<elseif $slaves[$i].curatives > 0>>
 	The drugs she's on protect her from the wear of being a slut.
 <<elseif ($slaves[$i].health < -50)>>
 	The stress of being a slut while ill is @@.red;very hard on her.@@

@@ -172,6 +172,149 @@
 	<</if>>
 <</if>>
 
+<<for _i = 5; _i <= 7; _i++>>
+<<if $sectors[_i].type =! "Shops">>
+<<if $sectors[_i].type =! "Brothel">>
+<<if $sectors[_i].type =! "Club">>
+	The $sectors[_i].type establishments on the Promenade help develop society.
+	<<FSChange $sectors[_i].type.replace(" ","") 4>>
+	<<break>>
+<</if>>
+<</if>>
+<</if>>
+<</for>>
+
+<<if $arcologies[0].FSSubjugationist != "unset">>
+	<<if $FSPromenade.Subjugationist>>
+		<br>
+		[[Upgrade this sector to appeal to Subjugationist establishments|Main][$cash -= Math.trunc(10000*$upgradeMultiplierArcology), $FSPromenade.FSSubjugationist = 1, $sectors[$AS].type = "Subjugationist"]]
+		//Costs ¤<<print Math.trunc(10000*$upgradeMultiplierArcology)>>//	
+	<</if>>
+<</if>>
+<<if $arcologies[0].FSSupremacist != "unset">>
+	<<if $FSPromenade.Supremacist>>
+		<br>
+		[[Upgrade this sector to appeal to Supremacist establishments|Main][$cash -= Math.trunc(10000*$upgradeMultiplierArcology), $FSPromenade.FSSubjugationist = 1, $sectors[$AS].type = "Supremacist"]]
+		//Costs ¤<<print Math.trunc(10000*$upgradeMultiplierArcology)>>//	
+	<</if>>
+<</if>>
+<<if $arcologies[0].FSGenderRadicalist != "unset">>
+	<<if $FSPromenade.GenderRadicalist>>
+		<br>
+		[[Upgrade this sector to appeal to Gender Radicalist establishments|Main][$cash -= Math.trunc(10000*$upgradeMultiplierArcology), $FSPromenade.FSSubjugationist = 1, $sectors[$AS].type = "GenderRadicalist"]]
+		//Costs ¤<<print Math.trunc(10000*$upgradeMultiplierArcology)>>//	
+	<</if>>
+<<elseif $arcologies[0].FSGenderFundamentalist != "unset">>
+	<<if $FSPromenade.GenderFundamentalist>>
+		<br>
+		[[Upgrade this sector to appeal to Gender Fundamentalist establishments|Main][$cash -= Math.trunc(10000*$upgradeMultiplierArcology), $FSPromenade.FSSubjugationist = 1, $sectors[$AS].type = "GenderFundamentalist"]]
+		//Costs ¤<<print Math.trunc(10000*$upgradeMultiplierArcology)>>//	
+	<</if>>
+<</if>>
+<<if $arcologies[0].FSPaternalist != "unset">>
+	<<if $FSPromenade.Paternalist>>
+		<br>
+		[[Upgrade this sector to appeal to Paternalist establishments|Main][$cash -= Math.trunc(10000*$upgradeMultiplierArcology), $FSPromenade.FSSubjugationist = 1, $sectors[$AS].type = "Paternalist"]]
+		//Costs ¤<<print Math.trunc(10000*$upgradeMultiplierArcology)>>//	
+	<</if>>
+<<elseif $arcologies[0].FSDegradationist != "unset">>
+	<<if $FSPromenade.Degradationist>>
+		<br>
+		[[Upgrade this sector to appeal to Degradationist establishments|Main][$cash -= Math.trunc(10000*$upgradeMultiplierArcology), $FSPromenade.FSSubjugationist = 1, $sectors[$AS].type = "Degradationist"]]
+		//Costs ¤<<print Math.trunc(10000*$upgradeMultiplierArcology)>>//	
+	<</if>>
+<</if>>
+<<if $arcologies[0].FSBodyPurist != "unset">>
+	<<if $FSPromenade.BodyPurist>>
+		<br>
+		[[Upgrade this sector to appeal to Body Purist establishments|Main][$cash -= Math.trunc(10000*$upgradeMultiplierArcology), $FSPromenade.FSSubjugationist = 1, $sectors[$AS].type = "BodyPurist"]]
+		//Costs ¤<<print Math.trunc(10000*$upgradeMultiplierArcology)>>//	
+	<</if>>
+<<elseif $arcologies[0].FSTransformationFetishist != "unset">>
+	<<if $FSPromenade.TransformationFetishist>>
+		<br>
+		[[Upgrade this sector to appeal to Transformation Fetishist establishments|Main][$cash -= Math.trunc(10000*$upgradeMultiplierArcology), $FSPromenade.FSSubjugationist = 1, $sectors[$AS].type = "TransformationFetishist"]]
+		//Costs ¤<<print Math.trunc(10000*$upgradeMultiplierArcology)>>//	
+	<</if>>
+<</if>>
+<<if $arcologies[0].FSYouthPreferentialist != "unset">>
+	<<if $FSPromenade.YouthPreferentialist>>
+		<br>
+		[[Upgrade this sector to appeal to Youth Preferentialist establishments|Main][$cash -= Math.trunc(10000*$upgradeMultiplierArcology), $FSPromenade.FSSubjugationist = 1, $sectors[$AS].type = "YouthPreferentialist"]]
+		//Costs ¤<<print Math.trunc(10000*$upgradeMultiplierArcology)>>//	
+	<</if>>
+<<elseif $arcologies[0].FSMaturityPreferentialist != "unset">>
+	<<if $FSPromenade.MaturityPreferentialist>>
+		<br>
+		[[Upgrade this sector to appeal to Subjugationist establishments|Main][$cash -= Math.trunc(10000*$upgradeMultiplierArcology), $FSPromenade.FSSubjugationist = 1, $sectors[$AS].type = "Maturity Preferentialist"]]
+		//Costs ¤<<print Math.trunc(10000*$upgradeMultiplierArcology)>>//	
+	<</if>>
+<</if>>
+<<if $arcologies[0].FSSlimnessEnthusiast != "unset">>
+	<<if $FSPromenade.SlimnessEnthusiast == 0>>
+		<br>
+		[[Upgrade this sector to appeal to Slimness Enthusiast establishments|Main][$cash -= Math.trunc(10000*$upgradeMultiplierArcology), $FSPromenade.FSSubjugationist = 1, $sectors[$AS].type = "SlimnessEnthusiast"]]
+		//Costs ¤<<print Math.trunc(10000*$upgradeMultiplierArcology)>>//	
+	<</if>>
+<<elseif $arcologies[0].FSAssetExpansionist != "unset">>
+	<<if $FSPromenade.AssetExpansionist>>
+		<br>
+		[[Upgrade this sector to appeal to Asset Expansionist establishments|Main][$cash -= Math.trunc(10000*$upgradeMultiplierArcology), $FSPromenade.FSSubjugationist = 1, $sectors[$AS].type = "AssetExpansionist"]]
+		//Costs ¤<<print Math.trunc(10000*$upgradeMultiplierArcology)>>//	
+	<</if>>
+<</if>>
+<<if $arcologies[0].FSPastoralist != "unset">>
+	<<if $FSPromenade.Pastoralist>>
+		<br>
+		[[Upgrade this sector to appeal to Pastoralist establishments|Main][$cash -= Math.trunc(10000*$upgradeMultiplierArcology), $FSPromenade.FSSubjugationist = 1, $sectors[$AS].type = "Pastoralist"]]
+		//Costs ¤<<print Math.trunc(10000*$upgradeMultiplierArcology)>>//	
+	<</if>>
+<<elseif $arcologies[0].FSPhysicalIdealist != "unset">>
+	<<if $FSPromenade.PhysicalIdealist>>
+		<br>
+		[[Upgrade this sector to appeal to Physical Idealist establishments|Main][$cash -= Math.trunc(10000*$upgradeMultiplierArcology), $FSPromenade.FSSubjugationist = 1, $sectors[$AS].type = "PhysicalIdealist"]]
+		//Costs ¤<<print Math.trunc(10000*$upgradeMultiplierArcology)>>//	
+	<</if>>
+<</if>>
+<<if $arcologies[0].FSChattelReligionist != "unset">>
+	<<if $FSPromenade.ChattelReligionist>>
+		<br>
+		[[Upgrade this sector to appeal to Chattel Religionist establishments|Main][$cash -= Math.trunc(10000*$upgradeMultiplierArcology), $FSPromenade.FSSubjugationist = 1, $sectors[$AS].type = "ChattelReligionist"]]
+		//Costs ¤<<print Math.trunc(10000*$upgradeMultiplierArcology)>>//	
+	<</if>>
+<</if>>
+<<if $arcologies[0].FSRomanRevivalist != "unset">>
+	<<if $FSPromenade.RomanRevivalist>>
+		<br>
+		[[Upgrade this sector to appeal to Roman Revivalist establishments|Main][$cash -= Math.trunc(10000*$upgradeMultiplierArcology), $FSPromenade.FSSubjugationist = 1, $sectors[$AS].type = "RomanRevivalist"]]
+		//Costs ¤<<print Math.trunc(10000*$upgradeMultiplierArcology)>>//	
+	<</if>>
+<<elseif $arcologies[0].FSEgyptianRevivalist != "unset">>
+	<<if $FSPromenade.EgyptianRevivalist>>
+		<br>
+		[[Upgrade this sector to appeal to Egyptian Revivalist establishments|Main][$cash -= Math.trunc(10000*$upgradeMultiplierArcology), $FSPromenade.FSSubjugationist = 1, $sectors[$AS].type = "EgyptianRevivalist"]]
+		//Costs ¤<<print Math.trunc(10000*$upgradeMultiplierArcology)>>//	
+	<</if>>
+<<elseif $arcologies[0].FSEdoRevivalist != "unset">>
+	<<if $FSPromenade.EdoRevivalist>>
+		<br>
+		[[Upgrade this sector to appeal to Edo Revivalist establishments|Main][$cash -= Math.trunc(10000*$upgradeMultiplierArcology), $FSPromenade.FSSubjugationist = 1, $sectors[$AS].type = "EdoRevivalist"]]
+		//Costs ¤<<print Math.trunc(10000*$upgradeMultiplierArcology)>>//	
+	<</if>>
+<<elseif $arcologies[0].FSArabianRevivalist != "unset">>
+	<<if $FSPromenade.ArabianRevivalist>>
+		<br>
+		[[Upgrade this sector to appeal to Arabian Revivalist establishments|Main][$cash -= Math.trunc(10000*$upgradeMultiplierArcology), $FSPromenade.FSSubjugationist = 1, $sectors[$AS].type = "ArabianRevivalist"]]
+		//Costs ¤<<print Math.trunc(10000*$upgradeMultiplierArcology)>>//	
+	<</if>>
+<<elseif $arcologies[0].FSChineseRevivalist != "unset">>
+	<<if $FSPromenade.ChineseRevivalist>>
+		<br>
+		[[Upgrade this sector to appeal to Chinese Revivalist establishments|Main][$cash -= Math.trunc(10000*$upgradeMultiplierArcology), $FSPromenade.FSSubjugationist = 1, $sectors[$AS].type = "ChineseRevivalist"]]
+		//Costs ¤<<print Math.trunc(10000*$upgradeMultiplierArcology)>>//	
+	<</if>>
+<</if>>
+
 <<if $PAPublic == 1 && $assistantAppearance != "normal">>
 <<set _seed1 = 0, _seed2 = 0>>
 <<if $arcologies[0].FSSupremacist != "unset">>
