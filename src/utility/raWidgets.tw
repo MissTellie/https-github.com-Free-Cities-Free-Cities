@@ -127,6 +127,8 @@
             <br>@@.red;Fat@@: over 30 to 95, @@.red;Overweight@@: over 95
         <<case "lactation">>
             <br>// 0 - none, 1 - natural, 2 - lactation implant. //
+        <<case "custom">>
+            <br>// Enter custom condition. //
         <</switch>>
     <</if>>
 <</replace>>
@@ -3823,7 +3825,7 @@ check if a rule attribute, any one, is defined and otherwise skip everything.
 	<<if $args[0].indentureRestrictions >= 2>>
 		<<set $args[0].hormones = Math.clamp($args[0].hormones, -1, 1)>>
 	<</if>>
-	<br>$args[0].slaveName is a gelding, so she has been put on the appropriate hormones.
+	<br>$args[0].slaveName is a gelding, so she has been put on the appropriate hormonal regime.
 <</if>>
 <</if>>
 <<elseif ($args[0].balls > 0)>>
@@ -3837,7 +3839,7 @@ check if a rule attribute, any one, is defined and otherwise skip everything.
 	<<if $args[0].indentureRestrictions >= 2>>
 		<<set $args[0].hormones = Math.clamp($args[0].hormones, -1, 1)>>
 	<</if>>
-	<br>$args[0].slaveName is a shemale, so she has been put on the appropriate hormones.
+	<br>$args[0].slaveName is a shemale, so she has been put on the appropriate hormonal regime.
 <</if>>
 <</if>>
 <</if>>
@@ -3847,8 +3849,7 @@ check if a rule attribute, any one, is defined and otherwise skip everything.
 <</if>>
 <</if>>
 
-<<if $args[0].vagina > -1>>
-	<<if (def _combinedRule.XX) && (_combinedRule.XX !== "no default setting")>>
+<<if ($args[0].vagina > -1) && ($args[0].dick == 0) && (def _combinedRule.XX) && (_combinedRule.XX !== "no default setting")>>
 	<<if ($args[0].hormones !== _combinedRule.XX)>>
 		<<set $args[0].hormones = _combinedRule.XX>>
 		<<if $args[0].indentureRestrictions >= 2>>
@@ -3856,10 +3857,9 @@ check if a rule attribute, any one, is defined and otherwise skip everything.
 		<</if>>
 		<br>$args[0].slaveName is a female, so she has been put on the appropriate hormonal regime.
 	<</if>>
-	<</if>>
-	<<if $args[0].ovaries > -1>>
-	<<if $args[0].preg < 1>>
-	<<if $args[0].preg > -2>>
+<</if>>
+
+<<if isFertile($args[0])>>
 	<<if (def _combinedRule.preg) && (_combinedRule.preg !== "no default setting")>>
 	<<if (_combinedRule.preg == -1)>>
 		<<if $args[0].preg !== -1>>
@@ -3891,9 +3891,6 @@ check if a rule attribute, any one, is defined and otherwise skip everything.
 			<<set $args[0].hormones = 2>>
 			<br>$args[0].slaveName is a fertile female, so she has been put on the appropriate fertility regime.
 		<</if>>
-	<</if>>
-	<</if>>
-	<</if>>
 	<</if>>
 	<</if>>
 <</if>>
@@ -4126,6 +4123,23 @@ check if a rule attribute, any one, is defined and otherwise skip everything.
 					<br>$args[0].slaveName is at the target weight, so her diet has been normalized.
 				<</if>>
 			<</if>>
+		<</if>>
+	<</if>>
+<<elseif (def _combinedRule.muscles) && (_combinedRule.muscles !== "no default setting") && ($args[0].amp != 1)>> /* no diet rule, muscles only */
+	<<if ($args[0].muscles >= _combinedRule.muscles+5)>>
+		<<if ($args[0].diet !== "slimming")>>
+			<<set $args[0].diet = "slimming">>
+			<br>$args[0].slaveName has been put on a slimming exercise regime.
+		<</if>>
+	<<elseif ($args[0].muscles <= _combinedRule.muscles-5)>>
+		<<if ($args[0].diet !== "muscle building")>>
+			<<set $args[0].diet = "muscle building">>
+			<br>$args[0].slaveName has been put on a muscle building exercise regime.
+		<</if>>
+	<<else>>
+		<<if ($args[0].diet !== "healthy")>>
+			<<set $args[0].diet = "healthy">>
+			<br>$args[0].slaveName has achieved the target musculature, so her exercise regime has been normalized.
 		<</if>>
 	<</if>>
 <</if>>

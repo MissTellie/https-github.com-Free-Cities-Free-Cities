@@ -336,7 +336,7 @@ Clothes:
 <<else>>
 	''$currentRule.clothes.''
 <</if>>
-<<if ($arcologies[0].FSRomanRevivalist != "unset") || ($cheatMode == 1) || ($clothesBoughtToga == 1)>>
+</span>
 | 
 <<link "Select her own outfit">>
 	<<set $currentRule.clothes = "choosing her own clothes">>
@@ -344,9 +344,7 @@ Clothes:
 	<<RAChangeSave>>
 	<<RAChangeApply>>
 <</link>>
-<</if>>
 
-</span>
 <br>&nbsp;&nbsp;&nbsp;&nbsp;//Nice:// 
 <<link "No default clothes setting">>
 	<<set $currentRule.clothes = "no default setting">>
@@ -529,6 +527,7 @@ Clothes:
 	<<RAChangeSave>>
 	<<RAChangeApply>>
 <</link>>
+|
 <<if ($arcologies[0].FSPhysicalIdealist != "unset") || ($cheatMode == 1) || ($clothesBoughtOil == 1)>>
    //FS//
 <<link "Body oil">>
@@ -610,6 +609,8 @@ Clothes:
 	<<RAChangeApply>>
 <</link>> |
 <</if>>
+<<if ($arcologies[0].FSRomanRevivalist != "unset") || ($cheatMode == 1) || ($clothesBoughtToga == 1)>>
+   //FS//
 <<link "Toga">>
 	<<set $currentRule.clothes = "a toga">>
 	<<RAChangeClothes>>
@@ -2672,6 +2673,8 @@ Relationship rules: ''$currentRule.relationshipRules.''
 	<<goto "Rules Assistant">>
 <</link>>
 </span>
+
+<</if>> /* closes if _length > 0 */
 
 <br><br>
 

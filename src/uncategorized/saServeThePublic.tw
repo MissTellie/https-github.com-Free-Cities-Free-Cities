@@ -60,7 +60,7 @@ the public.
 	<<set $beautyMultiplier = (1+($arcologies[0].FSEdoRevivalist/($FSLockinLevel*3)))>>
 <</if>>
 <<if $club > 0>>
-	<<if (($universalRulesFacilityWork == 1) && ($slaves[$i].assignment == "serve the public") && ($clubSpots > 0)) || ($slaves[$i].assignment == "serve in the club")>>
+	<<if (($universalRulesFacilityWork == 1) && ($slaves[$i].assignment == "serve the public") && ($club > $clubSlaves)) || ($slaves[$i].assignment == "serve in the club")>>
 	<<if ($slaves[$i].assignment == "serve the public")>>
 		Since there's extra space in $clubName, she's promiscuous there.
 	<</if>>
@@ -142,9 +142,6 @@ the public.
 			Almost everyone who comes to $clubName is looking to poke a girl who cums when buttfucked.
 		<</if>>
 		<</if>>
-	<</if>>
-	<<if ($slaves[$i].assignment == "serve the public")>>
-		<<set $clubSpots -= 1>>
 	<</if>>
 	<<if $DJ != 0>>
 		<<if $DJRepBonus > 0>>
@@ -421,7 +418,7 @@ Her appearance attracted $beauty members of the public (<<print Math.trunc($beau
 		<<if $slaves[$j].assignment == $slaves[$i].assignment>>
 		Since her $slaves[$j].relation $slaves[$j].slaveName is a public slut too, she earns extra attention.
 		<<if $arcologies[0].FSEgyptianRevivalist > 20>>
-			Citizens are very excited about being able to participate in properly ancient Egyptian incestuous sex.
+			Citizens are very excited about being able to participate in incestuous sex like the ancient Egyptians.
 		<</if>>
 		<</if>>
 		<<break>>
