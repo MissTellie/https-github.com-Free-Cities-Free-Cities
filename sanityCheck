@@ -78,8 +78,8 @@ $GREP -E "<<display|<<click|\.contains" -- src/*.tw | myprint "ObsoleteMacro"
 # Check for double articles
 $GREP -E "\Wa an\W" -- src/*.tw | myprint "DoubleArticle"
 # Check for incorrect articles
-$GREP -i -E "\Wa (a|e|i|o|u)." -- src/*.tw | GREP -i -vE "\Wa (un|eu|us|ut|on|ur|in)." | GREP -i -vE "(&|<<s>>|UM)." | myprint "IncorrectArticle"
-$GREP -i -E '\Wan (b|c|d|f|g|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z)\w.' -- src/*.tw | GREP -i -vE "[A-Z]{3}" | myprint "IncorrectArticle"
+$GREP -i -E "\Wa (a|e|i|o|u)." -- src/*.tw | grep -i -vE "\Wa (un|eu|us|ut|on|ur|in)." | grep -i -vE "(&|<<s>>|UM)." | myprint "IncorrectArticle"
+$GREP -i -E '\Wan (b|c|d|f|g|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z)\w.' -- src/*.tw | grep -i -vE "[A-Z]{3}" | myprint "IncorrectArticle"
 
 # Check that we do not have any variables that we use only once.   e.g.     $onlyUsedOnce
 # Ignore  *Nationalities
