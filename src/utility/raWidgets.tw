@@ -3893,9 +3893,6 @@ check if a rule attribute, any one, is defined and otherwise skip everything.
 		<</if>>
 	<</if>>
 	<</if>>
-	<</if>>
-	<</if>>
-	<</if>>
 <</if>>
 
 <<if $args[0].fuckdoll == 0>>
@@ -4126,6 +4123,23 @@ check if a rule attribute, any one, is defined and otherwise skip everything.
 					<br>$args[0].slaveName is at the target weight, so her diet has been normalized.
 				<</if>>
 			<</if>>
+		<</if>>
+	<</if>>
+<<elseif (def _combinedRule.muscles) && (_combinedRule.muscles !== "no default setting") && ($args[0].amp != 1)>> /* no diet rule, muscles only */
+	<<if ($args[0].muscles >= _combinedRule.muscles+5)>>
+		<<if ($args[0].diet !== "slimming")>>
+			<<set $args[0].diet = "slimming">>
+			<br>$args[0].slaveName has been put on a slimming exercise regime.
+		<</if>>
+	<<elseif ($args[0].muscles <= _combinedRule.muscles-5)>>
+		<<if ($args[0].diet !== "muscle building")>>
+			<<set $args[0].diet = "muscle building">>
+			<br>$args[0].slaveName has been put on a muscle building exercise regime.
+		<</if>>
+	<<else>>
+		<<if ($args[0].diet !== "healthy")>>
+			<<set $args[0].diet = "healthy">>
+			<br>$args[0].slaveName has achieved the target musculature, so her exercise regime has been normalized.
 		<</if>>
 	<</if>>
 <</if>>
