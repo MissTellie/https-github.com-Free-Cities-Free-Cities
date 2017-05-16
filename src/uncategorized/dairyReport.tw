@@ -62,7 +62,7 @@
 		<</if>>
 	<</if>>
 	<<set $Milkmaid = $slaves[_FLs], $i = _FLs>>
-	&nbsp;&nbsp;&nbsp;&nbsp;$Milkmaid.slaveName is serving as your milkmaid.
+	&nbsp;&nbsp;&nbsp;&nbsp;$Milkmaid.slaveName is serving as your Milkmaid.
 	<<if $Milkmaid.relationship == -3>>
 		<<set $milkmaidDevotionBonus += 2, $milkmaidTrustBonus += 2>>
 		She tries her best to be your perfect farmwife.
@@ -71,7 +71,7 @@
 		<<set _milkmaidImpregnated = 0>>
 		<<for _dI = 0; _dI < _DL; _dI++>>
 			<<set _i = $DairyiIDs[_dI].Index>>
-		<<if (canGetPregnant($slaves[_i]))>>
+		<<if (canImpreg($slaves[_i], $Milkmaid))>>
 				<<set $slaves[_i].preg = 1, $slaves[_i].pregSource = $Milkmaid.ID, _milkmaidImpregnated++, $slaves[_i].vaginalCount += 10, $vaginalTotal += 10>>
 			<</if>>
 		<</for>>
@@ -479,8 +479,7 @@
 				<<if ($slaves[_i].vagina == 0)>>
 					<<set $slaves[_i].vagina++>>
 				<</if>>
-			<</if>>
-			<<if ($slaves[_i].preg > 0)>>
+			<<elseif ($slaves[_i].preg > 0)>>
 				<<if ($dairyPregSetting > 1)>>
 					<<set $cash += 50>>
 				<<else>>
@@ -637,9 +636,9 @@ These products sell for @@.yellowgreen;¤_profits@@.
 		<<set _i = $DairyiIDs[_dI].Index>>
 		<<if ($slaves[_i].ID == $bioreactorPerfectedID)>>
 			<br><br>&nbsp;&nbsp;&nbsp;&nbsp;$slaves[_i].slaveName's breasts<<if $slaves[_i].balls > 0>>, balls<</if>><<if $slaves[_i].ovaries == 1>>, belly<</if>>, body, and mind have been completely adapted to synthesize useful products. She has been reclassified as part of the machine she's now permanently attached to. This combination is projected to produce approximately
-		<<if $slaves[_i].balls > 0>><<print 1000*Math.trunc((3*52*(45-$slaves[_i].age))/1000)>> liters of cum,<</if>>
-		<<if $slaves[_i].ovaries == 1>><<print 100*Math.trunc((52*(45-$slaves[_i].age))/100)>> liters of vaginal secretions, <<print 5*(45-$slaves[_i].age)>> slaves,<</if>>
-		and <<print 1000*Math.trunc((300*52*(45-$slaves[_i].age))/1000)>> liters of milk over a <<print 45-$slaves[_i].age>> year period before its biological components must be replaced.
+			<<if $slaves[_i].balls > 0>><<print 1000*Math.trunc((3*52*(45-$slaves[_i].age))/1000)>> liters of cum,<</if>>
+			<<if $slaves[_i].ovaries == 1>><<print 100*Math.trunc((52*(45-$slaves[_i].age))/100)>> liters of vaginal secretions, <<print 5*(45-$slaves[_i].age)>> slaves,<</if>>
+			and <<print 1000*Math.trunc((300*52*(45-$slaves[_i].age))/1000)>> liters of milk over a <<print 45-$slaves[_i].age>> year period before its biological components must be replaced.
 			<<if ($slaves[_i].ovaries == 1)>>
 				<<if ($slaves[_i].balls == 0)>>
 					<<set $bioreactorsXX++>>
