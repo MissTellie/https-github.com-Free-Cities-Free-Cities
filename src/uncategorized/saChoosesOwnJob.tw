@@ -24,9 +24,6 @@
 		<<removeJob $slaves[$i] $slaves[$i].assignment>>
 	<</if>>
 
-<<elseif (($slaves[$i].devotion < 45) || ($slaves[$i].trust < 45)) && (($slaves[$i].sexualFlaw != "none") || ($slaves[$i].behavioralFlaw != "none")) && ($Attendant != 0) && $universalRulesAssignsSelfFacility == 1>>
-	could use some counseling, so $pronoun decides to visit $spaName.
-	<<assignJob $slaves[$i] "rest in the spa">>
 
 <<elseif ($slaves[$i].intelligenceImplant != 1)>>
 	<<if $schoolroom > $schoolroomSlaves && $universalRulesAssignsSelfFacility == 1>>
@@ -36,6 +33,10 @@
 		is uneducated, so $pronoun sits <<print $object>>self down to learn.
 		<<assignJob $slaves[$i] "take classes">>
 	<</if>>
+
+<<elseif (($Attendant != 0) && $universalRulesAssignsSelfFacility == 1 && (($slaves[$i].devotion < 45) || ($slaves[$i].trust < 45) || ($slaves[$i].sexualFlaw != "none") || ($slaves[$i].behavioralFlaw != "none"))>>
+	could use some counseling, so $pronoun decides to visit $spaName.
+	<<assignJob $slaves[$i] "rest in the spa">>
 
 <<elseif ($slaves[$i].devotion <= 50) && canWalk($slaves[$i]) && canSee($slaves[$i])>>
 	<<if $servantsQuarters > $servantsQuartersSlaves && $universalRulesAssignsSelfFacility == 1>>
