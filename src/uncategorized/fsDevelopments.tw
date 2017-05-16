@@ -179,9 +179,9 @@
 <</if>>
 
 <<for _i = 5; _i <= 7; _i++>>
-<<if $sectors[_i].type =! "Shops">>
-<<if $sectors[_i].type =! "Brothel">>
-<<if $sectors[_i].type =! "Club">>
+<<if $sectors[_i].type != "Shops">>
+<<if $sectors[_i].type != "Brothel">>
+<<if $sectors[_i].type != "Club">>
 	The $sectors[_i].type establishments on the Promenade help develop society.
 	<<FSChange $sectors[_i].type.replace(" ","") 4>>
 	<<break>>
@@ -1075,7 +1075,7 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 	$arcologies[0].name believes implicitly that it is the land of the Shogun, reborn.
 	<<set $independenceDay = 1>>
 <<elseif $arcologies[0].FSEdoRevivalist >= $FSLockinLevel*0.6>>
-	$arcologies[0].name agrees strongly with your project to build a Edo Japan.
+	$arcologies[0].name agrees strongly with your project to build an Edo Japan.
 	<<set $independenceDay = 1>>
 <<elseif $arcologies[0].FSEdoRevivalist >= $FSLockinLevel*0.3>>
 	$arcologies[0].name is sympathetic to your project to build a new Edo Japan.

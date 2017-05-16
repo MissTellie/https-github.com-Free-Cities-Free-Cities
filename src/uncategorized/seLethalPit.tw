@@ -52,7 +52,7 @@ This week's pit fight is between $fighterOne.slaveName and $fighterTwo.slaveName
 	They @@.green;passionately approve@@ of your hosting lethal combat between slaves; this advances ideas from antiquity about what public events should be.
 	<<set $rep += 20*$FSSingleSlaveRep*($arcologies[0].FSRomanRevivalist/$FSLockinLevel)>>
 	<<set $arcologies[0].FSRomanRevivalist += 0.4*$FSSingleSlaveRep>>
-<<else $arcologies[0].FSAztecRevivalist != "unset">>
+<<elseif $arcologies[0].FSAztecRevivalist != "unset">>
 	They @@.green;approve@@ of your hosting lethal combat; this advances ideas that blood must flow as it did in ancient times.
 	<<set $rep += 10*$FSSingleSlaveRep*($arcologies[0].FSAztecRevivalist/$FSLockinLevel)>>
 	<<set $arcologies[0].FSAztecRevivalist += 0.2*$FSSingleSlaveRep>>
