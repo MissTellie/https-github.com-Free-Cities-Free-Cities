@@ -19,6 +19,18 @@
 
 <<switch $RESSTRevent>>
 
+<<case "young PC age difference">>
+
+As another long weeks draws to a close, <span id="name"><<print "[[$activeSlave.slaveName|Long Slave Description][$nextLink = passage(), $eventDescription = 1]]">></span> happens to walk past your office toward bed. There's nothing inherently abnormal about her actions, but you do notice as she steps past the doorway that an expression of worry and concern adorns her $activeSlave.skin face. When you call her into your office, her face visibly brightens up in an attempt to conceal her obvious distress as she comes before you. Notably, although she stands still and patiently awaits further orders, you notice she <<if canSee($activeSlave)>>never manages to meet your eyes<<else>>keeps her sightless eyes downcast<</if>>.  When you ask her what's troubling her, her face plainly falls.
+<br><br>
+"<<Master>>, you're <<s>>o young," she <<say>>s penitently before smiling shyly in an attempt to insert some levity into her confession. "It'<<s>> ju<<s>>t that I'm old enough to be your mother, <<Master>>. It'<<s>> a little weird, i<<s>>n't it?"
+
+<<case "old PC age difference">>
+
+As another long weeks draws to a close, <span id="name"><<print "[[$activeSlave.slaveName|Long Slave Description][$nextLink = passage(), $eventDescription = 1]]">></span> happens to walk past your office toward bed. There's nothing inherently abnormal about her actions, but you do notice as she steps past the doorway that an expression of worry and concern adorns her $activeSlave.skin face. When you call her into your office, her face visibly brightens up in an attempt to conceal her obvious distress as she comes before you. Notably, although she stands still and patiently awaits further orders, you notice she <<if canSee($activeSlave)>>never manages to meet your eyes<<else>>keeps her sightless eyes downcast<</if>>.  When you ask her what's troubling her, her face plainly falls.
+<br><br>
+"<<Master>>, you're <<s>>o old," she <<say>>s penitently before smiling shyly in an attempt to insert some levity into her confession. "It'<<s>> ju<<s>>t that I'm young enough to be your daughter, <<Master>>. It'<<s>> a little weird, i<<s>>n't it?"
+
 <<case "devoted educated slave">>
 
 <span id="name"><<print "[[$activeSlave.slaveName|Long Slave Description][$nextLink to passage(), $eventDescription to 1]]">></span> comes before you for a routine inspection. The $desc is a well-educated and obedient slave. Though she performs her duties devotedly and to the best of her abilities, slave life is not particularly conducive to straining an individual's brainpower. You happen to run into $activeSlave.slaveName in the hallways of the penthouse, where she takes the opportunity to wordlessly signal she wishes to gain your attention.
@@ -192,6 +204,96 @@ She sits back up and rubs her hands down her lower back on either side, sighing 
 <br><br>
 <span id="result">
 <<switch $RESSTRevent>>
+
+<<case "young PC age difference">>
+
+As another long weeks draws to a close, <span id="name"><<print "[[$activeSlave.slaveName|Long Slave Description][$nextLink = passage(), $eventDescription = 1]]">></span> happens to walk past your office toward bed. There's nothing inherently abnormal about her actions, but you do notice as she steps past the doorway that an expression of worry and concern adorns her $activeSlave.skin face. When you call her into your office, her face visibly brightens up in an attempt to conceal her obvious distress as she comes before you. Notably, although she stands still and patiently awaits further orders, you notice she <<if canSee($activeSlave)>>never manages to meet your eyes<<else>>keeps her sightless eyes downcast<</if>>.  When you ask her what's troubling her, her face plainly falls.
+<br><br>
+<<if ($activeSlave.lips > 70)>>"<<Master>>, you're tho young," she lisps through her dick-sucking lips before smiling shyly in an attempt to insert some levity into her confession. "It'th jutht that I'm old enough to be your mother, <<Master>>. It'th a little weird, ithn't it?"<<elseif ($activeSlave.lipsPiercing+$activeSlave.tonguePiercing > 2)>>"<<Master>>, you're tho young," she lisps through her ridiculous piercings before smiling around them in an attempt to insert some levity into her confession. "It'th jutht that I'm old enough to be your mother, <<Master>>. It'th a little weird, ithn't it?."<<else>>"<<Master>>, you're so young," she says penitently before smiling shyly in an attempt to insert some levity into her confession. "It's just that I'm old enough to be your mother, <<Master>>. It's a little weird, isn't it?"<</if>>
+
+<<case "young PC age difference">>
+
+<<link "Gently acclimate her to the age difference with some lovemaking">>
+	<<replace "#name">>$activeSlave.slaveName<</replace>>
+	<<replace "#result">>
+	As you cross the breadth of your office to reach $activeSlave.slaveName, she presents herself for your sexual usage out of habit. However, you take her by surprise by drawing her into you arms, running the tips of your fingers through her $activeSlave.hColor hair,  and looking into her $activeSlave.eyeColor eyes. <<if canSee($activeSlave)>>She meets your gaze for a brief moment before blushing girlishly, as if forgetting how many years your senior she is<<else>>She seems to feel the intensity of your gaze despite her sightless eyes and blushes girlishly, as if forgetting how many years your senior she is<</if>> . In lieu of words, you lift her chin with a single beckoning finger and steal her breath from her lips with a firm kiss. Once she's recovered her wits she clings to you with almost animalistic attachment. After a few moments she moves to get down on her knees, clearly defaulting to her role as a sex slave in response to your unexpected intimacy. Instead, you <<if $activeSlave.preg > 20>>carefully <</if>>lift her up from her low position beneath you and carry her to bed, laying the flushed older woman down on the sheets before gently positioning yourself on top of her. Together, the two of you make fiercely intimate love, while you whisper romantic reassurances into her ear, nip at her neck,<<if $activeSlave.preg > 20>>stroke her pregnant belly,<</if>> and bring her to climax again and again. After a final frantic orgasm together in her pussy she <<if canSee($activeSlave)>>looks<<else>>gazes sightlessly<</if>> up at you with @@.hotpink;adoration@@ and a new @@.mediumaquamarine;trust@@ in her young <<Master>>.
+	<<set $activeSlave.devotion += 4>>
+	<<set $activeSlave.trust += 4>>
+	<<set $activeSlave.vaginalCount += 1>>
+	<<set $vaginalTotal += 1>>
+	<</replace>>
+<</link>>
+<br><<link "Cruelly torment her about the age difference">>
+	<<replace "#name">>$activeSlave.slaveName<</replace>>
+	<<replace "#result">>
+	As you close in on $activeSlave.slaveName predatorily, her face blanches with visible regret at her prior candidness. By the time you have her bent over your desk and begun spanking her <<if $activeSlave.butt > 6>>massive behind<<elseif $activeSlave.butt > 3>>bountiful bottom<<else>>cute ass<</if>>, she seems almost resigned to accept any of the standard punishments you've been known to dole out. When your lips lightly brush one of her ears, she flinches harder at the gentle touch than any of your harsh, disciplinary spanks. When you start whispering wicked reminders about her sexual submission and subservience to so young a <<Master>>, she begins to sob quietly against the hard surface of your desk. 
+	<br><br>
+	By the time you deign to <<if $PC.dick == 0>>don a strap-on and <</if>>mount her ass, she seems catatonic at the revelation that her body is owned by a cruel <<Master>>, nearly half her age. Even when you accompany each brutal thrust with a harsh spank and a harsher jab at the dearth in years between the two of you, she merely winces at the anal pain of your coupling. Judging by the empty look in her eyes that persists past her dismissal from your office, she might @@color:gold;not feel any better@@ about the age difference but you've definitely @@color:hotpink;fucked her into compliance@@.
+	<<set $activeSlave.devotion += 4>>
+	<<set $activeSlave.trust -= 4>>
+	<<set $activeSlave.analCount += 1>>
+	<<set $analTotal += 1>>
+	<</replace>>
+<</link>>
+<<if isFertile($activeSlave)>>
+<br><<link "Give her an afternoon off for some quality time with a local Frat House">>
+	<<replace "#name">>$activeSlave.slaveName<</replace>>
+	<<replace "#result">>
+	You direct $assistantName to clear $activeSlave.slaveName's schedule and to find a local Frat House willing to 'host' a woman of her age and experience. Perhaps a group of virile college boys running a train on $activeSlave.slaveName might accustom her to younger sexual partners. When $activeSlave.slaveName leaves the penthouse, she's dressed up to look like a frumpy Old World MILF and is clearly skeptical about your age-play therapy.
+	<br><br>
+	$activeSlave.slaveName returns to the penthouse naked, disheveled, and absolutely covered in a thick coating of drying cum. Despite her appearance, however, she is practically beaming with happiness. It seems young cock agrees with her, and by the state of her messy pussy her youthful partners particularly enjoyed filling her with their potent seed. Unsurprisingly, at a routine check up later that week, $activeSlave.slaveName joyfully discovers that she was impregnated during her Frat House excursion. It seems that being bred by a bunch of horny college boys has eliminated her prior worries about the importance of age and also caused her to fetishize impregnation. @@.hotpink;She has become more submissive to you@@ for giving her the means to broaden her sexual horizons.
+	<<set $activeSlave.devotion += 4>>
+	<<set $activeSlave.preg = 1>>
+	<<set $activeSlave.fetish = "pregnancy">>
+	<<set $activeSlave.fetishKnown = 1>>
+	<<set $activeSlave.fetishStrength = 5>>
+	<<set $activeSlave.vaginalCount += 10>>
+	<<set $vaginalTotal += 10>>
+	<</replace>>
+<</link>> //This option will render $activeSlave.slaveName pregnant//
+<</if>>
+
+<<case "old PC age difference">>
+
+<<link "Gently acclimate her to the age difference with some lovemaking">>
+	<<replace "#name">>$activeSlave.slaveName<</replace>>
+	<<replace "#result">>
+	As you cross the breadth of your office to reach $activeSlave.slaveName, she presents herself for your sexual usage out of habit. However, you take her by surprise by drawing her into you arms, running the tips of your fingers through her $activeSlave.hColor hair,  and looking into her $activeSlave.eyeColor eyes. <<if canSee($activeSlave)>>She meets gaze for a brief moment before blushing girlishly, as if forgetting how many years her senior you are<<else>>She seems to feel the intensity of your gaze despite her sightless eyes and blushes girlishly, as if forgetting how many years her senior you are<</if>> . In lieu of words, you lift her chin with a single beckoning finger and steal her breath from her lips with a firm kiss. Once she's recovered her wits she clings to you with almost animalistic attachment. After a few moments she moves to get down on her knees, clearly defaulting to her role as a sex slave in response to your unexpected intimacy. Instead, you <<if canSee($activeSlave)>>looks<<else>>gazes sightlessly<</if>> up at you with @@.hotpink;adoration@@ and a new @@.mediumaquamarine;trust@@ in her aged <<Master>>.
+	<<set $activeSlave.devotion += 4>>
+	<<set $activeSlave.trust += 4>>
+	<<set $activeSlave.vaginalCount += 1>>
+	<<set $vaginalTotal += 1>>
+	<</replace>>
+<</link>>
+<br><<link "Cruelly torment her about the age difference">>
+	<<replace "#name">>$activeSlave.slaveName<</replace>>
+	<<replace "#result">>
+	As you close in on $activeSlave.slaveName predatorily, her face blanches with visible regret at her prior candidness. By the time you have her bent over your desk and begun spanking her <<if $activeSlave.butt > 6>>massive behind<<elseif $activeSlave.butt > 3>>bountiful bottom<<else>>cute ass<</if>>, she seems almost resigned to accept any of the standard punishments you've been known to dole out. When your lips lightly brush one of her ears, she flinches harder at the gentle touch than any of your harsh, disciplinary spanks. When you start whispering wicked reminders about her sexual submission and subservience to so old a <<Master>>, she begins to sob quietly against the hard surface of your desk. 
+	<br><br>
+	By the time you deign to <<if $PC.dick == 0>>don a strap-on and <</if>>mount her ass, she seems catatonic at the revelation that her body is owned by so cruel an old <<Master>>. Even when you accompany each brutal thrust with a harsh spank and a harsh jab at the dearth in years between the two of you, she merely winces at the anal pain of your coupling. Judging by the empty look in her eyes that persists past her dismissal from your office, she might @@color:gold;not feel any better@@ about the age difference but you've definitely @@color:hotpink;fucked her into compliance@@.
+	<<set $activeSlave.devotion += 4>>
+	<<set $activeSlave.trust -= 4>>
+	<<set $activeSlave.analCount += 1>>
+	<<set $analTotal += 1>>
+	<</replace>>
+<</link>>
+<<if isFertile($activeSlave)>>
+<br><<link "Give her an afternoon off for some quality time with a local retirement community">>
+	<<replace "#name">>$activeSlave.slaveName<</replace>>
+	<<replace "#result">>
+	You direct $assistantName to clear $activeSlave.slaveName's schedule and to find a local retirement community willing to 'host' a girl of her age. Perhaps a group of venerable graybeards running a train on $activeSlave.slaveName might accustom her to older sexual partners. When $activeSlave.slaveName leaves the penthouse, she's dressed up to look like an Old World schoolgirl and is clearly skeptical about your age-play therapy.
+	<br><br>
+	$activeSlave.slaveName returns to the penthouse naked, disheveled, and absolutely covered in a thick coating of drying cum. Despite her appearance, however, she is practically beaming with happiness. It seems a good fucking from experienced older men agrees with her, and by the state of her messy pussy her aged partners particularly enjoyed filling her with their still potent seed. Unsurprisingly, at a routine check up later that week, $activeSlave.slaveName joyfully discovers that she was impregnated during her excursion. It seems that being bred by a bunch of horny old men has eliminated her prior worries about the importance of age and also caused her to fetishize impregnation. @@.hotpink;She has become more submissive to you@@ for giving her the means to broaden her sexual horizons.
+	<<set $activeSlave.devotion += 4>>
+	<<set $activeSlave.preg = 1>>
+	<<set $activeSlave.fetish = "pregnancy">>
+	<<set $activeSlave.fetishKnown = 1>>
+	<<set $activeSlave.fetishStrength = 5>>
+	<<set $activeSlave.vaginalCount += 10>>
+	<<set $vaginalTotal += 10>>
+	<</replace>>
+<</link>> //This option will render $activeSlave.slaveName pregnant//
+<</if>>
 
 <<case "devoted educated slave">>
 
