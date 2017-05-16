@@ -29,7 +29,7 @@ You prepare her for sale. Her response to being put up for purchase is
 <<set $seed = []>>
 <<if $arcologies[0].FSRomanRevivalist > 20>>
 	<<set $seed.push("roman")>>
-<<if $arcologies[0].FSAztecRevivalist > 20>>
+<<elseif $arcologies[0].FSAztecRevivalist > 20>>
 	<<set $seed.push("aztec")>>
 <<elseif $arcologies[0].FSEgyptianRevivalist > 20>>
 	<<set $seed.push("egyptian")>>
@@ -50,6 +50,7 @@ You prepare her for sale. Her response to being put up for purchase is
 	<<set $seed.push("businesswoman")>>
 	<<set $seed.push("slaver")>>
 	<<set $seed.push("accountant")>>
+<</if>>
 <</if>>
 <<set $appraiser = $seed.random()>>
 
@@ -901,7 +902,7 @@ __Bids Received__\
 <<if $activeSlave.devotion > 20>>
 <<if $activeSlave.height > 180>>
 	<<if random(1,100) > 60>>
-	<br>''¤<<print 500*Math.trunc(($slaveCost*1.35)/500)>>'' from an prominent citizen who keeps a large harem of lithe, muscular girls to bear him children.
+	<br>''¤<<print 500*Math.trunc(($slaveCost*1.35)/500)>>'' from a prominent citizen who keeps a large harem of lithe, muscular girls to bear him children.
 	<<link "Accept bid">>
 		<<set $cash += 500*Math.trunc(($slaveCost*1.35)/500)>>
 		<<set $buyer = "D shorty breeder">>

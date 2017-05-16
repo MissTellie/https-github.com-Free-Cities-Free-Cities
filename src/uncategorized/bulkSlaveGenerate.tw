@@ -62,7 +62,7 @@
         <<set $numArcology = 1>>
     <</if>>
     <<set $targetArcology = $arcologies[$numArcology]>>
-    <<display "Arcology Opinion">>
+    <<include "Arcology Opinion">>
 	<<set $opinion = Math.trunc($opinion/20)>>
 	<<set $opinion = Math.clamp($opinion, -10, 10)>>
     <<set $discount -= ($opinion * 25)>>
