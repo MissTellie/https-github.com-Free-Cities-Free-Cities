@@ -77,7 +77,7 @@ $GREP -e  " \(\b[a-zA-Z][a-zA-Z]\+\) \1\b " --and --not -e " her her " --and --n
 $GREP -E "<<display|<<click|\.contains" -- src/*.tw | myprint "ObsoleteMacro" 
 # Check for double articles
 $GREP -E "\Wa an\W" -- src/*.tw | myprint "DoubleArticle"
-# Check for correct articles
+# Check for incorrect articles
 $GREP -i -E "\Wa (a|e|i|o|u)." -- src/*.tw | GREP -i -vE "\Wa (un|eu|us|ut|on|ur|in)." | GREP -i -vE "(&|<<s>>|UM)." | myprint "IncorrectArticle"
 $GREP -i -E '\Wan (b|c|d|f|g|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z)\w.' -- src/*.tw | GREP -i -vE "[A-Z]{3}" | myprint "IncorrectArticle"
 
