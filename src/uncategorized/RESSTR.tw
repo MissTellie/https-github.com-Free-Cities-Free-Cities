@@ -19,6 +19,66 @@
 
 <<switch $RESSTRevent>>
 
+<<case "servant maid">>
+
+<span id="name"><<print "[[$activeSlave.slaveName|Long Slave Description][$nextLink = passage(), $eventDescription = 1]]">></span> is scheduled to clean your office today, just one of her many duties as a servant in your penthouse. She pauses in the doorway of your office for a moment, only entering once it becomes clear that you're not going to be using her immediately.
+<br><br>
+She begins her cleaning dutifully, fluttering about your office in a flurry of scrubbing and dusting. Her almost frenzied sanitization of your office allows you ample opportunity to eye $activeSlave.slaveName, your eyes lingering on her body as she moves back and forth in front of you.
+<<if ($activeSlave.clothes == "a slutty maid outfit")>>
+	Her maid uniform does little to conceal her form from prying eyes, with a thin white blouse all that separates the surfaces of her breasts from the air. The associated skirt is similarly superficial, made more for easy access to a slave's holes than for provision of any sort of modesty. 
+	<<if $activeSlave.amp < 0>>
+		Although her movements rarely stray from a slight flick of her wrist as she dusts some surface or a gyration of her body as she scrubs the floor clean, her P-Limbs nonetheless produce a steady stream of minute machine noises. They give her the coordination she needs to purge even the smallest of stains, but the multitude of gyros, servos, and other mechanical pieces constantly working to maintain it ensure that the process is far from silent. 
+	<<elseif $activeSlave.boobs > 4000>>
+		Her breasts are so massive that a whole ream of cloth is needed to provide even the semblance of covering her massive chest. They do little to aid in her cleaning duties, often causing her to attack any blemish on the wall sideways lest her gigantic boobs prevent her from reaching the offending smudge at all.
+		<<elseif $activeSlave.boobs > 800>>
+		Her breasts are pleasingly large and appealingly visible despite the minor concealment provided by her blouse. They often cause her difficulty by mashing against the top surface of your desk as she tries to duck beneath to clean the underside, the struggle is surprisingly erotic - if not without humor.
+	<<elseif $activeSlave.preg > 30>>
+		Despite her pregnancy, she manages to clean with surprising efficacy. She often cradles her gravid belly through her sheer skirt as she dusts or scrubs with one hand, conscious of the fragile life within her even as she works hard to cleanse your office of any unsightly blemishes.
+	<<elseif $activeSlave.muscles > 30>>
+		With her incredible musculature, she's able to conduct a deep cleaning that few other slaves can match. Life as an arcology owner exposes you to a wealth of unique situations, but you doubt many of your peers have seen a slave in a slutty maid ensemble lift up a couch with one outstretched arm as they sweep the now exposed ground beneath it clean with the other.
+	<<elseif $activeSlave.energy > 95>>
+		Despite mundanity of her current duties, it's clear she's holding back her immense sex drive for the duration of her cleaning.
+		<<if $activeSlave.dick > 0>>
+			<<if canAchieveErection($activeSlave)>>
+				Her cock is painfully erect, visible under her flimsy skirt.
+			<<else>>
+				Her soft dick is dribbling precum, visibly dripping down her legs.
+			<</if>>
+		<<elseif $activeSlave.vagina == -1>>
+			She's unconsciously presents her bare bottom as she scrubs the ground clean.
+		<<else>>
+			Her pussy is visibly soaked, ironically staining the flimsy skirt of her uniform as she cleans your office.
+		<</if>>
+	<</if>>
+<<elseif ($activeSlave.clothes == "a nice maid outfit")>>
+	Her maid uniform is fairly demure for a sex slave and makes some effort to conceal her form from prying eyes, even whilst presenting an image of servitude and obedience that a classic maids' ensemble embodies so well. Her dress is fairly conservative, enveloping her breasts in intricate lace and cloth. Likewise, her apron is more than ornamental, $activeSlave.slaveName having stuffed it with cleaning materials and tools.
+	<<if $activeSlave.amp < 0>>
+		Although her movements rarely stray from a slight flick of her wrist as she dusts some surface or a gyration of her body as she scrubs the floor clean, her P-Limbs nonetheless produce a steady stream of minute machine noises. They give her the coordination she needs to purge even the smallest of stains, but the multitude of gyros, servos, and other mechanical pieces constantly working to maintain it ensure that the process is far from silent. 
+	<<elseif $activeSlave.boobs > 4000>>
+		Her breasts are so massive that several reams of cloth are needed to provide her massive chest with any semblance of modesty. They do little to aid in her cleaning duties, often causing her to attack any blemish on the wall sideways lest her gigantic boobs prevent her from reaching the offending smudge at all.
+		<<elseif $activeSlave.boobs > 800>>
+		Her breasts are pleasingly large and appealingly visible, even beneath the folds and ruffles of her dress. They often cause her difficulty by mashing against the top surface of your desk as she tries to duck beneath to clean the underside, the struggle is surprisingly erotic - if not without humor.
+	<<elseif $activeSlave.preg > 30>>
+		Despite her pregnancy, she manages to clean with surprising efficacy. She often cradles her gravid belly through her thick apron as she dusts or scrubs with one hand, conscious of the fragile life within her even as she works hard to cleanse your office of any unsightly blemishes.
+	<<elseif $activeSlave.muscles > 30>>
+		With her incredible musculature, she's able to conduct a deep cleaning that few other slaves can match. Life as an arcology owner exposes you to a wealth of unique situations, but you doubt many of your peers have seen a slave in a modest maid ensemble lift up a couch with one outstretched arm as they sweep the now exposed ground beneath it clean with the other.
+	<<elseif $activeSlave.energy > 95>>
+		Despite mundanity of her current duties, it's clear she's holding back her immense sex drive for the duration of her cleaning.
+		<<if $activeSlave.dick > 0>>
+			<<if canAchieveErection($activeSlave)>>
+				Her cock is painfully erect, poking through her apron.
+			<<else>>
+				Her soft dick is dribbling precum, visibly dripping down her legs.
+			<</if>>
+		<<elseif $activeSlave.vagina == -1>>
+			She's unconsciously presents her bottom, though it remains covered by the length of her apron, as she scrubs the ground clean.
+		<<else>>
+			Her pussy is visibly soaked, ironically staining the once immaculate apron of her uniform as she cleans your office.
+		<</if>>
+	<</if>>
+<</if>>
+Eventually, her duties satisfactorily completed, she comes before your desk to beg your permission to continue her servitude elsewhere in the penthouse.
+
 <<case "young PC age difference">>
 
 As another long weeks draws to a close, <span id="name"><<print "[[$activeSlave.slaveName|Long Slave Description][$nextLink = passage(), $eventDescription = 1]]">></span> happens to walk past your office toward bed. There's nothing inherently abnormal about her actions, but you do notice as she steps past the doorway that an expression of worry and concern adorns her $activeSlave.skin face. When you call her into your office, her face visibly brightens up in an attempt to conceal her obvious distress as she comes before you. Notably, although she stands still and patiently awaits further orders, you notice she <<if canSee($activeSlave)>>never manages to meet your eyes<<else>>keeps her sightless eyes downcast<</if>>.  When you ask her what's troubling her, her face plainly falls.
@@ -204,6 +264,61 @@ She sits back up and rubs her hands down her lower back on either side, sighing 
 <br><br>
 <span id="result">
 <<switch $RESSTRevent>>
+
+<<case "servant maid">>
+
+<<link "Stop her">>
+	<<replace "#name">>$activeSlave.slaveName<</replace>>
+	<<replace "#result">>
+	You look $activeSlave.slaveName up and down slowly before informing her that she has one more duty left to perform.
+	<br><br><span id="result2">
+	<<link "Clean out her ass with an enema and fuck it">>
+		<<replace "#name">>
+		$activeSlave.slaveName
+		<</replace>>
+		<<replace "#result2">>
+		You tell $activeSlave.slaveName that she forgot to clean one thing in her office - herself. As she looks at you in confusion, you rise from your chair and lightly press her chest down on your desk. She lays there obediently, only letting out a gasp as the cold tip of an enema bulb penetrates her ass. As a result of her slave diet and daily anal preparation, the insertion of the enema is little more a bit of roleplaying spectacle. Nonetheless, when you retrieve the enema from her rectum you remark on how clean her butt is. You remark, as you <<if $PC.dick == 0>>don a strap-on and <</if>>, that you'll need to inspect her asshole personally with a vigorous assfucking. Soon $activeSlave.slaveName finds herself being pounded so forcefully that a small pool of drool begins to form beneath her open mouth, staining the surface of your desk that she so meticulously cleaned. She @@.mediumaquamarine;resolves to trust you more in the future,@@ since you took a personal interest in her cleanliness.
+		<<set $activeSlave.analCount += 1>>
+		<<set $analTotal += 1>>
+		<<AnalVCheck>>
+		<<set $activeSlave.trust += 4>>
+			<</replace>>
+	<</link>><<if $activeSlave.anus == 0>> //This option will take her anal virginity//<</if>>
+	<br><<link "Have her lick you clean">>
+		<<replace "#name">>
+		$activeSlave.slaveName
+		<</replace>>
+		<<replace "#result2">>
+			You recline in your chair and inform $activeSlave.slaveName that she has one last thing to clean in your office. She understands your meaning quickly and sinks to her knees and crawls beneath your desk to kneel between your legs. Soon enough you feel the sensation of her lips wrapping obediently about one of your toes, fellating the phallic appendage with some enthusiasm. She works her way through your various digits, taking some solace in the simplicity of her task, before a sudden understanding dawns on her. She runs her tongue up your leg, cleansing your skin with her tongue as best she can, before heading for your
+		<<if $PC.dick == 1>>cock<<if $PC.vagina == 1>> and <</if>><</if>><<if $PC.vagina == 1>>cunt<</if>>
+		but you lay a hand on her forehead and halt her - she'll do that last.
+		<<if $PC.boobs == 1>>
+			Soon enough she manages to lick all the way up from your feet to your breasts, cleansing your body with her wet tongue all the way. She hesitates before teasingly laying a single lap on your nipples, so you take her head and hold it against your breasts to enjoy her skillful tongue on your nipples.
+		<<else>>
+			Soon enough she manages to lick all the way up from your feet to your abs, pecs, and collarbone, cleansing your body with her wet tongue all the way. She lavishes particular attention on every nook and groove of your chiseled body, clearly eager to please her muscular <<Master>>.
+		<</if>>
+		When she's satisfied that every other inch of your body has been bathed by her tongue, she moves for your
+		<<if $PC.dick == 0>>
+			cunt, and laps at you enthusiastically
+		<<else>>
+			cock, and subserviently runs her tongue all over its surface<<if $PC.vagina == 1>> before turning her attentions to lavish the same wet service to your pussy<</if>>
+		<</if>>
+		This extravagant display of her subservience leaves her more sure of her @@.hotpink;submission@@ to you than before.
+		<<set $activeSlave.oralCount += 1>>
+		<<set $oralTotal += 1>>
+		<<set $activeSlave.devotion += 4>>
+			<</replace>>
+	<</link>>
+	</span>
+	<</replace>>
+<</link>>
+<br><<link "Let her go">>
+	<<replace "#name">>$activeSlave.slaveName<</replace>>
+	<<replace "#result">>
+	You grant her your assent to leave, and she hurries off to go on with her day. Her @@.mediumaquamarine;trust@@ for your grows as a result of allowing her to go about her duties unmolested.
+	<<set $activeSlave.trust += 2>>
+	<</replace>>
+<</link>>
 
 <<case "young PC age difference">>
 
