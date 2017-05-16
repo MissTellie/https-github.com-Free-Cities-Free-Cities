@@ -31,11 +31,11 @@
 The stress of confinement @@.red;damages $possessive health@@.
 <<set $slaves[$i].health -= 10>>
 
-<<if ($slaves[_i].sentence == 0) && (($slaves[_i].devotion > 20) || (($slaves[_i].devotion >= -20) && ($slaves[_i].trust < -20)) || (($slaves[_i].devotion >= -50) && ($slaves[_i].trust < -50)))>>
+<<if ($slaves[$i].sentence == 0) && (($slaves[$i].devotion > 20) || (($slaves[$i].devotion >= -20) && ($slaves[$i].trust < -20)) || (($slaves[$i].devotion >= -50) && ($slaves[$i].trust < -50)))>>
 	$pronounCap is now willing to @@.hotpink;do as $pronoun's told@@, so @@.yellow;$possessive assignment has defaulted to rest.@@
-	<<if $slaves[_i].assignment == "be confined in the cellblock">>
+	<<if $slaves[$i].assignment == "be confined in the cellblock">>
 		<<set _brokenSlaves++, _DL--, _dI-->>
 	<</if>>
-	<<removeJob $slaves[_i] $slaves[_i].assignment>>
+	<<removeJob $slaves[$i] $slaves[$i].assignment>>
 <</if>>
 
