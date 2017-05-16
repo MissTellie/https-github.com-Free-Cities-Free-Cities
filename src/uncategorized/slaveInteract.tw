@@ -129,28 +129,28 @@
 		<</if>>
 	<</if>>
 	<<if ($activeSlave.relationship > 0)>>
-		<<for $i = 0; $i < _SL; $i++>>
-		<<if $slaves[$i].ID == $activeSlave.relationshipTarget>>
-			<<set $assayedSlave = $slaves[$i]>>
+		<<for _i = 0; _i < _SL; _i++>>
+			<<if $slaves[_i].ID == $activeSlave.relationshipTarget>>
+				<<set $assayedSlave = $slaves[_i]>>
 			<<AssayedSlaveAvailable>>
 		<</if>>
 		<</for>>
 		<<if $assayedSlaveAvailable == 1>>
-			<<if ($activeSlave.relationship <= 1)>>
+			<<if ($activeSlave.relationship == 1)>>
 			| <<link "Fuck her with her friend">><<replace "#miniscene">><<set $partner = "relationship">><<include "FRelation">><br>&nbsp;&nbsp;&nbsp;&nbsp;<</replace>><</link>>
-			<<elseif ($activeSlave.relationship <= 2)>>
+			<<elseif ($activeSlave.relationship == 2)>>
 			| <<link "Fuck her with her best friend">><<replace "#miniscene">><<set $partner = "relationship">><<include "FRelation">><br>&nbsp;&nbsp;&nbsp;&nbsp;<</replace>><</link>>
-			<<elseif ($activeSlave.relationship <= 3)>>
+			<<elseif ($activeSlave.relationship == 3)>>
 			| <<link "Fuck her with her FWB">><<replace "#miniscene">><<set $partner = "relationship">><<include "FRelation">><br>&nbsp;&nbsp;&nbsp;&nbsp;<</replace>><</link>>
-			<<elseif ($activeSlave.relationship <= 4)>>
+			<<elseif ($activeSlave.relationship == 4)>>
 			| <<link "Fuck her with her lover">><<replace "#miniscene">><<set $partner = "relationship">><<include "FRelation">><br>&nbsp;&nbsp;&nbsp;&nbsp;<</replace>><</link>>
 			<<else>>
 			| <<link "Fuck her with her slave wife">><<replace "#miniscene">><<set $partner = "relationship">><<include "FRelation">><br>&nbsp;&nbsp;&nbsp;&nbsp;<</replace>><</link>>
 			<</if>>
 		<<else>>
 			| //$assayedSlave.slaveName is unavailable//
-			<<if $activeSlave.assignmentVisible == 1 && $assayedSlave.assignment == "be your agent">>
-				[[Send her to live with your agent|Agent Company]]
+			<<if $assayedSlave.assignment == "be your agent">>
+				[[Send her to live with your agent|Agent Company][$subSlave = $assayedSlave]]
 			<</if>>
 		<</if>>
 	<</if>>

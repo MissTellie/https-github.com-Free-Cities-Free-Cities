@@ -324,14 +324,7 @@ The level of sexual energy in the suite is
 <<if $verboseDescriptions == 1>>
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;She <<include "SA please you">>
 	<br>&nbsp;&nbsp;&nbsp;
-	<<if $slaves[_i].choosesOwnClothes == 1>>
 	<<include "SA chooses own clothes">>
-	<<if ($slaves[_i].devotion <= 20)>>
-		<<set $slaves[_i].devotion -= 5>>
-	<<else>>
-		<<set $slaves[_i].devotion++>>
-	<</if>>
-	<</if>>
 	<<include "SA diet">>
 	<<include "SA long term effects">>
 	<<include "SA drugs">>
@@ -341,14 +334,7 @@ The level of sexual energy in the suite is
 <<else>>
 	<<silently>>
 	<<include "SA please you">>
-	<<if $slaves[_i].choosesOwnClothes == 1>>
 	<<include "SA chooses own clothes">>
-	<<if ($slaves[_i].devotion <= 20)>>
-		<<set $slaves[_i].devotion -= 5>>
-	<<else>>
-		<<set $slaves[_i].devotion++>>
-	<</if>>
-	<</if>>
 	<<include "SA diet">>
 	<<include "SA long term effects">>
 	<<include "SA drugs">>

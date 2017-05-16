@@ -7,7 +7,8 @@
 	was assigned to $slaves[$i].assignment and
 <</if>>
 
-	is allowed to choose $possessive assignment this week. The $desc
+	is allowed to select $possessive own job this week. $pronounCap watches your other slaves to decide what to do, @@.hotpink;happy@@ to be permitted a choice and a little more @@.mediumaquamarine;confident@@ than if you had just given $object orders. The $desc
+	<<set $slaves[$i].devotion++, $slaves[$i].trust++>>
 
 <<if ($slaves[$i].devotion <= 20) && ($slaves[$i].trust >= -20)>>
 	decides to rest, taking advantage of your permission to @@.mediumorchid;remain indolent.@@
@@ -23,7 +24,7 @@
 		<<removeJob $slaves[$i] $slaves[$i].assignment>>
 	<</if>>
 
-<<elseif ($universalRulesAssignsSelfFacility == 1 && ($Attendant != 0) && ($slaves[$i].devotion < 45) || ($slaves[$i].trust < 45)) && (($slaves[$i].sexualFlaw != "none") || ($slaves[$i].behavioralFlaw != "none"))>>
+<<elseif (($slaves[$i].devotion < 45) || ($slaves[$i].trust < 45)) && (($slaves[$i].sexualFlaw != "none") || ($slaves[$i].behavioralFlaw != "none")) && ($Attendant != 0) && $universalRulesAssignsSelfFacility == 1>>
 	could use some counseling, so $pronoun decides to visit $spaName.
 	<<assignJob $slaves[$i] "rest in the spa">>
 
