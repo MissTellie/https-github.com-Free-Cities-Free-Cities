@@ -14,9 +14,6 @@
 <</for>>
 <</if>>
 
-<<if $gingering != 0>>
-	<<set $activeSlave = $beforeGingering>>
-<</if>>
 
 <<set $activeSlave.oldDevotion = $activeSlave.devotion>>
 <<set $activeSlave.oldTrust = $activeSlave.trust>>
@@ -334,36 +331,38 @@ The legalities completed, ''__@@.pink;$activeSlave.slaveName@@__'' <<if ($active
 <<set $activeSlave.devotion += 4>>
 <</if>>
 
-<<set $seed = "sale">>
-<<if $gingeringDetected == 1>>
-	<<if $gingeringDetection == "slaver">>
-	<<set $seed = "sale, as your slaving experience revealed">>
-	<<elseif $gingeringDetection == "mercenary">>
-	<<set $seed = "sale, as the seller admitted in the face of your intimidating reputation">>
-	<<elseif $gingeringDetection == "force">>
-	<<set $seed = "sale, as the seller admitted in the face of your deadly reputation">>
-	<<else>>
-	<<set $seed = "sale, as you suspected">>
-	<</if>>
-<</if>>
 <<if $gingering != 0>>
+	<<set _seed = "sale">>
+	<<if $gingeringDetected == 1>>
+		<<if $gingeringDetection == "slaver">>
+			<<set _seed = "sale, as your slaving experience revealed">>
+		<<elseif $gingeringDetection == "mercenary">>
+			<<set _seed = "sale, as the seller admitted in the face of your intimidating reputation">>
+		<<elseif $gingeringDetection == "force">>
+			<<set _seed = "sale, as the seller admitted in the face of your deadly reputation">>
+		<<else>>
+			<<set _seed = "sale, as you suspected">>
+		<</if>>
+	<</if>>
+
 	<<if $gingering == "antidepressant">>
-	Her intake toxicology reveals that she was<<if $gingeringDetected == 1>> indeed<</if>> given antidepressants to make her seem less fearful for $seed. She is much less trusting than she appeared in the market.
+	Her intake toxicology reveals that she was<<if $gingeringDetected == 1>> indeed<</if>> given antidepressants to make her seem less fearful for _seed. She is much less trusting than she appeared in the market.
 	<<elseif $gingering == "depressant">>
-	Her intake toxicology reveals that she was<<if $gingeringDetected == 1>> indeed<</if>> given a depressant to make her seem less hateful for $seed. She is much less obedient than she appeared in the market.
+	Her intake toxicology reveals that she was<<if $gingeringDetected == 1>> indeed<</if>> given a depressant to make her seem less hateful for _seed. She is much less obedient than she appeared in the market.
 	<<elseif $gingering == "stimulant">>
-	Her intake toxicology reveals that she was<<if $gingeringDetected == 1>> indeed<</if>> given a stimulant to make her seem healthier for $seed. She is much less vital than she appeared in the market.
+	Her intake toxicology reveals that she was<<if $gingeringDetected == 1>> indeed<</if>> given a stimulant to make her seem healthier for _seed. She is much less vital than she appeared in the market.
 	<<elseif $gingering == "vasoconstrictor">>
-	Her intake toxicology reveals that she was<<if $gingeringDetected == 1>> indeed<</if>> given a vasoconstrictor to make her cock seem more feminine for $seed. It's larger and more apt to become hard than it appeared in the market.
-	<<elseif $gingering == "vasodiolator">>
-	Her intake toxicology reveals that she was<<if $gingeringDetected == 1>> indeed<</if>> given a vasodiolator to give her an excessive erection for $seed. Her dick is somewhat smaller than appeared in the market, and she's not really hard all the time.
+	Her intake toxicology reveals that she was<<if $gingeringDetected == 1>> indeed<</if>> given a vasoconstrictor to make her cock seem more feminine for _seed. It's larger and more apt to become hard than it appeared in the market.
+	<<elseif $gingering == "vasodilator">>
+	Her intake toxicology reveals that she was<<if $gingeringDetected == 1>> indeed<</if>> given a vasodilator to give her an excessive erection for _seed. Her dick is somewhat smaller than appeared in the market, and she's not really hard all the time.
 	<<elseif $gingering == "aphrodisiac">>
-	Her intake toxicology reveals that she was<<if $gingeringDetected == 1>> indeed<</if>> given aphrodisiacs to make her horny and attracted to everyone for $seed. Her true sex drive and sexuality remain to be discovered.
+	Her intake toxicology reveals that she was<<if $gingeringDetected == 1>> indeed<</if>> given aphrodisiacs to make her horny and attracted to everyone for _seed. Her true sex drive and sexuality remain to be discovered.
 	<<else>>
-	A close inspection of her anus reveals that she was<<if $gingeringDetected == 1>> indeed<</if>> doctored with an irritant to make her present her butt when shown for $seed. She is not an actual anal sex enthusiast.
+	A close inspection of her anus reveals that she was<<if $gingeringDetected == 1>> indeed<</if>> doctored with an irritant to make her present her butt when shown for _seed. She is not an actual anal sex enthusiast.
 	<</if>>
 <</if>>
-<<set $gingering = 0>>
+
+<<RemoveGingering>> /* retrieve original $activeSlave without gingering effects */
 
 <<if $rulesAssistantAuto == 0>>
 	<br>
@@ -914,7 +913,7 @@ The legalities completed, ''__@@.pink;$activeSlave.slaveName@@__'' <<if ($active
 <<set $activeSlave.trust += 4>>
 <<set _num = random(1,100)>>
 <<replace "#introResult">>
-	She seems reasonably obedient, so you give her a chance to impress. You remain seated and offer her your <<if $PC.dick == 1>>half-erect cock<<if $PC.vagina == 1>> and ready pussy<</if>><<else>>pussy, wet with arousal at the prospect of breaking in a new slut<</if>>. She comes over obediently and gets on her knees. She works hard and is clearly doing her absolute best to please, so you let her finish you with her mouth. <<if $PC.dick == 1>><<if _num > 20>>She looks up at you as she swallows<<elseif _num > 40>>She even swallows your cum without being told<<elseif _num > 60>>She smiles sloppily as your seed slowly dribbles from her mouth and down her chin<<elseif _num > 80>>She struggles to contain your seed and makes a mess all over her face as a introResult<<else>>She struggles to contain your seed with her mouth and it splatters over the floor as a introResult<</if>><<else>>She worked her tongue hard and did her best<</if>>. You spend the rest of the day with her kneeling on a cushion next to your chair. She learns obedience, but also learns that you are @@.mediumaquamarine;fair@@ and @@.hotpink;reasonable.@@
+	She seems reasonably obedient, so you give her a chance to impress. You remain seated and offer her your <<if $PC.dick == 1>>half-erect cock<<if $PC.vagina == 1>> and ready pussy<</if>><<else>>pussy, wet with arousal at the prospect of breaking in a new slut<</if>>. She comes over obediently and gets on her knees. She works hard and is clearly doing her absolute best to please, so you let her finish you with her mouth. <<if $PC.dick == 1>><<if _num > 20>>She looks up at you as she swallows<<elseif _num > 40>>She even swallows your cum without being told<<elseif _num > 60>>She smiles sloppily as your seed slowly dribbles from her mouth and down her chin<<elseif _num > 80>>She struggles to contain your seed and makes a mess all over her face as a result<<else>>She struggles to contain your seed with her mouth and it splatters over the floor as a result<</if>><<else>>She worked her tongue hard and did her best<</if>>. You spend the rest of the day with her kneeling on a cushion next to your chair. She learns obedience, but also learns that you are @@.mediumaquamarine;fair@@ and @@.hotpink;reasonable.@@
 <</replace>>
 <</link>>
 <</if>>
@@ -1224,3 +1223,4 @@ You <<if $activeSlave.devotion > 20>>bring her down to the studio, lay the compl
 <</if>>
 
 </span>
+

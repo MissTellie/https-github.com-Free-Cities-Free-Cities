@@ -71,7 +71,7 @@
 		<<set _milkmaidImpregnated = 0>>
 		<<for _dI = 0; _dI < _DL; _dI++>>
 			<<set _i = $DairyiIDs[_dI].Index>>
-		<<if (canImpreg($slaves[_i], $Milkmaid))>>
+			<<if (canImpreg($slaves[_i], $Milkmaid))>>
 				<<set $slaves[_i].preg = 1, $slaves[_i].pregSource = $Milkmaid.ID, _milkmaidImpregnated++, $slaves[_i].vaginalCount += 10, $vaginalTotal += 10>>
 			<</if>>
 		<</for>>

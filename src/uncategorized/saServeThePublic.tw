@@ -60,9 +60,10 @@ the public.
 	<<set $beautyMultiplier = (1+($arcologies[0].FSEdoRevivalist/($FSLockinLevel*3)))>>
 <</if>>
 <<if $club > 0>>
-	<<if (($universalRulesFacilityWork == 1) && ($slaves[$i].assignment == "serve the public") && ($club > $clubSlaves)) || ($slaves[$i].assignment == "serve in the club")>>
+	<<if (($universalRulesFacilityWork == 1) && ($slaves[$i].assignment == "serve the public") && ($clubSpots > 0)) || ($slaves[$i].assignment == "serve in the club")>>
 	<<if ($slaves[$i].assignment == "serve the public")>>
 		Since there's extra space in $clubName, she's promiscuous there.
+		<<set $clubSpots -= 1>>
 	<</if>>
 	<<if $clubAdsSpending != 0>>
 		<<if $clubAdsStacked == 1>>

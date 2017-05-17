@@ -194,7 +194,7 @@ On formal occasions, you are announced as $PCTitle.
 	<</if>>
 <<elseif $arcologies[0].FSAztecRevivalist != "unset">>
 	<<if $PC.age >= 2>>
-		Society @@.green;approves@@ of your advancing age, which advances the ancient Aztec ideal an experienced leader to the people.
+		Society @@.green;approves@@ of your advancing age, which advances the ancient Aztec ideal of an experienced leader of the people.
 		<<FSChange "AztecRevivalist" 1>>
 	<</if>>
 	<<if $HeadGirl == 0>>
@@ -205,10 +205,10 @@ On formal occasions, you are announced as $PCTitle.
 		<<FSChange "AztecRevivalist" 2>>
 	<</if>>
 	<<if $PC.warfare < 50>>
-		Society @@.red;disapproves@@ of you not being properly trained in the art of combat.
+		Society @@.red;disapproves@@ of you not being properly trained in the arts of war.
 		<<FSChange "AztecRevivalist" -2>>
 	<<else>>
-		Society @@.green;approves@@ of having a leader, than can defend themselves properly in a life threatening situation.
+		Society @@.green;approves@@ of having a leader that is trained in the arts of war.
 		<<FSChange "AztecRevivalist" 2>>
 	<</if>>
 	<<if $language != "Nahuatl">>
@@ -231,7 +231,8 @@ On formal occasions, you are announced as $PCTitle.
 		<<FSChange "EdoRevivalist" -2>>
 	<<else>>
 		Society @@.green;approves@@ of your provision for cultural development by offering public servants and club slaves in a number that befits your reputation.
-		<<FSChange "EdoRevivalist" 2*_threshold>>
+		<<set _EdoPS = 2*_threshold>>
+		<<FSChange "EdoRevivalist" _EdoPS>>
 	<</if>>
 	<<if $language != "Japanese">>
 		Continuing to use $language as the lingua franca of $arcologies[0].name rather than pure Japanese @@.red;disappoints@@ society and causes doubt about your revivalist project.

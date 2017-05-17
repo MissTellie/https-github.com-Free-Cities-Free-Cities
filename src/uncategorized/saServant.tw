@@ -5,9 +5,10 @@
 works as a servant. $pronounCap performs the lowest jobs in your penthouse, cleaning up after your other slaves, bathing them, helping them dress, and giving them sexual relief.
 
 <<if $servantsQuarters > 0>>
-	<<if (($universalRulesFacilityWork == 1) && ($slaves[$i].assignment == "be a servant") && ($servantsQuarters > $servantsQuartersSlaves)) || ($slaves[$i].assignment == "work as a servant")>>
+	<<if (($universalRulesFacilityWork == 1) && ($slaves[$i].assignment == "be a servant") && ($servantsQuartersSpots > 0)) || ($slaves[$i].assignment == "work as a servant")>>
 	<<if ($slaves[$i].assignment == "be a servant")>>
 		Since there's extra space in the servants' quarters, $assistantName attaches $object to the cadre of maids there.
+		<<set $servantsQuartersSpots -= 1>>
 	<</if>>
 	<<if ($Stewardess != 0)>>
 		This brings $object under $Stewardess.slaveName's supervision. The Stewardess <<if $slaves[$i].devotion < -20>>subjects $object to corrective rape when $possessive service is imperfect, or when the Stewardess feels like raping $object, forcing the poor slave to @@.yellowgreen;find refuge in work.@@<<elseif $slaves[$i].devotion <= 20>>molests $object, encouraging the poor slave to keep $possessive head down and @@.yellowgreen;work harder.@@<<else>>uses sex as a reward, getting $object off when $pronoun @@.yellowgreen;works harder.@@<</if>>

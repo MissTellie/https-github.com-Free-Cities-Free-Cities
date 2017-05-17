@@ -864,7 +864,7 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <<if $arcologies[0].FSAssetExpansionist != "unset">>
 <<if $arcologies[0].FSAssetExpansionist < 0>>
 	<<set $arcologies[0].FSAssetExpansionist = "unset">><<set $FSCredits += 1>>
-	<<set $arcologies[0].FSAssetExpansionistSMR = 0, $arcologies[0].FSAssetExpansionistSMR = 0>>
+	<<set $arcologies[0].FSAssetExpansionistSMR = 0, $arcologies[0].FSAssetExpansionistLaw = 0>>
 	<<if $assistantFSAppearance == "asset expansionist">><<set $assistantFSAppearance = "default">><</if>>
 	<<ClearFacilityDecorations>>
 	@@.red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@.yellow;You may select another option, or elect to try again.@@
@@ -924,7 +924,7 @@ With her $assistantAppearance appearance, $assistantName's public visibility mes
 <<if $arcologies[0].FSPhysicalIdealist != "unset">>
 <<if $arcologies[0].FSPhysicalIdealist < 0>>
 	<<set $arcologies[0].FSPhysicalIdealist = "unset">><<set $FSCredits += 1>>
-	<<set $arcologies[0].FSPhysicalIdealistSMR = 0, $arcologies[0].FSPhysicalIdealistSMR = 0>>
+	<<set $arcologies[0].FSPhysicalIdealistSMR = 0, $arcologies[0].FSPhysicalIdealistLaw = 0>>
 	<<if $assistantFSAppearance == "physical idealist">><<set $assistantFSAppearance = "default">><</if>>
 	<<ClearFacilityDecorations>>
 	@@.red;One of your future society projects has failed:@@ your citizens were repelled from your idea more than they were attracted to it. @@.yellow;You may select another option, or elect to try again.@@
