@@ -51,9 +51,10 @@ her body.
 
 <<set $beautyMultiplier = 1>>
 <<if $brothel > 0>>
-	<<if (($universalRulesFacilityWork == 1) && ($slaves[$i].assignment == "whore") && ($brothel > $brothelSlaves)) || ($slaves[$i].assignment == "work in the brothel")>>
+	<<if (($universalRulesFacilityWork == 1) && ($slaves[$i].assignment == "whore") && ($brothelSpots > 0)) || ($slaves[$i].assignment == "work in the brothel")>>
 	<<if ($slaves[$i].assignment == "whore")>>
 		Since there's extra space in $brothelName, she sells herself there.
+		<<set $brothelSpots -= 1>>
 	<</if>>
 	<<if $brothelAdsSpending != 0>>
 		<<if $brothelAdsStacked == 1>>
