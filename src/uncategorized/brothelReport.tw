@@ -221,7 +221,12 @@
 			</div>
 			<</if>>
 			/* 000-250-006 */
-			''__@@.pink;$slaves[$i].slaveName@@__'' is working out of $brothelName.
+			''__@@.pink;$slaves[$i].slaveName@@__''
+			<<if $slaves[$i].choosesOwnAssignment == 2>>
+				<<include "SA chooses own job">>
+			<<else>>
+				is working out of $brothelName.
+			<</if>>
 			<br>&nbsp;&nbsp;&nbsp;&nbsp;She <<include "SA whore">>
 			<br>&nbsp;&nbsp;&nbsp;
 			<<include "SA chooses own clothes">>
@@ -233,6 +238,7 @@
 			<br><<include "SA devotion">>
 		<<else>>
 			<<silently>>
+			<<include "SA chooses own job">>
 			<<include "SA whore">>
 			<<include "SA chooses own clothes">>
 			<<include "SA diet">>
