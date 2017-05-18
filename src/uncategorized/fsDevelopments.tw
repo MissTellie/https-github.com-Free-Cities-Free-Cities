@@ -183,8 +183,9 @@
 <<if $sectors[_i].type != "Brothel">>
 <<if $sectors[_i].type != "Club">>
 	The $sectors[_i].type establishments on the Promenade help develop society.
-	<<FSChange $sectors[_i].type.replace(" ","") 4>>
-	<<break>>
+	<<set _changed_fs = $sectors[_i].type.replace(" ","")>>
+	<<FSChange _changed_fs 4>>
+	<<continue>>
 <</if>>
 <</if>>
 <</if>>
