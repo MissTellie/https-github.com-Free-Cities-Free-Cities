@@ -21,7 +21,7 @@ GREP="git grep -n --color"
 $GREP "<</[^>]*>[^>]" -- 'src/*'  | myprint "MissingClosingAngleBracket"
 $GREP "<<[^>()]*>[^()<>"$'\r]*\r'"\?$" -- 'src/*' | myprint "MissingClosingAngleBracket"
 # Check for missing left angle bracket: </if>>
-$GREP "\([^<]\|^\)</\?\(if\|else\|case\)" -- 'src/*' | myprint "MissingOpeningAngleBracket2"
+$GREP "\([^<]\|^\)</\?\(if\|else\|case\|set\|print\|elseif\)" -- 'src/*' | myprint "MissingOpeningAngleBracket2"
 # Check for accidental assignment.  e.g.:   <<if $foo = "hello">>
 $GREP "<<[ ]*if[^>=]*[^><\!=]=[^=][^>]*>>" -- 'src/*' | myprint "AccidentalAssignmentInIf"
 # Check for missing ".  e.g.:   <<if $foo = "hello>>
