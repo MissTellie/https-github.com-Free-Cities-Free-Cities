@@ -214,7 +214,7 @@
 	<</if>>
 <</if>>
 
-<<if ($slaves[$i].vagina > 0) && isFertile($slaves[$i]) && ($HeadGirl.fetishKnown == 1) && ($HeadGirl.fetish == "pregnancy") && (canPenetrate($HeadGirl))>>
+<<if ($HeadGirl.fetishKnown == 1) && ($HeadGirl.fetish == "pregnancy") && canImpreg($slaves[$i], $HeadGirl)>>
 	$HeadGirl.slaveName promptly @@.lime;impregnates@@ $slaves[$i].slaveName, to your Head Girl's considerable @@.hotpink;satisfaction.@@
 	<<set $slaves[$i].preg = 1>>
 	<<if ($slaves[$i].drugs == "fertility drugs")>>
@@ -643,27 +643,19 @@
 
 <<if $showEWD == 0>>
 	<<silently>>
-	<<if $slaves[$i].choosesOwnClothes == 1>>
 	<<include "SA chooses own clothes">>
-	<<if ($slaves[$i].devotion <= 20)>>
-		<<set $slaves[$i].devotion -= 5>>
-	<<else>>
-		<<set $slaves[$i].devotion++>>
-	<</if>>
-	<</if>>
+	<<include "SA diet">>
+	<<include "SA long term effects">>
+	<<include "SA drugs">>
 	<<include "SA relationships">>
 	<<include "SA rivalries">>
 	<<include "SA devotion">>
 	<</silently>>
 <<else>>
-	<<if $slaves[$i].choosesOwnClothes == 1>>
 	<<include "SA chooses own clothes">>
-	<<if ($slaves[$i].devotion <= 20)>>
-		<<set $slaves[$i].devotion -= 5>>
-	<<else>>
-		<<set $slaves[$i].devotion++>>
-	<</if>>
-	<</if>>
+	<<include "SA diet">>
+	<<include "SA long term effects">>
+	<<include "SA drugs">>
 	<<include "SA relationships">>
 	<<include "SA rivalries">>
 	<br><<include "SA devotion">>

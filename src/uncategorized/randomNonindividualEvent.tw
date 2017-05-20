@@ -744,6 +744,10 @@
 		<<set $FSAcquisitionEvents.push("Roman Revivalist")>>
 		<<set $events.push("RE FS acquisition")>>
 	<</if>>
+	<<if $arcologies[0].FSAztecRevivalist > random(1,100)>>
+		<<set $FSAcquisitionEvents.push("Aztec Revivalist")>>
+		<<set $events.push("RE FS acquisition")>>
+	<</if>>
 	<<if $arcologies[0].FSEdoRevivalist > random(1,100)>>
 		<<set $FSAcquisitionEvents.push("Edo Revivalist")>>
 		<<set $events.push("RE FS acquisition")>>
@@ -822,6 +826,10 @@
 	<</if>><</if>>
 	<<if $arcologies[0].FSRomanRevivalist < 95>><<if $arcologies[0].FSRomanRevivalist > 50>>
 		<<set $FSNonconformistEvents.push("Roman Revivalist")>>
+		<<set $events.push("RE FS nonconformist")>>
+	<</if>><</if>>
+	<<if $arcologies[0].FSAztecRevivalist < 95>><<if $arcologies[0].FSAztecRevivalist > 50>>
+		<<set $FSNonconformistEvents.push("Aztec Revivalist")>>
 		<<set $events.push("RE FS nonconformist")>>
 	<</if>><</if>>
 	<<if $arcologies[0].FSEdoRevivalist < 95>><<if $arcologies[0].FSEdoRevivalist > 50>>

@@ -344,6 +344,24 @@ its neighbors.
 	<</if>>
 	<<set $seed.push($desc)>>
 <</if>>
+<<if $arcologies[$i].FSAztecRevivalist != "unset">>
+	<<if $arcologies[$i].FSAztecRevivalist > 80>>
+	<<set $desc = "committed to ">>
+	<<elseif $arcologies[$i].FSAztecRevivalist > 20>>
+	<<set $desc = "pursuing ">>
+	<<else>>
+	<<set $desc = "just establishing ">>
+	<</if>>
+	<<set $desc = $desc + "Aztec Revivalism, and is ">>
+	<<if $arcologies[$i].FSAztecRevivalist > 95>>
+	<<set $desc = $desc + "world famous for its incredible architecture and highly qualified leading caste and military.">>
+	<<elseif $arcologies[$i].FSAztecRevivalist > 40>>
+	<<set $desc = $desc + "busily constructing great pyramids and statues with commensurate costs.">>
+	<<else>>
+	<<set $desc = $desc + "struggling to embrace the amount of blood sacrifice and prayer involved.">>
+	<</if>>
+	<<set $seed.push($desc)>>
+<</if>>
 <<if $arcologies[$i].FSEgyptianRevivalist != "unset">>
 	<<if $arcologies[$i].FSEgyptianRevivalist > 80>>
 	<<set $desc = "committed to ">>

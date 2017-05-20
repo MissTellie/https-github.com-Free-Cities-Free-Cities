@@ -56,7 +56,7 @@
 	<<if ($researchLab.built == "true")>>
 		<br>__Research Lab__ maintenance: ¤<<print (100*$researchLab.maxSpace)>>
 		<<if $researchLab.hired != 0>>&nbsp;__Scientists__: ¤<<print (300*$researchLab.hired)>><</if>>
-		<<if $researchLab.menials != 0>>&nbsp;__Menial slaves__: ¤<<print (100*$researchLab.hired)>><</if>>
+		<<if $researchLab.menials != 0>>&nbsp;__Menial slaves__: ¤<<print (100*$researchLab.menials)>><</if>>
 	<</if>>
 <</if>>
 <<if $FSSpending != 0>>
@@ -242,7 +242,8 @@
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;Standard drugs: ¤<<print ($drugsCost*2)>>
 		<<set $individualCosts += ($drugsCost*2)>>
 	<</if>>
-	<<if ($slaves[$i].curatives > 0)>>
+	<<if $slaves[$i].curatives == 1 && $slaves[$i].assignmentVisible != 1>>
+	<<elseif $slaves[$i].curatives > 0>>
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;Health drugs: ¤<<print $drugsCost+($slaves[$i].curatives*$drugsCost)>>
 		<<set $individualCosts += $drugsCost+($slaves[$i].curatives*$drugsCost)>>
 	<</if>>

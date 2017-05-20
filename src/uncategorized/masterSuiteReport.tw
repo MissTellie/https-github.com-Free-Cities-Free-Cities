@@ -121,8 +121,13 @@ The level of sexual energy in the suite is
 	<</if>>
 	/* 000-250-006 */
 <<if ($slaves[_i].assignment != "be your Concubine")>>
-	<<if $verboseDescriptions == 1>>''__@@.pink;$slaves[_i].slaveName@@__'' sees to your pleasure in the master suite.<</if>>
-
+	<<if $verboseDescriptions == 1>>
+	''__@@.pink;$slaves[_i].slaveName@@__''
+	<<if $slaves[$i].choosesOwnAssignment == 2>>
+		<<include "SA chooses own job">>
+	<<else>>
+		sees to your pleasure in $masterSuiteName.
+	<</if>>
 	/* Perform facility based rule changes */
 	<<if ($masterSuiteUpgradeLuxury == 1)>>
 	<<set $slaves[_i].livingRules = "luxurious">>
@@ -234,7 +239,7 @@ The level of sexual energy in the suite is
 			@@.lightcoral;sinks farther into pregnancy obsession,@@ since she never wants for a pregnant girl to make love to.
 			<<set $slaves[_i].fetishStrength += 4>>
 		<<else>>
-			@@.lightcoral;acquires an pregnancy fetish,@@ since many of her sexual partners in the fuckpit are heavily pregnant.
+			@@.lightcoral;acquires a pregnancy fetish,@@ since many of her sexual partners in the fuckpit are heavily pregnant.
 			<<set $slaves[_i].fetish = "pregnancy", $slaves[_i].fetishStrength = 65>>
 		<</if>>
 	<<elseif (_masterSuiteAverageDom < 50) && ($fetishChangeChance > random(0,50))>>
@@ -324,14 +329,7 @@ The level of sexual energy in the suite is
 <<if $verboseDescriptions == 1>>
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;She <<include "SA please you">>
 	<br>&nbsp;&nbsp;&nbsp;
-	<<if $slaves[_i].choosesOwnClothes == 1>>
 	<<include "SA chooses own clothes">>
-	<<if ($slaves[_i].devotion <= 20)>>
-		<<set $slaves[_i].devotion -= 5>>
-	<<else>>
-		<<set $slaves[_i].devotion++>>
-	<</if>>
-	<</if>>
 	<<include "SA diet">>
 	<<include "SA long term effects">>
 	<<include "SA drugs">>
@@ -340,15 +338,9 @@ The level of sexual energy in the suite is
 	<br><<include "SA devotion">>
 <<else>>
 	<<silently>>
+	<<include "SA chooses own job">>
 	<<include "SA please you">>
-	<<if $slaves[_i].choosesOwnClothes == 1>>
 	<<include "SA chooses own clothes">>
-	<<if ($slaves[_i].devotion <= 20)>>
-		<<set $slaves[_i].devotion -= 5>>
-	<<else>>
-		<<set $slaves[_i].devotion++>>
-	<</if>>
-	<</if>>
 	<<include "SA diet">>
 	<<include "SA long term effects">>
 	<<include "SA drugs">>

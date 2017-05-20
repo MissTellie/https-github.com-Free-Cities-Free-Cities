@@ -10,7 +10,7 @@ This is a space in the arcology's service areas,
 	designed for labor intensive manufacturing by menial slaves.
 <<default>>ERROR: bad sector type
 <</switch>>
-<<SectorSell>>
+<<if $sectors[$AS].type == "Manufacturing">><<SectorSell>><</if>>
 <br>
 
 <<if $sectors[$AS].type == "Sweatshops">>

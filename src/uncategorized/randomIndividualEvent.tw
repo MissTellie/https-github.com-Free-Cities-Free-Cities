@@ -595,6 +595,34 @@
 <</if>>
 <</if>>
 
+<<if ($eventSlave.devotion > 20)>>
+<<if ($eventSlave.trust > 20)>>
+<<if ($eventSlave.age > 35)>>
+<<if ($eventSlave.anus > 0)>>
+<<if ($eventSlave.vagina > 0)>>
+<<if ($PC.age == 1)>>
+	<<set $RESSTRevent.push("young PC age difference")>>
+<</if>>
+<</if>>
+<</if>>
+<</if>>
+<</if>>
+<</if>>
+
+<<if ($eventSlave.devotion > 20)>>
+<<if ($eventSlave.trust > 20)>>
+<<if ($eventSlave.age < 22)>>
+<<if ($eventSlave.anus > 0)>>
+<<if ($eventSlave.vagina > 0)>>
+<<if ($PC.age == 3)>>
+	<<set $RESSTRevent.push("old PC age difference")>>
+<</if>>
+<</if>>
+<</if>>
+<</if>>
+<</if>>
+<</if>>
+
 <<if ($eventSlave.fetish == "humiliation") || ($eventSlave.energy > 95)>>
 <<if ($eventSlave.devotion <= 50)>>
 <<if ($eventSlave.devotion >= -20)>>
@@ -1404,6 +1432,14 @@
 <<if ($eventSlave.devotion <= 50)>>
 <<if ($eventSlave.assignment == "be a servant")>>
 	<<set $RESSevent.push("scrubbing")>>
+<</if>>
+<</if>>
+
+<<if ($eventSlave.devotion <= 20)>>
+<<if ($eventSlave.assignment == "work as a servant") || ($eventSlave.assignment == "be a servant")>>
+<<if ($eventSlave.clothes == "a slutty maid outfit") || ($eventSlave.clothes == "a nice maid outfit")>>
+	<<set $RESSTRevent.push("servant maid")>>
+<</if>>
 <</if>>
 <</if>>
 

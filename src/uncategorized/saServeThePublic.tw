@@ -63,6 +63,7 @@ the public.
 	<<if (($universalRulesFacilityWork == 1) && ($slaves[$i].assignment == "serve the public") && ($clubSpots > 0)) || ($slaves[$i].assignment == "serve in the club")>>
 	<<if ($slaves[$i].assignment == "serve the public")>>
 		Since there's extra space in $clubName, she's promiscuous there.
+		<<set $clubSpots -= 1>>
 	<</if>>
 	<<if $clubAdsSpending != 0>>
 		<<if $clubAdsStacked == 1>>
@@ -143,9 +144,6 @@ the public.
 		<</if>>
 		<</if>>
 	<</if>>
-	<<if ($slaves[$i].assignment == "serve the public")>>
-		<<set $clubSpots -= 1>>
-	<</if>>
 	<<if $DJ != 0>>
 		<<if $DJRepBonus > 0>>
 		<<set $beautyMultiplier += $DJRepBonus>>
@@ -217,7 +215,8 @@ Her appearance attracted $beauty members of the public (<<print Math.trunc($beau
 <</if>>
 
 <<set $injury = 0>>
-<<if ($slaves[$i].curatives > 0)>>
+<<if $slaves[$i].assignment == "serve in the club">>
+<<elseif $slaves[$i].curatives > 0>>
 	The drugs she's on protect her from the wear of being a slut.
 <<elseif ($slaves[$i].health < -50)>>
 	The stress of being a slut while ill is @@.red;very hard on her.@@
@@ -420,7 +419,7 @@ Her appearance attracted $beauty members of the public (<<print Math.trunc($beau
 		<<if $slaves[$j].assignment == $slaves[$i].assignment>>
 		Since her $slaves[$j].relation $slaves[$j].slaveName is a public slut too, she earns extra attention.
 		<<if $arcologies[0].FSEgyptianRevivalist > 20>>
-			Citizens are very excited about being able to participate in properly ancient Egyptian incestuous sex.
+			Citizens are very excited about being able to participate in incestuous sex like the ancient Egyptians.
 		<</if>>
 		<</if>>
 		<<break>>
@@ -864,6 +863,8 @@ Her appearance attracted $beauty members of the public (<<print Math.trunc($beau
 <<switch $clubDecoration>>
 <<case "Roman Revivalist">>
 	<<set $arcologies[0].FSRomanRevivalist += $seed>>
+<<case "Aztec Revivalist">>
+	<<set $arcologies[0].FSAztecRevivalist += $seed>>
 <<case "Egyptian Revivalist">>
 	<<set $arcologies[0].FSEgyptianRevivalist += $seed>>
 <<case "Edo Revivalist">>
@@ -1409,6 +1410,13 @@ Her appearance attracted $beauty members of the public (<<print Math.trunc($beau
 	<<if ($slaves[$i].race == "white")>>
 	<<if ($slaves[$i].height >= 185)>>
 	<<set $vignettes.push({text: "she gratified a citizen who thought her appearance worthy of a lusty northern barbarian,", type: "rep", effect: 1})>>
+	<</if>>
+	<</if>>
+<</if>>
+<<if $arcologies[0].FSAztecRevivalist != "unset">>
+	<<if ($slaves[$i].devotion > 75)>>
+	<<if ($slaves[$i].intelligence >= 2)>>
+	<<set $vignettes.push({text: "she indulged a citizen by following a fertility ritual completely,", type: "rep", effect: 1})>>
 	<</if>>
 	<</if>>
 <</if>>
