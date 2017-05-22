@@ -1,18 +1,5 @@
 :: PETS [nobr]
 
-<<switch $PETSevent>>
-  <<case "nurse molestation">>
-	<<set $activeSlave = $Nurse, $subSlave = $nurseMolestationSubIDs.random()>>
-  <<case "stewardess beating">>
-	<<set $activeSlave = $Stewardess, $subSlave = $slaves.find(function(s) { return s.assignment == "work as a servant"; }).ID>>
-  <<case "aggressive schoolteacher">>
-	<<set $activeSlave = $Schoolteacher, $subSlave = $slaves.find(function(s) { return s.assignment == "learn in the schoolroom"; }).ID>>
-  <<case "abusive wardeness">>
-	<<set $activeSlave = $Wardeness, $subSlave = $slaves.find(function(s) { return s.assignment == "be confined in the cellblock"; }).ID>>
-  <<case "comforting attendant">>
-	<<set $activeSlave = $Attendant, $subSlave = $slaves.find(function(s) { return s.assignment == "rest in the spa"; }).ID>>
-<</switch>>
-
 <<if (ndef $activeSlave) || ($activeSlave == 0)>>
   <<set $activeSlave = $eventSlave>>
   <<if $cheatMode == 1>>
@@ -30,9 +17,20 @@
   <</if>>
 <<else>>
 
-<<set $subSlave = $slaves.find(function(s) { return s.ID == $subSlave; })>>
-
 <<set $nextButton = "Continue", $nextLink = "AS Dump", $returnTo = "RIE Eligibility Check">>
+
+<<switch $PETSevent>>
+  <<case "nurse molestation">>
+	<<set $activeSlave = $Nurse, $subSlave = $slaves.find(function(s) { return s.anus != 0 && s.assignment == "get treatment in the clinic"; })>>
+  <<case "stewardess beating">>
+	<<set $activeSlave = $Stewardess, $subSlave = $slaves.find(function(s) { return s.assignment == "work as a servant"; })>>
+  <<case "aggressive schoolteacher">>
+	<<set $activeSlave = $Schoolteacher, $subSlave = $slaves.find(function(s) { return s.assignment == "learn in the schoolroom"; })>>
+  <<case "abusive wardeness">>
+	<<set $activeSlave = $Wardeness, $subSlave = $slaves.find(function(s) { return s.assignment == "be confined in the cellblock"; })>>
+  <<case "comforting attendant">>
+	<<set $activeSlave = $Attendant, $subSlave = $slaves.find(function(s) { return s.assignment == "rest in the spa"; })>>
+<</switch>>
 
 <<SlaveTitle $activeSlave>>
 

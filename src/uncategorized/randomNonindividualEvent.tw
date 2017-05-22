@@ -71,94 +71,37 @@
 
 /* Relationship Events */
 
-<<for $i = 0; $i < $slaves.length; $i++>>
-<<if ($slaves[$i].relation == "mother")>>
-<<if ($slaves[$i].relationshipTarget != $slaves[$i].relationTarget)>>
-<<if ($slaves[$i].devotion > 50)>>
-	<<set $mother = $slaves[$i]>>
-	<<for $j = 0; $j < $slaves.length; $j++>>
-	<<if $slaves[$j].ID == $mother.relationTarget>>
-		<<set $daughter = $slaves[$j]>>
-		<<break>>
-	<</if>>
-	<</for>>
-	<<if ($daughter.devotion > 50)>>
-	<<if canWalk($daughter)>>
-		<<if canWalk($mother)>>
-		<<if ($daughter.anus != 0)>>
-			<<if ($mother.anus != 0)>>
-			<<set $events.push("RE devoted mother daughter")>>
-			<</if>>
-		<</if>>
-		<</if>>
-	<</if>>
+<<set $devMother = $slaves.find(function(s) { return s.relation == "mother" && s.devotion > 50 && s.anus != 0 && s.relationshipTarget != s.relationTarget && canWalk(s); })>>
+<<if (def $devMother)>>
+	<<set $devDaughter = $slaves.find(function(s) { return s.ID == $devMother.relationTarget && s.devotion > 50 && s.anus != 0 && canWalk(s); })>>
+	<<if (def $devDaughter)>>
+		<<set $events.push("RE devoted mother daughter")>>
 	<</if>>
 <</if>>
-<</if>>
-<</if>>
-<</for>>
 
-<<for $i = 0; $i < $slaves.length; $i++>>
-<<if ($slaves[$i].relation == "mother")>>
-<<if ($slaves[$i].relationshipTarget != $slaves[$i].relationTarget)>>
-<<if ($slaves[$i].devotion < 10)>>
-	<<set $mother = $slaves[$i]>>
-	<<for $j = 0; $j < $slaves.length; $j++>>
-	<<if $slaves[$j].ID == $mother.relationTarget>>
-		<<set $daughter = $slaves[$j]>>
-		<<break>>
-	<</if>>
-	<</for>>
-	<<if ($daughter.devotion < 10)>>
-	<<if canWalk($daughter)>>
-		<<if canWalk($mother)>>
-		<<if ($daughter.anus != 0)>>
-			<<if ($mother.anus != 0)>>
-			<<set $events.push("RE resistant mother daughter")>>
-			<<break>>
-			<</if>>
-		<</if>>
-		<</if>>
-	<</if>>
+<<set $mother = $slaves.find(function(s) { return s.relation == "mother" && s.devotion < 10 && s.anus != 0 && s.relationshipTarget != s.relationTarget && canWalk(s); })>>
+<<if (def $mother)>>
+	<<set $daughter = $slaves.find(function(s) { return s.ID == $mother.relationTarget && s.devotion < 10 && s.anus != 0 && canWalk(s); })>>
+	<<if (def $daughter)>>
+		<<set $events.push("RE resistant mother daughter")>>
 	<</if>>
 <</if>>
-<</if>>
-<</if>>
-<</for>>
 
-<<for $i = 0; $i < $slaves.length; $i++>>
-<<if ($slaves[$i].relation == "sister")>>
-<<if ($slaves[$i].dick == 1)>>
-	<<set $youngerSister = $slaves[$i], $olderSister = $slaves.find(function(s) { return s.ID == $youngerSister.relationTarget; })>>
-	<<if (def $olderSister) && ($olderSister.anus == 0)>>
-	<<if ($youngerSister.devotion > ($olderSister.devotion+20))>>
-	<<set $events.push("RE sibling revenge")>>
-	<<break>>
-	<</if>>
+<<set $youngerSister = $slaves.find(function(s) { return s.relation == "sister" && canPenetrate(s); })>>
+<<if (def $youngerSister)>>
+	<<set $olderSister = $slaves.find(function(s) { return s.ID == $youngerSister.relationTarget && s.anus == 0 && $youngerSister.devotion > (s.devotion+20); })>>
+	<<if (def $olderSister)>>
+		<<set $events.push("RE sibling revenge")>>
 	<</if>>
 <</if>>
-<</if>>
-<</for>>
 
-<<for $i = 0; $i < $slaves.length; $i++>>
-<<if ($slaves[$i].relation == "twin")>>
-	<<set $alphaTwin = $slaves[$i], $betaTwin = $slaves.find(function(s) { return s.ID == $alphaTwin.relationTarget; })>>
-	<<if ($alphaTwin.anus > 0)>>
-	<<if ($betaTwin.anus > 0)>>
-		<<if ($alphaTwin.devotion > 50)>>
-		<<if ($betaTwin.devotion > 50)>>
-			<<if canWalk($alphaTwin)>>
-			<<if canWalk($betaTwin)>>
-			<<set $events.push("RE devoted twins")>>
-			<<break>>
-			<</if>>
-			<</if>>
-		<</if>>
-		<</if>>
-	<</if>>
+<<set $alphaTwin = $slaves.find(function(s) { return s.relation == "twin" && s.anus > 0 && s.devotion > 50 && canWalk(s); })>>
+<<if (def $alphaTwin)>>
+	<<set $betaTwin = $slaves.find(function(s) { return s.ID == $alphaTwin.relationTarget && s.anus > 0 && s.devotion > 50 && canWalk(s); })>>
+	<<if (def $betaTwin)>>
+		<<set $events.push("RE devoted twins")>>
 	<</if>>
 <</if>>
-<</for>>
 
 <<set $buttslutID = 0, $cumslutID = 0, $humiliationID = 0, $subID = 0, $pregnancyID = 0, $masochistID = 0, $boobsID = 0>>
 
@@ -385,98 +328,45 @@
 
 <</if>>
 
-<<if ($Milkmaid != 0)>>
-
-	<<if ($dairySlaves >= 5)>>
-	<<if ($Milkmaid.health >= 70)>>
+<<if ($Milkmaid != 0) && ($dairySlaves >= 5) && ($Milkmaid.health >= 70)>>
 	<<if ($Milkmaid.muscles > 5)>>
 		<<set $PESSevent.push("tired milkmaid")>>
 	<</if>>
 	<<if canAchieveErection($Milkmaid)>>
 		<<set $PESSevent.push("tired collectrix")>>
 	<</if>>
-	<</if>>
-	<</if>>
+<</if>>
+
+<<if ($Stewardess != 0) && ($servantsQuartersSlaves >= 0) && ($Stewardess.age >= 35)>>
+	<<set $PETSevent.push("stewardess beating")>>
+<</if>>
+
+<<if ($Madam != 0) && ($brothelSlaves >= 5) && ($Madam.age >= 35) && ($Madam.whoreSkill >= 100)>>
+	<<set $PESSevent.push("madam strategy")>>
+<</if>>
+
+<<if ($DJ != 0) && ($clubSlaves >= 5) && ($DJ.face > 95) && ($DJ.entertainSkill >= 100)>>
+	<<set $PESSevent.push("DJ publicity")>>
+<</if>>
+
+<<if ($Schoolteacher != 0) && ($schoolroomSlaves > 0) && ($Schoolteacher.intelligence >= 1) && ($Schoolteacher.age >= 35)>>
+	<<set $PETSevent.push("aggressive schoolteacher")>>
+<</if>>
+
+<<if ($Wardeness != 0) && ($cellblockSlaves > 0) && canTalk($Wardeness)>>
+	<<set $PETSevent.push("abusive wardeness")>>
+<</if>>
+
+<<if ($Attendant != 0) && ($spaSlaves > 0) && canTalk($Attendant)>>
+	<<set $PETSevent.push("comforting attendant")>>
 
 <</if>>
 
-<<if ($Stewardess != 0)>>
-
-	<<if ($servantsQuartersSlaves >= 1)>>
-	<<if ($Stewardess.age >= 35)>>
-		<<set $PETSevent.push("stewardess beating")>>
-	<</if>>
-	<</if>>
-
-<</if>>
-
-<<if ($Madam != 0)>>
-
-	<<if ($brothelSlaves >= 5)>>
-	<<if ($Madam.age >= 35)>>
-	<<if ($Madam.whoreSkill >= 100)>>
-		<<set $PESSevent.push("madam strategy")>>
-	<</if>>
-	<</if>>
-	<</if>>
-
-<</if>>
-
-<<if ($DJ != 0)>>
-
-	<<if ($clubSlaves >= 5)>>
-	<<if ($DJ.face > 95)>>
-	<<if ($DJ.entertainSkill >= 100)>>
-		<<set $PESSevent.push("DJ publicity")>>
-	<</if>>
-	<</if>>
-	<</if>>
-
-<</if>>
-
-<<if ($Schoolteacher != 0)>>
-	<<if ($schoolroomSlaves >= 1)>>
-	<<if ($Schoolteacher.intelligence >= 1)>>
-	<<if ($Schoolteacher.age >= 35)>>
-		<<set $PETSevent.push("aggressive schoolteacher")>>
-	<</if>>
-	<</if>>
-	<</if>>
-<</if>>
-
-<<if ($Wardeness != 0)>>
-	<<if ($cellblockSlaves > 0)>>
-	<<if canTalk($Wardeness)>>
-		<<set $PETSevent.push("abusive wardeness")>>
-	<</if>>
-	<</if>>
-<</if>>
-
-<<if ($Attendant != 0)>>
-	<<if ($spaSlaves > 0)>>
-	<<if canTalk($Attendant)>>
-		<<set $PETSevent.push("comforting attendant")>>
-	<</if>>
-	<</if>>
-<</if>>
-
-<<if ($Nurse != 0)>>
-<<if ($clinicSlaves > 0)>>
-	<<set $nurseMolestationSubIDs = []>>
-	<<for $i = 0; $i < $slaves.length; $i++>>
-	<<if $slaves[$i].assignment == "get treatment in the clinic">>
-	<<if $slaves[$i].anus != 0>>
-		<<set $nurseMolestationSubIDs.push($slaves[$i].ID)>>
-	<</if>>
-	<</if>>
-	<</for>>
-	<<if ($nurseMolestationSubIDs.length > 0)>>
-	<<if ($Nurse.energy > 95) || (($Nurse.fetishStrength > 60) && (($Nurse.fetish == "sadist") || ($Nurse.fetish == "dom")))>>
+<<if ($Nurse != 0) && ($clinicSlaves > 0) && ($Nurse.energy > 95) || (($Nurse.fetishStrength > 60) && ($Nurse.fetish == "sadist" || $Nurse.fetish == "dom"))>>
+	<<set $subSlave = $slaves.find(function(s) { return s.anus != 0 && s.assignment == "get treatment in the clinic"; })>>
+	<<if (def $subSlave)>>
 		<<set $PETSevent.push("nurse molestation")>>
-		<<set $nurseMolestationSubIDs = $slaves[$i].ID>>
 	<</if>>
-	<</if>>
-<</if>>
 <</if>>
 
 <<if ($Concubine != 0)>>
