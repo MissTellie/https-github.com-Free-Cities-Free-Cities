@@ -569,6 +569,7 @@ will
 <</if>>
 
 <<if ($displayAssignments == 1) && (_Pass == "Main") && (_Slave.ID != $HeadGirl.ID) && (_Slave.ID != $Recruiter.ID) && (_Slave.ID != $Bodyguard.ID)>>
+	<br>
 	 //Improve:// 
 	<<if _Slave.assignment != "rest">>
 		<<print "[[Rest|Rest Workaround][$i = "+_i+"]]">>
