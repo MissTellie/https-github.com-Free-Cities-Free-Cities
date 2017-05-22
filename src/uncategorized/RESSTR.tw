@@ -1,9 +1,23 @@
 :: RESSTR [nobr]
 
-<<set $nextButton = "Continue", $nextLink = "AS Dump", $returnTo = "Next Week">>
+<<if (ndef $activeSlave) || ($activeSlave == 0)>>
+  <<set $activeSlave = $eventSlave>>
+  <<if $cheatMode == 1>>
+	<<set $nextButton = "Back", $nextLink = "Nonrandom Event", $returnTo = "Nonrandom Event">> /* if user just clicks spacebar */
+	''A random event would have been selected from the following:''
+	<br>
+	<<for _i = 0; _i < $RESSTRevent.length; _i++>>
+		<<print "[[$RESSTRevent[_i]|RESSTR][$RESSTRevent = $RESSTRevent[" + _i + "]]]">>
+		<br>
+	<</for>>
+	<br><br>[[Go Back to Random Individual Event|Random Individual Event][$activeSlave = 0]]
+  <<else>>
+	<<set $RESSTRevent = $RESSTRevent.random()>>
+	<<goto "RESSTR">>
+  <</if>>
+<<else>>
 
-<<set $RESSTRevent = $RESSTRevent.random()>>
-<<set $activeSlave = $eventSlave>>
+<<set $nextButton = "Continue", $nextLink = "AS Dump", $returnTo = "Next Week">>
 
 /* 000-250-006 */
 /* <<if $seeImages == 1>><<SlaveArt $activeSlave 2 0>><</if>> */
@@ -258,7 +272,7 @@ She sits back up and rubs her hands down her lower back on either side, sighing 
 <</if>>
 
 <<default>>
-	ERROR: bad event
+	<br>ERROR: bad RESSTR event $RESSTRevent
 <</switch>>
 
 <br><br>
@@ -723,7 +737,14 @@ As another long weeks draws to a close, <span id="name"><<print "[[$activeSlave.
 <</if>>
 
 <<default>>
-	ERROR: bad event
+	<br>ERROR: bad RESSTR event $RESSTRevent
 <</switch>>
 
+<<if $cheatMode == 1>>
+	<br><br>DEBUG: &nbsp;&nbsp;&nbsp;&nbsp;[[Go back to Nonrandom Event|Nonrandom Event][$activeSlave = 0, $eventSlave = 0]]
+<</if>>
+
 </span>
+
+<</if>> /* CLOSES EVENT SELECTION */
+

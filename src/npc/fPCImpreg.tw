@@ -1,9 +1,6 @@
-:: FPCImpreg
+:: FPCImpreg [nobr]
 
-<<nobr>>
-
-<<set $activeSlave.vaginalCount += 1>>
-<<set $vaginalTotal += 1>>
+<<set $activeSlave.vaginalCount += 1, $vaginalTotal += 1>>
 
 You call her over so you can
 <<if ($activeSlave.vagina > 2)>>
@@ -72,9 +69,9 @@ You call her over so you can
 <</if>>
 
 <<if random(1,100) > 50>>
-	<<set $activeSlave.preg = 1>>
+	<<set $activeSlave.preg = 1, $activeSlave.pregSource = -1>>
 	<<if ($activeSlave.drugs == "fertility drugs")>>
-		<<if (($masterSuitePregnancyFertilitySupplements == 1) && (($activeSlave.assignment == "serve in the master suite") || ($activeSlave.ID == $Concubine.ID)))>>
+		<<if (($masterSuitePregnancyFertilitySupplements == 1) && (($activeSlave.assignment == "serve in the master suite") || ($Concubine != 0 && $activeSlave.ID == $Concubine.ID)))>>
 			<<if ($activeSlave.hormones == 2)>>
 				<<set $activeSlave.pregType = random(2,5)>>
 			<<else>>
@@ -90,7 +87,6 @@ You call her over so you can
 	<<else>>
 		<<set $activeSlave.pregType = either(1, 1, 1, 1, 1, 1, 1, 1, 1, 2)>>
 	<</if>>
-<<set $activeSlave.pregSource = -1>>
 <</if>>
 
 <<if $arcologies[0].FSGenderFundamentalist != "unset">>
@@ -99,4 +95,3 @@ You call her over so you can
 	<<set $arcologies[0].FSGenderFundamentalist += 0.05*$FSSingleSlaveRep>>
 <</if>>
 
-<</nobr>>
