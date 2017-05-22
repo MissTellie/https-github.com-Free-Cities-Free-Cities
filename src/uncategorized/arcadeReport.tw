@@ -3,7 +3,7 @@
 <<set _DL = $ArcadeiIDs.length, $arcadeSlaves = _DL>>
 
 <<if $arcadeSlaves > 0>>
-	<<set _cockmilked = 0, _implanted = 0, _milked = 0,  _profits = 0, _SL = $slaves.length>>
+	<<set _cockmilked = 0, _boobsImplanted = 0, _prostatesImplanted = 0, _milked = 0,  _profits = 0, _SL = $slaves.length>>
 	&nbsp;&nbsp;&nbsp;&nbsp;<<if ($arcadeSlaves > 1)>>''There are $arcadeSlaves inmates confined in $arcadeName.''<<else>>''There is one inmate confined in $arcadeName.''<</if>>
 	<<if ($arcologies[0].FSDegradationist > 20)>>
 	<<if $arcologies[0].FSDegradationistLaw == 1>>
@@ -83,8 +83,10 @@
 		<</silently>>
 	<</if>>
 	<<if ($arcadeUpgradeCollectors > 0)>>
-	<<if ($slaves[_i].lactation < 2)>>
-		<<set $slaves[_i].lactation = 2, $slaves[_i].health -= 10, $cash -= $surgeryCost, _implanted++>>
+	<<if $slaves[_i].lactation != 2>>
+		<<set $slaves[_i].lactation = 2, $slaves[_i].health -= 10, $cash -= $surgeryCost, _boobsImplanted++>>
+	<<elseif $slaves[_i].prostate == 1>>
+		<<set $slaves[_i].prostate = 2, $slaves[_i].health -= 10, $cash -= $surgeryCost, _prostatesImplanted++>>
 	<<elseif ($slaves[_i].lactation > 0) || ($slaves[_i].balls > 0)>>
 		<<if $showEWD != 0>>
 			<br>&nbsp;&nbsp;&nbsp;&nbsp;She <<include "SA get milked">>
@@ -138,10 +140,21 @@
 	<<elseif _milked > 1>>
 		_milked of them are lactating and spend their time in $arcadeName being simultaneously milked and fucked.
 	<</if>>
-	<<if _implanted == 1>>
-		One of them was not lactating, so she was implanted with long-acting lactation inducing drugs, and it costs @@.red;¤$surgeryCost@@.
-	<<elseif _implanted > 1>>
-		_implanted of them were not lactating, so they were implanted with long-acting lactation inducing drugs, and they cost @@.red;¤<<print $surgeryCost*_implanted>>@@.
+	<<if _boobsImplanted>>
+		<<if _boobsImplanted == 1>>
+			One of them was not lactating, so she was
+		<<else>>
+			_boobsImplanted of them were not lactating, so they were 
+		<</if>>
+		implanted with long-acting lactation inducing drugs, costing @@.red;¤<<print $surgeryCost*_boobsImplanted>>@@.
+	<</if>>
+	<<if _prostatesImplanted>>
+		<<if _boobsImplanted == 1>>
+			One of them was not producing the maxiumum possible amout of precum, so she was
+		<<else>>
+			_boobsImplanted of them were not producing the maxiumum possible amout of precum, so they were 
+		<</if>>
+		implanted with long-acting prostate stimulation drugs, costing @@.red;¤<<print $surgeryCost*_prostatesImplanted>>@@.
 	<</if>>
 	<<if _cockmilked == 1>>
 		One of them retains testicles and is brutally cockmilked as she is used.

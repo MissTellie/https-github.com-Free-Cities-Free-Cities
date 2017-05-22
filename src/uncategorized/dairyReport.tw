@@ -287,6 +287,9 @@
 				<<set $slaves[_i].lactation = 2, $slaves[_i].health -= 10, $cash -= $surgeryCost>>
 			<</if>>
 		<</if>>
+		<<if $slaves[_i].prostate == 1>>
+			<<set $slaves[_i].prostate = 2, $slaves[_i].health -= 10, $cash -= $surgeryCost>>
+		<</if>>
 		<<if ($slaves[_i].health < 75)>>
 			<<set $slaves[_i].health += 25>>
 		<<else>>

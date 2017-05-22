@@ -32,152 +32,161 @@
 <</if>>
 <</if>>
 
-<<set $seed = 0>>
+/* Count adopted FS */
+<<set _societies = 0>>
+<<if $arcologies[0].FSSupremacist != "unset">>
+	<<set _societies++>>
+<</if>>
+<<if $arcologies[0].FSSubjugationist != "unset">>
+	<<set _societies++>>
+<</if>>
+<<if $arcologies[0].FSGenderRadicalist != "unset">>
+	<<set _societies++>>
+<<elseif $arcologies[0].FSGenderFundamentalist != "unset">>
+	<<set _societies++>>
+<</if>>
+<<if $arcologies[0].FSPaternalist != "unset">>
+	<<set _societies++>>
+<<elseif $arcologies[0].FSDegradationist != "unset">>
+	<<set _societies++>>
+<</if>>
+<<if $arcologies[0].FSBodyPurist != "unset">>
+	<<set _societies++>>
+<<elseif $arcologies[0].FSTransformationFetishist != "unset">>
+	<<set _societies++>>
+<</if>>
+<<if $arcologies[0].FSSlimnessEnthusiast != "unset">>
+	<<set _societies++>>
+<<elseif $arcologies[0].FSAssetExpansionist != "unset">>
+	<<set _societies++>>
+<</if>>
+<<if $arcologies[0].FSPastoralist != "unset">>
+	<<set _societies++>>
+<<elseif $arcologies[0].FSPhysicalIdealist != "unset">>
+	<<set _societies++>>
+<</if>>
+<<if $arcologies[0].FSMaturityPreferentialist != "unset">>
+	<<set _societies++>>
+<<elseif $arcologies[0].FSYouthPreferentialist != "unset">>
+	<<set _societies++>>
+<</if>>
+<<if $arcologies[0].FSChattelReligionist != "unset">>
+	<<set _societies++>>
+<</if>>
+<<if $arcologies[0].FSRomanRevivalist != "unset">>
+	<<set _societies++>>
+<<elseif $arcologies[0].FSAztecRevivalist != "unset">>
+	<<set _societies++>>
+<<elseif $arcologies[0].FSEgyptianRevivalist != "unset">>
+	<<set _societies++>>
+<<elseif $arcologies[0].FSEdoRevivalist != "unset">>
+	<<set _societies++>>
+<<elseif $arcologies[0].FSArabianRevivalist != "unset">>
+	<<set _societies++>>
+<<elseif $arcologies[0].FSChineseRevivalist != "unset">>
+	<<set _societies++>>
+<</if>>
+
+/* Spending, terrain, rep effects */
+<<set _broadProgress = 0>>
 <<if $FSSpending > 1>>
 	Your @@.yellowgreen;societal spending@@ helps forward your goals for the arcology's future.
-	<<set $seed += Math.trunc($FSSpending/(1000-(500*$arcologies[0].FSEdoRevivalistLaw)-(250*$arcologies[0].FSArabianRevivalistLaw)))>>
+	<<set _broadProgress += Math.trunc($FSSpending/(1000-(500*$arcologies[0].FSEdoRevivalistLaw)-(250*$arcologies[0].FSArabianRevivalistLaw)))>>
 <</if>>
 <<if $terrain == "urban">>
-	The urban location of the arcology naturally promotes cultural interchange, holding back $arcologies[0].name's cultural independence.
-	<<set $seed -= 3>>
+	The @@.yellow;urban location@@ of the arcology naturally promotes cultural interchange, holding back $arcologies[0].name's cultural independence.
+	<<set _broadProgress -= 3>>
 <<elseif $terrain == "rural">>
-	The rural location of the arcology naturally limits cultural interchange, allowing $arcologies[0].name to slowly develop its own culture.
-	<<set $seed -= 2>>
+	The @@.yellow;rural location@@ of the arcology naturally limits cultural interchange, allowing $arcologies[0].name to slowly develop its own culture.
+	<<set _broadProgress -= 2>>
 <<elseif $terrain == "marine">>
-	The marine location of the arcology strongly limits cultural interchange, allowing $arcologies[0].name to quickly develop its own culture.
-	<<set $seed -= 1>>
+	The @@.yellow;marine location@@ of the arcology strongly limits cultural interchange, allowing $arcologies[0].name to quickly develop its own culture.
+	<<set _broadProgress -= 1>>
 <<else>>
-	The oceanic location of the arcology almost eliminates cultural interchange, allowing $arcologies[0].name to independently develop its culture.
+	The @@.yellow;oceanic location@@ of the arcology almost eliminates cultural interchange, allowing $arcologies[0].name to independently develop its culture.
 <</if>>
-<<if $seed != 0>>
-	<<if $arcologies[0].FSSupremacist > $FSLockinLevel>>
-	<<set $arcologies[0].influenceBonus += $arcologies[0].FSSupremacist - $FSLockinLevel>>
-	<<set $arcologies[0].FSSupremacist = $FSLockinLevel>>
-	<<elseif $arcologies[0].FSSupremacist != "unset">>
-	<<set $arcologies[0].FSSupremacist += $seed>>
+<<if $rep < 4000>>
+	@@.red;Your weak reputation@@ reflects badly on your social projects.
+	<<set _broadProgress -= 2>>
+<<elseif $rep < 8000>>
+	@@.red;Your mediocre reputation@@ engenders skepticism towards your social development.
+	<<set _broadProgress -= 1>>
+<<elseif $rep < 12000>>
+	@@.yellow;Your reputation@@ is neither weak enough or strong enough to affect social development.
+<<elseif $rep < 16000>>
+	@@.green;Your strong reputation@@ helps support social development.
+	<<set _broadProgress += 1>>
+<<elseif $rep < 20000>>
+	@@.green;Your very strong reputation@@ increases acceptance of your social development.
+	<<set _broadProgress += 2>>
+<<else>>
+	@@.green;Your incredible reputation@@ encourages automatic acceptance of your social development.
+	<<set _broadProgress += 4>>
+<</if>>
+<<set _broadProgress += 2 - _societies>>
+<<switch _societies>>
+<<case 1>>Maintaining a single societal goal allows @@.green;very focused social engineering.@@
+<<case 2>>Maintaining two societal goals allows @@.green;focused social engineering.@@
+<<case 3>>Maintaining three societal goals requires @@.yellow;broad social engineering.@@
+<<case 4>>Maintaining four societal goals requires @@.red;unfocused social engineering.@@
+<<default>>Maintaining five societal goals requires @@.red;very unfocused social engineering.@@
+<</switch>>
+<<if _broadProgress != 0>>
+	<<if $arcologies[0].FSSupremacist != "unset">>
+		<<set $arcologies[0].FSSupremacist += _broadProgress>>
 	<</if>>
-	<<if $arcologies[0].FSSubjugationist > $FSLockinLevel>>
-	<<set $arcologies[0].influenceBonus += $arcologies[0].FSSubjugationist - $FSLockinLevel>>
-	<<set $arcologies[0].FSSubjugationist = $FSLockinLevel>>
-	<<elseif $arcologies[0].FSSubjugationist != "unset">>
-	<<set $arcologies[0].FSSubjugationist += $seed>>
+	<<if $arcologies[0].FSSubjugationist != "unset">>
+		<<set $arcologies[0].FSSubjugationist += _broadProgress>>
 	<</if>>
-	<<if $arcologies[0].FSGenderRadicalist > $FSLockinLevel>>
-	<<set $arcologies[0].influenceBonus += $arcologies[0].FSGenderRadicalist - $FSLockinLevel>>
-	<<set $arcologies[0].FSGenderRadicalist = $FSLockinLevel>>
-	<<elseif $arcologies[0].FSGenderRadicalist != "unset">>
-	<<set $arcologies[0].FSGenderRadicalist += $seed>>
-	<</if>>
-	<<if $arcologies[0].FSGenderFundamentalist > $FSLockinLevel>>
-	<<set $arcologies[0].influenceBonus += $arcologies[0].FSGenderFundamentalist - $FSLockinLevel>>
-	<<set $arcologies[0].FSGenderFundamentalist = $FSLockinLevel>>
+	<<if $arcologies[0].FSGenderRadicalist != "unset">>
+		<<set $arcologies[0].FSGenderRadicalist += _broadProgress>>
 	<<elseif $arcologies[0].FSGenderFundamentalist != "unset">>
-	<<set $arcologies[0].FSGenderFundamentalist += $seed>>
+		<<set $arcologies[0].FSGenderFundamentalist += _broadProgress>>
 	<</if>>
-	<<if $arcologies[0].FSPaternalist > $FSLockinLevel>>
-	<<set $arcologies[0].influenceBonus += $arcologies[0].FSPaternalist - $FSLockinLevel>>
-	<<set $arcologies[0].FSPaternalist = $FSLockinLevel>>
-	<<elseif $arcologies[0].FSPaternalist != "unset">>
-	<<set $arcologies[0].FSPaternalist += $seed>>
-	<</if>>
-	<<if $arcologies[0].FSDegradationist > $FSLockinLevel>>
-	<<set $arcologies[0].influenceBonus += $arcologies[0].FSDegradationist - $FSLockinLevel>>
-	<<set $arcologies[0].FSDegradationist = $FSLockinLevel>>
+	<<if $arcologies[0].FSPaternalist != "unset">>
+		<<set $arcologies[0].FSPaternalist += _broadProgress>>
 	<<elseif $arcologies[0].FSDegradationist != "unset">>
-	<<set $arcologies[0].FSDegradationist += $seed>>
+		<<set $arcologies[0].FSDegradationist += _broadProgress>>
 	<</if>>
-	<<if $arcologies[0].FSBodyPurist > $FSLockinLevel>>
-	<<set $arcologies[0].influenceBonus += $arcologies[0].FSBodyPurist - $FSLockinLevel>>
-	<<set $arcologies[0].FSBodyPurist = $FSLockinLevel>>
-	<<elseif $arcologies[0].FSBodyPurist != "unset">>
-	<<set $arcologies[0].FSBodyPurist += $seed>>
-	<</if>>
-	<<if $arcologies[0].FSPastoralist > $FSLockinLevel>>
-	<<set $arcologies[0].influenceBonus += $arcologies[0].FSPastoralist - $FSLockinLevel>>
-	<<set $arcologies[0].FSPastoralist = $FSLockinLevel>>
-	<<elseif $arcologies[0].FSPastoralist != "unset">>
-	<<set $arcologies[0].FSPastoralist += $seed>>
-	<</if>>
-	<<if $arcologies[0].FSAssetExpansionist > $FSLockinLevel>>
-	<<set $arcologies[0].influenceBonus += $arcologies[0].FSAssetExpansionist - $FSLockinLevel>>
-	<<set $arcologies[0].FSAssetExpansionist = $FSLockinLevel>>
-	<<elseif $arcologies[0].FSAssetExpansionist != "unset">>
-	<<set $arcologies[0].FSAssetExpansionist += $seed>>
-	<</if>>
-	<<if $arcologies[0].FSTransformationFetishist > $FSLockinLevel>>
-	<<set $arcologies[0].influenceBonus += $arcologies[0].FSTransformationFetishist - $FSLockinLevel>>
-	<<set $arcologies[0].FSTransformationFetishist = $FSLockinLevel>>
+	<<if $arcologies[0].FSBodyPurist != "unset">>
+		<<set $arcologies[0].FSBodyPurist += _broadProgress>>
 	<<elseif $arcologies[0].FSTransformationFetishist != "unset">>
-	<<set $arcologies[0].FSTransformationFetishist += $seed>>
+		<<set $arcologies[0].FSTransformationFetishist += _broadProgress>>
 	<</if>>
-	<<if $arcologies[0].FSMaturityPreferentialist > $FSLockinLevel>>
-	<<set $arcologies[0].influenceBonus += $arcologies[0].FSMaturityPreferentialist - $FSLockinLevel>>
-	<<set $arcologies[0].FSMaturityPreferentialist = $FSLockinLevel>>
-	<<elseif $arcologies[0].FSMaturityPreferentialist != "unset">>
-	<<set $arcologies[0].FSMaturityPreferentialist += $seed>>
+	<<if $arcologies[0].FSSlimnessEnthusiast != "unset">>
+		<<set $arcologies[0].FSSlimnessEnthusiast += _broadProgress>>
+	<<elseif $arcologies[0].FSAssetExpansionist != "unset">>
+		<<set $arcologies[0].FSAssetExpansionist += _broadProgress>>
 	<</if>>
-	<<if $arcologies[0].FSYouthPreferentialist > $FSLockinLevel>>
-	<<set $arcologies[0].influenceBonus += $arcologies[0].FSYouthPreferentialist - $FSLockinLevel>>
-	<<set $arcologies[0].FSYouthPreferentialist = $FSLockinLevel>>
-	<<elseif $arcologies[0].FSYouthPreferentialist != "unset">>
-	<<set $arcologies[0].FSYouthPreferentialist += $seed>>
-	<</if>>
-	<<if $arcologies[0].FSSlimnessEnthusiast > $FSLockinLevel>>
-	<<set $arcologies[0].influenceBonus += $arcologies[0].FSSlimnessEnthusiast - $FSLockinLevel>>
-	<<set $arcologies[0].FSSlimnessEnthusiast = $FSLockinLevel>>
-	<<elseif $arcologies[0].FSSlimnessEnthusiast != "unset">>
-	<<set $arcologies[0].FSSlimnessEnthusiast += $seed>>
-	<</if>>
-	<<if $arcologies[0].FSPhysicalIdealist > $FSLockinLevel>>
-	<<set $arcologies[0].influenceBonus += $arcologies[0].FSPhysicalIdealist - $FSLockinLevel>>
-	<<set $arcologies[0].FSPhysicalIdealist = $FSLockinLevel>>
+	<<if $arcologies[0].FSPastoralist != "unset">>
+		<<set $arcologies[0].FSPastoralist += _broadProgress>>
 	<<elseif $arcologies[0].FSPhysicalIdealist != "unset">>
-	<<set $arcologies[0].FSPhysicalIdealist += $seed>>
+		<<set $arcologies[0].FSPhysicalIdealist += _broadProgress>>
 	<</if>>
-	<<if $arcologies[0].FSChattelReligionist > $FSLockinLevel>>
-	<<set $arcologies[0].influenceBonus += $arcologies[0].FSChattelReligionist - $FSLockinLevel>>
-	<<set $arcologies[0].FSChattelReligionist = $FSLockinLevel>>
-	<<elseif $arcologies[0].FSChattelReligionist != "unset">>
-	<<set $arcologies[0].FSChattelReligionist += $seed>>
+	<<if $arcologies[0].FSMaturityPreferentialist != "unset">>
+		<<set $arcologies[0].FSMaturityPreferentialist += _broadProgress>>
+	<<elseif $arcologies[0].FSYouthPreferentialist != "unset">>
+		<<set $arcologies[0].FSYouthPreferentialist += _broadProgress>>
 	<</if>>
-	<<if $arcologies[0].FSRomanRevivalist > $FSLockinLevel>>
-	<<set $arcologies[0].influenceBonus += $arcologies[0].FSRomanRevivalist - $FSLockinLevel>>
-	<<set $arcologies[0].FSRomanRevivalist = $FSLockinLevel>>
-	<<elseif $arcologies[0].FSRomanRevivalist != "unset">>
-	<<set $arcologies[0].FSRomanRevivalist += $seed>>
+	<<if $arcologies[0].FSChattelReligionist != "unset">>
+		<<set $arcologies[0].FSChattelReligionist += _broadProgress>>
 	<</if>>
-	<<if $arcologies[0].FSAztecRevivalist > $FSLockinLevel>>
-	<<set $arcologies[0].influenceBonus += $arcologies[0].FSAztecRevivalist - $FSLockinLevel>>
-	<<set $arcologies[0].FSAztecRevivalist = $FSLockinLevel>>
+	<<if $arcologies[0].FSRomanRevivalist != "unset">>
+		<<set $arcologies[0].FSRomanRevivalist += _broadProgress>>
 	<<elseif $arcologies[0].FSAztecRevivalist != "unset">>
-	<<set $arcologies[0].FSAztecRevivalist += $seed>>
-	<</if>>
-	<<if $arcologies[0].FSEgyptianRevivalist > $FSLockinLevel>>
-	<<set $arcologies[0].influenceBonus += $arcologies[0].FSEgyptianRevivalist - $FSLockinLevel>>
-	<<set $arcologies[0].FSEgyptianRevivalist = $FSLockinLevel>>
+		<<set $arcologies[0].FSAztecRevivalist += _broadProgress>>
 	<<elseif $arcologies[0].FSEgyptianRevivalist != "unset">>
-	<<set $arcologies[0].FSEgyptianRevivalist += $seed>>
-	<</if>>
-	<<if $arcologies[0].FSEdoRevivalist > $FSLockinLevel>>
-	<<set $arcologies[0].influenceBonus += $arcologies[0].FSEdoRevivalist - $FSLockinLevel>>
-	<<set $arcologies[0].FSEdoRevivalist = $FSLockinLevel>>
+		<<set $arcologies[0].FSEgyptianRevivalist += _broadProgress>>
 	<<elseif $arcologies[0].FSEdoRevivalist != "unset">>
-	<<set $arcologies[0].FSEdoRevivalist += $seed>>
-	<</if>>
-	<<if $arcologies[0].FSArabianRevivalist > $FSLockinLevel>>
-	<<set $arcologies[0].influenceBonus += $arcologies[0].FSArabianRevivalist - $FSLockinLevel>>
-	<<set $arcologies[0].FSArabianRevivalist = $FSLockinLevel>>
+		<<set $arcologies[0].FSEdoRevivalist += _broadProgress>>
 	<<elseif $arcologies[0].FSArabianRevivalist != "unset">>
-	<<set $arcologies[0].FSArabianRevivalist += $seed>>
-	<</if>>
-	<<if $arcologies[0].FSChineseRevivalist > $FSLockinLevel>>
-	<<set $arcologies[0].influenceBonus += $arcologies[0].FSChineseRevivalist - $FSLockinLevel>>
-	<<set $arcologies[0].FSChineseRevivalist = $FSLockinLevel>>
+		<<set $arcologies[0].FSArabianRevivalist += _broadProgress>>
 	<<elseif $arcologies[0].FSChineseRevivalist != "unset">>
-	<<set $arcologies[0].FSChineseRevivalist += $seed>>
+		<<set $arcologies[0].FSChineseRevivalist += _broadProgress>>
 	<</if>>
 <</if>>
 
+/* Promenade effects */
 <<for _i = 5; _i <= 7; _i++>>
 <<if $sectors[_i].type != "Shops">>
 <<if $sectors[_i].type != "Brothel">>
@@ -191,143 +200,7 @@
 <</if>>
 <</for>>
 
-<<if $arcologies[0].FSSubjugationist != "unset">>
-	<<if $FSPromenade.Subjugationist == 0>>
-		<br>
-		[[Upgrade this sector to appeal to Subjugationist establishments|Main][$cash -= Math.trunc(10000*$upgradeMultiplierArcology), $FSPromenade.Subjugationist = 1, $sectors[$AS].type = "Subjugationist"]]
-		//Costs ¤<<print Math.trunc(10000*$upgradeMultiplierArcology)>>//	
-	<</if>>
-<</if>>
-<<if $arcologies[0].FSSupremacist != "unset">>
-	<<if $FSPromenade.Supremacist == 0>>
-		<br>
-		[[Upgrade this sector to appeal to Supremacist establishments|Main][$cash -= Math.trunc(10000*$upgradeMultiplierArcology), $FSPromenade.Supremacist = 1, $sectors[$AS].type = "Supremacist"]]
-		//Costs ¤<<print Math.trunc(10000*$upgradeMultiplierArcology)>>//	
-	<</if>>
-<</if>>
-<<if $arcologies[0].FSGenderRadicalist != "unset">>
-	<<if $FSPromenade.GenderRadicalist == 0>>
-		<br>
-		[[Upgrade this sector to appeal to Gender Radicalist establishments|Main][$cash -= Math.trunc(10000*$upgradeMultiplierArcology), $FSPromenade.GenderRadicalist = 1, $sectors[$AS].type = "GenderRadicalist"]]
-		//Costs ¤<<print Math.trunc(10000*$upgradeMultiplierArcology)>>//	
-	<</if>>
-<<elseif $arcologies[0].FSGenderFundamentalist != "unset">>
-	<<if $FSPromenade.GenderFundamentalist == 0>>
-		<br>
-		[[Upgrade this sector to appeal to Gender Fundamentalist establishments|Main][$cash -= Math.trunc(10000*$upgradeMultiplierArcology), $FSPromenade.GenderFundamentalist = 1, $sectors[$AS].type = "GenderFundamentalist"]]
-		//Costs ¤<<print Math.trunc(10000*$upgradeMultiplierArcology)>>//	
-	<</if>>
-<</if>>
-<<if $arcologies[0].FSPaternalist != "unset">>
-	<<if $FSPromenade.Paternalist == 0>>
-		<br>
-		[[Upgrade this sector to appeal to Paternalist establishments|Main][$cash -= Math.trunc(10000*$upgradeMultiplierArcology), $FSPromenade.Paternalist = 1, $sectors[$AS].type = "Paternalist"]]
-		//Costs ¤<<print Math.trunc(10000*$upgradeMultiplierArcology)>>//	
-	<</if>>
-<<elseif $arcologies[0].FSDegradationist != "unset">>
-	<<if $FSPromenade.Degradationist == 0>>
-		<br>
-		[[Upgrade this sector to appeal to Degradationist establishments|Main][$cash -= Math.trunc(10000*$upgradeMultiplierArcology), $FSPromenade.Degradationist = 1, $sectors[$AS].type = "Degradationist"]]
-		//Costs ¤<<print Math.trunc(10000*$upgradeMultiplierArcology)>>//	
-	<</if>>
-<</if>>
-<<if $arcologies[0].FSBodyPurist != "unset">>
-	<<if $FSPromenade.BodyPurist == 0>>
-		<br>
-		[[Upgrade this sector to appeal to Body Purist establishments|Main][$cash -= Math.trunc(10000*$upgradeMultiplierArcology), $FSPromenade.BodyPurist = 1, $sectors[$AS].type = "BodyPurist"]]
-		//Costs ¤<<print Math.trunc(10000*$upgradeMultiplierArcology)>>//	
-	<</if>>
-<<elseif $arcologies[0].FSTransformationFetishist != "unset">>
-	<<if $FSPromenade.TransformationFetishist == 0>>
-		<br>
-		[[Upgrade this sector to appeal to Transformation Fetishist establishments|Main][$cash -= Math.trunc(10000*$upgradeMultiplierArcology), $FSPromenade.TransformationFetishist = 1, $sectors[$AS].type = "TransformationFetishist"]]
-		//Costs ¤<<print Math.trunc(10000*$upgradeMultiplierArcology)>>//	
-	<</if>>
-<</if>>
-<<if $arcologies[0].FSYouthPreferentialist != "unset">>
-	<<if $FSPromenade.YouthPreferentialist == 0>>
-		<br>
-		[[Upgrade this sector to appeal to Youth Preferentialist establishments|Main][$cash -= Math.trunc(10000*$upgradeMultiplierArcology), $FSPromenade.YouthPreferentialist = 1, $sectors[$AS].type = "YouthPreferentialist"]]
-		//Costs ¤<<print Math.trunc(10000*$upgradeMultiplierArcology)>>//	
-	<</if>>
-<<elseif $arcologies[0].FSMaturityPreferentialist != "unset">>
-	<<if $FSPromenade.MaturityPreferentialist == 0>>
-		<br>
-		[[Upgrade this sector to appeal to Subjugationist establishments|Main][$cash -= Math.trunc(10000*$upgradeMultiplierArcology), $FSPromenade.MaturityPreferentialist = 1, $sectors[$AS].type = "Maturity Preferentialist"]]
-		//Costs ¤<<print Math.trunc(10000*$upgradeMultiplierArcology)>>//	
-	<</if>>
-<</if>>
-<<if $arcologies[0].FSSlimnessEnthusiast != "unset">>
-	<<if $FSPromenade.SlimnessEnthusiast == 0>>
-		<br>
-		[[Upgrade this sector to appeal to Slimness Enthusiast establishments|Main][$cash -= Math.trunc(10000*$upgradeMultiplierArcology), $FSPromenade.SlimnessEnthusiast = 1, $sectors[$AS].type = "SlimnessEnthusiast"]]
-		//Costs ¤<<print Math.trunc(10000*$upgradeMultiplierArcology)>>//	
-	<</if>>
-<<elseif $arcologies[0].FSAssetExpansionist != "unset">>
-	<<if $FSPromenade.AssetExpansionist == 0>>
-		<br>
-		[[Upgrade this sector to appeal to Asset Expansionist establishments|Main][$cash -= Math.trunc(10000*$upgradeMultiplierArcology), $FSPromenade.AssetExpansionist = 1, $sectors[$AS].type = "AssetExpansionist"]]
-		//Costs ¤<<print Math.trunc(10000*$upgradeMultiplierArcology)>>//	
-	<</if>>
-<</if>>
-<<if $arcologies[0].FSPastoralist != "unset">>
-	<<if $FSPromenade.Pastoralist == 0>>
-		<br>
-		[[Upgrade this sector to appeal to Pastoralist establishments|Main][$cash -= Math.trunc(10000*$upgradeMultiplierArcology), $FSPromenade.Pastoralist = 1, $sectors[$AS].type = "Pastoralist"]]
-		//Costs ¤<<print Math.trunc(10000*$upgradeMultiplierArcology)>>//	
-	<</if>>
-<<elseif $arcologies[0].FSPhysicalIdealist != "unset">>
-	<<if $FSPromenade.PhysicalIdealist == 0>>
-		<br>
-		[[Upgrade this sector to appeal to Physical Idealist establishments|Main][$cash -= Math.trunc(10000*$upgradeMultiplierArcology), $FSPromenade.PhysicalIdealist = 1, $sectors[$AS].type = "PhysicalIdealist"]]
-		//Costs ¤<<print Math.trunc(10000*$upgradeMultiplierArcology)>>//	
-	<</if>>
-<</if>>
-<<if $arcologies[0].FSChattelReligionist != "unset">>
-	<<if $FSPromenade.ChattelReligionist == 0>>
-		<br>
-		[[Upgrade this sector to appeal to Chattel Religionist establishments|Main][$cash -= Math.trunc(10000*$upgradeMultiplierArcology), $FSPromenade.ChattelReligionist = 1, $sectors[$AS].type = "ChattelReligionist"]]
-		//Costs ¤<<print Math.trunc(10000*$upgradeMultiplierArcology)>>//	
-	<</if>>
-<</if>>
-<<if $arcologies[0].FSRomanRevivalist != "unset">>
-	<<if $FSPromenade.RomanRevivalist == 0>>
-		<br>
-		[[Upgrade this sector to appeal to Roman Revivalist establishments|Main][$cash -= Math.trunc(10000*$upgradeMultiplierArcology), $FSPromenade.RomanRevivalist = 1, $sectors[$AS].type = "RomanRevivalist"]]
-		//Costs ¤<<print Math.trunc(10000*$upgradeMultiplierArcology)>>//	
-	<</if>>
-<<elseif $arcologies[0].FSAztecRevivalist != "unset">>
-	<<if $FSPromenade.AztecRevivalist == 0>>
-		<br>
-		[[Upgrade this sector to appeal to Aztec Revivalist establishments|Main][$cash -= Math.trunc(10000*$upgradeMultiplierArcology), $FSPromenade.AztecRevivalist = 1, $sectors[$AS].type = "AztecRevivalist"]]
-		//Costs ¤<<print Math.trunc(10000*$upgradeMultiplierArcology)>>//	
-	<</if>>
-<<elseif $arcologies[0].FSEgyptianRevivalist != "unset">>
-	<<if $FSPromenade.EgyptianRevivalist == 0>>
-		<br>
-		[[Upgrade this sector to appeal to Egyptian Revivalist establishments|Main][$cash -= Math.trunc(10000*$upgradeMultiplierArcology), $FSPromenade.EgyptianRevivalist = 1, $sectors[$AS].type = "EgyptianRevivalist"]]
-		//Costs ¤<<print Math.trunc(10000*$upgradeMultiplierArcology)>>//	
-	<</if>>
-<<elseif $arcologies[0].FSEdoRevivalist != "unset">>
-	<<if $FSPromenade.EdoRevivalist == 0>>
-		<br>
-		[[Upgrade this sector to appeal to Edo Revivalist establishments|Main][$cash -= Math.trunc(10000*$upgradeMultiplierArcology), $FSPromenade.EdoRevivalist = 1, $sectors[$AS].type = "EdoRevivalist"]]
-		//Costs ¤<<print Math.trunc(10000*$upgradeMultiplierArcology)>>//	
-	<</if>>
-<<elseif $arcologies[0].FSArabianRevivalist != "unset">>
-	<<if $FSPromenade.ArabianRevivalist == 0>>
-		<br>
-		[[Upgrade this sector to appeal to Arabian Revivalist establishments|Main][$cash -= Math.trunc(10000*$upgradeMultiplierArcology), $FSPromenade.ArabianRevivalist = 1, $sectors[$AS].type = "ArabianRevivalist"]]
-		//Costs ¤<<print Math.trunc(10000*$upgradeMultiplierArcology)>>//	
-	<</if>>
-<<elseif $arcologies[0].FSChineseRevivalist != "unset">>
-	<<if $FSPromenade.ChineseRevivalist == 0>>
-		<br>
-		[[Upgrade this sector to appeal to Chinese Revivalist establishments|Main][$cash -= Math.trunc(10000*$upgradeMultiplierArcology), $FSPromenade.ChineseRevivalist = 1, $sectors[$AS].type = "ChineseRevivalist"]]
-		//Costs ¤<<print Math.trunc(10000*$upgradeMultiplierArcology)>>//	
-	<</if>>
-<</if>>
-
+/* PA FS bonuses */
 <br><br>
 <<if $PAPublic == 1 && $assistantAppearance != "normal">>
 <<set _seed1 = 0, _seed2 = 0>>
@@ -538,6 +411,83 @@ With her $assistantFSAppearance $assistantAppearance appearance, $assistantName'
 <<elseif _seed1 == 1>>
 With her $assistantAppearance appearance, $assistantName's public visibility meshes well with society.
 <</if>>
+<</if>>
+
+/* Progress overflow into influence */
+<<if $arcologies[0].FSSupremacist > $FSLockinLevel>>
+	<<set $arcologies[0].influenceBonus += $arcologies[0].FSSupremacist - $FSLockinLevel>>
+	<<set $arcologies[0].FSSupremacist = $FSLockinLevel>>
+<</if>>
+<<if $arcologies[0].FSSubjugationist > $FSLockinLevel>>
+	<<set $arcologies[0].influenceBonus += $arcologies[0].FSSubjugationist - $FSLockinLevel>>
+	<<set $arcologies[0].FSSubjugationist = $FSLockinLevel>>
+<</if>>
+<<if $arcologies[0].FSGenderRadicalist > $FSLockinLevel>>
+	<<set $arcologies[0].influenceBonus += $arcologies[0].FSGenderRadicalist - $FSLockinLevel>>
+	<<set $arcologies[0].FSGenderRadicalist = $FSLockinLevel>>
+<<elseif $arcologies[0].FSGenderFundamentalist > $FSLockinLevel>>
+	<<set $arcologies[0].influenceBonus += $arcologies[0].FSGenderFundamentalist - $FSLockinLevel>>
+	<<set $arcologies[0].FSGenderFundamentalist = $FSLockinLevel>>
+<</if>>
+<<if $arcologies[0].FSPaternalist > $FSLockinLevel>>
+	<<set $arcologies[0].influenceBonus += $arcologies[0].FSPaternalist - $FSLockinLevel>>
+	<<set $arcologies[0].FSPaternalist = $FSLockinLevel>>
+<<elseif $arcologies[0].FSPaternalist != "unset">>
+<<set $arcologies[0].FSPaternalist += _broadProgress>>
+<<elseif $arcologies[0].FSDegradationist > $FSLockinLevel>>
+	<<set $arcologies[0].influenceBonus += $arcologies[0].FSDegradationist - $FSLockinLevel>>
+	<<set $arcologies[0].FSDegradationist = $FSLockinLevel>>
+<</if>>
+<<if $arcologies[0].FSBodyPurist > $FSLockinLevel>>
+	<<set $arcologies[0].influenceBonus += $arcologies[0].FSBodyPurist - $FSLockinLevel>>
+	<<set $arcologies[0].FSBodyPurist = $FSLockinLevel>>
+<<elseif $arcologies[0].FSTransformationFetishist > $FSLockinLevel>>
+	<<set $arcologies[0].influenceBonus += $arcologies[0].FSTransformationFetishist - $FSLockinLevel>>
+	<<set $arcologies[0].FSTransformationFetishist = $FSLockinLevel>>
+<</if>>
+<<if $arcologies[0].FSPastoralist > $FSLockinLevel>>
+	<<set $arcologies[0].influenceBonus += $arcologies[0].FSPastoralist - $FSLockinLevel>>
+	<<set $arcologies[0].FSPastoralist = $FSLockinLevel>>
+<<elseif $arcologies[0].FSPhysicalIdealist > $FSLockinLevel>>
+	<<set $arcologies[0].influenceBonus += $arcologies[0].FSPhysicalIdealist - $FSLockinLevel>>
+	<<set $arcologies[0].FSPhysicalIdealist = $FSLockinLevel>>
+<</if>>
+<<if $arcologies[0].FSMaturityPreferentialist > $FSLockinLevel>>
+	<<set $arcologies[0].influenceBonus += $arcologies[0].FSMaturityPreferentialist - $FSLockinLevel>>
+	<<set $arcologies[0].FSMaturityPreferentialist = $FSLockinLevel>>
+<<elseif $arcologies[0].FSYouthPreferentialist > $FSLockinLevel>>
+	<<set $arcologies[0].influenceBonus += $arcologies[0].FSYouthPreferentialist - $FSLockinLevel>>
+	<<set $arcologies[0].FSYouthPreferentialist = $FSLockinLevel>>
+<</if>>
+<<if $arcologies[0].FSSlimnessEnthusiast > $FSLockinLevel>>
+	<<set $arcologies[0].influenceBonus += $arcologies[0].FSSlimnessEnthusiast - $FSLockinLevel>>
+	<<set $arcologies[0].FSSlimnessEnthusiast = $FSLockinLevel>>
+<<elseif $arcologies[0].FSAssetExpansionist > $FSLockinLevel>>
+	<<set $arcologies[0].influenceBonus += $arcologies[0].FSAssetExpansionist - $FSLockinLevel>>
+	<<set $arcologies[0].FSAssetExpansionist = $FSLockinLevel>>
+<</if>>
+<<if $arcologies[0].FSChattelReligionist > $FSLockinLevel>>
+	<<set $arcologies[0].influenceBonus += $arcologies[0].FSChattelReligionist - $FSLockinLevel>>
+	<<set $arcologies[0].FSChattelReligionist = $FSLockinLevel>>
+<</if>>
+<<if $arcologies[0].FSRomanRevivalist > $FSLockinLevel>>
+	<<set $arcologies[0].influenceBonus += $arcologies[0].FSRomanRevivalist - $FSLockinLevel>>
+	<<set $arcologies[0].FSRomanRevivalist = $FSLockinLevel>>
+<<elseif $arcologies[0].FSAztecRevivalist > $FSLockinLevel>>
+	<<set $arcologies[0].influenceBonus += $arcologies[0].FSAztecRevivalist - $FSLockinLevel>>
+	<<set $arcologies[0].FSAztecRevivalist = $FSLockinLevel>>
+<<elseif $arcologies[0].FSEgyptianRevivalist > $FSLockinLevel>>
+	<<set $arcologies[0].influenceBonus += $arcologies[0].FSEgyptianRevivalist - $FSLockinLevel>>
+	<<set $arcologies[0].FSEgyptianRevivalist = $FSLockinLevel>>
+<<elseif $arcologies[0].FSEdoRevivalist > $FSLockinLevel>>
+	<<set $arcologies[0].influenceBonus += $arcologies[0].FSEdoRevivalist - $FSLockinLevel>>
+	<<set $arcologies[0].FSEdoRevivalist = $FSLockinLevel>>
+<<elseif $arcologies[0].FSArabianRevivalist > $FSLockinLevel>>
+	<<set $arcologies[0].influenceBonus += $arcologies[0].FSArabianRevivalist - $FSLockinLevel>>
+	<<set $arcologies[0].FSArabianRevivalist = $FSLockinLevel>>
+<<elseif $arcologies[0].FSChineseRevivalist > $FSLockinLevel>>
+	<<set $arcologies[0].influenceBonus += $arcologies[0].FSChineseRevivalist - $FSLockinLevel>>
+	<<set $arcologies[0].FSChineseRevivalist = $FSLockinLevel>>
 <</if>>
 
 <<if ($arcologies[0].FSSupremacistSMR + $arcologies[0].FSSubjugationistSMR + $arcologies[0].FSGenderRadicalistSMR + $arcologies[0].FSGenderFundamentalistSMR + $arcologies[0].FSPaternalistSMR + $arcologies[0].FSDegradationistSMR + $arcologies[0].FSBodyPuristSMR + $arcologies[0].FSTransformationFetishistSMR + $arcologies[0].FSYouthPreferentialistSMR + $arcologies[0].FSMaturityPreferentialistSMR + $arcologies[0].FSSlimnessEnthusiastSMR + $arcologies[0].FSAssetExpansionistSMR + $arcologies[0].FSPastoralistSMR + $arcologies[0].FSPhysicalIdealistSMR + $arcologies[0].FSChattelReligionistSMR + $arcologies[0].FSRomanRevivalistSMR + $arcologies[0].FSAztecRevivalistSMR + $arcologies[0].FSEgyptianRevivalistSMR + $arcologies[0].FSEdoRevivalistSMR + $arcologies[0].FSArabianRevivalistSMR + $arcologies[0].FSChineseRevivalistSMR) > 0>>

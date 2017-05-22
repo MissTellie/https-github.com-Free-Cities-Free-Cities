@@ -432,6 +432,24 @@ As the remote surgery's long recovery cycle completes,
 		<<removeJob $activeSlave $activeSlave.assignment>>
 	<</if>>
 
+<<case "precum">>
+	Her groin is a little sore, and she examines it closely, but she can't find much difference. Near the end of her close inspection of her own private parts, though, she happens to stimulate herself, unintentionally, and just a little. That's enough. She begins to leak precum, and it doesn't stop until her confusion snuffs out the slight arousal that got it started.
+	<<if $activeSlave.devotion > 50>>
+		@@.hotpink;She's delighted.@@ She's such a good sex slave that the lewdness of making extra fluid when she's ready to fuck is exciting to her. That, and extra lubrication is always welcome.
+		<<if $activeSlave.dick > 2>>One of the first things she tries is guiding her flaccid dick back to apply some to her asspussy. It works, to her naughty satisfaction.<</if>>
+		<<set $activeSlave.devotion += 4>>
+	<<elseif $activeSlave.devotion >= -20>>
+		She obviously doesn't know what to think at first. She does her best not to make a mess, and is mostly successful, but she's realizing that this is going to be somewhat inconvenient. Still, having such a lewd change made to her body affects her feelings towards you; she is @@.gold;sensibly fearful@@ of your total power over her.
+		<<set $activeSlave.trust -= 5>>
+	<<else>>
+		She feared the worst when she realized that something had been done to her down there, and she's initially relieved to find that she's intact and apparently functional. But she's been invaded in an extremely personal way, and @@.mediumorchid;resents having you tamper with her private parts.@@ Furthermore, she is @@.gold;sensibly fearful@@ of your total power over her.
+		<<set $activeSlave.trust -= 5, $activeSlave.devotion -= 5>>
+	<</if>>
+	As with all surgery @@.red;her health has been slightly affected.@@
+
+<<case "endprecum">>
+	Her groin is a little sore, and she examines it closely, but she can't find much difference. Her generous production of precum won't tail off for some time, until the slow-release drugs are completely flushed from her system. Even then, the only real change for her will be a little less inconvenience. As with all surgery @@.red;her health has been slightly affected.@@
+
 <<case "butt">>
 	<<if ($activeSlave.devotion > 20) && ($activeSlave.fetish == "buttslut") && ($activeSlave.fetishStrength > 60) && ($activeSlave.fetishKnown == 1)>>
 		She gently flexes her sore buttocks with a sigh of pleasure. She's @@.hotpink;deliriously happy@@ to have a bigger butt, since she confidently expects that this will mean more cocks being shoved up her asshole. She's so pleased that she now @@.mediumaquamarine;trusts@@ your plans for her body. As with all surgery @@.red;her health has been slightly affected.@@
