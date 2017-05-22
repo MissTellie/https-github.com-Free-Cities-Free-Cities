@@ -6,9 +6,9 @@
 	<<set $i = $MastSiIDs[_dI].Index, _ID = $MastSiIDs[_dI].ID>>
 	<<if $i >= _SL || _ID != $slaves[$i].ID>>
 		/% IDs don't match-up so let's find her %/
-		<<set $MastSiIDs[_dI].Index = $slaves.findIndex(function(s) { return s.ID == _ID; })>>
+		<<set $i = $slaves.findIndex(function(s) { return s.ID == _ID; }), $MastSiIDs[_dI].Index = $i>>
 	<</if>>
-	<<if $MastSiIDs[_dI].Index == -1 || $slaves[$i].assignment != "serve in the master suite">>
+	<<if $i == -1 || $slaves[$i].assignment != "serve in the master suite">>
 		<<set $MastSiIDs.deleteAt(_dI), _dI--, _DL--, $masterSuiteSlaves-->>
 		<<continue>>
 	<</if>>
