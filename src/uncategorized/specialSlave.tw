@@ -1,24 +1,36 @@
-:: Special Slave
+:: Special Slave [nobr]
 
-<<set $nextButton = "Back">>\
-<<set $nextLink = "Buy Slaves">>\
-<<set $returnTo = "Buy Slaves">>\
-<<set $showEncyclopedia = 1>><<set $encyclopedia = "Direct Sales">>\
-\
-You review a piece of merchandise via video call, making a few lewd demands to gauge her obedience. The background of the video feed is luxurious and plush; somewhere offscreen someone is moaning rapturously.
+<<set $nextButton = "Back", $nextLink = "Buy Slaves", $returnTo = "Buy Slaves", $showEncyclopedia = 1, $encyclopedia = "Direct Sales">>
 
-<<set $activeSlave = getHeroSlave($heroSlaves.random(), $baseHeroSlave)>>\
-<<set $activeSlave.weekAcquired = $week>>\
-<<set $activeSlave.pubicHColor = $activeSlave.hColor>>\
-<<set $activeSlave.pubicHStyle = "waxed">>\
-<<slaveCost $activeSlave>>\
-\
-The offered price is ¤<<print $slaveCost>>.
-\
-[[Buy her slave contract|New Slave Intro][$cash -= $slaveCost,$nextButton = "Continue",$nextLink = "AS Dump",$returnTo = "Main",$specialSlave = 1]]
+<<if $heroSlaves.length == 0>>
+	Unfortunately, the catalog is empty.
+<<else>>
 
-[[Pay ¤1000 to access complete catalog of slaves|Complete Catalog][$cash -= 1000]]
+	You review a piece of merchandise via video call, making a few lewd demands to gauge her obedience. The background of the video feed is luxurious and plush; somewhere offscreen someone is moaning rapturously.
 
-//Best regards to /d/, whose fine denizens came up with most of the slaves in the "previously owned" database.//
+	<br><br>
 
-<<set $saleDescription = 1>><<include "Long Slave Description">><<set $saleDescription = 0>>
+	<<set $activeSlave = getHeroSlave($heroSlaves.random(), $baseHeroSlave)>>
+	<<set $activeSlave.weekAcquired = $week>>
+	<<set $activeSlave.pubicHColor = $activeSlave.hColor>>
+	<<set $activeSlave.pubicHStyle = "waxed">>
+	<<slaveCost $activeSlave>>
+
+	The offered price is ¤<<print $slaveCost>>.
+
+	[[Buy her slave contract|New Slave Intro][$cash -= $slaveCost,$nextButton = "Continue",$nextLink = "AS Dump",$returnTo = "Main",$specialSlave = 1]]
+
+	<br><br>
+
+	[[Pay ¤1000 to access complete catalog of slaves|Complete Catalog][$cash -= 1000]]
+
+	<br><br>
+
+	//Best regards to /d/, whose fine denizens came up with most of the slaves in the "previously owned" database.//
+
+	<br><br>
+
+	<<set $saleDescription = 1>><<include "Long Slave Description">><<set $saleDescription = 0>>
+
+<</if>>
+
