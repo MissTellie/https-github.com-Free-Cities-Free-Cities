@@ -30,7 +30,7 @@
   <</if>>
 <<else>>
 
-<<set $i = $slaves.findIndex(function(s) { return s.ID == $subSlave; })>>
+<<set $subSlave = $slaves.find(function(s) { return s.ID == $subSlave; })>>
 
 <<set $nextButton = "Continue", $nextLink = "AS Dump", $returnTo = "RIE Eligibility Check">>
 
