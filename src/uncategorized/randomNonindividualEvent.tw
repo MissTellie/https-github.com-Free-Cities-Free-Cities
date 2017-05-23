@@ -103,6 +103,8 @@
 	<</if>>
 <</if>>
 
+/* Fetish Interest Events */
+
 <<set $buttslutID = 0, $cumslutID = 0, $humiliationID = 0, $subID = 0, $pregnancyID = 0, $masochistID = 0, $boobsID = 0>>
 
 <<for $i = 0; $i < $slaves.length; $i++>>
@@ -267,7 +269,11 @@
 	<<if ($Concubine != 0)>>
 	<<if $fuckSlaves > 1>>
 	<<if canTalk($Concubine)>>
+	<<if canSee($Concubine)>>
+	<<if canWalk($Concubine)>>
 		<<set $events.push("PE headgirl concubine")>>
+	<</if>>
+	<</if>>
 	<</if>>
 	<</if>>
 	<</if>>
@@ -337,7 +343,7 @@
 	<</if>>
 <</if>>
 
-<<if ($Stewardess != 0) && ($servantsQuartersSlaves >= 0) && ($Stewardess.age >= 35)>>
+<<if ($Stewardess != 0) && ($servantsQuartersSlaves > 0) && ($Stewardess.age >= 35)>>
 	<<set $PETSevent.push("stewardess beating")>>
 <</if>>
 
@@ -370,9 +376,13 @@
 <</if>>
 
 <<if ($Concubine != 0)>>
+	<<if canWalk($Concubine)>>
+	<<if canSee($Concubine)>>
 	<<set $PESSevent.push("loving concubine")>>
+	<</if>>
 	<<if canTalk($Concubine)>>
 		<<set $events.push("PE concubine interview")>>
+	<</if>>
 	<</if>>
 <</if>>
 
