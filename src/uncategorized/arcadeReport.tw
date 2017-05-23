@@ -79,8 +79,8 @@
 	<<if ($arcadeUpgradeCollectors > 0)>>
 		<<if ($slaves[$i].lactation < 2)>>
 			<<set $slaves[$i].lactation = 2, $slaves[$i].health -= 10, $cash -= $surgeryCost, $boobsImplanted++>>
-    <<elseif $slaves[_i].prostate == 1>>
-      <<set $slaves[_i].prostate = 2, $slaves[_i].health -= 10, $cash -= $surgeryCost, $prostatesImplanted++>>
+    <<elseif $slaves[$i].prostate == 1>>
+      <<set $slaves[$i].prostate = 2, $slaves[$i].health -= 10, $cash -= $surgeryCost, $prostatesImplanted++>>
 		<<elseif ($slaves[$i].lactation > 0) || ($slaves[$i].balls > 0)>>
 			<<if $showEWD != 0>>
 				<br>&nbsp;&nbsp;&nbsp;&nbsp;She <<include "SA get milked">>
