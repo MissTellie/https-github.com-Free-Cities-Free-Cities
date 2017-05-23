@@ -23,7 +23,7 @@ Lactation drug implants:
 <<if ($currentRule.surgery.lactation !== "no default setting")>>
 	<<link "No default setting">>
 		<<set $currentRule.surgery.lactation = "no default setting">>
-		<<RASurgeryChangeLacation>>
+		<<RASurgeryChangeLactation>>
 	<</link>> |
 <<else>>
 	No default setting |
@@ -31,7 +31,7 @@ Lactation drug implants:
 <<if ($currentRule.surgery.lactation !== 0)>>
 	<<link "Removed">>
 		<<set $currentRule.surgery.lactation = 0>>
-		<<RASurgeryChangeLacation>>
+		<<RASurgeryChangeLactation>>
 	<</link>> |
 <<else>>
 	Removed |
@@ -39,7 +39,7 @@ Lactation drug implants:
 <<if ($currentRule.surgery.lactation !== 1)>>
 	<<link "Implanted">>
 		<<set $currentRule.surgery.lactation = 1>>
-		<<RASurgeryChangeLacation>>
+		<<RASurgeryChangeLactation>>
 	<</link>>
 <<else>>
 	Implanted
