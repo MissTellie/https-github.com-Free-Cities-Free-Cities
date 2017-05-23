@@ -2461,14 +2461,13 @@ Relationship rules: ''$currentRule.relationshipRules.''
     <<link "Apply rules">>
         <<RASaveRule $currentRule.ID>>
         <<replace "#applied">>
-            <<for $i = 0; $i < $slaves.length; $i++>>
-                <<if (!$slaves[$i].useRulesAssistant)>> /* skip RA-exempt slaves */
+            <<for _rai = 0; _rai < $slaves.length; _rai++>>
+                <<if (!$slaves[_rai].useRulesAssistant)>> /* skip RA-exempt slaves */
                     <<continue>>
                 <</if>>
 
-                <<set $activeSlave = $slaves[$i]>>
-                <<CheckAutoRulesActivate $activeSlave>> /* does not use or modify $currentRule */
-                <<DefaultRules $activeSlave>>           /* does not use or modify $currentRule */
+                <<CheckAutoRulesActivate $slaves[_rai]>> /* does not use or modify $currentRule */
+                <<DefaultRules $slaves[_rai]>>           /* does not use or modify $currentRule */
             <</for>>
         <</replace>>
 
