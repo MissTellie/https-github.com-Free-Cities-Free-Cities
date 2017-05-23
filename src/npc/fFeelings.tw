@@ -672,48 +672,43 @@ My favorite part of my body i<<s>>
 <</if>>
 
 <<if ($activeSlave.relationship > 0)>>
-<<set _SL = $slaves.length>>
-<<for _j = 0; _j < _SL; _j++>>
-	<<if $slaves[_j].ID == $activeSlave.relationshipTarget>>
+	<<set $partner = $slaves.findIndex(function(s) { return s.ID == $activeSlave.relationshipTarget; })>>
 	<<if $activeSlave.relationship <= 2>>
-		I really like <<s>>eeing $slaves[_j].slaveName every day, she'<<s>> a good friend." She blushes. "<<S>>he'<<s>> kind of hot, too.
+		I really like <<s>>eeing $slaves[$partner].slaveName every day, she'<<s>> a good friend." She blushes. "<<S>>he'<<s>> kind of hot, too.
 	<<elseif $activeSlave.relationship <= 3>>
-		I really like <<s>>eeing $slaves[_j].slaveName every day, she's a good friend -" She blushes. "- even when we're not fucking.
+		I really like <<s>>eeing $slaves[$partner].slaveName every day, she's a good friend -" She blushes. "- even when we're not fucking.
 	<<elseif $activeSlave.relationship <= 4>>
-		I really love $slaves[_j].slaveName." She blushes. "Thank you for letting u<<s>> be together, <<Master>>.
+		I really love $slaves[$partner].slaveName." She blushes. "Thank you for letting u<<s>> be together, <<Master>>.
 	<<else>>
-		I'm <<s>>o happy with $slaves[_j].slaveName." She blushes. "Thank you for her, <<Master>>.
+		I'm <<s>>o happy with $slaves[$partner].slaveName." She blushes. "Thank you for her, <<Master>>.
 	<</if>>
 	<<if $activeSlave.relationship >= 3>>
-		<<if ($activeSlave.relation != 0) && ($slaves[_j].ID == $activeSlave.relationTarget)>>
+		<<if ($activeSlave.relation != 0) && ($slaves[$partner].ID == $activeSlave.relationTarget)>>
 			I - I'm fucking my <<if ($activeSlave.relation == "mother")>>daughter<<elseif ($activeSlave.relation == "daughter")>>mother<<else>>$activeSlave.relation<</if>>," she bursts out, blushing even harder.	"It's <<s>>o fucking wrong, but <<if ($activeSlave.relation == "mother")>>she has <<s>>uch a hot little body<<elseif ($activeSlave.relation == "daughter")>>she'<<s>> such a hot MILF<<else>>she's <<s>>o hot<</if>>, I can't <<s>>top.
-		<<elseif ($activeSlave.age + 14) < $slaves[_j].age>>
+		<<elseif ($activeSlave.age + 14) < $slaves[$partner].age>>
 			<<S>>he'<<s>> old enough to be my mother." She looks down, blushing a little harder. "But I'm lucky, she'<<s>> such a hot MILF.
-		<<elseif ($activeSlave.age - 14) > $slaves[_j].age>>
+		<<elseif ($activeSlave.age - 14) > $slaves[$partner].age>>
 			<<S>>he'<<s>> young enough to be my daughter." She looks down, blushing a little harder. "But I love her hot young body.
 		<</if>>
-		<<if (($activeSlave.age - 5) > $slaves[_j].age) && (20 > $slaves[_j].age)>>
+		<<if (($activeSlave.age - 5) > $slaves[$partner].age) && (20 > $slaves[$partner].age)>>
 			She'<<s>> a little immature at time<<s>>, but having <<s>>ex with a teenager i<<s>> so awe<<s>>ome, it'<<s>> worth it.
 		<</if>>
-		<<if $slaves[_j].amp != 0>>
-		<<if $slaves[_j].amp == -1>>
+		<<if $slaves[$partner].amp != 0>>
+		<<if $slaves[$partner].amp == -1>>
 			I really do like her P-Limbs. They're a little awkward, and kind of cold, but <<if _lisping == 1>>that'th jutht how she ith<<else>>that's just how she is<</if>>.
-		<<elseif $slaves[_j].amp == -2>>
+		<<elseif $slaves[$partner].amp == -2>>
 			And, um." She giggles. "She<<if _lisping == 1>>hath vibe fingerth. Tho that'th awethome<<else>>has vibe fingers. So that's awesome<</if>>.
-		<<elseif $slaves[_j].amp == -3>>
+		<<elseif $slaves[$partner].amp == -3>>
 			I really like her P-Limbs. They're very pretty, but kind of cold. <<if _lisping == 1>>That'th jutht how she ith<<else>>That's just how she is<</if>>.
-		<<elseif $slaves[_j].amp == -4>>
+		<<elseif $slaves[$partner].amp == -4>>
 			Her P-Limbs do <<s>>care me a little, <<s>>ometime<<s>>. Though of course she di<<s>>able<<s>> the weapon<<s>> when we're together." She giggles. "Though I did get her to extend her blades on<<c>>e, so I could ki<<ss>> them for luck.
-		<<elseif $slaves[_j].amp == -5>>
+		<<elseif $slaves[$partner].amp == -5>>
 			Her P-Limbs do look cool and I like how <<s>>trong they can make her but they <<s>>care me a little, <<s>>ometime<<s>>. Though of cour<<s>>e she disable<<s>> the weapon<<s>> when we're together." She giggles. "She ha<<s>> vibe fingers, <<s>>o that'<<s>> awe<<s>>ome.
 		<<else>>
 			She's an amputee, of course, <<s>>o that'<<s>> a little <<s>>ad.
 		<</if>>
 		<</if>>
 	<</if>>
-	<<break>>
-	<</if>>
-<</for>>
 <<elseif ($activeSlave.relationship == -3)>>
 	Of cour<<s>>e, I'm your wife, <<Master>>." She laughs. "Not exactly traditional married life, but I'll do my be<<s>>t to help redefine it.
 <<elseif ($activeSlave.relationship == -2)>>
@@ -874,7 +869,7 @@ My favorite part of my body i<<s>>
 	<</if>>
 <</if>>
 <<if $arcologies[0].FSPastoralist >= 10>>
-	<<if ($activeSlave.lactation > 0) && ($activeSlave.balls > 0) && ($activeSlave.prostate > 0)>>
+	<<if ($activeSlave.lactation > 0) && ($activeSlave.balls > 0)>>
 		I'll do my be<<s>>t to make a<<s>> much milk and cum for the arcology as I can.
 	<<elseif ($activeSlave.lactation > 0)>>
 		I'll do my be<<s>>t to make a<<s>> much milk for the arcology as I can.

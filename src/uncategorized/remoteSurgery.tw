@@ -477,11 +477,21 @@ $pronounCap has
 		[[Geld|Surgery Degradation][$activeSlave.balls to 0,$activeSlave.scrotum to 0,$cash -= $surgeryCost, $activeSlave.health -= 40, $surgeryType to "geld"]]
 		<</if>>
 	<</if>>
-	<br>$pronounCap <<if $activeSlave.prostate > 0>>has<<else>>lacks<</if>> a prostate.
-	<<if $activeSlave.prostate > 0>>
+<</if>>
+<<if $activeSlave.prostate>>
+	<br>$pronounCap has a <<if $activeSlave.prostate > 1>>hyperactive<<else>>normal<</if>> prostate.
+	<<if ($seeExtreme == 1)>>
 		<<if $activeSlave.indentureRestrictions < 1>>
 			[[Remove|Surgery Degradation][$activeSlave.prostate to 0,$cash -= $surgeryCost, $activeSlave.health -= 40, $surgeryType to "prostate"]]
 		<</if>>
+	<</if>>
+	<<if $activeSlave.prostate < 2>>
+		<<if $activeSlave.indentureRestrictions < 2>>
+			[[Implant slow-release productivity drugs|Surgery Degradation][$activeSlave.lactation=2,$cash-=$surgeryCost,$activeSlave.health-=10,$surgeryType="precum"]] //This may cause some leaking//
+		<</if>>
+	<</if>>
+	<<if $activeSlave.prostate > 1>>
+		 | [[Remove drug implant|Surgery Degradation][$activeSlave.prostate=1,$cash-=$surgeryCost,$surgeryType="endprecum"]]
 	<</if>>
 <</if>>
 <<if ($activeSlave.balls > 0)>>

@@ -43,38 +43,38 @@
 <</if>>
 
 <<if $organsCompleted > 0>>
-<<for _j = 0; _j < $organs.length; _j++>>
+<<for _dwj = 0; _dwj < $organs.length; _dwj++>>
 	<<set _validHost = 0>>
 	<<set $dumped = 0>>
-	<<for _i = 0; _i < $slaves.length; _i++>>
-		<<set _Slave = $slaves[_i]>>
-		<<if ($organs[_j] != 0) && ($organs[_j].ID == _Slave.ID)>>
+	<<for _dwi = 0; _dwi < $slaves.length; _dwi++>>
+		<<set _Slave = $slaves[_dwi]>>
+		<<if ($organs[_dwj] != 0) && ($organs[_dwj].ID == _Slave.ID)>>
 			<<set _validHost = 1>>
-			<<if ($organs[_j].weeksToCompletion <= 0)>>
+			<<if ($organs[_dwj].weeksToCompletion <= 0)>>
 				<br>@@.yellow;The fabricator has completed an organ for@@ <span id="name"><<print "[[_Slave.slaveName|Slave Interact][$activeSlave = $slaves[" + _i + "]]]">></span>, @@.yellow; which is ready to be implanted.@@
 			<</if>>
 		<</if>>
 	<</for>>
 	<<if _validHost == 0>>
-		<<set $dump = $organs.deleteAt(_j), _j-->>
+		<<set $dump = $organs.deleteAt(_dwj), _dwj-->>
 	<</if>>
 <</for>>
 <</if>>
 <<if $limbsCompleted > 0>>
-<<for _j = 0; _j < $limbs.length; _j++>>
+<<for _dwj = 0; _dwj < $limbs.length; _dwj++>>
 	<<set _validHost = 0>>
 	<<set $dumped = 0>>
-	<<for _i = 0; _i < $slaves.length; _i++>>
-		<<set _Slave = $slaves[_i]>>
-		<<if ($limbs[_j] != 0) && ($limbs[_j].ID == _Slave.ID)>>
+	<<for _dwi = 0; _dwi < $slaves.length; _dwi++>>
+		<<set _Slave = $slaves[_dwi]>>
+		<<if ($limbs[_dwj] != 0) && ($limbs[_dwj].ID == _Slave.ID)>>
 			<<set _validHost = 1>>
-			<<if ($limbs[_j].weeksToCompletion <= 0)>>
+			<<if ($limbs[_dwj].weeksToCompletion <= 0)>>
 				<br>@@.yellow;The facility has completed a set of limbs for@@ <span id="name"><<print "[[_Slave.slaveName|Slave Interact][$activeSlave = $slaves[" + _i + "]]]">></span>, @@.yellow; which is ready to be attached.@@
 			<</if>>
 		<</if>>
 	<</for>>
 	<<if _validHost == 0>>
-		<<set $dump = $limbs.deleteAt(_j), _j-->>
+		<<set $dump = $limbs.deleteAt(_dwj), _dwj-->>
 	<</if>>
 <</for>>
 <</if>>
@@ -3028,7 +3028,9 @@ $pronounCap's got a
 	<</if>>
 	<</if>>
 	<<if $activeSlave.prostate > 0>>
-		<<if ($activeSlave.aphrodisiacs > 0)>>
+		<<if ($activeSlave.prostate > 1)>>
+			$possessiveCap's got a string of precum dangling from the hole; her artificially hyperactive prostate keeps her that way.
+		<<elseif ($activeSlave.aphrodisiacs > 0)>>
 			The aphrodisiacs have $possessive so horny that there's a little precum beading at the hole.
 		<<elseif ($activeSlave.energy > 95)>>
 			As a nympho, $pronoun's almost always got a little bead of precum forming at the hole.
