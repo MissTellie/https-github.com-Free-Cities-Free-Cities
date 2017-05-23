@@ -594,6 +594,10 @@ window.lastLactationSurgeryRule = function(slave, rules) {
 	return lastSurgeryRuleFor(slave, rules, "lactation");
 }
 
+window.lastProstateSurgeryRule = function(slave, rules) {
+	return lastSurgeryRuleFor(slave, rules, "prostate");
+}
+
 window.lastLipSurgeryRule = function(slave, rules) {
 	return lastSurgeryRuleFor(slave, rules, "lips");
 };
@@ -666,6 +670,8 @@ window.cumAmount = function(slave) {
 		}
 		if (slave.prostate == 0) {
 			cum *= 0.8
+		} else if (slave.prostate == 2) {
+			cum *= 1.2
 		}
 		if (slave.devotion > 50) {
 			cum += (cum*(slave.devotion/100))
