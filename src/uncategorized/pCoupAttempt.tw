@@ -1,8 +1,6 @@
 :: P coup attempt [nobr]
 
-<<set $nextButton = " ", $nextLink = "Random Nonindividual Event">> /* hide button until user makes a selection */
-
-<<set $daughtersVictory = 1>>
+<<set $nextButton = "Continue", $nextLink = "Random Nonindividual Event", $daughtersVictory = 1>>
 
 You are awakened in the middle of the night by a jolt that shakes the entire arcology, accompanied by a distant boom. It is followed by the wail of the arcology's alarm systems, and then finally by a faint crackle that grows to a constant chatter of gunfire. Main power goes out, and you claw your way in the darkness to the video feeds, running on emergency backup. The Daughters of Liberty have more sympathizers in the arcology than even you suspected, and they're well armed and have the element of surprise. <<if $arcologies[0].FSRomanRevivalistLaw == 1>>$arcologies[0].name, however, is home to a society that cannot be surprised, for each and every one of its citizens is armed and trained for instant contribution to the defense of Rome. Even as you do your best to reestablish control, you hear a thunderous, ubiquitous roar from all around you. Your citizens are already getting into the fight.<</if>>
 
@@ -132,7 +130,6 @@ You are awakened in the middle of the night by a jolt that shakes the entire arc
 
 <span id="result">
 <<link "Sell your prisoners immediately">>
-	<<set $nextButton = "Continue">><<UpdateNextButton>> /* unlock Continue button */
 	<<replace "#result">>
 	<<for $i = 0; $i < _newSlaves.length; $i++>>
 		<<slaveCost _newSlaves[$i]>>
@@ -142,7 +139,6 @@ You are awakened in the middle of the night by a jolt that shakes the entire arc
 	<</replace>>
 <</link>> <<if $traitor != 0>>//$traitor.slaveName will not be sold.//<</if>>
 <br><<link "Give your prisoners to those who suffered property damage">>
-	<<set $nextButton = "Continue">><<UpdateNextButton>> /* unlock Continue button */
 	<<replace "#result">>
 	<<for $i = 0; $i < _newSlaves.length; $i++>>
 		<<slaveCost _newSlaves[$i]>>
@@ -152,7 +148,6 @@ You are awakened in the middle of the night by a jolt that shakes the entire arc
 	<</replace>>
 <</link>> <<if $traitor != 0>>//$traitor.slaveName will not be given away.//<</if>>
 <br><<link "Enslave all of your prisoners">>
-	<<set $nextButton = "Continue">><<UpdateNextButton>> /* unlock Continue button */
 	<<replace "#result">>
 	<<for $i = 0; $i < _newSlaves.length; $i++>>
 		<<AddSlave _newSlaves[$i]>>

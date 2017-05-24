@@ -1,6 +1,6 @@
 :: P Mercs Help Corp [nobr]
 
-<<set $nextButton = " ", $nextLink = "Random Nonindividual Event", $mercenariesHelpCorp = -1>> /* hide button until user makes a selection */
+<<set $nextButton = "Decline", $nextLink = "Random Nonindividual Event", $mercenariesHelpCorp = -1>> /* hide button until user makes a selection */
 
 Your weekly meeting with your $mercenariesTitle commander finishes with unusual speed. With the arcology owner who set the Daughters on you enslaved, all other immediate threats defused or smashed,<<if $arcologies[0].FSRomanRevivalistLaw > 0>> your citizens serving in the urban cohorts with enthusiasm,<</if>> and the $mercenariesTitle in excellent fighting condition, there just weren't enough concerns from either of your perspectives to fill the time. You sit across your desk from each other, discussing the global situation over $PC.refreshment.
 
@@ -20,13 +20,12 @@ Your weekly meeting with your $mercenariesTitle commander finishes with unusual 
 
 <span id="result">
 <<link "Decline">>
-	<<set $nextButton = "Continue">><<UpdateNextButton>> /* unlock Continue button */
 	<<replace "#result">>
 	Best to keep the $mercenariesTitle in reserve. You decline, and the commander chuckles. "Well <<if def $PC.customTitle>>$PC.customTitle<<elseif $PC.title != 0>>Sir<<else>>Ma'am<</if>>, if you insist, I suppose we could find ways to keep busy around the arcology. I mean, we're a little starved for female company here, but we can make do."
 	<</replace>>
 <</link>>
 <br><<link "Make it so">>
-	<<set $nextButton = "Continue">><<UpdateNextButton>> /* unlock Continue button */
+	<<set $nextButton = "Continue">><<UpdateNextButton>>
 	<<replace "#result">>
 	It's a fine idea, and you agree. The commander looks so enthused that you feel obliged to ask that he not risk himself unduly. He laughs. "There are no old, bold mercs, <<if def $PC.customTitle>>$PC.customTitle<<elseif $PC.title != 0>>Sir<<else>>Ma'am<</if>>, and I am sure as hell old. I'll be sure to grow even older under contract with you. Now, unless there's anything else, I've just bought a nice girl to add to the commander's suite, and she makes me feel a bit younger."
 	<<set $mercenariesHelpCorp = 1>>
