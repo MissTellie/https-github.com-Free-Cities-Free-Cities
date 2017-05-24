@@ -1,6 +1,6 @@
 :: P coup attempt [nobr]
 
-<<set $nextButton = "Continue", $nextLink = "Random Nonindividual Event">>
+<<set $nextButton = " ", $nextLink = "Random Nonindividual Event">> /* hide button until user makes a selection */
 
 <<set $daughtersVictory = 1>>
 
@@ -132,6 +132,7 @@ You are awakened in the middle of the night by a jolt that shakes the entire arc
 
 <span id="result">
 <<link "Sell your prisoners immediately">>
+	<<set $nextButton = "Continue">><<UpdateNextButton>> /* unlock Continue button */
 	<<replace "#result">>
 	<<for $i = 0; $i < _newSlaves.length; $i++>>
 		<<slaveCost _newSlaves[$i]>>
@@ -141,6 +142,7 @@ You are awakened in the middle of the night by a jolt that shakes the entire arc
 	<</replace>>
 <</link>> <<if $traitor != 0>>//$traitor.slaveName will not be sold.//<</if>>
 <br><<link "Give your prisoners to those who suffered property damage">>
+	<<set $nextButton = "Continue">><<UpdateNextButton>> /* unlock Continue button */
 	<<replace "#result">>
 	<<for $i = 0; $i < _newSlaves.length; $i++>>
 		<<slaveCost _newSlaves[$i]>>
@@ -150,6 +152,7 @@ You are awakened in the middle of the night by a jolt that shakes the entire arc
 	<</replace>>
 <</link>> <<if $traitor != 0>>//$traitor.slaveName will not be given away.//<</if>>
 <br><<link "Enslave all of your prisoners">>
+	<<set $nextButton = "Continue">><<UpdateNextButton>> /* unlock Continue button */
 	<<replace "#result">>
 	<<for $i = 0; $i < _newSlaves.length; $i++>>
 		<<AddSlave _newSlaves[$i]>>

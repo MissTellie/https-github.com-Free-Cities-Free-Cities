@@ -1,7 +1,6 @@
 :: P rivalry actions [nobr]
 
-<<set $nextButton = "Continue">>
-<<set $nextLink = "RIE Eligibility Check">>
+<<set $nextButton = " ", $nextLink = "Random Nonindividual Event", $rivalryDuration += 1, _num = random(1,99)>> /* hide button until user makes a selection */
 
 <<if $hostageAnnounced == 1>>
 
@@ -15,9 +14,6 @@
 /* 000-250-006 */
 
 <</if>>
-
-<<set $rivalryDuration += 1>>
-<<set _num = random(1,99)>>
 
 Your inter-arcology war with the arcology owner behind the Daughters of Liberty has dragged on for $rivalryDuration week<<if $rivalryDuration > 1>>s<</if>>. The tone of your arcology is a bit more somber than usual. You have enhanced security in place, and the populace has caught the mood.
 
@@ -2464,14 +2460,18 @@ Your inter-arcology war with the arcology owner behind the Daughters of Liberty 
 <</if>>
 
 <br><br>
+
 You remind yourself that success in this conflict will not be defined by the traditional measures of impending victory and defeat. The primary concern here is the weight of your holdings against those of your opponent. Improving your arcology's prosperity will move you closer to victory<<if $rivalSet == 1>>, and so will attacking the prosperity of your rival's neighboring arcology through economic means<</if>>. Of course, you can also take more direct action.
 
 <br><br>
+
 <<if $assistantName == "your personal assistant">>Your personal assistant<<else>>$assistantName<</if>> collates several options for directly attacking your rival. This is a corporate war, not a military one; your peers would not tolerate a direct attack on <<if _num < $seeDicks>>him.<<else>>her.<</if>> You must bankrupt your opponent so they are no longer able to hide within the physical and intangible fortress that is their arcology. Your rival <<if ($rivalOwner-$rivalryPower)/$arcologies[0].prosperity < 0.6>>is on their economic knees, putting them on the verge of defeat.<<elseif ($rivalOwner-$rivalryPower)/$arcologies[0].prosperity < 0.7>>is in a bad financial state, well on the way to final dissolution and defeat.<<elseif ($rivalOwner-$rivalryPower)/$arcologies[0].prosperity < 0.8>>has taken some hard corporate blows but is still standing.<<elseif ($rivalOwner-$rivalryPower)/$arcologies[0].prosperity < 0.9>>is starting to feel the pressure.<<else>>is essentially undamaged; you have hard work ahead of you.<</if>>
 
 <br><br>
+
 <span id="result">
 <<link "Apply ¤10000 in standard corporate warfare">>
+	<<set $nextButton = "Continue">><<UpdateNextButton>> /* unlock Continue button */
 	<<if random(1,100) > 50>>
 		<<replace "#result">>
 		Money is your infantry, your weapon, your ammunition in one. Last century, your soldiers would have died taking the enemy's positions. Today, your ¤ die @@.green;taking@@ <<if _num < $seeDicks>>his<<else>>her<</if>> holdings. Once more unto the breach.
@@ -2487,6 +2487,7 @@ You remind yourself that success in this conflict will not be defined by the tra
 	<</if>>
 <</link>>
 <br><<link "Spend ¤10000 funding sabotage">>
+	<<set $nextButton = "Continue">><<UpdateNextButton>> /* unlock Continue button */
 	<<if random(1,100) > 70>>
 		<<replace "#result">>
 		Since you are not so uncouth as to, for example, help fund a coup attempt, you fund traditional acts of corporate sabotage, including hacking, slander, and actual, physical thievery. There are some @@.red;minor rumors@@ that you are to blame, but they're outweighed by the @@.green;great pressure@@ these incidents put on your enemy.
@@ -2504,6 +2505,7 @@ You remind yourself that success in this conflict will not be defined by the tra
 	<</if>>
 <</link>>
 <br><<link "Use ¤25000 creating local shortages">>
+	<<set $nextButton = "Continue">><<UpdateNextButton>> /* unlock Continue button */
 	<<replace "#result">>
 	With enough money, it's entirely possible to temporarily overwhelm even the advanced free market of the Free Cities. You choose a few critical items - Pharmaceutical materials, electronic components, and other physical items - and purchase shipments intended for your rival's arcology. <<if _num < $seeDicks>>His<<else>>Her<</if>> tenants are @@.green;seriously inconvenienced@@ and blame their difficulties on their hapless landlord.
 	<<set $cash -= 25000>>
@@ -2511,6 +2513,7 @@ You remind yourself that success in this conflict will not be defined by the tra
 	<</replace>>
 <</link>>
 <br><<link "Devote ¤50000 to purchasing the support of your peers">>
+	<<set $nextButton = "Continue">><<UpdateNextButton>> /* unlock Continue button */
 	<<replace "#result">>
 	Your fellow arcology owners have an interest in seeing the funder of the Daughters' attempt on you destroyed, but few of them are willing to spend any money or real effort on the matter. You do a few of them the favor of making the money and effort spent yours. Your rival finds <<if _num < $seeDicks>>his<<else>>her<</if>> dealings with your mutual peers becoming @@.green;strangely difficult.@@ Market opinion is swinging your way.
 	<<set $cash -= 50000>>
@@ -2520,6 +2523,7 @@ You remind yourself that success in this conflict will not be defined by the tra
 <<if ($PC.warfare >= 100) || ($PC.career == "arcology owner")>>
 <<if $mercenaries >= 3>>
 <br><<link "Your peers will tolerate an attack if it's covert">>
+	<<set $nextButton = "Continue">><<UpdateNextButton>> /* unlock Continue button */
 	<<replace "#result">>
 	One night, you're working late in your office, $assistantName's avatar glowing companionably beside you. Without preamble, <<if $assistant == 0>>it<<else>>she<</if>> reports to you in <<if $assistant == 0>>its<<else>>her<</if>> normal tones, "Team One reports
 	<<switch $rivalryFS>>
@@ -2542,9 +2546,8 @@ You remind yourself that success in this conflict will not be defined by the tra
 	<<default>>Target One
 	<</switch>>
 	EKIA. Confirm, E. K. I. A. No other casualties, team exfiltrating."
-	<<set $rivalOwner = 0>>
-	<<set $rivalryPower = 0>>
-	<<if $rivalrySet != 0>>
+	<<set $rivalOwner = 0, $rivalryPower = 0>>
+	<<if $rivalSet != 0>>
 	  <<for _pra = 0; _pra < $arcologies.length; _pra++>>
 		<<if $arcologies[_pra].rival == 1>>
 		  <<set $arcologies[_pra].embargo = 0>>
@@ -2562,8 +2565,7 @@ You remind yourself that success in this conflict will not be defined by the tra
 	<</if>>
 	You go back to your work.
 	<</replace>>
-<</link>>
-<br>&nbsp;&nbsp;&nbsp;&nbsp;//This option is available due to your @@.springgreen;military background,@@ and will immediately end the conflict without enslaving your rival//
+<</link>>&nbsp;&nbsp;&nbsp;&nbsp;//This option is available due to your @@.springgreen;military background,@@ and will immediately end the conflict without enslaving your rival//
 <</if>>
 <</if>>
 </span>
