@@ -2302,7 +2302,7 @@
 		<<if random(0,1) == 0>>
 			<<set $activeSlave.sexualQuirk = "unflinching">>
 		<</if>>
-	<<if $arcologies[_market].FSAztecRevivalist > 20>>
+	<<elseif $arcologies[_market].FSAztecRevivalist > 20>>
 		They've seen sights that will traumatize almost anyone.
 		<<if random(0,1) == 0>>
 			<<set $activeSlave.trust = -30>>
