@@ -1449,12 +1449,15 @@ Release rules: _Slave.releaseRules.
 	Fangs
 <</if>>
 <<if _Slave.muscles > 95>>
-	Musc++<<if $summaryStats == 1>>[_Slave.muscles]<</if>>
+	Musc++
 <<elseif _Slave.muscles > 30>>
-	Musc+<<if $summaryStats == 1>>[_Slave.muscles]<</if>>
+	Musc+
 <<elseif _Slave.muscles > 5>>
-	Toned<<if $summaryStats == 1>>[_Slave.muscles]<</if>>
+	Toned
+<<else>>
+	Musc-
 <</if>>
+<<if $summaryStats == 1>>[_Slave.muscles]<</if>>
 <<if _Slave.amp != 0>>
   <<if _Slave.amp == -1>>
 	P-Limbs
@@ -1654,6 +1657,8 @@ _Slave.faceShape face.
 	Muscular.
 <<elseif _Slave.muscles > 5>>
 	Toned.
+<<else>>
+	Soft.
 <</if>>
 <<if $summaryStats == 1>>[_Slave.muscles]<</if>>
 <<if _Slave.amp != 0>>
