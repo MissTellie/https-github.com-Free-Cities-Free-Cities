@@ -39,7 +39,7 @@
 	<<set $fixedRace = 0>>
 <</if>>
 
-<<if ndef $arcologies[0].FSAztechRevivalist>>
+<<if ndef $arcologies[0].FSAztecRevivalist>>
 	<<for _bci = 0; _bci < $arcologies.length; _bci++>>
 		<<set $arcologies[_bci].FSAztecRevivalist = "unset", $arcologies[_bci].FSAztecRevivalistDecoration = 0>>
 	<</for>>
@@ -47,7 +47,7 @@
 <</if>>
 
 <<if ndef $FSPromenade>>
-	<<set $FSPromenade = {Subjugationist: 0, Supremacist: 0, GenderRadicalist: 0, GenderFundamentalist: 0, Paternalist: 0, Degradationist: 0, BodyPurist: 0, TransformationFetishist: 0, YouthPreferentialist: 0, MaturityPreferentialist: 0, SlimnessEnthusiast: 0, AssetExpansionist: 0, Pastoralist: 0, PhysicalIdealist: 0, ChattelReligionist: 0, RomanRevivalist: 0, AztecRevivalist: 0, EgyptianRevivalist: 0, EdoRevivalist: 0, ArabianRevivalist: 0, ChineseRevivalist: 0, RepopulationFocus: 0, Restart: 0}>>
+	<<set $FSPromenade = {Subjugationist: 0, Supremacist: 0, GenderRadicalist: 0, GenderFundamentalist: 0, Paternalist: 0, Degradationist: 0, BodyPurist: 0, TransformationFetishist: 0, YouthPreferentialist: 0, MaturityPreferentialist: 0, SlimnessEnthusiast: 0, AssetExpansionist: 0, Pastoralist: 0, PhysicalIdealist: 0, ChattelReligionist: 0, RomanRevivalist: 0, AztecRevivalist: 0, EgyptianRevivalist: 0, EdoRevivalist: 0, ArabianRevivalist: 0, ChineseRevivalist: 0}>>
 <</if>>
 
 <<if ndef $arcologyUpgrade>>
@@ -1223,6 +1223,10 @@ Setting missing global variables:
 
 <<if ndef $fakeBellies>>
 <<set $fakeBellies to ["a small empathy belly", "a medium empathy belly", "a large empathy belly", "a huge empathy belly"]>> /* lets fake bellies be separated from other .bellyAccessory */
+<</if>>
+
+<<if ndef $badNames>>
+	<<set $badNames = ["Dipshit", "Asshole", "Cunt", "Whore", "Dick", "Pussy", "Slaver", "Assfucker", "Sodomite", "Rapist", "Spoiler", "Ruiner", "Ass", "Fucker", "Trash", "Traitor", "Cocksucker", "Dicksucker", "Ass Kisser", "Ass Licker", "Bitch", "Jerk", "Fuckface", "Prick", "Creep", "Retard", "Dumbass", "DumbFuck", "Douchebag"]>>
 <</if>>
 
 <<if ($ver.includes("0.6") == true) || ($ver.includes("0.7") == true) || ($ver.includes("0.8") == true) || ($ver == "0.9")>>

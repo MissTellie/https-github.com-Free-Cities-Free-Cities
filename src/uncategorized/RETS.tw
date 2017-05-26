@@ -1212,7 +1212,8 @@ Mere moments after you absorb this arresting scene, $RERelationshipSlave.slaveNa
 <<case "shower force">>
 
 <<link "Instruct her to be a little nicer">>
-	<<replace "#name">>$activeSlave.slaveName<</replace>><<replace "#result">>
+	<<replace "#name">>$activeSlave.slaveName<</replace>>
+	<<replace "#result">>
 	Even though you already have everyone's rapt attention, you rap on the glass for emphasis<<if canSee($activeSlave) && canSee($subSlave)>>, watched closely by four huge eyes<</if>>. You politely admonish $activeSlave.slaveName, and tell her to do a better job of looking after her anal bottom's pleasure. She nods vigorously and snakes a hand around $subSlave.slaveName, to where <<if ($subSlave.dick > 0) && !canAchieveErection($subSlave)>>her limp dick is smashed against the glass<<elseif $subSlave.dick > 0>>her dick, shamefully half-hard despite her unwillingness, is smashed against the glass<<elseif $subSlave.vagina == -1>>her featureless groin is hidden between her forced-together legs<<else>>her neglected pussy is hidden between her forced-together legs<</if>>. $activeSlave.slaveName goes back to the anal, but gives $subSlave.slaveName a serviceable reach around as she does. $subSlave.slaveName does not orgasm, but she looks a little less unhappy and @@.mediumaquamarine;thanks you@@ for your intervention after $activeSlave.slaveName <<if ($activeSlave.dick > 0) && canAchieveErection($activeSlave) && ($activeSlave.dickAccessory != "chastity")>>grunts, fills her asshole with cum, and pulls herself out.<<else>>shakes with orgasm and removes her fingers.<</if>>
 	<<for $i to 0; $i < $slaves.length; $i++>>
 	  <<if $slaves[$i].ID is $subSlave.ID>>
