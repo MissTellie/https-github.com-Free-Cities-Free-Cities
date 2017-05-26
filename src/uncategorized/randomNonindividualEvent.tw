@@ -902,6 +902,10 @@
 		<<set $events.push("RE royal blood")>>
 <</if>>
 
+<<if $mercenaries > 0>>
+		<<set $events.push("RE AWOL")>>
+<</if>>
+
 <<if $RegularParties == 1>>
 	<<set $events.push("RE citizen hookup")>>
 	<<if $rep-10000 > random(1,10000)>>
