@@ -68,7 +68,7 @@ Time is short, but you are well placed to acquire some choice slaves. With an ad
 		<<set $activeSlave.whoreSkill = 0>>
 		<<set $activeSlave.health = random(30,60)>>
 		<<set $activeSlave.behavioralFlaw = either("bitchy", "arrogant")>>
-		<<AddSlave $activeSlave>>
+		<<include "New Slave Intro">>
 	<br><br>
 <</replace>>
 <</link>> // You will need to utilize a portion of your reputation and ¤50000 to enslave her.//
@@ -113,7 +113,7 @@ Time is short, but you are well placed to acquire some choice slaves. With an ad
 		<<set $activeSlave.combatSkill = 1>>
 		<<set $activeSlave.health = random(30,60)>>
 		<<set $activeSlave.behavioralFlaw = either("bitchy", "arrogant")>>
-		<<AddSlave $activeSlave>>
+		<<include "New Slave Intro">>
 	<br><br>
 <</replace>>
 <</link>> // Purchasing the goods and hiring the VTOLs will cost about ¤35000.//
@@ -158,7 +158,7 @@ Time is short, but you are well placed to acquire some choice slaves. With an ad
 		<<set $activeSlave.whoreSkill = 0>>
 		<<set $activeSlave.health = random(30,60)>>
 		<<set $activeSlave.behavioralFlaw = either("bitchy", "arrogant")>>
-		<<AddSlave $activeSlave>>
+		<<AddSlave $activeSlave>> /* skip New Slave Intro */
 		<</for>>
 	<br><br>
 <</replace>>
@@ -206,7 +206,7 @@ Time is short, but you are well placed to acquire some choice slaves. With an ad
 		<<set $activeSlave.whoreSkill = 0>>
 		<<set $activeSlave.health = random(30,60)>>
 		<<set $activeSlave.behavioralFlaw = either("bitchy", "arrogant")>>
-		<<AddSlave $activeSlave>>
+		<<include "New Slave Intro">>
 	<br><br>
 <</replace>>
 <</link>> // It will cost about ¤15000 to enslave her.//
