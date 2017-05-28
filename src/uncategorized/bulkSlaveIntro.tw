@@ -67,8 +67,10 @@
 	<</if>>
 	<<goto $returnTo>>
 <<else>>
-	/* DEPRECATED: If looking at 2nd slave, push the induction changes for the prior slave to the newSlave array */
-	/* Not needed because New Slave Intro takes care of adding the new slave by setting nextLink to AS Dump */
+	/* If looking at 2nd slave, push the induction changes for the prior slave to the newSlave array */
+	<<if $newSlaveIndex > 0>>
+		<<AddSlave $activeSlave>>
+	<</if>>
 	<<if $newSlaves.length > 1>>
 		Showing new slave <<print $newSlaveIndex+1>> of <<print $newSlaves.length>>:
 	<</if>>
@@ -85,8 +87,11 @@
 	<br>
 	
 	/* Use existing New Slave Intro */
-	<<set $nextLink = "AS Dump", $returnTo = "Bulk Slave Intro">> /* add new slave and return here after New Slave Intro */
 	<<include "New Slave Intro">> /* calls <<RemoveGingering>> if needed */
+	
+	/* Override nextButton setting from New Slave Intro */
+	<<set $nextButton = "Continue">>
+	<<set $nextLink = "Bulk Slave Intro">>
 	
 	/* Add an option = goto the next slave below the New Slave Intro section */
 	<br><br>
