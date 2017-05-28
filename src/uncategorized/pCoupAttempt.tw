@@ -63,14 +63,6 @@ You are awakened in the middle of the night by a jolt that shakes the entire arc
 	<<set $cash -= Math.trunc($cash*0.2)>>
 	<<set $arcologies[0].prosperity = Math.trunc($arcologies[0].prosperity*0.7)>>
 	<<set $rep += 2000>>
-	<<if $traitor != 0>>
-		<<set $activeSlave = $traitor>>
-		<<set $activeSlave.assignmentVisible = 1>>
-		<<set $activeSlave.assignment = "rest">>
-		<<set $activeSlave.health = random(-80,-60)>>
-		<<set $activeSlave.origin = "She was your slave, but you freed her, which she repaid by participating in a coup attempt against you. It failed, and she is again your chattel.">>
-		<<set _newSlaves.push($activeSlave)>>
-	<</if>>
 	<<for $i = 0; $i < 8; $i++>>
 		<<if random(0,99) < $seeDicks>>
 			<<include "Generate XY Slave">>
