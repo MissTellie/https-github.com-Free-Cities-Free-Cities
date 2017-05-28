@@ -847,19 +847,19 @@ Release rules: _Slave.releaseRules.
 <<elseif $abbreviateHealth == 2>>
 <<if $summaryStats == 1>>
 	<<if _Slave.health < -90>>
-		@@.red;On the edge of death [_Slave.health].@@
+		@@.red;On the edge of death. [_Slave.health]@@
 	<<elseif _Slave.health < -50>>
-		@@.red;Extremely unhealthy [_Slave.health].@@
+		@@.red;Extremely unhealthy. [_Slave.health]@@
 	<<elseif _Slave.health < -20>>
-		@@.red;Unhealthy [_Slave.health].@@
+		@@.red;Unhealthy. [_Slave.health]@@
 	<<elseif _Slave.health <= 20>>
-		@@.yellow;Healthy [_Slave.health].@@
+		@@.yellow;Healthy. [_Slave.health]@@
 	<<elseif _Slave.health <= 50>>
-		@@.green;Very healthy [_Slave.health].@@
+		@@.green;Very healthy. [_Slave.health]@@
 	<<elseif _Slave.health <= 90>>
-		@@.green;Extremely healthy [_Slave.health].@@
+		@@.green;Extremely healthy. [_Slave.health]@@
 	<<else>>
-		@@.green;Unnaturally healthy [_Slave.health].@@
+		@@.green;Unnaturally healthy. [_Slave.health]@@
 		<</if>>
 	<</if>>
 <</if>>
@@ -1770,13 +1770,13 @@ _Slave.faceShape face.
 @@
 <<if $summaryStats == 1>>
 <<if _Slave.waist > 95>>
-@@.red;Masculine waist [_Slave.waist].@@
-<<elseif _Slave.waist > 40>>@@.red;Ugly waist [_Slave.waist].@@
-<<elseif _Slave.waist > 10>>@@.red;Unattractive waist [_Slave.waist].@@
-<<elseif _Slave.waist >= -10>>Average waist [_Slave.waist].
-<<elseif _Slave.waist >= -40>>@@.pink;Feminine waist [_Slave.waist].@@
-<<elseif _Slave.waist >= -95>>@@.pink;Hourglass waist [_Slave.waist].@@
-<<else>>@@.pink;Absurdly narrow waist [_Slave.waist].@@
+@@.red;Masculine waist. [_Slave.waist]@@
+<<elseif _Slave.waist > 40>>@@.red;Ugly waist. [_Slave.waist]@@
+<<elseif _Slave.waist > 10>>@@.red;Unattractive waist. [_Slave.waist]@@
+<<elseif _Slave.waist >= -10>>Average waist. [_Slave.waist]
+<<elseif _Slave.waist >= -40>>@@.pink;Feminine waist. [_Slave.waist]@@
+<<elseif _Slave.waist >= -95>>@@.pink;Hourglass waist. [_Slave.waist]@@
+<<else>>@@.pink;Absurdly narrow waist. [_Slave.waist]@@
 <</if>>
 <</if>>
 @@.pink;
