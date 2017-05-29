@@ -102,7 +102,7 @@ Yes, I am aware this is horrible. If anyone can figure out how to get widgets to
 		<td></td>
 		<td id="Penthouse" colspan="4">
 			<<link "Penthouse">><<set $nextButton = "Back", $nextLink = _Pass>><<goto "Manage Penthouse">><</link>>
-			<<if $masterSuite||$servantsQuarters||$spa||$clinic||$schoolroom||$cellblock||$HGSuite>>
+			<<if $masterSuite||$servantsQuarters||$spa||$clinic||$schoolroom||$cellblock||$HGSuite||$researchLab.built=="true">>
 				<br>
 				<<if $masterSuite>>[[Suite|Master Suite]] ($masterSuiteSlaves/$masterSuite<<if $Concubine>>, C<</if>>)<</if>>
 				<<if $servantsQuarters>>[[Quarters|Servants' Quarters]] ($servantsQuartersSlaves/$servantsQuarters<<if $Stewardess>>, L<</if>>)<</if>>
@@ -111,6 +111,7 @@ Yes, I am aware this is horrible. If anyone can figure out how to get widgets to
 				<<if $schoolroom>>[[Schoolroom]] ($schoolroomSlaves/$schoolroom<<if $Schoolteacher>>, L<</if>>)<</if>>
 				<<if $cellblock>>[[Cellblock]] ($cellblockSlaves/$cellblock<<if $Wardeness>>, L<</if>>)<</if>>
 				<<if $HGSuite>>[[HG Suite|Head Girl Suite]] ($HGSuiteSlaves)<</if>>
+				<<if $researchLab.built == "true">>[[Research Lab][$temp = 0]]<</if>>
 			<</if>>
 		</td>
 		<td></td>
@@ -397,7 +398,7 @@ Selling this sector would relenquish a 4% interest in $arcologies[0].name. Such 
 <<else>>
 	<<set $AProsperityCap = 100>>
 <</if>>
-<<set $ACitizenLimit = 0, $ASlaveLimit = 0>>
+<<set $ACitizenLimit = 0, $ASlaveLimit = 0, $Sweatshops = 0>>
 <<for _i = 8; _i <= 19; _i++>>
 	<<if $sectors[_i].type == "DenseApartments">>
 		<<set $ACitizenLimit += 600, $ASlaveLimit += 1000, $AProsperityCap += 10>>

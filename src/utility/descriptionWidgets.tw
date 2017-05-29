@@ -793,7 +793,7 @@ $possessiveCap
 <<if $activeSlave.fuckdoll > 0>>
 	The difficulties of having gigantic breasts are much reduced for a Fuckdoll, since it's almost always restrained, stationary, or both.
 <<else>>
-	<<if $activeSlave.amp != 1>>
+	<<if canWalk($activeSlave)>>
 		$possessiveCap breasts are so massive that it is difficult for $object to move.
 		<<if $activeSlave.muscles > 95>>
 		However, $pronoun is so powerfully built that $pronoun can manage it with effort, using $possessive arms to support them.
@@ -1858,7 +1858,7 @@ $pronounCap's got a
 	<<case "harem gauze">>
 		$possessiveCap
 		<<if ($activeSlave.vaginalAccessory == "anal chastity") || ($activeSlave.vaginalAccessory == "combined chastity") || ($activeSlave.dickAccessory == "anal chastity") || ($activeSlave.dickAccessory == "combined chastity")>>
-			anal chastity belt is clearly visible through $possessive gauze.
+			anal chastity belt is clearly
 		<<else>>
 			<<if $activeSlave.anus > 1>>
 				well-fucked asshole is clearly
@@ -2884,23 +2884,27 @@ $pronounCap's got a
 	<<elseif ($activeSlave.energy > 95)>>
 		As a nympho, $pronoun's almost constantly hard.
 	<<elseif ($activeSlave.fetish == "buttslut") && ($activeSlave.fetishStrength > 60) && ($activeSlave.fetishKnown == 1)>>
-		Judging by how hard $pronoun is, $pronoun's probably fantasizing about being buttfucked.
+		Judging by how hard $pronoun is<<if $activeSlave.prostate > 1>> and the constant flow of precum leaking from the tip of $possessive dick<<elseif $activeSlave.prostate > 0>>and the little bead of precum forming at the tip of $possessive dick<</if>>, $pronoun's probably fantasizing about being buttfucked.
 	<<elseif ($activeSlave.fetish == "cumslut") && ($activeSlave.fetishStrength > 60) && ($activeSlave.fetishKnown == 1)>>
-		Judging by how hard $pronoun is, $pronoun's probably fantasizing about being facefucked.
+		Judging by how hard $pronoun is<<if $activeSlave.prostate > 1>> and the constant flow of precum leaking from the tip of $possessive dick<<elseif $activeSlave.prostate > 0>>and the little bead of precum forming at the tip of $possessive dick<</if>>, $pronoun's probably fantasizing about being facefucked.
 	<<elseif ($activeSlave.fetish == "humiliation") && ($activeSlave.fetishStrength > 60) && ($activeSlave.fetishKnown == 1)>>
-		Judging by how hard $pronoun is, $pronoun's probably fantasizing about being humiliated.
+		Judging by how hard $pronoun is<<if $activeSlave.prostate > 1>> and the constant flow of precum leaking from the tip of $possessive dick<<elseif $activeSlave.prostate > 0>>and the little bead of precum forming at the tip of $possessive dick<</if>>, $pronoun's probably fantasizing about being humiliated.
 	<<elseif ($activeSlave.fetish == "submissive") && ($activeSlave.fetishStrength > 60) && ($activeSlave.fetishKnown == 1)>>
-		Judging by how hard $pronoun is, $pronoun's probably fantasizing about submission.
+		Judging by how hard $pronoun is<<if $activeSlave.prostate > 1>> and the constant flow of precum leaking from the tip of $possessive dick<<elseif $activeSlave.prostate > 0>>and the little bead of precum forming at the tip of $possessive dick<</if>>, $pronoun's probably fantasizing about submission.
 	<<elseif ($activeSlave.fetish == "dom") && ($activeSlave.fetishStrength > 60) && ($activeSlave.fetishKnown == 1)>>
-		Judging by how hard $pronoun is, $pronoun's probably fantasizing about dominating someone.
+		Judging by how hard $pronoun is<<if $activeSlave.prostate > 1>> and the constant flow of precum leaking from the tip of $possessive dick<<elseif $activeSlave.prostate > 0>>and the little bead of precum forming at the tip of $possessive dick<</if>>, $pronoun's probably fantasizing about dominating someone.
 	<<elseif ($activeSlave.fetish == "masochist") && ($activeSlave.fetishStrength > 60) && ($activeSlave.fetishKnown == 1)>>
-		Judging by how hard $pronoun is, $pronoun's probably fantasizing about pain.
+		Judging by how hard $pronoun is<<if $activeSlave.prostate > 1>> and the constant flow of precum leaking from the tip of $possessive dick<<elseif $activeSlave.prostate > 0>>and the little bead of precum forming at the tip of $possessive dick<</if>>, $pronoun's probably fantasizing about pain.
 	<<elseif ($activeSlave.fetish == "sadist") && ($activeSlave.fetishStrength > 60) && ($activeSlave.fetishKnown == 1)>>
-		Judging by how hard $pronoun is, $pronoun's probably fantasizing about hurting someone.
+		Judging by how hard $pronoun is<<if $activeSlave.prostate > 1>> and the constant flow of precum leaking from the tip of $possessive dick<<elseif $activeSlave.prostate > 0>>and the little bead of precum forming at the tip of $possessive dick<</if>>, $pronoun's probably fantasizing about hurting someone.
 	<<elseif ($activeSlave.fetish == "pregnancy") && ($activeSlave.fetishStrength > 60) && ($activeSlave.fetishKnown == 1)>>
-		Judging by how hard $pronoun is, $pronoun's probably fantasizing about getting someone pregnant.
+		<<if canGetPregnant($activeSlave)>>
+			Judging by how hard $pronoun is<<if $activeSlave.prostate > 1>> and the constant flow of precum leaking from the tip of $possessive dick<<elseif $activeSlave.prostate > 0>>and the little bead of precum forming at the tip of $possessive dick<</if>>, $pronoun's probably fantasizing about sporting a huge pregnant belly.
+		<<else>>
+			Judging by how hard $pronoun is<<if $activeSlave.prostate > 1>> and the constant flow of precum leaking from the tip of $possessive dick<<elseif $activeSlave.prostate > 0>>and the little bead of precum forming at the tip of $possessive dick<</if>>, $pronoun's probably fantasizing about getting someone pregnant.
+		<</if>>
 	<<elseif ($activeSlave.fetish == "boobs") && ($activeSlave.fetishStrength > 60) && ($activeSlave.fetishKnown == 1)>>
-		Judging by how hard $pronoun is, $pronoun's probably fantasizing about boobs.
+		Judging by how hard $pronoun is<<if $activeSlave.prostate > 1>> and the constant flow of precum leaking from the tip of $possessive dick<<elseif $activeSlave.prostate > 0>>and the little bead of precum forming at the tip of $possessive dick<</if>>, $pronoun's probably fantasizing about boobs.
 	<<elseif ($activeSlave.devotion > 50)>>
 		As a devoted sex slave, $pronoun has no trouble keeping herself hard for $object <<if def $PC.customTitle>>$PC.customTitle<<elseif $PC.title != 0>>Master<<else>>Mistress<</if>>.
 	<<elseif ($activeSlave.devotion > 20)>>
@@ -3033,27 +3037,27 @@ $pronounCap's got a
 		<<elseif ($activeSlave.aphrodisiacs > 0)>>
 			The aphrodisiacs have $possessive so horny that there's a little precum beading at the hole.
 		<<elseif ($activeSlave.energy > 95)>>
-			As a nympho, $pronoun's almost always got a little bead of precum forming at the hole.
+			As a nympho, $pronoun's almost always got a <<if $activeSlave.prostate > 1>>constant flow of precum leaking from<<else>>little bead of precum forming at<</if>> the hole.
 		<<elseif $activeSlave.fetishKnown == 0>>
 		<<elseif $activeSlave.fetishStrength <= 60>>
 		<<elseif ($activeSlave.fetish == "buttslut")>>
-			Judging by the little bead of precum forming at the hole, $pronoun's probably fantasizing about being buttfucked.
+			Judging by the <<if $activeSlave.prostate > 1>>constant flow of precum leaking from<<else>>little bead of precum forming at<</if>> the hole, $pronoun's probably fantasizing about being buttfucked.
 		<<elseif ($activeSlave.fetish == "cumslut")>>
-			Judging by the little bead of precum forming at the hole, $pronoun's probably fantasizing about being facefucked.
+			Judging by the <<if $activeSlave.prostate > 1>>constant flow of precum leaking from<<else>>little bead of precum forming at<</if>> the hole, $pronoun's probably fantasizing about being facefucked.
 		<<elseif ($activeSlave.fetish == "humiliation")>>
-			Judging by the little bead of precum forming at the hole, $pronoun's probably fantasizing about being humiliated.
+			Judging by the <<if $activeSlave.prostate > 1>>constant flow of precum leaking from<<else>>little bead of precum forming at<</if>> the hole, $pronoun's probably fantasizing about being humiliated.
 		<<elseif ($activeSlave.fetish == "submissive")>>
-			Judging by the little bead of precum forming at the hole, $pronoun's probably fantasizing about submission.
+			Judging by the <<if $activeSlave.prostate > 1>>constant flow of precum leaking from<<else>>little bead of precum forming at<</if>> the hole, $pronoun's probably fantasizing about submission.
 		<<elseif ($activeSlave.fetish == "dom")>>
-			Judging by the little bead of precum forming at the hole, $pronoun's probably fantasizing about dominating someone.
+			Judging by the <<if $activeSlave.prostate > 1>>constant flow of precum leaking from<<else>>little bead of precum forming at<</if>> the hole, $pronoun's probably fantasizing about dominating someone.
 		<<elseif ($activeSlave.fetish == "masochist")>>
-			Judging by the little bead of precum forming at the hole, $pronoun's probably fantasizing about pain.
+			Judging by the <<if $activeSlave.prostate > 1>>constant flow of precum leaking from<<else>>little bead of precum forming at<</if>> the hole, $pronoun's probably fantasizing about pain.
 		<<elseif ($activeSlave.fetish == "sadist")>>
-			Judging by the little bead of precum forming at the hole, $pronoun's probably fantasizing about hurting someone.
+			Judging by the <<if $activeSlave.prostate > 1>>constant flow of precum leaking from<<else>>little bead of precum forming at<</if>> the hole, $pronoun's probably fantasizing about hurting someone.
 		<<elseif ($activeSlave.fetish == "pregnancy")>>
-			Judging by the little bead of precum forming at the hole, $pronoun's probably fantasizing about getting someone pregnant.
+			Judging by the <<if $activeSlave.prostate > 1>>constant flow of precum leaking from<<else>>little bead of precum forming at<</if>> the hole, $pronoun's probably fantasizing about getting someone pregnant.
 		<<elseif ($activeSlave.fetish == "boobs")>>
-			Judging by the little bead of precum forming at the hole, $pronoun's probably fantasizing about boobs.
+			Judging by the <<if $activeSlave.prostate > 1>>constant flow of precum leaking from<<else>>little bead of precum forming at<</if>> the hole, $pronoun's probably fantasizing about boobs.
 		<</if>>
 	<</if>>
 	<<if $activeSlave.balls != 0>>
@@ -3067,7 +3071,7 @@ $pronounCap's got a
 
 <<if ($activeSlave.dick > 0) || ($activeSlave.balls > 0)>>
 <<if $activeSlave.prostate == 0>>
-	Though it's not externally apparent, $possessive prostate has been removed, giving her ejaculations less body<<if $activeSlave.anus != 0>> and reducing the stimulation $pronoun feels during anal sex<</if>>.
+	Though it's not externally apparent, $possessive prostate has been removed, giving $possessive ejaculations less body<<if $activeSlave.anus != 0>> and reducing the stimulation $pronoun feels during anal sex<</if>>.
 <</if>>
 <</if>>
 
@@ -3228,7 +3232,7 @@ $pronounCap's got a
 	<</if>>
 	<<if $activeSlave.prostate != 0>>
 	<<if $activeSlave.dick == 0>>
-		Bizarrely, $pronoun's been given a functional prostate gland. It's attached to $possessive urethra, of course, <<if $activeSlave.balls > 0>>which in combination with her testicles make $possessive squirt copious amounts of fluids and semen with each orgasm<<else>>so $pronoun squirts copiously when $pronoun orgasms<</if>>.
+		Bizarrely, $pronoun's been given a functional prostate gland. It's attached to $possessive urethra, of course, <<if $activeSlave.balls > 0>>which in combination with $possessive testicles make $possessive squirt copious amounts of fluids and semen with each orgasm<<else>>so $pronoun squirts copiously when $pronoun orgasms<</if>>.
 	<</if>>
 	<</if>>
 <<else>>
@@ -3275,7 +3279,7 @@ $pronounCap's got a
 	<</if>>
 	<<if $activeSlave.prostate != 0>>
 	<<if $activeSlave.dick == 0>>
-		Bizarrely, $pronoun's been given a functional prostate gland. It's attached to $possessive urethra, of course, <<if $activeSlave.balls > 0>>which in combination with her testicles make $possessive squirt unreasonable volume of fluids and semen with each orgasm<<else>>meaning that when $pronoun orgasms, $pronoun squirts an unreasonable volume of fluid<</if>>.
+		Bizarrely, $pronoun's been given a functional prostate gland. It's attached to $possessive urethra, of course, <<if $activeSlave.balls > 0>>which in combination with $possessive testicles make $possessive squirt unreasonable volume of fluids and semen with each orgasm<<else>>meaning that when $pronoun orgasms, $pronoun squirts an unreasonable volume of fluid<</if>>.
 	<</if>>
 	<</if>>
 <</if>>
@@ -7026,7 +7030,7 @@ $pronounCap has
 <<case "a toga">>
 	$activeSlave.slaveName's huge pregnant belly parts $possessive toga.
 <<case "a huipil">>
-	$activeSlave.slaveName's pregnant belly lifts $possessive huipil.
+	$activeSlave.slaveName's huge pregnant belly lifts $possessive huipil.
 <<case "a slutty qipao">>
 	$possessiveCap qipao is slit up the side. However, it merely rests atop $possessive huge pregnant belly.
 <<case "uncomfortable straps">>
@@ -7147,7 +7151,7 @@ $pronounCap has
 <<case "a toga">>
 	$activeSlave.slaveName's pregnant belly parts $possessive toga.
 <<case "a huipil">>
-	$activeSlave.slaveName's huipil gets lifted by $possessive fat belly, so it's useless for covering $possessive body.
+	$activeSlave.slaveName's pregnant belly lifts $possessive huipil.
 <<case "a slutty qipao">>
 	$possessiveCap qipao is slit up the side. However, it only covers the top of $possessive pregnant belly.
 <<case "uncomfortable straps">>
@@ -7270,7 +7274,7 @@ $pronounCap has
 <<case "a toga">>
 	$activeSlave.slaveName's toga can barely be pulled shut over $possessive fat belly.
 <<case "a huipil">>
-	$activeSlave.slaveName's growing belly slightly bulges under $possessive huipil.
+	$activeSlave.slaveName's huipil gets lifted by $possessive fat belly, so it's useless for covering $possessive body.
 <<case "a slutty qipao">>
 	$possessiveCap qipao is slit up the side. However, it only covers the top of $possessive fat belly, allowing it to hang free.
 <<case "uncomfortable straps">>
@@ -7394,7 +7398,7 @@ $pronounCap has
 <<case "a toga">>
 	$activeSlave.slaveName's growing belly gently bulges under $possessive toga.
 <<case "a huipil">>
-	$activeSlave.slaveName's huipil conceals $possessive little belly.
+	$activeSlave.slaveName's growing belly slightly bulges under $possessive huipil.
 <<case "a slutty qipao">>
 	$possessiveCap qipao is slit up the side. The front is pushed out by $possessive growing belly.
 <<case "uncomfortable straps">>
@@ -7514,6 +7518,8 @@ $pronounCap has
 	$activeSlave.slaveName's chubby belly is covered in a sheen of oil.
 <<case "a toga">>
 	$activeSlave.slaveName's toga conceals $possessive chubby belly.
+<<case "a huipil">>
+	$activeSlave.slaveName's huipil conceals $possessive chubby little belly.
 <<case "a slutty qipao">>
 	$possessiveCap qipao is slit up the side. The front is pushed out by $possessive chubby belly.
 <<case "uncomfortable straps">>
