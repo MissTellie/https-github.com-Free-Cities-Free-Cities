@@ -39,7 +39,10 @@
 	/% Remove from facility array or leadership role, if needed %/
 	<<removeJob $activeSlave $activeSlave.assignment>>
 
-	<<set $slavesOriginal.delete(_ID)>>
+	<<set _y = $slavesOriginal.findIndex(function(s) { return s.ID == _ID; })>>
+	<<if _y != -1>>
+		<<set $slavesOriginal.deleteAt(_y)>>
+	<</if>>
 
 	<<set _dump = $slaves.deleteAt(_x), _SL--, $activeSlave = 0>>
 <</if>>

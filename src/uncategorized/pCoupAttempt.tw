@@ -112,9 +112,10 @@ You are awakened in the middle of the night by a jolt that shakes the entire arc
 <<if $traitor != 0>>
 	$traitor.slaveName was captured and has been returned to you.
 	<<set $traitor.assignmentVisible = 1>>
-	<<set $traitor.assignment = "rest">>
+	<<set $traitor.assignment = "stay confined">>
 	<<set $traitor.health = random(-80,-60)>>
 	<<set $traitor.origin = "She was your slave, but you freed her, which she repaid by participating in a coup attempt against you. It failed, and she is again your chattel.">>
+	<<set $traitor.recruiter = 0>> /* disable relative recruitment event for traitor since we don't have the traitor's original stats */
 	<<AddSlave $traitor>> /* skip New Slave Intro */
 <</if>>
 
