@@ -1281,6 +1281,10 @@ Setting missing slave variables:
 <<for _bci to 0; _bci < $slaves.length; _bci++>>
 <<set _Slave to $slaves[_bci]>>
 
+<<if _Slave.race == "southern European">>
+	<<set _Slave.race = "southern european">>
+<</if>>
+
 <<if ndef _Slave.aphrodisiacs>>
 	<<set _Slave.aphrodisiacs = 0>>
 <</if>>
