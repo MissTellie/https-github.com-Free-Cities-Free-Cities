@@ -2,7 +2,7 @@
 
 /* GENERIC PLOT EVENTS */
 
-<<set $nextButton = "Continue", $nextLink = "Random Nonindividual Event", $returnTo = "RIE Eligibility Check">>
+<<set $nextButton = "Continue", $nextLink = "Random Nonindividual Event", $returnTo = "Random Nonindividual Event">>
 
 <<switch $Event>>
 <<case "bad curatives">>
@@ -480,7 +480,6 @@ A screen opposite your desk springs to life, <<if $assistant == 0>>showing your 
 <<if $PStrip != 3>>
 	<<if $cash >= $contractCost>>
 	<<link "Enslave her">>
-		<<AddSlave $activeSlave>>
 		<<set $cash -= $contractCost>>
 		<<replace "#result">>
 		<<if $PStrip == 1>>
@@ -488,7 +487,6 @@ A screen opposite your desk springs to life, <<if $assistant == 0>>showing your 
 		<<else>>
 			She smiles with gratitude as the biometric scanners scrupulously record her every particular as belonging not to a person but to a piece of human property. She's seen what Free Cities life is, and she seems to have come to the conclusion that being a slave in the penthouse is better than being a free whore on the lower levels.
 		<</if>>
-		<<set $nextLink = "AS Dump">>
 		<<include "New Slave Intro">>
 		<</replace>>
 	<</link>>
@@ -565,7 +563,6 @@ A screen opposite your desk springs to life, <<if $assistant == 0>>showing your 
 <<case "shoot result">>
 
 <<set $PShoot = 0>>
-<<set $nextLink = "AS Dump">>
 <<include "Generate New Slave">>
 <<set $activeSlave.origin = "You won her at a shotgun match against other arcology owners.">>
 <<set $activeSlave.butt = either(1, 2, 2, 3, 3, 4)>>
@@ -608,7 +605,7 @@ A screen opposite your desk springs to life, <<if $assistant == 0>>showing your 
 	<<set $activeSlave.fetish = "none">>
 	<<set $activeSlave.behavioralFlaw = "arrogant">>
 	<<set $activeSlave.sexualFlaw = "idealistic">>
-	<<AddSlave $activeSlave>>
+	<<AddSlave $activeSlave>> /* skip New Slave Intro */
 	<</replace>>
 <</link>>
 <br><<link "Hit the plush older slave lagging behind">>
@@ -638,7 +635,7 @@ A screen opposite your desk springs to life, <<if $assistant == 0>>showing your 
 	<<set $activeSlave.fetish to "none">>
 	<<set $activeSlave.behavioralFlaw to "bitchy">>
 	<<set $activeSlave.sexualFlaw to "hates anal">>
-	<<AddSlave $activeSlave>>
+	<<AddSlave $activeSlave>> /* skip New Slave Intro */
 	<</replace>>
 <</link>>
 <br><<link "Hit the slave with the tits, pussy and impressive dick">>
@@ -676,7 +673,7 @@ A screen opposite your desk springs to life, <<if $assistant == 0>>showing your 
 	<<set $activeSlave.fetish to "none">>
 	<<set $activeSlave.behavioralFlaw to "none">>
 	<<set $activeSlave.behavioralFlaw to "odd">>
-	<<AddSlave $activeSlave>>
+	<<AddSlave $activeSlave>> /* skip New Slave Intro */
 	<</replace>>
 <</link>>
 
@@ -719,7 +716,7 @@ A screen opposite your desk springs to life, <<if $assistant == 0>>showing your 
 <br><<link "Enslave them all">>
 	<<replace "#result">>
 	<<for $i = 0; $i < _newSlaves.length; $i++>>
-		<<AddSlave _newSlaves[$i]>>
+		<<AddSlave _newSlaves[$i]>> /* skip New Slave Intro - TODO: use Bulk Slave Intro */
 	<</for>>
 	You simply enslave all of the escapees yourself. These slaves will more than make up for the costs you expended, in the long run.
 	<</replace>>
