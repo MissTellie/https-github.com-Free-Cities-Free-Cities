@@ -1,5 +1,26 @@
 :: REFI [nobr]
 
+/* This is one of several files that contains and organizes many different events.	*/
+/*  genericPlotEvents.tw															*/
+/*  PESS.tw: Player Event, Single Slave												*/
+/*  PETS.tw: Player Event, Two Slaves												*/
+/*  RECI.tw: Random Event, Check In													*/
+/*  REFI.tw: Random Event, Fetish Interest											*/
+/*  RESS.tw: Random Event, Single Slave												*/
+/*  RESSTR.tw: Random Event, Single Slave (Test Realm, for debugging events)		*/
+/*  RETS.tw: Random Event, Two Slaves												*/
+/*  																				*/
+/* Events can also be in a dedicated *.tw file, formatted as follows:				*/
+/*  jeXXXXX.tw:	Justice Event														*/
+/*  pXXXXXX.tw:	Player event														*/
+/*  peXXXXX.tw:	Player Event focused on a slave										*/
+/*  reXXXXX.tw:	Random Event														*/
+/*  resXXXX.tw:	Random Event, School												*/
+/*  seXXXXX.tw:	Slave Event, focuses on slaves coming or going						*/
+/*  securityForceXXXXX.tw:  Security Force event									*/
+/*																					*/
+/* Some scenes are also stored in useGuard.tw, walkPast.tw, and toychest.tw			*/
+
 <<switch $REFIevent>>
   <<case "masochist">>
 	<<set $activeSlave = $slaves.find(function(s) { return s.ID == $masochistInterestTargetID; })>>
@@ -51,7 +72,6 @@
 <</for>>
 
 /* 000-250-006 */
-/* <<if $seeImages == 1>><<SlaveArt $subSlave 2 0>><<SlaveArt $activeSlave 2 0>><</if>> */
 <<if $seeImages == 1>>
     <div class="imageRef medImg">
         <<SlaveArt $subSlave 2 0>>
@@ -78,7 +98,6 @@ You have $subSlave.slaveName bent over your desk, and are seeing to your own amu
 <</for>>
 
 /* 000-250-006 */
-/* <<if $seeImages == 1>><<SlaveArt $subSlave 2 0>><<SlaveArt $activeSlave 2 0>><</if>> */
 <<if $seeImages == 1>>
     <div class="imageRef medImg">
         <<SlaveArt $subSlave 2 0>>
@@ -105,7 +124,6 @@ $subSlave.slaveName gets inspected more regularly than your other slaves, since 
 <</for>>
 
 /* 000-250-006 */
-/* <<if $seeImages == 1>><<SlaveArt $subSlave 2 0>><<SlaveArt $activeSlave 2 0>><</if>> */
 <<if $seeImages == 1>>
     <div class="imageRef medImg">
         <<SlaveArt $subSlave 2 0>>
@@ -137,7 +155,6 @@ $subSlave.slaveName is on lunch duty today. That means that as you eat your work
 <</for>>
 
 /* 000-250-006 */
-/* <<if $seeImages == 1>><<SlaveArt $subSlave 2 0>><<SlaveArt $activeSlave 2 0>><</if>> */
 <<if $seeImages == 1>>
     <div class="imageRef medImg">
         <<SlaveArt $subSlave 2 0>>
@@ -164,7 +181,6 @@ $activeSlave.slaveName hesitates before explaining herself, and the $desc is obv
 <</for>>
 
 /* 000-250-006 */
-/* <<if $seeImages == 1>><<SlaveArt $subSlave 2 0>><<SlaveArt $activeSlave 2 0>><</if>> */
 <<if $seeImages == 1>>
     <div class="imageRef medImg">
         <<SlaveArt $subSlave 2 0>>
@@ -191,7 +207,6 @@ In the middle of the afternoon, you take a break from work to fuck $subSlave.sla
 <</for>>
 
 /* 000-250-006 */
-/* <<if $seeImages == 1>><<SlaveArt $subSlave 2 0>><<SlaveArt $activeSlave 2 0>><</if>> */
 <<if $seeImages == 1>>
     <div class="imageRef medImg">
         <<SlaveArt $subSlave 2 0>>
@@ -223,7 +238,6 @@ $activeSlave.slaveName hesitates before explaining herself, and the $desc is obv
 <</for>>
 
 /* 000-250-006 */
-/* <<if $seeImages == 1>><<SlaveArt $subSlave 2 0>><<SlaveArt $activeSlave 2 0>><</if>> */
 <<if $seeImages == 1>>
     <div class="imageRef medImg">
         <<SlaveArt $subSlave 2 0>>
