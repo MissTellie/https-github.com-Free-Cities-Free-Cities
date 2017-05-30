@@ -39,6 +39,14 @@
 	<<set $fixedRace = 0>>
 <</if>>
 
+<<if ndef setup.modestClothes>>
+	<<set setup.modestClothes = ["conservative clothing", "a toga", "a huipil", "a slutty qipao", "restrictive latex", "cutoffs and a t-shirt", "battledress", "a penitent nuns habit", "a slave gown", "slutty business attire", "nice business attire", "a comfortable bodysuit", "a leotard", "a bunny outfit", "a nice nurse outfit", "a slutty nurse outfit", "a schoolgirl outfit", "a hijab and abaya", "a kimono", "a nice maid outfit", "a slutty maid outfit", "a ball gown", "a halter top dress", "a mini dress", "a latex catsuit", "a military uniform"]>>
+
+	<<if def $modestClothes>>
+		<<unset $modestClothes>>
+	<</if>>
+<</if>>
+
 <<if ndef $arcologies[0].FSAztecRevivalist>>
 	<<for _bci = 0; _bci < $arcologies.length; _bci++>>
 		<<set $arcologies[_bci].FSAztecRevivalist = "unset", $arcologies[_bci].FSAztecRevivalistDecoration = 0>>
@@ -193,10 +201,10 @@
 		<<set $defaultRules[_bci].surgery = {lactation: "no default setting", cosmetic: 0, accent: "no default setting", shoulders: "no default setting", shouldersImplant: "no default setting", boobs: "no default setting", hips: "no default setting", hipsImplant: "no default setting", butt: "no default setting", faceShape: "no default setting", lips: "no default setting", holes: 0}>>
 	<</if>>
 	<<if ndef $defaultRules[_bci].surgery.prostate>>
-		<<set $defaultRules[_i].surgery.prostate = "no default setting">>
+		<<set $defaultRules[_bci].surgery.prostate = "no default setting">>
 	<</if>>
 	<<if ndef $defaultRules[_bci].dietMilk>>
-		<<set $defaultRules[_i].dietMilk = 0>>
+		<<set $defaultRules[_bci].dietMilk = 0>>
 	<</if>>
 	<<if ndef $defaultRules[_bci].dietCum>>
 		<<set $defaultRules[_bci].dietCum = 0>>
