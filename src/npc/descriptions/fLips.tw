@@ -1,6 +1,5 @@
-:: FLips
+:: FLips [nobr]
 
-<<nobr>>
 
 <<set $activeSlave.oralCount++, $oralTotal++>>
 
@@ -26,14 +25,22 @@ You tell $activeSlave.slaveName to
 	She's delighted at the prospect of her favorite activity.
 <</if>>
 
-<<if ($activeSlave.collar == "dildo gag")>>
+<<switch $activeSlave.collar>> 
+<<case "dildo gag">>
 	<<if ($activeSlave.amp != 1)>>
 		She removes the dildo from her throat, leaving the ring gag in place.
 	<<else>>
 		As an amputee, she requires your assistance to get the dildo out of her throat.
 	<</if>>
 	Able to breathe through her mouth for the first time in a while, she gasps gratefully, knowing the respite will be brief.
-<</if>>
+<<case "ball gag" "bit gag">>
+	<<if ($activeSlave.amp != 1)>>
+		She unfastens her gag and pulls it from her mouth.
+	<<else>>
+		As an amputee, she requires your assistance to get the gag unfastened.
+	<</if>>
+	Able to breathe through her mouth for the first time in a while, she gasps gratefully, knowing the respite will be brief.
+<</switch>>
 
 <<if ($activeSlave.lipsTat == "tribal patterns")>>
 	The tribal patterns on her face enhance her beauty.

@@ -246,6 +246,12 @@ window.canTalk = function(slave) {
 		return false;
 	} else if (slave.lips > 95) {
 		return false;
+	} else if (slave.collar == "dildo gag") {
+		return false;
+	} else if (slave.collar == "ball gag") {
+		return false;
+	} else if (slave.collar == "bit gag") {
+		return false;
 	} else {
 		return true;
 	}
