@@ -132,8 +132,8 @@
 		<<for _i = 0; _i < _SL; _i++>>
 			<<if $slaves[_i].ID == $activeSlave.relationshipTarget>>
 				<<set $assayedSlave = $slaves[_i]>>
-			<<AssayedSlaveAvailable>>
-		<</if>>
+				<<AssayedSlaveAvailable>>
+			<</if>>
 		<</for>>
 		<<if $assayedSlaveAvailable == 1>>
 			<<if ($activeSlave.relationship == 1)>>
@@ -471,6 +471,9 @@
 <<if ($arcologies[0].FSArabianRevivalist != "unset") || ($cheatMode == 1) || ($clothesBoughtHarem == 1)>>
 	| //FS// <<link "Harem gauze">><<set $activeSlave.clothes = "harem gauze",$activeSlave.choosesOwnClothes = 0>><<replace "#clothes">>$activeSlave.clothes<</replace>><</link>>
 <</if>>
+<<if ($arcologies[0].FSAztecRevivalist != "unset") || ($cheatMode == 1) || ($clothesBoughtHuipil == 1)>>
+	| //FS// <<link "Huipil">><<set $activeSlave.clothes = "a huipil",$activeSlave.choosesOwnClothes = 0>><<replace "#clothes">>$activeSlave.clothes<</replace>><</link>>
+<</if>>
 <<if ($arcologies[0].FSEdoRevivalist != "unset") || ($cheatMode == 1) || ($clothesBoughtKimono == 1)>>
 	| //FS// <<link "Kimono">><<set $activeSlave.clothes = "a kimono",$activeSlave.choosesOwnClothes = 0>><<replace "#clothes">>$activeSlave.clothes<</replace>><</link>>
 <</if>>
@@ -517,6 +520,8 @@
 | <<link "Uncomfortable leather">><<set $activeSlave.collar = "uncomfortable leather">><<replace "#collar">>$activeSlave.collar<</replace>><</link>>
 | <<link "Shock punishment">><<set $activeSlave.collar = "shock punishment">><<replace "#collar">>$activeSlave.collar<</replace>><</link>>
 | <<link "Dildo gag">><<set $activeSlave.collar = "dildo gag">><<replace "#collar">>$activeSlave.collar<</replace>><</link>>
+| <<link "Ball gag">><<set $activeSlave.collar = "ball gag">><<replace "#collar">>$activeSlave.collar<</replace>><</link>>
+| <<link "Bit gag">><<set $activeSlave.collar = "bit gag">><<replace "#collar">>$activeSlave.collar<</replace>><</link>>
 | <<link "Neck corset">><<set $activeSlave.collar = "neck corset">><<replace "#collar">>$activeSlave.collar<</replace>><</link>>
 
 <<if $activeSlave.amp != 1>>
