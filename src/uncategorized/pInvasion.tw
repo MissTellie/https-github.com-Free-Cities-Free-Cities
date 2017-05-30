@@ -103,7 +103,7 @@ The loose militia lately organized by the arcology owners has been called out to
 <br><<link "Enslave all of your prisoners">>
 	<<replace "#result">>
 	<<for $i = 0; $i < _newSlaves.length; $i++>>
-		<<AddSlave _newSlaves[$i]>>
+		<<AddSlave _newSlaves[$i]>> /* skip New Slave Intro */
 	<</for>>
 	You simply enslave all of your prisoners yourself. These slaves will regret attacking your arcology.
 	<</replace>>
