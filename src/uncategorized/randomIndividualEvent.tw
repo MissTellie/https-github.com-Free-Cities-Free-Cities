@@ -2,29 +2,22 @@
 
 <<set $showEncyclopedia = 0>>
 <<if $eventSlave == 0>>
+  <<set $eventSlave = $eligibleSlaves.random()>>
   <<if $cheatMode == 1>>
-	''One of the following slaves would have been selected for a random event:''
+	<<set $nextButton = "Refresh", $nextLink = "Random Individual Event", $returnTo = "Random Individual Event">>
+	''One of the following eligible slaves would have been selected for an individual random event:''
 	<br>
 	<<for $i = 0; $i < $eligibleSlaves.length; $i++>>
-		<<print "[[$eligibleSlaves[$i].slaveName|Random Individual Event][$eventSlave = $eligibleSlaves[" + $i + "]]]">>
-		<br>
+		<br><<print "[[$eligibleSlaves[$i].slaveName|Random Individual Event][$eventSlave = $eligibleSlaves[" + $i + "]]]">>
 	<</for>>
+	<br><br>[[Switch to Random Nonindividual Event|Random Nonindividual Event][$activeSlave = 0, $eventSlave = 0]]
   <<else>>
-	<<set $eventSlave = $eligibleSlaves.random()>>
 	<<goto "Random Individual Event">>
   <</if>>
 <<else>>
 <<silently>>
-<<set $events = []>>
-<<set $RESSevent = []>>
-<<set $RESSTRevent = []>>
-<<set $RETSevent = []>>
-<<set $RECIevent = []>>
-<<set $activeSlave = 0>>
-<<set $groomSlave = 0>>
-<<set $brideSlave = 0>>
-
-<<set $legendaryFacility = 0>>
+/* initialize event lists as arrays [], not objects {} */
+<<set $events = [], $RESSevent = [], $RESSTRevent = [], $RETSevent = [], $RECIevent = [], $activeSlave = 0, $groomSlave = 0, $brideSlave = 0, $legendaryFacility = 0>>
 
 /* SUB CHECKS */
 
@@ -589,6 +582,34 @@
 <<if ($eventSlave.anus > 0)>>
 <<if ($eventSlave.vagina > 0)>>
 	<<set $RESSevent.push("devoted old")>>
+<</if>>
+<</if>>
+<</if>>
+<</if>>
+<</if>>
+
+<<if ($eventSlave.devotion > 20)>>
+<<if ($eventSlave.trust > 20)>>
+<<if ($eventSlave.age > 35)>>
+<<if ($eventSlave.anus > 0)>>
+<<if ($eventSlave.vagina > 0)>>
+<<if ($PC.age == 1)>>
+	<<set $RESSTRevent.push("young PC age difference")>>
+<</if>>
+<</if>>
+<</if>>
+<</if>>
+<</if>>
+<</if>>
+
+<<if ($eventSlave.devotion > 20)>>
+<<if ($eventSlave.trust > 20)>>
+<<if ($eventSlave.age < 22)>>
+<<if ($eventSlave.anus > 0)>>
+<<if ($eventSlave.vagina > 0)>>
+<<if ($PC.age == 3)>>
+	<<set $RESSTRevent.push("old PC age difference")>>
+<</if>>
 <</if>>
 <</if>>
 <</if>>
@@ -1407,6 +1428,14 @@
 <</if>>
 <</if>>
 
+<<if ($eventSlave.devotion <= 20)>>
+<<if ($eventSlave.assignment == "work as a servant") || ($eventSlave.assignment == "be a servant")>>
+<<if ($eventSlave.clothes == "a slutty maid outfit") || ($eventSlave.clothes == "a nice maid outfit")>>
+	<<set $RESSTRevent.push("servant maid")>>
+<</if>>
+<</if>>
+<</if>>
+
 <<if ($eventSlave.speechRules != "restrictive")>>
 <<if ($eventSlave.vaginalAccessory != "chastity belt")>>
 <<if ($eventSlave.fetish != "buttslut")>>
@@ -1681,3 +1710,4 @@
 
 <</silently>>
 <</if>> /* CLOSES SLAVE SELECT */
+

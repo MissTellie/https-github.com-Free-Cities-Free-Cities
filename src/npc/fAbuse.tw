@@ -1,6 +1,5 @@
-:: FAbuse
+:: FAbuse [nobr]
 
-<<nobr>>
 <<if ($activeSlave.ID == $Bodyguard.ID)>>
 	<<set $gameover = "idiot ball">><<goto "Gameover">>
 <</if>>
@@ -264,11 +263,6 @@ and leave her sobbing on the floor <<if ($PC.dick == 0)>>as you shuck off the st
 <</if>>
 
 <<if passage() !== "Slave Interact">>
-<<for _i = 0; _i lt $slaves.length; _i++>>
-	<<if $slaves[_i].ID == $activeSlave.ID>>
-	<<set $slaves[_i] = $activeSlave>>
-	<<break>>
-	<</if>>
-<</for>>
+	<<set $nextLink = "AS Dump">>
 <</if>>
-<</nobr>>\
+

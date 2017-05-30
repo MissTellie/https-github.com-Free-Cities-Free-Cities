@@ -1,23 +1,23 @@
 :: RETS [nobr]
 
-<<if $activeSlave == 0>>
+<<if (ndef $activeSlave) || ($activeSlave == 0)>>
   <<set $activeSlave = $eventSlave>>
   <<if $cheatMode == 1>>
+	<<set $nextButton = "Back", $nextLink = "Nonrandom Event", $returnTo = "Nonrandom Event">> /* if user just clicks spacebar */
 	''A random two slave event would have been selected from the following:''
 	<br>
 	<<for _i = 0; _i < $RETSevent.length; _i++>>
 		<<print "[[$RETSevent[_i]|RETS][$RETSevent = $RETSevent[" + _i + "]]]">>
 		<br>
 	<</for>>
+	<br><br>[[Go Back to Random Individual Event|Random Individual Event][$activeSlave = 0]]
   <<else>>
 	<<set $RETSevent = $RETSevent.random()>>
 	<<goto "RETS">>
   <</if>>
 <<else>>
 
-<<set $nextButton = "Continue">>
-<<set $nextLink = "AS Dump">>
-<<set $returnTo = "Next Week">>
+<<set $nextButton = "Continue", $nextLink = "AS Dump", $returnTo = "Next Week">>
 
 <<switch $RETSevent>>
 
@@ -105,7 +105,7 @@
 <<case "top exhaustion">>
 
 <<default>>
-	ERROR: bad event
+	<br>ERROR: bad RETS event $RETSevent
 <</switch>>
 
 <<SlaveTitle $activeSlave>>
@@ -639,7 +639,7 @@ Being the <<if $activeSlave.relationship > 4>>wife<<else>>lover<</if>> of a lust
 Mere moments after you absorb this arresting scene, $RERelationshipSlave.slaveName thrusts <<if canAchieveErection($RERelationshipSlave)>>her cock<<else>>the strap-on<</if>> all the way inside $activeSlave.slaveName's <<if $seed == 1>>ass<<else>>womanhood<</if>> and shudders, <<if canAchieveErection($RERelationshipSlave)>>filling it with her cum<<else>>orgasming<</if>>. Then she collapses, utterly spent. $activeSlave.slaveName <<if canAchieveErection($RERelationshipSlave)>>gasps at the sensation of the ejaculate shooting into her body<<else>>smiles a little wider as she feels $activeSlave.slaveName's muscles tense with climax<</if>>, and then grunts a little as $RERelationshipSlave.slaveName lies down on top of her.<<if $RERelationshipSlave.boobs > 5000>> The enormous weight of her lover's boobs squashes her.<</if>><<if $RERelationshipSlave.preg > 20>> Her pregnancy pushing <<if $activeSlave.preg > 20>>against her own<<else>>into her middle<</if>>.<</if>> After a few seconds, she wiggles her hips a little as a wordless question. The sensation <<if canAchieveErection($RERelationshipSlave)>>against $activeSlave.slaveName's softening, overstimulated member<<else>>is transmitted through the phallus and its harness to $activeSlave.slaveName's overstimulated clit, and this<</if>> makes the exhausted slave on top quiver, eliciting a giggle from the slave underneath her. "I love you, $RERelationshipSlave.slaveName," she whispers, and receives a mumbled "I love you too" in breathy response, right next to her ear.
 
 <<default>>
-	ERROR: bad event
+	<br>ERROR: bad RETS event $RETSevent
 <</switch>>
 
 <br><br>
@@ -1212,7 +1212,8 @@ Mere moments after you absorb this arresting scene, $RERelationshipSlave.slaveNa
 <<case "shower force">>
 
 <<link "Instruct her to be a little nicer">>
-	<<replace "#name">>$activeSlave.slaveName<</replace>><<replace "#result">>
+	<<replace "#name">>$activeSlave.slaveName<</replace>>
+	<<replace "#result">>
 	Even though you already have everyone's rapt attention, you rap on the glass for emphasis<<if canSee($activeSlave) && canSee($subSlave)>>, watched closely by four huge eyes<</if>>. You politely admonish $activeSlave.slaveName, and tell her to do a better job of looking after her anal bottom's pleasure. She nods vigorously and snakes a hand around $subSlave.slaveName, to where <<if ($subSlave.dick > 0) && !canAchieveErection($subSlave)>>her limp dick is smashed against the glass<<elseif $subSlave.dick > 0>>her dick, shamefully half-hard despite her unwillingness, is smashed against the glass<<elseif $subSlave.vagina == -1>>her featureless groin is hidden between her forced-together legs<<else>>her neglected pussy is hidden between her forced-together legs<</if>>. $activeSlave.slaveName goes back to the anal, but gives $subSlave.slaveName a serviceable reach around as she does. $subSlave.slaveName does not orgasm, but she looks a little less unhappy and @@.mediumaquamarine;thanks you@@ for your intervention after $activeSlave.slaveName <<if ($activeSlave.dick > 0) && canAchieveErection($activeSlave) && ($activeSlave.dickAccessory != "chastity")>>grunts, fills her asshole with cum, and pulls herself out.<<else>>shakes with orgasm and removes her fingers.<</if>>
 	<<for $i to 0; $i < $slaves.length; $i++>>
 	  <<if $slaves[$i].ID is $subSlave.ID>>
@@ -1396,9 +1397,12 @@ Mere moments after you absorb this arresting scene, $RERelationshipSlave.slaveNa
 <</link>>
 
 <<default>>
-	ERROR: bad event
+	ERROR: RETS event $RETSevent
 <</switch>>
 
+<<if $cheatMode == 1>>
+	<br><br>DEBUG: &nbsp;&nbsp;&nbsp;&nbsp;[[Go back to Nonrandom Event|Nonrandom Event][$activeSlave = 0, $eventSlave = 0]]
+<</if>>
 
 </span>
 

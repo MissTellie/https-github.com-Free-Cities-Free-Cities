@@ -1,6 +1,6 @@
 :: Reputation [nobr]
 
-<<if $useTabs>>__Reputation__<</if>>
+<<if $useTabs == 0>>__Reputation__<</if>>
 <br>
 
 <<PCTitle>>
@@ -17,7 +17,7 @@ On formal occasions, you are announced as $PCTitle.
 		<<elseif $slaves.length > 20>>
 			@@.green;approve@@ of the good
 			<<FSChange "ChattelReligionist" 2>>
-		<<elseif $slaves.length > 20>>
+		<<else>>
 			are not impressed by the
 		<</if>>
 		number of people you're giving the honor of sexual servitude.
@@ -28,7 +28,7 @@ On formal occasions, you are announced as $PCTitle.
 		<<elseif $averageDevotion > 50>>
 			@@.green;approve@@ of the devotion
 			<<FSChange "ChattelReligionist" 2>>
-		<<elseif $slaves.length > 20>>
+		<<else>>
 			are not impressed by the devotion
 		<</if>>
 		of your slaves.
@@ -39,7 +39,7 @@ On formal occasions, you are announced as $PCTitle.
 		<<elseif $averageTrust > 20>>
 			@@.green;approve@@ of the trust your slaves place in you.
 			<<FSChange "ChattelReligionist" 2>>
-		<<elseif $slaves.length > 20>>
+		<<else>>
 			are not impressed by fear many of your slaves feel towards you.
 		<</if>>
 	<</if>>
@@ -192,6 +192,29 @@ On formal occasions, you are announced as $PCTitle.
 		Continuing to use $language as the lingua franca of $arcologies[0].name rather than the storied Latin @@.red;disappoints@@ society and causes doubt about your revivalist project.
 		<<FSChange "RomanRevivalist" -2>>
 	<</if>>
+<<elseif $arcologies[0].FSAztecRevivalist != "unset">>
+	<<if $PC.age >= 2>>
+		Society @@.green;approves@@ of your advancing age, which advances the ancient Aztec ideal of an experienced leader of the people.
+		<<FSChange "AztecRevivalist" 1>>
+	<</if>>
+	<<if $HeadGirl == 0>>
+		Society @@.red;disapproves@@ of you not having a Head Girl as an advisor and assistant.
+		<<FSChange "AztecRevivalist" -2>>
+	<<else>>
+		Society @@.green;approves@@ of your reliance on a Head Girl as an advisor and assistant.
+		<<FSChange "AztecRevivalist" 2>>
+	<</if>>
+	<<if $PC.warfare < 50>>
+		Society @@.red;disapproves@@ of you not being properly trained in the arts of war.
+		<<FSChange "AztecRevivalist" -2>>
+	<<else>>
+		Society @@.green;approves@@ of having a leader that is trained in the arts of war.
+		<<FSChange "AztecRevivalist" 2>>
+	<</if>>
+	<<if $language != "Nahuatl">>
+		Continuing to use $language as the lingua franca of $arcologies[0].name rather than the revived Nahuatl @@.red;disappoints@@ society and causes doubt about your revivalist project.
+		<<FSChange "AztecRevivalist" -3>>
+	<</if>>		
 <<elseif $arcologies[0].FSEgyptianRevivalist != "unset">>
 	<<if $racialVarieties.length > 4>>
 		Society @@.green;strongly approves@@ of how you own a cornucopia of different races, which advances the ancient Egyptian ideal of cosmopolitan sex slavery.
@@ -208,7 +231,8 @@ On formal occasions, you are announced as $PCTitle.
 		<<FSChange "EdoRevivalist" -2>>
 	<<else>>
 		Society @@.green;approves@@ of your provision for cultural development by offering public servants and club slaves in a number that befits your reputation.
-		<<FSChange "EdoRevivalist" 2*_threshold>>
+		<<set _EdoPS = 2*_threshold>>
+		<<FSChange "EdoRevivalist" _EdoPS>>
 	<</if>>
 	<<if $language != "Japanese">>
 		Continuing to use $language as the lingua franca of $arcologies[0].name rather than pure Japanese @@.red;disappoints@@ society and causes doubt about your revivalist project.

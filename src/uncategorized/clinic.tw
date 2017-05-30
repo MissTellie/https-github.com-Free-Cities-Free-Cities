@@ -10,6 +10,8 @@ $clinicNameCaps
 <<switch $clinicDecoration>>
 <<case "Roman Revivalist">>
 	is open and airy; a breeze wafts through the space, and Roman theories on natural cleanliness are very much on display.
+<<case "Aztec Revivalist">>
+	is open and airy; a light hint of herbs and natural oil permeates the air. Everything is incredibly sterile, especially the blood management equipment.
 <<case "Egyptian Revivalist">>
 	is open and airy; clean rushes are strewn across the floor, making a gentle susurration when anyone crosses the space.
 <<case "Edo Revivalist">>
@@ -77,14 +79,14 @@ $clinicNameCaps
 <br>
 <<if $clinicUpgradeFilters == 1>>
 	The entire floor beneath $clinicName is occupied by a huge filtration plant that constantly cycles out the patients' blood to remove impurities.
+	<<if $Nurse == 0>>
+		<br>However, without a nurse in attendance, the blood treatment equipment remains idle.
+	<</if>>
 <<else>>
 	<<set _Tmult2 = Math.trunc(50000*$upgradeMultiplierArcology)>>
 	It includes standard dialysis equipment. [[Install advanced blood treatment equipment to help address drug side effects|Clinic][$cash -= _Tmult2, $clinicUpgradeFilters = 1]] //Costs ¤_Tmult2//
 <</if>>
 
-<<if $Nurse == 0>>
-	<br>Without a nurse in attendance, the blood treatment equipment remains idle.
-<</if>>
 <br><br>
 <<if $Nurse != 0>>
 	<<set $Flag = 2>>

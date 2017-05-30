@@ -31,12 +31,14 @@
 
 <<if $ui == "start">>
 <<elseif $saleDescription == 1>>
-<<if $applyLaw == 1>>
-	<<include "Law Compliance">>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;$activeSlave.slaveName
-<<else>>
-	is for sale and is available to inspect. She
-<</if>>
+	<<if $applyLaw == 1>>
+		has passed inspection to be sold in your arcology.
+		<<include "Law Compliance">> /* includes CheckForGingering */
+	<<else>>
+		is for sale and is available to inspect.
+		<<CheckForGingering>> /* may store a backup of $activeSlave and make temporary changes; call <<RemoveGingering>> to retrieve backup before making changes to $activeSlave */
+	<</if>>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;''$activeSlave.slaveName''
 <</if>>
 
 is
@@ -79,11 +81,11 @@ is
 <<elseif $eventDescription == 1>>
 	$pronounCap is currently involved in an event, but is assigned to $activeSlave.assignment.
 	<<if $activeSlave.assignment == "be a subordinate slave">>
-	<<for $i = 0; $i < $slaves.length; $i++>>
-	<<if $activeSlave.subTarget == $activeSlave.ID>>
-		She has been ordered to serve ''@@.pink;$activeSlave.slaveName@@'' specifically.
-		<<break>>
-	<</if>>
+	<<for _lsd = 0; _lsd < $slaves.length; _lsd++>>
+		<<if $activeSlave.subTarget == $slaves[_lsd].ID>>
+			She has been ordered to serve ''@@.pink;$slaves[_lsd].slaveName@@'' specifically.
+			<<break>>
+		<</if>>
 	<</for>>
 	<</if>>
 <<else>>
@@ -175,19 +177,19 @@ She comes to you for an inspection
 <<elseif $activeSlave.relationship == -2>>
 	She is @@.lightgreen;emotionally bound to you;@@ her feelings for you are comparable to those in a healthy, loving relationship.
 <<elseif $activeSlave.relationship != 0>>
-<<for $i = 0; $i < $slaves.length; $i++>>
-<<if $slaves[$i].ID == $activeSlave.relationshipTarget>>
+<<for _lsd = 0; _lsd < $slaves.length; _lsd++>>
+<<if $slaves[_lsd].ID == $activeSlave.relationshipTarget>>
 	She is
 	<<if $activeSlave.relationship <= 1>>
-	@@.lightgreen;friends with $slaves[$i].slaveName;@@ the rules <<if $activeSlave.relationshipRules != "restrictive">>encourage<<else>> discourage<</if>> their relationship.
+	@@.lightgreen;friends with $slaves[_lsd].slaveName;@@ the rules <<if $activeSlave.relationshipRules != "restrictive">>encourage<<else>> discourage<</if>> their relationship.
 	<<elseif $activeSlave.relationship <= 2>>
-	@@.lightgreen;best friends with $slaves[$i].slaveName;@@ the rules <<if $activeSlave.relationshipRules != "restrictive">>encourage<<else>> discourage<</if>> their close relationship.
+	@@.lightgreen;best friends with $slaves[_lsd].slaveName;@@ the rules <<if $activeSlave.relationshipRules != "restrictive">>encourage<<else>> discourage<</if>> their close relationship.
 	<<elseif $activeSlave.relationship <= 3>>
-	@@.lightgreen;$slaves[$i].slaveName's friend with benefits;@@ the rules <<if $activeSlave.relationshipRules == "permissive">>encourage<<else>> discourage<</if>> their sexual relationship.
+	@@.lightgreen;$slaves[_lsd].slaveName's friend with benefits;@@ the rules <<if $activeSlave.relationshipRules == "permissive">>encourage<<else>> discourage<</if>> their sexual relationship.
 	<<elseif $activeSlave.relationship <= 4>>
-	@@.lightgreen;$slaves[$i].slaveName's lover;@@ the rules <<if $activeSlave.relationshipRules == "permissive">>encourage<<else>> discourage<</if>> their passionate relationship.
-	<<elseif $slaves[$i].relationship > 4>>
-	@@.lightgreen;$slaves[$i].slaveName's slave wife;@@ the rules <<if $activeSlave.relationshipRules == "permissive">>encourage<<else>> discourage<</if>> marital bliss.
+	@@.lightgreen;$slaves[_lsd].slaveName's lover;@@ the rules <<if $activeSlave.relationshipRules == "permissive">>encourage<<else>> discourage<</if>> their passionate relationship.
+	<<elseif $slaves[_lsd].relationship > 4>>
+	@@.lightgreen;$slaves[_lsd].slaveName's slave wife;@@ the rules <<if $activeSlave.relationshipRules == "permissive">>encourage<<else>> discourage<</if>> marital bliss.
 	<</if>>
 	<<break>>
 <</if>>
@@ -380,7 +382,7 @@ and
 
 <<if $clinic != 0>>
 <<if $clinicUpgradeScanner == 1>>
-<<if $activeSlave.chem > 0>>
+<<if $activeSlave.chem > 15>>
   $clinicNameCaps's scanners score long term damage to $possessive genome at @@.cyan;<<print Math.ceil($activeSlave.chem/10)>>@@.
 <<else>>
   $clinicNameCaps's scanners confirm that $pronoun has good prospects for long term health.
@@ -1176,13 +1178,13 @@ when a dick is pushed inside <<if $activeSlave.vagina >= -1>>either of its lower
 <</if>>
 
 <<if $activeSlave.relation != 0>>
-  <<for $i = 0; $i < $slaves.length; $i++>>
-	<<if $slaves[$i].ID == $activeSlave.relationTarget>>
-		<<if ($slaves[$i].ID == $activeSlave.relationshipTarget) && ($activeSlave.relationship >= 3)>>
-			$pronounCap is @@.lightgreen;$slaves[$i].slaveName's $activeSlave.relation, making their relationship incestuous.@@
+  <<for _lsd = 0; _lsd < $slaves.length; _lsd++>>
+	<<if $slaves[_lsd].ID == $activeSlave.relationTarget>>
+		<<if ($slaves[_lsd].ID == $activeSlave.relationshipTarget) && ($activeSlave.relationship >= 3)>>
+			$pronounCap is @@.lightgreen;$slaves[_lsd].slaveName's $activeSlave.relation, making their relationship incestuous.@@
 			<<break>>
 		<<else>>
-			$pronounCap is @@.lightgreen;$slaves[$i].slaveName's $activeSlave.relation.@@
+			$pronounCap is @@.lightgreen;$slaves[_lsd].slaveName's $activeSlave.relation.@@
 			<<break>>
 		<</if>>
 	<</if>>
@@ -1190,15 +1192,15 @@ when a dick is pushed inside <<if $activeSlave.vagina >= -1>>either of its lower
 <</if>>
 
 <<if $activeSlave.rivalry != 0>>
-  <<for $i = 0; $i < $slaves.length; $i++>>
-	<<if $slaves[$i].ID == $activeSlave.rivalryTarget>>
+  <<for _lsd = 0; _lsd < $slaves.length; _lsd++>>
+	<<if $slaves[_lsd].ID == $activeSlave.rivalryTarget>>
 		$pronounCap
 		<<if $activeSlave.rivalry <= 1>>
-			@@.lightsalmon;dislikes@@ $slaves[$i].slaveName.
+			@@.lightsalmon;dislikes@@ $slaves[_lsd].slaveName.
 		<<elseif $activeSlave.rivalry <= 2>>
-			is $slaves[$i].slaveName's @@.lightsalmon;rival.@@
+			is $slaves[_lsd].slaveName's @@.lightsalmon;rival.@@
 		<<else>>
-			@@.lightsalmon;bitterly hates@@ $slaves[$i].slaveName.
+			@@.lightsalmon;bitterly hates@@ $slaves[_lsd].slaveName.
    		<</if>>
 		<<break>>
 	<</if>>
@@ -1663,7 +1665,7 @@ $pronounCap is
 			cheap glasses,
 		<<case "a bunny outfit">>
 			girly retro glasses,
-		<<case "a slutty qipao" "a kimono" "a slutty maid outfit" "a nice maid outfit">>
+		<<case "a slutty qipao" "a kimono" "a revealing huipil" "a slutty maid outfit" "a nice maid outfit">>
 			an old fashioned pair of horn rimmed glasses,
 		<<case "a fallen nuns habit" "a cheerleader outfit" "a slutty nurse outfit">>
 			a daring pair of horn rimmed glasses,

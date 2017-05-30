@@ -53,7 +53,7 @@
 <<elseif ($slaves[$i].devotion <= 20)>>
 	Since she is not yet well trained, $HeadGirl.slaveName instructs her, @@.hotpink;training@@ her to be a proper assistant.
 	<<set $slaves[$i].devotion += 4>>
-<<elseif ($slaves[$i].devotion <= 50)>>
+<<elseif ($slaves[$i].devotion < 50)>>
 	Since she is not yet a devoted slave, $HeadGirl.slaveName works with her, @@.hotpink;training@@ her to be a good assistant.
 	<<set $slaves[$i].devotion += 2>>
 <<else>>
@@ -214,7 +214,7 @@
 	<</if>>
 <</if>>
 
-<<if ($slaves[$i].vagina > 0) && isFertile($slaves[$i]) && ($HeadGirl.fetishKnown == 1) && ($HeadGirl.fetish == "pregnancy") && (canPenetrate($HeadGirl))>>
+<<if ($HeadGirl.fetishKnown == 1) && ($HeadGirl.fetish == "pregnancy") && canImpreg($slaves[$i], $HeadGirl)>>
 	$HeadGirl.slaveName promptly @@.lime;impregnates@@ $slaves[$i].slaveName, to your Head Girl's considerable @@.hotpink;satisfaction.@@
 	<<set $slaves[$i].preg = 1>>
 	<<if ($slaves[$i].drugs == "fertility drugs")>>
@@ -230,7 +230,7 @@
 <</if>>
 
 <<if ($slaves[$i].devotion > 50)>>
-<<if (($slaves[$i].fetishStrength <= 95) || ($slaves[$i].fetishKnown == 0)) && ($HeadGirl.fetishKnown == 1) && ($HeadGirl.fetishStrength > 60) && ($slaves[$i].fetish != $HeadGirl.fetish)>>
+<<if (($slaves[$i].fetishStrength <= 95) || ($slaves[$i].fetishKnown == 0)) && ($HeadGirl.fetishKnown == 1) && ($HeadGirl.fetishStrength > 60) && ($slaves[$i].fetish != $HeadGirl.fetish) && ($slaves[$i].fetish != "mindbroken")>>
 	<<if ($HeadGirl.fetish == "submissive")>>
 		$slaves[$i].slaveName slowly gets used to $HeadGirl.slaveName's need to be sexually dominated, and begins to @@.pink;enjoy being a top@@ within the confines of the suite.
 		<<set $slaves[$i].fetish = "dom", $slaves[$i].fetishKnown = 1, $slaves[$i].fetishStrength = 10>>
@@ -576,7 +576,7 @@
 			$HeadGirl.slaveName decides to extract the ultimate in sadistic pleasure from $slaves[$i].slaveName, and directs the autosurgery to @@.red;amputate her arms and legs.@@ She carefully describes the entire process to the sobbing slave @@.gold;in minute detail@@ before allowing her to be sedated.
 			<<set $slaves[$i].devotion -= 20, $slaves[$i].trust -= 20, $slaves[$i].health -= 40, $slaves[$i].amp = 1>>
 		<</if>>
-		<<if ($slaves[$i].balls > 0) && ($slaves[$i].devotion <= 50)>>
+		<<if ($slaves[$i].balls > 0) && ($slaves[$i].devotion < 50)>>
 			$HeadGirl.slaveName decides to have some once-only sadistic pleasure, and carefully straps $slaves[$i].slaveName into the surgery until she's completely immobile. $HeadGirl.slaveName situates a mirror so the terrified girl can see her own crotch, gets behind her, and carefully sodomizes her during the entire process of @@.red;castration.@@ $slaves[$i].slaveName is anesthetized down there and can't feel the brutal anal rape, but her abuser orgasms repeatedly to her @@.gold;weeping at the sight of being gelded and raped at once.@@
 			<<set $slaves[$i].devotion -= 20, $slaves[$i].trust -= 20, $slaves[$i].health -= 20, $slaves[$i].balls = 0>>
 		<</if>>
@@ -585,7 +585,7 @@
 			$HeadGirl.slaveName tires of $slaves[$i].slaveName's protests that $HeadGirl.slaveName is a monster for hurting her this way and her complaints that she deserves better. $HeadGirl.slaveName decides that it'll be just as much fun and a lot less trouble to mistreat $slaves[$i].slaveName once she's mindbroken, and sends her in for @@.red;chemical lobotomization.@@
 			<<set $slaves[$i].health -= 20, $slaves[$i].fetish = "mindbroken">>
 		<</if>>
-	<<elseif ($HeadGirl.fetish == "dom") && ($HeadGirl.fetishStrength > 60) && ($seeExtreme == 1) && ($slaves[$i].fetish != "mindbroken") && ($slaves[$i].devotion <= 50)>>
+	<<elseif ($HeadGirl.fetish == "dom") && ($HeadGirl.fetishStrength > 60) && ($seeExtreme == 1) && ($slaves[$i].fetish != "mindbroken") && ($slaves[$i].devotion < 50)>>
 		<<if ($slaves[$i].health > 40)>>
 			<<if ($slaves[$i].heels == 0) && ($slaves[$i].amp != 1)>>
 				$HeadGirl.slaveName is not satisfied with $slaves[$i].slaveName's submissiveness, and directs the autosurgery to @@.red;clip her Achilles tendons.@@ Once the slave is recovered from surgery, $HeadGirl.slaveName removes all shoes from the suite, too, so $slaves[$i].slaveName is forced to crawl like a good little bitch. $slaves[$i].slaveName is @@.gold;angry@@ and @@.gold;frightened.@@
@@ -597,7 +597,7 @@
 			<</if>>
 		<</if>>
 	<<elseif $HeadGirl.energy > 95>>
-		<<if ($slaves[$i].health > 40) && ($slaves[$i].heels == 0) && ($slaves[$i].amp != 1) && ($slaves[$i].devotion <= 50) && ($slaves[$i].fetish != "mindbroken")>>
+		<<if ($slaves[$i].health > 40) && ($slaves[$i].heels == 0) && ($slaves[$i].amp != 1) && ($slaves[$i].devotion < 50) && ($slaves[$i].fetish != "mindbroken")>>
 			$HeadGirl.slaveName wants a good little bimbo who sticks her butt out all the time, and directs the autosurgery to @@.red;clip $slaves[$i].slaveName's Achilles tendons.@@ Once the slave is recovered from surgery, $HeadGirl.slaveName presents $slaves[$i].slaveName with a new pair of extra-tall heels to totter around in like a good little slut. $slaves[$i].slaveName is @@.gold;angry@@ and @@.gold;frightened.@@
 			<<set $slaves[$i].devotion -= 5, $slaves[$i].trust -= 5, $slaves[$i].health -= 20, $slaves[$i].heels = 1, $slaves[$i].shoes = "heels">>
 		<</if>>
@@ -643,28 +643,22 @@
 
 <<if $showEWD == 0>>
 	<<silently>>
-	<<if $slaves[$i].choosesOwnClothes == 1>>
 	<<include "SA chooses own clothes">>
-	<<if ($slaves[$i].devotion <= 20)>>
-		<<set $slaves[$i].devotion -= 5>>
-	<<else>>
-		<<set $slaves[$i].devotion++>>
-	<</if>>
-	<</if>>
+	<<include "SA diet">>
+	<<include "SA long term effects">>
+	<<include "SA drugs">>
 	<<include "SA relationships">>
 	<<include "SA rivalries">>
 	<<include "SA devotion">>
 	<</silently>>
 <<else>>
-	<<if $slaves[$i].choosesOwnClothes == 1>>
 	<<include "SA chooses own clothes">>
-	<<if ($slaves[$i].devotion <= 20)>>
-		<<set $slaves[$i].devotion -= 5>>
-	<<else>>
-		<<set $slaves[$i].devotion++>>
-	<</if>>
-	<</if>>
+	<<include "SA diet">>
+	<<include "SA long term effects">>
+	<<include "SA drugs">>
 	<<include "SA relationships">>
 	<<include "SA rivalries">>
 	<br><<include "SA devotion">>
 <</if>>
+
+<<unset $HGTastes>>

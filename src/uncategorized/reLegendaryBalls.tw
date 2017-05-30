@@ -2,16 +2,14 @@
 
 <<nobr>>
 
-<<set $nextButton = "Continue">>
-<<set $nextLink = "AS Dump">>
-<<set $returnTo = "RIE Eligibility Check">>
+<<set $nextButton = "Continue", $nextLink = "AS Dump", $returnTo = "RIE Eligibility Check", _SL = $slaves.length>>
 
 <<if $legendaryFacility == 1>>
-	<<for $i = 0; $i < $slaves.length; $i++>>
-	<<if $legendaryBallsID == $slaves[$i].ID>>
-		<<set $activeSlave = $slaves[$i]>>
+	<<set $activeSlave = $slaves.find(function(s) { return s.ID == $legendaryBallsID; })>>
+	<<if (ndef $activeSlave)>> /* not found - reset variable and stop event */
+		<<set $legendaryBallsID = 0>>
+		<<goto "RIE Eligibility Check">>
 	<</if>>
-	<</for>>
 <<else>>
 	<<set $activeSlave = $eventSlave>>
 <</if>>

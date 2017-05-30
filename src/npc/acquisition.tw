@@ -49,6 +49,8 @@ The previous owner seems to have left in something of a hurry.
 		They were recruiting a stable of slave whores by targeting people with religious complexes that made them particularly vulnerable to recruitment. Several of them are still here.
 	<<case "RomanRevivalist">>
 		The only one of their slaves left is the bodyguard. She should be very willing to transfer her loyalty to you, as her new owner.
+	<<case "AztecRevivalist">>
+		They maintained a combination of disobedient slaves, deemed incorrigible and blood priestesses. Since they offer themselves as slaves willingly, one has remained loyal to the owner of the arcology.
 	<<case "EgyptianRevivalist">>
 		They kept a harem of beautiful slave girls, who have been well-treated and well-trained. They should be very willing to serve you in turn.
 	<<case "EdoRevivalist">>
@@ -120,7 +122,7 @@ The previous owner seems to have left in something of a hurry.
 			<<set $activeSlave.vaginalSkill = random(15,35)>>
 		<</if>>
 		<<set $activeSlave.clothes = "a nice maid outfit", $activeSlave.collar = "tight steel", $activeSlave.shoes = "flats">>
-		<<set $activeSlave.assignment = "work as a servant">>
+		<<set $activeSlave.assignment = "be a servant">>
 	<<case "Paternalist">>
 		<<include "Generate New Slave">>
 		<<set $activeSlave.devotion = random(25,45), $activeSlave.trust = random(55,65), $activeSlave.health = random(55,65)>>
@@ -128,7 +130,7 @@ The previous owner seems to have left in something of a hurry.
 		<<set $activeSlave.intelligence = random(1,3), $activeSlave.intelligenceImplant = 1>>
 		<<set $activeSlave.entertainSkill = random(15,35)>>
 		<<set $activeSlave.clothes = "conservative clothing", $activeSlave.collar = "none", $activeSlave.shoes = "flats">>
-		<<set $activeSlave.assignment = "work as a servant">>
+		<<set $activeSlave.assignment = "be a servant">>
 	<<case "Degradationist">>
 		<<include "Generate New Slave">>
 		<<set $activeSlave.devotion = 25, $activeSlave.trust = -25, $activeSlave.health = random(0,15)>>
@@ -208,7 +210,7 @@ The previous owner seems to have left in something of a hurry.
 			<<set $activeSlave.vaginalSkill = random(15,35)>>
 		<</if>>
 		<<set $activeSlave.clothes = "a nice maid outfit", $activeSlave.collar = "pretty jewelry", $activeSlave.shoes = "heels">>
-		<<set $activeSlave.assignment = "work as a servant">>
+		<<set $activeSlave.assignment = "be a servant">>
 	<<case "MaturityPreferentialist">>
 		<<include "Generate New Slave">>
 		<<set $activeSlave.devotion = random(55,65), $activeSlave.trust = random(-15,15), $activeSlave.health = random(25,45)>>
@@ -224,7 +226,7 @@ The previous owner seems to have left in something of a hurry.
 		<</if>>
 		<<SoftenBehavioralFlaw $activeSlave>>
 		<<set $activeSlave.clothes = "a slutty maid outfit", $activeSlave.collar = "pretty jewelry", $activeSlave.shoes = "heels">>
-		<<set $activeSlave.assignment = "work as a servant">>
+		<<set $activeSlave.assignment = "be a servant">>
 	<<case "YouthPreferentialist">>
 		<<include "Generate New Slave">>
 		<<set $activeSlave.devotion = random(25,45), $activeSlave.trust = random(55,65), $activeSlave.health = random(25,45)>>
@@ -237,7 +239,7 @@ The previous owner seems to have left in something of a hurry.
 		<<if $activeSlave.vagina > -1>><<set $activeSlave.vaginalSkill = 0, $activeSlave.vagina = 0>><</if>>
 		<<set $activeSlave.entertainSkill = random(15,35)>>
 		<<set $activeSlave.clothes = "a schoolgirl outfit", $activeSlave.collar = "pretty jewelry", $activeSlave.shoes = "heels">>
-		<<set $activeSlave.assignment = "work as a servant">>
+		<<set $activeSlave.assignment = "be a servant">>
 	<<case "Pastoralist">>
 		<<include "Generate New Slave">>
 		<<set $activeSlave.devotion = random(25,45), $activeSlave.trust = random(-25,-45), $activeSlave.health = random(25,45)>>
@@ -277,6 +279,17 @@ The previous owner seems to have left in something of a hurry.
 		<<set $activeSlave.behavioralFlaw = "none">>
 		<<set $activeSlave.clothes = "a toga", $activeSlave.collar = "pretty jewelry", $activeSlave.shoes = "flats">>
 		<<set $activeSlave.assignment = "guard you", $Bodyguard = $activeSlave>>
+	<<case "AztecRevivalist">>
+		<<set $fixedRace = "latina">><<include "Generate New Slave">><<set $fixedRace = 0>>
+		<<set $activeSlave.nationality = "Mexican">>
+		<<NationalityToName $activeSlave>>
+		<<set $activeSlave.accent = 0>>
+		<<set $activeSlave.devotion = 75, $activeSlave.trust = 75, $activeSlave.health = random(-20,20)>>
+		<<set $activeSlave.muscles = random(50,75)>>
+		<<set $activeSlave.combatSkill = 1>>
+		<<set $activeSlave.behavioralFlaw = "malicious", $activeSlave.behavioralQuirk = "none">>
+		<<set $activeSlave.clothes = "a huipil", $activeSlave.collar = "pretty jewelry", $activeSlave.shoes = "none">>
+		<<set $activeSlave.assignment = "be your Head Girl" $HeadGirl = $activeSlave>>
 	<<case "EgyptianRevivalist">>
 		<<include "Generate New Slave">>
 		<<set $activeSlave.devotion = random(25,45), $activeSlave.trust = random(25,45), $activeSlave.health = random(25,45)>>

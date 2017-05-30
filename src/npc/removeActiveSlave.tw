@@ -2,17 +2,13 @@
 
 <<set _ID = $activeSlave.ID, _SL = $slaves.length>>
 
-<<if (def _i) && (_i < _SL) && ($slaves[_i].ID == _ID)>>
-	<<set _x = _i>>
+<<if (def $i) && ($i < _SL) && ($slaves[$i].ID == _ID)>>
+	<<set _x = $i>>
 <<else>>
-	<<for _x = 0; _x < _SL; _x++>>
-		<<if _ID == $slaves[_x].ID>>
-			<<break>>
-		<</if>>
-	<</for>>
+	<<set _x = $slaves.findIndex(function(s) { return s.ID == _ID; })>>
 <</if>>
 
-<<if _x < _SL>>
+<<if _x >= 0 && _x < _SL>>
 	<<for _y = 0; _y < _SL; _y++>>
 		<<if _ID == $slaves[_y].pregSource>>
 			<<set $slaves[_y].pregSource = 0>>
@@ -37,8 +33,8 @@
 	<</if>>
 
 	<<if _ID == $personalAttention>>
-		<<set $personalAttention = "business">>
-	<</if>>
+			<<set $personalAttention = "business">>
+		<</if>>
 
 	/% Remove from facility array or leadership role, if needed %/
 	<<removeJob $activeSlave $activeSlave.assignment>>
