@@ -9,6 +9,18 @@
 
 <<switch $REFSevent>>
 
+<<case "physical idealist encounter">>
+
+The notion of the physical ideal have taken $arcologies[0].name by storm and a number of enterprising citizens have been quick to respond by providing new services and businesses in response to the craze. One such innovation is the open air gym, a now common sight along $arcologies[0].name's many streets. Many citizens utilize such facilities to squeeze in an extra work-out on their daily commute, or in lieu of personal fitness facilities in their own homes.
+<br><br>
+While navigating your arcology on an outing you find yourself coming across one of the arcology's finest open air gyms, clearly marketed towards the wealthy citizen on the move. As impressive as the gold plated fitness equipment is, in amongst the power racks, dip bars and bench press stations is perhaps one of the most spectacular athletic specimens in the entire arcology. This female citizen has clearly embraced everything that $arcologies[0].name's physical idealism represents, molding themselves into a rippling blend of broad shoulders, powerful muscles, and a ripped stomach that would shame even the most well-built old world athlete.
+
+<<case "pastoralist encounter">>		
+
+Pastoralism has taken $arcologies[0].name by storm and a number of enterprising citizens have been quick to respond by providing new services and businesses in response to the craze. One such innovation is a number of experimental new restaurants that incorporate human milk into their recipes, much to the delight of the citizenry. Such establishments have become a fashionable part of $arcologies[0].name's taste palate and new takes on the simple premise are common.
+<br><br>
+While navigating your arcology on an outing you find yourself coming across one of the arcology's newest restaurants, a milkshake parlor that prides itself on deriving all it's dairy from human sources.
+
 <<case "transformation fetishism encounter">>
 
 As a result of $arcologies[0].name's adoption of transformation fetishism, a number of plastic surgery clinics, cosmetic surgeries and other transformative businesses have begun to crop up around the arcology's various promenades and shopping districts. Largely, the citizens of $arcologies[0].name have taken to the idea of altering their bodies with a gusto - though not all are so quick to adopt the trend, just because it's in vogue.
@@ -40,6 +52,58 @@ On this particular outing you happen to cross paths with a comely female citizen
 <br><br>
 <span id="result">
 <<switch $REFSevent>>
+
+<<case "physical idealist encounter">>
+
+<span id="result">
+<<link "Keep walking">>
+	<<replace "#result">>
+	The citizen is undoubtedly a uniquely athletic specimen, so you linger for a moment to appreciate the strength and vigor of their punishing physical routine. When you've had your fill, you move on towards your next appointment.
+	<</replace>>
+<</link>>
+<<if $cash >= 1000>>
+<br><<link "Offer to sponsor her for a promotional video">>
+	<<replace "#result">>
+	Despite her hulking, muscular exterior, the citizen proves to be a shrewd and capable advertisement executive as well. The two of you sit beside a hefty dumbbell rack for some time and together craft a simple promotional ad campaign featuring the herculean physical form of the citizen. Shooting the video is simple, footage of the citizen going about her various fitness routines is inspiring enough, and soon her every muscle and sinew is being broadcast across the world to laud the physical achievements of $arcologies[0].name. Your citizens are @@.green;filled with pride@@, knowing the rest of the world was just awed by their pursuit of bodily perfection.
+	<<set $rep += 1000>>
+	<</replace>>
+<</link>> // The treatment will cost ¤1000.//
+<</if>>
+<br><<link "Spend some time working out with her">>
+	<<replace "#result">>
+	The attendant of the gym is almost too stunned to charge you for entry, and indeed many citizens inside and outside the gym stop to watch you begin a work-out routine. The muscular citizen does not halt her own regime, of course, so you soon find yourself pumping iron and straining your muscles to the limit beside her.
+	<br><br>
+	Your eyes lock somewhere in the midst of a particularly strenuous exercise, and what follows may be remembered in the annals of $arcologies[0].name history as the most erotic display of physical might ever recorded. Matching each other rep for rep, the gym is soon echoing with the grunts of both your exertions while your bodies grow slick with glistening sweat. When the last dumbbell is racked the citizen merely nods her respect at you for matching her pursuit of the physical ideal, to the @@.green;delight of the watching citizenry@@.
+	<<set $rep += 300>>
+	<</replace>>
+<</link>>
+</span>
+
+<<case "pastoralist encounter">>	
+
+<span id="result">
+<<link "Keep walking">>
+	<<replace "#result">>
+	The establishment is not the first of its kind in the arcology, but the idea seems to be popular enough with the citizenry to accommodate competition. When you've sated your curiosity perusing the courtesy menu by the door, you move on towards your next appointment.
+	<</replace>>
+<</link>>
+<<if $cash >= 1000>>
+<br><<link "Offer to sponsor the restaurant with an advertisement">>
+	<<replace "#result">>
+	You soon discover that the owner of the establishment is a matronly woman who sources her dairy from other mothers in the arcology, having found that new or expectant mothers are often in need of a revenue stream. The two of you sit at the counter for some time, though the owner often excuses herself for a milking in the back room, and together craft a simple promotional ad campaign featuring a simple slogan. Posters bearing the words "Got MILF?" soon grace the walls of $arcologies[0].name, and your citizens take to the idea of motherly milkshakes and admire your @@.green;entrepreneurial creativity@@.
+	<<set $rep += 1000>>
+	<</replace>>
+<</link>> // The treatment will cost ¤1000.//
+<</if>>
+<br><<link "Have a shake">>
+	<<replace "#result">>
+	The owner of the parlor is so flattered by your patronage of her humble store that she not only provides your drink free of charge but even milks herself at the counter to personally provide the dairy for your shake. The shake's taste is rich, even creamy, with an overall sweet palate mixed with a slight nuttiness.
+	<br><br>
+	Though you depart without officially sponsoring the milkshake parlor, your presence is endorsement enough to many citizens while others simply @@.green;appreciate you drinking amongst them@@.
+	<<set $rep += 300>>
+	<</replace>>
+<</link>>
+</span>
 
 <<case "transformation fetishism encounter">>
 
