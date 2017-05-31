@@ -569,8 +569,8 @@ will
 <</if>>
 
 <<if ($displayAssignments == 1) && (_Pass == "Main") && (_Slave.ID != $HeadGirl.ID) && (_Slave.ID != $Recruiter.ID) && (_Slave.ID != $Bodyguard.ID)>>
-	<br>
-	 	 //Improve:// 
+	<span style="float:right;">
+	//Improve:// 
 	<<if _Slave.assignment != "rest">>
 		<<print "[[Rest|Rest Workaround][$i = "+_ssi+"]]">>
 	<<else>>
@@ -595,7 +595,8 @@ will
 		<</if>>
 	<</if>>
 	
-	| //Work:// 
+	&nbsp;&nbsp;&nbsp;&nbsp;
+	//Work:// 
 	
 	<<if _Slave.assignment != "please you">>
 		<<print "[[Fucktoy|Fucktoy Workaround][$i = "+_ssi+"]]">>
@@ -646,6 +647,7 @@ will
 			| Hole
 		<</if>>
 	<</if>>
+	</span>
 <</if>>
 
 <br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>
