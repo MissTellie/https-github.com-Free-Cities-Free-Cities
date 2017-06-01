@@ -2151,7 +2151,7 @@ This experience
 <<widget "SetPregType">>
 	<<if $args[0].pregType == 0>>
 		<<if ($args[0].drugs == "fertility drugs")>>
-			<<if (($masterSuitePregnancyFertilitySupplements == 1) && (($args[0].assignment == "serve in the master suite") || ($args[0].ID == $Concubine.ID)))>>
+			<<if (($masterSuitePregnancyFertilitySupplements == 1) && (($args[0].assignment == "serve in the master suite") || ($args[0].assignment == "be your Concubine")))>>
 				<<if ($args[0].hormones == 2)>>
 					<<set $args[0].pregType = random(2,5)>>
 				<<else>>
