@@ -19,9 +19,11 @@
 			<<goto "Free Range Dairy Assignment Scene">>
 		<<elseif ($assignTo == "Brothel")>>
 			<<goto "Brothel Assignment Scene">>
+		<<else>>
+			<<goto $returnTo>>
 		<</if>>
+	<<else>>
+		<<goto $returnTo>>
 	<</if>>
 <</switch>>
-
-<<goto $returnTo>>
 

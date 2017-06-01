@@ -98,9 +98,9 @@ The legalities completed, ''__@@.pink;$activeSlave.slaveName@@__'' <<if ($active
 	<<set $activeSlave.recruiter = "mother">>
 <<elseif ($activeSlave.age < 24) && (random(1,100) <= 40)>>
 	<<set $activeSlave.recruiter = "daughter">>
-<<elseif ($activeSlave.age < 43) && (random(1,100) <= 20)>>
+<<elseif ($activeSlave.age < 43) && ($activeSlave.age > 18) && (random(1,100) <= 20)>>
 	<<set $activeSlave.recruiter = "older sister">>
-<<elseif ($activeSlave.age < 25) && ($activeSlave.age > 18) && (random(1,100) <= 20)>>
+<<elseif ($activeSlave.age < 25) && (random(1,100) <= 20)>>
 	<<set $activeSlave.recruiter = "young sister">>
 <</if>>
 <</if>>
@@ -650,6 +650,8 @@ The legalities completed, ''__@@.pink;$activeSlave.slaveName@@__'' <<if ($active
 /*Written by DrPill, coded by Boney M*/
 <<elseif $activeSlave.origin == "She was recruited into your service by her sister.">>
 	<<link "Use her sister as an example">>
+<<set _sisterID = $activeSlave.ID - 1000>>
+<<set $recruiterSister = $slaves.find(function(s) { return s.ID == _sisterID; })>>
 <<set $activeSlave.devotion += 4>>
 <<set $activeSlave.trust += 4>>
 	<<replace "#introResult">>
@@ -659,6 +661,8 @@ The legalities completed, ''__@@.pink;$activeSlave.slaveName@@__'' <<if ($active
  <br>
 <<elseif $activeSlave.origin == "She was recruited into your service by her mother.">>
 	<<link "Use her mother as an example">>
+<<set _motherID = $activeSlave.ID - 1000>>
+<<set $recruiterMother = $slaves.find(function(s) { return s.ID == _motherID; })>>
 <<set $activeSlave.devotion += 4>>
 <<set $activeSlave.trust += 4>>
 	<<replace "#introResult">>
