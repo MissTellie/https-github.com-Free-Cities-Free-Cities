@@ -97,23 +97,7 @@ Next, you see to $activeSlave.slaveName.
 
 <<if random(1,100) > 50>>
 	<<set $activeSlave.preg = 1, $activeSlave.pregSource = $impregnatrix.ID>>
-	<<if ($activeSlave.drugs == "fertility drugs")>>
-		<<if (($masterSuitePregnancyFertilitySupplements == 1) && (($activeSlave.assignment == "serve in the master suite") || ($activeSlave.ID == $Concubine.ID)))>>
-			<<if ($activeSlave.hormones == 2)>>
-				<<set $activeSlave.pregType = random(2,5)>>
-			<<else>>
-				<<set $activeSlave.pregType = either(1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 4, 4)>>
-			<</if>>
-		<<else>>
-			<<if ($activeSlave.hormones == 2)>>
-				<<set $activeSlave.pregType = random(1,5)>>
-			<<else>>
-				<<set $activeSlave.pregType = either(1, 1, 1, 1, 2, 2, 2, 3, 3, 4)>>
-			<</if>>
-		<</if>>
-	<<else>>
-		<<set $activeSlave.pregType = either(1, 1, 1, 1, 1, 1, 1, 1, 1, 2)>>
-	<</if>>
+	<<SetPregType $activeSlave>>
 <</if>>
 
 <br><br>

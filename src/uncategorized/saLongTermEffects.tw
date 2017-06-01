@@ -2919,17 +2919,7 @@
 		<</if>>
 	<</if>> /* closes .preg >= 10 */
 
-	<<if $slaves[$i].pregType == 0>>
-		<<if ($slaves[$i].drugs == "fertility drugs")>>
-			<<if ($slaves[$i].hormones == 2)>>
-				<<set $slaves[$i].pregType = random(1,5)>>
-			<<else>>
-				<<set $slaves[$i].pregType to either(1, 1, 1, 1, 2, 2, 2, 3, 3, 4)>>
-			<</if>>
-		<<else>>
-			<<set $slaves[$i].pregType = either(1, 1, 1, 1, 1, 1, 1, 1, 1, 2)>>
-		<</if>>
-	<</if>>
+	<<SetPregType $slaves[$i]>>
 
 <</if>> /* END PREG EFFECTS */
 
