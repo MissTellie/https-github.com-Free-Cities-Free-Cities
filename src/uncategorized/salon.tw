@@ -30,7 +30,8 @@ $activeSlave.slaveName is seated in the auto salon. $pronounCap is awaiting your
 	| [[Blurring glasses|Salon][$activeSlave.eyewear = "blurring glasses",$cash -= $modCost]]
 	| [[Blurring contacts|Salon][$activeSlave.eyewear = "blurring contacts",$cash -= $modCost]]
 	| [[None|Salon][$activeSlave.eyewear = "none"]]
-	<br>&nbsp;&nbsp;&nbsp;&nbsp; //Blurring options are annoying and impede performance on some assignments//
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	//Blurring options are annoying and impede performance on some assignments//
 <<elseif $activeSlave.eyes > -1>>
 	$possessiveCap vision is normal, and $pronoun
 	<<if $activeSlave.eyewear == "none">>
@@ -42,7 +43,8 @@ $activeSlave.slaveName is seated in the auto salon. $pronounCap is awaiting your
 	| [[Blurring glasses|Salon][$activeSlave.eyewear = "blurring glasses",$cash -= $modCost]]
 	| [[Blurring contacts|Salon][$activeSlave.eyewear = "blurring contacts",$cash -= $modCost]]
 	| [[None|Salon][$activeSlave.eyewear = "none"]]
-	<br>&nbsp;&nbsp;&nbsp;&nbsp; //Blurring options are annoying and impede performance on some assignments//
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	//Blurring options are annoying and impede performance on some assignments//
 <<else>>
 	$pronounCap is nearsighted, and $pronoun
 	<<if $activeSlave.eyewear == "none">>
@@ -54,7 +56,8 @@ $activeSlave.slaveName is seated in the auto salon. $pronounCap is awaiting your
 	| [[Corrective glasses|Salon][$activeSlave.eyewear = "corrective glasses",$cash -= $modCost]]
 	| [[Corrective contacts|Salon][$activeSlave.eyewear = "corrective contacts",$cash -= $modCost]]
 	| [[None|Salon][$activeSlave.eyewear = "none"]]
-	<br>&nbsp;&nbsp;&nbsp;&nbsp; //Nearsightedness will impede performance on some assignments//
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	//Nearsightedness will impede performance on some assignments//
 <</if>>
 
 <<if $activeSlave.origEye != "implant">><br><br>
@@ -95,7 +98,8 @@ $activeSlave.slaveName is seated in the auto salon. $pronounCap is awaiting your
 	| [[Demonic|Salon][$activeSlave.eyeColor = "demonic",$cash -= $modCost]]
 	| [[Hypnotic|Salon][$activeSlave.eyeColor = "hypnotic",$cash -= $modCost]]
 	| [[Heart-shaped|Salon][$activeSlave.eyeColor = "heart-shaped",$cash -= $modCost]]
-	<br>&nbsp;&nbsp;&nbsp;&nbsp; //Color settings will be applied in addition to eyewear choices.//
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	//Color settings will be applied in addition to eyewear choices.//
 <<else>>
 	$possessiveCap eyes are artificial and can't be set here.
 <</if>>
@@ -111,7 +115,8 @@ $activeSlave.slaveName is seated in the auto salon. $pronounCap is awaiting your
 	| [[Corrective glasses|Salon][$activeSlave.eyewear = "corrective glasses",$cash -= $modCost]]
 	| [[Corrective contacts|Salon][$activeSlave.eyewear = "corrective contacts",$cash -= $modCost]]
 	| [[None|Salon][$activeSlave.eyewear = "none"]]
-	<br>&nbsp;&nbsp;&nbsp;&nbsp; //Nearsightedness will impede performance on some assignments//
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	//Nearsightedness will impede performance on some assignments//
 <</if>>
 <</if>>
 
@@ -300,7 +305,8 @@ $possessiveCap skin is $activeSlave.skin.
 		//$possessiveCap hair is too short to style meaningfully//
 	<</if>>
 
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;//General hairstyles will conform to hair length and clothing choices.//
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	//General hairstyles will conform to hair length and clothing choices.//
 
 	$possessiveCap hair is $activeSlave.hLength cm long.
 	
@@ -396,7 +402,8 @@ $possessiveCap skin is $activeSlave.skin.
 	<br>//General hairstyles will conform to hair length and clothing choices.//
 	<<if $activeSlave.hStyle != "bald">>
 		$possessiveCap wig hair is $activeSlave.hLength cm long.
-		<br>&nbsp;&nbsp;&nbsp;&nbsp;Set hair length to 
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;
+		Set hair length to 
 		<<if $activeSlave.hLength != 10>>[[10cm|Salon][$activeSlave.hLength = 10,$cash -= $modCost]]<</if>>
 		<<if $activeSlave.hLength != 30>>[[30cm|Salon][$activeSlave.hLength = 30,$cash -= $modCost]]<</if>>
 		<<if $activeSlave.hLength != 60>>[[60cm|Salon][$activeSlave.hLength = 60,$cash -= $modCost]]<</if>>
@@ -407,9 +414,11 @@ $possessiveCap skin is $activeSlave.skin.
 <</if>>
 <<if $activeSlave.pubicHStyle != "bald">>
 	
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;$possessiveCap pubic hair, if present, is $activeSlave.pubicHColor.
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	$possessiveCap pubic hair, if present, is $activeSlave.pubicHColor.
 
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;Dye $possessive pubic hair:
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	Dye $possessive pubic hair:
 		[[Blonde|Salon][$activeSlave.pubicHColor = "blonde",$cash -= $modCost]]
 		| [[Golden|Salon][$activeSlave.pubicHColor = "golden",$cash -= $modCost]]
 		| [[Platinum blonde|Salon][$activeSlave.pubicHColor = " platinum blonde",$cash -= $modCost]]
@@ -435,7 +444,8 @@ $possessiveCap skin is $activeSlave.skin.
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
 	$possessiveCap pubic hair is $activeSlave.pubicHStyle.
 
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;Style $possessive pubic hair:
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	Style $possessive pubic hair:
 		[[Waxed|Salon][$activeSlave.pubicHStyle = "waxed",$cash -= $modCost]]
 		 | [[Landing strip|Salon][$activeSlave.pubicHStyle = "in a strip",$cash -= $modCost]]
 		 | [[Neat|Salon][$activeSlave.pubicHStyle = "neat",$cash -= $modCost]]
