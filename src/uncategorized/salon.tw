@@ -6,7 +6,7 @@
 
 $activeSlave.slaveName is seated in the auto salon. $pronounCap is awaiting your artistic pleasure.
 
-<<if $activeSlave.eyes > -2>>
+<<if $activeSlave.eyes > -2>> /* Begin eye check */
 
 <br><br>
 <<if $activeSlave.origEye == "implant">>
@@ -99,21 +99,7 @@ $activeSlave.slaveName is seated in the auto salon. $pronounCap is awaiting your
 <<else>>
 	$possessiveCap eyes are artificial and can't be set here.
 <</if>>
-
-<<if($activeSlave.origEye != "implant")>>
-	$pronounCap is nearsighted, and $pronoun
-	<<if $activeSlave.eyewear == "none">>
-		has no eyewear.
-	<<else>>
-		is wearing $activeSlave.eyewear.
-	<</if>>
-	[[Cosmetic glasses|Salon][$activeSlave.eyewear = "glasses",$cash -= $modCost]]
-	| [[Corrective glasses|Salon][$activeSlave.eyewear = "corrective glasses",$cash -= $modCost]]
-	| [[Corrective contacts|Salon][$activeSlave.eyewear = "corrective contacts",$cash -= $modCost]]
-	| [[None|Salon][$activeSlave.eyewear = "none"]]
-	<br>&nbsp;&nbsp;&nbsp;&nbsp; //Nearsightedness will impede performance on some assignments//
-<</if>>
-<</if>>
+<</if>> /*End eye check */
 
 <br><br>
 <<if $activeSlave.makeup == 1>>
