@@ -401,7 +401,7 @@
 	<<if $slaves[$i].preg > 10>>
 		The tight corseting has @@.orange;caused her to miscarry,@@ which @@.red;damages her health.@@
 		<<set $slaves[$i].health -= 20>>
-		<<if ($slaves[$i].assignmentVisible == 1) && (lastPregRule($slaves[$i], $defaultRules))>><<set $slaves[$i].preg to -1>><<else>><<set $slaves[$i].preg to 0>><</if>>
+		<<if lastPregRule($slaves[$i]$defaultRules)>><<set $slaves[$i].preg to -1>><<else>><<set $slaves[$i].preg to 0>><</if>>
 		She is
 		<<if $slaves[$i].devotion < -50>>
 			@@.mediumorchid;filled with violent, consuming hatred@@ and @@.gold;fear.@@ Even though she knew her baby was destined for a slave orphanage, it seems she cared for it and views you as its killer.
