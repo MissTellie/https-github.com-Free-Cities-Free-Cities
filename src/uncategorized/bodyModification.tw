@@ -73,33 +73,38 @@ $activeSlave.slaveName is lying strapped down on the table in your body modifica
 
 <br>
 
-<<if $activeSlave.navelPiercing == 1>>
-	$possessiveCap navel bears a simple stud.
-<<elseif $activeSlave.navelPiercing == 2>>
-	$possessiveCap navel is pierced with a ring, which has a short length of light chain dangling from it.
-<<else>>
-	$possessiveCap navel is unpierced.
+<<if $activeSlave.lipsPiercing == 0>>
+	$possessiveCap lips are unpierced.
+<<elseif $activeSlave.lipsPiercing == 1>>
+	$pronounCap has a simple lip piercing for a stud.
+<<elseif $activeSlave.lipsPiercing == 2>>
+	$possessiveCap lips are heavily pierced.
 <</if>>
-<<if $activeSlave.navelPiercing < 1>>
-	[[Pierce it|Body Modification][$activeSlave.navelPiercing = 1,$cash -= $modCost]]
-<<elseif $activeSlave.navelPiercing == 1>>
-	[[Pierce it heavily|Body Modification][$activeSlave.navelPiercing = 2,$cash -= $modCost,$degradation += 1]]
+<<if $activeSlave.lipsPiercing == 0>>
+	[[Pierce them|Body Modification][$activeSlave.lipsPiercing = 1,$cash -= $modCost]]
+<<elseif $activeSlave.lipsPiercing == 1>>
+	[[Pierce them heavily|Body Modification][$activeSlave.lipsPiercing = 2,$cash -= $modCost,$degradation += 1]]
 <</if>>
-<<if $activeSlave.navelPiercing > 0>>
-	//[[Remove piercing|Body Modification][$activeSlave.navelPiercing = 0,$cash -= $modCost]]//
+<<if $activeSlave.lipsPiercing > 0>>
+	//[[Remove piercings|Body Modification][$activeSlave.lipsPiercing = 0,$cash -= $modCost]]//
 <</if>>
 
 <br>
 
-<<if $activeSlave.corsetPiercing == 1>>
-	$pronounCap has a corset piercing, a ladder of rings down either side of $possessive back.
-<<else>>
-	$possessiveCap back is unpierced.
+<<if $activeSlave.tonguePiercing == 0>>
+	$possessiveCap tongue is unpierced.
+<<elseif $activeSlave.tonguePiercing == 1>>
+	$pronounCap has a simple tongue stud.
+<<elseif $activeSlave.tonguePiercing == 2>>
+	$possessiveCap tongue is heavily pierced.
 <</if>>
-<<if $activeSlave.corsetPiercing == 0>>
-	[["Give " + $possessive + " corset piercings"|Body Modification][$activeSlave.corsetPiercing = 1,$degradation += 2,$cash -= $modCost]]
-<<else>>
-	//[[Remove corset piercings|Body Modification][$activeSlave.corsetPiercing = 0,$cash -= $modCost]]//
+<<if $activeSlave.tonguePiercing == 0>>
+	[[Pierce it|Body Modification][$activeSlave.tonguePiercing = 1,$cash -= $modCost]]
+<<elseif $activeSlave.tonguePiercing == 1>>
+	[[Pierce it heavily|Body Modification][$activeSlave.tonguePiercing = 2,$cash -= $modCost,$degradation += 1]]
+<</if>>
+<<if $activeSlave.tonguePiercing > 0>>
+	//[[Remove piercings|Body Modification][$activeSlave.tonguePiercing = 0,$cash -= $modCost]]//
 <</if>>
 
 <br>
@@ -135,38 +140,33 @@ $activeSlave.slaveName is lying strapped down on the table in your body modifica
 
 <br>
 
-<<if $activeSlave.lipsPiercing == 0>>
-	$possessiveCap lips are unpierced.
-<<elseif $activeSlave.lipsPiercing == 1>>
-	$pronounCap has a simple lip piercing for a stud.
-<<elseif $activeSlave.lipsPiercing == 2>>
-	$possessiveCap lips are heavily pierced.
+<<if $activeSlave.corsetPiercing == 1>>
+	$pronounCap has a corset piercing, a ladder of rings down either side of $possessive back.
+<<else>>
+	$possessiveCap back is unpierced.
 <</if>>
-<<if $activeSlave.lipsPiercing == 0>>
-	[[Pierce them|Body Modification][$activeSlave.lipsPiercing = 1,$cash -= $modCost]]
-<<elseif $activeSlave.lipsPiercing == 1>>
-	[[Pierce them heavily|Body Modification][$activeSlave.lipsPiercing = 2,$cash -= $modCost,$degradation += 1]]
-<</if>>
-<<if $activeSlave.lipsPiercing > 0>>
-	//[[Remove piercings|Body Modification][$activeSlave.lipsPiercing = 0,$cash -= $modCost]]//
+<<if $activeSlave.corsetPiercing == 0>>
+	[["Give " + $possessive + " corset piercings"|Body Modification][$activeSlave.corsetPiercing = 1,$degradation += 2,$cash -= $modCost]]
+<<else>>
+	//[[Remove corset piercings|Body Modification][$activeSlave.corsetPiercing = 0,$cash -= $modCost]]//
 <</if>>
 
 <br>
 
-<<if $activeSlave.tonguePiercing == 0>>
-	$possessiveCap tongue is unpierced.
-<<elseif $activeSlave.tonguePiercing == 1>>
-	$pronounCap has a simple tongue stud.
-<<elseif $activeSlave.tonguePiercing == 2>>
-	$possessiveCap tongue is heavily pierced.
+<<if $activeSlave.navelPiercing == 1>>
+	$possessiveCap navel bears a simple stud.
+<<elseif $activeSlave.navelPiercing == 2>>
+	$possessiveCap navel is pierced with a ring, which has a short length of light chain dangling from it.
+<<else>>
+	$possessiveCap navel is unpierced.
 <</if>>
-<<if $activeSlave.tonguePiercing == 0>>
-	[[Pierce it|Body Modification][$activeSlave.tonguePiercing = 1,$cash -= $modCost]]
-<<elseif $activeSlave.tonguePiercing == 1>>
-	[[Pierce it heavily|Body Modification][$activeSlave.tonguePiercing = 2,$cash -= $modCost,$degradation += 1]]
+<<if $activeSlave.navelPiercing < 1>>
+	[[Pierce it|Body Modification][$activeSlave.navelPiercing = 1,$cash -= $modCost]]
+<<elseif $activeSlave.navelPiercing == 1>>
+	[[Pierce it heavily|Body Modification][$activeSlave.navelPiercing = 2,$cash -= $modCost,$degradation += 1]]
 <</if>>
-<<if $activeSlave.tonguePiercing > 0>>
-	//[[Remove piercings|Body Modification][$activeSlave.tonguePiercing = 0,$cash -= $modCost]]//
+<<if $activeSlave.navelPiercing > 0>>
+	//[[Remove piercing|Body Modification][$activeSlave.navelPiercing = 0,$cash -= $modCost]]//
 <</if>>
 
 <br>
