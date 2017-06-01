@@ -276,34 +276,8 @@ $possessiveCap skin is $activeSlave.skin.
 		| [[Neon green|Salon][$activeSlave.hColor = "neon green",$cash -= $modCost]]
 		| [[Neon blue|Salon][$activeSlave.hColor = "neon blue",$cash -= $modCost]]
 		| [[Neon pink|Salon][$activeSlave.hColor = "neon pink",$cash -= $modCost]]
-	<br>
-	$possessiveCap hair is $activeSlave.hStyle.
 
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-
-	<<if $activeSlave.hLength > 1>>
-	Style $possessive hair:
-		[[Neat|Salon][$activeSlave.hStyle = "neat",$cash -= $modCost]]
-		 | [[Shaved|Salon][$activeSlave.hStyle = "shaved",$activeSlave.hLength = 0,$cash -= $modCost]]
-		 | [[Trimmed short|Salon][$activeSlave.hStyle = "trimmed",$activeSlave.hLength = 10,$cash -= $modCost]]
-		 | [[Buzzcut|Salon][$activeSlave.hStyle = "buzzcut",$activeSlave.hLength = 1,$cash -= $modCost]]
-		 | [[Up|Salon][$activeSlave.hStyle = "up",$cash -= $modCost]]
-		 | [[In a ponytail|Salon][$activeSlave.hStyle = "ponytail",$cash -= $modCost]]
-		 | [[In a bun|Salon][$activeSlave.hStyle = "bun",$cash -= $modCost]]
-		 | [[Curled|Salon][$activeSlave.hStyle = "curls",$cash -= $modCost]]
-		 | [[Permed|Salon][$activeSlave.hStyle = "permed",$cash -= $modCost]]
-		 | [[Luxurious|Salon][$activeSlave.hStyle = "luxurious",$cash -= $modCost]]
-		 | [[Dreadlocks|Salon][$activeSlave.hStyle = "dreadlocks",$cash -= $modCost]]
-		 | [[Cornrows|Salon][$activeSlave.hStyle = "cornrows",$cash -= $modCost]]
-		 | [[Braided|Salon][$activeSlave.hStyle = "braided",$cash -= $modCost]]
-		 | [[In tails|Salon][$activeSlave.hStyle = "tails",$cash -= $modCost]]
-		 | [[Afro|Salon][$activeSlave.hStyle = "afro",$cash -= $modCost]]
-		 | [[Shaved sides|Salon][$activeSlave.hStyle = "strip",$cash -= $modCost]]
-	<<else>>
-		//$possessiveCap hair is too short to style meaningfully//
-	<</if>>
-
-	<br>$possessiveCap hair is $activeSlave.hLength cm long.  //General hairstyles will conform to hair length and clothing choices.//
+	<br>$possessiveCap hair is $activeSlave.hLength cm long.
 	
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
 	Cut $possessive hair:
@@ -332,6 +306,32 @@ $possessiveCap skin is $activeSlave.skin.
 		Give her: [[Extensions|Salon][$activeSlave.hLength += 10,$cash -= $modCost]]
 	<<else>>
 		//$possessiveCap hair is extremely long//
+	<</if>>
+		<br>
+	$possessiveCap hair is $activeSlave.hStyle.  //General hairstyles will conform to hair length and clothing choices.//
+
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+
+	<<if $activeSlave.hLength > 1>>
+	Style $possessive hair:
+		[[Neat|Salon][$activeSlave.hStyle = "neat",$cash -= $modCost]]
+		 | [[Shaved|Salon][$activeSlave.hStyle = "shaved",$activeSlave.hLength = 0,$cash -= $modCost]]
+		 | [[Trimmed short|Salon][$activeSlave.hStyle = "trimmed",$activeSlave.hLength = 10,$cash -= $modCost]]
+		 | [[Buzzcut|Salon][$activeSlave.hStyle = "buzzcut",$activeSlave.hLength = 1,$cash -= $modCost]]
+		 | [[Up|Salon][$activeSlave.hStyle = "up",$cash -= $modCost]]
+		 | [[In a ponytail|Salon][$activeSlave.hStyle = "ponytail",$cash -= $modCost]]
+		 | [[In a bun|Salon][$activeSlave.hStyle = "bun",$cash -= $modCost]]
+		 | [[Curled|Salon][$activeSlave.hStyle = "curls",$cash -= $modCost]]
+		 | [[Permed|Salon][$activeSlave.hStyle = "permed",$cash -= $modCost]]
+		 | [[Luxurious|Salon][$activeSlave.hStyle = "luxurious",$cash -= $modCost]]
+		 | [[Dreadlocks|Salon][$activeSlave.hStyle = "dreadlocks",$cash -= $modCost]]
+		 | [[Cornrows|Salon][$activeSlave.hStyle = "cornrows",$cash -= $modCost]]
+		 | [[Braided|Salon][$activeSlave.hStyle = "braided",$cash -= $modCost]]
+		 | [[In tails|Salon][$activeSlave.hStyle = "tails",$cash -= $modCost]]
+		 | [[Afro|Salon][$activeSlave.hStyle = "afro",$cash -= $modCost]]
+		 | [[Shaved sides|Salon][$activeSlave.hStyle = "strip",$cash -= $modCost]]
+	<<else>>
+		//$possessiveCap hair is too short to style meaningfully//
 	<</if>>
 <</if>>
 <<if $activeSlave.origHColor == "bald">>
