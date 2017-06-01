@@ -230,8 +230,6 @@ $possessiveCap skin is $activeSlave.skin.
 	[[Bleach it|Salon][$activeSlave.markings = "none",$cash -= $modCost]]
 <</if>>
 
-
-
 <<if $activeSlave.origHColor != "bald">>
 	
 	$possessiveCap hair is $activeSlave.hColor.
@@ -263,7 +261,7 @@ $possessiveCap skin is $activeSlave.skin.
 		| [[Neon green|Salon][$activeSlave.hColor = "neon green",$cash -= $modCost]]
 		| [[Neon blue|Salon][$activeSlave.hColor = "neon blue",$cash -= $modCost]]
 		| [[Neon pink|Salon][$activeSlave.hColor = "neon pink",$cash -= $modCost]]
-	<br><br>
+	<br>
 	$possessiveCap hair is $activeSlave.hStyle.
 
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -290,10 +288,7 @@ $possessiveCap skin is $activeSlave.skin.
 		//$possessiveCap hair is too short to style meaningfully//
 	<</if>>
 
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	//General hairstyles will conform to hair length and clothing choices.//
-
-	$possessiveCap hair is $activeSlave.hLength cm long.
+	<br>$possessiveCap hair is $activeSlave.hLength cm long.  //General hairstyles will conform to hair length and clothing choices.//
 	
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
 
@@ -399,8 +394,7 @@ $possessiveCap skin is $activeSlave.skin.
 <</if>>
 <<if $activeSlave.pubicHStyle != "bald">>
 	
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	$possessiveCap pubic hair, if present, is $activeSlave.pubicHColor.
+	<br><br>$possessiveCap pubic hair, if present, is $activeSlave.pubicHColor.
 
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
 	Dye $possessive pubic hair:
@@ -426,8 +420,7 @@ $possessiveCap skin is $activeSlave.skin.
 		| [[Silver|Salon][$activeSlave.pubicHColor = "silver",$cash -= $modCost]]
 		| [[White|Salon][$activeSlave.pubicHColor = "white",$cash -= $modCost]]
 	
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	$possessiveCap pubic hair is $activeSlave.pubicHStyle.
+	<br>$possessiveCap pubic hair is $activeSlave.pubicHStyle.
 
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
 	Style $possessive pubic hair:
