@@ -16,11 +16,11 @@ $activeSlave.slaveName is lying strapped down on the table in your <<if $surgery
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
 	[[Remove hair|Surgery Degradation][$activeSlave.origHColor = "bald",$activeSlave.hStyle = "bald",$activeSlave.hLength = 0,$cash -= $surgeryCost,$surgeryType = "hair removal"]]
 	 | [[Remove body hair|Surgery Degradation][$activeSlave.pubicHStyle = "bald",$cash -= $surgeryCost,$surgeryType = "body hair removal"]]
-<<elseif $activeSlave.origHColor != "bald" && $activeSlave.pubicHStyle == "bald">
+<<elseif $activeSlave.origHColor != "bald" && $activeSlave.pubicHStyle == "bald">>
 	$pronounCap has a normal head of hair, but is otherwise smooth and hairless.
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
 	[[Remove hair|Surgery Degradation][$activeSlave.origHColor = "bald",$activeSlave.hStyle = "bald",$activeSlave.hLength = 0,$cash -= $surgeryCost,$surgeryType = "hair removal"]]
-<<elseif $activeSlave.origHColor == "bald" && $activeSlave.pubicHStyle != "bald">
+<<elseif $activeSlave.origHColor == "bald" && $activeSlave.pubicHStyle != "bald">>
 	$pronounCap has a bald head, but normal hair elsewhere.
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
 	[[Remove body hair|Surgery Degradation][$activeSlave.pubicHStyle = "bald",$cash -= $surgeryCost,$surgeryType = "body hair removal"]]
