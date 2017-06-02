@@ -3588,11 +3588,16 @@ check if a rule attribute, any one, is defined and otherwise skip everything.
                 <<set $cash -= $modCost>>
                 <br>$args[0].slaveName has been given corrective glasses.
             <</if>>
-        <<else>>
+        <<elseif $args[0].eyes > -2>>
             <<if $args[0].eyewear != "glasses">>
                 <<set $args[0].eyewear = "glasses">>
                 <<set $cash -= $modCost>>
                 <br>$args[0].slaveName has been given decorative glasses.
+            <</if>>
+        <<else>>
+            <<if $args[0].eyewear != "none">>
+                <br>$args[0].slaveName is blind, so her $args[0].eyewear have been removed.
+                <<set $args[0].eyewear = "none">>
             <</if>>
         <</if>>
 
