@@ -540,29 +540,10 @@ $pronounCap has
 	<</if>>
 <</if>>
 
-<<if ($activeSlave.cSec == 1)>>
-	<br>$pronounCap has an unsightly c-section scar.
-	[[Remove Caesarean scar|Surgery Degradation][$activeSlave.cSec = 0,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "bellyscar"]]
-	<br>
-<</if>>
-
 <<if ($activeSlave.vagina > -1) && ($activeSlave.dick > 0)>>
 	<<if $activeSlave.indentureRestrictions < 1>>
 	<br>Since $pronoun has both a penis and a vagina, it's possible to remove $possessive pussy and leave $possessive sexually functional.
 	[[Remove pussy|Surgery Degradation][$activeSlave.vagina = -1,$activeSlave.ovaries = 0,$activeSlave.preg = -2,$activeSlave.pregSource = 0,$activeSlave.vaginalSkill = 0,$cash -= $surgeryCost,$activeSlave.health -= 20,$surgeryType = "vaginaRemoval"]] <<if $activeSlave.ovaries == 1>>//This will remove $possessive ovaries as well//<</if>>
-	<</if>>
-<</if>>
-
-<<if ($activeSlave.anus > 3)>>
-	<br>$possessiveCap anal sphincter could benefit from surgical repair.
-	[[Repair asshole|Surgery Degradation][$activeSlave.anus = 3,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "anus"]] //This will reduce $possessive anal skills//
-<<elseif ($surgeryUpgrade == 1) && ($activeSlave.indentureRestrictions < 2)>>
-	<<if ($activeSlave.anus > 1)>>
-	<br>$possessiveCap anal sphincter could benefit from microsurgical rejuvenation.
-	[[Tighten asshole|Surgery Degradation][$activeSlave.anus = 1,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "anus"]] //This will reduce $possessive anal skills//
-	<<elseif ($activeSlave.anus > 0)>>
-	<br>$possessiveCap butthole is fairly narrow, but could be tightened to virgin status.
-	[[Restore anal virginity|Surgery Degradation][$activeSlave.anus = 0,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "anus"]] //This will reduce $possessive anal skills//
 	<</if>>
 <</if>>
 
@@ -640,7 +621,6 @@ $pronounCap has
 	<</if>>	
 <</if>>
 
-
 <<if $activeSlave.prostate>>
 	<br>$pronounCap has a <<if $activeSlave.prostate > 1>>hyperactive<<else>>normal<</if>> prostate.
 	<<if ($seeExtreme == 1)>>
@@ -658,6 +638,18 @@ $pronounCap has
 	<</if>>
 <</if>>
 
+<<if ($activeSlave.anus > 3)>>
+	<br>$possessiveCap anal sphincter could benefit from surgical repair.
+	[[Repair asshole|Surgery Degradation][$activeSlave.anus = 3,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "anus"]] //This will reduce $possessive anal skills//
+<<elseif ($surgeryUpgrade == 1) && ($activeSlave.indentureRestrictions < 2)>>
+	<<if ($activeSlave.anus > 1)>>
+	<br>$possessiveCap anal sphincter could benefit from microsurgical rejuvenation.
+	[[Tighten asshole|Surgery Degradation][$activeSlave.anus = 1,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "anus"]] //This will reduce $possessive anal skills//
+	<<elseif ($activeSlave.anus > 0)>>
+	<br>$possessiveCap butthole is fairly narrow, but could be tightened to virgin status.
+	[[Restore anal virginity|Surgery Degradation][$activeSlave.anus = 0,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "anus"]] //This will reduce $possessive anal skills//
+	<</if>>
+<</if>>
 
 <br><br>
 
@@ -680,6 +672,12 @@ waist.
 	<<if $activeSlave.indentureRestrictions < 1>>
 	[[Remove ribs to severely narrow her waist|Surgery Degradation][$activeSlave.waist = -100,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType to "ribs"]]
 	<</if>>
+<</if>>
+
+<<if ($activeSlave.cSec == 1)>>
+	<br>$pronounCap has an unsightly c-section scar.
+	[[Remove Caesarean scar|Surgery Degradation][$activeSlave.cSec = 0,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "bellyscar"]]
+	<br>
 <</if>>
 
 <<if $activeSlave.indentureRestrictions < 1>>
