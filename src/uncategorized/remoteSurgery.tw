@@ -789,7 +789,7 @@ $pronounCap's got a
 <</if>>
 <<if ($activeSlave.heels == 0) && ($seeExtreme == 1)>>
 	<<if $activeSlave.indentureRestrictions < 1>>
-	[["Alter tendons so that " + $pronoun + " cannot walk in anything but very high heels"|Surgery Degradation][$activeSlave.heels = 1,$activeSlave.shoes = "heels",$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "heels"]]
+	[[Shorten tendons|Surgery Degradation][$activeSlave.heels = 1,$activeSlave.shoes = "heels",$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "heels"]] //Prevents $possessiveCap from walking in anything but very high heels//
 	<</if>>
 <</if>>
 <<if ($activeSlave.heels == 1)>>
