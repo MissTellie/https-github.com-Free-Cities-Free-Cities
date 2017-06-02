@@ -3526,7 +3526,7 @@ check if a rule attribute, any one, is defined and otherwise skip everything.
 <<if (def _combinedRule.eyewear) && (_combinedRule.eyewear !== "no default setting")>>
     <<switch _combinedRule.eyewear>>
     <<case "correct with glasses">>
-        <<if $args[0].eyes <= -1>>
+        <<if $args[0].eyes == -1>>
             <<if $args[0].eyewear != "corrective glasses">>
                 <<set $args[0].eyewear = "corrective glasses">>
                 <<set $cash -= $modCost>>
@@ -3540,7 +3540,7 @@ check if a rule attribute, any one, is defined and otherwise skip everything.
         <</if>>
 
     <<case "correct with contacts">>
-        <<if $args[0].eyes <= -1>>
+        <<if $args[0].eyes == -1>>
             <<if $args[0].eyewear != "corrective contacts">>
                 <<set $args[0].eyewear = "corrective contacts">>
                 <<set $cash -= $modCost>>
@@ -3582,7 +3582,7 @@ check if a rule attribute, any one, is defined and otherwise skip everything.
         <</if>>
 
     <<case "universal glasses">>
-        <<if $args[0].eyes <= -1>>
+        <<if $args[0].eyes == -1>>
             <<if $args[0].eyewear != "corrective glasses">>
                 <<set $args[0].eyewear = "corrective glasses">>
                 <<set $cash -= $modCost>>

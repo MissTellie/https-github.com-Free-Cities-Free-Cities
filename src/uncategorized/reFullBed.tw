@@ -8,7 +8,7 @@
 <</if>>
 <<if (_bedSlaveOne == -1) || (_bedSlaveTwo == -1)>>
 	<<goto "RIE Eligibility Check">>
-<</if>>
+<<else>>
 
 You have the luxury of being attended to by a coterie of devoted sex slaves. Tonight, $slaves[_bedSlaveTwo].slaveName and $slaves[_bedSlaveOne].slaveName are with you when it's time for bed, so they strip naked and climb under the sheets with you, one on either side. Each snuggles in under one of your arms so she can rest her head on your shoulder, a hand on your chest, her breasts against your flank, <<if $slaves[_bedSlaveTwo].preg > 10 && $slaves[_bedSlaveOne].preg > 10>>her swollen belly against yours, <</if>>and the warmth between her legs against your hip.
 
@@ -40,4 +40,6 @@ Today was an unusually relaxing day, and you aren't particularly tired.
 	<</replace>>
 <</link>>
 </span>
+
+<</if>> /* closes validity check */
 
