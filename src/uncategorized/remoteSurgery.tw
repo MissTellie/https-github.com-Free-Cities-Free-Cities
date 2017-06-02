@@ -239,19 +239,21 @@ $pronounCap has
 <<if $activeSlave.voiceImplant != 0>>
 	$pronounCap has had surgery on $possessive voicebox to raise $possessive voice.
 <</if>>
-<<if ($activeSlave.voice != 0) && ($seeExtreme == 1)>>
-	<<if $activeSlave.indentureRestrictions < 1>>
-	[[Remove vocal cords|Surgery Degradation][$activeSlave.voice = 0, $cash -= $surgeryCost,  $activeSlave.health -= 10, $surgeryType = "mute"]]
-	<</if>>
-<</if>>
-<<if ($activeSlave.voice != 0) && ($activeSlave.voiceImplant == 0) && ($activeSlave.voice < 3) && ($seeExtreme == 1) && ($activeSlave.indentureRestrictions < 1)>>
-	|
-<</if>>
 <<if ($activeSlave.voice != 0) && ($activeSlave.voiceImplant == 0) && ($activeSlave.voice < 3)>>
 	<<if $activeSlave.indentureRestrictions < 1>>
 	[[Perform surgery to raise voice|Surgery Degradation][$activeSlave.voice += 1, $activeSlave.voiceImplant += 1, $cash -= $surgeryCost,  $activeSlave.health -= 10, $surgeryType = "voice"]]
 	<</if>>
 <</if>>
+<<if ($activeSlave.voice != 0) && ($activeSlave.voiceImplant == 0) && ($activeSlave.voice < 3) && ($seeExtreme == 1) && ($activeSlave.indentureRestrictions < 1)>>
+	|
+<</if>>
+<<if ($activeSlave.voice != 0) && ($seeExtreme == 1)>>
+	<<if $activeSlave.indentureRestrictions < 1>>
+	[[Remove vocal cords|Surgery Degradation][$activeSlave.voice = 0, $cash -= $surgeryCost,  $activeSlave.health -= 10, $surgeryType = "mute"]]
+	<</if>>
+<</if>>
+
+
 
 <br>
 
