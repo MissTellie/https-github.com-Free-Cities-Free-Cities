@@ -489,7 +489,7 @@
 	  <</if>>
 	  <</if>>
 	  <<if ($cockFeeder > 0)>>
-	  <<if ($eventSlave.dickAccessory != "chastity") || ($eventSlave.dick == 0)>>
+	  <<if ($eventSlave.dickAccessory != "chastity" && $eventSlave.dickAccessory != "combined chastity") || ($eventSlave.dick == 0)>>
 		  			<<set $RESSevent.push("kitchen molestation")>>
 	  <</if>>
 	  <</if>>
@@ -815,7 +815,7 @@
 <<if $eventSlave.devotion > 20>>
 <<if $eventSlave.trust > 20>>
 <<if $eventSlave.speechRules != "restrictive">>
-<<if setup.modestClothes.includes($slaves[$i].clothes)>>
+<<if setup.modestClothes.includes($eventSlave.clothes)>>
 	<<set $RESSTRevent.push("modest clothes")>>
 <</if>>
 <</if>>
@@ -862,7 +862,9 @@
 
 <<if $eventSlave.trust > 20>>
 <<if $eventSlave.energy > 40>>
+<<if canSee($eventSlave)>>
 	<<set $RESSevent.push("comfortable seat")>>
+<</if>>
 <</if>>
 <</if>>
 
@@ -981,7 +983,7 @@
 <</if>>
 
 <<if ($eventSlave.balls > 0)>>
-<<if ($eventSlave.dickAccessory == "chastity")>>
+<<if ($eventSlave.dickAccessory == "chastity") || ($eventSlave.dickAccessory == "combined chastity")>>
 <<if ($eventSlave.devotion <= 95)>>
 <<if ($eventSlave.energy > 50)>>
 <<if ($eventSlave.energy < 95)>>
@@ -1127,7 +1129,7 @@
 <<if ($release != 1)>>
   <<if ($eventSlave.devotion <= 95)>>
   <<if ($eventSlave.trust >= -20)>>
-  <<if ($eventSlave.dickAccessory != "chastity") || ($eventSlave.dick == 0)>>
+  <<if ($eventSlave.dickAccessory != "chastity" && $eventSlave.dickAccessory != "combined chastity") || ($eventSlave.dick == 0)>>
 	<<set $RESSevent.push("forbidden masturbation")>>
   <</if>>
   <</if>>
@@ -1144,7 +1146,7 @@
 <<if ($eventSlave.dick != 0) >>
 <<if ($eventSlave.hormones < 1)>>
 <<if ($eventSlave.balls > 0)>>
-<<if ($eventSlave.dickAccessory != "chastity")>>
+<<if ($eventSlave.dickAccessory != "chastity" && $eventSlave.dickAccessory != "combined chastity")>>
 <<if ($eventSlave.vaginalAccessory != "chastity belt") >>
 	<<set $RESSevent.push("slave dick on slave")>>
 <</if>>
@@ -1164,7 +1166,7 @@
 
 <<if ($eventSlave.devotion >= -20)>>
 <<if ($eventSlave.lactation > 1)>>
-<<if ($eventSlave.vaginalAccessory != "chastity belt")>>
+<<if ($eventSlave.vaginalAccessory != "chastity belt")  && $eventSlave.vaginaAccessory != "combined chastity">>
 	<<set $RESSevent.push("milkgasm")>>
 <</if>>
 <</if>>
@@ -1285,7 +1287,7 @@
 <<if ($eventSlave.trust > -20)>>
 <<if ($eventSlave.anus > 0)>>
 	<<if ($eventSlave.vagina != 0)>>
-	<<if ($eventSlave.dickAccessory != "chastity") || ($eventSlave.dick == 0)>>
+	<<if ($eventSlave.dickAccessory != "chastity" && $eventSlave.dickAccessory != "combined chastity") || ($eventSlave.dick == 0)>>
 	  <<if ($corpIncorporated != 0)>>
 		<<set $RESSevent.push("shift sleep")>>
 	  <</if>>
@@ -1464,7 +1466,7 @@
 <</if>>
 
 <<if ($eventSlave.speechRules != "restrictive")>>
-<<if ($eventSlave.vaginalAccessory != "chastity belt")>>
+<<if canDoVaginal($eventSlave)>>
 <<if ($eventSlave.fetish != "buttslut")>>
 <<if ($eventSlave.vagina == 0)>>
 <<if ($eventSlave.anus != 0)>>
@@ -1485,7 +1487,7 @@
 
 <<if ($eventSlave.releaseRules != "restrictive") >>
 <<if ($eventSlave.clit > 2)>>
-<<if ($eventSlave.vaginalAccessory != "chastity belt")>>
+<<if ($eventSlave.vaginalAccessory != "chastity belt" && $eventSlave.vaginalAccessory != "combined chastity")>>
 	<<set $RESSevent.push("slave clit on slave")>>
 <</if>>
 <</if>>
@@ -1495,7 +1497,7 @@
 <<if ($eventSlave.dick > 4) >>
 <<if ($eventSlave.hormones < 1)>>
 <<if ($eventSlave.balls != 0)>>
-<<if ($eventSlave.dickAccessory != "chastity")>>
+<<if ($eventSlave.dickAccessory != "chastity" && $eventSlave.dickAccessory != "combined chastity")>>
 	<<set $RESSevent.push("slave dick huge")>>
 <</if>>
 <</if>>
