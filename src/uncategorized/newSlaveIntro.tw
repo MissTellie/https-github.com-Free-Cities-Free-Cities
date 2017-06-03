@@ -744,7 +744,6 @@ The legalities completed, ''__@@.pink;$activeSlave.slaveName@@__'' <<if ($active
 <</if>>
 
 <<if $activeSlave.fetish != "mindbroken">>
-
 <br><<link "Break her in publicly">>
 <<replace "#introResult">>
 	You <<if ($activeSlave.devotion > 20) || ($activeSlave.trust < -20)>>order the obedient slave to follow you<<else>>bring the resistant slave<</if>> out into the public areas below your penthouse, shove the nude $desc over a convenient handrail, and stick <<if $PC.dick == 1>>your dick<<else>>a strap-on<</if>>
@@ -798,7 +797,10 @@ The legalities completed, ''__@@.pink;$activeSlave.slaveName@@__'' <<if ($active
 	<<SimpleVCheck>>
 <</replace>>
 <</link>>
+<</if>>
 
+
+<<if $activeSlave.fetish != "mindbroken">>
 <br><<link "Inseminate her">>
 <<replace "#introResult">>
 	You <<if ($activeSlave.devotion > 20) || ($activeSlave.trust < -20)>>lay the obedient $desc across your desk<<else>>force the resistant $desc to lie atop your desk<</if>> and gently <<if $PC.dick == 1>>slide your hard cock<<else>>push a special strap-on<</if>>	<<if $activeSlave.vagina >= 0>>inside her womanhood<<else>>up her butt<</if>>. You take her with care, enjoying her body <<if ($activeSlave.devotion > 20) || ($activeSlave.trust < -20)>>and doing your best to give her pleasure, too<<else>>without hurting her<</if>>. <<if $PC.dick == 1>>You empty your balls inside her, thrusting in as far as you can go<<else>>The strap-on contains a reservoir of faux ejaculate, and you give it to her<</if>> as you climax. When she feels the hot liquid jet into her,
@@ -834,7 +836,9 @@ The legalities completed, ''__@@.pink;$activeSlave.slaveName@@__'' <<if ($active
 	<<SimpleVCheck>>
 <</replace>>
 <</link>>
+<</if>>
 
+<<if $activeSlave.fetish != "mindbroken">>
 <br><<link "Spank her">>
 <<replace "#introResult">>
 	You <<if ($activeSlave.devotion > 20) || ($activeSlave.trust < -20)>>lay the obedient $desc across your knees<<else>>force the resistant $desc to lie across your knees<</if>> and run a voluptuary hand across her <<if $activeSlave.butt > 6>>jiggling<<elseif $activeSlave.butt > 3>>delightfully big<<elseif $activeSlave.butt > 1>>cute<<else>>skinny<</if>> buttocks, enjoying the way she tenses up reflexively at the extreme vulnerability of her position. She feels the change in your posture as you bring your hand back, and <<if ($activeSlave.devotion > 20) || ($activeSlave.trust < -20)>>can't stop herself from wriggling<<else>>struggles desperately<</if>> for just a moment before your palm smacks against her ass.
@@ -869,7 +873,9 @@ The legalities completed, ''__@@.pink;$activeSlave.slaveName@@__'' <<if ($active
 	<</if>>
 <</replace>>
 <</link>>
+<</if>>
 
+<<if $activeSlave.fetish != "mindbroken">>
 <br><<link "Tease her nipples">>
 <<replace "#introResult">>
 	You <<if ($activeSlave.devotion > 20) || ($activeSlave.trust < -20)>>instruct the obedient $desc<<else>>force the reluctant $desc<</if>> to lie atop your desk in front of you and go back to business. After a few minutes, you extend an idle hand and begin to fondle her <<if $activeSlave.boobs > 2000>>massive tits<<elseif $activeSlave.boobs > 400>>healthy breasts<<else>>cute little boobs<</if>>, continuing your work with your other hand. You quickly focus your fiddling on her $activeSlave.nipples nipples, the stimulation bringing them <<if ($activeSlave.devotion > 20)>>quickly erect<<else>>slowly erect despite her feelings<</if>>.
@@ -904,8 +910,7 @@ The legalities completed, ''__@@.pink;$activeSlave.slaveName@@__'' <<if ($active
 	<</if>>
 <</replace>>
 <</link>>
-
-<</if>> /* CLOSES MINDBROKEN CHECK FOR FETISH DISCOVERY INTROS*/
+<</if>>
 
 <<if $activeSlave.health < -20>>
 <br><<link "Address her medical issues">>
@@ -932,10 +937,9 @@ The legalities completed, ''__@@.pink;$activeSlave.slaveName@@__'' <<if ($active
 <</link>>
 <</if>>
 
-<<if $seeExtreme == 1>>
 
-<<if $activeSlave.amp != 1>>
-<<if $activeSlave.indentureRestrictions <= 0>>
+
+<<if ($activeSlave.amp != 1) && ($activeSlave.indentureRestrictions <= 0) && ($seeExtreme == 1)>>
 <br><<link "Clip her Achilles tendons">>
 <<set $activeSlave.heels = 1>>
 <<set $activeSlave.devotion -= 5>>
@@ -946,9 +950,9 @@ The legalities completed, ''__@@.pink;$activeSlave.slaveName@@__'' <<if ($active
 <</replace>>
 <</link>>
 <</if>>
-<</if>>
 
-<<if $activeSlave.preg > 5>>
+
+<<if ($activeSlave.preg > 5) && ($seeExtreme == 1)>>
 <br><<link "Threaten her pregnancy">>
 <<set $activeSlave.devotion += 10>>
 <<set $activeSlave.trust -= 10>>
@@ -958,8 +962,7 @@ The legalities completed, ''__@@.pink;$activeSlave.slaveName@@__'' <<if ($active
 <</link>>
 <</if>>
 
-<<if $activeSlave.balls > 0>>
-<<if $activeSlave.attrXY < 65>>
+<<if ($activeSlave.balls > 0) && ($activeSlave.attrXY < 65) && ($seeExtreme == 1)>>
 <br><<link "Threaten her balls">>
 <<set $activeSlave.devotion += 10>>
 <<set $activeSlave.trust -= 10>>
@@ -968,10 +971,8 @@ The legalities completed, ''__@@.pink;$activeSlave.slaveName@@__'' <<if ($active
 <</replace>>
 <</link>>
 <</if>>
-<</if>>
 
-<<if $dairy > 0>>
-<<if $dairyRestraintsSetting > 1>>
+<<if ($dairy > 0) && ($dairyRestraintsSetting > 1) && ($seeExtreme == 1)>>
 	<br><<link "Threaten her with the Industrial Dairy">>
 <<set $activeSlave.devotion += 10>>
 <<set $activeSlave.trust -= 10>>
@@ -1014,9 +1015,9 @@ The legalities completed, ''__@@.pink;$activeSlave.slaveName@@__'' <<if ($active
 	<</link>>
 <</if>>
 <</if>>
-	<</if>>
 
-<<if $arcade > 0>>
+
+<<if ($arcade > 0) && ($seeExtreme == 1)>>
 	<br><<link "Threaten her with the Arcade">>
 <<set $activeSlave.devotion += 10>>
 <<set $activeSlave.trust -= 10>>
@@ -1036,8 +1037,6 @@ The legalities completed, ''__@@.pink;$activeSlave.slaveName@@__'' <<if ($active
 	<</link>>
 	<</if>>
 <</if>>
-
-<</if>> /* CLOSES SEEEXTREME */
 
 <<if $activeSlave.dick == 0>>
 <br><<link "Give her a smart clitoral piercing">>
