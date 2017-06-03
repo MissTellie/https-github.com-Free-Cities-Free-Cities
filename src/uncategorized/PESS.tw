@@ -71,10 +71,6 @@
 
 <<switch $PESSevent>>
 
-<<case "bodyguard beatdown">>
-
-<span id="name"><<print "[[$activeSlave.slaveName|Long Slave Description][$nextLink = passage(), $eventDescription = 1]]">></span> is a constant fixture by your side in your excursions outside the penthouse, as is befitting her position as your personal bodyguard. Largely the position is ceremonial, there are few citizens with a survival instinct compromised enough to risk attacking an arcology owner in the middle of their arcology. This evening, however, you run into one of those scant few citizens - a drunkard so inebriated that he doesn't seem to understand the danger in invading your personal space. Before your personal security can be further jeopardized, your bodyguard steps in.
-
 <<case "madam strategy">>
 
 Your madam <span id="name"><<print "[[$activeSlave.slaveName|Long Slave Description][$nextLink = passage(), $eventDescription = 1]]">></span> is a perceptive whore mistress. You are a clever and well-informed manager, of course, and $assistantName is as well-informed as it is physically possible to be about anything that happens within her sensor net, but the madam has special insight. She sees more sex in person than anyone in the arcology, not excepting you, and may even know some of your brothel slaves better than you do. This certainly extends to their sexualities and skills; if she ever has any doubts about any of them, she usually fucks them herself to get at the truth.
@@ -147,71 +143,6 @@ She sees you examining at her, and looks back at you submissively, too tired to 
 <br><br>
 <span id="result">
 <<switch $PESSevent>>
-
-<<case "bodyguard beatdown">>
-
-<br><<if ($activeSlave.muscles < 30)>>
-	//Your bodyguard lacks the musculature required to manhandle him.//
-<<else>>
-<<link "She uses her muscles to manhandle him">>
-	<<replace "#name">>$activeSlave.slaveName<</replace>>
-	<<replace "#result">>
-	$activeSlave.slaveName stomps over to the drunken delinquent, who soon finds himself sobering up with each step the muscular woman makes in his direction. Soon he finds himself staring up at her $activeSlave.faceShape face as she grips him by the shoulders and lifts him bodily off of the ground. The man squeals with terror as he begs forgiveness for his affront to you, but $activeSlave.slaveName simply tosses him away from your presence as if discharging him from a bar. Word of your giant protector is soon @@.green;the talk of $arcologies[0].name and beyond@@, with many in the Old World mistakenly believing you are guarded by a warrior twice the height of any man.
-	<<set $rep += 500>>
-	<</replace>>
-<</link>>
-<</if>> 
-<br><<if ($activeSlave.height < 170)>>
-	//Your bodyguard lacks the height required to tower over and intimidate him.//
-<<else>>
-<br><<link "She intimidates him with her towering height">>
-	<<replace "#name">>$activeSlave.slaveName<</replace>>
-	<<replace "#result">>
-	$activeSlave.slaveName calmly strides over to the drunken delinquent and simply towers over him with a glower on her $activeSlave.faceShape face. The man quickly finds himself sobering up and moves to run from the scene with all the drunken haste he can muster. Unfortunately for him, $activeSlave.slaveName matches his pace with a brisk power-walk, and the citizen soon finds himself face down on the pavement after a swift strike to the back of the head. Word of your Herculean protector is soon @@.green;the talk of $arcologies[0].name and beyond@@, with many in the Old World mistakenly believing you are guarded by a warrior so strong she can throw any man the breadth of a room in a single heave.
-	<<set $rep += 500>>
-	<</replace>>
-<</link>>
-<</if>> 
-<br><<if ($activeSlave.face < 95)>>
-	//Your bodyguard lacks the beauty required to distract him with her wiles.//
-<<else>> 
-<br><<link "She distracts him with her beautiful face">>
-	<<replace "#name">>$activeSlave.slaveName<</replace>>
-	<<replace "#result">>
-	$activeSlave.slaveName seductively saunters over to the drunken delinquent and poses alluringly nearby. The man can't help but become entranced by her gorgeous $activeSlave.faceShape face, and follows her like a lost puppy as she beckons with one outstretched finger. $activeSlave.slaveName lures her prey into a nearby alley before slamming her fist into the unsuspecting drunkard's face, leaving him knocked out cold on the floor before returning to guard your body. Word of your beautiful protector is soon @@.green;the talk of $arcologies[0].name and beyond@@, with many in the Old World mistakenly believing you are guarded by a warrior unmatched by any woman in the world in her good looks.
-	<<set $rep += 500>>
-	<</replace>>
-<</link>>
-<</if>> 
-<br><<if ($activeSlave.intelligence < 0)>>
-	//Your bodyguard lacks the intellect required to deescalate the situation with tact.//
-<<else>> 
-<br><<link "She deescalate the situation with tact">>
-	<<replace "#name">>$activeSlave.slaveName<</replace>>
-	<<replace "#result">>
-	$activeSlave.slaveName walks over to the man, puts an arm about his shoulders and explains to him <<if canTalk($activeSlave)>>in hushed whispers<<else>>with rapid sign language<</if>> the severity of the situation. The man sobers up quickly as the reality of his actions set in, and beats a hasty exit from the scene as $activeSlave.slaveName returns to guard your body. Word of your tactful protector is soon @@.green;the talk of $arcologies[0].name and beyond@@, with many in the Old World mistakenly believing you are guarded by a warrior whose silver tongue is the envy of many politicians.
-	<<set $rep += 500>>
-	<</replace>>
-<</link>>
-<</if>> 
-<br><<if ($activeSlave.combatSkill < 1)>>
-	//Your bodyguard lacks the combat skill required to fight him hand to hand.//
-<<else>> 
-<br><<link "She fights him hand to hand">>
-	<<replace "#name">>$activeSlave.slaveName<</replace>>
-	<<replace "#result">>
-	$activeSlave.slaveName quickly maneuvers over to the man and strikes him low in the stomach, robbing him of breath in a single strike. The man sobers up somewhat and raises his arms to defend himself, but finds himself outmatched by $activeSlave.slaveName's skillful attacks. It doesn't take long for $activeSlave.slaveName to reduce the man to a battered heap on the ground with her hands alone, and she soon returns to you to guard your body. Word of your martial protector is soon @@.green;the talk of $arcologies[0].name and beyond@@, with many in the Old World mistakenly believing you are guarded by a warrior whose hands are deadlier than many weapons.
-	<<set $rep += 500>>
-	<</replace>>
-<</link>>
-<</if>> 
-<br><<link "She fires a few dozen warning shots">>
-	<<replace "#name">>$activeSlave.slaveName<</replace>>
-	<<replace "#result">>
-	$activeSlave.slaveName draws her firearm and blasts the pavement between yourself and the delinquent with a hail of bullets. The man sobers up immediately at the excessive use of firepower and flees the scene in fear of $activeSlave.slaveName turning her weapon on him. $activeSlave.slaveName holsters her weapon and returns to your side to guard your body. Word of your trigger happy protector is soon @@.green;the talk of $arcologies[0].name@@ and you find most citizens are keen to avoid causing you offense with $activeSlave.slaveName around.
-	<<set $rep += 100>>
-	<</replace>>
-<</link>>
 
 <<case "madam strategy">>
 
