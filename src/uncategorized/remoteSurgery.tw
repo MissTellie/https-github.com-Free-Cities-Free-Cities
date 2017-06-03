@@ -75,9 +75,9 @@ $possessiveCap $activeSlave.faceShape face is
 		[[Sensual|Surgery Degradation][$activeSlave.faceShape to "sensual",$activeSlave.faceImplant += 1,$cash -= $surgeryCost,$activeSlave.health -= 10,$surgeryType to "face"]] |
 	<</if>>
 	<<if $activeSlave.faceShape != "androgynous">>
-		[[Androgynous|Surgery Degradation][$activeSlave.faceShape to "androgynous",$activeSlave.faceImplant += 1,$cash -= $surgeryCost,$activeSlave.health -= 10,$surgeryType to "face"]]
+		[[Androgynous|Surgery Degradation][$activeSlave.faceShape to "androgynous",$activeSlave.faceImplant += 1,$cash -= $surgeryCost,$activeSlave.health -= 10,$surgeryType to "face"]] |
 	<<else>>
-		[[Masculine|Surgery Degradation][$activeSlave.faceShape to "masculine",$activeSlave.faceImplant += 1,$cash -= $surgeryCost,$activeSlave.health -= 10,$surgeryType to "face"]]
+		[[Masculine|Surgery Degradation][$activeSlave.faceShape to "masculine",$activeSlave.faceImplant += 1,$cash -= $surgeryCost,$activeSlave.health -= 10,$surgeryType to "face"]] |
 	<</if>>
 	<</if>>
 	 [[Just improve attractiveness|Surgery Degradation][$activeSlave.faceImplant += 1,$cash -= $surgeryCost,$activeSlave.health -= 10,$surgeryType to "face"]]
@@ -239,19 +239,21 @@ $pronounCap has
 <<if $activeSlave.voiceImplant != 0>>
 	$pronounCap has had surgery on $possessive voicebox to raise $possessive voice.
 <</if>>
-<<if ($activeSlave.voice != 0) && ($seeExtreme == 1)>>
-	<<if $activeSlave.indentureRestrictions < 1>>
-	[[Remove vocal cords|Surgery Degradation][$activeSlave.voice = 0, $cash -= $surgeryCost,  $activeSlave.health -= 10, $surgeryType = "mute"]]
-	<</if>>
-<</if>>
-<<if ($activeSlave.voice != 0) && ($activeSlave.voiceImplant == 0) && ($activeSlave.voice < 3) && ($seeExtreme == 1) && ($activeSlave.indentureRestrictions < 1)>>
-	|
-<</if>>
 <<if ($activeSlave.voice != 0) && ($activeSlave.voiceImplant == 0) && ($activeSlave.voice < 3)>>
 	<<if $activeSlave.indentureRestrictions < 1>>
 	[[Perform surgery to raise voice|Surgery Degradation][$activeSlave.voice += 1, $activeSlave.voiceImplant += 1, $cash -= $surgeryCost,  $activeSlave.health -= 10, $surgeryType = "voice"]]
 	<</if>>
 <</if>>
+<<if ($activeSlave.voice != 0) && ($activeSlave.voiceImplant == 0) && ($activeSlave.voice < 3) && ($seeExtreme == 1) && ($activeSlave.indentureRestrictions < 1)>>
+	|
+<</if>>
+<<if ($activeSlave.voice != 0) && ($seeExtreme == 1)>>
+	<<if $activeSlave.indentureRestrictions < 1>>
+	[[Remove vocal cords|Surgery Degradation][$activeSlave.voice = 0, $cash -= $surgeryCost,  $activeSlave.health -= 10, $surgeryType = "mute"]]
+	<</if>>
+<</if>>
+
+
 
 <br>
 
@@ -623,18 +625,18 @@ $pronounCap has
 
 <<if $activeSlave.prostate>>
 	<br>$pronounCap has a <<if $activeSlave.prostate > 1>>hyperactive<<else>>normal<</if>> prostate.
-	<<if ($seeExtreme == 1)>>
-		<<if $activeSlave.indentureRestrictions < 1>>
-			[[Remove|Surgery Degradation][$activeSlave.prostate to 0,$cash -= $surgeryCost, $activeSlave.health -= 40, $surgeryType to "prostate"]]
-		<</if>>
-	<</if>>
 	<<if $activeSlave.prostate < 2>>
 		<<if $activeSlave.indentureRestrictions < 2>>
 			[[Implant slow-release productivity drugs|Surgery Degradation][$activeSlave.lactation=2,$cash-=$surgeryCost,$activeSlave.health-=10,$surgeryType="precum"]] //This may cause some leaking//
 		<</if>>
 	<</if>>
 	<<if $activeSlave.prostate > 1>>
-		 | [[Remove drug implant|Surgery Degradation][$activeSlave.prostate=1,$cash-=$surgeryCost,$surgeryType="endprecum"]]
+		 [[Remove drug implant|Surgery Degradation][$activeSlave.prostate=1,$cash-=$surgeryCost,$surgeryType="endprecum"]]
+	<</if>>
+		<<if ($seeExtreme == 1)>>
+		<<if $activeSlave.indentureRestrictions < 1>>
+			 | [[Remove prostate|Surgery Degradation][$activeSlave.prostate to 0,$cash -= $surgeryCost, $activeSlave.health -= 40, $surgeryType to "prostate"]]
+		<</if>>
 	<</if>>
 <</if>>
 
@@ -787,7 +789,7 @@ $pronounCap's got a
 <</if>>
 <<if ($activeSlave.heels == 0) && ($seeExtreme == 1)>>
 	<<if $activeSlave.indentureRestrictions < 1>>
-	[["Alter tendons so that " + $pronoun + " cannot walk in anything but very high heels"|Surgery Degradation][$activeSlave.heels = 1,$activeSlave.shoes = "heels",$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "heels"]]
+	[[Shorten tendons|Surgery Degradation][$activeSlave.heels = 1,$activeSlave.shoes = "heels",$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "heels"]] //Prevents $possessive from walking in anything but very high heels//
 	<</if>>
 <</if>>
 <<if ($activeSlave.heels == 1)>>
