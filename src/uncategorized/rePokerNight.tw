@@ -25,9 +25,9 @@ On a particularly lackadaisical evening, you find yourself alerted to a message 
 
 <br>
 
-<<if $cash < 10000>>
+<<if $cash < 5000>>
 	//You lack the necessary funds to attend a high stakes poker game.//
-<<else>> /* cash >= 10000 */
+<<else>> /* cash >= 5000 */
 	<br>
 
 	<<link "Attend the poker night">>
@@ -39,11 +39,11 @@ On a particularly lackadaisical evening, you find yourself alerted to a message 
 				<<link "Play it safe">>
 					<<replace "#bountyresult">>
 						<<if random(1,100) > 50>>
-						Despite your attempts to mitigate risk and play the safest hands possible, it seems lady luck has conspired against you this evening. However, even when your last chip is spent, your mercenaries pitch you a few chips to keep you in the game for the rest of the night. You may have lost your ¤, but it seems you've @@.green;made some friends.@@
-						<<set $rep += 1000, $cash -= 5000>>
+						Despite your attempts to mitigate risk and play the safest hands possible, it seems lady luck has conspired against you this evening. However, even when your last chip is spent, your mercenaries pitch you a few chips to keep you in the game for the rest of the night. You may have lost most of your ¤, but it seems you've @@.green;made some friends.@@
+						<<set $rep += 1000, $cash -= 2500>>
 						<<else>>
 						While a careful eye for risk has buoyed you through the evening, ultimately lady luck is the decider in handing you the win in a number of close hands. Unfortunately your meticulous play limited your chance at a larger payout, and you only come away from the evening with ¤1000 more than you arrived with and @@.green;the respect of your mercenaries.@@
-						<<set $rep += 100, $cash += 2000>>
+						<<set $rep += 100, $cash += 1000>>
 						<</if>>
 					<</replace>>
 				<</link>>
@@ -60,7 +60,7 @@ On a particularly lackadaisical evening, you find yourself alerted to a message 
 								<<replace "#aliveresult">>
 									<<if random(1,100) > 50>>
 									For all your skillful maneuvering to reach this position, ultimately the win comes down to chance. This time, however, luck was not on your side. As the victor sweeps up her spoils, the other mercenaries clap you on the back and offer their condolences for your defeat. Though you may have lost your ¤, it seems you've @@.green;made some friends.@@
-									<<set $rep += 1000, $cash -= 10000>>
+									<<set $rep += 1000, $cash -= 5000>>
 									<<else>>
 									For all your skillful maneuvering to reach this position, ultimately the win comes down to chance. This time, however, luck has rendered you the victor. A silence falls over the room as the result is declared, but after some time your opponent breaks the hush by joking that life as your slave is probably easier than fighting for $arcologies[0].name. After some awkward laughter the night continues, and at the end your former mercenary joins you on your trip back to the penthouse to submit to processing and to begin her new life as your property. She's not young, but she's tough and not distrusting of you due to her service in the $mercenariesTitle.
 									<br>
@@ -90,10 +90,10 @@ On a particularly lackadaisical evening, you find yourself alerted to a message 
 								<<replace "#aliveresult">>
 									<<if random(1,100) > 50>>
 									For all your skillful maneuvering to reach this position, ultimately the win comes down to chance. This time, however, luck was not on your side. As the victor sweeps up her spoils, the other mercenaries clap you on the back and offer their condolences for your defeat. Though you may have lost your ¤, it seems you've @@.green;made some friends.@@
-									<<set $rep += 1000, $cash -= 10000>>
+									<<set $rep += 1000, $cash -= 5000>>
 									<<else>>
 									For all your skillful maneuvering to reach this position, ultimately the win comes down to chance. This time, however, luck has rendered you the victor. Your opponent accepts her defeat with grace and jokes to her comrades that she'll be fighting in her underwear for the next few months, and their uproar of laughter fills the room. Though you take the lions share of the ¤, your mercenaries also @@.green;had a good time fraternizing with you.@@
-									<<set $rep += 200, $cash += 10000>>
+									<<set $rep += 200, $cash += 5000>>
 									<</if>>
 								<</replace>>
 							<</link>>
@@ -104,7 +104,7 @@ On a particularly lackadaisical evening, you find yourself alerted to a message 
 
 			</span> 
 		<</replace>> 
-	<</link>> // It will cost ¤10000 to participate in the poker night.//
+	<</link>> // It will cost ¤5000 to participate in the poker night.//
 <</if>> 
 
 </span> 
