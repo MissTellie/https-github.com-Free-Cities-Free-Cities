@@ -421,7 +421,7 @@ The legalities completed, ''__@@.pink;$activeSlave.slaveName@@__'' <<if ($active
 	<</replace>>
 	<</link>>
  <br>
-<<case $activeSlave.origin == "She submitted to enslavement for a better chance at survival than she had as a migrant.">>
+<<case "She submitted to enslavement for a better chance at survival than she had as a migrant.">>
 	<<if canDoAnal($activeSlave)>>
 	<<link "Introduce her to anal service">>
 	<<set $activeSlave.devotion += 4>>
@@ -657,7 +657,7 @@ The legalities completed, ''__@@.pink;$activeSlave.slaveName@@__'' <<if ($active
  <br>
 
 /*Written by DrPill, coded by Boney M*/
-<<case "She was recruited into your service by her sister.">>
+<<case "She was recruited into your service by her younger sister." "She was recruited into your service by her twin sister." "She was recruited into your service by her older sister.">>
 	<<link "Use her sister as an example">>
 <<set _sisterID = $activeSlave.ID - 1000>>
 <<set $recruiterSister = $slaves.find(function(s) { return s.ID == _sisterID; })>>
