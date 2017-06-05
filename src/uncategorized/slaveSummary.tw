@@ -2432,17 +2432,17 @@ _Slave.faceShape face.
 	<<if _Slave.attrKnown == 1>>
 	<<if $summaryStats == 1>>
 	<<if _Slave.attrXY <= 5>>
-		@@.red;Disgusted by men [_Slave.attrXY]@@
+		@@.red;Disgusted by men [_Slave.attrXY] ,@@
 	<<elseif _Slave.attrXY <= 15>>
-		@@.red;Turned off by men [_Slave.attrXY]@@
+		@@.red;Turned off by men [_Slave.attrXY] ,@@
 	<<elseif _Slave.attrXY <= 35>>
-		@@.red;Not attracted to men [_Slave.attrXY]@@
+		@@.red;Not attracted to men [_Slave.attrXY] ,@@
 	<<elseif _Slave.attrXY <= 65>>
-		Indifferent to men [_Slave.attrXY]
+		Indifferent to men [_Slave.attrXY] , 
 	<<elseif _Slave.attrXY <= 85>>
-		@@.green;Attracted to men [_Slave.attrXY]@@
+		@@.green;Attracted to men [_Slave.attrXY] ,@@
 	<<elseif _Slave.attrXY <= 95>>
-		@@.green;Aroused by men [_Slave.attrXY]@@
+		@@.green;Aroused by men [_Slave.attrXY] ,@@
 	<<elseif _Slave.attrXX > 95>>
 		<<if _Slave.energy <= 95>>
 			@@.green;Omnisexual!@@
@@ -2450,23 +2450,23 @@ _Slave.faceShape face.
 			@@.green;Omnisexual nymphomaniac!@@
 		<</if>>
 	<<else>>
-		@@.green;Passionate about men [_Slave.attrXY]<</if>>,@@
+		@@.green;Passionate about men [_Slave.attrXY] ,@@<</if>>
 	<</if>>
 	<<if $summaryStats == 1>>
-	<<if _Slave.attrXX <= 5>>
-		@@.red;disgusted by women [_Slave.attrXX] @@
+	<<elseif _Slave.attrXX <= 5>>
+		@@.red;disgusted by women [_Slave.attrXX] .@@
 	<<elseif _Slave.attrXX <= 15>>
-		@@.red;turned off by women [_Slave.attrXX] @@
+		@@.red;turned off by women [_Slave.attrXX] .@@
 	<<elseif _Slave.attrXX <= 35>>
-		@@.red;not attracted to women [_Slave.attrXX] @@
+		@@.red;not attracted to women [_Slave.attrXX] .@@
 	<<elseif _Slave.attrXX <= 65>>
-		indifferent to women [_Slave.attrXX]
+		indifferent to women [_Slave.attrXX] . 
 	<<elseif _Slave.attrXX <= 85>>
-		@@.green;attracted to women [_Slave.attrXX] @@
+		@@.green;attracted to women [_Slave.attrXX] .@@
 	<<elseif _Slave.attrXX <= 95>>
-		@@.green;aroused by women [_Slave.attrXX] @@
+		@@.green;aroused by women [_Slave.attrXX] .@@
 	<<elseif _Slave.attrXY <= 95>>
-		@@.green;passionate about women [_Slave.attrXX]<</if>>. @@
+		@@.green;passionate about women [_Slave.attrXX] .@@<</if>>
 	<</if>>
 	<<if $summaryStats == 1>>
 	<<if _Slave.energy > 95>>
