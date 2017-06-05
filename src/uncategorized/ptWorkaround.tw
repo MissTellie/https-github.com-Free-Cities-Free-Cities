@@ -626,7 +626,7 @@
 	<</if>>
 
 <<case "explore her sexuality">>
-	<<set $activeSlave.fetishKnown = 1, $activeSlave.attrKnown = 1>>
+	<<set $activeSlave.attrKnown = 1>>
 	You set about investigating her sexuality.
 	<<if ($activeSlave.devotion < -20) && ($activeSlave.trust > -20)>>
 		She's so resistant that you have to fill her with psychoactive drugs and restrain her painfully in order to learn anything. This abuse @@.mediumorchid;increases her hatred.@@
@@ -669,6 +669,7 @@
 		@@.green;passionate about women.@@
 	<</if>>
 	<<if $activeSlave.fetishKnown != 1>>
+	<<set $activeSlave.fetishKnown = 1>>
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;You then give her a good exploratory fondle. You play with her nipples and each of her holes and gauge her reaction.
 	<<if $activeSlave.fetish == "boobs">>
 		You've barely touched her nipples before she moans. After some experimentation, it becomes clear that her nipples might as well be a pair of slightly less sensitive clits. Finding her mammary fixation with you has @@.hotpink;increased her devotion to you.@@
