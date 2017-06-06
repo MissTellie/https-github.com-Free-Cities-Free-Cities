@@ -771,10 +771,13 @@ Hormones: <strong><span id="hormones">
 	<br>Non-assignment orgasm rules: ''<span id="releaseRules">$activeSlave.releaseRules</span>.''
 	<<if $activeSlave.releaseRules !== "permissive">>
 		<<link "Permissive">><<set $activeSlave.releaseRules = "permissive">><<replace "#releaseRules">>$activeSlave.releaseRules<</replace>><</link>> |
+	<</if>>
 	<<if $activeSlave.releaseRules !== "permissive">>
 		<<link "Sapphic">><<set $activeSlave.releaseRules = "sapphic">><<replace "#releaseRules">>$activeSlave.releaseRules<</replace>><</link>> |
+	<</if>>
 	<<if $activeSlave.releaseRules !== "permissive">>
 		<<link "Restrictive">><<set $activeSlave.releaseRules = "restrictive">><<replace "#releaseRules">>$activeSlave.releaseRules<</replace>><</link>>
+	<</if>>
 <</if>>
 
 <<if $activeSlave.clitPiercing == 3>>
