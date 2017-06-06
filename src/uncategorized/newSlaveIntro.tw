@@ -427,7 +427,7 @@ The legalities completed, ''__@@.pink;$activeSlave.slaveName@@__'' <<if ($active
 <<case "She submitted to enslavement for a better chance at survival than she had as a migrant.">>
 	//and since she's trying to do better than life as a migrant...//
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	<<if canDoAnal($activeSlave)>>	
+	<<if canDoAnal($activeSlave)>>
 	<<link "Introduce her to anal service">>
 	<<set $activeSlave.devotion += 4>>
 	<<set $activeSlave.trust += 4>>
@@ -1067,12 +1067,12 @@ You <<if $activeSlave.devotion > 20>>bring her down to the studio, lay the compl
 <</if>>
 <</if>>
 
-
 <<if ($activeSlave.devotion > 20)>>
-<br>&nbsp;&nbsp;&nbsp;&nbsp;
-<<link "Give her a chance to impress">>
+<br><<link "Give her a chance to impress">>
 <<set $activeSlave.devotion += 4>>
 <<set $activeSlave.trust += 4>>
+<<set $activeSlave.oralCount += 1>>
+<<set $oralTotal += 1>>
 <<set _num = random(1,100)>>
 <<replace "#introResult">>
 	She seems reasonably obedient, so you give her a chance to impress. You remain seated and offer her your <<if $PC.dick == 1>>half-erect cock<<if $PC.vagina == 1>> and ready pussy<</if>><<else>>pussy, wet with arousal at the prospect of breaking in a new slut<</if>>. She comes over obediently and gets on her knees. She works hard and is clearly doing her absolute best to please, so you let her finish you with her mouth. <<if $PC.dick == 1>><<if _num > 20>>She looks up at you as she swallows<<elseif _num > 40>>She even swallows your cum without being told<<elseif _num > 60>>She smiles sloppily as your seed slowly dribbles from her mouth and down her chin<<elseif _num > 80>>She struggles to contain your seed and makes a mess all over her face as a result<<else>>She struggles to contain your seed with her mouth and it splatters over the floor as a result<</if>><<else>>She worked her tongue hard and did her best<</if>>. You spend the rest of the day with her kneeling on a cushion next to your chair. She learns obedience, but also learns that you are @@.mediumaquamarine;fair@@ and @@.hotpink;reasonable.@@
@@ -1166,8 +1166,7 @@ You <<if $activeSlave.devotion > 20>>bring her down to the studio, lay the compl
 <<replace "#introResult">>
 	You cuff her wrists and tie the cuffs to a hook in the ceiling so she's forced up on tiptoe. Reflecting that sometimes the old ways are best, you take a whip to her. It's soft leather and you have some skill, so her skin isn't broken, but you lash her buttocks and every stroke draws a scream. After a while, the pain grows dull for her and she slumps in her bindings, moaning. You switch to her nipples, bringing her back to howling life as she dances on tiptoe and tries to dodge. <<if $activeSlave.dick != 0>>You finish by taking the whip to her penis, leaving her sobbing and begging. <</if>>If she was wondering what kind of master her new master is, now she @@.gold;knows.@@ She will remember @@.mediumorchid;what you can do to her@@.
 <</replace>>
-<</link>>
-
+<</link>
 
 
 <<if canTalk($activeSlave)>>
