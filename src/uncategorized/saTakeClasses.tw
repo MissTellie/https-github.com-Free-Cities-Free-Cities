@@ -141,16 +141,15 @@ takes courses in slavery<<if $schoolroomUpgradeSkills + $schoolroomUpgradeRemedi
 	<</if>>
 <</for>>
 
-<<if ($slaves[$i].intelligenceImplant < 1)>>
+<<if ($slaves[$i].intelligenceImplant < 1) || ($slaves[$i].intelligenceImplant > 1)>>
 	$pronounCap makes some progress towards a basic education.
 	<<set $slaves[$i].intelligenceImplant += 0.1*_learning>>
-<</if>>
-
-<<if ($slaves[$i].intelligenceImplant >= 1)>>
-	<<set $slaves[$i].intelligenceImplant = 1>>
-	$pronounCap has completed a course of slave education, and for most purposes $pronoun is now @@.deepskyblue;more intelligent.@@
-	<<if ($slaves[$i].intelligence < 3)>>
-		<<set $slaves[$i].intelligence += 1>>
+	<<if ($slaves[$i].intelligenceImplant >= 1)>>
+		<<set $slaves[$i].intelligenceImplant = 1>>
+		$pronounCap has completed a course of slave education, and for most purposes $pronoun is now @@.deepskyblue;more intelligent.@@
+		<<if ($slaves[$i].intelligence < 3)>>
+			<<set $slaves[$i].intelligence += 1>>
+		<</if>>
 	<</if>>
 <</if>>
 
