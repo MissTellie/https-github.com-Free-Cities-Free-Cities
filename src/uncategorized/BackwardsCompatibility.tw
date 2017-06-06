@@ -2,6 +2,9 @@
 
 <<set $nextButton to "Continue", $nextLink to "Main", $returnTo to "Main">>
 
+<<if ndef $bodyguardTrains>>
+	<<set $bodyguardTrains = 1>>
+<</if>>
 <<if ndef $summaryStats>>
 	<<set $summaryStats = 0>>
 <</if>>
