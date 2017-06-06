@@ -2980,7 +2980,7 @@ _Slave.faceShape face.
 <<case "Main">>
 	<<continue>>
 <<case "HG Select">>
-<<if $HGCareers.includes(_Slave.career)>>
+<<if setup.HGCareers.includes(_Slave.career)>>
 	<br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>@@.lime;Has applicable career experience.@@
 <</if>>
 <<case "Head Girl Suite">>
@@ -2992,7 +2992,7 @@ _Slave.faceShape face.
 	<<break>>
 <</if>>
 <<case "BG Select">>
-<<if $bodyguardCareers.includes(_Slave.career)>>
+<<if setup.bodyguardCareers.includes(_Slave.career)>>
 	<br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>@@.lime;Has applicable career experience.@@
 <</if>>
 <<case "Spa">>
@@ -3006,7 +3006,7 @@ _Slave.faceShape face.
 	<<break>>
 <</if>>
 <<case "Attendant Select">>
-<<if $attendantCareers.includes(_Slave.career)>>
+<<if setup.attendantCareers.includes(_Slave.career)>>
 	<br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>@@.lime;Has applicable career experience.@@
 <</if>>
 <<case "Brothel">>
@@ -3020,7 +3020,7 @@ _Slave.faceShape face.
 	<<break>>
 <</if>>
 <<case "Madam Select">>
-<<if $madamCareers.includes(_Slave.career)>>
+<<if setup.madamCareers.includes(_Slave.career)>>
 	<br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>@@.lime;Has applicable career experience.@@
 <</if>>
 <<case "Club">>
@@ -3041,7 +3041,7 @@ _Slave.faceShape face.
 	<<print "[[Release her from the Arcade|Retrieve][$i = "+_ssi+"]]">>
 <</if>>
 <<case "DJ Select">>
-<<if $DJCareers.includes(_Slave.career)>>
+<<if setup.DJCareers.includes(_Slave.career)>>
 	<br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>@@.lime;Has applicable career experience.@@
 <</if>>
 <<case "Clinic">>
@@ -3058,7 +3058,7 @@ _Slave.faceShape face.
 	<<break>>
 <</if>>
 <<case "Nurse Select">>
-<<if $nurseCareers.includes(_Slave.career)>>
+<<if setup.nurseCareers.includes(_Slave.career)>>
 	<br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>@@.lime;Has applicable career experience.@@
 <</if>>
 <<case "Schoolroom">>
@@ -3072,7 +3072,7 @@ _Slave.faceShape face.
 	<<break>>
 <</if>>
 <<case "Schoolteacher Select">>
-<<if $schoolteacherCareers.includes(_Slave.career)>>
+<<if setup.schoolteacherCareers.includes(_Slave.career)>>
 	<br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>@@.lime;Has applicable career experience.@@
 <</if>>
 <<case "Dairy">>
@@ -3086,7 +3086,7 @@ _Slave.faceShape face.
 	<<break>>
 <</if>>
 <<case "Milkmaid Select">>
-<<if $milkmaidCareers.includes(_Slave.career)>>
+<<if setup.milkmaidCareers.includes(_Slave.career)>>
 	<br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>@@.lime;Has applicable career experience.@@
 <</if>>
 <<case "Servants' Quarters">>
@@ -3100,7 +3100,7 @@ _Slave.faceShape face.
 	<<break>>
 <</if>>
 <<case "Stewardess Select">>
-<<if $stewardessCareers.includes(_Slave.career)>>
+<<if setup.stewardessCareers.includes(_Slave.career)>>
 	<br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>@@.lime;Has applicable career experience.@@
 <</if>>
 <<case "Master Suite">>
@@ -3124,7 +3124,7 @@ _Slave.faceShape face.
 	<<break>>
 <</if>>
 <<case "Wardeness Select">>
-<<if $wardenessCareers.includes(_Slave.career)>>
+<<if setup.wardenessCareers.includes(_Slave.career)>>
 	<br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>@@.lime;Has applicable career experience.@@
 <</if>>
 <<case "New Game Plus">>

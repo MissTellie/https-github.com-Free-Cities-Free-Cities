@@ -29,11 +29,11 @@
 	<<set $activeSlave.intelligenceImplant = 1>>
 <</if>>
 <<if ($activeSlave.age <= 24)>>
-	<<set $activeSlave.career = $youngCareers.random()>>
+	<<set $activeSlave.career = setup.youngCareers.random()>>
 <<elseif ($activeSlave.intelligenceImplant == 1)>>
-	<<set $activeSlave.career = $educatedCareers.random()>>
+	<<set $activeSlave.career = setup.educatedCareers.random()>>
 <<else>>
-	<<set $activeSlave.career = $uneducatedCareers.random()>>
+	<<set $activeSlave.career = setup.uneducatedCareers.random()>>
 <</if>>
 
 <<set $activeSlave.vaginalSkill = random(0,15)>>

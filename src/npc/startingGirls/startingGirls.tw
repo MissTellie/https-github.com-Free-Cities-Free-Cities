@@ -106,11 +106,11 @@ __You are customizing this slave:__
 
 | <<link "Randomize career">>
 <<if ($activeSlave.age <= 22)>>
-	<<set $activeSlave.career = $youngCareers.random()>>
+	<<set $activeSlave.career = setup.youngCareers.random()>>
 <<elseif ($activeSlave.intelligenceImplant == 1)>>
-	<<set $activeSlave.career = $educatedCareers.random()>>
+	<<set $activeSlave.career = setup.educatedCareers.random()>>
 <<else>>
-	<<set $activeSlave.career = $uneducatedCareers.random()>>
+	<<set $activeSlave.career = setup.uneducatedCareers.random()>>
 <</if>>
 <<SaleDescription>>
 <<StartingGirlsCost>>
@@ -1105,7 +1105,7 @@ Her nationality is $activeSlave.nationality.
 <br>&nbsp;&nbsp;&nbsp;&nbsp;
 <<link "Head Girl Prospect">>
 	<<StartingGirlsWorkaround>>
-	<<set $activeSlave.career = $HGCareers.random(), $activeSlave.age = Math.clamp(36, 44, $activeSlave.age), $activeSlave.intelligence = 2, $activeSlave.intelligenceImplant = 0>>
+	<<set $activeSlave.career = setup.HGCareers.random(), $activeSlave.age = Math.clamp(36, 44, $activeSlave.age), $activeSlave.intelligence = 2, $activeSlave.intelligenceImplant = 0>>
 	<<SaleDescription>>
 	<<StartingGirlsCost>>
 <</link>>

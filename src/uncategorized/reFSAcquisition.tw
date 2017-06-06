@@ -66,7 +66,7 @@
 <<set $contractCost = 1000>>
 <<include "Generate XX Slave">>
 <<set $activeSlave.origin = "She was sold to you as a way of disposing of an inconveniently pregnant young woman.">>
-<<set $activeSlave.career = $youngCareers.random()>>
+<<set $activeSlave.career = setup.youngCareers.random()>>
 <<set $activeSlave.health = random(-20,20)>>
 <<set $activeSlave.devotion = random(-45,-25)>>
 <<set $activeSlave.trust = random(-45,-25)>>
@@ -81,7 +81,7 @@
 <<set $contractCost = 1000>>
 <<include "Generate New Slave">>
 <<set $activeSlave.origin = "She was voluntarily enslaved after she decided that your paternalistic arcology was a better place for advancement than the old world.">>
-<<set $activeSlave.career = $educatedCareers.random()>>
+<<set $activeSlave.career = setup.educatedCareers.random()>>
 <<set $activeSlave.health = random(40,60)>>
 <<set $activeSlave.devotion = random(25,45)>>
 <<set $activeSlave.trust = random(25,45)>>
@@ -219,7 +219,7 @@
 <<set $activeSlave.devotion = random(25,45)>>
 <<set $activeSlave.trust = random(25,45)>>
 <<set $activeSlave.age = random(25,$retirementAge)>>
-<<set $activeSlave.career = $educatedCareers.random()>>
+<<set $activeSlave.career = setup.educatedCareers.random()>>
 <<set $activeSlave.health = random(-60,-50)>>
 <<set $activeSlave.intelligence = 2>>
 <<set $activeSlave.intelligenceImplant = 1>>
@@ -255,7 +255,7 @@
 <<set $contractCost = 1000>>
 <<include "Generate New Slave">>
 <<set $activeSlave.origin = "She was voluntarily enslaved after she decided that your arcology was the best place for her to get the steroids that she'd allowed to define her life.">>
-<<set $activeSlave.career = $uneducatedCareers.random()>>
+<<set $activeSlave.career = setup.uneducatedCareers.random()>>
 <<set $activeSlave.health = random(20,60)>>
 <<set $activeSlave.muscles = 100>>
 <<set $activeSlave.addict = 1>>
