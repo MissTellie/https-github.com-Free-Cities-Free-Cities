@@ -768,10 +768,13 @@ Hormones: <strong><span id="hormones">
 	<<if $activeSlave.standardReward !== "situational">>
 		<<link "Situational">><<set $activeSlave.standardReward = "situational">><<replace "#standardReward">>$activeSlave.standardReward<</replace>><</link>>
 	<</if>>
-	<br>Non-assignment orgasm rules: ''$activeSlave.releaseRules.''
-	[[Permit masturbation and interslave sex|Slave Interact][$activeSlave.releaseRules = "permissive"]]
-	| [[Let her get off with other slaves|Slave Interact][$activeSlave.releaseRules = "sapphic"]]
-	| [[Only with you|Slave Interact][$activeSlave.releaseRules = "restrictive"]]
+	<br>Non-assignment orgasm rules: ''<span id="releaseRules">$activeSlave.releaseRules</span>.''
+	<<if $activeSlave.releaseRules !== "permissive">>
+		<<link "Permissive">><<set $activeSlave.releaseRules = "permissive">><<replace "#releaseRules">>$activeSlave.releaseRules<</replace>><</link>> |
+	<<if $activeSlave.releaseRules !== "permissive">>
+		<<link "Sapphic">><<set $activeSlave.releaseRules = "sapphic">><<replace "#releaseRules">>$activeSlave.releaseRules<</replace>><</link>> |
+	<<if $activeSlave.releaseRules !== "permissive">>
+		<<link "Restrictive">><<set $activeSlave.releaseRules = "restrictive">><<replace "#releaseRules">>$activeSlave.releaseRules<</replace>><</link>>
 <</if>>
 
 <<if $activeSlave.clitPiercing == 3>>
