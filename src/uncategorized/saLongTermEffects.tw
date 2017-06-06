@@ -1223,7 +1223,7 @@
 
 <<if $slaves[$i].fetishKnown == 1>>
 <<if $slaves[$i].fetish != "none">>
-	<<if $slaves[$i].fetishStrength <= 95>>
+	<<if $slaves[$i].fetishStrength <= 75>>
 		<<if $slaves[$i].devotion > 50>>
 		<<if $slaves[$i].trust > 50>>
 			She has the confidence to pursue what pleases her, @@.lightcoral;increasing her kinkiness.@@
@@ -1231,7 +1231,7 @@
 		<</if>>
 		<</if>>
 	<</if>>
-	<<if $slaves[$i].fetishStrength > 5>>
+	<<if $slaves[$i].fetishStrength > 10>>
 		<<if $slaves[$i].trust < -20>>
 			She's too afraid to pursue what pleases her, @@.pink;reducing her sexual distinctiveness.@@
 			<<set $slaves[$i].fetishStrength -= 4>>
