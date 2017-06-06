@@ -34,6 +34,10 @@
 	<<unset $badNames>>
 <</if>>
 
+<<if def $origin || def $origins>>
+	<<unset $origin, $origins>>
+<</if>>
+
 <<if ndef $bodyguardTrains>>
 	<<set $bodyguardTrains = 1>>
 <</if>>
