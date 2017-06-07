@@ -11,7 +11,7 @@
 <<if $specialSlave == 1>>
 	<<for $i = 0; $i < $heroSlaves.length; $i++>>
 		<<if $activeSlave.ID == $heroSlaves[$i].ID>>
-			<<set $dump = $heroSlaves.pluck($i,$i)>>
+			<<set $heroSlaves.deleteAt($i)>>
 			<<set $specialSlave = 0>>
 			<<break>>
 		<</if>>
