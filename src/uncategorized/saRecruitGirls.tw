@@ -76,7 +76,7 @@ uses your online resources and some @@.yellowgreen;modest funds@@ to convince $r
 	She does her best to convince them that being your slave whore will be safer and healthier than streetwalking.
 	<</if>>
 <<elseif $recruiterTarget is "expectant mothers">> /* now you can ginger too */
-  <<if $Recruiter.preg > 5 or setup.fakeBellies.includes($bellyAccessory)>>
+  <<if $Recruiter.preg > 5 || setup.fakeBellies.includes($bellyAccessory)>>
 	Since she's visibly pregnant herself, she speaks with authority when she says that Free Cities medicine can keep them and their pregnancies safe and healthy.
 	<<set $recruiterProgress += 1>>
   <<else>>
