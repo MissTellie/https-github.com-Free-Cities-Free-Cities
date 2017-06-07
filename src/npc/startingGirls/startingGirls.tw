@@ -1133,18 +1133,18 @@ Her nationality is $activeSlave.nationality.
 
 <br><br>__Start over by selecting a nationality:__
 
-<<for _sg = 0; _sg < $basenationalities.length; _sg++>>
-	<<set _nation = $basenationalities[_sg]>>
+<<for _sg = 0; _sg < setup.baseNationalities.length; _sg++>>
+	<<set _nation = setup.baseNationalities[_sg]>>
 
 	<<print "
 	<<link _nation>>
-		<<set $fixedNationality = $basenationalities[" + _sg + "]>>
+		<<set $fixedNationality = setup.baseNationalities[" + _sg + "]>>
 		<<StartingGirlsWorkaround>>
 		<<StartingGirlsRefresh>>
 		<<SaleDescription>>
 	<</link>>
 	">>
-	<<if _sg < $basenationalities.length-1>>
+	<<if _sg < setup.baseNationalities.length-1>>
 	|
 	<</if>>
 <</for>>
