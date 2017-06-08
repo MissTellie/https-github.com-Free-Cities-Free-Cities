@@ -1,12 +1,6 @@
 :: Remove activeSlave [silently nobr]
 
-<<set _ID = $activeSlave.ID, _SL = $slaves.length>>
-
-<<if (def $i) && ($i >= 0) && ($i < _SL) && ($slaves[$i].ID == _ID)>>
-	<<set _x = $i>>
-<<else>>
-	<<set _x = $slaves.findIndex(function(s) { return s.ID == _ID; })>>
-<</if>>
+<<set _ID = $activeSlave.ID, _SL = $slaves.length, _x = $slaves.findIndex(function(s) { return s.ID == _ID; })>>
 
 <<if _x >= 0 && _x < _SL>>
 	<<for _y = 0; _y < _SL; _y++>>
