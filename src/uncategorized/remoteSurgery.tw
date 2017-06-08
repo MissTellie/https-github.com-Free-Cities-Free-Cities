@@ -588,7 +588,11 @@ $pronounCap has
 	<<if ($activeSlave.foreskin > 0)>>
 		<<if $seeCircumcision == 1>>
 			<<if $activeSlave.indentureRestrictions < 2>>
+			<<if $activeSlave.dick != 0>>
 				 | [[Remove foreskin|Surgery Degradation][$activeSlave.foreskin = 0,$cash -= $surgeryCost, $activeSlave.health -= 10, $surgeryType = "circumcision"]]
+			<<elseif ($activeSlave.vagina >= 0)>>
+				 | [[Remove clitoral hood|Surgery Degradation][$activeSlave.foreskin = 0,$cash -= $surgeryCost, $activeSlave.health -= 10, $surgeryType = "circumcision"]]
+			<</if>>
 			<</if>>
 		<</if>>
 	<</if>>
