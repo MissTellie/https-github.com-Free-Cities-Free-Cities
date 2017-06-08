@@ -2,7 +2,7 @@
 
 <<set _ID = $activeSlave.ID, _SL = $slaves.length>>
 
-<<if (def $i) && ($i < _SL) && ($slaves[$i].ID == _ID)>>
+<<if (def $i) && ($i >= 0) && ($i < _SL) && ($slaves[$i].ID == _ID)>>
 	<<set _x = $i>>
 <<else>>
 	<<set _x = $slaves.findIndex(function(s) { return s.ID == _ID; })>>
