@@ -760,8 +760,8 @@ Release rules: _Slave.releaseRules.
 <</if>>
 
 <<if _Slave.tired != 0>>Tired.<</if>>
-<<if $summaryStats == 1>>
-<<if $abbreviateDiet == 1>>
+
+<<if ($summaryStats == 1) && ($abbreviateDiet == 1)>>
 	<<if _Slave.weight < -95>>
 		''@@.red;W---[_Slave.weight]@@''
 	<<elseif _Slave.weight < -30>>
@@ -808,7 +808,6 @@ Release rules: _Slave.releaseRules.
 		<</if>>
 	<<else>>
 		@@.red;Fat [_Slave.weight]@@
-		<</if>>
 	<</if>>
 <</if>>
 
@@ -858,18 +857,15 @@ Release rules: _Slave.releaseRules.
 	<</if>>
 <</if>>
 
-<<if $abbreviateHealth == 1>>
-<<if $summaryStats == 1>>
+<<if ($abbreviateHealth == 1) && (<<if $summaryStats == 1)>>
 	<<if _Slave.health < -20>>
 		''@@.red;H[_Slave.health]@@''
 	<<elseif _Slave.health <= 20>>
 		''@@.yellow;H[_Slave.health]@@''
 	<<elseif _Slave.health > 20>>
 		''@@.green;H[_Slave.health]@@''
-		<</if>>
 	<</if>>
-<<elseif $abbreviateHealth == 2>>
-<<if $summaryStats == 1>>
+<<elseif ($abbreviateHealth == 2) && (if $summaryStats == 1)>>
 	<<if _Slave.health < -90>>
 		@@.red;On the edge of death. [_Slave.health]@@
 	<<elseif _Slave.health < -50>>
@@ -884,7 +880,6 @@ Release rules: _Slave.releaseRules.
 		@@.green;Extremely healthy. [_Slave.health]@@
 	<<else>>
 		@@.green;Unnaturally healthy. [_Slave.health]@@
-		<</if>>
 	<</if>>
 <</if>>
 
@@ -908,12 +903,12 @@ Release rules: _Slave.releaseRules.
 		''Dr:Ster''
 	<<case "hormone enhancers">>
 		''Dr:Horm+''
-	<</switch>>
+	<</switch>>	
 	<<if _Slave.curatives == 2>>
 		''Cura''
 	<<elseif _Slave.curatives == 1>>
 		''Prev''
-	<</if>>
+	<</if>>	
 	<<if _Slave.addict != 0>>
 		<<switch _Slave.aphrodisiacs>>
 		<<case 0>>
@@ -930,7 +925,7 @@ Release rules: _Slave.releaseRules.
 		<<case 2>>
 			Aph++
 		<</switch>>
-	<</if>>
+	<</if>>	
 	<<if _Slave.hormones > 1>>
 		''Ho:F+''
 	<<elseif _Slave.hormones > 0>>
@@ -939,7 +934,7 @@ Release rules: _Slave.releaseRules.
 		''Ho:M+''
 	<<elseif _Slave.hormones < 0>>
 		''Ho:M''
-	<</if>>
+	<</if>>	
 	<<if ((_Slave.preg == -2) || (_Slave.ovaries == 0)) && (_Slave.vagina != -1)>>
 		''Barr''
 	<<elseif _Slave.preg == -1>>
@@ -950,7 +945,7 @@ Release rules: _Slave.releaseRules.
 		''Preg?''
 	<<elseif _Slave.preg >= 4>>
 		''_Slave.preg wks preg''
-	<</if>>
+	<</if>>	
 <<elseif $abbreviateDrugs == 2>>
 	<<if (_Slave.drugs != "no drugs") && (_Slave.drugs != "none")>>
 		On _Slave.drugs.
@@ -985,18 +980,18 @@ Release rules: _Slave.releaseRules.
 		May be pregnant.
 	<<elseif _Slave.preg >= 4>>
 		<<if _Slave.pregType < 2>>
-		_Slave.preg weeks pregnant.
+			_Slave.preg weeks pregnant.
 		<<else>>
-		_Slave.preg weeks pregnant with
-		<<if _Slave.pregType > 4>>
-		quintuplets.
-		<<elseif _Slave.pregType == 4>>
-		quadruplets.
-		<<elseif _Slave.pregType == 3>>
-		triplets.
-		<<else>>
-		twins.
-		<</if>>
+			_Slave.preg weeks pregnant with
+			<<if _Slave.pregType > 4>>
+				quintuplets.
+			<<elseif _Slave.pregType == 4>>
+				quadruplets.
+			<<elseif _Slave.pregType == 3>>
+				triplets.
+			<<else>>
+				twins.
+			<</if>>
 		<</if>>
 	<</if>>
 <</if>>
@@ -1299,942 +1294,943 @@ Release rules: _Slave.releaseRules.
 <<print _Slave.skin.charAt(0).toUpperCase() + _Slave.skin.slice(1)>> skin.
 @@
 <</if>>
+
 <<if $abbreviateGenitalia == 1>>
-<<if _Slave.dick > 0>>
-@@.pink;
-<<if _Slave.balls == 0>>
-	Geld
-<</if>>
-<<if (_Slave.dick > 8) && (_Slave.balls > 5)>>
-	Junk+++
-<<elseif (_Slave.dick > 5) && (_Slave.balls > 5)>>
-	Junk++
-<<elseif (_Slave.dick > 4) && (_Slave.balls > 4)>>
-	Junk+
-<<elseif (_Slave.dick > 3) && (_Slave.balls > 3)>>
-	Junk
-<<elseif _Slave.dick > 8>>
-	Dick+++
-<<elseif _Slave.dick > 5>>
-	Dick++
-<<elseif _Slave.dick > 4>>
-	Dick+
-<<elseif _Slave.dick > 3>>
-	Dick
-<<elseif _Slave.balls > 5>>
-	Balls++
-<<elseif _Slave.balls > 4>>
-	Balls+
-<<elseif _Slave.balls > 3>>
-	Balls
-<</if>>
-@@
-<</if>>
-<<if _Slave.vagina == 0>>
-	@@.lime;VV@@
-<<elseif (_Slave.preg > 0) && canWalk(_Slave) && (_Slave.clothes == "no clothing") && (_Slave.shoes == "none")>>
-	@@.pink;NBP@@
-<</if>>
-<<if _Slave.anus == 0>>
-	@@.lime;AV@@
-<</if>>
-@@.pink;
-<<if (_Slave.vagina > 3) && (_Slave.anus > 3)>>
-	V++A++
-<<elseif (_Slave.vagina > 2) && (_Slave.anus > 2)>>
-	V+A+
-<<elseif _Slave.vagina > 3>>
-	V++
-<<elseif _Slave.vagina > 2>>
-	V+
-<<elseif _Slave.anus > 3>>
-	A++
-<<elseif _Slave.anus > 2>>
-	A+
-<</if>>
-@@
+	<<if _Slave.dick > 0>>
+		@@.pink;
+		<<if _Slave.balls == 0>>
+			Geld
+		<</if>>
+		<<if (_Slave.dick > 8) && (_Slave.balls > 5)>>
+			Junk+++
+		<<elseif (_Slave.dick > 5) && (_Slave.balls > 5)>>
+			Junk++
+		<<elseif (_Slave.dick > 4) && (_Slave.balls > 4)>>
+			Junk+
+		<<elseif (_Slave.dick > 3) && (_Slave.balls > 3)>>
+			Junk
+		<<elseif _Slave.dick > 8>>
+			Dick+++
+		<<elseif _Slave.dick > 5>>
+			Dick++
+		<<elseif _Slave.dick > 4>>
+			Dick+
+		<<elseif _Slave.dick > 3>>
+			Dick
+		<<elseif _Slave.balls > 5>>
+			Balls++
+		<<elseif _Slave.balls > 4>>
+			Balls+
+		<<elseif _Slave.balls > 3>>
+			Balls
+		<</if>>
+		@@
+	<</if>>
+	<<if _Slave.vagina == 0>>
+		@@.lime;VV@@
+	<<elseif (_Slave.preg > 0) && canWalk(_Slave) && (_Slave.clothes == "no clothing") && (_Slave.shoes == "none")>>
+		@@.pink;NBP@@
+	<</if>>
+
+	<<if _Slave.anus == 0>>
+		@@.lime;AV@@
+	<</if>>
+
+	@@.pink;
+	<<if (_Slave.vagina > 3) && (_Slave.anus > 3)>>
+		V++A++
+	<<elseif (_Slave.vagina > 2) && (_Slave.anus > 2)>>
+		V+A+
+	<<elseif _Slave.vagina > 3>>
+		V++
+	<<elseif _Slave.vagina > 2>>
+		V+
+	<<elseif _Slave.anus > 3>>
+		A++
+	<<elseif _Slave.anus > 2>>
+		A+
+	<</if>>
+	@@
+
 <<elseif $abbreviateGenitalia == 2>>
-<<if _Slave.dick > 0>>
-@@.pink;
-<<if _Slave.balls == 0>>
-	Gelded.
-<</if>>
-<<if (_Slave.dick > 8) && (_Slave.balls > 5)>>
-	Hyper dick & balls.
-<<elseif (_Slave.dick > 5) && (_Slave.balls > 5)>>
-	Monster dick & balls.
-<<elseif (_Slave.dick > 4) && (_Slave.balls > 4)>>
-	Huge dick & balls.
-<<elseif (_Slave.dick > 3) && (_Slave.balls > 3)>>
-	Big dick & balls.
-<<elseif _Slave.dick > 8>>
-	Hyper dong.
-<<elseif _Slave.dick > 5>>
-	Monster dong.
-<<elseif _Slave.dick > 4>>
-	Huge dick.
-<<elseif _Slave.dick > 3>>
-	Big dick.
-<<elseif _Slave.balls > 5>>
-	Monstrous balls.
-<<elseif _Slave.balls > 4>>
-	Huge balls.
-<<elseif _Slave.balls > 3>>
-	Big balls.
-<</if>>
-@@
-<</if>>
-<<if _Slave.vagina == 0>>
-	@@.lime;Virgin.@@
-<<elseif (_Slave.preg > 0) && canWalk(_Slave) && (_Slave.clothes == "no clothing") && (_Slave.shoes == "none")>>
-	@@.pink;Naked, barefoot, and pregnant.@@
-<</if>>
-<<if _Slave.anus == 0>>
-	@@.lime;Anal virgin.@@
-<</if>>
-@@.pink;
-<<if (_Slave.vagina > 3) && (_Slave.anus > 3)>>
-	Blown out holes.
-<<elseif (_Slave.vagina > 2) && (_Slave.anus > 2)>>
-	High mileage.
-<<elseif _Slave.vagina > 3>>
-	Cavernous pussy.
-<<elseif _Slave.vagina > 2>>
-	Loose pussy.
-<<elseif _Slave.anus > 3>>
-	Permagaped anus.
-<<elseif _Slave.anus > 2>>
-	Gaping anus.
-<</if>>
-@@
+	<<if _Slave.dick > 0>>
+		@@.pink;
+		<<if _Slave.balls == 0>>
+			Gelded.
+		<</if>>
+		<<if (_Slave.dick > 8) && (_Slave.balls > 5)>>
+				Hyper dick & balls.
+			<<elseif (_Slave.dick > 5) && (_Slave.balls > 5)>>
+				Monster dick & balls.
+			<<elseif (_Slave.dick > 4) && (_Slave.balls > 4)>>
+				Huge dick & balls.
+			<<elseif (_Slave.dick > 3) && (_Slave.balls > 3)>>
+				Big dick & balls.
+			<<elseif _Slave.dick > 8>>
+				Hyper dong.
+			<<elseif _Slave.dick > 5>>
+				Monster dong.
+			<<elseif _Slave.dick > 4>>
+				Huge dick.
+			<<elseif _Slave.dick > 3>>
+				Big dick.
+			<<elseif _Slave.balls > 5>>
+				Monstrous balls.
+			<<elseif _Slave.balls > 4>>
+				Huge balls.
+			<<elseif _Slave.balls > 3>>
+				Big balls.
+		<</if>>
+		@@
+	<</if>>
+	<<if _Slave.vagina == 0>>
+		@@.lime;Virgin.@@
+	<<elseif (_Slave.preg > 0) && canWalk(_Slave) && (_Slave.clothes == "no clothing") && (_Slave.shoes == "none")>>
+		@@.pink;Naked, barefoot, and pregnant.@@
+	<</if>>
+	<<if _Slave.anus == 0>>
+		@@.lime;Anal virgin.@@
+	<</if>>	
+	@@.pink;
+	<<if (_Slave.vagina > 3) && (_Slave.anus > 3)>>
+		Blown out holes.
+	<<elseif (_Slave.vagina > 2) && (_Slave.anus > 2)>>
+		High mileage.
+	<<elseif _Slave.vagina > 3>>
+		Cavernous pussy.
+	<<elseif _Slave.vagina > 2>>
+		Loose pussy.
+	<<elseif _Slave.anus > 3>>
+		Permagaped anus.
+	<<elseif _Slave.anus > 2>>
+		Gaping anus.
+	<</if>>
+	@@
 <</if>>
 
 <<if $abbreviatePhysicals == 1>>
-@@.pink;
-<<if $showAgeDetail == 1>>
-	_Slave.age
-<<elseif _Slave.age >= 40>>
-	40s
-<<elseif _Slave.age >= 35>>
-	Lt30s
-<<elseif _Slave.age >= 30>>
-	Ea30s
-<<elseif _Slave.age >= 25>>
-	Lt20s
-<<elseif _Slave.age >= 20>>
-	Ea20s
-<<elseif _Slave.age >= 18>>
-	_Slave.age
-<</if>>
-<<if _Slave.ageImplant == 1>>
-	Age-
-<</if>>
-<<if $summaryStats == 1>>
-<<if _Slave.face < -95>>
-	@@.red;Face---[_Slave.face]@@
-<<elseif _Slave.face < -40>>
-	@@.red;Face--[_Slave.face]@@
-<<elseif _Slave.face < -10>>
-	@@.red;Face-[_Slave.face]@@
-<<elseif _Slave.face <= 10>>
-	Face[_Slave.face]
-<<elseif _Slave.face <= 40>>
-	@@.pink;Face+[_Slave.face]@@
-<<elseif _Slave.face <= 95>>
-	@@.pink;Face++[_Slave.face]@@
-<<else>>
-	@@.pink;Face+++[_Slave.face]@@
+	@@.pink;
+	<<if $showAgeDetail == 1>>
+		_Slave.age
+	<<elseif _Slave.age >= 40>>
+		40s
+	<<elseif _Slave.age >= 35>>
+		Lt30s
+	<<elseif _Slave.age >= 30>>
+		Ea30s
+	<<elseif _Slave.age >= 25>>
+		Lt20s
+	<<elseif _Slave.age >= 20>>
+		Ea20s
+	<<elseif _Slave.age >= 18>>
+		_Slave.age
 	<</if>>
-<</if>>
-<<if _Slave.eyes == -2>>
-	@@.red;Blind@@
-<<elseif _Slave.eyes == -1 && (_Slave.eyewear != "corrective glasses") && (_Slave.eyewear != "corrective contacts")>>
-	@@.yellow;Sight-@@
-<</if>>
+	<<if _Slave.ageImplant == 1>>
+		Age-
+	<</if>>
+	<<if $summaryStats == 1>>
+		<<if _Slave.face < -95>>
+			@@.red;Face---[_Slave.face]@@
+		<<elseif _Slave.face < -40>>
+			@@.red;Face--[_Slave.face]@@
+		<<elseif _Slave.face < -10>>
+			@@.red;Face-[_Slave.face]@@
+		<<elseif _Slave.face <= 10>>
+			Face[_Slave.face]
+		<<elseif _Slave.face <= 40>>
+			@@.pink;Face+[_Slave.face]@@
+		<<elseif _Slave.face <= 95>>
+			@@.pink;Face++[_Slave.face]@@
+		<<else>>
+			@@.pink;Face+++[_Slave.face]@@
+		<</if>>
+	<</if>>
+	<<if _Slave.eyes == -2>>
+		@@.red;Blind@@
+	<<elseif _Slave.eyes == -1 && (_Slave.eyewear != "corrective glasses") && (_Slave.eyewear != "corrective contacts")>>
+		@@.yellow;Sight-@@
+	<</if>>
 
-<<if _Slave.markings != "none">>
-	Markings
-<</if>>
+	<<if _Slave.markings != "none">>
+		Markings
+	<</if>>
 
-<<if $summaryStats == 1>>
-<<if _Slave.lips > 95>>
-	Facepussy
-<<elseif _Slave.lips > 70>>
-	Lips+++[_Slave.lips]
-<<elseif _Slave.lips > 40>>
-	Lips++[_Slave.lips]
-<<elseif _Slave.lips > 20>>
-	Lips+[_Slave.lips]
-<<elseif _Slave.lips > 10>>
-	Lips[_Slave.lips]
-<<else>>
-	@@.red;Lips-@@[_Slave.lips]<</if>>
-<</if>>
-<<if _Slave.teeth == "crooked">>
-	@@.yellow;Cr Teeth@@
-<<elseif _Slave.teeth == "cosmetic braces">>
-	Cos Braces
-<<elseif _Slave.teeth == "straightening braces">>
-	Braces
-<<elseif _Slave.teeth == "removable">>
-	Rem Teeth
-<<elseif _Slave.teeth == "pointy">>
-	Fangs
-<</if>>
-<<if _Slave.muscles > 95>>
-	Musc++
-<<elseif _Slave.muscles > 30>>
-	Musc+
-<<elseif _Slave.muscles > 5>>
-	Toned
-<<else>>
-	Musc-
-<</if>>
-<<if $summaryStats == 1>>[_Slave.muscles]<</if>>
-<<if _Slave.amp != 0>>
-  <<if _Slave.amp == -1>>
-	P-Limbs
-  <<elseif _Slave.amp == -2>>
-	Sex P-Limbs
-  <<elseif _Slave.amp == -3>>
-	Beauty P-Limbs
-  <<elseif _Slave.amp == -4>>
-	Combat P-Limbs
-  <<elseif _Slave.amp == -5>>
-	Cyber P-Limbs
-  <<else>>
-	Amp
-  <</if>>
-<</if>>
-<<if !canWalk(_Slave)>>
-	Immob
-<</if>>
-<<if _Slave.heels == 1>>
-	Heel
-<</if>>
-@@
-<<if _Slave.voice == 0>>
-	@@.pink;Mute@@
-<<else>>
-	<<if _Slave.accent == 3>>
-		@@.red;Acc--@@
-	<<elseif _Slave.accent == 2>>
-		Acc-
-	<<elseif _Slave.accent == 1>>
-		@@.pink;Acc@@
+	<<if $summaryStats == 1>>
+		<<if _Slave.lips > 95>>
+			Facepussy
+		<<elseif _Slave.lips > 70>>
+			Lips+++[_Slave.lips]
+		<<elseif _Slave.lips > 40>>
+			Lips++[_Slave.lips]
+		<<elseif _Slave.lips > 20>>
+			Lips+[_Slave.lips]
+		<<elseif _Slave.lips > 10>>
+			Lips[_Slave.lips]
+		<<else>>
+			@@.red;Lips-@@[_Slave.lips]
+		<</if>>
 	<</if>>
-<</if>>
-@@.pink;
-<<if (_Slave.boobs > 10000) && (_Slave.butt > 9)>>
-	T&A+++
-<<elseif (_Slave.boobs > 4000) && (_Slave.butt > 8)>>
-	T&A++
-<<elseif (_Slave.boobs > 2000) && (_Slave.butt > 6)>>
-	T&A+
-<<elseif (_Slave.boobs > 800) && (_Slave.butt > 4)>>
-	T&A
-<<elseif (_Slave.boobs < 500) && (_Slave.butt < 3) && (_Slave.weight <= 10) && (_Slave.muscles <= 30)>>
-	Girlish
-<<elseif _Slave.boobs > 10000>>
-	Boobs+++
-<<elseif _Slave.boobs > 4000>>
-	Boobs++
-<<elseif _Slave.boobs > 2000>>
-	Boobs+
-<<elseif _Slave.boobs > 800>>
-	Boobs
-<<elseif _Slave.butt > 9>>
-	Ass+++
-<<elseif _Slave.butt > 8>>
-	Ass++
-<<elseif _Slave.butt > 6>>
-	Ass+
-<<elseif _Slave.butt > 4>>
-	Ass
-<</if>>
-@@
-@@.red;
-<<if _Slave.hips < -1>>
-<<if _Slave.butt > 2 && $arcologies[0].FSTransformationFetishist < 20>>
-	Disp
-<</if>>
-<<elseif _Slave.hips < 0>>
-<<if _Slave.butt > 4 && $arcologies[0].FSTransformationFetishist < 20>>
-	Disp
-<</if>>
-<<elseif _Slave.hips > 1>>
-<<if _Slave.butt <= 3>>
-	Disp
-<</if>>
-<<elseif _Slave.hips > 0>>
-<<if _Slave.butt > 8>>
-<<if $arcologies[0].FSTransformationFetishist < 20>>
-	Disp
-<</if>>
-<<elseif _Slave.butt <= 2>>
-	Disp
-<</if>>
-<<else>>
-<<if _Slave.butt > 6>>
-<<if $arcologies[0].FSTransformationFetishist < 20>>
-	Disp
-<</if>>
-<<elseif _Slave.butt <= 1>>
-	Disp
-<</if>>
-<</if>>
-@@
-<<if $summaryStats == 1>>
-<<if _Slave.waist > 95>>
-@@.red;Wst---[_Slave.waist]@@
-<<elseif _Slave.waist > 40>>@@.red;Wst--[_Slave.waist]@@
-<<elseif _Slave.waist > 10>>@@.red;Wst-[_Slave.waist]@@
-<<elseif _Slave.waist >= -10>>Wst[_Slave.waist]
-<<elseif _Slave.waist >= -40>>@@.pink;Wst+[_Slave.waist]@@
-<<elseif _Slave.waist >= -95>>@@.pink;Wst++[_Slave.waist]@@
-<<else>>@@.pink;Wst+++[_Slave.waist]@@
-<</if>>
-<</if>>
-@@.pink;
-<<if (_Slave.boobsImplant == 0) && (_Slave.buttImplant == 0) && (_Slave.waist >= -95) && (_Slave.lipsImplant == 0) && (_Slave.faceImplant < 2)>>
-	Natr
-<<else>>
-	Impl
-<</if>>
-<<if _Slave.lactation == 1>>
-	Lact
-<<elseif _Slave.lactation == 2>>
-	Lact++
-<</if>>
-<<modScore _Slave>>
-<<if _Slave.corsetPiercing == 0 && $piercingScore < 3 && $tatScore < 2>>
-<<elseif $modScore > 15 || ($piercingScore > 8 && $tatScore > 5)>>
-	Mods++
-<<elseif $modScore > 7>>
-	Mods+
-<<else>>
-	Mods
-<</if>>
-<<if _Slave.brand != 0>>
-	Br
-<</if>>
-@@
-<<elseif $abbreviatePhysicals == 2>>
-@@.pink;
-<<if $showAgeDetail == 1>>
-	Age _Slave.age.
-<<elseif _Slave.age >= 40>>
-	Forties.
-<<elseif _Slave.age >= 35>>
-	Late thirties.
-<<elseif _Slave.age >= 30>>
-	Early thirties.
-<<elseif _Slave.age >= 25>>
-	Late twenties.
-<<elseif _Slave.age >= 20>>
-	Early twenties.
-<<elseif _Slave.age >= 19>>
-	Nineteen.
-<<else>>
-	Eighteen.
-<</if>>
-<<if _Slave.ageImplant == 1>>
-	Looks younger.
-<</if>>
-<<if $summaryStats == 1>>
-<<if _Slave.face < -95>>
-	@@.red;Very ugly [_Slave.face]@@
-<<elseif _Slave.face < -40>>
-	@@.red;Ugly [_Slave.face]@@
-<<elseif _Slave.face < -10>>
-	@@.red;Unattractive [_Slave.face]@@
-<<elseif _Slave.face <= 10>>
-	Average [_Slave.face]
-<<elseif _Slave.face <= 40>>
-	@@.pink;Attractive [_Slave.face]@@
-<<elseif _Slave.face <= 95>>
-	@@.pink;Beautiful [_Slave.face]@@
-<<else>>
-	@@.pink;Very beautiful [_Slave.face]@@
+	<<if _Slave.teeth == "crooked">>
+		@@.yellow;Cr Teeth@@
+	<<elseif _Slave.teeth == "cosmetic braces">>
+		Cos Braces
+	<<elseif _Slave.teeth == "straightening braces">>
+		Braces
+	<<elseif _Slave.teeth == "removable">>
+		Rem Teeth
+	<<elseif _Slave.teeth == "pointy">>
+		Fangs
 	<</if>>
-<</if>>
-_Slave.faceShape face.
-<<if _Slave.eyes <= -2>>
-	@@.red;Blind.@@
-<<elseif _Slave.eyes <= -1>>
-	@@.yellow;Nearsighted.@@
-<</if>>
-<<if _Slave.lips > 95>>
-	Facepussy.
-<<elseif _Slave.lips > 70>>
-	Huge lips.
-<<elseif _Slave.lips > 40>>
-	Big lips.
-<<elseif _Slave.lips > 20>>
-	Pretty lips.
-<<elseif _Slave.lips > 10>>
-	Normal lips.
-<<else>>
-	@@.red;Thin lips.@@
-<</if>>
-<<if $summaryStats == 1>>[_Slave.lips]<</if>>
-<<if _Slave.teeth == "crooked">>
-	@@.yellow;Crooked teeth.@@
-<<elseif _Slave.teeth == "cosmetic braces">>
-	Cosmetic braces.
-<<elseif _Slave.teeth == "straightening braces">>
-	Braces.
-<<elseif _Slave.teeth == "removable">>
-	Removable teeth.
-<<elseif _Slave.teeth == "pointy">>
-	Sharp fangs.
-<</if>>
-<<if _Slave.muscles > 95>>
-	Hugely muscular.
-<<elseif _Slave.muscles > 30>>
-	Muscular.
-<<elseif _Slave.muscles > 5>>
-	Toned.
-<<else>>
-	Soft.
-<</if>>
-<<if $summaryStats == 1>>[_Slave.muscles]<</if>>
-<<if _Slave.amp != 0>>
-	<<if _Slave.amp == -1>>
-	Prosthetic limbs.
-	<<elseif _Slave.amp == -2>>
-	Sexy prosthetic limbs.
-	<<elseif _Slave.amp == -3>>
-	Beautiful prosthetic limbs.
-	<<elseif _Slave.amp == -4>>
-	Deadly prosthetic limbs.
-	<<elseif _Slave.amp == -5>>
-	Cyber prosthetic limbs.
+	<<if _Slave.muscles > 95>>
+		Musc++
+	<<elseif _Slave.muscles > 30>>
+		Musc+
+	<<elseif _Slave.muscles > 5>>
+		Toned
 	<<else>>
-	Amputee.
+		Musc-
 	<</if>>
-<</if>>
-<<if !canWalk(_Slave)>>
-	Immobile.
-<</if>>
-<<if _Slave.heels == 1>>
-	Heeled.
-<</if>>
-@@
-<<if _Slave.voice == 0>>
-	@@.pink;Mute.@@
-<<else>>
-	<<if _Slave.accent == 3>>
-		@@.red;Bad accent.@@
-	<<elseif _Slave.accent == 2>>
-		Accent.
-	<<elseif _Slave.accent == 1>>
-		@@.pink;Cute accent.@@
+	<<if $summaryStats == 1>>[_Slave.muscles]<</if>>
+	<<if _Slave.amp != 0>>
+	  <<if _Slave.amp == -1>>
+		P-Limbs
+	  <<elseif _Slave.amp == -2>>
+		Sex P-Limbs
+	  <<elseif _Slave.amp == -3>>
+		Beauty P-Limbs
+	  <<elseif _Slave.amp == -4>>
+		Combat P-Limbs
+	  <<elseif _Slave.amp == -5>>
+		Cyber P-Limbs
+	  <<else>>
+		Amp
+	  <</if>>
 	<</if>>
-<</if>>
-@@.pink;
-<<if (_Slave.boobs > 10000) && (_Slave.butt > 9)>>
-	Hyper T&A.
-<<elseif (_Slave.boobs > 4000) && (_Slave.butt > 8)>>
-	Enormous T&A.
-<<elseif (_Slave.boobs > 2000) && (_Slave.butt > 6)>>
-	Huge T&A.
-<<elseif (_Slave.boobs > 800) && (_Slave.butt > 4)>>
-	Big T&A.
-<<elseif (_Slave.boobs < 500) && (_Slave.butt < 3) && (_Slave.weight <= 10) && (_Slave.muscles <= 30)>>
-	Girlish figure.
-<<elseif _Slave.boobs > 10000>>
-	Immobilizing tits.
-<<elseif _Slave.boobs > 4000>>
-	Monstrous tits.
-<<elseif _Slave.boobs > 2000>>
-	Huge tits.
-<<elseif _Slave.boobs > 800>>
-	Big tits.
-<<elseif _Slave.butt > 9>>
-	Hyper ass.
-<<elseif _Slave.butt > 8>>
-	Titanic ass.
-<<elseif _Slave.butt > 6>>
-	Huge ass.
-<<elseif _Slave.butt > 4>>
-	Big ass.
-<</if>>
-@@
-@@.red;
-<<if _Slave.hips < -1>>
-<<if _Slave.butt > 2 && $arcologies[0].FSTransformationFetishist < 20>>
-	Disproportionately big butt.
-<</if>>
-<<elseif _Slave.hips < 0>>
-<<if _Slave.butt > 4 && $arcologies[0].FSTransformationFetishist < 20>>
-	Disproportionately big butt.
-<</if>>
-<<elseif _Slave.hips > 1>>
-<<if _Slave.butt <= 3>>
-	Disproportionately small butt.
-<</if>>
-<<elseif _Slave.hips > 0>>
-<<if _Slave.butt > 8>>
-<<if $arcologies[0].FSTransformationFetishist < 20>>
-	Disproportionately big butt.
-<</if>>
-<<elseif _Slave.butt <= 2>>
-	Disproportionately small butt.
-<</if>>
-<<else>>
-<<if _Slave.butt > 6>>
-<<if $arcologies[0].FSTransformationFetishist < 20>>
-	Disproportionately big butt.
-<</if>>
-<<elseif _Slave.butt <= 1>>
-	Disproportionately small butt.
-<</if>>
-<</if>>
-@@
-<<if $summaryStats == 1>>
-<<if _Slave.waist > 95>>
-@@.red;Masculine waist. [_Slave.waist]@@
-<<elseif _Slave.waist > 40>>@@.red;Ugly waist. [_Slave.waist]@@
-<<elseif _Slave.waist > 10>>@@.red;Unattractive waist. [_Slave.waist]@@
-<<elseif _Slave.waist >= -10>>Average waist. [_Slave.waist]
-<<elseif _Slave.waist >= -40>>@@.pink;Feminine waist. [_Slave.waist]@@
-<<elseif _Slave.waist >= -95>>@@.pink;Hourglass waist. [_Slave.waist]@@
-<<else>>@@.pink;Absurdly narrow waist. [_Slave.waist]@@
-<</if>>
-<</if>>
-@@.pink;
-<<if (_Slave.boobsImplant != 0) || (_Slave.buttImplant != 0) || (_Slave.lipsImplant != 0)>>
-	Implants.
-<<elseif (_Slave.faceImplant >= 2) || (_Slave.waist < -95)>>
-	Surgery enhanced.
-<<else>>
-	All natural.
-<</if>>
-<<if _Slave.lactation == 1>>
-	Lactating naturally.
-<<elseif _Slave.lactation == 2>>
-	Heavy lactation.
-<</if>>
-<<modScore _Slave>>
-<<if _Slave.corsetPiercing == 0 && $piercingScore < 3 && $tatScore < 2>>
-<<elseif $modScore > 15 || ($piercingScore > 8 && $tatScore > 5)>>
-	Extensive body mods.
-<<elseif $modScore > 7>>
-	Noticeable body mods.
-<<else>>
-	Light body mods.
-<</if>>
-<<if _Slave.brand != 0>>
-	Branded.
-<</if>>
-@@
+	<<if !canWalk(_Slave)>>
+		Immob
+	<</if>>
+	<<if _Slave.heels == 1>>
+		Heel
+	<</if>>
+	@@
+	<<if _Slave.voice == 0>>
+		@@.pink;Mute@@
+	<<else>>
+		<<if _Slave.accent == 3>>
+			@@.red;Acc--@@
+		<<elseif _Slave.accent == 2>>
+			Acc-
+		<<elseif _Slave.accent == 1>>
+			@@.pink;Acc@@
+		<</if>>
+	<</if>>
+	@@.pink;
+	<<if (_Slave.boobs > 10000) && (_Slave.butt > 9)>>
+		T&A+++
+	<<elseif (_Slave.boobs > 4000) && (_Slave.butt > 8)>>
+		T&A++
+	<<elseif (_Slave.boobs > 2000) && (_Slave.butt > 6)>>
+		T&A+
+	<<elseif (_Slave.boobs > 800) && (_Slave.butt > 4)>>
+		T&A
+	<<elseif (_Slave.boobs < 500) && (_Slave.butt < 3) && (_Slave.weight <= 10) && (_Slave.muscles <= 30)>>
+		Girlish
+	<<elseif _Slave.boobs > 10000>>
+		Boobs+++
+	<<elseif _Slave.boobs > 4000>>
+		Boobs++
+	<<elseif _Slave.boobs > 2000>>
+		Boobs+
+	<<elseif _Slave.boobs > 800>>
+		Boobs
+	<<elseif _Slave.butt > 9>>
+		Ass+++
+	<<elseif _Slave.butt > 8>>
+		Ass++
+	<<elseif _Slave.butt > 6>>
+		Ass+
+	<<elseif _Slave.butt > 4>>
+		Ass
+	<</if>>
+	@@
+	@@.red;
+	<<if _Slave.hips < -1>>
+		<<if _Slave.butt > 2 && $arcologies[0].FSTransformationFetishist < 20>>
+			Disp
+		<</if>>
+		<<elseif _Slave.hips < 0>>
+			<<if _Slave.butt > 4 && $arcologies[0].FSTransformationFetishist < 20>>
+				Disp
+			<</if>>
+		<<elseif _Slave.hips > 1>>
+			<<if _Slave.butt <= 3>>
+				Disp
+			<</if>>
+		<<elseif _Slave.hips > 0>>
+			<<if _Slave.butt > 8>>
+				<<if $arcologies[0].FSTransformationFetishist < 20>>
+					Disp
+				<</if>>
+			<<elseif _Slave.butt <= 2>>
+				Disp
+			<</if>>
+		<<else>>
+		<<if _Slave.butt > 6>>
+			<<if $arcologies[0].FSTransformationFetishist < 20>>
+				Disp
+			<</if>>
+		<<elseif _Slave.butt <= 1>>
+			Disp
+		<</if>>
+	<</if>>
+	@@
+	<<if $summaryStats == 1>>
+		<<if _Slave.waist > 95>>
+		@@.red;Wst---[_Slave.waist]@@
+		<<elseif _Slave.waist > 40>>@@.red;Wst--[_Slave.waist]@@
+		<<elseif _Slave.waist > 10>>@@.red;Wst-[_Slave.waist]@@
+		<<elseif _Slave.waist >= -10>>Wst[_Slave.waist]
+		<<elseif _Slave.waist >= -40>>@@.pink;Wst+[_Slave.waist]@@
+		<<elseif _Slave.waist >= -95>>@@.pink;Wst++[_Slave.waist]@@
+		<<else>>@@.pink;Wst+++[_Slave.waist]@@
+		<</if>>
+	<</if>>
+	@@.pink;
+	<<if (_Slave.boobsImplant == 0) && (_Slave.buttImplant == 0) && (_Slave.waist >= -95) && (_Slave.lipsImplant == 0) && (_Slave.faceImplant < 2)>>
+		Natr
+	<<else>>
+		Impl
+	<</if>>
+	<<if _Slave.lactation == 1>>
+		Lact
+	<<elseif _Slave.lactation == 2>>
+		Lact++
+	<</if>>
+	<<modScore _Slave>>
+	<<if _Slave.corsetPiercing == 0 && $piercingScore < 3 && $tatScore < 2>>
+	<<elseif $modScore > 15 || ($piercingScore > 8 && $tatScore > 5)>>
+		Mods++
+	<<elseif $modScore > 7>>
+		Mods+
+	<<else>>
+		Mods
+	<</if>>
+	<<if _Slave.brand != 0>>
+		Br
+	<</if>>
+	@@
+<<elseif $abbreviatePhysicals == 2>>
+	@@.pink;
+	<<if $showAgeDetail == 1>>
+		Age _Slave.age.
+	<<elseif _Slave.age >= 40>>
+		Forties.
+	<<elseif _Slave.age >= 35>>
+		Late thirties.
+	<<elseif _Slave.age >= 30>>
+		Early thirties.
+	<<elseif _Slave.age >= 25>>
+		Late twenties.
+	<<elseif _Slave.age >= 20>>
+		Early twenties.
+	<<elseif _Slave.age >= 19>>
+		Nineteen.
+	<<else>>
+		Eighteen.
+	<</if>>
+	<<if _Slave.ageImplant == 1>>
+		Looks younger.
+	<</if>>
+	<<if $summaryStats == 1>>
+		<<if _Slave.face < -95>>
+			@@.red;Very ugly [_Slave.face]@@
+		<<elseif _Slave.face < -40>>
+			@@.red;Ugly [_Slave.face]@@
+		<<elseif _Slave.face < -10>>
+			@@.red;Unattractive [_Slave.face]@@
+		<<elseif _Slave.face <= 10>>
+			Average [_Slave.face]
+		<<elseif _Slave.face <= 40>>
+			@@.pink;Attractive [_Slave.face]@@
+		<<elseif _Slave.face <= 95>>
+			@@.pink;Beautiful [_Slave.face]@@
+		<<else>>
+			@@.pink;Very beautiful [_Slave.face]@@
+		<</if>>
+	<</if>>
+	_Slave.faceShape face.
+	<<if _Slave.eyes <= -2>>
+		@@.red;Blind.@@
+	<<elseif _Slave.eyes <= -1>>
+		@@.yellow;Nearsighted.@@
+	<</if>>
+	<<if _Slave.lips > 95>>
+		Facepussy.
+	<<elseif _Slave.lips > 70>>
+		Huge lips.
+	<<elseif _Slave.lips > 40>>
+		Big lips.
+	<<elseif _Slave.lips > 20>>
+		Pretty lips.
+	<<elseif _Slave.lips > 10>>
+		Normal lips.
+	<<else>>
+		@@.red;Thin lips.@@
+	<</if>>
+	<<if $summaryStats == 1>>[_Slave.lips]<</if>>
+	<<if _Slave.teeth == "crooked">>
+		@@.yellow;Crooked teeth.@@
+	<<elseif _Slave.teeth == "cosmetic braces">>
+		Cosmetic braces.
+	<<elseif _Slave.teeth == "straightening braces">>
+		Braces.
+	<<elseif _Slave.teeth == "removable">>
+		Removable teeth.
+	<<elseif _Slave.teeth == "pointy">>
+		Sharp fangs.
+	<</if>>
+	<<if _Slave.muscles > 95>>
+		Hugely muscular.
+	<<elseif _Slave.muscles > 30>>
+		Muscular.
+	<<elseif _Slave.muscles > 5>>
+		Toned.
+	<<else>>
+		Soft.
+	<</if>>
+	<<if $summaryStats == 1>>[_Slave.muscles]<</if>>
+	<<if _Slave.amp != 0>>
+		<<if _Slave.amp == -1>>
+			Prosthetic limbs.
+		<<elseif _Slave.amp == -2>>
+			Sexy prosthetic limbs.
+		<<elseif _Slave.amp == -3>>
+			Beautiful prosthetic limbs.
+		<<elseif _Slave.amp == -4>>
+			Deadly prosthetic limbs.
+		<<elseif _Slave.amp == -5>>
+			Cyber prosthetic limbs.
+		<<else>>
+			Amputee.
+		<</if>>
+	<</if>>
+	<<if !canWalk(_Slave)>>
+		Immobile.
+	<</if>>
+	<<if _Slave.heels == 1>>
+		Heeled.
+	<</if>>
+	@@
+	<<if _Slave.voice == 0>>
+		@@.pink;Mute.@@
+	<<else>>
+		<<if _Slave.accent == 3>>
+			@@.red;Bad accent.@@
+		<<elseif _Slave.accent == 2>>
+			Accent.
+		<<elseif _Slave.accent == 1>>
+			@@.pink;Cute accent.@@
+		<</if>>
+	<</if>>
+	@@.pink;
+	<<if (_Slave.boobs > 10000) && (_Slave.butt > 9)>>
+		Hyper T&A.
+	<<elseif (_Slave.boobs > 4000) && (_Slave.butt > 8)>>
+		Enormous T&A.
+	<<elseif (_Slave.boobs > 2000) && (_Slave.butt > 6)>>
+		Huge T&A.
+	<<elseif (_Slave.boobs > 800) && (_Slave.butt > 4)>>
+		Big T&A.
+	<<elseif (_Slave.boobs < 500) && (_Slave.butt < 3) && (_Slave.weight <= 10) && (_Slave.muscles <= 30)>>
+		Girlish figure.
+	<<elseif _Slave.boobs > 10000>>
+		Immobilizing tits.
+	<<elseif _Slave.boobs > 4000>>
+		Monstrous tits.
+	<<elseif _Slave.boobs > 2000>>
+		Huge tits.
+	<<elseif _Slave.boobs > 800>>
+		Big tits.
+	<<elseif _Slave.butt > 9>>
+		Hyper ass.
+	<<elseif _Slave.butt > 8>>
+		Titanic ass.
+	<<elseif _Slave.butt > 6>>
+		Huge ass.
+	<<elseif _Slave.butt > 4>>
+		Big ass.
+	<</if>>
+	@@
+	@@.red;
+	<<if _Slave.hips < -1>>
+		<<if _Slave.butt > 2 && $arcologies[0].FSTransformationFetishist < 20>>
+			Disproportionately big butt.
+		<</if>>
+	<<elseif _Slave.hips < 0>>
+		<<if _Slave.butt > 4 && $arcologies[0].FSTransformationFetishist < 20>>
+			Disproportionately big butt.
+		<</if>>
+	<<elseif _Slave.hips > 1>>
+		<<if _Slave.butt <= 3>>
+			Disproportionately small butt.
+		<</if>>
+	<<elseif _Slave.hips > 0>>
+		<<if _Slave.butt > 8>>
+			<<if $arcologies[0].FSTransformationFetishist < 20>>
+				Disproportionately big butt.
+			<</if>>
+		<<elseif _Slave.butt <= 2>>
+			Disproportionately small butt.
+		<</if>>
+	<<else>>
+		<<if _Slave.butt > 6>>
+			<<if $arcologies[0].FSTransformationFetishist < 20>>
+				Disproportionately big butt.
+			<</if>>
+		<<elseif _Slave.butt <= 1>>
+			Disproportionately small butt.
+		<</if>>
+	<</if>>
+	@@
+	<<if $summaryStats == 1>>
+		<<if _Slave.waist > 95>>
+			@@.red;Masculine waist. [_Slave.waist]@@
+			<<elseif _Slave.waist > 40>>@@.red;Ugly waist. [_Slave.waist]@@
+			<<elseif _Slave.waist > 10>>@@.red;Unattractive waist. [_Slave.waist]@@
+			<<elseif _Slave.waist >= -10>>Average waist. [_Slave.waist]
+			<<elseif _Slave.waist >= -40>>@@.pink;Feminine waist. [_Slave.waist]@@
+			<<elseif _Slave.waist >= -95>>@@.pink;Hourglass waist. [_Slave.waist]@@
+			<<else>>@@.pink;Absurdly narrow waist. [_Slave.waist]@@
+		<</if>>
+	<</if>>
+	@@.pink;
+	<<if (_Slave.boobsImplant != 0) || (_Slave.buttImplant != 0) || (_Slave.lipsImplant != 0)>>
+		Implants.
+	<<elseif (_Slave.faceImplant >= 2) || (_Slave.waist < -95)>>
+		Surgery enhanced.
+	<<else>>
+		All natural.
+	<</if>>
+	<<if _Slave.lactation == 1>>
+		Lactating naturally.
+	<<elseif _Slave.lactation == 2>>
+		Heavy lactation.
+	<</if>>
+	<<modScore _Slave>>
+	<<if _Slave.corsetPiercing == 0 && $piercingScore < 3 && $tatScore < 2>>
+	<<elseif $modScore > 15 || ($piercingScore > 8 && $tatScore > 5)>>
+		Extensive body mods.
+	<<elseif $modScore > 7>>
+		Noticeable body mods.
+	<<else>>
+		Light body mods.
+	<</if>>
+	<<if _Slave.brand != 0>>
+		Branded.
+	<</if>>
+	@@
 <</if>>
 
 <br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>
 
 <<if $abbreviateSkills == 1>>
-<<if _Slave.fetish == "mindbroken">>
-<<elseif _Slave.intelligenceImplant == 1>>
-<<switch _Slave.intelligence>>
-<<case 3>>
-	@@.deepskyblue;I+++(e)@@
-<<case 2>>
-	@@.deepskyblue;I++(e)@@
-<<case 1>>
-	@@.deepskyblue;I+(e)@@
-<<case -1>>
-	@@.orangered;I-(e)@@
-<<case -2>>
-	@@.orangered;I--(e)@@
-<<case -3>>
-	@@.orangered;I---(e)@@
-<<default>>
-	I(e)
-<</switch>>
-<<else>>
-<<switch _Slave.intelligence>>
-<<case 3>>
-	@@.deepskyblue;I+++@@
-<<case 2>>
-	@@.deepskyblue;I++@@
-<<case 1>>
-	@@.deepskyblue;I+@@
-<<case -1>>
-	@@.orangered;I-@@
-<<case -2>>
-	@@.orangered;I--@@
-<<case -3>>
-	@@.orangered;I---@@
-<<default>>
-	I
-<</switch>>
-<</if>>
+	<<if _Slave.fetish == "mindbroken">>
+	<<elseif _Slave.intelligenceImplant == 1>>
+		<<switch _Slave.intelligence>>
+		<<case 3>>
+			@@.deepskyblue;I+++(e)@@
+		<<case 2>>
+			@@.deepskyblue;I++(e)@@
+		<<case 1>>
+			@@.deepskyblue;I+(e)@@
+		<<case -1>>
+			@@.orangered;I-(e)@@
+		<<case -2>>
+			@@.orangered;I--(e)@@
+		<<case -3>>
+			@@.orangered;I---(e)@@
+		<<default>>
+			I(e)
+		<</switch>>
+	<<else>>
+		<<switch _Slave.intelligence>>
+		<<case 3>>
+			@@.deepskyblue;I+++@@
+		<<case 2>>
+			@@.deepskyblue;I++@@
+		<<case 1>>
+			@@.deepskyblue;I+@@
+		<<case -1>>
+			@@.orangered;I-@@
+		<<case -2>>
+			@@.orangered;I--@@
+		<<case -3>>
+			@@.orangered;I---@@
+		<<default>>
+			I
+		<</switch>>
+	<</if>>
 
-<<set _SSkills = _Slave.analSkill+_Slave.oralSkill>>
-@@.aquamarine;
-<<if ((_SSkills+_Slave.whoreSkill+_Slave.entertainSkill) >= 400) && ((_Slave.vagina < 0) || (_Slave.vaginalSkill >= 100))>>
-	MSS
-<<else>>
-	<<set _SSkills += _Slave.vaginalSkill>>
-	<<set _SSkills = Math.trunc(_SSkills)>>
-	<<if _SSkills > 180>>S++
-		<<elseif (_SSkills > 120) && (_Slave.vagina < 0)>>Sh++
-		<<elseif _SSkills > 90>>S+
-		<<elseif _SSkills > 30>>S
-		<<else>>S-
-	<</if>>
-	<<if $summaryStats == 1>>[_SSkills]<</if>>
-	<<if _Slave.whoreSkill >= 100>>W+++
-		<<elseif _Slave.whoreSkill > 60>>W++
-		<<elseif _Slave.whoreSkill > 30>>W+
-		<<elseif _Slave.whoreSkill > 10>>W
-	<</if>>
-	<<if _Slave.whoreSkill > 10>>
-		<<if $summaryStats == 1>>[_Slave.whoreSkill]<</if>>
-	<</if>>
-	<<if _Slave.entertainSkill >= 100>>E+++
+	<<set _SSkills = _Slave.analSkill+_Slave.oralSkill>>
+	@@.aquamarine;
+	<<if ((_SSkills+_Slave.whoreSkill+_Slave.entertainSkill) >= 400) && ((_Slave.vagina < 0) || (_Slave.vaginalSkill >= 100))>>
+		MSS
+	<<else>>
+		<<set _SSkills += _Slave.vaginalSkill>>
+		<<set _SSkills = Math.trunc(_SSkills)>>
+		<<if _SSkills > 180>>S++
+			<<elseif (_SSkills > 120) && (_Slave.vagina < 0)>>Sh++
+			<<elseif _SSkills > 90>>S+
+			<<elseif _SSkills > 30>>S
+			<<else>>S-
+		<</if>>
+		<<if $summaryStats == 1>>[_SSkills]<</if>>
+		<<if _Slave.whoreSkill >= 100>>W+++
+			<<elseif _Slave.whoreSkill > 60>>W++
+			<<elseif _Slave.whoreSkill > 30>>W+
+			<<elseif _Slave.whoreSkill > 10>>W
+		<</if>>
+		<<if _Slave.whoreSkill > 10>>
+			<<if $summaryStats == 1>>[_Slave.whoreSkill]<</if>>
+		<</if>>
+		<<if _Slave.entertainSkill >= 100>>E+++
 		<<elseif _Slave.entertainSkill > 60>>E++
 		<<elseif _Slave.entertainSkill > 30>>E+
 		<<elseif _Slave.entertainSkill > 10>>E
+		<</if>>
+		<<if (_Slave.entertainSkill > 10) && ($summaryStats == 1)>>[_Slave.entertainSkill]<</if>>
 	<</if>>
-	<<if _Slave.entertainSkill > 10>>
-		<<if $summaryStats == 1>>[_Slave.entertainSkill]<</if>>
+	<<if _Slave.combatSkill > 0>>
+		C
 	<</if>>
-<</if>>
-<<if _Slave.combatSkill > 0>>
-	C
-<</if>>
-@@
-<<if _Slave.prestige > 0>>
-@@.green;
-<<if _Slave.prestige > 2>>
-	Prest++
-<<elseif _Slave.prestige == 2>>
-	Prest+
-<<elseif _Slave.prestige == 1>>
-	Prest
-<</if>>
-@@
-<</if>>
+	@@
+	<<if _Slave.prestige > 0>>
+		@@.green;
+		<<if _Slave.prestige > 2>>
+			Prest++
+		<<elseif _Slave.prestige == 2>>
+			Prest+
+		<<elseif _Slave.prestige == 1>>
+			Prest
+		<</if>>
+		@@
+	<</if>>
 <<elseif $abbreviateSkills == 2>>
-<<if _Slave.fetish == "mindbroken">>
-<<elseif _Slave.intelligenceImplant == 1>>
-<<switch _Slave.intelligence>>
-<<case 3>>
-	@@.deepskyblue;Brilliant, educated.@@
-<<case 2>>
-	@@.deepskyblue;Very smart, educated.@@
-<<case 1>>
-	@@.deepskyblue;Smart, educated.@@
-<<case -1>>
-	@@.orangered;Slow, educated.@@
-<<case -2>>
-	@@.orangered;Very slow, educated.@@
-<<case -3>>
-	@@.orangered;Moronic, educated.@@
-<<default>>
-	Average intelligence, educated.
-<</switch>>
-<<else>>
-<<switch _Slave.intelligence>>
-<<case 3>>
-	@@.deepskyblue;Brilliant.@@
-<<case 2>>
-	@@.deepskyblue;Very smart.@@
-<<case 1>>
-	@@.deepskyblue;Smart.@@
-<<case -1>>
-	@@.orangered;Slow.@@
-<<case -2>>
-	@@.orangered;Very slow.@@
-<<case -3>>
-	@@.orangered;Moronic.@@
-<<default>>
-	Average intelligence.
-<</switch>>
-<</if>>
-<<set _SSkills = (_Slave.analSkill+_Slave.oralSkill)>>
-@@.aquamarine;
-<<if ((_SSkills+_Slave.whoreSkill+_Slave.entertainSkill) >= 400) && ((_Slave.vagina < 0) || (_Slave.vaginalSkill >= 100))>>
-	Masterful Sex Slave.
-<<else>>
-	<<set _SSkills += _Slave.vaginalSkill>>
-	<<if _SSkills > 180>>
-		Sex master.
-	<<elseif (_SSkills > 120) && (_Slave.vagina < 0)>>
-		Masterful shemale.
-	<<elseif _SSkills > 90>>
-		Sexual expert.
-	<<elseif _SSkills > 30>>
-		Sexually skilled.
+	<<if _Slave.fetish == "mindbroken">>
+	<<elseif _Slave.intelligenceImplant == 1>>
+		<<switch _Slave.intelligence>>
+		<<case 3>>
+			@@.deepskyblue;Brilliant, educated.@@
+		<<case 2>>
+			@@.deepskyblue;Very smart, educated.@@
+		<<case 1>>
+			@@.deepskyblue;Smart, educated.@@
+		<<case -1>>
+			@@.orangered;Slow, educated.@@
+		<<case -2>>
+			@@.orangered;Very slow, educated.@@
+		<<case -3>>
+			@@.orangered;Moronic, educated.@@
+		<<default>>
+			Average intelligence, educated.
+		<</switch>>
 	<<else>>
-		Sexually unskilled.
+		<<switch _Slave.intelligence>>
+		<<case 3>>
+			@@.deepskyblue;Brilliant.@@
+		<<case 2>>
+			@@.deepskyblue;Very smart.@@
+		<<case 1>>
+			@@.deepskyblue;Smart.@@
+		<<case -1>>
+			@@.orangered;Slow.@@
+		<<case -2>>
+			@@.orangered;Very slow.@@
+		<<case -3>>
+			@@.orangered;Moronic.@@
+		<<default>>
+			Average intelligence.
+		<</switch>>
 	<</if>>
-	<<if $summaryStats == 1>><<set _SSkills = Math.trunc(_SSkills)>>[_SSkills]<</if>>
-	<<if _Slave.whoreSkill >= 100>>
-		Masterful whore.
-	<<elseif _Slave.whoreSkill >= 60>>
-		Expert whore.
-	<<elseif _Slave.whoreSkill >= 30>>
-		Skilled whore.
-	<<elseif _Slave.whoreSkill >= 10>>
-		Basic whore.
+	<<set _SSkills = (_Slave.analSkill+_Slave.oralSkill)>>
+	@@.aquamarine;
+	<<if ((_SSkills+_Slave.whoreSkill+_Slave.entertainSkill) >= 400) && ((_Slave.vagina < 0) || (_Slave.vaginalSkill >= 100))>>
+		Masterful Sex Slave.
+	<<else>>
+		<<set _SSkills += _Slave.vaginalSkill>>
+		<<if _SSkills > 180>>
+			Sex master.
+		<<elseif (_SSkills > 120) && (_Slave.vagina < 0)>>
+			Masterful shemale.
+		<<elseif _SSkills > 90>>
+			Sexual expert.
+		<<elseif _SSkills > 30>>
+			Sexually skilled.
+		<<else>>
+			Sexually unskilled.
+		<</if>>
+		<<if $summaryStats == 1>><<set _SSkills = Math.trunc(_SSkills)>>[_SSkills]<</if>>
+		<<if _Slave.whoreSkill >= 100>>
+			Masterful whore.
+		<<elseif _Slave.whoreSkill >= 60>>
+			Expert whore.
+		<<elseif _Slave.whoreSkill >= 30>>
+			Skilled whore.
+		<<elseif _Slave.whoreSkill >= 10>>
+			Basic whore.
+		<</if>>
+		<<if (_Slave.whoreSkill > 10) && ($summaryStats == 1)>>[_Slave.whoreSkill]<</if>>
+		<<if _Slave.entertainSkill >= 100>>
+			Masterful entertainer.
+		<<elseif _Slave.entertainSkill >= 60>>
+			Expert entertainer.
+		<<elseif _Slave.entertainSkill >= 30>>
+			Skilled entertainer.
+		<<elseif _Slave.entertainSkill >= 10>>
+			Basic entertainer.
+		<</if>>
+		<<if (_Slave.entertainSkill > 10) && ($summaryStats == 1)>>[_Slave.entertainSkill]<</if>>
 	<</if>>
-	<<if _Slave.whoreSkill > 10>><<if $summaryStats == 1>>[_Slave.whoreSkill]<</if>><</if>>
-	<<if _Slave.entertainSkill >= 100>>
-		Masterful entertainer.
-	<<elseif _Slave.entertainSkill >= 60>>
-		Expert entertainer.
-	<<elseif _Slave.entertainSkill >= 30>>
-		Skilled entertainer.
-	<<elseif _Slave.entertainSkill >= 10>>
-		Basic entertainer.
+	<<if _Slave.combatSkill > 0>>Trained fighter.<</if>>
+	@@
+	<<if _Slave.prestige > 0>>
+		@@.green;
+		<<if _Slave.prestige > 2>>
+			Extremely prestigious.
+		<<elseif _Slave.prestige == 2>>
+			Very prestigious.
+		<<elseif _Slave.prestige == 1>>
+			Prestigious.
+		<</if>>
+		@@
 	<</if>>
-	<<if _Slave.entertainSkill > 10>><<if $summaryStats == 1>>[_Slave.entertainSkill]<</if>><</if>>
-<</if>>
-<<if _Slave.combatSkill > 0>>
-	Trained fighter.
-<</if>>
-@@
-<<if _Slave.prestige > 0>>
-@@.green;
-<<if _Slave.prestige > 2>>
-	Extremely prestigious.
-<<elseif _Slave.prestige == 2>>
-	Very prestigious.
-<<elseif _Slave.prestige == 1>>
-	Prestigious.
-<</if>>
-@@
-<</if>>
 <</if>>
 
 <<if $abbreviateMental == 1>>
 	<<if _Slave.fetish != "mindbroken">>
-	<<if _Slave.fetishKnown == 1>>
-	@@.lightcoral;
-	<<switch _Slave.fetish>>
-	<<case "submissive">>
-	<<if _Slave.fetishStrength > 95>>
-		Sub++
-	<<elseif _Slave.fetishStrength > 60>>
-		Sub+
-	<<else>>
-		Sub
-	<</if>>
-	<<case "cumslut">>
-	<<if _Slave.fetishStrength > 95>>
-		Oral++
-	<<elseif _Slave.fetishStrength > 60>>
-		Oral+
-	<<else>>
-		Oral
-	<</if>>
-	<<case "humiliation">>
-	<<if _Slave.fetishStrength > 95>>
-		Humil++
-	<<elseif _Slave.fetishStrength > 60>>
-		Humil+
-	<<else>>
-		Humil
-	<</if>>
-	<<case "buttslut">>
-	<<if _Slave.fetishStrength > 95>>
-		Anal++
-	<<elseif _Slave.fetishStrength > 60>>
-		Anal+
-	<<else>>
-		Anal
-	<</if>>
-	<<case "boobs">>
-	<<if _Slave.fetishStrength > 95>>
-		Boobs++
-	<<elseif _Slave.fetishStrength > 60>>
-		Boobs+
-	<<else>>
-		Boobs
-	<</if>>
-	<<case "sadist">>
-	<<if _Slave.fetishStrength > 95>>
-		Sadist++
-	<<elseif _Slave.fetishStrength > 60>>
-		Sadist+
-	<<else>>
-		Sadist
-	<</if>>
-	<<case "masochist">>
-	<<if _Slave.fetishStrength > 95>>
-		Pain++
-	<<elseif _Slave.fetishStrength > 60>>
-		Pain+
-	<<else>>
-		Pain
-	<</if>>
-	<<case "dom">>
-	<<if _Slave.fetishStrength > 95>>
-		Dom++
-	<<elseif _Slave.fetishStrength > 60>>
-		Dom+
-	<<else>>
-		Dom
-	<</if>>
-	<<case "pregnancy">>
-	<<if _Slave.fetishStrength > 95>>
-		Preg++
-	<<elseif _Slave.fetishStrength > 60>>
-		Preg+
-	<<else>>
-		Preg
-	<</if>>
-	<<default>>
-		Vanilla
-	<</switch>>
-	<<if $summaryStats == 1>>[_Slave.fetishStrength]<</if>>
-	@@
-	<</if>>
-	<<if _Slave.attrKnown == 1>>
-	<<if $summaryStats == 1>>
-	<<if _Slave.attrXY <= 5>>
-		@@.red;XY---[_Slave.attrXY]@@
-	<<elseif _Slave.attrXY <= 15>>
-		@@.red;XY--[_Slave.attrXY]@@
-	<<elseif _Slave.attrXY <= 35>>
-		@@.red;XY-[_Slave.attrXY]@@
-	<<elseif _Slave.attrXY <= 65>>
-		XY[_Slave.attrXY]
-	<<elseif _Slave.attrXY <= 85>>
-		@@.green;XY+[_Slave.attrXY]@@
-	<<elseif _Slave.attrXY <= 95>>
-		@@.green;XY++[_Slave.attrXY]@@
-	<<elseif _Slave.attrXX > 95>>
-		<<if _Slave.energy <= 95>>
-			@@.green;Omni!@@
-		<<else>>
-			@@.green;Omni+Nympho!!@@
+		<<if _Slave.fetishKnown == 1>>
+			@@.lightcoral;
+			<<switch _Slave.fetish>>
+			<<case "submissive">>
+			<<if _Slave.fetishStrength > 95>>
+				Sub++
+			<<elseif _Slave.fetishStrength > 60>>
+				Sub+
+			<<else>>
+				Sub
+			<</if>>
+			<<case "cumslut">>
+			<<if _Slave.fetishStrength > 95>>
+				Oral++
+			<<elseif _Slave.fetishStrength > 60>>
+				Oral+
+			<<else>>
+				Oral
+			<</if>>
+			<<case "humiliation">>
+			<<if _Slave.fetishStrength > 95>>
+				Humil++
+			<<elseif _Slave.fetishStrength > 60>>
+				Humil+
+			<<else>>
+				Humil
+			<</if>>
+			<<case "buttslut">>
+			<<if _Slave.fetishStrength > 95>>
+				Anal++
+			<<elseif _Slave.fetishStrength > 60>>
+				Anal+
+			<<else>>
+				Anal
+			<</if>>
+			<<case "boobs">>
+			<<if _Slave.fetishStrength > 95>>
+				Boobs++
+			<<elseif _Slave.fetishStrength > 60>>
+				Boobs+
+			<<else>>
+				Boobs
+			<</if>>
+			<<case "sadist">>
+			<<if _Slave.fetishStrength > 95>>
+				Sadist++
+			<<elseif _Slave.fetishStrength > 60>>
+				Sadist+
+			<<else>>
+				Sadist
+			<</if>>
+			<<case "masochist">>
+			<<if _Slave.fetishStrength > 95>>
+				Pain++
+			<<elseif _Slave.fetishStrength > 60>>
+				Pain+
+			<<else>>
+				Pain
+			<</if>>
+			<<case "dom">>
+			<<if _Slave.fetishStrength > 95>>
+				Dom++
+			<<elseif _Slave.fetishStrength > 60>>
+				Dom+
+			<<else>>
+				Dom
+			<</if>>
+			<<case "pregnancy">>
+			<<if _Slave.fetishStrength > 95>>
+				Preg++
+			<<elseif _Slave.fetishStrength > 60>>
+				Preg+
+			<<else>>
+				Preg
+			<</if>>
+			<<default>>
+				Vanilla
+			<</switch>>
+			<<if $summaryStats == 1>>[_Slave.fetishStrength]<</if>>
+			@@
 		<</if>>
-	<<else>>
-		@@.green;XY+++[_Slave.attrXY]@@
+		<<if _Slave.attrKnown == 1>>
+			<<if $summaryStats == 1>>
+				<<if _Slave.attrXY <= 5>>
+					@@.red;XY---[_Slave.attrXY]@@
+				<<elseif _Slave.attrXY <= 15>>
+					@@.red;XY--[_Slave.attrXY]@@
+				<<elseif _Slave.attrXY <= 35>>
+					@@.red;XY-[_Slave.attrXY]@@
+				<<elseif _Slave.attrXY <= 65>>
+					XY[_Slave.attrXY]
+				<<elseif _Slave.attrXY <= 85>>
+					@@.green;XY+[_Slave.attrXY]@@
+				<<elseif _Slave.attrXY <= 95>>
+					@@.green;XY++[_Slave.attrXY]@@
+				<<elseif _Slave.attrXX > 95>>
+					<<if _Slave.energy <= 95>>
+						@@.green;Omni!@@
+					<<else>>
+						@@.green;Omni+Nympho!!@@
+					<</if>>
+				<<else>>
+					@@.green;XY+++[_Slave.attrXY]@@
+				<</if>>
+			<</if>>
+			<<if $summaryStats == 1>>
+				<<if _Slave.attrXX <= 5>>
+					@@.red;XX---[_Slave.attrXX]@@
+				<<elseif _Slave.attrXX <= 15>>
+					@@.red;XX--[_Slave.attrXX]@@
+				<<elseif _Slave.attrXX <= 35>>
+					@@.red;XX-[_Slave.attrXX]@@
+				<<elseif _Slave.attrXX <= 65>>
+					XX[_Slave.attrXX]
+				<<elseif _Slave.attrXX <= 85>>
+					@@.green;XX+[_Slave.attrXX]@@
+				<<elseif _Slave.attrXX <= 95>>
+					@@.green;XX++[_Slave.attrXX]@@
+				<<elseif _Slave.attrXY <= 95>>
+					@@.green;XX+++[_Slave.attrXX]@@
+				<</if>>
+			<</if>>
+			<<if $summaryStats == 1>>
+				<<if _Slave.energy > 95>>
+					<<if (_Slave.attrXY <= 95) || (_Slave.attrXX <= 95)>>
+						@@.green;Nympho!@@
+					<</if>>
+				<<elseif _Slave.energy > 80>>
+					@@.green;SD++[_Slave.energy]@@
+				<<elseif _Slave.energy > 60>>
+					@@.green;SD+[_Slave.energy]@@
+				<<elseif _Slave.energy > 40>>
+					@@.yellow;SD[_Slave.energy]@@
+				<<elseif _Slave.energy > 20>>
+					@@.red;SD-[_Slave.energy]@@
+				<<else>>
+					@@.red;SD--[_Slave.energy]@@
+				<</if>>
+			<</if>>
 		<</if>>
-	<</if>>
-	<<if $summaryStats == 1>>
-	<<if _Slave.attrXX <= 5>>
-		@@.red;XX---[_Slave.attrXX]@@
-	<<elseif _Slave.attrXX <= 15>>
-		@@.red;XX--[_Slave.attrXX]@@
-	<<elseif _Slave.attrXX <= 35>>
-		@@.red;XX-[_Slave.attrXX]@@
-	<<elseif _Slave.attrXX <= 65>>
-		XX[_Slave.attrXX]
-	<<elseif _Slave.attrXX <= 85>>
-		@@.green;XX+[_Slave.attrXX]@@
-	<<elseif _Slave.attrXX <= 95>>
-		@@.green;XX++[_Slave.attrXX]@@
-	<<elseif _Slave.attrXY <= 95>>
-		@@.green;XX+++[_Slave.attrXX]@@
-		<</if>>
-	<</if>>
-	<<if $summaryStats == 1>>
-	<<if _Slave.energy > 95>>
-		<<if (_Slave.attrXY <= 95) || (_Slave.attrXX <= 95)>>
-			@@.green;Nympho!@@
-		<</if>>
-	<<elseif _Slave.energy > 80>>
-		@@.green;SD++[_Slave.energy]@@
-	<<elseif _Slave.energy > 60>>
-		@@.green;SD+[_Slave.energy]@@
-	<<elseif _Slave.energy > 40>>
-		@@.yellow;SD[_Slave.energy]@@
-	<<elseif _Slave.energy > 20>>
-		@@.red;SD-[_Slave.energy]@@
-	<<else>>
-		@@.red;SD--[_Slave.energy]@@
-		<</if>>
-	<</if>>
-	<</if>>
 	<</if>>
 	<<if _Slave.clitPiercing == 3>>
-	<<if _Slave.fetishKnown == 1>>
-	<<if _Slave.clitSetting == "off">>
-		SP-
-	<<elseif ((_Slave.fetish != "submissive") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting == "submissive")>>
-		SP:sub
-	<<elseif ((_Slave.fetish != "cumslut") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting == "oral")>>
-		SP:oral
-	<<elseif ((_Slave.fetish != "humiliation") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting == "humiliation")>>
-		SP:humil
-	<<elseif ((_Slave.fetish != "buttslut") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting == "anal")>>
-		SP:anal
-	<<elseif ((_Slave.fetish != "boobs") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting == "boobs")>>
-		SP:boobs
-	<<elseif ((_Slave.fetish != "sadist") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting == "sadist")>>
-		SP:sade
-	<<elseif ((_Slave.fetish != "masochist") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting == "masochist")>>
-		SP:pain
-	<<elseif ((_Slave.fetish != "dom") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting == "dom")>>
-		SP:dom
-	<<elseif ((_Slave.fetish != "pregnancy") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting == "pregnancy")>>
-		SP:preg
-	<<elseif ((_Slave.fetish != "none") && (_Slave.clitSetting == "vanilla"))>>
-		SP:vanilla
-	<<elseif (_Slave.energy <= 95) && (_Slave.clitSetting == "all")>>
-		SP:all
-	<<elseif (_Slave.energy > 5) && (_Slave.clitSetting == "none")>>
-		SP:none
-	<</if>>
-	<<else>>
-	<<switch _Slave.clitSetting>>
-	<<case "off">>
-		SP-
-	<<case "submissive">>
-		SP:sub
-	<<case "lesbian">>
-		SP:les
-	<<case "oral">>
-		SP:oral
-	<<case "humiliation">>
-		SP:humil
-	<<case "anal">>
-		SP:anal
-	<<case "boobs">>
-		SP:boobs
-	<<case "sadist">>
-		SP:sade
-	<<case "masochist">>
-		SP:pain
-	<<case "dom">>
-		SP:dom
-	<<case "pregnancy">>
-		SP:pregnancy
-	<<case "vanilla">>
-		SP:vanilla
-	<<case "all">>
-		SP:all
-	<<case "none">>
-		SP:none
-	<</switch>>
-	<</if>>
-	<<if _Slave.attrKnown == 1>>
-		<<if _Slave.clitSetting == "women">>
-			<<if _Slave.attrXX < 95>>SP:women<</if>>
-		<<elseif _Slave.clitSetting == "men">>
-			<<if _Slave.attrXY < 95>>SP:men<</if>>
-		<<elseif _Slave.clitSetting == "anti-women">>
-			<<if _Slave.attrXX > 0>>SP:anti-women<</if>>
-		<<elseif _Slave.clitSetting == "anti-men">>
-			<<if _Slave.attrXY > 0>>SP:anti-men<</if>>
+		<<if _Slave.fetishKnown == 1>>
+			<<if _Slave.clitSetting == "off">>
+				SP-
+			<<elseif ((_Slave.fetish != "submissive") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting == "submissive")>>
+				SP:sub
+			<<elseif ((_Slave.fetish != "cumslut") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting == "oral")>>
+				SP:oral
+			<<elseif ((_Slave.fetish != "humiliation") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting == "humiliation")>>
+				SP:humil
+			<<elseif ((_Slave.fetish != "buttslut") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting == "anal")>>
+				SP:anal
+			<<elseif ((_Slave.fetish != "boobs") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting == "boobs")>>
+				SP:boobs
+			<<elseif ((_Slave.fetish != "sadist") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting == "sadist")>>
+				SP:sade
+			<<elseif ((_Slave.fetish != "masochist") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting == "masochist")>>
+				SP:pain
+			<<elseif ((_Slave.fetish != "dom") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting == "dom")>>
+				SP:dom
+			<<elseif ((_Slave.fetish != "pregnancy") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting == "pregnancy")>>
+				SP:preg
+			<<elseif ((_Slave.fetish != "none") && (_Slave.clitSetting == "vanilla"))>>
+				SP:vanilla
+			<<elseif (_Slave.energy <= 95) && (_Slave.clitSetting == "all")>>
+				SP:all
+			<<elseif (_Slave.energy > 5) && (_Slave.clitSetting == "none")>>
+				SP:none
+			<</if>>
+		<<else>>
+			<<switch _Slave.clitSetting>>
+			<<case "off">>
+				SP-
+			<<case "submissive">>
+				SP:sub
+			<<case "lesbian">>
+				SP:les
+			<<case "oral">>
+				SP:oral
+			<<case "humiliation">>
+				SP:humil
+			<<case "anal">>
+				SP:anal
+			<<case "boobs">>
+				SP:boobs
+			<<case "sadist">>
+				SP:sade
+			<<case "masochist">>
+				SP:pain
+			<<case "dom">>
+				SP:dom
+			<<case "pregnancy">>
+				SP:pregnancy
+			<<case "vanilla">>
+				SP:vanilla
+			<<case "all">>
+				SP:all
+			<<case "none">>
+				SP:none
+			<</switch>>
 		<</if>>
-	<<else>>
-		<<if _Slave.clitSetting == "women">>
-			SP:women
-		<<elseif _Slave.clitSetting == "men">>
-			SP:men
-		<<elseif _Slave.clitSetting == "anti-women">>
-			SP:anti-women
-		<<elseif _Slave.clitSetting == "anti-men">>
-			SP:anti-men
+		<<if _Slave.attrKnown == 1>>
+			<<if _Slave.clitSetting == "women">>
+				<<if _Slave.attrXX < 95>>SP:women<</if>>
+			<<elseif _Slave.clitSetting == "men">>
+				<<if _Slave.attrXY < 95>>SP:men<</if>>
+			<<elseif _Slave.clitSetting == "anti-women">>
+				<<if _Slave.attrXX > 0>>SP:anti-women<</if>>
+			<<elseif _Slave.clitSetting == "anti-men">>
+				<<if _Slave.attrXY > 0>>SP:anti-men<</if>>
+			<</if>>
+		<<else>>
+			<<if _Slave.clitSetting == "women">>
+				SP:women
+			<<elseif _Slave.clitSetting == "men">>
+				SP:men
+			<<elseif _Slave.clitSetting == "anti-women">>
+				SP:anti-women
+			<<elseif _Slave.clitSetting == "anti-men">>
+				SP:anti-men
+			<</if>>
 		<</if>>
-	<</if>>
 	<</if>>
 	@@.red;
 	<<switch _Slave.behavioralFlaw>>
@@ -2348,216 +2344,217 @@ _Slave.faceShape face.
 	@@
 <<elseif $abbreviateMental == 2>>
 	<<if _Slave.fetish != "mindbroken">>
-	<<if _Slave.fetishKnown == 1>>
-	@@.lightcoral;
-	<<switch _Slave.fetish>>
-	<<case "submissive">>
-		<<if _Slave.fetishStrength > 95>>
-			Complete submissive.
-		<<elseif _Slave.fetishStrength > 60>>
-			Submissive.
-		<<else>>
-			Submissive tendencies.
+		<<if _Slave.fetishKnown == 1>>
+			@@.lightcoral;
+			<<switch _Slave.fetish>>
+			<<case "submissive">>
+				<<if _Slave.fetishStrength > 95>>
+					Complete submissive.
+				<<elseif _Slave.fetishStrength > 60>>
+					Submissive.
+				<<else>>
+					Submissive tendencies.
+				<</if>>
+			<<case "cumslut">>
+				<<if _Slave.fetishStrength > 95>>
+					Cumslut.
+				<<elseif _Slave.fetishStrength > 60>>
+					Oral fixation.
+				<<else>>
+					Prefers oral.
+				<</if>>
+			<<case "humiliation">>
+				<<if _Slave.fetishStrength > 95>>
+					Humiliation slut.
+				<<elseif _Slave.fetishStrength > 60>>
+					Exhibitionist.
+				<<else>>
+					Interest in humiliation.
+				<</if>>
+			<<case "buttslut">>
+				<<if _Slave.fetishStrength > 95>>
+					Buttslut.
+				<<elseif _Slave.fetishStrength > 60>>
+					Anal fixation.
+				<<else>>
+					Prefers anal.
+				<</if>>
+			<<case "boobs">>
+				<<if _Slave.fetishStrength > 95>>
+					Boobslut.
+				<<elseif _Slave.fetishStrength > 60>>
+					Breast fixation.
+				<<else>>
+					Loves boobs.
+				<</if>>
+			<<case "sadist">>
+				<<if _Slave.fetishStrength > 95>>
+					Complete sadist.
+				<<elseif _Slave.fetishStrength > 60>>
+					Sadist.
+				<<else>>
+					Sadistic tendencies.
+				<</if>>
+			<<case "masochist">>
+				<<if _Slave.fetishStrength > 95>>
+					Complete masochist.
+				<<elseif _Slave.fetishStrength > 60>>
+					Masochist.
+				<<else>>
+					Masochistic tendencies.
+				<</if>>
+			<<case "dom">>
+				<<if _Slave.fetishStrength > 95>>
+					Complete dom.
+				<<elseif _Slave.fetishStrength > 60>>
+					Dominant.
+				<<else>>
+					Dominant tendencies.
+				<</if>>
+			<<case "pregnancy">>
+				<<if _Slave.fetishStrength > 95>>
+					Pregnancy fetish.
+				<<elseif _Slave.fetishStrength > 60>>
+					Pregnancy kink.
+				<<else>>
+					Interest in impregnation.
+				<</if>>
+			<<default>>
+				Sexually vanilla.
+			<</switch>>
+			<<if $summaryStats == 1>>[_Slave.fetishStrength]<</if>>
+			@@
 		<</if>>
-	<<case "cumslut">>
-		<<if _Slave.fetishStrength > 95>>
-			Cumslut.
-		<<elseif _Slave.fetishStrength > 60>>
-			Oral fixation.
-		<<else>>
-			Prefers oral.
+		<<if _Slave.attrKnown == 1>>
+			<<if $summaryStats == 1>>
+				<<if _Slave.attrXY <= 5>>
+					@@.red;Disgusted by men [_Slave.attrXY]@@
+				<<elseif _Slave.attrXY <= 15>>
+					@@.red;Turned off by men [_Slave.attrXY]@@
+				<<elseif _Slave.attrXY <= 35>>
+					@@.red;Not attracted to men [_Slave.attrXY]@@
+				<<elseif _Slave.attrXY <= 65>>
+					Indifferent to men [_Slave.attrXY]
+				<<elseif _Slave.attrXY <= 85>>
+					@@.green;Attracted to men [_Slave.attrXY]@@
+				<<elseif _Slave.attrXY <= 95>>
+					@@.green;Aroused by men [_Slave.attrXY]@@
+				<<elseif _Slave.attrXX > 95>>
+					<<if _Slave.energy <= 95>>
+						@@.green;Omnisexual!@@
+					<<else>>
+						@@.green;Omnisexual nymphomaniac!@@
+					<</if>>
+				<<else>>
+					@@.green;Passionate about men [_Slave.attrXY]<</if>>,@@
+			<</if>>
+			<<if $summaryStats == 1>>
+				<<if _Slave.attrXX <= 5>>
+					@@.red;disgusted by women [_Slave.attrXX] @@
+				<<elseif _Slave.attrXX <= 15>>
+					@@.red;turned off by women [_Slave.attrXX] @@
+				<<elseif _Slave.attrXX <= 35>>
+					@@.red;not attracted to women [_Slave.attrXX] @@
+				<<elseif _Slave.attrXX <= 65>>
+					indifferent to women [_Slave.attrXX]
+				<<elseif _Slave.attrXX <= 85>>
+					@@.green;attracted to women [_Slave.attrXX] @@
+				<<elseif _Slave.attrXX <= 95>>
+					@@.green;aroused by women [_Slave.attrXX] @@
+				<<elseif _Slave.attrXY <= 95>>
+					@@.green;passionate about women [_Slave.attrXX]<</if>>. @@
+			<</if>>
+			<<if $summaryStats == 1>>
+				<<if _Slave.energy > 95>>
+					<<if (_Slave.attrXY <= 95) || (_Slave.attrXX <= 95)>>
+						@@.green;Nymphomaniac!@@
+					<</if>>
+				<<elseif _Slave.energy > 80>>
+					@@.green;Powerful sex drive [_Slave.energy]@@
+				<<elseif _Slave.energy > 60>>
+					@@.green;Good sex drive [_Slave.energy]@@
+				<<elseif _Slave.energy > 40>>
+					@@.yellow;Average sex drive [_Slave.energy]@@
+				<<elseif _Slave.energy > 20>>
+					@@.red;Poor sex drive [_Slave.energy]@@
+				<<else>>
+					@@.red;No sex drive [_Slave.energy]
+				<</if>>.@@
+			<</if>>
 		<</if>>
-	<<case "humiliation">>
-		<<if _Slave.fetishStrength > 95>>
-			Humiliation slut.
-		<<elseif _Slave.fetishStrength > 60>>
-			Exhibitionist.
-		<<else>>
-			Interest in humiliation.
-		<</if>>
-	<<case "buttslut">>
-		<<if _Slave.fetishStrength > 95>>
-			Buttslut.
-		<<elseif _Slave.fetishStrength > 60>>
-			Anal fixation.
-		<<else>>
-			Prefers anal.
-		<</if>>
-	<<case "boobs">>
-		<<if _Slave.fetishStrength > 95>>
-			Boobslut.
-		<<elseif _Slave.fetishStrength > 60>>
-			Breast fixation.
-		<<else>>
-			Loves boobs.
-		<</if>>
-	<<case "sadist">>
-		<<if _Slave.fetishStrength > 95>>
-			Complete sadist.
-		<<elseif _Slave.fetishStrength > 60>>
-			Sadist.
-		<<else>>
-			Sadistic tendencies.
-		<</if>>
-	<<case "masochist">>
-		<<if _Slave.fetishStrength > 95>>
-			Complete masochist.
-		<<elseif _Slave.fetishStrength > 60>>
-			Masochist.
-		<<else>>
-			Masochistic tendencies.
-		<</if>>
-	<<case "dom">>
-		<<if _Slave.fetishStrength > 95>>
-			Complete dom.
-		<<elseif _Slave.fetishStrength > 60>>
-			Dominant.
-		<<else>>
-			Dominant tendencies.
-		<</if>>
-	<<case "pregnancy">>
-		<<if _Slave.fetishStrength > 95>>
-			Pregnancy fetish.
-		<<elseif _Slave.fetishStrength > 60>>
-			Pregnancy kink.
-		<<else>>
-			Interest in impregnation.
-		<</if>>
-	<<default>>
-		Sexually vanilla.
-	<</switch>>
-	<<if $summaryStats == 1>>[_Slave.fetishStrength]<</if>>
-	@@
-	<</if>>
-	<<if _Slave.attrKnown == 1>>
-	<<if $summaryStats == 1>>
-	<<if _Slave.attrXY <= 5>>
-		@@.red;Disgusted by men [_Slave.attrXY]@@
-	<<elseif _Slave.attrXY <= 15>>
-		@@.red;Turned off by men [_Slave.attrXY]@@
-	<<elseif _Slave.attrXY <= 35>>
-		@@.red;Not attracted to men [_Slave.attrXY]@@
-	<<elseif _Slave.attrXY <= 65>>
-		Indifferent to men [_Slave.attrXY]
-	<<elseif _Slave.attrXY <= 85>>
-		@@.green;Attracted to men [_Slave.attrXY]@@
-	<<elseif _Slave.attrXY <= 95>>
-		@@.green;Aroused by men [_Slave.attrXY]@@
-	<<elseif _Slave.attrXX > 95>>
-		<<if _Slave.energy <= 95>>
-			@@.green;Omnisexual!@@
-		<<else>>
-			@@.green;Omnisexual nymphomaniac!@@
-		<</if>>
-	<<else>>
-		@@.green;Passionate about men [_Slave.attrXY]<</if>>,@@
-	<</if>>
-	<<if $summaryStats == 1>>
-	<<if _Slave.attrXX <= 5>>
-		@@.red;disgusted by women [_Slave.attrXX] @@
-	<<elseif _Slave.attrXX <= 15>>
-		@@.red;turned off by women [_Slave.attrXX] @@
-	<<elseif _Slave.attrXX <= 35>>
-		@@.red;not attracted to women [_Slave.attrXX] @@
-	<<elseif _Slave.attrXX <= 65>>
-		indifferent to women [_Slave.attrXX]
-	<<elseif _Slave.attrXX <= 85>>
-		@@.green;attracted to women [_Slave.attrXX] @@
-	<<elseif _Slave.attrXX <= 95>>
-		@@.green;aroused by women [_Slave.attrXX] @@
-	<<elseif _Slave.attrXY <= 95>>
-		@@.green;passionate about women [_Slave.attrXX]<</if>>. @@
-	<</if>>
-	<<if $summaryStats == 1>>
-	<<if _Slave.energy > 95>>
-		<<if (_Slave.attrXY <= 95) || (_Slave.attrXX <= 95)>>
-			@@.green;Nymphomaniac!@@
-		<</if>>
-	<<elseif _Slave.energy > 80>>
-		@@.green;Powerful sex drive [_Slave.energy]@@
-	<<elseif _Slave.energy > 60>>
-		@@.green;Good sex drive [_Slave.energy]@@
-	<<elseif _Slave.energy > 40>>
-		@@.yellow;Average sex drive [_Slave.energy]@@
-	<<elseif _Slave.energy > 20>>
-		@@.red;Poor sex drive [_Slave.energy]@@
-	<<else>>
-		@@.red;No sex drive [_Slave.energy]<</if>>.@@
-	<</if>>
-	<</if>>
 	<</if>>
 	<<if _Slave.clitPiercing == 3>>
-	<<if _Slave.fetishKnown == 1>>
-	<<if _Slave.clitSetting == "off">>
-		SP off.
-	<<elseif ((_Slave.fetish != "submissive") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting == "submissive")>>
-		SP: submissive.
-	<<elseif ((_Slave.fetish != "cumslut") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting == "oral")>>
-		SP: oral.
-	<<elseif ((_Slave.fetish != "humiliation") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting == "humiliation")>>
-		SP: humiliation.
-	<<elseif ((_Slave.fetish != "buttslut") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting == "anal")>>
-		SP: anal.
-	<<elseif ((_Slave.fetish != "boobs") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting == "boobs")>>
-		SP: breasts.
-	<<elseif ((_Slave.fetish != "sadist") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting == "sadist")>>
-		SP: sadism.
-	<<elseif ((_Slave.fetish != "masochist") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting == "masochist")>>
-		SP: masochism.
-	<<elseif ((_Slave.fetish != "dom") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting == "dom")>>
-		SP: dominance.
-	<<elseif ((_Slave.fetish != "pregnancy") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting == "pregnancy")>>
-		SP: pregnancy.
-	<<elseif (_Slave.fetish != "none") && (_Slave.clitSetting == "vanilla")>>
-		SP: vanilla.
-	<<elseif (_Slave.energy <= 95) && (_Slave.clitSetting == "all")>>
-		SP: all.
-	<<elseif (_Slave.energy > 5) && (_Slave.clitSetting == "none")>>
-		SP: none.
-	<</if>>
-	<<else>>
-	<<switch _Slave.clitSetting>>
-	<<case "off">>
-		SP off.
-	<<case "submissive">>
-		SP: submissive.
-	<<case "oral">>
-		SP: oral.
-	<<case "humiliation">>
-		SP: humiliation.
-	<<case "anal">>
-		SP: anal.
-	<<case "boobs">>
-		SP: breasts.
-	<<case "sadist">>
-		SP: sadism.
-	<<case "masochist">>
-		SP: masochism.
-	<<case "dom">>
-		SP: dominance.
-	<<case "pregnancy">>
-		SP: pregnancy.
-	<<case "vanilla">>
-		SP: vanilla.
-	<<case "all">>
-		SP: all.
-	<<case "none">>
-		SP: none.
-	<</switch>>
-	<</if>>
-	<<if _Slave.attrKnown == 1>>
-	<<if (_Slave.attrXX < 100) && (_Slave.clitSetting == "women")>>
-		SP: women.
-	<<elseif (_Slave.attrXY < 100) && (_Slave.clitSetting == "men")>>
-		SP: men.
-	<</if>>
-	<<else>>
-	<<if _Slave.clitSetting == "women">>
-		SP: women.
-	<<elseif _Slave.clitSetting == "men">>
-		SP: men.
-	<</if>>
-	<</if>>
+		<<if _Slave.fetishKnown == 1>>
+			<<if _Slave.clitSetting == "off">>
+				SP off.
+			<<elseif ((_Slave.fetish != "submissive") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting == "submissive")>>
+				SP: submissive.
+			<<elseif ((_Slave.fetish != "cumslut") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting == "oral")>>
+				SP: oral.
+			<<elseif ((_Slave.fetish != "humiliation") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting == "humiliation")>>
+				SP: humiliation.
+			<<elseif ((_Slave.fetish != "buttslut") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting == "anal")>>
+				SP: anal.
+			<<elseif ((_Slave.fetish != "boobs") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting == "boobs")>>
+				SP: breasts.
+			<<elseif ((_Slave.fetish != "sadist") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting == "sadist")>>
+				SP: sadism.
+			<<elseif ((_Slave.fetish != "masochist") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting == "masochist")>>
+				SP: masochism.
+			<<elseif ((_Slave.fetish != "dom") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting == "dom")>>
+				SP: dominance.
+			<<elseif ((_Slave.fetish != "pregnancy") || (_Slave.fetishStrength <= 95)) && (_Slave.clitSetting == "pregnancy")>>
+				SP: pregnancy.
+			<<elseif (_Slave.fetish != "none") && (_Slave.clitSetting == "vanilla")>>
+				SP: vanilla.
+			<<elseif (_Slave.energy <= 95) && (_Slave.clitSetting == "all")>>
+				SP: all.
+			<<elseif (_Slave.energy > 5) && (_Slave.clitSetting == "none")>>
+				SP: none.
+			<</if>>
+			<<else>>
+			<<switch _Slave.clitSetting>>
+			<<case "off">>
+				SP off.
+			<<case "submissive">>
+				SP: submissive.
+			<<case "oral">>
+				SP: oral.
+			<<case "humiliation">>
+				SP: humiliation.
+			<<case "anal">>
+				SP: anal.
+			<<case "boobs">>
+				SP: breasts.
+			<<case "sadist">>
+				SP: sadism.
+			<<case "masochist">>
+				SP: masochism.
+			<<case "dom">>
+				SP: dominance.
+			<<case "pregnancy">>
+				SP: pregnancy.
+			<<case "vanilla">>
+				SP: vanilla.
+			<<case "all">>
+				SP: all.
+			<<case "none">>
+				SP: none.
+			<</switch>>
+		<</if>>
+		<<if _Slave.attrKnown == 1>>
+			<<if (_Slave.attrXX < 100) && (_Slave.clitSetting == "women")>>
+				SP: women.
+			<<elseif (_Slave.attrXY < 100) && (_Slave.clitSetting == "men")>>
+				SP: men.
+			<</if>>
+		<<else>>
+			<<if _Slave.clitSetting == "women">>
+				SP: women.
+			<<elseif _Slave.clitSetting == "men">>
+				SP: men.
+			<</if>>
+		<</if>>
 	<</if>>
 	@@.red;
 	<<switch _Slave.behavioralFlaw>>
@@ -2678,311 +2675,310 @@ _Slave.faceShape face.
 <</if>>
 
 <<if $abbreviateMental == 1>>
-@@.lightgreen;
-<<if _Slave.relation != 0>>
-<<for _ssj = 0; _ssj < _SL; _ssj++>>
-<<if _Slave.relationTarget == $slaves[_ssj].ID>>
-	$slaves[_ssj].slaveName's _Slave.relation
-	<<if _Slave.relationship <= 0>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>
-	<<break>>
-<</if>>
-<</for>>
-<</if>>
-<<if _Slave.relationship > 0>>
-<<for _ssj = 0; _ssj < _SL; _ssj++>>
-<<if _Slave.relationshipTarget == $slaves[_ssj].ID>>
-<<switch _Slave.relationship>>
-<<case 1>>
-	<<if _Slave.relationshipTarget != _Slave.relationTarget>>$slaves[_ssj].slaveName's<<else>>&<</if>> friend
-<<case 2>>
-	<<if _Slave.relationshipTarget != _Slave.relationTarget>>$slaves[_ssj].slaveName's<<else>>&<</if>> BFF
-<<case 3>>
-	<<if _Slave.relationshipTarget != _Slave.relationTarget>>$slaves[_ssj].slaveName's<<else>>&<</if>> FWB
-<<case 4>>
-	<<if _Slave.relationshipTarget != _Slave.relationTarget>>$slaves[_ssj].slaveName's<<else>>&<</if>> lover
-<<case 5>>
-	<<if _Slave.relationshipTarget != _Slave.relationTarget>>$slaves[_ssj].slaveName's<<else>>&<</if>> wife
-<</switch>>
-&nbsp;&nbsp;&nbsp;&nbsp;
-<<break>>
-<</if>>
-<</for>>
-<<elseif _Slave.relationship == -3>>
-	Your wife
-	&nbsp;&nbsp;&nbsp;&nbsp;
-<<elseif _Slave.relationship == -2>>
-	E Bonded
-	&nbsp;&nbsp;&nbsp;&nbsp;
-<<elseif _Slave.relationship == -1>>
-	E Slut
-	&nbsp;&nbsp;&nbsp;&nbsp;
-<</if>>
-@@
-<<if _Slave.rivalry != 0>>
-<<for _ssj = 0; _ssj < _SL; _ssj++>>
-<<if _Slave.rivalryTarget == $slaves[_ssj].ID>>
-@@.lightsalmon;
-<<if _Slave.rivalry <= 1>>
-	Disl $slaves[_ssj].slaveName
-<<elseif _Slave.rivalry <= 2>>
-	$slaves[_ssj].slaveName's rival
-<<else>>
-	Hates $slaves[_ssj].slaveName
-<</if>>
-&nbsp;&nbsp;&nbsp;&nbsp;
-@@
-<<break>>
-<</if>>
-<</for>>
-<</if>>
-<<elseif $abbreviateMental == 2>>
-<<if _Slave.relation != 0>>
-<<for _ssj = 0; _ssj < _SL; _ssj++>>
-<<if _Slave.relationTarget == $slaves[_ssj].ID>>
-	$slaves[_ssj].slaveName's
-	<<if _Slave.relationshipTarget != _Slave.relationTarget>>
-		@@.lightgreen;_Slave.relation@@.
-	<<else>>
-		@@.lightgreen;_Slave.relation@@
+	@@.lightgreen;
+	<<if _Slave.relation != 0>>
+		<<for _ssj = 0; _ssj < _SL; _ssj++>>
+		<<if _Slave.relationTarget == $slaves[_ssj].ID>>
+			$slaves[_ssj].slaveName's _Slave.relation
+			<<if _Slave.relationship <= 0>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>
+			<<break>>
+		<</if>>
+		<</for>>
 	<</if>>
-	<<if _Slave.relationship <= 0>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>
-	<<break>>
-<</if>>
-<</for>>
-<</if>>
-<<if _Slave.relationship > 0>>
-<<for _ssj = 0; _ssj < _SL; _ssj++>>
-<<if _Slave.relationshipTarget == $slaves[_ssj].ID>>
-<<switch _Slave.relationship>>
-<<case 1>>
-	<<if _Slave.relationshipTarget != _Slave.relationTarget>>$slaves[_ssj].slaveName's<<else>>and<</if>> @@.lightgreen;friend.@@
-<<case 2>>
-	<<if _Slave.relationshipTarget != _Slave.relationTarget>>$slaves[_ssj].slaveName's<<else>>and<</if>> @@.lightgreen;best friend.@@
-<<case 3>>
-	<<if _Slave.relationshipTarget != _Slave.relationTarget>>$slaves[_ssj].slaveName's<<else>>and<</if>> @@.lightgreen;FWB.@@
-<<case 4>>
-	<<if _Slave.relationshipTarget != _Slave.relationTarget>>$slaves[_ssj].slaveName's<<else>>and<</if>> @@.lightgreen;lover.@@
-<<case 5>>
-	<<if _Slave.relationshipTarget != _Slave.relationTarget>>$slaves[_ssj].slaveName's<<else>>and<</if>> @@.lightgreen;slave wife.@@
-<</switch>>
-&nbsp;&nbsp;&nbsp;&nbsp;
-<<break>>
-<</if>>
-<</for>>
-<<elseif _Slave.relationship == -3>>
-	@@.lightgreen;Your wife.@@
-	&nbsp;&nbsp;&nbsp;&nbsp;
-<<elseif _Slave.relationship == -2>>
-	@@.lightgreen;Emotionally bonded to you.@@
-	&nbsp;&nbsp;&nbsp;&nbsp;
-<<elseif _Slave.relationship == -1>>
-	@@.lightgreen;Emotional slut.@@
-	&nbsp;&nbsp;&nbsp;&nbsp;
-<</if>>
-<<if _Slave.rivalry != 0>>
-<<for _ssj = 0; _ssj < _SL; _ssj++>>
-<<if _Slave.rivalryTarget == $slaves[_ssj].ID>>
-<<if _Slave.rivalry <= 1>>
-	@@.lightsalmon;Dislikes@@ $slaves[_ssj].slaveName.
-	&nbsp;&nbsp;&nbsp;&nbsp;
-<<elseif _Slave.rivalry <= 2>>
-	$slaves[_ssj].slaveName's @@.lightsalmon;rival.@@
-	&nbsp;&nbsp;&nbsp;&nbsp;
-<<else>>
-	@@.lightsalmon;Hates@@ $slaves[_ssj].slaveName.
-	&nbsp;&nbsp;&nbsp;&nbsp;
-<</if>>
-<<break>>
-<</if>>
-<</for>>
-<</if>>
+	<<if _Slave.relationship > 0>>
+		<<for _ssj = 0; _ssj < _SL; _ssj++>>
+		<<if _Slave.relationshipTarget == $slaves[_ssj].ID>>
+			<<switch _Slave.relationship>>
+			<<case 1>>
+				<<if _Slave.relationshipTarget != _Slave.relationTarget>>$slaves[_ssj].slaveName's<<else>>&<</if>> friend
+			<<case 2>>
+				<<if _Slave.relationshipTarget != _Slave.relationTarget>>$slaves[_ssj].slaveName's<<else>>&<</if>> BFF
+			<<case 3>>
+				<<if _Slave.relationshipTarget != _Slave.relationTarget>>$slaves[_ssj].slaveName's<<else>>&<</if>> FWB
+			<<case 4>>
+				<<if _Slave.relationshipTarget != _Slave.relationTarget>>$slaves[_ssj].slaveName's<<else>>&<</if>> lover
+			<<case 5>>
+				<<if _Slave.relationshipTarget != _Slave.relationTarget>>$slaves[_ssj].slaveName's<<else>>&<</if>> wife
+			<</switch>>
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			<<break>>
+		<</if>>
+		<</for>>
+	<<elseif _Slave.relationship == -3>>
+		Your wife
+		&nbsp;&nbsp;&nbsp;&nbsp;
+	<<elseif _Slave.relationship == -2>>
+		E Bonded
+		&nbsp;&nbsp;&nbsp;&nbsp;
+	<<elseif _Slave.relationship == -1>>
+		E Slut
+		&nbsp;&nbsp;&nbsp;&nbsp;
+	<</if>>
+	@@
+	<<if _Slave.rivalry != 0>>
+		<<for _ssj = 0; _ssj < _SL; _ssj++>>
+		<<if _Slave.rivalryTarget == $slaves[_ssj].ID>>
+			@@.lightsalmon;
+			<<if _Slave.rivalry <= 1>>
+				Disl $slaves[_ssj].slaveName
+			<<elseif _Slave.rivalry <= 2>>
+				$slaves[_ssj].slaveName's rival
+			<<else>>
+				Hates $slaves[_ssj].slaveName
+			<</if>>
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			@@
+			<<break>>
+		<</if>>
+		<</for>>
+	<</if>>
+<<elseif $abbreviateMental == 2>>
+	<<if _Slave.relation != 0>>
+		<<for _ssj = 0; _ssj < _SL; _ssj++>>
+		<<if _Slave.relationTarget == $slaves[_ssj].ID>>
+			$slaves[_ssj].slaveName's
+			<<if _Slave.relationshipTarget != _Slave.relationTarget>>
+				@@.lightgreen;_Slave.relation@@.
+			<<else>>
+				@@.lightgreen;_Slave.relation@@
+			<</if>>
+			<<if _Slave.relationship <= 0>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>
+			<<break>>
+		<</if>>
+		<</for>>
+	<</if>>
+	<<if _Slave.relationship > 0>>
+		<<for _ssj = 0; _ssj < _SL; _ssj++>>
+		<<if _Slave.relationshipTarget == $slaves[_ssj].ID>>
+			<<switch _Slave.relationship>>
+			<<case 1>>
+				<<if _Slave.relationshipTarget != _Slave.relationTarget>>$slaves[_ssj].slaveName's<<else>>and<</if>> @@.lightgreen;friend.@@
+			<<case 2>>
+				<<if _Slave.relationshipTarget != _Slave.relationTarget>>$slaves[_ssj].slaveName's<<else>>and<</if>> @@.lightgreen;best friend.@@
+			<<case 3>>
+				<<if _Slave.relationshipTarget != _Slave.relationTarget>>$slaves[_ssj].slaveName's<<else>>and<</if>> @@.lightgreen;FWB.@@
+			<<case 4>>
+				<<if _Slave.relationshipTarget != _Slave.relationTarget>>$slaves[_ssj].slaveName's<<else>>and<</if>> @@.lightgreen;lover.@@
+			<<case 5>>
+				<<if _Slave.relationshipTarget != _Slave.relationTarget>>$slaves[_ssj].slaveName's<<else>>and<</if>> @@.lightgreen;slave wife.@@
+			<</switch>>
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			<<break>>
+		<</if>>
+		<</for>>
+	<<elseif _Slave.relationship == -3>>
+		@@.lightgreen;Your wife.@@
+		&nbsp;&nbsp;&nbsp;&nbsp;
+	<<elseif _Slave.relationship == -2>>
+		@@.lightgreen;Emotionally bonded to you.@@
+		&nbsp;&nbsp;&nbsp;&nbsp;
+	<<elseif _Slave.relationship == -1>>
+		@@.lightgreen;Emotional slut.@@
+		&nbsp;&nbsp;&nbsp;&nbsp;
+	<</if>>
+	<<if _Slave.rivalry != 0>>
+		<<for _ssj = 0; _ssj < _SL; _ssj++>>
+		<<if _Slave.rivalryTarget == $slaves[_ssj].ID>>
+			<<if _Slave.rivalry <= 1>>
+				@@.lightsalmon;Dislikes@@ $slaves[_ssj].slaveName.
+				&nbsp;&nbsp;&nbsp;&nbsp;
+			<<elseif _Slave.rivalry <= 2>>
+				$slaves[_ssj].slaveName's @@.lightsalmon;rival.@@
+				&nbsp;&nbsp;&nbsp;&nbsp;
+			<<else>>
+				@@.lightsalmon;Hates@@ $slaves[_ssj].slaveName.
+				&nbsp;&nbsp;&nbsp;&nbsp;
+			<</if>>
+			<<break>>
+		<</if>>
+		<</for>>
+	<</if>>
 <</if>>
 
-<<if _Slave.fuckdoll == 0>>
-<<if $abbreviateClothes == 2>>
-<<if _Slave.choosesOwnClothes == 1>>
-	Dressing herself.
+<<if (_Slave.fuckdoll == 0) && ($abbreviateClothes == 2)>>
+	<<if _Slave.choosesOwnClothes == 1>>
+		Dressing herself.
+	<</if>>
+	<<switch _Slave.clothes>>
+	<<case "attractive lingerie">>
+		Lingerie.
+	<<case "a succubus outfit">>
+		Succubus outfit.
+	<<case "a string bikini">>
+		String bikini.
+	<<case "cutoffs and a t-shirt">>
+		Cutoffs, t-shirt.
+	<<case "a slutty outfit">>
+		Slutty outfit.
+	<<case "uncomfortable straps">>
+		Leather straps.
+	<<case "a fallen nuns habit">>
+		Slutty habit.
+	<<case "a chattel habit">>
+		Chattel habit.
+	<<case "a penitent nuns habit">>
+		Cilice.
+	<<case "slutty jewelry">>
+		Bangles.
+	<<case "harem gauze">>
+		Harem outfit.
+	<<case "a slave gown">>
+		Gown.
+	<<case "a halter top dress">>
+		Halter top dress.
+	<<case "a mini dress">>
+		Mini dress.
+	<<case "a ball gown">>
+		Ball gown.
+	<<case "slutty business attire">>
+		Slutty suit.
+	<<case "nice business attire">>
+		Nice suit.
+	<<case "a comfortable bodysuit">>
+		Bodysuit.
+	<<case "a military uniform">>
+		Military uniform.
+	<<case "a leotard">>
+		Leotard.
+	<<case "a bunny outfit">>
+		Bunny outfit.
+	<<case "a slutty maid outfit">>
+		Slutty maid.
+	<<case "a nice maid outfit">>
+		Nice maid.
+	<<case "a slutty nurse outfit">>
+		Slutty nurse.
+	<<case "a nice nurse outfit">>
+		Nice nurse.
+	<<case "a schoolgirl outfit">>
+		Schoolgirl outfit.
+	<<case "a kimono">>
+		Kimono.
+	<<case "a hijab and abaya">>
+		Hijab and abaya.
+	<<case "battledress">>
+		Battledress.
+	<<case "a latex catsuit">>
+		Nice latex.
+	<<case "restrictive latex">>
+		Bondage latex.
+	<<case "conservative clothing">>
+		Conservative clothing.
+	<<case "chains">>
+		Chains.
+	<<case "a cheerleader outfit">>
+		Cheerleader.
+	<<case "clubslut netting">>
+		Netting.
+	<<case "shibari ropes">>
+		Shibari.
+	<<case "Western clothing">>
+		Chaps.
+	<<case "body oil">>
+		Body oil.
+	<<case "a toga">>
+		Toga.
+	<<case "a huipil">>
+		Huipil.
+	<<case "a slutty qipao">>
+		Qipao.
+	<<default>>
+		Naked.
+	<</switch>>
+	<<switch _Slave.collar>>
+	<<case "uncomfortable leather">>
+		Leather collar.
+	<<case "tight steel">>
+		Steel collar.
+	<<case "cruel retirement counter">>
+		Cruel counter collar.
+	<<case "shock punishment">>
+		Shock collar.
+	<<case "dildo gag">>
+		Dildo gag.
+	<<case "neck corset">>
+		Neck corset.
+	<<case "stylish leather">>
+		Stylish leather collar.
+	<<case "satin choker">>
+		Satin choker.
+	<<case "heavy gold">>
+		Gold collar.
+	<<case "bowtie">>
+		Bowtie collar.
+	<<case "pretty jewelry">>
+		Pretty collar.
+	<<case "nice retirement counter">>
+		Nice counter collar.
+	<<case "leather with cowbell">>
+		Cowbell collar.
+	<<case "ancient Egyptian">>
+		Wesekh.
+	<<case "ball gag">>
+		Ball gag.
+	<<case "bit gag">>
+		Bit gag.
+	<</switch>>
+	<<switch _Slave.bellyAccessory>>
+	<<case "shapewear">>
+		Shapewear.
+	<<case "a small empathy belly">>
+		Small fake belly.
+	<<case "a medium empathy belly">>
+		Medium fake belly.
+	<<case "a large empathy belly">>
+		Large fake belly.
+	<<case "a huge empathy belly">>
+		Huge fake belly.
+	<<case "a corset">>
+		Corset.
+	<<case "an extreme corset">>
+		Extreme corsetage.
+	<</switch>>
+	<<if canWalk(_Slave)>>
+		<<if _Slave.shoes == "heels">>
+			Heels.
+		<<elseif _Slave.shoes == "extreme heels">>
+			Extreme heels.
+		<<elseif _Slave.shoes == "boots">>
+			Boots.
+		<<elseif _Slave.heels == 1>>
+			@@.yellow;Crawling.@@
+		<<elseif _Slave.shoes == "flats">>
+			Flats.
+		<</if>>
+	<</if>>
+	<<switch _Slave.vaginalAccessory>>
+	<<case "chastity belt">>
+		Vaginal chastity.
+	<<case "combined chastity">>
+		Combined chastity.
+	<<case "anal chastity">>
+		Anal chastity.
+	<<case "dildo">>
+		Vaginal dildo.
+	<<case "large dildo">>
+		Large vaginal dildo.
+	<<case "huge dildo">>
+		Huge vaginal dildo.
+	<</switch>>
+	<<if _Slave.dickAccessory == "chastity">>
+		Chastity cage.
+	<<elseif _Slave.dickAccessory == "combined chastity">>
+		Combined chastity.
+	<<elseif _Slave.dickAccessory == "anal chastity">>
+		Anal chastity.
+	<</if>>
+	<<switch _Slave.buttplug>>
+	<<case "plug">>
+		Buttplug.
+	<<case "large plug">>
+		Large buttplug.
+	<<case "huge plug">>
+		Huge buttplug.
+	<</switch>>
 <</if>>
-<<switch _Slave.clothes>>
-<<case "attractive lingerie">>
-	Lingerie.
-<<case "a succubus outfit">>
-	Succubus outfit.
-<<case "a string bikini">>
-	String bikini.
-<<case "cutoffs and a t-shirt">>
-	Cutoffs, t-shirt.
-<<case "a slutty outfit">>
-	Slutty outfit.
-<<case "uncomfortable straps">>
-	Leather straps.
-<<case "a fallen nuns habit">>
-	Slutty habit.
-<<case "a chattel habit">>
-	Chattel habit.
-<<case "a penitent nuns habit">>
-	Cilice.
-<<case "slutty jewelry">>
-	Bangles.
-<<case "harem gauze">>
-	Harem outfit.
-<<case "a slave gown">>
-	Gown.
-<<case "a halter top dress">>
-	Halter top dress.
-<<case "a mini dress">>
-	Mini dress.
-<<case "a ball gown">>
-	Ball gown.
-<<case "slutty business attire">>
-	Slutty suit.
-<<case "nice business attire">>
-	Nice suit.
-<<case "a comfortable bodysuit">>
-	Bodysuit.
-<<case "a military uniform">>
-	Military uniform.
-<<case "a leotard">>
-	Leotard.
-<<case "a bunny outfit">>
-	Bunny outfit.
-<<case "a slutty maid outfit">>
-	Slutty maid.
-<<case "a nice maid outfit">>
-	Nice maid.
-<<case "a slutty nurse outfit">>
-	Slutty nurse.
-<<case "a nice nurse outfit">>
-	Nice nurse.
-<<case "a schoolgirl outfit">>
-	Schoolgirl outfit.
-<<case "a kimono">>
-	Kimono.
-<<case "a hijab and abaya">>
-	Hijab and abaya.
-<<case "battledress">>
-	Battledress.
-<<case "a latex catsuit">>
-	Nice latex.
-<<case "restrictive latex">>
-	Bondage latex.
-<<case "conservative clothing">>
-	Conservative clothing.
-<<case "chains">>
-	Chains.
-<<case "a cheerleader outfit">>
-	Cheerleader.
-<<case "clubslut netting">>
-	Netting.
-<<case "shibari ropes">>
-	Shibari.
-<<case "Western clothing">>
-	Chaps.
-<<case "body oil">>
-	Body oil.
-<<case "a toga">>
-	Toga.
-<<case "a huipil">>
-	Huipil.
-<<case "a slutty qipao">>
-	Qipao.
-<<default>>
-	Naked.
-<</switch>>
-<<switch _Slave.collar>>
-<<case "uncomfortable leather">>
-	Leather collar.
-<<case "tight steel">>
-	Steel collar.
-<<case "cruel retirement counter">>
-	Cruel counter collar.
-<<case "shock punishment">>
-	Shock collar.
-<<case "dildo gag">>
-	Dildo gag.
-<<case "neck corset">>
-	Neck corset.
-<<case "stylish leather">>
-	Stylish leather collar.
-<<case "satin choker">>
-	Satin choker.
-<<case "heavy gold">>
-	Gold collar.
-<<case "bowtie">>
-	Bowtie collar.
-<<case "pretty jewelry">>
-	Pretty collar.
-<<case "nice retirement counter">>
-	Nice counter collar.
-<<case "leather with cowbell">>
-	Cowbell collar.
-<<case "ancient Egyptian">>
-	Wesekh.
-<<case "ball gag">>
-	Ball gag.
-<<case "bit gag">>
-	Bit gag.
-<</switch>>
-<<switch _Slave.bellyAccessory>>
-<<case "shapewear">>
-	Shapewear.
-<<case "a small empathy belly">>
-	Small fake belly.
-<<case "a medium empathy belly">>
-	Medium fake belly.
-<<case "a large empathy belly">>
-	Large fake belly.
-<<case "a huge empathy belly">>
-	Huge fake belly.
-<<case "a corset">>
-	Corset.
-<<case "an extreme corset">>
-	Extreme corsetage.
-<</switch>>
-<<if canWalk(_Slave)>>
-<<if _Slave.shoes == "heels">>
-	Heels.
-<<elseif _Slave.shoes == "extreme heels">>
-	Extreme heels.
-<<elseif _Slave.shoes == "boots">>
-	Boots.
-<<elseif _Slave.heels == 1>>
-	@@.yellow;Crawling.@@
-<<elseif _Slave.shoes == "flats">>
-	Flats.
-<</if>>
-<</if>>
-<<switch _Slave.vaginalAccessory>>
-<<case "chastity belt">>
-	Vaginal chastity.
-<<case "combined chastity">>
-	Combined chastity.
-<<case "anal chastity">>
-	Anal chastity.
-<<case "dildo">>
-	Vaginal dildo.
-<<case "large dildo">>
-	Large vaginal dildo.
-<<case "huge dildo">>
-	Huge vaginal dildo.
-<</switch>>
-<<if _Slave.dickAccessory == "chastity">>
-	Chastity cage.
-<<elseif _Slave.dickAccessory == "combined chastity">>
-	Combined chastity.
-<<elseif _Slave.dickAccessory == "anal chastity">>
-	Anal chastity.
-<</if>>
-<<switch _Slave.buttplug>>
-<<case "plug">>
-	Buttplug.
-<<case "large plug">>
-	Large buttplug.
-<<case "huge plug">>
-	Huge buttplug.
-<</switch>>
-<</if>>
-<</if>>
+
 
 &nbsp;&nbsp;&nbsp;&nbsp;
 <<if _Slave.useRulesAssistant == 0>>
@@ -3004,12 +3000,15 @@ _Slave.faceShape face.
 <<set $slaves[_ssi] = _Slave>>
 
 <<switch _Pass>>
+
 <<case "Main">>
 	<<continue>>
+	
 <<case "HG Select">>
 <<if $HGCareers.includes(_Slave.career)>>
 	<br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>@@.lime;Has applicable career experience.@@
 <</if>>
+
 <<case "Head Girl Suite">>
 <br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>
 <<if $Flag == 0>>
@@ -3018,10 +3017,12 @@ _Slave.faceShape face.
 	<<print "[[Bring her out of the Head Girl's suite|Retrieve][$i = "+_ssi+"]]">>
 	<<break>>
 <</if>>
+
 <<case "BG Select">>
 <<if $bodyguardCareers.includes(_Slave.career)>>
 	<br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>@@.lime;Has applicable career experience.@@
 <</if>>
+
 <<case "Spa">>
 <br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>
 <<if $Flag == 0>>
@@ -3032,6 +3033,7 @@ _Slave.faceShape face.
 	[[Change or remove Attendant|Attendant Select]]
 	<<break>>
 <</if>>
+
 <<case "Attendant Select">>
 <<if $attendantCareers.includes(_Slave.career)>>
 	<br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>@@.lime;Has applicable career experience.@@
@@ -3046,10 +3048,12 @@ _Slave.faceShape face.
 	[[Change or remove Madam|Madam Select]]
 	<<break>>
 <</if>>
+
 <<case "Madam Select">>
 <<if $madamCareers.includes(_Slave.career)>>
 	<br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>@@.lime;Has applicable career experience.@@
 <</if>>
+
 <<case "Club">>
 <br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>
 <<if $Flag == 0>>
@@ -3060,6 +3064,7 @@ _Slave.faceShape face.
 	[[Change or remove DJ|DJ Select]]
 	<<break>>
 <</if>>
+
 <<case "Arcade">>
 <br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>
 <<if $Flag == 0>>
@@ -3067,10 +3072,12 @@ _Slave.faceShape face.
 <<else>>
 	<<print "[[Release her from the Arcade|Retrieve][$i = "+_ssi+"]]">>
 <</if>>
+
 <<case "DJ Select">>
 <<if $DJCareers.includes(_Slave.career)>>
 	<br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>@@.lime;Has applicable career experience.@@
 <</if>>
+
 <<case "Clinic">>
 <br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>
 	<<if $clinicUpgradeScanner == 1>>
@@ -3084,10 +3091,12 @@ _Slave.faceShape face.
 	[[Change or remove Nurse|Nurse Select]]
 	<<break>>
 <</if>>
+
 <<case "Nurse Select">>
 <<if $nurseCareers.includes(_Slave.career)>>
 	<br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>@@.lime;Has applicable career experience.@@
 <</if>>
+
 <<case "Schoolroom">>
 <br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>
 <<if $Flag == 0>>
@@ -3098,10 +3107,12 @@ _Slave.faceShape face.
 	[[Change or remove Schoolteacher|Schoolteacher Select]]
 	<<break>>
 <</if>>
+
 <<case "Schoolteacher Select">>
 <<if $schoolteacherCareers.includes(_Slave.career)>>
 	<br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>@@.lime;Has applicable career experience.@@
 <</if>>
+
 <<case "Dairy">>
 <br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>
 <<if $Flag == 0>>
@@ -3112,6 +3123,7 @@ _Slave.faceShape face.
 	[[Change or remove Milkmaid|Milkmaid Select]]
 	<<break>>
 <</if>>
+
 <<case "Milkmaid Select">>
 <<if $milkmaidCareers.includes(_Slave.career)>>
 	<br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>@@.lime;Has applicable career experience.@@
@@ -3126,10 +3138,12 @@ _Slave.faceShape face.
 	[[Change or remove Stewardess|Stewardess Select]]
 	<<break>>
 <</if>>
+
 <<case "Stewardess Select">>
 <<if $stewardessCareers.includes(_Slave.career)>>
 	<br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>@@.lime;Has applicable career experience.@@
 <</if>>
+
 <<case "Master Suite">>
 <br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>
 <<if $Flag == 0>>
@@ -3140,6 +3154,7 @@ _Slave.faceShape face.
 	[[Change or remove Concubine|Concubine Select]]
 	<<break>>
 <</if>>
+
 <<case "Cellblock">>
 <br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>
 <<if $Flag == 0>>
@@ -3150,10 +3165,12 @@ _Slave.faceShape face.
 	[[Change or remove Wardeness|Wardeness Select]]
 	<<break>>
 <</if>>
+
 <<case "Wardeness Select">>
 <<if $wardenessCareers.includes(_Slave.career)>>
 	<br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>@@.lime;Has applicable career experience.@@
 <</if>>
+
 <<case "New Game Plus">>
 	<br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>
 <<if $Flag == 0>>
@@ -3162,6 +3179,7 @@ _Slave.faceShape face.
 	<<print "[[Remove from import list|NGP Workaround][$slavesToImport = 0, $i = "+_ssi+"]]">>
 	<<set $slavesToImport += 1>>
 <</if>>
+
 <<case "Matchmaking">>
 	<br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>
 	<<print "[[Match them|Matchmaking][$subSlave = $slaves[" + _ssi + "]]]">>
