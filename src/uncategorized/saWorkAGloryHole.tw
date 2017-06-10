@@ -39,7 +39,9 @@ is <<if $slaves[$i].fuckdoll == 0>>restrained in a glory hole<<else>>set out for
 	Demand for $possessive holes is strong due to the appetite for degradation rampant in $arcologies[0].name.
 <</if>>
 
-<<if ($slaves[$i].curatives > 0)>>
+<<if ($slaves[$i].assignment == "be confined in the arcade") && ($arcadeUpgradeCollectors > 0)>>
+	The steady stream of drugs from the upgraded arcade protects $possessive health from the stress of being used as a sexual appliance.
+<<elseif ($slaves[$i].curatives > 0)>>
 	The drugs $pronoun's on protect $possessive health from the stress of being used as a sexual appliance.
 <<elseif ($slaves[$i].health < -50)>>
 	The stress of being used while very ill @@.red;damaged $possessive health.@@
@@ -209,3 +211,4 @@ $possessiveCap feelings, skills, and appearance do not matter. $pronounCap is co
 <</if>>
 
 <<set $cash += ($beauty*$FResult)>>
+<<set _profits += ($beauty*$FResult)>>
