@@ -1941,37 +1941,34 @@ _Slave.faceShape face.
 <<else>>
 	<<set _SSkills += _Slave.vaginalSkill>>
 	<<if _SSkills > 180>>
-		Sex master.
+		Sex master<<if $summaryStats>><<set _SSkills = Math.trunc(_SSkills)>> [_SSkills]<</if>>.
 	<<elseif (_SSkills > 120) && (_Slave.vagina < 0)>>
-		Masterful shemale.
+		Masterful shemale<<if $summaryStats>><<set _SSkills = Math.trunc(_SSkills)>> [_SSkills]<</if>>.
 	<<elseif _SSkills > 90>>
-		Sexual expert.
+		Sexual expert<<if $summaryStats>><<set _SSkills = Math.trunc(_SSkills)>> [_SSkills]<</if>>.
 	<<elseif _SSkills > 30>>
-		Sexually skilled.
+		Sexually skilled<<if $summaryStats>><<set _SSkills = Math.trunc(_SSkills)>> [_SSkills]<</if>>.
 	<<else>>
-		Sexually unskilled.
+		Sexually unskilled<<if $summaryStats>><<set _SSkills = Math.trunc(_SSkills)>> [_SSkills]<</if>>.
 	<</if>>
-	<<if $summaryStats>><<set _SSkills = Math.trunc(_SSkills)>>[_SSkills]<</if>>
 	<<if _Slave.whoreSkill >= 100>>
-		Masterful whore
+		Masterful whore<<if $summaryStats>> [_Slave.whoreSkill]<</if>>.
 	<<elseif _Slave.whoreSkill >= 60>>
-		Expert whore
+		Expert whore<<if $summaryStats>> [_Slave.whoreSkill]<</if>>.
 	<<elseif _Slave.whoreSkill >= 30>>
-		Skilled whore
+		Skilled whore<<if $summaryStats>> [_Slave.whoreSkill]<</if>>.
 	<<elseif _Slave.whoreSkill >= 10>>
-		Basic whore
+		Basic whore<<if $summaryStats>> [_Slave.whoreSkill]<</if>>.
 	<</if>>
-	<<if _Slave.whoreSkill > 10>><<if $summaryStats>>[_Slave.whoreSkill]<</if>>.<</if>>
 	<<if _Slave.entertainSkill >= 100>>
-		Masterful entertainer
+		Masterful entertainer<<if $summaryStats>> [_Slave.entertainSkill]<</if>>.
 	<<elseif _Slave.entertainSkill >= 60>>
-		Expert entertainer
+		Expert entertainer<<if $summaryStats>> [_Slave.entertainSkill]<</if>>.
 	<<elseif _Slave.entertainSkill >= 30>>
-		Skilled entertainer
+		Skilled entertainer<<if $summaryStats>> [_Slave.entertainSkill]<</if>>.
 	<<elseif _Slave.entertainSkill >= 10>>
-		Basic entertainer
+		Basic entertainer<<if $summaryStats>> [_Slave.entertainSkill]<</if>>.
 	<</if>>
-	<<if _Slave.entertainSkill > 10>><<if $summaryStats>>[_Slave.entertainSkill]<</if>>.<</if>>
 <</if>>
 <<if _Slave.combatSkill > 0>>
 	Trained fighter.
