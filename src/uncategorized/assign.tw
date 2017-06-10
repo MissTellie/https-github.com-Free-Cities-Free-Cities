@@ -7,9 +7,11 @@
 <<switch $assignTo>>
 <<case "Pit">>
 	<<set $fighterIDs.push(_ID)>>
+	<<goto $returnTo>>
 
 <<case "Coursing Association">>
 	<<set $Lurcher = $activeSlave>>
+	<<goto $returnTo>>
 
 <<default>>
 	<<if ($showAssignToScenes == 1) && ($activeSlave.fetish != "mindbroken")>>
