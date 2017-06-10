@@ -108,9 +108,7 @@ $possessiveCap $activeSlave.faceShape face is
 <<elseif ($activeSlave.eyes <= -2)>>
 	$pronounCap is blind.
 <<else>>
-	$pronounCap has working eyes
-	<<if ($activeSlave.eyes == -1)>>
-		, but is nearsighted.
+	$pronounCap has working eyes<<if ($activeSlave.eyes == -1)>>, but is nearsighted.
 		<<if ($activeSlave.origEye != "implant")>>
 			<br>&nbsp;&nbsp;&nbsp;&nbsp;
 			[[Correct eyesight|Surgery Degradation][$activeSlave.eyes = 1, $cash -= $surgeryCost, $activeSlave.health -= 10, $surgeryType = "eyeFix"]]
@@ -636,7 +634,7 @@ $pronounCap has
 	<br>$pronounCap has a <<if $activeSlave.prostate > 1>>hyperactive<<else>>normal<</if>> prostate.
 	<<if $activeSlave.prostate < 2>>
 		<<if $activeSlave.indentureRestrictions < 2>>
-			| [[Implant slow-release productivity drugs|Surgery Degradation][$activeSlave.prostate=2,$cash-=$surgeryCost,$activeSlave.health-=10,$surgeryType="precum"]] //This may cause some leaking//
+			[[Implant slow-release productivity drugs|Surgery Degradation][$activeSlave.prostate=2,$cash-=$surgeryCost,$activeSlave.health-=10,$surgeryType="precum"]] //This may cause some leaking//
 		<</if>>
 	<</if>>
 	<<if $activeSlave.prostate > 1>>
