@@ -3626,7 +3626,7 @@
 			<<set $slaves[$i].trust -= 1>>
 		<</if>>
 		<</if>>
-	<<elseif $slaves[$i].eyes is -2>>
+	<<elseif $slaves[$i].eyes is 1>>
 		<<if ($slaves[$i].eyewear == "blurring glasses") || ($slaves[$i].eyewear == "blurring contacts")>>
 		<<if $slaves[$i].devotion > 50>>
 			She tolerates the annoyance of blurred vision induced by her eyewear.
