@@ -785,12 +785,12 @@ Release rules: _Slave.releaseRules.
 	<</if>>
 <<elseif $abbreviateDiet == 2>>
 	<<if _Slave.weight < -95>>
-		@@.red;Emaciated<<if $summaryStats>> [_Slave.weight]<</if>>@@
+		@@.red;Emaciated<<if $summaryStats>> [_Slave.weight]<</if>>.@@
 	<<elseif _Slave.weight < -30>>
 		<<if _Slave.hips < -1>>
 			Model-thin<<if $summaryStats>> [_Slave.weight]<</if>>.
 		<<else>>
-			@@.red;Very thin<<if $summaryStats>> [_Slave.weight]<</if>>@@
+			@@.red;Very thin<<if $summaryStats>> [_Slave.weight]<</if>>.@@
 		<</if>>
 	<<elseif _Slave.weight < -10>>
 		Thin<<if $summaryStats>> [_Slave.weight]<</if>>.
