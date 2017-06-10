@@ -108,9 +108,7 @@ $possessiveCap $activeSlave.faceShape face is
 <<elseif ($activeSlave.eyes <= -2)>>
 	$pronounCap is blind.
 <<else>>
-	$pronounCap has working eyes
-	<<if ($activeSlave.eyes == -1)>>
-		, but is nearsighted.
+	$pronounCap has working eyes<<if ($activeSlave.eyes == -1)>>, but is nearsighted.
 		<<if ($activeSlave.origEye != "implant")>>
 			<br>&nbsp;&nbsp;&nbsp;&nbsp;
 			[[Correct eyesight|Surgery Degradation][$activeSlave.eyes = 1, $cash -= $surgeryCost, $activeSlave.health -= 10, $surgeryType = "eyeFix"]]
@@ -549,7 +547,9 @@ $pronounCap has
 	<</if>>
 <</if>>
 
-<<if ($seeCircumcision == 1) && ($activeSlave.indentureRestrictions < 2)>>
+<<if ($activeSlave.dick == 0) && ($activeSlave.vagina == -1)>>
+	<br>$pronounCap is a null, possessing neither penis nor vagina.
+<<elseif ($seeCircumcision == 1) && ($activeSlave.indentureRestrictions < 2)>>
 	<<if ($activeSlave.dick != 0) && ($activeSlave.vagina == -1) && ($activeSlave.foreskin == 0)>>
 	<br>$pronounCap has a circumcised penis.
 	<<elseif ($activeSlave.dick != 0) && ($activeSlave.vagina == -1) && ($activeSlave.foreskin == 1)>>
@@ -574,16 +574,23 @@ $pronounCap has
 <</if>>
 
 <<if $activeSlave.indentureRestrictions < 1>>
-	<<if $activeSlave.vagina == -1>>
-		[[Convert genitalia to female|Surgery Degradation][$activeSlave.dick = 0,$activeSlave.dickAccessory = "none",$activeSlave.scrotum = 0,$activeSlave.balls = 0,$activeSlave.vagina = 0,$activeSlave.preg = -2,$activeSlave.vaginalSkill = 0,$cash -= $surgeryCost, $activeSlave.health -= 40, $surgeryType = "mtf"]] |
+	<<if ($activeSlave.vagina == -1) && ($activeSlave.dick != 0)>>
+		[[Convert genitalia to female|Surgery Degradation][$activeSlave.dick = 0,$activeSlave.dickAccessory = "none",$activeSlave.scrotum = 0,$activeSlave.balls = 0,$activeSlave.vagina = 0,$activeSlave.preg = -2,$activeSlave.vaginalSkill = 0,$cash -= $surgeryCost, $activeSlave.health -= 40, $surgeryType = "mtf"]]
 	<</if>>
-	<<if $activeSlave.dick > 0>>
-		[[Remove penis|Surgery Degradation][$activeSlave.dick = 0,$activeSlave.dickAccessory = "none",$activeSlave.foreskin = 0,$activeSlave.vaginalSkill = 0,$cash -= $surgeryCost, $activeSlave.health -= 20, $surgeryType = "chop"]]
+	<<if ($activeSlave.dick == 0) && ($activeSlave.vagina == -1) && ($surgeryUpgrade == 1)>>	
+		[[Create a vagina|Surgery Degradation][$activeSlave.vagina = 0,$activeSlave.vaginalSkill = 0,$cash -= $surgeryCost, $activeSlave.health -= 40, $surgeryType = "mtf"]]
+	<</if>>
+	<<if ($activeSlave.dick > 0) && ($seeExtreme == 1)>>
+		 | [[Remove penis|Surgery Degradation][$activeSlave.dick = 0,$activeSlave.dickAccessory = "none",$activeSlave.foreskin = 0,$activeSlave.vaginalSkill = 0,$cash -= $surgeryCost, $activeSlave.health -= 20, $surgeryType = "chop"]]
 	<</if>>
 	<<if ($activeSlave.foreskin > 0)>>
 		<<if $seeCircumcision == 1>>
 			<<if $activeSlave.indentureRestrictions < 2>>
+			<<if $activeSlave.dick != 0>>
 				 | [[Remove foreskin|Surgery Degradation][$activeSlave.foreskin = 0,$cash -= $surgeryCost, $activeSlave.health -= 10, $surgeryType = "circumcision"]]
+			<<elseif ($activeSlave.vagina >= 0)>>
+				 | [[Remove clitoral hood|Surgery Degradation][$activeSlave.foreskin = 0,$cash -= $surgeryCost, $activeSlave.health -= 10, $surgeryType = "circumcision"]]
+			<</if>>
 			<</if>>
 		<</if>>
 	<</if>>
@@ -627,7 +634,7 @@ $pronounCap has
 	<br>$pronounCap has a <<if $activeSlave.prostate > 1>>hyperactive<<else>>normal<</if>> prostate.
 	<<if $activeSlave.prostate < 2>>
 		<<if $activeSlave.indentureRestrictions < 2>>
-			[[Implant slow-release productivity drugs|Surgery Degradation][$activeSlave.lactation=2,$cash-=$surgeryCost,$activeSlave.health-=10,$surgeryType="precum"]] //This may cause some leaking//
+			[[Implant slow-release productivity drugs|Surgery Degradation][$activeSlave.prostate=2,$cash-=$surgeryCost,$activeSlave.health-=10,$surgeryType="precum"]] //This may cause some leaking//
 		<</if>>
 	<</if>>
 	<<if $activeSlave.prostate > 1>>
@@ -709,7 +716,7 @@ waist.
 <br>
 
 $pronounCap's got a
-<<if $activeSlave.butt < 2>>flat and <<print either("disappointing", "unimpressive")>> ass.
+<<if $activeSlave.butt <= 1>>flat and <<print either("skinny", "slim", "taut")>> ass.
 <<elseif $activeSlave.butt <= 2>><<print either("small, sleek", "small but rounded", "rounded, small")>> rear end.
 <<elseif $activeSlave.butt <= 3>><<print either("big and healthy", "curved and plump", "healthy and plump")>> derriere.
 <<elseif $activeSlave.butt <= 4>><<print either("juicy and large butt", "big bubble butt", "curvy and enticing butt")>>.

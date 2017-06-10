@@ -99,29 +99,10 @@
 
 <<case "repressed anal virgin">>
 
-<<set $subSlave = 0>>
-<<for $i = 0; $i < $slaves.length; $i++>>
-  <<if $slaves[$i].anus > 0>>
-  <<if $slaves[$i].devotion > 50>>
-  <<if $slaves[$i].amp == 0>>
-	<<set $subSlave = $slaves[$i]>>
-	<<set $slaves[$i].analCount += 1>>
-	<<set $analTotal += 1>>
-	<<break>>
-  <</if>>
-  <</if>>
-  <</if>>
-<</for>>
-<<if $subSlave == 0>>
-  <<for $i = 0; $i < $slaves.length; $i++>>
-	<<if $slaves[$i].anus > 0>>
-	  <<set $subSlave = $slaves[$i]>>
-	  <<set $slaves[$i].analCount += 1>>
-	  <<set $analTotal += 1>>
-	  <<break>>
-	<</if>>
-  <</for>>
-<</if>>
+<<set $subSlave = $RERepressedAnalVirginSub>>
+<<set _m = $slaves.findIndex(function(s) { return s.ID == $subSlave.ID; })>>
+<<set $slaves[_m].analCount += 1>>
+<<set $analTotal += 1>>
 
 <<case "top exhaustion">>
 
@@ -1335,7 +1316,7 @@ $subSlave.slaveName <<if _vaginal>>looks out from under $activeSlave.slaveName<<
 	<<set $activeSlave.anus += 1>>
 	<</replace>>
 <</link>> //This option will take anal virginity//
-<<link "Girls' butts are for pounding">>
+<br><<link "Girls' butts are for pounding">>
 	<<replace "#name">>$activeSlave.slaveName<</replace>>
 	<<replace "#result">>
 	You tell her that her butt is your property, just like $subSlave.slaveName's. She looks @@.gold;terrified.@@ You continue, telling her to bring your property over to you. She stumbles over, begging,
@@ -1432,7 +1413,7 @@ $subSlave.slaveName <<if _vaginal>>looks out from under $activeSlave.slaveName<<
 		<<SimpleVCheck>>
 	<<case "pregnancy">>
 		<<if $activeSlave.preg > 10>>
-			massaging the pregnant sluts belly as you fuck her.
+			massaging the pregnant slut's belly as you fuck her.
 		<<else>>
 			pushing the impregnation slut into a corner and pretending you're knocking her up.
 		<</if>>

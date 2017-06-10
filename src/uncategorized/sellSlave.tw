@@ -51,7 +51,6 @@ You prepare her for sale. Her response to being put up for purchase is
 	<<set $seed.push("slaver")>>
 	<<set $seed.push("accountant")>>
 <</if>>
-<</if>>
 <<set $appraiser = $seed.random()>>
 
 A reputable slave appraiser arrives promptly to inspect her and certify her qualities for sale. The appraiser,
@@ -80,8 +79,7 @@ A reputable slave appraiser arrives promptly to inspect her and certify her qual
 		<<elseif $arcologies[0].FSAztecRevivalist >= $FSLockinLevel*0.6>>
 			"Sanctity,
 		<<else>>
-			<<if $PC.title == 1>>
-			"Your Greantess,
+			"Your Greatness,			
 		<</if>>
 	<</if>>
 	I have appraised your slave. My appraisal is based on her potential income in a brothel, with modification for her special qualities. I have found the following.
@@ -1246,6 +1244,7 @@ __Bids Received__\
 
 <<if $activeSlave.intelligenceImplant != 1>>
 <<if $activeSlave.devotion > 20>>
+<<if $activeSlave.fetish != "mindbroken">>
 	<<if random(1,100) > 70>>
 	<br>''¤<<print 500*Math.trunc(($slaveCost*1.25)/500)>>'' from a fellow arcology owner with an almost messianic calling to educate and improve slaves, though somewhat hypocritically, he prefers to start with reasonably obedient girls, which usually means slaves broken by someone else.
 	<<link "Accept bid">>
@@ -1254,6 +1253,7 @@ __Bids Received__\
 		<<goto "Slave Sold">>
 	<</link>>
 	<</if>>
+<</if>>
 <</if>>
 <</if>>
 

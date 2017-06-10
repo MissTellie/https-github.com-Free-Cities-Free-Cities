@@ -29,13 +29,19 @@
 	<<set $FResult = 1>>
 <</if>>
 
+<<if ($slaves[$i].assignment == "be confined in the arcade") && ($arcadeUpgradeInjectors == 1)>>
+	<<set $FResult += 1>>
+<</if>>
+
 is <<if $slaves[$i].fuckdoll == 0>>restrained in a glory hole<<else>>set out for use<</if>>. $beauty customers (<<print Math.trunc($beauty/7)>> a day) paid ¤$FResult to use $possessive holes.
 
 <<if ($arcologies[0].FSDegradationist > 0)>>
 	Demand for $possessive holes is strong due to the appetite for degradation rampant in $arcologies[0].name.
 <</if>>
 
-<<if ($slaves[$i].curatives > 0)>>
+<<if ($slaves[$i].assignment == "be confined in the arcade") && ($arcadeUpgradeCollectors > 0)>>
+	The steady stream of drugs from the upgraded arcade protects $possessive health from the stress of being used as a sexual appliance.
+<<elseif ($slaves[$i].curatives > 0)>>
 	The drugs $pronoun's on protect $possessive health from the stress of being used as a sexual appliance.
 <<elseif ($slaves[$i].health < -50)>>
 	The stress of being used while very ill @@.red;damaged $possessive health.@@
@@ -124,10 +130,6 @@ is <<if $slaves[$i].fuckdoll == 0>>restrained in a glory hole<<else>>set out for
 	<</if>>
 <</if>>
 
-<<if ($slaves[$i].assignment == "be confined in the arcade") && ($arcadeUpgradeInjectors == 1)>>
-	<<set $FResult += 1>>
-<</if>>
-
 $possessiveCap feelings, skills, and appearance do not matter. $pronounCap is condemned to a world that consists of a tiny cell, featureless except for the never-ending dicks $pronoun is required to service. You were paid @@.yellowgreen;¤<<print ($beauty*$FResult)>>@@ for the use of $slaves[$i].slaveName's holes this week.
 
 /* FACILITY DECORATION IMPACTS */
@@ -209,3 +211,4 @@ $possessiveCap feelings, skills, and appearance do not matter. $pronounCap is co
 <</if>>
 
 <<set $cash += ($beauty*$FResult)>>
+<<set _profits += ($beauty*$FResult)>>

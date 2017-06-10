@@ -20,10 +20,13 @@
 <<elseif ($activeSlave.fetishKnown == 1) && ($activeSlave.fetishStrength > 60) && ($activeSlave.fetish == "boobs")>>
 	Since $activeSlave.slaveName has an unusual taste for having her tits fondled, you @@.hotpink;build her devotion to you@@ by indulging her. You keep her near you as a sort of living stress ball. Whenever you have a free hand, whether you're conducting business or buttfucking another slave, you reach over and play with her. She sometimes masturbates while you massage her breasts and pinch her nipples, but often she doesn't even need to.
 	<<set $activeSlave.mammaryCount += 20, $mammaryTotal += 20>>
-<<elseif ($activeSlave.fetishKnown == 1) && ($activeSlave.fetishStrength > 60) && ($activeSlave.fetish == "humiliation")>>
+<<elseif ($activeSlave.fetishKnown == 1) && ($activeSlave.fetishStrength > 60) && ($activeSlave.fetish == "humiliation") && ($activeSlave.anus > 0) && ($activeSlave.vagina != 0) && canDoAnal($activeSlave)>>
 	Since $activeSlave.slaveName has an unusual sexuality, you @@.hotpink;build her devotion to you@@ by indulging her perversions. Since she's an absolute slut for humiliation, you let her whore around inside the special camera room whenever possible. When you're going out and feel like putting on a show, you bring her on a leash and fuck her in public. She comes harder than ever when you push her naked body up against the wall of a crowded public arcology elevator and molest her.
 	<<set $activeSlave.oralCount += 4, $oralTotal += 4>>
 	<<BothVCheck 4 2>>
+<<elseif ($activeSlave.fetishKnown == 1) && ($activeSlave.fetishStrength > 60) && ($activeSlave.fetish == "humiliation")>>
+	Since $activeSlave.slaveName has an unusual sexuality, you @@.hotpink;build her devotion to you@@ by indulging her perversions. Since she's an absolute slut for humiliation, you let her whore around inside the special camera room whenever possible. When you're going out and feel like putting on a show, you bring her on a leash and have her service you in public. She comes harder than ever when you push her down on her knees in a crowded public arcology elevator and facefuck her while she masturbates fervently.
+	<<set $activeSlave.oralCount += 8, $oralTotal += 8>>
 <<elseif ($activeSlave.anus == 3) && ($activeSlave.vagina == 3)>>
 	$activeSlave.slaveName is a stretched-out, well-traveled slut. Some like their holes loose, but most prefer cunts and butts that don't make sloppy noises when fucked. So, you spend some quality care time with her, carefully massaging her abused holes with oils and lotions. She comes, of course, but her pussy and asshole do benefit from the treatment. You allow her to service you with her mouth to avoid spoiling your work right away. Afterward, she <<if ($activeSlave.amp != 1)>>@@.hotpink;hugs you and gives you a kiss@@<<else>>@@.hotpink;gives you a kiss and tries to hug you,@@ but without arms, all she manages is a sort of nuzzle<</if>>.
 	<<set $activeSlave.vagina--, $activeSlave.anus--,
@@ -34,6 +37,10 @@
 <<elseif ($activeSlave.anus == 0) && ($activeSlave.vagina < 0)>>
 	You haven't decided to take $activeSlave.slaveName's anus yet, so you let her suck you off and play with herself while she does. You stroke her hair, play with her tits, and generally pamper her while she orally services you. She's accustomed to the slave life, so the experience of affection is novel for her and she is @@.hotpink;touched by the affection@@. She isn't used to being kissed, teased and massaged. She's almost disappointed when it becomes clear that you don't mean to take her virgin hole.
 	<<set $activeSlave.oralCount += 5, $oralTotal += 5>>
+<<elseif ($activeSlave.anus == 0) && ($activeSlave.vagina > 0)>>
+	You fuck $activeSlave.slaveName, of course, but you do it slowly and lovingly, and keep well clear of her still-virgin asshole in the process. She's accustomed to the slave life, so the experience is almost novel for her and she is affectingly @@.hotpink;touched by the affection@@. She isn't used to being kissed, teased and massaged before she takes cock. Slaves are usually used without regard to their orgasm, so she's also surprised and gratified when you make meticulous efforts to delay your own orgasm so it can coincide with her own. She's a puddle on the sheets under your hands.
+	<<set $activeSlave.oralCount += 4, $oralTotal += 4>>
+	<<VaginalVCheck 4>>
 <<else>>
 	You fuck $activeSlave.slaveName, of course, but you do it slowly and lovingly. She's accustomed to the slave life, so the experience is almost novel for her and she is affectingly @@.hotpink;touched by the affection@@. She isn't used to being kissed, teased and massaged before she takes cock. Slaves are usually used without regard to their orgasm, so she's also surprised and gratified when you make meticulous efforts to delay your own orgasm so it can coincide with her own. She's a puddle on the sheets under your hands.
 	<<set $activeSlave.oralCount += 4, $oralTotal += 4>>
@@ -296,6 +303,9 @@
 		<<if ($activeSlave.vaginalSkill >= 100)>>
 			slut; @@.yellow;her assignment has defaulted to fostering devotion.@@
 			<<set $trainingRegimen = "build her devotion">>
+		<<elseif ($activeSlave.vagina == 0)>>
+			virgin slut; @@.yellow;her assignment has defaulted to fostering devotion.@@
+			<<set $trainingRegimen = "build her devotion">>
 		<<elseif ($activeSlave.vagina == -1) && ($activeSlave.balls == 0)>>
 			gelded bitch; @@.yellow;her assignment has defaulted to fostering devotion.@@
 			<<set $trainingRegimen = "build her devotion">>
@@ -382,7 +392,7 @@
 		<<set _seed = random(1,100)>>
 		<<if (_seed > 90)>>
 			This abuse has shattered her already-fragile self; @@.red;her mind has been broken.@@
-			<<set $activeSlave.fetish = "mindbroken", $activeSlave.sexualFlaw = "none" $activeSlave.behavioralFlaw = "none">>
+			<<set $activeSlave.fetish = "mindbroken", $activeSlave.sexualFlaw = "none", $activeSlave.behavioralFlaw = "none">>
 		<<elseif (_seed > 80) && ($activeSlave.behavioralFlaw != "hates men") && ($activeSlave.behavioralFlaw != "hates women")>>
 			This abuse has associated
 			<<if ($PC.dick == 1)>>
@@ -532,35 +542,35 @@
 		$activeSlave.slaveName's innocence and hesitations about sex are unlikely to survive much longer, but you decide to hurry the process along by making her <<if $PC.dick != 0>>eat dick<<else>>eat your pussy<</if>> while masturbating. She's repressed enough that masturbation is still a partial punishment for her, but she usually gets herself off anyway, shaking with release and sobbing with crushed illusions.
 		<<set $activeSlave.oralCount += 10, $oralTotal += 10>>
 	<<case "cum addict">>
-		is utterly addicted to cum. You keep her in your office whenever you can, and subject her to a strict sexual diet of
+		$activeSlave.slaveName is utterly addicted to cum. You keep her in your office whenever you can, and subject her to a strict sexual diet of
 		<<if canDoVaginal($activeSlave)>>sex,<<elseif canDoAnal($activeSlave)>>buttsex,<<else>>breast play,<</if>>
 		no oral allowed, no matter how much she begs to be permitted to <<if $PC.dick == 1>>suck you off<<else>>eat you out<</if>>.
 		<<if canDoVaginal($activeSlave)>><<VaginalVCheck 10>><<elseif canDoAnal($activeSlave)>><<AnalVCheck 10>><</if>>
 	<<case "anal addict">>
-		is utterly addicted to buttsex. You keep her in your office whenever you can, and subject her to a strict sexual diet of
+		$activeSlave.slaveName is utterly addicted to buttsex. You keep her in your office whenever you can, and subject her to a strict sexual diet of
 		<<if canDoVaginal($activeSlave)>>vanilla sex,<<else>>oral and manual intercourse,<</if>>
 		no anal allowed, no matter how much she begs you to stick something, anything, up her ass.
 		<<if ($activeSlave.vagina > -1) && canDoVaginal($activeSlave)>><<VaginalVCheck 10>><<else>><<set $activeSlave.oralCount += 10, $oralTotal += 10>><</if>>
 	<<case "attention whore">>
-		is an obnoxious attention whore. You keep her in your office and make love to her whenever you can, but only whenever you're alone in the office. You even instruct $assistantName not to bother you while the slave is receiving her therapy.
+		$activeSlave.slaveName is an obnoxious attention whore. You keep her in your office and make love to her whenever you can, but only whenever you're alone in the office. You even instruct $assistantName not to bother you while the slave is receiving her therapy.
 		<<if canDoVaginal($activeSlave)>><<VaginalVCheck 10>><<elseif canDoAnal($activeSlave)>><<AnalVCheck 10>>	<</if>>
 	<<case "breast growth">>
-		is completely devoted to her own tits. You keep her in your office whenever you can, <<if canDoVaginal($activeSlave)>>fucking her<<elseif canDoAnal($activeSlave)>>fucking her ass<<else>>fucking her face<</if>>
+		$activeSlave.slaveName is completely devoted to her own tits. You keep her in your office whenever you can, <<if canDoVaginal($activeSlave)>>fucking her<<elseif canDoAnal($activeSlave)>>fucking her ass<<else>>fucking her face<</if>>
 		in positions that offer her boobs no stimulation at all. When you're not broadening her sexual horizons, she's restrained to keep her from touching her own nipples, despite piteous begging.
 		<<if canDoVaginal($activeSlave)>><<VaginalVCheck 10>><<elseif canDoAnal($activeSlave)>><<AnalVCheck 10>><</if>>
 	<<case "abusive" "malicious">>
-		seems to have forgotten that she's your bitch, so you remind her. You keep her in your office whenever she's not otherwise occupied, and hold her down and fuck her whenever you feel like it. It's been a long time since she was on the bottom this regularly.
+		$activeSlave.slaveName seems to have forgotten that she's your bitch, so you remind her. You keep her in your office whenever she's not otherwise occupied, and hold her down and fuck her whenever you feel like it. It's been a long time since she was on the bottom this regularly.
 		<<if canDoVaginal($activeSlave)>><<VaginalVCheck 10>><<elseif canDoAnal($activeSlave)>><<AnalVCheck 10>><</if>>
 	<<case "self hating">>
-		hates herself much more than is normal for a well trained sex slave, to the point where she actively seeks out unhealthy and destructive assignments. You build up her sexual self esteem with a steady diet of
+		$activeSlave.slaveName hates herself much more than is normal for a well trained sex slave, to the point where she actively seeks out unhealthy and destructive assignments. You build up her sexual self esteem with a steady diet of
 		<<if canDoVaginal($activeSlave)>>missionary lovemaking,<<elseif canDoAnal($activeSlave)>>gentle anal loving,<<else>>gentle oral sex,<</if>>
 		and make sure to praise her and keep her spirits up as much as you can.
 		<<if canDoVaginal($activeSlave)>><<VaginalVCheck 10>><<elseif canDoAnal($activeSlave)>><<AnalVCheck 10>><</if>>
 	<<case "neglectful">>
-		has given up on her own sexual pleasure to an extent, focusing only on getting others off. You keep her in your office and play with her regularly, making a game of getting her off as often as possible. You're careful to use other slaves for your own pleasure.
+		$activeSlave.slaveName has given up on her own sexual pleasure to an extent, focusing only on getting others off. You keep her in your office and play with her regularly, making a game of getting her off as often as possible. You're careful to use other slaves for your own pleasure.
 		<<if canDoVaginal($activeSlave)>><<VaginalVCheck 10>><<elseif canDoAnal($activeSlave)>><<AnalVCheck 10>><</if>>
 	<<case "breeder">>
-		has become so sexually obsessed with pregnancy that impregnation holds less interest for her than being pregnant.
+		$activeSlave.slaveName has become so sexually obsessed with pregnancy that impregnation holds less interest for her than being pregnant.
 		<<if $activeSlave.preg > 0>>
 			Since she's pregnant, getting her out of this perversion is more difficult than just fucking her.
 		<<else>>
@@ -616,7 +626,7 @@
 	<</if>>
 
 <<case "explore her sexuality">>
-	<<set $activeSlave.fetishKnown = 1, $activeSlave.attrKnown = 1>>
+	<<set $activeSlave.attrKnown = 1>>
 	You set about investigating her sexuality.
 	<<if ($activeSlave.devotion < -20) && ($activeSlave.trust > -20)>>
 		She's so resistant that you have to fill her with psychoactive drugs and restrain her painfully in order to learn anything. This abuse @@.mediumorchid;increases her hatred.@@
@@ -659,6 +669,7 @@
 		@@.green;passionate about women.@@
 	<</if>>
 	<<if $activeSlave.fetishKnown != 1>>
+	<<set $activeSlave.fetishKnown = 1>>
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;You then give her a good exploratory fondle. You play with her nipples and each of her holes and gauge her reaction.
 	<<if $activeSlave.fetish == "boobs">>
 		You've barely touched her nipples before she moans. After some experimentation, it becomes clear that her nipples might as well be a pair of slightly less sensitive clits. Finding her mammary fixation with you has @@.hotpink;increased her devotion to you.@@

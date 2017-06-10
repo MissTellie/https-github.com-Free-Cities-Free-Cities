@@ -98,9 +98,9 @@
 					She is acting oddly, presenting her ass in an awkward way and acting uncomfortable. She may be considerably less interested in anal sex than she seems.
 				<</switch>>
 				<<if ($gingeringDetection == "mercenary")>>
-					The nervous slave brokers confirm this in response to a direct question. Your intimidating reputation from your @@.springgreen;extensive combat training@@ has its uses.
+					The nervous seller confirms this in response to a direct inquiry. Your intimidating reputation from your @@.springgreen;extensive combat training@@ has its uses.
 				<<elseif ($gingeringDetection == "force")>>
-					The nervous slave brokers confirm this in response to a direct question. Your reputation as a @@.springgreen;<<if ($PC.title == 1)>>man<<else>>woman<</if>> of blood@@ has its uses.
+					The nervous seller confirms this in response to a direct inquiry. Your reputation as a @@.springgreen;<<if ($PC.title == 1)>>man<<else>>woman<</if>> of blood@@ has its uses.
 				<</if>>
 			<</if>> /* gingering detected */
 		<</if>>
@@ -2618,6 +2618,7 @@
 	<<set $activeSlave.vagina = 0>>
 	<<set $activeSlave.preg = 0>>
 	<<set $activeSlave.weight = -20>>
+	<<set $activeSlave.waist = -50>>
 	<<if $SCP.schoolUpgrade == 2>>
 		<<set $activeSlave.vaginalSkill = 15>>
 		<<set $activeSlave.oralSkill = 15>>
