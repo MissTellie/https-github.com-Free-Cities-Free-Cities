@@ -5,7 +5,7 @@ import copy
 
 REFERENCE_PATH_SAMPLES = 50
 
-xpath_shape = './svg:g[@id="Chest"]/svg:g[@id="Boob_%s"]/svg:g[starts-with(@id, "Boob_Large")]/svg:path[@style="fill:#f6e0e8"]/@d'
+xpath_shape = './svg:g[@id="Chest"]/svg:g[@id="Boob_%s"]/svg:g[starts-with(@id, "Boob_Large") or starts-with(@id, "Areola")]/svg:path[@style="fill:#f6e0e8" or @style="fill:#d76b93"]/@d'
 xpath_outfit_container = './svg:g[@id="Chest_Outfit"]'
 xpath_outfit = './svg:g[@id="Boob_%s_straps"]'
 target_ids = "0,1,2,3,4,5,6,7".split(",")
@@ -22,25 +22,20 @@ import lxml.etree as etree
 root = etree.parse('vector source.svg')
 ns = {'svg' : 'http://www.w3.org/2000/svg'}
 
-def get_shape(xpath_shape, index):
-  print('Getting shape data for index %s...'%(index))
+def get_points(xpath_shape, index):
+  print('Getting shape data for "%s"...'%(index))
   paths_data = root.xpath(xpath_shape%(index),namespaces=ns)
-  output_path = None
+  points = []
   path_length = None
   for path_data in paths_data:
     p = parse_path(path_data)
-    if (path_length is None):
-      path_length = len(p)
-    if (len(p) != path_length):
-      # TODO: investigate if this is really necessary
-      raise RuntimeError('Reference paths do not have the same amount of nodes.')
-    else:
-      if (output_path is not None):
-        raise RuntimeError('Found more than one reference path with id "%s".'%(index))
-      output_path = p
-  if (output_path is None):
-    raise RuntimeError('No reference path found with id "%s".'%(index))
-  return output_path
+    points += [
+      p.point(1.0/float(REFERENCE_PATH_SAMPLES)*i) 
+      for i in range(REFERENCE_PATH_SAMPLES)
+    ]
+  if (not points):
+    raise RuntimeError('No reference points found by selector "%s".'%(xpath_shape%(index)))
+  return points
 
 def point_movement(point, reference_points, target_points):
   distances = [abs(point - reference_point) for reference_point in reference_points]
@@ -48,11 +43,7 @@ def point_movement(point, reference_points, target_points):
   movement = target_points[min_ref_dist_idx] - reference_points[min_ref_dist_idx]
   return movement
 
-reference_shape = get_shape(xpath_shape, reference_id)
-reference_points = [
-  reference_shape.point(1.0/float(REFERENCE_PATH_SAMPLES)*i) 
-  for i in range(REFERENCE_PATH_SAMPLES)
-]
+reference_points = get_points(xpath_shape, reference_id)
 container = root.xpath(xpath_outfit_container,namespaces=ns)
 if (len(container) != 1):
   raise RuntimeError('Outfit container selector "%s" does not yield exactly one layer.'%(xpath_outfit_container))
@@ -70,11 +61,7 @@ for target_id in target_ids:
   layerid = outfit.get("id").replace("_%s_"%(reference_id),"_%s_"%(target_id))
   outfit.set("id", layerid)
   outfit.set(etree.QName("http://www.inkscape.org/namespaces/inkscape", 'label'), layerid)
-  target_shape = get_shape(xpath_shape, target_id)
-  target_points = [
-    target_shape.point(1.0/float(REFERENCE_PATH_SAMPLES)*i) 
-    for i in range(REFERENCE_PATH_SAMPLES)
-  ]
+  target_points = get_points(xpath_shape, target_id)
   for path in paths:
     path_data = path.get("d")
     p = parse_path(path_data)
