@@ -228,8 +228,12 @@ $args[2]: icon UI Display for vector art, 1 for on.
 <</if>>
 <<print "<object type='image/svg+xml' data=" + _imgSkinLoc + "/torso " + _torsoSize + ".svg'" + "/></object>">>
 <<if $args[0].fuckdoll != 0 || $args[0].clothes == "restrictive latex" || $args[0].clothes == "a latex catsuit">>
-	<<set _torsoSize = _torsoSize + " latex">>
-	<<print "<object type='image/svg+xml' data=" + _folderLoc + "/outfit/torso " + _torsoSize + ".svg'" + "/></object>">>
+	<<set _torsoOutfit = " latex">>
+<<elseif $args[0].clothes == "uncomfortable straps">>
+	<<set _torsoOutfit = " straps">>
+<</if>>
+<<if _torsoOutfit>>
+	<<print "<object type='image/svg+xml' data=" + _folderLoc + "/outfit/torso " + _torsoSize + _torsoOutfit + ".svg'" + "/></object>">>
 <</if>>
 
 /*Navel Piercing*/
@@ -385,11 +389,22 @@ $args[2]: icon UI Display for vector art, 1 for on.
 <<if canAchieveErection($args[0])>>
 <<if _boobSize < 6>>
 	<<if $args[0].fuckdoll != 0 || $args[0].clothes == "restrictive latex" || $args[0].clothes == "a latex catsuit">>
-		<<print "<object type='image/svg+xml' data=" + _folderLoc + "/outfit/boob " +_boobSize +" latex.svg'" + "/></object>">>
-		<<if $args[0].lactation > 0>><<print "<object type='image/svg+xml' data=" + _imgSkinLoc + "/boob " +_boobSize + " areola.svg'" + "/></object>">><</if>>
+		/* normal case: outfit hides boobs */
+		<<set _boobOutfit = " latex" >>
+	<</if>>
+	<<if _boobOutfit >>
+		<<print "<object type='image/svg+xml' data=" + _folderLoc + "/outfit/boob " +_boobSize + _boobOutfit + ".svg'" + "/></object>">>
+		<<if $args[0].lactation > 0>>
+			<<print "<object type='image/svg+xml' data=" + _imgSkinLoc + "/boob " +_boobSize + " areola.svg'" + "/></object>">>
+		<</if>>
 	<<else>>
 		<<print "<object type='image/svg+xml' data=" + _imgSkinLoc + "/boob " +_boobSize +".svg'" + "/></object>">>
 		<<print "<object type='image/svg+xml' data=" + _imgSkinLoc + "/boob " +_boobSize + " areola.svg'" + "/></object>">>
+	<</if>>
+	/* special case: straps are actually dawn over the boobs */
+	<<if $args[0].clothes == "uncomfortable straps">>
+		<<set _boobOutfit = " straps" >>
+		<<print "<object type='image/svg+xml' data=" + _folderLoc + "/outfit/boob " +_boobSize + _boobOutfit + ".svg'" + "/></object>">>
 	<</if>>
 	<<set _needBoobs = 0>>
 <</if>>
@@ -435,6 +450,11 @@ $args[2]: icon UI Display for vector art, 1 for on.
 	<<else>>
 		<<print "<object type='image/svg+xml' data=" + _imgSkinLoc + "/boob " +_boobSize +".svg'" + "/></object>">>
 		<<print "<object type='image/svg+xml' data=" + _imgSkinLoc + "/boob " +_boobSize + " areola.svg'" + "/></object>">>
+	<</if>>
+	/* special case: straps are actually dawn over the boobs */
+	<<if $args[0].clothes == "uncomfortable straps">>
+		<<set _boobOutfit = " straps" >>
+		<<print "<object type='image/svg+xml' data=" + _folderLoc + "/outfit/boob " +_boobSize + _boobOutfit + ".svg'" + "/></object>">>
 	<</if>>
 <</if>>
 
