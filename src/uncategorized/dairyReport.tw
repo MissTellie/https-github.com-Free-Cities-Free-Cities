@@ -500,29 +500,29 @@
 <<if (_Tadd > 0)>>
 	<<set _tempCash = $cash>>
 	<<set _seed = (100*$bioreactorsXY) + (100*$bioreactorsHerm), _cumWeek += _seed>>
-  	<<if ($arcologies[0].FSPastoralistLaw == 1)>>
-  		<<set $cash += _seed*random(40,50)>>
-  	<<elseif ($arcologies[0].FSPastoralist != "unset")>>
-  		<<set $cash += _seed*(random(25,35)+Math.trunc($arcologies[0].FSPastoralist/10))>>
-  	<<else>>
-  		<<set $cash += _seed*random(25,35)>>
-  	<</if>>
+	<<if ($arcologies[0].FSPastoralistLaw == 1)>>
+		<<set $cash += _seed*random(40,50)>>
+	<<elseif ($arcologies[0].FSPastoralist != "unset")>>
+		<<set $cash += _seed*(random(25,35)+Math.trunc($arcologies[0].FSPastoralist/10))>>
+	<<else>>
+		<<set $cash += _seed*random(25,35)>>
+	<</if>>
 	<<set _seed = (2*$bioreactorsXX) + (2*$bioreactorsHerm), _femCumWeek += _seed>>
-  	<<if ($arcologies[0].FSPastoralistLaw == 1)>>
-  		<<set $cash += _seed*random(40,50)>>
-  	<<elseif ($arcologies[0].FSPastoralist != "unset")>>
-  		<<set $cash += _seed*(random(25,35)+Math.trunc($arcologies[0].FSPastoralist/10))>>
-  	<<else>>
-  		<<set $cash += _seed*random(25,35)>>
-  	<</if>>
+	<<if ($arcologies[0].FSPastoralistLaw == 1)>>
+		<<set $cash += _seed*random(40,50)>>
+	<<elseif ($arcologies[0].FSPastoralist != "unset")>>
+		<<set $cash += _seed*(random(25,35)+Math.trunc($arcologies[0].FSPastoralist/10))>>
+	<<else>>
+		<<set $cash += _seed*random(25,35)>>
+	<</if>>
 	<<set _seed = (800*$bioreactorsXX) + (700*$bioreactorsBarren) + (600*$bioreactorsXY) + (600*$bioreactorsHerm), _milkWeek += _seed>>
-  	<<if ($arcologies[0].FSPastoralistLaw == 1)>>
-  		<<set $cash += _seed*(13+Math.trunc($arcologies[0].FSPastoralist/30))>>
-  	<<elseif ($arcologies[0].FSPastoralist != "unset")>>
-  		<<set $cash += _seed*(8+Math.trunc($arcologies[0].FSPastoralist/30))>>
-  	<<else>>
-  		<<set $cash += _seed*9>>
-  	<</if>>
+	<<if ($arcologies[0].FSPastoralistLaw == 1)>>
+		<<set $cash += _seed*(13+Math.trunc($arcologies[0].FSPastoralist/30))>>
+	<<elseif ($arcologies[0].FSPastoralist != "unset")>>
+		<<set $cash += _seed*(8+Math.trunc($arcologies[0].FSPastoralist/30))>>
+	<<else>>
+		<<set $cash += _seed*9>>
+	<</if>>
 	<br><br>_Tadd permanently converted biological "machine<<if _Tadd > 1>>s<</if>>" produce<<if _Tadd == 1>>s<</if>> @@.yellowgreen;¤<<print $cash-_tempCash>>@@ income.
 <</if>>
 <<set _profits = $cash-_oldCash>>
