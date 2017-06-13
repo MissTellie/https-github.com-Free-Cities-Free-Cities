@@ -207,21 +207,6 @@ She waits anxiously for your decision.
 <<slaveCost $activeSlave>>
 
 <<NationalityToName $activeSlave>>
-<<if $useFSNames == 0>>
-	<<set $activeSlave.slaveName = $activeSlave.birthName>>
-<<elseif $arcologies[0].FSRomanRevivalist > 20>>
-	<<set $activeSlave.slaveName = $romanSlaveNames.random()>>
-<<elseif $arcologies[0].FSAztecRevivalist > 20>>
-	<<set $activeSlave.slaveName = $aztecSlaveNames.random()>>
-<<elseif $arcologies[0].FSEgyptianRevivalist > 20>>
-	<<set $activeSlave.slaveName = $ancientEgyptianSlaveNames.random()>>
-<<elseif $arcologies[0].FSEdoRevivalist > 20>>
-	<<set $activeSlave.slaveName = $edoSlaveNames.random()>>
-<<elseif $arcologies[0].FSDegradationist != "unset">>
-	<<include "Degrading Name">>
-<<else>>
-	<<set $activeSlave.slaveName = $activeSlave.birthName>>
-<</if>>
 
 <<set $activeSlave.slaveName = $activeSlave.birthName>>
 <<set $activeSlave.ID += 1000>>

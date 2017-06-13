@@ -318,7 +318,13 @@ Age:
 <</if>>
 
 <br>
-Name your character: <<textbox "$PCName" $PCName "Intro Summary">>
+Name your character: (given name) <<textbox "$PC.name" $PC.name "Intro Summary">> (surname)
+<<if $PC.surname>>
+	<<textbox "$PC.surname" "$PC.surname" "Intro Summary">>
+	<<link "Go by a single name">><<set $PC.slaveSurname = 0>><<goto "Intro Summary">><</link>>
+<<else>>
+	<<textbox "$PC.surname" "" "Intro Summary">>
+<</if>>
 <br>
 Preferred refreshment: <<textbox "$PC.refreshment" $PC.refreshment "Intro Summary">> [[Cigars|Intro Summary][$PC.refreshment = "cigar",$PC.refreshmentType = 0]] | [[Whiskey|Intro Summary][$PC.refreshment = "whiskey",$PC.refreshmentType = 1]]
 <br>
