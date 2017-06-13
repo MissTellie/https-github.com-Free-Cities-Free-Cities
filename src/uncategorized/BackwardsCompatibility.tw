@@ -2,6 +2,15 @@
 
 <<set $nextButton to "Continue", $nextLink to "Main", $returnTo to "Main">>
 
+<<if ndef $PC.name>>
+<<if def $PCName>>
+	<<set $PC.name = $PCName>>
+	<<unset $PCName>>
+<</if>>
+<</if>>
+<<if ndef $PC.surname>>
+	<<set $PC.surnname = 0>>
+<</if>>
 <<if ndef $bodyguardTrains>>
 	<<set $bodyguardTrains = 1>>
 <</if>>
@@ -1880,6 +1889,9 @@ Setting missing slave variables:
 <<if ndef _Slave.origHColor>>
 	<<set _Slave.origHColor = _Slave.hColor>>
 <</if>>
+
+<<if ndef _Slave.birthSurname>><<set _Slave.birthSurname = 0>><</if>>
+<<if ndef _Slave.slaveSurname>><<set _Slave.slaveSurname = 0>><</if>>
 
 <<set $slaves[_bci] to _Slave>>
 <</for>>

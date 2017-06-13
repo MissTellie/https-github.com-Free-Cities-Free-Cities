@@ -230,7 +230,7 @@ __Player Character__
 	[[Older|MOD_Edit Arcology Cheat][$PC.age = 2]]
 <</if>>
 
-<br>Rename your character: <<textbox "$PCName" $PCName "MOD_Edit Arcology Cheat">>
+<br>Rename your character: (given name) <<textbox "$PC.name" $PC.name "MOD_Edit Arcology Cheat">> (surname) <<textbox "$PC.surname" $PC.surname "MOD_Edit Arcology Cheat">>
 <br>Preferred refreshment: <<textbox "$PC.refreshment" $PC.refreshment "MOD_Edit Arcology Cheat">> [[Cigars|MOD_Edit Arcology Cheat][$PC.refreshment = "cigar",$PC.refreshmentType = 0]] | [[Whiskey|MOD_Edit Arcology Cheat][$PC.refreshment = "whiskey",$PC.refreshmentType = 1]]
 <br>Preferred method of consumption: <<if $PC.refreshmentType == 0>>Smoked<<elseif $PC.refreshmentType == 1>>Drank<<elseif $PC.refreshmentType == 2>>Eaten<<elseif $PC.refreshmentType == 3>>Snorted<<else>>Injected<</if>>
 <br>[[Smoked|MOD_Edit Arcology Cheat][$PC.refreshmentType = 0]] | [[Drank|MOD_Edit Arcology Cheat][$PC.refreshmentType = 1]] | [[Eaten|MOD_Edit Arcology Cheat][$PC.refreshmentType = 2]] | [[Snorted|MOD_Edit Arcology Cheat][$PC.refreshmentType = 3]] | [[Injected|MOD_Edit Arcology Cheat][$PC.refreshmentType = 4]]
