@@ -4,7 +4,7 @@
 
 <<for $i = 0; $i < _SL; $i++>>
 	<<if $slaves[$i].assignmentVisible == 1>>
-		''__@@.pink;$slaves[$i].slaveName@@__''
+		''__@@.pink;$slaves[$i].slaveName<<if $slaves[$i].slaveSurname>> $slaves[$i].slaveSurname<</if>>@@__''
 		<<if $slaves[$i].choosesOwnAssignment == 2>>
 			<<include "SA chooses own job">>
 			$pronounCap
