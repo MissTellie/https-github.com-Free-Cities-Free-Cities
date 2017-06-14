@@ -2649,7 +2649,7 @@ _Slave.faceShape face.
 <<if _Slave.relation != 0>>
 <<for _ssj = 0; _ssj < _SL; _ssj++>>
 <<if _Slave.relationTarget == $slaves[_ssj].ID>>
-	$slaves[_ssj].slaveName's _Slave.relation
+	$slaves[_ssj].slaveName<<if $slaves[_ssj].slaveSurname>> $slaves[_ssj].slaveSurname<</if>>'s _Slave.relation
 	<<if _Slave.relationship <= 0>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>
 	<<break>>
 <</if>>
@@ -2660,15 +2660,15 @@ _Slave.faceShape face.
 <<if _Slave.relationshipTarget == $slaves[_ssj].ID>>
 <<switch _Slave.relationship>>
 <<case 1>>
-	<<if _Slave.relationshipTarget != _Slave.relationTarget>>$slaves[_ssj].slaveName's<<else>>&<</if>> friend
+	<<if _Slave.relationshipTarget != _Slave.relationTarget>>$slaves[_ssj].slaveName<<if $slaves[_ssj].slaveSurname>> $slaves[_ssj].slaveSurname<</if>>'s<<else>>&<</if>> friend
 <<case 2>>
-	<<if _Slave.relationshipTarget != _Slave.relationTarget>>$slaves[_ssj].slaveName's<<else>>&<</if>> BFF
+	<<if _Slave.relationshipTarget != _Slave.relationTarget>>$slaves[_ssj].slaveName<<if $slaves[_ssj].slaveSurname>> $slaves[_ssj].slaveSurname<</if>>'s<<else>>&<</if>> BFF
 <<case 3>>
-	<<if _Slave.relationshipTarget != _Slave.relationTarget>>$slaves[_ssj].slaveName's<<else>>&<</if>> FWB
+	<<if _Slave.relationshipTarget != _Slave.relationTarget>>$slaves[_ssj].slaveName<<if $slaves[_ssj].slaveSurname>> $slaves[_ssj].slaveSurname<</if>>'s<<else>>&<</if>> FWB
 <<case 4>>
-	<<if _Slave.relationshipTarget != _Slave.relationTarget>>$slaves[_ssj].slaveName's<<else>>&<</if>> lover
+	<<if _Slave.relationshipTarget != _Slave.relationTarget>>$slaves[_ssj].slaveName<<if $slaves[_ssj].slaveSurname>> $slaves[_ssj].slaveSurname<</if>>'s<<else>>&<</if>> lover
 <<case 5>>
-	<<if _Slave.relationshipTarget != _Slave.relationTarget>>$slaves[_ssj].slaveName's<<else>>&<</if>> wife
+	<<if _Slave.relationshipTarget != _Slave.relationTarget>>$slaves[_ssj].slaveName<<if $slaves[_ssj].slaveSurname>> $slaves[_ssj].slaveSurname<</if>>'s<<else>>&<</if>> wife
 <</switch>>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <<break>>
@@ -2690,11 +2690,11 @@ _Slave.faceShape face.
 <<if _Slave.rivalryTarget == $slaves[_ssj].ID>>
 @@.lightsalmon;
 <<if _Slave.rivalry <= 1>>
-	Disl $slaves[_ssj].slaveName
+	Disl $slaves[_ssj].slaveName<<if $slaves[_ssj].slaveSurname>> $slaves[_ssj].slaveSurname<</if>>
 <<elseif _Slave.rivalry <= 2>>
-	$slaves[_ssj].slaveName's rival
+	$slaves[_ssj].slaveName<<if $slaves[_ssj].slaveSurname>> $slaves[_ssj].slaveSurname<</if>>'s rival
 <<else>>
-	Hates $slaves[_ssj].slaveName
+	Hates $slaves[_ssj].slaveName<<if $slaves[_ssj].slaveSurname>> $slaves[_ssj].slaveSurname<</if>>
 <</if>>
 &nbsp;&nbsp;&nbsp;&nbsp;
 @@
@@ -2706,7 +2706,7 @@ _Slave.faceShape face.
 <<if _Slave.relation != 0>>
 <<for _ssj = 0; _ssj < _SL; _ssj++>>
 <<if _Slave.relationTarget == $slaves[_ssj].ID>>
-	$slaves[_ssj].slaveName's
+	$slaves[_ssj].slaveName<<if $slaves[_ssj].slaveSurname>> $slaves[_ssj].slaveSurname<</if>>'s
 	<<if _Slave.relationshipTarget != _Slave.relationTarget>>
 		@@.lightgreen;_Slave.relation@@.
 	<<else>>
@@ -2722,15 +2722,15 @@ _Slave.faceShape face.
 <<if _Slave.relationshipTarget == $slaves[_ssj].ID>>
 <<switch _Slave.relationship>>
 <<case 1>>
-	<<if _Slave.relationshipTarget != _Slave.relationTarget>>$slaves[_ssj].slaveName's<<else>>and<</if>> @@.lightgreen;friend.@@
+	<<if _Slave.relationshipTarget != _Slave.relationTarget>>$slaves[_ssj].slaveName<<if $slaves[_ssj].slaveSurname>> $slaves[_ssj].slaveSurname<</if>>'s<<else>>and<</if>> @@.lightgreen;friend.@@
 <<case 2>>
-	<<if _Slave.relationshipTarget != _Slave.relationTarget>>$slaves[_ssj].slaveName's<<else>>and<</if>> @@.lightgreen;best friend.@@
+	<<if _Slave.relationshipTarget != _Slave.relationTarget>>$slaves[_ssj].slaveName<<if $slaves[_ssj].slaveSurname>> $slaves[_ssj].slaveSurname<</if>>'s<<else>>and<</if>> @@.lightgreen;best friend.@@
 <<case 3>>
-	<<if _Slave.relationshipTarget != _Slave.relationTarget>>$slaves[_ssj].slaveName's<<else>>and<</if>> @@.lightgreen;FWB.@@
+	<<if _Slave.relationshipTarget != _Slave.relationTarget>>$slaves[_ssj].slaveName<<if $slaves[_ssj].slaveSurname>> $slaves[_ssj].slaveSurname<</if>>'s<<else>>and<</if>> @@.lightgreen;FWB.@@
 <<case 4>>
-	<<if _Slave.relationshipTarget != _Slave.relationTarget>>$slaves[_ssj].slaveName's<<else>>and<</if>> @@.lightgreen;lover.@@
+	<<if _Slave.relationshipTarget != _Slave.relationTarget>>$slaves[_ssj].slaveName<<if $slaves[_ssj].slaveSurname>> $slaves[_ssj].slaveSurname<</if>>'s<<else>>and<</if>> @@.lightgreen;lover.@@
 <<case 5>>
-	<<if _Slave.relationshipTarget != _Slave.relationTarget>>$slaves[_ssj].slaveName's<<else>>and<</if>> @@.lightgreen;slave wife.@@
+	<<if _Slave.relationshipTarget != _Slave.relationTarget>>$slaves[_ssj].slaveName<<if $slaves[_ssj].slaveSurname>> $slaves[_ssj].slaveSurname<</if>>'s<<else>>and<</if>> @@.lightgreen;slave wife.@@
 <</switch>>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <<break>>
@@ -2750,13 +2750,13 @@ _Slave.faceShape face.
 <<for _ssj = 0; _ssj < _SL; _ssj++>>
 <<if _Slave.rivalryTarget == $slaves[_ssj].ID>>
 <<if _Slave.rivalry <= 1>>
-	@@.lightsalmon;Dislikes@@ $slaves[_ssj].slaveName.
+	@@.lightsalmon;Dislikes@@ $slaves[_ssj].slaveName<<if $slaves[_ssj].slaveSurname>> $slaves[_ssj].slaveSurname<</if>>.
 	&nbsp;&nbsp;&nbsp;&nbsp;
 <<elseif _Slave.rivalry <= 2>>
-	$slaves[_ssj].slaveName's @@.lightsalmon;rival.@@
+	$slaves[_ssj].slaveName<<if $slaves[_ssj].slaveSurname>> $slaves[_ssj].slaveSurname<</if>>'s @@.lightsalmon;rival.@@
 	&nbsp;&nbsp;&nbsp;&nbsp;
 <<else>>
-	@@.lightsalmon;Hates@@ $slaves[_ssj].slaveName.
+	@@.lightsalmon;Hates@@ $slaves[_ssj].slaveName<<if $slaves[_ssj].slaveSurname>> $slaves[_ssj].slaveSurname<</if>>.
 	&nbsp;&nbsp;&nbsp;&nbsp;
 <</if>>
 <<break>>

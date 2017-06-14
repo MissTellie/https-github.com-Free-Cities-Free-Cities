@@ -2170,3 +2170,13 @@ This experience
 		<</if>>
 	<</if>>
 <</widget>>
+
+/*
+ Call as <<EventNameLink>>
+ $args[0]: Slave.
+*/
+<<widget "EventNameLink">>
+	<<set _name = $args[0].slaveName>>
+	<<if $args[0].slaveSurname>><<set _name += " " + $args[0].slaveSurname>><</if>>
+	<span id="name"><<print "[[_name|Long Slave Description][$nextLink = passage(), $eventDescription = 1]]">></span>
+<</widget>>
