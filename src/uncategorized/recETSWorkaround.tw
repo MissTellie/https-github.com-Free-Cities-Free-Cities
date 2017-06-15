@@ -121,6 +121,8 @@ They giggle and kiss each other rather sexually, pressing their nearly identical
 	ERROR: bad event
 <</switch>>
 
+<<if $activeSlave.slaveSurname>><<set _familyName = $activeSlave.slaveSurname>><</if>>
 <<NationalityToName $activeSlave>>
+<<if _familyName>><<set $activeSlave.slaveSurname = _familyName>><</if>>
 
 <<AddSlave $activeSlave>>
