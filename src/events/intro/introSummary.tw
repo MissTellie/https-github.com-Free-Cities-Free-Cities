@@ -358,6 +358,13 @@ Image display
 	<<else>>
 		''disabled.'' [[Enable|Intro Summary][$seeSummaryImages = 1]]
 	<</if>>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	Slave images in the weekly report are
+	<<if $seeReportImages == 1>>
+		''enabled.'' [[Disable|Intro Summary][$seeReportImages = 0]]
+	<<else>>
+		''disabled.'' [[Enable|Intro Summary][$seeReportImages = 1]]
+	<</if>>
 <<else>>
 	''disabled.'' [[Enable|Intro Summary][$seeImages = 1]] //Requires image resources.//
 <</if>>

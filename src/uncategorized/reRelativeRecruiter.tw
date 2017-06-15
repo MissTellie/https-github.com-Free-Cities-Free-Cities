@@ -206,7 +206,9 @@ She waits anxiously for your decision.
 
 <<slaveCost $activeSlave>>
 
+<<if $activeSlave.slaveSurname>><<set _familyName = $activeSlave.slaveSurname>><</if>>
 <<NationalityToName $activeSlave>>
+<<if _familyName>><<set $activeSlave.slaveSurname = _familyName>><</if>>
 
 <<set $activeSlave.slaveName = $activeSlave.birthName>>
 <<set $activeSlave.ID += 1000>>
