@@ -19,7 +19,7 @@
 	<<set $hostage = $slaveWithoutBonuses, $hostageCost = $slaveCost, $hostageAnnounced = -1>>
 <</if>>
 
-$activeSlave.slaveName has been added to your starting stable of slaves. You now have ¤$cash remaining.
+$activeSlave.slaveName<<if $activeSlave.slaveSurname>> $activeSlave.slaveSurname<</if>> has been added to your starting stable of slaves. You now have ¤$cash remaining.
 <br>
 <<if $cash >= $minimumSlaveCost>>
 	<br>

@@ -433,7 +433,8 @@
 %/
 <<widget "PCTitle">>
 
-<<set $PCTitle = $PCName>>
+<<set $PCTitle = $PC.name>>
+<<if $PC.surname>><<set $PCTitle += " " + $PC.surname>><</if>>
 <<set $titles = []>>
 
 <<if $cheater == 1>>
@@ -478,7 +479,7 @@
 
 <<set $PCTitle = ($PCTitle + ", ")>>
 
-<<if $PCName == "FC Dev">>
+<<if $PC.name == "FC Dev">>
 	<<set $titles.push("the Creator")>>
 <</if>>
 
@@ -2168,4 +2169,14 @@ This experience
 			<<set $args[0].pregType = either(1, 1, 1, 1, 1, 1, 1, 1, 1, 2)>>
 		<</if>>
 	<</if>>
+<</widget>>
+
+/*
+ Call as <<EventNameLink>>
+ $args[0]: Slave.
+*/
+<<widget "EventNameLink">>
+	<<set _name = $args[0].slaveName>>
+	<<if $args[0].slaveSurname>><<set _name += " " + $args[0].slaveSurname>><</if>>
+	<span id="name"><<print "[[_name|Long Slave Description][$nextLink = passage(), $eventDescription = 1]]">></span>
 <</widget>>

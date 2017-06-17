@@ -14,7 +14,7 @@ You should have received a copy of the GNU General Public License along with thi
 
 <<unset $releaseID>>
 <<set $ver = "0.10.3", $releaseID = COMMIT>>
-<<if ndef $releaseID>><<set $releaseID = 1015>><</if>>
+<<if ndef $releaseID>><<set $releaseID = 1017>><</if>>
 
 /* This needs to be broken down into individual files that can be added to StoryInit instead. */
 
@@ -120,8 +120,7 @@ You should have received a copy of the GNU General Public License along with thi
 <<if $saveImported == 0>>
 
 <<set $cheater = 0>>
-<<set $PCName = "Anonymous">>
-<<set $PC = {title: 1, dick: 1, vagina: 0, voiceImplant: 0, accent: 0, shoulders: 0, shouldersImplant: 0, boobs: 0, career: "capitalist", rumor: "wealth", indenture: -1, indentureRestrictions: 0, birthWeek: random(0,51), age: 2, sexualEnergy: 4, refreshment: "cigar", refreshmentType: 0, trading: 0, warfare: 0, slaving: 0, engineering: 0, medicine: 0}>>
+<<set $PC = {name: "Anonymous", surname: 0, title: 1, dick: 1, vagina: 0, voiceImplant: 0, accent: 0, shoulders: 0, shouldersImplant: 0, boobs: 0, career: "capitalist", rumor: "wealth", indenture: -1, indentureRestrictions: 0, birthWeek: random(0,51), age: 2, sexualEnergy: 4, refreshment: "cigar", refreshmentType: 0, trading: 0, warfare: 0, slaving: 0, engineering: 0, medicine: 0}>>
 <<set $cash = 10000>>
 <<set $normalizedEvents = 0>>
 <<set $autosave = 1>>
@@ -141,6 +140,7 @@ You should have received a copy of the GNU General Public License along with thi
 <<set $imageChoice = 0>>
 <<set $seeMainFetishes = 0>>
 <<set $seeSummaryImages = 1>>
+<<set $seeReportImages = 1>>
 <<set $lineSeparations = 1>>
 <<set $showSexualHistory = 1>>
 <<set $showBodyMods = 0>>

@@ -2,7 +2,7 @@
 
 <<set $nextButton = "Continue">>
 <<set $nextLink = "MOD_Edit Slave Cheat Datatype Cleanup">>
-<<set $oldName = $activeSlave.slaveName>>
+<<set $oldName = $activeSlave.slaveName, $oldSurname = $activeSlave.slaveSurname>>
 
 ''Cheating Edit Slave''
 
@@ -10,8 +10,12 @@
 
 ''Birth Name:''
 <<textbox "$activeSlave.birthName" $activeSlave.birthName>>
+<br>''Birth Surname:''
+<<textbox "$activeSlave.birthSurname" $activeSlave.birthSurname>>
 <br>''Slave Name (birth name was $activeSlave.birthName):''
 <<textbox "$activeSlave.slaveName" $activeSlave.slaveName>>
+<br>''Slave Surname (birth surname was $activeSlave.birthSurname):''
+<<textbox "$activeSlave.slaveSurname" $activeSlave.slaveSurname>>
 
 <br><br>
 

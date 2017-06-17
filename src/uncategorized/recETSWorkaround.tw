@@ -121,20 +121,8 @@ They giggle and kiss each other rather sexually, pressing their nearly identical
 	ERROR: bad event
 <</switch>>
 
+<<if $activeSlave.slaveSurname>><<set _familyName = $activeSlave.slaveSurname>><</if>>
 <<NationalityToName $activeSlave>>
-<<if $useFSNames == 0>>
-	<<set $activeSlave.slaveName = $activeSlave.birthName>>
-<<elseif $arcologies[0].FSRomanRevivalist > 20>>
-	<<set $activeSlave.slaveName = setup.romanSlaveNames.random()>>
-<<elseif $arcologies[0].FSAztecRevivalist > 20>>
-	<<set $activeSlave.slaveName = setup.aztecSlaveNames.random()>>	
-<<elseif $arcologies[0].FSEgyptianRevivalist > 20>>
-	<<set $activeSlave.slaveName = setup.ancientEgyptianSlaveNames.random()>>
-<<elseif $arcologies[0].FSEdoRevivalist > 20>>
-	<<set $activeSlave.slaveName = setup.edoSlaveNames.random()>>
-<<elseif $arcologies[0].FSDegradationist != "unset">>
-	<<include "Degrading Name">>
-<<else>>
-	<<set $activeSlave.slaveName = $activeSlave.birthName>>
-<</if>>
+<<if _familyName>><<set $activeSlave.slaveSurname = _familyName>><</if>>
+
 <<AddSlave $activeSlave>>
