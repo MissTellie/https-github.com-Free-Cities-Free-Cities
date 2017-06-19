@@ -71,7 +71,7 @@
 		$Attendant.slaveName lets the slaves resting in the spa take the lead sexually, doing her best to please them.
 		<<set _idleBonus++>>
 	<<elseif ($Attendant.fetishKnown == 1)>>
-		$Attendant.slaveName can't keep her hands to herself, preventing the slaves in the spa from relaxing completely.
+		$Attendant.slaveName can't keep her hands to herself,preventing the slaves in the spa from relaxing completely.
 	<</if>>
 	<<if ($Attendant.age > 35)>>
 		Her age encourages the slaves in the spa to relax and pour out their troubles to her.
@@ -124,29 +124,33 @@
 			She does her best to soothe the famous entertainer, $slaves[$i].slaveName, letting her relax in blissful peace.
 			<<set $slaves[$i].devotion += 3, $slaves[$i].trust += 3>>
 		<<case "She is remembered for winning best in show as a cockmilker.">>
-			<<if $Attendant.fetish == "cumslut">>
-				She can't keep her hands off $slaves[$i].slaveName's cock and balls, but she doesn't mind being milked constantly.  Before long strands of cum can be found floating all throughout the bath.
-				<<set $Attendant.fetishStrength += 4, $slaves[_FLs].fetishStrength += 4>>
-			<<else>>
-				She does her best to accommodate $slaves[$i].slaveName's massive genitals and tends to her when ever she feels a need for release.
-				<<if random(1,100) > 65 && $Attendant.fetish == "none">>
-					After taking several massive loads to the face, $Attendant.slaveName begins to find satisfaction in being coated in cum.
-					<<set $Attendant.fetish = "cumslut", $slaves[_FLs].fetish = "cumslut">>
+			<<if ($slaves[$i].balls == 0) && ($slaves[$i].dick == 0) && ($slaves[$i].vagina > -1)>>
+				<<if $Attendant.fetish == "cumslut">>
+					She can't keep her hands off $slaves[$i].slaveName's cock and balls, but she doesn't mind being milked constantly.  Before long strands of cum can be found floating all throughout the bath.
+					<<set $Attendant.fetishStrength += 4, $slaves[_FLs].fetishStrength += 4>>
+				<<else>>
+					She does her best to accommodate $slaves[$i].slaveName's massive genitals and tends to her when ever she feels a need for release.
+					<<if random(1,100) > 65 && $Attendant.fetish == "none">>
+						After taking several massive loads to the face, $Attendant.slaveName begins to find satisfaction in being coated in cum.
+						<<set $Attendant.fetish = "cumslut", $slaves[_FLs].fetish = "cumslut">>
+					<</if>>
 				<</if>>
 			<</if>>
 			<<set $slaves[$i].devotion += 3, $slaves[$i].trust += 3>>
 		<<case "She is remembered for winning best in show as a dairy cow.">>
-			<<if $Attendant.fetish == "boobs">>
-				She can't keep her hands off $slaves[$i].slaveName's huge breasts, but she doesn't mind being milked constantly.  Before long the bath gains a white tint.
-				<<set $Attendant.fetishStrength += 4, $slaves[_FLs].fetishStrength += 4>>
-			<<else>>
-				She does her best to accommodate $slaves[$i].slaveName's massive breasts and tends to her when ever she feels a need for release.
-				<<if random(1,100) > 65 && $Attendant.fetish == "none">>
-					After multiple milking sessions, $Attendant.slaveName begins to find herself fantasizing about having giant milky breasts too.
-					<<set $Attendant.fetish = "boobs", $slaves[_FLs].fetish = "boobs">>
+			<<if ($slaves[$i].lactation > 0) && (($slaves[$i].boobs-$slaves[$i].boobsImplant) > 6000)>>
+				<<if $Attendant.fetish == "boobs">>
+					She can't keep her hands off $slaves[$i].slaveName's huge breasts, but she doesn't mind being milked constantly.  Before long the bath gains a white tint.
+					<<set $Attendant.fetishStrength += 4, $slaves[_FLs].fetishStrength += 4>>
+				<<else>>
+					She does her best to accommodate $slaves[$i].slaveName's massive breasts and tends to her when ever she feels a need for release.
+					<<if random(1,100) > 65 && $Attendant.fetish == "none">>
+						After multiple milking sessions, $Attendant.slaveName begins to find herself fantasizing about having giant milky breasts too.
+						<<set $Attendant.fetish = "boobs", $slaves[_FLs].fetish = "boobs">>
+					<</if>>
 				<</if>>
+				<<set $slaves[$i].devotion += 3, $slaves[$i].trust += 3>>
 			<</if>>
-			<<set $slaves[$i].devotion += 3, $slaves[$i].trust += 3>>
 		<</switch>>
 		<<if ($Attendant.intelligence > 0) && (_attendantUsedCure == 0) && random(1,100) > (100-($Attendant.intelligence*10)-_seed)>>
 			<<if $slaves[$i].behavioralFlaw != "none">>
