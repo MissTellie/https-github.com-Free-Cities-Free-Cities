@@ -120,18 +120,18 @@
 			<<set $madamCashBonus += 0.15>>
 		<<elseif $slaves[$i].prestigeDesc == "She is remembered for winning best in show as a dairy cow.">>
 			<<if ($arcologies[0].FSPhysicalIdealist != "unset")>>
-				<<if ($slaves[$i].muscles > 30) && ($slaves[$i].lactation < 1) && (($slaves[$i].boobs-$slaves[$i].boobsImplant) < 6000)>>
+				<<if ($slaves[$i].muscles > 30) && ($slaves[$i].weight < 30) && ($slaves[$i].lactation < 1) && (($slaves[$i].boobs-$slaves[$i].boobsImplant) < 6000)>>
 					She shows off how a formerly fat cow like $slaves[$i].slaveName can be restored to physical perfection.
 					<<set $madamCashBonus += 0.15>>
 				<<else>>
-					Fat cows are woefully out of fashion, so she tries to draw attention away from $slaves[$i].slaveName.
+					 A<<if ($slaves[$i].muscles < 30)>>n unmuscled,<</if>><<if ($slaves[$i].weight > 30)>> fat,<</if>> legendary breastmilker <<if ($slaves[$i].lactation > 0)>>cow<<elseif (($slaves[$i].boobs-$slaves[$i].boobsImplant) < 6000)>>mass of titflesh<<else>>slave<</if>> like $slaves[$i].slaveName is woefully out of fashion, so $Milkmaid.slaveName tries to draw attention away from her.
 				<</if>>
 			<<else>>
 				<<if ($slaves[$i].lactation > 0) && (($slaves[$i].boobs-$slaves[$i].boobsImplant) > 6000)>>
 					She makes sure to massage $slaves[$i].slaveName's huge breasts to get the milk flowing before enticing clients to suckle and play with her.
 					<<set $madamCashBonus += 0.10>>
 				<<else>>
-					She would like to show off $slaves[$i].slaveName's huge udders, but $slaves[$i].slaveName <<if ($slaves[$i].lactation = 0)>> isn't producing milk anymore. <<else>> doesn't exactly have huge udders anymore. <</if>>
+					She would like to show off $slaves[$i].slaveName's huge udders, but $slaves[$i].slaveName <<if ($slaves[$i].lactation == 0)>> isn't producing milk anymore. <<else>> doesn't exactly have huge udders anymore. <</if>>
 				<</if>>
 			<</if>>
 		<<elseif $slaves[$i].prestigeDesc == "She is remembered for winning best in show as a cockmilker.">>
@@ -140,14 +140,14 @@
 					She uses $slaves[$i].slaveName as an example of how even a huge-balled freak like her can be restored to proper feminity.
 					<<set $madamCashBonus += 0.20>>
 				<<else>>
-					She tried to hide $slaves[$i].slaveName; 'her' body being notorious for defiance of conventional feminity.
+					She tries to hide $slaves[$i].slaveName; 'her' body being notorious for defiance of conventional feminity.
 				<</if>>
 			<<else>>
 				<<if ($slaves[$i].balls > 5)>>
 					She shows off $slaves[$i].slaveName's copious loads by putting a condom over her dick and teasing her till she bursts it. The show draws multiple clients that want to play with her oversized junk and messy orgasms.
 					<<set $madamCashBonus += 0.15>>
 				<<else>>
-					She would love to show off $slaves[$i].slaveName's copious loads, but $slaves[$i].slaveName's <<if [$i].balls = 0>> not producing cum. <<else>> orgasms just aren't messy enough. <</if>>
+					She would love to show off $slaves[$i].slaveName's copious loads, but $slaves[$i].slaveName's <<if [$i].balls == 0>> not producing cum. <<else>> orgasms just aren't messy enough. <</if>>
 				<</if>>
 			<</if>>
 		<</if>>
