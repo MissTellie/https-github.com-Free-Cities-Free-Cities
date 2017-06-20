@@ -133,10 +133,10 @@
 		<</if>>
 		<<if $slaves[$i].prestigeDesc == "She is remembered for winning best in show as a dairy cow.">>
 			<<if ($slaves[$i].lactation > 0) && (($slaves[$i].boobs-$slaves[$i].boobsImplant) > 6000)>>
-				She spends extra time with $slaves[$i].slaveName, the well-known cow. $Milkmaid.slaveName is fascinated by her massive $slaves[$i].boobs cc breasts and spends extra time massaging and kneading them to maximize production.
+				She spends extra time with $slaves[$i].slaveName, the well-known cow. She is fascinated by $slaves[$i].slaveName's massive $slaves[$i].boobs cc breasts and spends extra time massaging and kneading them to maximize production.
 				<<set $slaves[$i].devotion += 3, $slaves[$i].trust += 3>>
 			<<else>>
-				She is disapointed that $slaves[$i].slaveName, the well-known cow, is<<if ($slaves[$i].lactation = 0)>>n't producing milk anymore. <<else>> breasts have shruken considerably from their height.<</if>>
+				She is disappointed that the well-known cow $slaves[$i].slaveName<<if ($slaves[$i].lactation == 0)>> isn't producing milk anymore. <<else>>'s breasts have shrunken considerably from their height.<</if>>
 			<</if>>
 		<</if>>
 		<<if $slaves[$i].prestigeDesc == "She is remembered for winning best in show as a cockmilker.">>
@@ -144,7 +144,7 @@
 				She spends extra time with $slaves[$i].slaveName, the massive ejaculating cow.  She can't help but massage the cow's dick and testes to stimulate them further and coax more from them.
 				<<set $slaves[$i].devotion += 3, $slaves[$i].trust += 3>>
 			<<else>>
-				She is disapointed that $slaves[$i].slaveName, the (formerly) massive ejaculating cow, is<<if [$i].balls = 0>> not producing cum. <<else>> balls are considerably smaller than at their height.<</if>>
+				She is disappointed that the (formerly) massive ejaculating cow $slaves[$i].slaveName<<if [$i].balls == 0>> is not producing cum. <<else>>'s balls are considerably smaller than at their height.<</if>>
 			<</if>>
 		<</if>>
 	<</for>>
