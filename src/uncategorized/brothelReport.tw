@@ -119,7 +119,7 @@
 			She makes sure to promote $slaves[$i].slaveName, the famed entertainer, in order to capitalize on her popularity.
 			<<set $madamCashBonus += 0.15>>
 		<<elseif $slaves[$i].prestigeDesc == "She is remembered for winning best in show as a dairy cow.">>
-			<<if ($arcologies[0].FSPhysicalIdealist != "unset") 
+			<<if ($arcologies[0].FSPhysicalIdealist != "unset")>>
 				<<if ($slaves[$i].muscles > 30) && ($slaves[$i].lactation < 1) && (($slaves[$i].boobs-$slaves[$i].boobsImplant) < 6000)>>
 					She shows off how a formerly fat cow like $slaves[$i].slaveName can be restored to physical perfection.
 					<<set $madamCashBonus += 0.15>>
