@@ -2,10 +2,14 @@
 
 <<set $nextButton = "Continue">>
 <<set $nextLink = "RIE Eligibility Check">>
-<<set $i = $slaves.findIndex(function(s) { return s.ID == _devotedSlaves[0].ID; })>>
-<<set $j = $slaves.findIndex(function(s) { return s.ID == _devotedSlaves[1].ID; })>>
-<<set $k = $slaves.findIndex(function(s) { return s.ID == _devotedSlaves[2].ID; })>>
-<<set $l = $slaves.findIndex(function(s) { return s.ID == _devotedSlaves[3].ID; })>>
+<<set _tempSlave = $devotedSlaves.pluck()>>
+<<set $i = $slaves.findIndex(function(s) { return s.ID == _tempSlave.ID; })>>
+<<set _tempSlave = $devotedSlaves.pluck()>>
+<<set $j = $slaves.findIndex(function(s) { return s.ID == _tempSlave.ID; })>>
+<<set _tempSlave = $devotedSlaves.pluck()>>
+<<set $k = $slaves.findIndex(function(s) { return s.ID == _tempSlave.ID; })>>
+<<set _tempSlave = $devotedSlaves.pluck()>>
+<<set $l = $slaves.findIndex(function(s) { return s.ID == _tempSlave.ID; })>>
 
 /* 000-250-006 */
 <<if $seeImages == 1>>

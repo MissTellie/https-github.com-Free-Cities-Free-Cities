@@ -202,8 +202,8 @@
 
 /* Multislave Events */
 
-<<set _devotedSlaves = $slaves.filter(function(s) { return s.devotion > 50 && canWalk(s); })>>
-<<if def _devotedSlaves[3]>>
+<<set $devotedSlaves = $slaves.filter(function(s) { return s.devotion > 50 && canWalk(s) && s.assignment != "be your agent" && s.assignment != "live with your agent"; })>>
+<<if def $devotedSlaves[3]>>
 	<<set $events.push("RE devotees")>>
 <</if>>
 
@@ -214,12 +214,12 @@
 	<<set $events.push("RE staffed morning")>>
 <</if>>
 
-<<if $dairyRestrainsSetting >= 2>>
-	<<set _rebelSlaves = $slaves.filter(function(s) { return s.devotion < -20 && s.assignment != "be confined in the arcade" && canWalk(s) && s.assignment != "work in the dairy"; })>>
+<<if $dairyRestraintsSetting >= 2>>
+	<<set $rebelSlaves = $slaves.filter(function(s) { return s.devotion < -20 && s.assignment != "be confined in the arcade" && canWalk(s) && s.assignment != "work in the dairy"; })>>
 <<else>>
-	<<set _rebelSlaves = $slaves.filter(function(s) { return s.devotion < -20 && s.assignment != "be confined in the arcade" && canWalk(s); })>>
+	<<set $rebelSlaves = $slaves.filter(function(s) { return s.devotion < -20 && s.assignment != "be confined in the arcade" && canWalk(s); })>>
 <</if>>
-<<if _rebelSlaves.length > 1>>
+<<if $rebelSlaves.length > 1>>
 	<<set $events.push("RE rebels")>>
 <</if>>
 
