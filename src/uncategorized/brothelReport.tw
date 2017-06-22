@@ -124,7 +124,7 @@
 					She shows off how a formerly fat cow like $slaves[$i].slaveName can be restored to physical perfection.
 					<<set $madamCashBonus += 0.15>>
 				<<else>>
-					 A<<if ($slaves[$i].muscles < 30)>>n unmuscled,<</if>><<if ($slaves[$i].weight > 30)>> fat,<</if>> legendary breastmilker <<if ($slaves[$i].lactation > 0)>>cow<<elseif (($slaves[$i].boobs-$slaves[$i].boobsImplant) < 6000)>>mass of titflesh<<else>>slave<</if>> like $slaves[$i].slaveName is woefully out of fashion, so $Milkmaid.slaveName tries to draw attention away from her.
+					 A<<if ($slaves[$i].muscles < 30)>>n unmuscled,<</if>><<if ($slaves[$i].weight > 30)>> fat,<</if>> 'prestigious' <<if ($slaves[$i].lactation > 0)>>cow<<elseif (($slaves[$i].boobs-$slaves[$i].boobsImplant) > 6000)>>mass of titflesh<<else>>slave<</if>> like $slaves[$i].slaveName is woefully out of fashion, so $Milkmaid.slaveName tries to draw attention away from her.
 				<</if>>
 			<<else>>
 				<<if ($slaves[$i].lactation > 0) && (($slaves[$i].boobs-$slaves[$i].boobsImplant) > 6000)>>
@@ -137,10 +137,10 @@
 		<<elseif $slaves[$i].prestigeDesc == "She is remembered for winning best in show as a cockmilker.">>
 			<<if $arcologies[0].FSGenderFundamentalist != "unset">>
 				<<if ($slaves[$i].balls == 0) && ($slaves[$i].dick == 0) && ($slaves[$i].vagina > -1)>>
-					She uses $slaves[$i].slaveName as an example of how even a huge-balled freak like her can be restored to proper feminity.
+					She uses $slaves[$i].slaveName as an example of how even a huge-balled freak like her can be restored to proper femininity.
 					<<set $madamCashBonus += 0.20>>
 				<<else>>
-					She tries to hide $slaves[$i].slaveName; 'her' body being notorious for defiance of conventional feminity.
+					She tries to hide $slaves[$i].slaveName; 'her' body being notorious for defiance of conventional femininity.
 				<</if>>
 			<<else>>
 				<<if ($slaves[$i].balls > 5)>>
