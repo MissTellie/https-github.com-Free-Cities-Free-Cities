@@ -752,7 +752,7 @@
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;//Will cost ¤$policyCost weekly to maintain//
 <</if>>
 
-<<if $RaidingMercenaries == 0>>
+<<if ($RaidingMercenaries == 0) && ($mercenariesHelpCorp = 1>>)>>
 	<br>''Mercenary Raiding:'' you will allow your mercenaries to occasionaly conduct a raid directly for your benefit.
 	[[Implement|Policies][$RaidingMercenaries = 1, $cash -=5000, $rep -= 1000]]
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;//Will cost ¤$policyCost weekly to maintain//
