@@ -103,7 +103,7 @@
 			She does her best to aid the famous entertainer, $slaves[$i].slaveName, making sure she can show off as soon as possible.
 			<<set $slaves[$i].health += 2>>
 		<<case "She is remembered for winning best in show as a cockmilker.">>
-			<<if ($slaves[$i].balls > 5)>>
+			<<if ($slaves[$i].balls > 5) && ($slaves[$i].dick != 0) && ($slaves[$i].prostate > 1)>>
 				She does her best to aid the dribbling $slaves[$i].slaveName, paying special attention to her huge cock and balls as well as making sure to milk her erect dick hourly.
 				<<set $slaves[$i].health += 4>>
 				<<if (random(1,100) > 65) && (($Nurse.fetish == "none") || ($Nurse.fetish == "cumslut"))>>
