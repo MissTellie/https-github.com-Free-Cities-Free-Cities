@@ -143,11 +143,11 @@
 					She tries to hide $slaves[$i].slaveName; 'her' body being notorious for defiance of conventional femininity.
 				<</if>>
 			<<else>>
-				<<if ($slaves[$i].balls > 5)>>
+				<<if ($slaves[$i].balls > 5) && ($slaves[$i].dick != 0) && ($slaves[$i].prostate > 1)>>
 					She shows off $slaves[$i].slaveName's copious loads by putting a condom over her dick and teasing her till she bursts it. The show draws multiple clients that want to play with her oversized junk and messy orgasms.
 					<<set $madamCashBonus += 0.15>>
 				<<else>>
-					She would love to show off $slaves[$i].slaveName's copious loads, but $slaves[$i].slaveName's <<if $slaves[$i].balls == 0>> not producing cum. <<else>> orgasms just aren't messy enough. <</if>>
+					She would love to show off $slaves[$i].slaveName's copious loads, but $slaves[$i].slaveName<<if $slaves[$i].dick == 0>> doesn't have a dick.<<elseif $slaves[$i].balls == 0>>'s not producing cum. <<else>>'s orgasms just aren't messy enough. <</if>>
 				<</if>>
 			<</if>>
 		<</if>>
