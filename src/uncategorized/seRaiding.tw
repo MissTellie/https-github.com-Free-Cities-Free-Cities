@@ -28,6 +28,10 @@ Worthy of consideration is that although the $mercenariesTitle will enslave the 
 	<<set $origins.push("journalist")>>
 	<<set $origins.push("local news anchor")>>
 	<<set $origins.push("classical dancer")>>
+	<<set $origins.push("law enforcement officer")>>
+	<<set $origins.push("classical musician")>>
+	<<set $origins.push("politician")>>
+	<<set $origins.push("shut-in")>>
 <</if>>
 <<if $seeDicks != 0>>
 	<<set $origins.push("male military officer")>>	
@@ -238,6 +242,63 @@ Worthy of consideration is that although the $mercenariesTitle will enslave the 
 	<<set $activeSlave.entertainSkill = 50>>
 	<<set $activeSlave.teeth = "normal">>
 	is the performing arts theater at the heart of an aristocratic Old World city. The theater itself would usually not be considered a choice target, except that tonight its stage is graced by a renowned dance troupe. The jewel of the troupe's cast is a young girl, barely past her majority, whose performance has been said to bring tears to the eyes of audiences the world over.
+<<elseif $origin == "law enforcement officer">>
+	<<include "Generate XX Slave">>
+	<<set $activeSlave.age = random(18,25)>>
+	<<set $activeSlave.career = "a law enforcement officer">>
+	<<set $activeSlave.prestige = 1>>
+	<<set $activeSlave.face = random(15,100)>>
+	<<set $activeSlave.vagina = 1>>
+	<<set $activeSlave.oralSkill = 35>>
+	<<set $activeSlave.analSkill = 15>>
+	<<set $activeSlave.whoreSkill = 0>>
+	<<set $activeSlave.combatSkill = 1>>
+	<<set $activeSlave.entertainSkill = 10>>
+	<<set $activeSlave.intelligenceImplant = 0>>
+	is the precinct of a small Old World town's police department. The department is notoriously underfunded and unlikely to be particularly well staffed. Nonetheless, one of the officers is well known in the area for her adherence to the letter of the law despite her small town cop status.
+<<elseif $origin == "classical musician">>
+	<<include "Generate XX Slave">>
+	<<set $activeSlave.age = random(36,43)>>
+	<<set $activeSlave.career = "a classical musician">>
+	<<set $activeSlave.prestige = 1>>
+	<<set $activeSlave.face = random(-20,0)>>
+	<<set $activeSlave.anus to 0>>
+	<<set $activeSlave.vagina = 1>>
+	<<set $activeSlave.vaginalSkill = 0>>
+	<<set $activeSlave.analSkill = 0>>
+	<<set $activeSlave.oralSkill = 0>>
+	<<set $activeSlave.whoreSkill = 0>>
+	<<set $activeSlave.entertainSkill = 50>>
+	<<set $activeSlave.teeth = "normal">>
+	is the concert hall at the heart of an aristocratic Old World city. The concert hall itself would usually not be considered a choice target, except that tonight its stage is graced by a renowned orchestra. The pride of the orchestra's cast is a mature woman, whose skill with her instrument has been known to move listeners to tears.
+<<elseif $origin == "politician">>
+	<<include "Generate XX Slave">>
+	<<set $activeSlave.age = random(35,$retirementAge-1)>>
+	<<set $activeSlave.career = "a politician">>
+	<<set $activeSlave.prestige = 2>>
+	<<set $activeSlave.face = random(15,100)>>
+	<<set $activeSlave.vagina = 1>>
+	<<set $activeSlave.oralSkill = 35>>
+	<<set $activeSlave.analSkill = 15>>
+	<<set $activeSlave.whoreSkill = 0>>
+	<<set $activeSlave.entertainSkill = 10>>
+	<<set $activeSlave.intelligence = 2>>
+	<<set $activeSlave.intelligenceImplant = 1>>
+	<<set $activeSlave.teeth = "normal">>
+	is a campaign rally for the reelection of an Old World politician. Though the rally will be an extremely public affair, the benefits of capturing a prestigious politician could outweigh the risks. 
+<<elseif $origin == "shut-in">>
+	<<include "Generate XX Slave">>
+	<<set $activeSlave.age = random(37,$retirementAge-1)>>
+	<<set $activeSlave.career = "a shut-in">>
+	<<set $activeSlave.anus to 0>>
+	<<set $activeSlave.vagina to 0>>
+	<<set $activeSlave.face = random(15,100)>>
+	<<set $activeSlave.vagina = 1>>
+	<<set $activeSlave.oralSkill = 35>>
+	<<set $activeSlave.analSkill = 15>>
+	<<set $activeSlave.whoreSkill = 0>>
+	<<set $activeSlave.entertainSkill = 10>>
+	is the shack of a notorious shut-in located just outside your arcology. Not a particularly distinguished target, but it would save your mercenaries considerable time and effort. The shut-in herself has been a fixture of the landscape for decades, with many speculating that she remains a virgin despite her mature age.
 <</if>>
 
 <<set $activeSlave.origin = "Your $mercenariesTitle caught her while raiding; she was a $origin.">>
@@ -350,6 +411,14 @@ You make your selection and direct your $mercenariesTitle to attack the target.
 	Unfortunately for your mercenaries, the news channel appears to have been interviewing members of the local militia garrison at the time of the raid. Upon encountering more firepower than they had anticipated, your mercenaries wisely retreat from the engagement.
 	<<elseif $origin == "classical dancer">>
 	Though they are excellent soldiers, your mercenaries are often crude and uncultured. They are unable to blend into the audience and are soon discovered, giving the dance troupe the warning need to make an escape from the theater.
+	<<elseif $origin == "law enforcement officer">>
+	Despite the lack of staff, it seems this particular precinct has been the recipient of an alarming quantity of military grade equipment. With their overwhelming firepower, the officers are able to hold off your mercenaries until reinforcements arrive and force your troops to retreat.
+	<<elseif $origin == "classical musician">>
+	Though they are excellent soldiers, your mercenaries are often crude and uncultured. They are unable to blend into the audience and are soon discovered, giving the orchestra the warning need to make an escape from the concert hall.
+	<<elseif $origin == "politician">>
+	Your mercenaries clash with the politician's security detail amidst a maelstrom of terrified civilians and the confrontation drags out for some time. By the time your mercenaries can advance, they discover that the politician has already been evacuated.
+	<<elseif $origin == "shut-in">>
+	Your mercenaries pry open the shut-in's door to discover an empty shack. From the cooked meal still steaming on the dining room table and the remarkable absence of dust, it seems she left only recently. Somehow the crafty old minx must have seen your mercenaries coming.
 	<</if>>
 <<else>>
 	 The $mercenariesTitle are able to carry out their plan.
@@ -432,9 +501,37 @@ You make your selection and direct your $mercenariesTitle to attack the target.
 		As your mercenaries close in on the stage and reveal their concealed weapons, the darling star of the dance troupe loses her footing in shock and tumbles off the stage. The sharp crack as she hits the ground drives the crowd and remaining members of the troupe hysterical, while your mercenaries exit the theater as chaos surges around them.
 		<<set $seed = 0>>
 	<<else>>
-	Once your mercenaries close in on the stage and reveal their concealed weapons, the dance troupe promptly surrenders. With the shocked audience looking in, each member is cuffed and escorted out the door to the waiting VTOL.
+	Once your mercenaries close in on the stage and reveal their concealed weapons, the dance troupe promptly surrenders. With the shocked audience looking on, each member is cuffed and escorted out the door to the waiting VTOL.
 	<</if>>
-<</if>>
+	<<elseif $origin == "law enforcement officer">>
+		<<if random(1,3) == 1>>
+		Despite being outnumbered and outgunned, the officers stand their ground to the last. The sterling officer of the law your mercenaries sought to capture is the last to fall, stifled by a hail of bullets.
+		<<set $seed = 0>>
+	<<else>>
+	Your mercenaries break through the door of the precinct with their guns drawn. The precinct is so understaffed that each officer has a number of weapons drawn on them from every angle, so its no surprise when the precinct's sterling policewoman formally surrenders the precinct and its officers to your mercenaries.
+	<</if>>
+	<<elseif $origin == "classical musician">>
+		<<if random(1,3) == 1>>
+		As your mercenaries close in on the stage and reveal their concealed weapons, the crown jewel of the orchestra loses her footing in shock and tumbles off the stage. The sharp crack as she hits the ground drives the crowd and remaining members of the orchestra hysterical, while your mercenaries exit the concert hall as chaos surges around them.
+		<<set $seed = 0>>
+	<<else>>
+	Once your mercenaries close in on the stage and reveal their concealed weapons, the orchestra promptly surrenders. With the shocked audience looking on, each member is cuffed and escorted out the door to the waiting VTOL.
+	<</if>>
+	<<elseif $origin == "politician">>
+		<<if random(1,3) == 1>>
+		With their security detail defeated and their crowd of supporters offering no protection, the politician tries to take up one of her fallen protector's pistols to defend herself. Unfortunately for her and for your mercenaries, the politician has a staggeringly poor understanding of firearms and manages to shoot themselves in the face when they discharge the weapon. With the politician dead, there is little your mercenaries can do but exit the venue.
+		<<set $seed = 0>>
+	<<else>>
+	With their security detail defeated and their crowd of supporters offering no protection, the politician promptly surrenders in the hopes that they won't be harmed and is escorted to the waiting VTOL.
+	<</if>>
+	<<elseif $origin == "shut-in">>
+		<<if random(1,3) == 1>>
+		When your mercenaries break down the door to the shut-in's shack, they are met with a terrible stench of dust and decay. Judging by the body hanging limply from the banisters, the shut-in took their own life some time ago.
+		<<set $seed = 0>>
+	<<else>>
+	When your mercenaries break down the door to to the shut-in's shack, they are met with a surprised and somewhat unkempt woman staring at them. Despite their lack of social interaction, they know better than to argue with a small army of armed mercenaries and quietly accepts being escorted back to the waiting VTOL.
+	<</if>>
+	<</if>>
 <</if>>
 
 <<if $seed == 1>>
@@ -455,11 +552,19 @@ You make your selection and direct your $mercenariesTitle to attack the target.
 	<<elseif $origin == "nun">>
 	The pious nun spends the VTOL ride engaged in fervent prayer as her sisters are raped by your mercenaries. She naively believes that her devotion and piety will see her spared from the same fate as her sisters.
 	<<elseif $origin == "journalist">>
-	The journalist spends the VTOL ride watching as her colleagues are raped by your mercenaries. She studies ever brutal detail, records ever anguished scream in her mind, hoping that one day she might escape to produce an editorial to surpass all others.
+	The journalist spends the VTOL ride watching as her colleagues are raped by your mercenaries. She studies every brutal detail, records ever anguished scream in her mind, hoping that one day she might escape to produce an editorial to surpass all others.
 	<<elseif $origin == "local news anchor">>
 	The anchor is initially resistant during the VTOL ride, but soon grows complacent when she is told of the luxury of your penthouse.
-	<<elseif $origin == "nun">>
+	<<elseif $origin == "classical dancer">>
 	The dancer spends the VTOL ride in abject terror as her friends and peers are raped by your mercenaries all around her. She clings to the hope that she is being spared from the same fate out of a desire for her dancing talent rather than her body.
+	<<elseif $origin == "law enforcement officer">>
+	The officer spends the VTOL ride watching impassively as her fellow officers are raped by your mercenaries all around her. Before she exits the VTOL upon her arrival, she informs your mercenaries that she intends to bring each of them to justice for their supposed crimes.
+	<<elseif $origin == "classical musician">>
+	The musician spends the VTOL ride in abject terror as her friends and peers are raped by your mercenaries all around her. She clings to the hope that she is being spared from the same fate out of a desire for her musical talent rather than her body.
+	<<elseif $origin == "politician">>
+	The politician spends the VTOL ride quietly, only breaking her silence to ask your mercenaries about where she is being brought and why. When they do not answer she simply fusses with her outfit, as if headed to an important interview.
+	<<elseif $origin == "shut-in">>
+	The shut-in spends the VTOL ride sitting quietly in their seat. Confused by her silence, your mercenaries attempt to engage her in conversation but are granted no response.
 	<</if>>
 <<AddSlave $activeSlave>> /* skip New Slave Intro */	
 <<else>>
@@ -502,7 +607,15 @@ You make your selection and direct your $mercenariesTitle to attack the target.
 	Unfortunately for your mercenaries, the news channel appears to have been interviewing members of the local militia garrison at the time of the raid. Upon encountering more firepower than they had anticipated, your mercenaries wisely retreat from the engagement.
 	<<elseif $origin == "classical dancer">>
 	Though they are excellent soldiers, your mercenaries are often crude and uncultured. They are unable to blend into the audience and are soon discovered, giving the dance troupe the warning need to make an escape from the theater.
-<</if>>
+	<<elseif $origin == "law enforcement officer">>
+	Despite the lack of staff, it seems this particular precinct has been the recipient of an alarming quantity of military grade equipment. With their overwhelming firepower, the officers are able to hold off your mercenaries until reinforcements arrive and force your troops to retreat.
+	<<elseif $origin == "classical musician">>
+	Though they are excellent soldiers, your mercenaries are often crude and uncultured. They are unable to blend into the audience and are soon discovered, giving the orchestra the warning need to make an escape from the concert hall.
+	<<elseif $origin == "politician">>
+	Your mercenaries clash with the politician's security detail amidst a maelstrom of terrified civilians and the confrontation drags out for some time. By the time your mercenaries can advance, they discover that the politician has already been evacuated.
+	<<elseif $origin == "shut-in">>
+	Your mercenaries pry open the shut-in's door to discover an empty shack. From the cooked meal still steaming on the dining room table and the remarkable absence of dust, it seems she left only recently. Somehow the crafty old minx must have seen your mercenaries coming.
+	<</if>>
 <<else>>
 	 The $mercenariesTitle are able to carry out their plan.
 	<<set $seed = 1>>
@@ -584,9 +697,37 @@ You make your selection and direct your $mercenariesTitle to attack the target.
 		As your mercenaries close in on the stage and reveal their concealed weapons, the darling star of the dance troupe loses her footing in shock and tumbles off the stage. The sharp crack as she hits the ground drives the crowd and remaining members of the troupe hysterical, while your mercenaries exit the theater as chaos surges around them.
 		<<set $seed = 0>>
 	<<else>>
-	Once your mercenaries close in on the stage and reveal their concealed weapons, the dance troupe promptly surrenders. With the shocked audience looking in, each member is cuffed and escorted out the door to the waiting VTOL.
+	Once your mercenaries close in on the stage and reveal their concealed weapons, the dance troupe promptly surrenders. With the shocked audience looking on, each member is cuffed and escorted out the door to the waiting VTOL.
 	<</if>>
-<</if>>
+	<<elseif $origin == "law enforcement officer">>
+		<<if random(1,3) == 1>>
+		Despite being outnumbered and outgunned, the officers stand their ground to the last. The sterling officer of the law your mercenaries sought to capture is the last to fall, stifled by a hail of bullets.
+		<<set $seed = 0>>
+	<<else>>
+	Your mercenaries break through the door of the precinct with their guns drawn. The precinct is so understaffed that each officer has a number of weapons drawn on them from every angle, so its no surprise when the precinct's sterling policewoman formally surrenders the precinct and its officers to your mercenaries.
+	<</if>>
+	<<elseif $origin == "classical musician">>
+		<<if random(1,3) == 1>>
+		As your mercenaries close in on the stage and reveal their concealed weapons, the crown jewel of the orchestra loses her footing in shock and tumbles off the stage. The sharp crack as she hits the ground drives the crowd and remaining members of the orchestra hysterical, while your mercenaries exit the concert hall as chaos surges around them.
+		<<set $seed = 0>>
+	<<else>>
+	Once your mercenaries close in on the stage and reveal their concealed weapons, the orchestra promptly surrenders. With the shocked audience looking on, each member is cuffed and escorted out the door to the waiting VTOL.
+	<</if>>
+	<<elseif $origin == "politician">>
+		<<if random(1,3) == 1>>
+		With their security detail defeated and their crowd of supporters offering no protection, the politician tries to take up one of her fallen protector's pistols to defend herself. Unfortunately for her and for your mercenaries, the politician has a staggeringly poor understanding of firearms and manages to shoot themselves in the face when they discharge the weapon. With the politician dead, there is little your mercenaries can do but exit the venue.
+		<<set $seed = 0>>
+	<<else>>
+	With their security detail defeated and their crowd of supporters offering no protection, the politician promptly surrenders in the hopes that they won't be harmed and is escorted to the waiting VTOL.
+	<</if>>
+	<<elseif $origin == "shut-in">>
+		<<if random(1,3) == 1>>
+		When your mercenaries break down the door to the shut-in's shack, they are met with a terrible stench of dust and decay. Judging by the body hanging limply from the banisters, the shut-in took their own life some time ago.
+		<<set $seed = 0>>
+	<<else>>
+	When your mercenaries break down the door to to the shut-in's shack, they are met with a surprised and somewhat unkempt woman staring at them. Despite their lack of social interaction, they know better than to argue with a small army of armed mercenaries and quietly accepts being escorted back to the waiting VTOL.
+	<</if>>
+	<</if>>
 <</if>>
 
 <<if $seed == 1>>
@@ -607,11 +748,19 @@ You make your selection and direct your $mercenariesTitle to attack the target.
 	<<elseif $origin == "nun">>
 	The pious nun spends the VTOL ride engaged in fervent prayer as her sisters are raped by your mercenaries. She naively believes that her devotion and piety will see her spared from the same fate as her sisters.
 	<<elseif $origin == "journalist">>
-	The journalist spends the VTOL ride watching as her colleagues are raped by your mercenaries. She studies ever brutal detail, records ever anguished scream in her mind, hoping that one day she might escape to produce an editorial to surpass all others.
+	The journalist spends the VTOL ride watching as her colleagues are raped by your mercenaries. She studies every brutal detail, records ever anguished scream in her mind, hoping that one day she might escape to produce an editorial to surpass all others.
 	<<elseif $origin == "local news anchor">>
 	The anchor is initially resistant during the VTOL ride, but soon grows complacent when she is told of the luxury of your penthouse.
-	<<elseif $origin == "nun">>
+	<<elseif $origin == "classical dancer">>
 	The dancer spends the VTOL ride in abject terror as her friends and peers are raped by your mercenaries all around her. She clings to the hope that she is being spared from the same fate out of a desire for her dancing talent rather than her body.
+	<<elseif $origin == "law enforcement officer">>
+	The officer spends the VTOL ride watching impassively as her fellow officers are raped by your mercenaries all around her. Before she exits the VTOL upon her arrival, she informs your mercenaries that she intends to bring each of them to justice for their supposed crimes.
+	<<elseif $origin == "classical musician">>
+	The musician spends the VTOL ride in abject terror as her friends and peers are raped by your mercenaries all around her. She clings to the hope that she is being spared from the same fate out of a desire for her musical talent rather than her body.
+	<<elseif $origin == "politician">>
+	The politician spends the VTOL ride quietly, only breaking her silence to ask your mercenaries about where she is being brought and why. When they do not answer she simply fusses with her outfit, as if headed to an important interview.
+	<<elseif $origin == "shut-in">>
+	The shut-in spends the VTOL ride sitting quietly in their seat. Confused by her silence, your mercenaries attempt to engage her in conversation but are granted no response.
 	<</if>>
 <<AddSlave $activeSlave>> /* skip New Slave Intro */	
 <<else>>
@@ -654,7 +803,15 @@ You make your selection and direct your $mercenariesTitle to attack the target.
 	Unfortunately for your mercenaries, the news channel appears to have been interviewing members of the local militia garrison at the time of the raid. Upon encountering more firepower than they had anticipated, your mercenaries wisely retreat from the engagement.
 	<<elseif $origin == "classical dancer">>
 	Though they are excellent soldiers, your mercenaries are often crude and uncultured. They are unable to blend into the audience and are soon discovered, giving the dance troupe the warning need to make an escape from the theater.
-<</if>>
+	<<elseif $origin == "law enforcement officer">>
+	Despite the lack of staff, it seems this particular precinct has been the recipient of an alarming quantity of military grade equipment. With their overwhelming firepower, the officers are able to hold off your mercenaries until reinforcements arrive and force your troops to retreat.
+	<<elseif $origin == "classical musician">>
+	Though they are excellent soldiers, your mercenaries are often crude and uncultured. They are unable to blend into the audience and are soon discovered, giving the orchestra the warning need to make an escape from the concert hall.
+	<<elseif $origin == "politician">>
+	Your mercenaries clash with the politician's security detail amidst a maelstrom of terrified civilians and the confrontation drags out for some time. By the time your mercenaries can advance, they discover that the politician has already been evacuated.
+	<<elseif $origin == "shut-in">>
+	Your mercenaries pry open the shut-in's door to discover an empty shack. From the cooked meal still steaming on the dining room table and the remarkable absence of dust, it seems she left only recently. Somehow the crafty old minx must have seen your mercenaries coming.
+	<</if>>
 <<else>>
 	 The $mercenariesTitle are able to carry out their plan.
 	<<set $seed = 1>>
@@ -736,9 +893,37 @@ You make your selection and direct your $mercenariesTitle to attack the target.
 		As your mercenaries close in on the stage and reveal their concealed weapons, the darling star of the dance troupe loses her footing in shock and tumbles off the stage. The sharp crack as she hits the ground drives the crowd and remaining members of the troupe hysterical, while your mercenaries exit the theater as chaos surges around them.
 		<<set $seed = 0>>
 	<<else>>
-	Once your mercenaries close in on the stage and reveal their concealed weapons, the dance troupe promptly surrenders. With the shocked audience looking in, each member is cuffed and escorted out the door to the waiting VTOL.
+	Once your mercenaries close in on the stage and reveal their concealed weapons, the dance troupe promptly surrenders. With the shocked audience looking on, each member is cuffed and escorted out the door to the waiting VTOL.
 	<</if>>
-<</if>>
+	<<elseif $origin == "law enforcement officer">>
+		<<if random(1,3) == 1>>
+		Despite being outnumbered and outgunned, the officers stand their ground to the last. The sterling officer of the law your mercenaries sought to capture is the last to fall, stifled by a hail of bullets.
+		<<set $seed = 0>>
+	<<else>>
+	Your mercenaries break through the door of the precinct with their guns drawn. The precinct is so understaffed that each officer has a number of weapons drawn on them from every angle, so its no surprise when the precinct's sterling policewoman formally surrenders the precinct and its officers to your mercenaries.
+	<</if>>
+	<<elseif $origin == "classical musician">>
+		<<if random(1,3) == 1>>
+		As your mercenaries close in on the stage and reveal their concealed weapons, the crown jewel of the orchestra loses her footing in shock and tumbles off the stage. The sharp crack as she hits the ground drives the crowd and remaining members of the orchestra hysterical, while your mercenaries exit the concert hall as chaos surges around them.
+		<<set $seed = 0>>
+	<<else>>
+	Once your mercenaries close in on the stage and reveal their concealed weapons, the orchestra promptly surrenders. With the shocked audience looking on, each member is cuffed and escorted out the door to the waiting VTOL.
+	<</if>>
+	<<elseif $origin == "politician">>
+		<<if random(1,3) == 1>>
+		With their security detail defeated and their crowd of supporters offering no protection, the politician tries to take up one of her fallen protector's pistols to defend herself. Unfortunately for her and for your mercenaries, the politician has a staggeringly poor understanding of firearms and manages to shoot themselves in the face when they discharge the weapon. With the politician dead, there is little your mercenaries can do but exit the venue.
+		<<set $seed = 0>>
+	<<else>>
+	With their security detail defeated and their crowd of supporters offering no protection, the politician promptly surrenders in the hopes that they won't be harmed and is escorted to the waiting VTOL.
+	<</if>>
+	<<elseif $origin == "shut-in">>
+		<<if random(1,3) == 1>>
+		When your mercenaries break down the door to the shut-in's shack, they are met with a terrible stench of dust and decay. Judging by the body hanging limply from the banisters, the shut-in took their own life some time ago.
+		<<set $seed = 0>>
+	<<else>>
+	When your mercenaries break down the door to to the shut-in's shack, they are met with a surprised and somewhat unkempt woman staring at them. Despite their lack of social interaction, they know better than to argue with a small army of armed mercenaries and quietly accepts being escorted back to the waiting VTOL.
+	<</if>>
+	<</if>>
 <</if>>
 
 <<if $seed == 1>>
@@ -759,11 +944,19 @@ You make your selection and direct your $mercenariesTitle to attack the target.
 	<<elseif $origin == "nun">>
 	The pious nun spends the VTOL ride engaged in fervent prayer as her sisters are raped by your mercenaries. She naively believes that her devotion and piety will see her spared from the same fate as her sisters.
 	<<elseif $origin == "journalist">>
-	The journalist spends the VTOL ride watching as her colleagues are raped by your mercenaries. She studies ever brutal detail, records ever anguished scream in her mind, hoping that one day she might escape to produce an editorial to surpass all others.
+	The journalist spends the VTOL ride watching as her colleagues are raped by your mercenaries. She studies every brutal detail, records ever anguished scream in her mind, hoping that one day she might escape to produce an editorial to surpass all others.
 	<<elseif $origin == "local news anchor">>
 	The anchor is initially resistant during the VTOL ride, but soon grows complacent when she is told of the luxury of your penthouse.
-	<<elseif $origin == "nun">>
+	<<elseif $origin == "classical dancer">>
 	The dancer spends the VTOL ride in abject terror as her friends and peers are raped by your mercenaries all around her. She clings to the hope that she is being spared from the same fate out of a desire for her dancing talent rather than her body.
+	<<elseif $origin == "law enforcement officer">>
+	The officer spends the VTOL ride watching impassively as her fellow officers are raped by your mercenaries all around her. Before she exits the VTOL upon her arrival, she informs your mercenaries that she intends to bring each of them to justice for their supposed crimes.
+	<<elseif $origin == "classical musician">>
+	The musician spends the VTOL ride in abject terror as her friends and peers are raped by your mercenaries all around her. She clings to the hope that she is being spared from the same fate out of a desire for her musical talent rather than her body.
+	<<elseif $origin == "politician">>
+	The politician spends the VTOL ride quietly, only breaking her silence to ask your mercenaries about where she is being brought and why. When they do not answer she simply fusses with her outfit, as if headed to an important interview.
+	<<elseif $origin == "shut-in">>
+	The shut-in spends the VTOL ride sitting quietly in their seat. Confused by her silence, your mercenaries attempt to engage her in conversation but are granted no response.
 	<</if>>
 <<AddSlave $activeSlave>> /* skip New Slave Intro */	
 <<else>>
