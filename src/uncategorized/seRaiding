@@ -133,7 +133,7 @@ Worthy of consideration is that although the $mercenariesTitle will enslave the 
 	<<set $activeSlave.weight = 0>>
 	<<set $activeSlave.muscles = 50>>
 	is a military officer currently traveling to the front of a fresh conflict between rival powers in the Old World. In an attempt to disguise his high rank, he is traveling with only a small escort of soldiers and is a prime target for enslavement. The officer is a graduate of a renowned Old World military college and no stranger to the battlefield.
-	<<elseif $origin == "military soldier">>
+<<elseif $origin == "military soldier">>
 	<<include "Generate XX Slave">>
 	<<set $activeSlave.age = random(18,25)>>
 	<<set $activeSlave.career = "a soldier">>
@@ -175,10 +175,10 @@ Worthy of consideration is that although the $mercenariesTitle will enslave the 
 	<<set $targetEscape -= 1>>
 <</if>>
 <<if $activeSlave.height >= 185>>
-	They're tall enough that her height makes her easy to spot and slow to escape.
+	They're tall enough that their height makes them easy to spot and slow to escape.
 	<<set $targetEscape -= 2>>
 <<elseif $activeSlave.height < 150>>
-	They're short enough that her height makes her difficult to spot, though also slow to escape.
+	They're short enough that their height makes them difficult to spot, though also slow to escape.
 	<<set $targetEscape -= 1>>
 <</if>>
 <<if $activeSlave.boobs >= 2000>>
@@ -316,10 +316,10 @@ You make your selection and direct your $mercenariesTitle to attack the target.
 	The officer spends the VTOL ride back to your arcology watching as your mercenaries rape his defeated subordinates. Given their brutal treatment, he doubts his respite from such a fate is due to any battlefield rules of conduct.
 	<<elseif $origin == "military soldier">>
 	The sergeant spends the VTOL ride back to the arcology watching as her childhood friends turned comrades in arms are raped by your mercenaries. She wonders why she has been spared this seemingly shared fate, but suspects it has little to do with her nominally higher rank.
-	<<AddSlave $activeSlave>> /* skip New Slave Intro */	
-	<<else>>
-	Your mercenaries return without their final prize, but are still in high spirits given their other successes out in the field.
 	<</if>>
+<<AddSlave $activeSlave>> /* skip New Slave Intro */	
+<<else>>
+	Your mercenaries return without their final prize, but are still in high spirits given their other successes out in the field.
 <</if>>
 <</nobr>>
 <</replace>>
@@ -415,10 +415,10 @@ You make your selection and direct your $mercenariesTitle to attack the target.
 	The officer spends the VTOL ride back to your arcology watching as your mercenaries rape his defeated subordinates. Given their brutal treatment, he doubts his respite from such a fate is due to any battlefield rules of conduct.
 	<<elseif $origin == "military soldier">>
 	The sergeant spends the VTOL ride back to the arcology watching as her childhood friends turned comrades in arms are raped by your mercenaries. She wonders why she has been spared this seemingly shared fate, but suspects it has little to do with her nominally higher rank.
-	<<AddSlave $activeSlave>> /* skip New Slave Intro */	
-	<<else>>
-	Your mercenaries return without their final prize, but are still in high spirits given their other successes out in the field.
 	<</if>>
+<<AddSlave $activeSlave>> /* skip New Slave Intro */	
+<<else>>
+	Your mercenaries return without their final prize, but are still in high spirits given their other successes out in the field.
 <</if>>
 <</nobr>>
 <</replace>>
@@ -514,10 +514,10 @@ You make your selection and direct your $mercenariesTitle to attack the target.
 	The officer spends the VTOL ride back to your arcology watching as your mercenaries rape his defeated subordinates. Given their brutal treatment, he doubts his respite from such a fate is due to any battlefield rules of conduct.
 	<<elseif $origin == "military soldier">>
 	The sergeant spends the VTOL ride back to the arcology watching as her childhood friends turned comrades in arms are raped by your mercenaries. She wonders why she has been spared this seemingly shared fate, but suspects it has little to do with her nominally higher rank.
-	<<AddSlave $activeSlave>> /* skip New Slave Intro */	
-	<<else>>
-	Your mercenaries return without their final prize, but are still in high spirits given their other successes out in the field.
 	<</if>>
+<<AddSlave $activeSlave>> /* skip New Slave Intro */	
+<<else>>
+	Your mercenaries return without their final prize, but are still in high spirits given their other successes out in the field.
 <</if>>
 <</nobr>>
 <</replace>>
