@@ -36,10 +36,13 @@ Worthy of consideration is that although the $mercenariesTitle will enslave the 
 <<for $i = 0; $i < 3; $i++>>
 
 <<if $i == 0>>
+<br><br>
 	The first target
 <<elseif $i == 1>>
+<br><br>
 	The second target
 <<else>>
+<br><br>
 	The third and final target
 <</if>>
 
@@ -204,7 +207,7 @@ Worthy of consideration is that although the $mercenariesTitle will enslave the 
 	<<set $activeSlave.behavioralFlaw to "liberated">>
 	<<set $activeSlave.sexualFlaw to "idealistic">>
 	is the offices of an esteemed Old World newspaper firm. The paper is known for its investigative journalism, particularly as one of the few firms willing to delve into the brave new world of the Free Cities. The rising star of the paper is undoubtedly a young journalist who has been an outspoken critic of slaveholding and other Free Cities traditions.
-<<if $origin == "local news anchor">>
+<<elseif $origin == "local news anchor">>
 	<<include "Generate XX Slave">>
 	<<set $activeSlave.boobs += 800>>
 	<<set $activeSlave.boobsImplant += 800>>
@@ -224,7 +227,7 @@ Worthy of consideration is that although the $mercenariesTitle will enslave the 
 	<<set $activeSlave.whoreSkill = 35>>
 	<<set $activeSlave.entertainSkill = 35>>
 	<<set $activeSlave.age = random(35,39)>>
-	<<set $activeSlave.career = "a local news anchor>>
+	<<set $activeSlave.career = "a local news anchor">>
 	is the recording studio of a sleepy Old World town's local news channel. The news channel itself is unremarkable, a quaint reminder of the tedious life of a small town, save for its news anchor. The anchor stands in stark contrast to her fellow residents by the abundance of her plastic surgery, likely an attempt to cling to youth lest her coveted anchor position be snatched away by a younger woman.
 <<elseif $origin == "classical dancer">>
 	<<include "Generate XX Slave">>
@@ -354,7 +357,7 @@ You make your selection and direct your $mercenariesTitle to attack the target.
 	Unfortunately for your mercenaries, the news channel appears to have been interviewing members of the local militia garrison at the time of the raid. Upon encountering more firepower than they had anticipated, your mercenaries wisely retreat from the engagement.
 	<<elseif $origin == "classical dancer">>
 	Though they are excellent soldiers, your mercenaries are often crude and uncultured. They are unable to blend into the audience and are soon discovered, giving the dance troupe the warning need to make an escape from the theater.
-<</if>>
+	<</if>>
 <<else>>
 	The $mercenariesTitle manage to close in on the target and make their final preparations to apprehend them.
 	<<set $seed = 1>>
