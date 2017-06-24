@@ -23,6 +23,11 @@ Worthy of consideration is that although the $mercenariesTitle will enslave the 
 	<<set $origins.push("university student")>>
 	<<set $origins.push("female military officer")>>
 	<<set $origins.push("military soldier")>>
+	<<set $origins.push("doctor")>>
+	<<set $origins.push("nun")>>
+	<<set $origins.push("journalist")>>
+	<<set $origins.push("local news anchor")>>
+	<<set $origins.push("classical dancer")>>
 <</if>>
 <<if $seeDicks != 0>>
 	<<set $origins.push("male military officer")>>	
@@ -54,7 +59,7 @@ Worthy of consideration is that although the $mercenariesTitle will enslave the 
 	<<set $activeSlave.preg = -1>>
 	<<set $activeSlave.ovaries = 1>>
 	<<set $activeSlave.vaginalSkill = 35>>
-	<<set $activeSlave.oralSkill = 100>>
+	<<set $activeSlave.oralSkill = 35>>
 	<<set $activeSlave.analSkill = 15>>
 	<<set $activeSlave.whoreSkill = 35>>
 	<<set $activeSlave.age = random(35,39)>>
@@ -70,7 +75,7 @@ Worthy of consideration is that although the $mercenariesTitle will enslave the 
 	<<set $activeSlave.oralSkill = 35>>
 	<<set $activeSlave.analSkill = 15>>
 	<<set $activeSlave.whoreSkill = 0>>
-	<<set $activeSlave.entertainSkill = 100>>
+	<<set $activeSlave.entertainSkill = 10>>
 	<<set $activeSlave.intelligence = 2>>
 	<<set $activeSlave.intelligenceImplant = 1>>
 	<<set $activeSlave.teeth = "normal">>
@@ -104,7 +109,7 @@ Worthy of consideration is that although the $mercenariesTitle will enslave the 
 	<<set $activeSlave.analSkill = 15>>
 	<<set $activeSlave.whoreSkill = 0>>
 	<<set $activeSlave.combatSkill = 1>>
-	<<set $activeSlave.entertainSkill = 100>>
+	<<set $activeSlave.entertainSkill = 10>>
 	<<set $activeSlave.intelligence = random(1,2)>>
 	<<set $activeSlave.intelligenceImplant = 1>>
 	<<set $activeSlave.teeth = "normal">>
@@ -145,10 +150,98 @@ Worthy of consideration is that although the $mercenariesTitle will enslave the 
 	<<set $activeSlave.analSkill = 15>>
 	<<set $activeSlave.whoreSkill = 0>>
 	<<set $activeSlave.combatSkill = 1>>
-	<<set $activeSlave.entertainSkill = 100>>
+	<<set $activeSlave.entertainSkill = 10>>
 	<<set $activeSlave.intelligenceImplant = 0>>
 	<<set $activeSlave.teeth = "normal">>
 	is the barracks of a local garrison in an Old World town. The majority of the town's young men have already been sent to the front of a new conflict, so the town has conscripted a number of young women to fill the ranks of their garrison. Though the soldiers are likely to be untested, they have still received some measure of combat training. Their sergeant is the nominal leader of the group, though she holds the position due to familial connections rather than any real military seniority.
+<<elseif $origin == "doctor">>
+	<<include "Generate XX Slave">>
+	<<set $activeSlave.age = random(28,$retirementAge-1)>>
+	<<set $activeSlave.career = "a doctor">>
+	<<set $activeSlave.health = random(10,30)>>
+	<<set $activeSlave.face = random(15,100)>>
+	<<set $activeSlave.vagina = 1>>
+	<<set $activeSlave.oralSkill = 35>>
+	<<set $activeSlave.analSkill = 15>>
+	<<set $activeSlave.whoreSkill = 0>>
+	<<set $activeSlave.entertainSkill = 10>>
+	<<set $activeSlave.intelligence = 2>>
+	<<set $activeSlave.intelligenceImplant = 1>>
+	<<set $activeSlave.teeth = "normal">>
+	is a hospital located in an impoverished Old World City. Despite its crime ridden surroundings, the hospital possesses a sterling reputation as a result of its distinguished staff of veteran doctors and nurses. Chief among these medical professionals is a female doctor, an accomplished pioneer in her field.
+<<elseif $origin == "nun">>
+	<<include "Generate XX Slave">>
+	<<set $activeSlave.career to "a nun">>
+	<<set $activeSlave.anus to 0>>
+	<<set $activeSlave.vagina to 0>>
+	<<set $activeSlave.weight to random(-20,-100)>>
+	<<set $activeSlave.attrXX to random(10,50)>>
+	<<set $activeSlave.attrXY to random(10,50)>>
+	<<set $activeSlave.energy to random(5,20)>>
+	<<set $activeSlave.vaginalSkill = 0>>
+	<<set $activeSlave.oralSkill = 15>>
+	<<set $activeSlave.analSkill = 0>>
+	<<set $activeSlave.whoreSkill = 0>>
+	<<set $activeSlave.entertainSkill = 0>>
+	<<set $activeSlave.age to random(18,$retirementAge-1)>>
+	<<set $activeSlave.behavioralFlaw to "devout">>
+	<<set $activeSlave.sexualFlaw to "repressed">>
+	is a reclusive religious community in a mountain range between two currently contested territories. The members of the community have withdrawn from the collapsing social order of the world and established a commune in their mountain retreat, filling their days with peaceful reflection and prayer. Though the nuns have no true leader, one among them has emerged as the most pious of the sisters.
+<<elseif $origin == "journalist">>
+	<<include "Generate XX Slave">>
+	<<set $activeSlave.age = random(18,26)>>
+	<<set $activeSlave.career = "a journalist">>
+	<<set $activeSlave.prestige = 1>>
+	<<set $activeSlave.health = random(-10,10)>>
+	<<set $activeSlave.face = random(-20,0)>>
+	<<set $activeSlave.anus to 0>>
+	<<set $activeSlave.vagina = 1>>
+	<<set $activeSlave.vaginalSkill = 0>>
+	<<set $activeSlave.analSkill = 0>>
+	<<set $activeSlave.oralSkill = 0>>
+	<<set $activeSlave.whoreSkill = 0>>
+	<<set $activeSlave.entertainSkill = 35>>
+	<<set $activeSlave.behavioralFlaw to "liberated">>
+	<<set $activeSlave.sexualFlaw to "idealistic">>
+	is the offices of an esteemed Old World newspaper firm. The paper is known for its investigative journalism, particularly as one of the few firms willing to delve into the brave new world of the Free Cities. The rising star of the paper is undoubtedly a young journalist who has been an outspoken critic of slaveholding and other Free Cities traditions.
+<<if $origin == "local news anchor">>
+	<<include "Generate XX Slave">>
+	<<set $activeSlave.boobs += 800>>
+	<<set $activeSlave.boobsImplant += 800>>
+	<<set $activeSlave.butt += 1>>
+	<<set $activeSlave.buttImplant += 1>>
+	<<set $activeSlave.face = 55>>
+	<<set $activeSlave.faceImplant += 1>>
+	<<set $activeSlave.anus = 1>>
+	<<set $activeSlave.vagina = 1>>
+	<<set $activeSlave.analCount += 1>>
+	<<set $analTotal += 1>>
+	<<set $activeSlave.preg = -1>>
+	<<set $activeSlave.ovaries = 1>>
+	<<set $activeSlave.vaginalSkill = 35>>
+	<<set $activeSlave.oralSkill = 35>>
+	<<set $activeSlave.analSkill = 15>>
+	<<set $activeSlave.whoreSkill = 35>>
+	<<set $activeSlave.entertainSkill = 35>>
+	<<set $activeSlave.age = random(35,39)>>
+	<<set $activeSlave.career = "a local news anchor>>
+	is the recording studio of a sleepy Old World town's local news channel. The news channel itself is unremarkable, a quaint reminder of the tedious life of a small town, save for its news anchor. The anchor stands in stark contrast to her fellow residents by the abundance of her plastic surgery, likely an attempt to cling to youth lest her coveted anchor position be snatched away by a younger woman.
+<<elseif $origin == "classical dancer">>
+	<<include "Generate XX Slave">>
+	<<set $activeSlave.age = random(18,20)>>
+	<<set $activeSlave.career = "a classical dancer">>
+	<<set $activeSlave.prestige = 1>>
+	<<set $activeSlave.health = random(-10,10)>>
+	<<set $activeSlave.face = random(-20,0)>>
+	<<set $activeSlave.anus to 0>>
+	<<set $activeSlave.vagina = 1>>
+	<<set $activeSlave.vaginalSkill = 0>>
+	<<set $activeSlave.analSkill = 0>>
+	<<set $activeSlave.oralSkill = 0>>
+	<<set $activeSlave.whoreSkill = 0>>
+	<<set $activeSlave.entertainSkill = 50>>
+	<<set $activeSlave.teeth = "normal">>
+	is the performing arts theater at the heart of an aristocratic Old World city. The theater itself would usually not be considered a choice target, except that tonight its stage is graced by a renowned dance troupe. The jewel of the troupe's cast is a young girl, barely past her majority, whose performance has been said to bring tears to the eyes of audiences the world over.
 <</if>>
 
 <<set $activeSlave.origin = "Your $mercenariesTitle caught her while raiding; she was a $origin.">>
@@ -251,7 +344,17 @@ You make your selection and direct your $mercenariesTitle to attack the target.
 	The officer's escort engages your mercenaries in a gunfight and in the confusion he manages to escape capture on foot.
 	<<elseif $origin == "military soldier">>
 	The young soldiers fight valiantly against your mercenaries until they are routed. Despite defeating them in the field, your mercenaries are unable to capture any of the soldiers who escape on foot.
-	<</if>>
+	<<elseif $origin == "doctor">>
+	The hospital's security staff alone would prove little match for your mercenaries, but just as they are about to be overrun an uneasy coalition of rival gangster and criminals who had been committed as patients join the fray and turn the tide of battle. 
+	<<elseif $origin == "nun">>
+	As your mercenaries close in on the commune, they are spotted by a group of young nuns tending to their grounds. Before your mercenaries can close the distance, they retreat behind the walls of their community and seal the gate behind them.
+	<<elseif $origin == "journalist">>
+	Though your mercenaries easily overwhelm the single security guard posted at the firm, they are unable to do so before he triggers an alarm. Faced with the prospect of local law enforcement arriving, your mercenaries beat a hasty retreat.
+	<<elseif $origin == "local news anchor">>
+	Unfortunately for your mercenaries, the news channel appears to have been interviewing members of the local militia garrison at the time of the raid. Upon encountering more firepower than they had anticipated, your mercenaries wisely retreat from the engagement.
+	<<elseif $origin == "classical dancer">>
+	Though they are excellent soldiers, your mercenaries are often crude and uncultured. They are unable to blend into the audience and are soon discovered, giving the dance troupe the warning need to make an escape from the theater.
+<</if>>
 <<else>>
 	The $mercenariesTitle manage to close in on the target and make their final preparations to apprehend them.
 	<<set $seed = 1>>
@@ -300,6 +403,41 @@ You make your selection and direct your $mercenariesTitle to attack the target.
 	<<else>>
 	The young soldiers fight valiantly, but when the battle turns against them they decide to surrender. Their sergeant is cuffed with the remaining survivors and taken back to the VTOL for transport.
 	<</if>>
+	<<elseif $origin == "doctor">>
+		<<if random(1,3) == 1>>
+		The hospital's security staff alone would prove little match for your mercenaries, but they are joined by an uneasy coalition of rival gangster and criminals who had been committed as patients. Though your mercenaries prevail, they discover to their chagrin that the doctors and their staff were slain during the wanton exchange of fire. 
+		<<set $seed = 0>>
+	<<else>>
+	The security staff of the hospital is easily overpowered and surrender rapidly, allowing your mercenaries to take the doctors and their staff into custody with little fuss.
+	<</if>>
+	<<elseif $origin == "nun">>
+		<<if random(1,3) == 1>>
+		The nuns flee into their inner sanctum as your mercenaries approach and bar the doors behind them as they go. When the last barrier is pried open, your mercenaries discover the nuns have committed suicide as a group rather than be taken prisoner.
+		<<set $seed = 0>>
+	<<else>>
+	Unarmed and defenseless, the nuns are easily cowed by your mercenaries and taken away one by one to the VTOLs. The most pious sister prays vehemently until she is dragged out of the inner sanctum in cuffs.
+	<</if>>
+	<<elseif $origin == "journalist">>
+		<<if random(1,3) == 1>>
+		Your mercenaries are met with fierce resistance by the staff of the newspaper firm, who take the raid as an opportunity to turn their abolitionist words into violent action. Eventually, your mercenaries retreat from the building before law enforcement can arrive.
+		<<set $seed = 0>>
+	<<else>>
+	Once the lone security guard is subdued, the journalists and editors of the firm quietly accept their restraints and file out of the building and into the waiting VTOL.
+	<</if>>
+	<<elseif $origin == "local news anchor">>
+		<<if random(1,3) == 1>>
+		Your mercenaries are able to subdue the news anchor and bid a hasty exit from the recording studio. Before they can board the waiting VTOL however, the anchor is struck in the head by a bullet fired by a man who was her longtime fan turned stalker. It seems if he cannot have her, neither can you. 
+		<<set $seed = 0>>
+	<<else>>
+	The news anchor is subdued without issue and quietly escorted out of the recording studio and into the waiting VTOL.
+	<</if>>
+	<<elseif $origin == "classical dancer">>
+		<<if random(1,3) == 1>>
+		As your mercenaries close in on the stage and reveal their concealed weapons, the darling star of the dance troupe loses her footing in shock and tumbles off the stage. The sharp crack as she hits the ground drives the crowd and remaining members of the troupe hysterical, while your mercenaries exit the theater as chaos surges around them.
+		<<set $seed = 0>>
+	<<else>>
+	Once your mercenaries close in on the stage and reveal their concealed weapons, the dance troupe promptly surrenders. With the shocked audience looking in, each member is cuffed and escorted out the door to the waiting VTOL.
+	<</if>>
 <</if>>
 <</if>>
 
@@ -316,6 +454,16 @@ You make your selection and direct your $mercenariesTitle to attack the target.
 	The officer spends the VTOL ride back to your arcology watching as your mercenaries rape his defeated subordinates. Given their brutal treatment, he doubts his respite from such a fate is due to any battlefield rules of conduct.
 	<<elseif $origin == "military soldier">>
 	The sergeant spends the VTOL ride back to the arcology watching as her childhood friends turned comrades in arms are raped by your mercenaries. She wonders why she has been spared this seemingly shared fate, but suspects it has little to do with her nominally higher rank.
+	<<elseif $origin == "doctor">>
+	The distinguished doctor spends the VTOL ride looking on at her colleagues and peers being raped by your mercenaries. She naively hopes that she has been spared from that fate out of a desire for her medical knowledge rather than her body.
+	<<elseif $origin == "nun">>
+	The pious nun spends the VTOL ride engaged in fervent prayer as her sisters are raped by your mercenaries. She naively believes that her devotion and piety will see her spared from the same fate as her sisters.
+	<<elseif $origin == "journalist">>
+	The journalist spends the VTOL ride watching as her colleagues are raped by your mercenaries. She studies ever brutal detail, records ever anguished scream in her mind, hoping that one day she might escape to produce an editorial to surpass all others.
+	<<elseif $origin == "local news anchor">>
+	The anchor is initially resistant during the VTOL ride, but soon grows complacent when she is told of the luxury of your penthouse.
+	<<elseif $origin == "nun">>
+	The dancer spends the VTOL ride in abject terror as her friends and peers are raped by your mercenaries all around her. She clings to the hope that she is being spared from the same fate out of a desire for her dancing talent rather than her body.
 	<</if>>
 <<AddSlave $activeSlave>> /* skip New Slave Intro */	
 <<else>>
@@ -348,9 +496,17 @@ You make your selection and direct your $mercenariesTitle to attack the target.
 	The officer's escort engages your mercenaries in a gunfight and in the confusion he manages to escape capture on foot.
 	<<elseif $origin == "military soldier">>
 	The young soldiers fight valiantly against your mercenaries until they are routed. Despite defeating them in the field, your mercenaries are unable to capture any of the soldiers who escape on foot.
-	<<else>>
-	The target manages to escape on foot
-	<</if>>
+	<<elseif $origin == "doctor">>
+	The hospital's security staff alone would prove little match for your mercenaries, but just as they are about to be overrun an uneasy coalition of rival gangster and criminals who had been committed as patients join the fray and turn the tide of battle. 
+	<<elseif $origin == "nun">>
+	As your mercenaries close in on the commune, they are spotted by a group of young nuns tending to their grounds. Before your mercenaries can close the distance, they retreat behind the walls of their community and seal the gate behind them.
+	<<elseif $origin == "journalist">>
+	Though your mercenaries easily overwhelm the single security guard posted at the firm, they are unable to do so before he triggers an alarm. Faced with the prospect of local law enforcement arriving, your mercenaries beat a hasty retreat.
+	<<elseif $origin == "local news anchor">>
+	Unfortunately for your mercenaries, the news channel appears to have been interviewing members of the local militia garrison at the time of the raid. Upon encountering more firepower than they had anticipated, your mercenaries wisely retreat from the engagement.
+	<<elseif $origin == "classical dancer">>
+	Though they are excellent soldiers, your mercenaries are often crude and uncultured. They are unable to blend into the audience and are soon discovered, giving the dance troupe the warning need to make an escape from the theater.
+<</if>>
 <<else>>
 	The $mercenariesTitle manage to close in on the target and make their final preparations to apprehend them.
 	<<set $seed = 1>>
@@ -399,6 +555,41 @@ You make your selection and direct your $mercenariesTitle to attack the target.
 	<<else>>
 	The young soldiers fight valiantly, but when the battle turns against them they decide to surrender. Their sergeant is cuffed with the remaining survivors and taken back to the VTOL for transport.
 	<</if>>
+	<<elseif $origin == "doctor">>
+		<<if random(1,3) == 1>>
+		The hospital's security staff alone would prove little match for your mercenaries, but they are joined by an uneasy coalition of rival gangster and criminals who had been committed as patients. Though your mercenaries prevail, they discover to their chagrin that the doctors and their staff were slain during the wanton exchange of fire. 
+		<<set $seed = 0>>
+	<<else>>
+	The security staff of the hospital is easily overpowered and surrender rapidly, allowing your mercenaries to take the doctors and their staff into custody with little fuss.
+	<</if>>
+	<<elseif $origin == "nun">>
+		<<if random(1,3) == 1>>
+		The nuns flee into their inner sanctum as your mercenaries approach and bar the doors behind them as they go. When the last barrier is pried open, your mercenaries discover the nuns have committed suicide as a group rather than be taken prisoner.
+		<<set $seed = 0>>
+	<<else>>
+	Unarmed and defenseless, the nuns are easily cowed by your mercenaries and taken away one by one to the VTOLs. The most pious sister prays vehemently until she is dragged out of the inner sanctum in cuffs.
+	<</if>>
+	<<elseif $origin == "journalist">>
+		<<if random(1,3) == 1>>
+		Your mercenaries are met with fierce resistance by the staff of the newspaper firm, who take the raid as an opportunity to turn their abolitionist words into violent action. Eventually, your mercenaries retreat from the building before law enforcement can arrive.
+		<<set $seed = 0>>
+	<<else>>
+	Once the lone security guard is subdued, the journalists and editors of the firm quietly accept their restraints and file out of the building and into the waiting VTOL.
+	<</if>>
+	<<elseif $origin == "local news anchor">>
+		<<if random(1,3) == 1>>
+		Your mercenaries are able to subdue the news anchor and bid a hasty exit from the recording studio. Before they can board the waiting VTOL however, the anchor is struck in the head by a bullet fired by a man who was her longtime fan turned stalker. It seems if he cannot have her, neither can you. 
+		<<set $seed = 0>>
+	<<else>>
+	The news anchor is subdued without issue and quietly escorted out of the recording studio and into the waiting VTOL.
+	<</if>>
+	<<elseif $origin == "classical dancer">>
+		<<if random(1,3) == 1>>
+		As your mercenaries close in on the stage and reveal their concealed weapons, the darling star of the dance troupe loses her footing in shock and tumbles off the stage. The sharp crack as she hits the ground drives the crowd and remaining members of the troupe hysterical, while your mercenaries exit the theater as chaos surges around them.
+		<<set $seed = 0>>
+	<<else>>
+	Once your mercenaries close in on the stage and reveal their concealed weapons, the dance troupe promptly surrenders. With the shocked audience looking in, each member is cuffed and escorted out the door to the waiting VTOL.
+	<</if>>
 <</if>>
 <</if>>
 
@@ -415,6 +606,16 @@ You make your selection and direct your $mercenariesTitle to attack the target.
 	The officer spends the VTOL ride back to your arcology watching as your mercenaries rape his defeated subordinates. Given their brutal treatment, he doubts his respite from such a fate is due to any battlefield rules of conduct.
 	<<elseif $origin == "military soldier">>
 	The sergeant spends the VTOL ride back to the arcology watching as her childhood friends turned comrades in arms are raped by your mercenaries. She wonders why she has been spared this seemingly shared fate, but suspects it has little to do with her nominally higher rank.
+	<<elseif $origin == "doctor">>
+	The distinguished doctor spends the VTOL ride looking on at her colleagues and peers being raped by your mercenaries. She naively hopes that she has been spared from that fate out of a desire for her medical knowledge rather than her body.
+	<<elseif $origin == "nun">>
+	The pious nun spends the VTOL ride engaged in fervent prayer as her sisters are raped by your mercenaries. She naively believes that her devotion and piety will see her spared from the same fate as her sisters.
+	<<elseif $origin == "journalist">>
+	The journalist spends the VTOL ride watching as her colleagues are raped by your mercenaries. She studies ever brutal detail, records ever anguished scream in her mind, hoping that one day she might escape to produce an editorial to surpass all others.
+	<<elseif $origin == "local news anchor">>
+	The anchor is initially resistant during the VTOL ride, but soon grows complacent when she is told of the luxury of your penthouse.
+	<<elseif $origin == "nun">>
+	The dancer spends the VTOL ride in abject terror as her friends and peers are raped by your mercenaries all around her. She clings to the hope that she is being spared from the same fate out of a desire for her dancing talent rather than her body.
 	<</if>>
 <<AddSlave $activeSlave>> /* skip New Slave Intro */	
 <<else>>
@@ -447,9 +648,17 @@ You make your selection and direct your $mercenariesTitle to attack the target.
 	The officer's escort engages your mercenaries in a gunfight and in the confusion he manages to escape capture on foot.
 	<<elseif $origin == "military soldier">>
 	The young soldiers fight valiantly against your mercenaries until they are routed. Despite defeating them in the field, your mercenaries are unable to capture any of the soldiers who escape on foot.
-	<<else>>
-	The target manages to escape on foot
-	<</if>>
+	<<elseif $origin == "doctor">>
+	The hospital's security staff alone would prove little match for your mercenaries, but just as they are about to be overrun an uneasy coalition of rival gangster and criminals who had been committed as patients join the fray and turn the tide of battle. 
+	<<elseif $origin == "nun">>
+	As your mercenaries close in on the commune, they are spotted by a group of young nuns tending to their grounds. Before your mercenaries can close the distance, they retreat behind the walls of their community and seal the gate behind them.
+	<<elseif $origin == "journalist">>
+	Though your mercenaries easily overwhelm the single security guard posted at the firm, they are unable to do so before he triggers an alarm. Faced with the prospect of local law enforcement arriving, your mercenaries beat a hasty retreat.
+	<<elseif $origin == "local news anchor">>
+	Unfortunately for your mercenaries, the news channel appears to have been interviewing members of the local militia garrison at the time of the raid. Upon encountering more firepower than they had anticipated, your mercenaries wisely retreat from the engagement.
+	<<elseif $origin == "classical dancer">>
+	Though they are excellent soldiers, your mercenaries are often crude and uncultured. They are unable to blend into the audience and are soon discovered, giving the dance troupe the warning need to make an escape from the theater.
+<</if>>
 <<else>>
 	The $mercenariesTitle manage to close in on the target and make their final preparations to apprehend them.
 	<<set $seed = 1>>
@@ -498,6 +707,41 @@ You make your selection and direct your $mercenariesTitle to attack the target.
 	<<else>>
 	The young soldiers fight valiantly, but when the battle turns against them they decide to surrender. Their sergeant is cuffed with the remaining survivors and taken back to the VTOL for transport.
 	<</if>>
+	<<elseif $origin == "doctor">>
+		<<if random(1,3) == 1>>
+		The hospital's security staff alone would prove little match for your mercenaries, but they are joined by an uneasy coalition of rival gangster and criminals who had been committed as patients. Though your mercenaries prevail, they discover to their chagrin that the doctors and their staff were slain during the wanton exchange of fire. 
+		<<set $seed = 0>>
+	<<else>>
+	The security staff of the hospital is easily overpowered and surrender rapidly, allowing your mercenaries to take the doctors and their staff into custody with little fuss.
+	<</if>>
+	<<elseif $origin == "nun">>
+		<<if random(1,3) == 1>>
+		The nuns flee into their inner sanctum as your mercenaries approach and bar the doors behind them as they go. When the last barrier is pried open, your mercenaries discover the nuns have committed suicide as a group rather than be taken prisoner.
+		<<set $seed = 0>>
+	<<else>>
+	Unarmed and defenseless, the nuns are easily cowed by your mercenaries and taken away one by one to the VTOLs. The most pious sister prays vehemently until she is dragged out of the inner sanctum in cuffs.
+	<</if>>
+	<<elseif $origin == "journalist">>
+		<<if random(1,3) == 1>>
+		Your mercenaries are met with fierce resistance by the staff of the newspaper firm, who take the raid as an opportunity to turn their abolitionist words into violent action. Eventually, your mercenaries retreat from the building before law enforcement can arrive.
+		<<set $seed = 0>>
+	<<else>>
+	Once the lone security guard is subdued, the journalists and editors of the firm quietly accept their restraints and file out of the building and into the waiting VTOL.
+	<</if>>
+	<<elseif $origin == "local news anchor">>
+		<<if random(1,3) == 1>>
+		Your mercenaries are able to subdue the news anchor and bid a hasty exit from the recording studio. Before they can board the waiting VTOL however, the anchor is struck in the head by a bullet fired by a man who was her longtime fan turned stalker. It seems if he cannot have her, neither can you. 
+		<<set $seed = 0>>
+	<<else>>
+	The news anchor is subdued without issue and quietly escorted out of the recording studio and into the waiting VTOL.
+	<</if>>
+	<<elseif $origin == "classical dancer">>
+		<<if random(1,3) == 1>>
+		As your mercenaries close in on the stage and reveal their concealed weapons, the darling star of the dance troupe loses her footing in shock and tumbles off the stage. The sharp crack as she hits the ground drives the crowd and remaining members of the troupe hysterical, while your mercenaries exit the theater as chaos surges around them.
+		<<set $seed = 0>>
+	<<else>>
+	Once your mercenaries close in on the stage and reveal their concealed weapons, the dance troupe promptly surrenders. With the shocked audience looking in, each member is cuffed and escorted out the door to the waiting VTOL.
+	<</if>>
 <</if>>
 <</if>>
 
@@ -514,6 +758,16 @@ You make your selection and direct your $mercenariesTitle to attack the target.
 	The officer spends the VTOL ride back to your arcology watching as your mercenaries rape his defeated subordinates. Given their brutal treatment, he doubts his respite from such a fate is due to any battlefield rules of conduct.
 	<<elseif $origin == "military soldier">>
 	The sergeant spends the VTOL ride back to the arcology watching as her childhood friends turned comrades in arms are raped by your mercenaries. She wonders why she has been spared this seemingly shared fate, but suspects it has little to do with her nominally higher rank.
+	<<elseif $origin == "doctor">>
+	The distinguished doctor spends the VTOL ride looking on at her colleagues and peers being raped by your mercenaries. She naively hopes that she has been spared from that fate out of a desire for her medical knowledge rather than her body.
+	<<elseif $origin == "nun">>
+	The pious nun spends the VTOL ride engaged in fervent prayer as her sisters are raped by your mercenaries. She naively believes that her devotion and piety will see her spared from the same fate as her sisters.
+	<<elseif $origin == "journalist">>
+	The journalist spends the VTOL ride watching as her colleagues are raped by your mercenaries. She studies ever brutal detail, records ever anguished scream in her mind, hoping that one day she might escape to produce an editorial to surpass all others.
+	<<elseif $origin == "local news anchor">>
+	The anchor is initially resistant during the VTOL ride, but soon grows complacent when she is told of the luxury of your penthouse.
+	<<elseif $origin == "nun">>
+	The dancer spends the VTOL ride in abject terror as her friends and peers are raped by your mercenaries all around her. She clings to the hope that she is being spared from the same fate out of a desire for her dancing talent rather than her body.
 	<</if>>
 <<AddSlave $activeSlave>> /* skip New Slave Intro */	
 <<else>>
