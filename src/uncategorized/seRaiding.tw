@@ -307,15 +307,18 @@ Worthy of consideration is that although the $mercenariesTitle will enslave the 
 <<set $activeSlave.trust = random(-60,-75)>>
 <<set $activeSlave.oldDevotion = $activeSlave.devotion>>
 
+	The $origin is the primary target of the raid.
 <<if $activeSlave.weight > 95>>
-	They're a catastrophically fat individual, and may stand a better chance of getting away rolling than outrunning your mercenaries.
+	They're a catastrophically fat individual, so much so that they might be better off rolling around than walking.
 	<<set $targetEscape -= 2>>
 <<elseif $activeSlave.weight > 30>>
-	They're chubby enough that outrunning your mercenaries will be difficult.
+	Their figure is fairly chubby.
 	<<set $targetEscape -= 1>>
 <<elseif $activeSlave.weight < -95>>
-	They're so skinny that their emaciated figure will impede any attempt at outrunning your mercenaries.
+	They're so skinny that they appear almost emaciated.
 	<<set $targetEscape -= 1>>
+<<else>>
+	They have a fairly average weight.
 <</if>>
 <<if $activeSlave.muscles > 30>>
 	Their heavy musculature weighs them down.
@@ -323,24 +326,38 @@ Worthy of consideration is that although the $mercenariesTitle will enslave the 
 <<elseif $activeSlave.muscles <= 5>>
 	Their body is soft and toneless.
 	<<set $targetEscape -= 1>>
+<<else>>
+	Their body is fairly muscular.
 <</if>>
 <<if $activeSlave.height >= 185>>
-	They're tall enough that their height makes them easy to spot and slow to escape.
+	They're tall enough that their height makes them easy to spot.
 	<<set $targetEscape -= 2>>
 <<elseif $activeSlave.height < 150>>
-	They're short enough that their height makes them difficult to spot while also slow to escape.
+	They're short enough that their height makes them difficult to spot.
 	<<set $targetEscape -= 1>>
+<<else>>
+	They're of an average height.
 <</if>>
 <<if $activeSlave.boobs >= 2000>>
-	They have absurdly large breasts that seriously hamper any rapid movement.
+	They have absurdly large breasts.
 	<<set $targetEscape -= 1>>
 <<elseif $activeSlave.boobs >= 800>>
-	They have huge boobs that will make it painful for them to move rapidly.
+	They have fairly large breasts.
 	<<set $targetEscape -= 1>>
+<<elseif $activeSlave.boobs >= 400>>
+	They have medium sized breasts.
+<<else>>
+	They're fairly flat chested.
 <</if>>
 <<if $activeSlave.butt >= 6>>
-	They have an immense posterior that will impede any attempts at hiding or running.
+	They have an immense posterior.
 	<<set $targetEscape -= 1>>
+<<elseif $activeSlave.butt >= 4>>
+	They have a large ass.
+<<elseif $activeSlave.butt >= 2>>
+	They've got a big butt.
+<<else>>
+	They've got a flat ass.
 <</if>>
 <<if $activeSlave.dick >= 5>>
 	Their cock is large enough to slow them down.
