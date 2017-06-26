@@ -6,7 +6,8 @@
 <<set $returnTo = "Scheduled Event">>
 <<set $nextButton = "Continue">>
 <<set $raided = $week>>
-<<set $raidseed = 0>>
+<<set _raidseed = 0>>
+<<set _raidescape = random(1,3)>>
 
 The leader of your $mercenariesTitle has contacted you from the world outside your arcology. It seems that your mercenaries have enjoyed a profitable series of raids in their time outside the arcology and have decided to push their luck by plundering one last location on their way back to the arcology. As their nominal leader, they ask your opinion of a small number of potential targets. Given the distance from the arcology and the time sensitivity of conducting such a mission, you have little to base your decision on besides a brief description.
 <br><br>
@@ -504,147 +505,147 @@ You make your selection and direct your $mercenariesTitle to attack the target.
 	<</if>>
 <<else>>
 	 The $mercenariesTitle are able to carry out their plan.
-	<<set $raidseed = 1>>
+	<<set _raidseed = 1>>
 <</if>>
 
-<<if $raidseed == 1>>
+<<if _raidseed == 1>>
 	<<if $origin == "housewife">>
-	<<if random(1,3) == 1>>
+	<<if _raidescape == 1>>
 		Your mercenaries pry open the door to the manse's panic room to find that the woman has hung herself to escape capture. A waste.
-		<<set $raidseed = 0>>
+		<<set _raidseed = 0>>
 	<<else>>
 		Your mercenaries pry open the door to the manse's panic room and pull the protesting housewife from its depths.
 	<</if>>
 	<<elseif $origin == "university professor">>
-	<<if random(1,3) == 1>>
+	<<if _raidescape == 1>>
 		Your mercenaries are met with surprising resistance by the university's professors and are forced to bid a hasty retreat before security can arrive in greater numbers.
-		<<set $raidseed = 0>>
+		<<set _raidseed = 0>>
 	<<else>>
 		Your mercenaries corner the professors and their department head in one of the university's many conference rooms, hauling them off to the VTOLs when the academics promptly surrender.
 	<</if>>
 	<<elseif $origin == "university student">>
-	<<if random(1,3) == 1>>
+	<<if _raidescape == 1>>
 		Your mercenaries are met with surprising resistance by the university's students and are forced to bid a hasty retreat before security can arrive in greater numbers.
-		<<set $raidseed = 0>>
+		<<set _raidseed = 0>>
 	<<else>>
 		Your mercenaries corner the students in their rooms, hauling them off one by one to the VTOLs as they protest feebly.
 	<</if>>
 	<<elseif $origin == "female military officer">>
-	<<if random(1,3) == 1>>
+	<<if _raidescape == 1>>
 		As your mecenaries gain the upper hand on the officer's escort, she promptly puts her service weapon to her temple and pulls the trigger. A waste.
-		<<set $raidseed = 0>>
+		<<set _raidseed = 0>>
 	<<else>>
 		As your mecenaries gain the upper hand on the officer's escort, she promptly puts her service weapon to her temple but hesitates. Luckily one of your mercenaries is close by and able to pluck the pistol from her stiff fingers. The despondent officer is cuffed and taken back to the VTOL for transport.
 	<</if>>
 	<<elseif $origin == "male military officer">>
-	<<if random(1,3) == 1>>
+	<<if _raidescape == 1>>
 		As your mecenaries gain the upper hand on the officer's escort, he promptly puts his service weapon to his temple and pulls the trigger. A waste.
-		<<set $raidseed = 0>>
+		<<set _raidseed = 0>>
 	<<else>>
 		As your mecenaries gain the upper hand on the officer's escort, he promptly puts his service weapon to his temple but hesitates. Luckily one of your mercenaries is close by and able to pluck the pistol from his stiff fingers. The despondent officer is cuffed and taken back to the VTOL for transport.
 	<</if>>
 	<<elseif $origin == "military soldier">>
-		<<if random(1,3) == 1>>
+		<<if _raidescape == 1>>
 		The young soldiers are unfaltering in their conviction and fight to their last last. When the smoke clears, the barracks is chocked with corpses for none of the soldiers are left alive to capture.
-		<<set $raidseed = 0>>
+		<<set _raidseed = 0>>
 	<<else>>
 		The young soldiers fight valiantly, but when the battle turns against them they decide to surrender. Their sergeant is cuffed with the remaining survivors and taken back to the VTOL for transport.
 	<</if>>
 	<<elseif $origin == "doctor">>
-		<<if random(1,3) == 1>>
+		<<if _raidescape == 1>>
 		The hospital's security staff alone would prove little match for your mercenaries, but they are joined by an uneasy coalition of rival gangster and criminals who had been committed as patients. Though your mercenaries prevail, they discover to their chagrin that the doctors and their staff were slain during the wanton exchange of fire. 
-		<<set $raidseed = 0>>
+		<<set _raidseed = 0>>
 	<<else>>
 		The security staff of the hospital is easily overpowered and surrender rapidly, allowing your mercenaries to take the doctors and their staff into custody with little fuss.
 	<</if>>
 	<<elseif $origin == "nun">>
-		<<if random(1,3) == 1>>
+		<<if _raidescape == 1>>
 		The nuns flee into their inner sanctum as your mercenaries approach and bar the doors behind them as they go. When the last barrier is pried open, your mercenaries discover the nuns have committed suicide as a group rather than be taken prisoner.
-		<<set $raidseed = 0>>
+		<<set _raidseed = 0>>
 	<<else>>
 		Unarmed and defenseless, the nuns are easily cowed by your mercenaries and taken away one by one to the VTOLs. The most pious sister prays vehemently until she is dragged out of the inner sanctum in cuffs.
 	<</if>>
 	<<elseif $origin == "journalist">>
-		<<if random(1,3) == 1>>
+		<<if _raidescape == 1>>
 		Your mercenaries are met with fierce resistance by the staff of the newspaper firm, who take the raid as an opportunity to turn their abolitionist words into violent action. Eventually, your mercenaries retreat from the building before law enforcement can arrive.
-		<<set $raidseed = 0>>
+		<<set _raidseed = 0>>
 	<<else>>
 		Once the lone security guard is subdued, the journalists and editors of the firm quietly accept their restraints and file out of the building and into the waiting VTOL.
 	<</if>>
 	<<elseif $origin == "local news anchor">>
-		<<if random(1,3) == 1>>
+		<<if _raidescape == 1>>
 		Your mercenaries are able to subdue the news anchor and bid a hasty exit from the recording studio. Before they can board the waiting VTOL however, the anchor is struck in the head by a bullet fired by a man who was her longtime fan turned stalker. It seems if he cannot have her, neither can you. 
-		<<set $raidseed = 0>>
+		<<set _raidseed = 0>>
 	<<else>>
 		The news anchor is subdued without issue and quietly escorted out of the recording studio and into the waiting VTOL.
 	<</if>>
 	<<elseif $origin == "classical dancer">>
-		<<if random(1,3) == 1>>
+		<<if _raidescape == 1>>
 		As your mercenaries close in on the stage and reveal their concealed weapons, the darling star of the dance troupe loses her footing in shock and tumbles off the stage. The sharp crack as she hits the ground drives the crowd and remaining members of the troupe hysterical, while your mercenaries exit the theater as chaos surges around them.
-		<<set $raidseed = 0>>
+		<<set _raidseed = 0>>
 	<<else>>
 		Once your mercenaries close in on the stage and reveal their concealed weapons, the dance troupe promptly surrenders. With the shocked audience looking on, each member is cuffed and escorted out the door to the waiting VTOL.
 	<</if>>
 	<<elseif $origin == "law enforcement officer">>
-		<<if random(1,3) == 1>>
+		<<if _raidescape == 1>>
 		Despite being outnumbered and outgunned, the officers stand their ground to the last. The sterling officer of the law your mercenaries sought to capture is the last to fall, stifled by a hail of bullets.
-		<<set $raidseed = 0>>
+		<<set _raidseed = 0>>
 	<<else>>
 		Your mercenaries break through the door of the precinct with their guns drawn. The precinct is so understaffed that each officer has a number of weapons drawn on them from every angle, so its no surprise when the precinct's sterling policewoman formally surrenders the precinct and its officers to your mercenaries.
 	<</if>>
 	<<elseif $origin == "classical musician">>
-		<<if random(1,3) == 1>>
+		<<if _raidescape == 1>>
 		As your mercenaries close in on the stage and reveal their concealed weapons, the crown jewel of the orchestra loses her footing in shock and tumbles off the stage. The sharp crack as she hits the ground drives the crowd and remaining members of the orchestra hysterical, while your mercenaries exit the concert hall as chaos surges around them.
-		<<set $raidseed = 0>>
+		<<set _raidseed = 0>>
 	<<else>>
 		Once your mercenaries close in on the stage and reveal their concealed weapons, the orchestra promptly surrenders. With the shocked audience looking on, each member is cuffed and escorted out the door to the waiting VTOL.
 	<</if>>
 	<<elseif $origin == "politician">>
-		<<if random(1,3) == 1>>
+		<<if _raidescape == 1>>
 		With their security detail defeated and their crowd of supporters offering no protection, the politician tries to take up one of her fallen protector's pistols to defend herself. Unfortunately for her and for your mercenaries, the politician has a staggeringly poor understanding of firearms and manages to shoot themselves in the face when they discharge the weapon. With the politician dead, there is little your mercenaries can do but exit the venue.
-		<<set $raidseed = 0>>
+		<<set _raidseed = 0>>
 	<<else>>
 		With their security detail defeated and their crowd of supporters offering no protection, the politician promptly surrenders in the hopes that they won't be harmed and is escorted to the waiting VTOL.
 	<</if>>
 	<<elseif $origin == "shut-in">>
-		<<if random(1,3) == 1>>
+		<<if _raidescape == 1>>
 		When the $mercenariesTitle break down the door to the shut-in's shack, they are met with a terrible stench of dust and decay. Judging by the body hanging limply from the banisters, the shut-in took their own life some time ago.
-		<<set $raidseed = 0>>
+		<<set _raidseed = 0>>
 	<<else>>
 		When your mercenaries break down the door to to the shut-in's shack, they are met with a surprised and somewhat unkempt woman staring at them. Despite their lack of social interaction, they know better than to argue with a small army of armed mercenaries and quietly accepts being escorted back to the waiting VTOL.
 	<</if>>
 	<<elseif $origin == "procuress">>
-		<<if random(1,3) == 1>>
+		<<if _raidescape == 1>>
 		When your mercenaries enter the halfway house, the impoverished women within mistake them for an international rescue mission. Before your mercenaries can say otherwise, the women go berserk with the prospect of freedom and break into the procuress' office to tear her apart with their bare hands.
-		<<set $raidseed = 0>>
+		<<set _raidseed = 0>>
 	<<else>>
 		When your mercenaries enter the halfway house, the impoverished women within mistake them for an international rescue mission. Before your mercenaries can say otherwise, the women band together and drag the procuress out of her office and restrain her themselves. The $mercenariesTitle have to do little more than escort the grinning women to the waiting VTOLs, while they drag the protesting procuress with them.
 	<</if>>
 	<<elseif $origin == "investor">>
-		<<if random(1,3) == 1>>
+		<<if _raidescape == 1>>
 		When your mercenaries corner the investor in the exposition, she seemingly mistakes them for international police intent on taking her in for prior economic crimes. Before she can be subdued, the investor swallows a concealed pill and crumples to the ground dead.
-		<<set $raidseed = 0>>
+		<<set _raidseed = 0>>
 	<<else>>
 		When your mercenaries corner the investor in the exposition, she seemingly mistakes them for international police intent on taking her in for prior economic crimes. She begrudgingly surrenders and is subsequently escorted back to a waiting VTOL.
 	<</if>>
 	<<elseif $origin == "scientist">>
-		<<if random(1,3) == 1>>
+		<<if _raidescape == 1>>
 		The bulk of the scientists surrender shortly after your mercenaries make an explosive entrance into their lab. Before she can be cuffed, the chief scientist takes a swig from some mysterious beaker of liquid. From the triumphant look on her face as she keels over dead, your mercenaries suspect the liquid was intended to have a transformative effect rather than a suicidal one.
-		<<set $raidseed = 0>>
+		<<set _raidseed = 0>>
 	<<else>>
 		The bulk of the scientists surrender shortly after your mercenaries make an explosive entrance into their lab. Before she can be cuffed, the chief scientist takes a swig from some mysterious beaker of liquid. As the triumphant look on her face fades, it becomes clear that the liquid did not have the transformative effect that she desired.
 	<</if>>
 	<<elseif $origin == "lawyer">>
-		<<if random(1,3) == 1>>
+		<<if _raidescape == 1>>
 		Your mercenaries capture the law firm's staff without much difficulty, but when they open the door to the lawyer's office they find her frothing from the mouth and unresponsive. From the quantity of pill bottles evident on her desk, it seems she found the sole loophole to escape capture.
-		<<set $raidseed = 0>>
+		<<set _raidseed = 0>>
 	<<else>>
 		Your mercenaries capture the law firm's staff without much difficulty, but when they open the door to the lawyer's office they find her frothing from the mouth and unresponsive. Despite her attempts to drug herself into suicide, the effects are temporary and the lawyer  soon finds herself being hauled off to a waiting VTOL with her staff.
 	<</if>>
 	<</if>>
 <</if>>
 
-<<if $raidseed == 1>>
+<<if _raidseed == 1>>
 	<<if $origin == "housewife">>
 	The housewife watches in terror as your mercenaries slake their lust on her servants and maids, knowing that her respite from a brutal rape must only be a temporary blessing.
 	<<elseif $origin == "university professor">>
@@ -744,147 +745,147 @@ You make your selection and direct your $mercenariesTitle to attack the target.
 	<</if>>
 <<else>>
 	 The $mercenariesTitle are able to carry out their plan.
-	<<set $raidseed = 1>>
+	<<set _raidseed = 1>>
 <</if>>
 
-<<if $raidseed == 1>>
+<<if _raidseed == 1>>
 	<<if $origin == "housewife">>
-	<<if random(1,3) == 1>>
+	<<if _raidescape == 1>>
 		Your mercenaries pry open the door to the manse's panic room to find that the woman has hung herself to escape capture. A waste.
-		<<set $raidseed = 0>>
+		<<set _raidseed = 0>>
 	<<else>>
 		Your mercenaries pry open the door to the manse's panic room and pull the protesting housewife from its depths.
 	<</if>>
 	<<elseif $origin == "university professor">>
-	<<if random(1,3) == 1>>
+	<<if _raidescape == 1>>
 		Your mercenaries are met with surprising resistance by the university's professors and are forced to bid a hasty retreat before security can arrive in greater numbers.
-		<<set $raidseed = 0>>
+		<<set _raidseed = 0>>
 	<<else>>
 		Your mercenaries corner the professors and their department head in one of the university's many conference rooms, hauling them off to the VTOLs when the academics promptly surrender.
 	<</if>>
 	<<elseif $origin == "university student">>
-	<<if random(1,3) == 1>>
+	<<if _raidescape == 1>>
 		Your mercenaries are met with surprising resistance by the university's students and are forced to bid a hasty retreat before security can arrive in greater numbers.
-		<<set $raidseed = 0>>
+		<<set _raidseed = 0>>
 	<<else>>
 		Your mercenaries corner the students in their rooms, hauling them off one by one to the VTOLs as they protest feebly.
 	<</if>>
 	<<elseif $origin == "female military officer">>
-	<<if random(1,3) == 1>>
+	<<if _raidescape == 1>>
 		As your mecenaries gain the upper hand on the officer's escort, she promptly puts her service weapon to her temple and pulls the trigger. A waste.
-		<<set $raidseed = 0>>
+		<<set _raidseed = 0>>
 	<<else>>
 		As your mecenaries gain the upper hand on the officer's escort, she promptly puts her service weapon to her temple but hesitates. Luckily one of your mercenaries is close by and able to pluck the pistol from her stiff fingers. The despondent officer is cuffed and taken back to the VTOL for transport.
 	<</if>>
 	<<elseif $origin == "male military officer">>
-	<<if random(1,3) == 1>>
+	<<if _raidescape == 1>>
 		As your mecenaries gain the upper hand on the officer's escort, he promptly puts his service weapon to his temple and pulls the trigger. A waste.
-		<<set $raidseed = 0>>
+		<<set _raidseed = 0>>
 	<<else>>
 		As your mecenaries gain the upper hand on the officer's escort, he promptly puts his service weapon to his temple but hesitates. Luckily one of your mercenaries is close by and able to pluck the pistol from his stiff fingers. The despondent officer is cuffed and taken back to the VTOL for transport.
 	<</if>>
 	<<elseif $origin == "military soldier">>
-		<<if random(1,3) == 1>>
+		<<if _raidescape == 1>>
 		The young soldiers are unfaltering in their conviction and fight to their last last. When the smoke clears, the barracks is chocked with corpses for none of the soldiers are left alive to capture.
-		<<set $raidseed = 0>>
+		<<set _raidseed = 0>>
 	<<else>>
 		The young soldiers fight valiantly, but when the battle turns against them they decide to surrender. Their sergeant is cuffed with the remaining survivors and taken back to the VTOL for transport.
 	<</if>>
 	<<elseif $origin == "doctor">>
-		<<if random(1,3) == 1>>
+		<<if _raidescape == 1>>
 		The hospital's security staff alone would prove little match for your mercenaries, but they are joined by an uneasy coalition of rival gangster and criminals who had been committed as patients. Though your mercenaries prevail, they discover to their chagrin that the doctors and their staff were slain during the wanton exchange of fire. 
-		<<set $raidseed = 0>>
+		<<set _raidseed = 0>>
 	<<else>>
 		The security staff of the hospital is easily overpowered and surrender rapidly, allowing your mercenaries to take the doctors and their staff into custody with little fuss.
 	<</if>>
 	<<elseif $origin == "nun">>
-		<<if random(1,3) == 1>>
+		<<if _raidescape == 1>>
 		The nuns flee into their inner sanctum as your mercenaries approach and bar the doors behind them as they go. When the last barrier is pried open, your mercenaries discover the nuns have committed suicide as a group rather than be taken prisoner.
-		<<set $raidseed = 0>>
+		<<set _raidseed = 0>>
 	<<else>>
 		Unarmed and defenseless, the nuns are easily cowed by your mercenaries and taken away one by one to the VTOLs. The most pious sister prays vehemently until she is dragged out of the inner sanctum in cuffs.
 	<</if>>
 	<<elseif $origin == "journalist">>
-		<<if random(1,3) == 1>>
+		<<if _raidescape == 1>>
 		Your mercenaries are met with fierce resistance by the staff of the newspaper firm, who take the raid as an opportunity to turn their abolitionist words into violent action. Eventually, your mercenaries retreat from the building before law enforcement can arrive.
-		<<set $raidseed = 0>>
+		<<set _raidseed = 0>>
 	<<else>>
 		Once the lone security guard is subdued, the journalists and editors of the firm quietly accept their restraints and file out of the building and into the waiting VTOL.
 	<</if>>
 	<<elseif $origin == "local news anchor">>
-		<<if random(1,3) == 1>>
+		<<if _raidescape == 1>>
 		Your mercenaries are able to subdue the news anchor and bid a hasty exit from the recording studio. Before they can board the waiting VTOL however, the anchor is struck in the head by a bullet fired by a man who was her longtime fan turned stalker. It seems if he cannot have her, neither can you. 
-		<<set $raidseed = 0>>
+		<<set _raidseed = 0>>
 	<<else>>
 		The news anchor is subdued without issue and quietly escorted out of the recording studio and into the waiting VTOL.
 	<</if>>
 	<<elseif $origin == "classical dancer">>
-		<<if random(1,3) == 1>>
+		<<if _raidescape == 1>>
 		As your mercenaries close in on the stage and reveal their concealed weapons, the darling star of the dance troupe loses her footing in shock and tumbles off the stage. The sharp crack as she hits the ground drives the crowd and remaining members of the troupe hysterical, while your mercenaries exit the theater as chaos surges around them.
-		<<set $raidseed = 0>>
+		<<set _raidseed = 0>>
 	<<else>>
 		Once your mercenaries close in on the stage and reveal their concealed weapons, the dance troupe promptly surrenders. With the shocked audience looking on, each member is cuffed and escorted out the door to the waiting VTOL.
 	<</if>>
 	<<elseif $origin == "law enforcement officer">>
-		<<if random(1,3) == 1>>
+		<<if _raidescape == 1>>
 		Despite being outnumbered and outgunned, the officers stand their ground to the last. The sterling officer of the law your mercenaries sought to capture is the last to fall, stifled by a hail of bullets.
-		<<set $raidseed = 0>>
+		<<set _raidseed = 0>>
 	<<else>>
 		Your mercenaries break through the door of the precinct with their guns drawn. The precinct is so understaffed that each officer has a number of weapons drawn on them from every angle, so its no surprise when the precinct's sterling policewoman formally surrenders the precinct and its officers to your mercenaries.
 	<</if>>
 	<<elseif $origin == "classical musician">>
-		<<if random(1,3) == 1>>
+		<<if _raidescape == 1>>
 		As your mercenaries close in on the stage and reveal their concealed weapons, the crown jewel of the orchestra loses her footing in shock and tumbles off the stage. The sharp crack as she hits the ground drives the crowd and remaining members of the orchestra hysterical, while your mercenaries exit the concert hall as chaos surges around them.
-		<<set $raidseed = 0>>
+		<<set _raidseed = 0>>
 	<<else>>
 		Once your mercenaries close in on the stage and reveal their concealed weapons, the orchestra promptly surrenders. With the shocked audience looking on, each member is cuffed and escorted out the door to the waiting VTOL.
 	<</if>>
 	<<elseif $origin == "politician">>
-		<<if random(1,3) == 1>>
+		<<if _raidescape == 1>>
 		With their security detail defeated and their crowd of supporters offering no protection, the politician tries to take up one of her fallen protector's pistols to defend herself. Unfortunately for her and for your mercenaries, the politician has a staggeringly poor understanding of firearms and manages to shoot themselves in the face when they discharge the weapon. With the politician dead, there is little your mercenaries can do but exit the venue.
-		<<set $raidseed = 0>>
+		<<set _raidseed = 0>>
 	<<else>>
 		With their security detail defeated and their crowd of supporters offering no protection, the politician promptly surrenders in the hopes that they won't be harmed and is escorted to the waiting VTOL.
 	<</if>>
 	<<elseif $origin == "shut-in">>
-		<<if random(1,3) == 1>>
+		<<if _raidescape == 1>>
 		When the $mercenariesTitle break down the door to the shut-in's shack, they are met with a terrible stench of dust and decay. Judging by the body hanging limply from the banisters, the shut-in took their own life some time ago.
-		<<set $raidseed = 0>>
+		<<set _raidseed = 0>>
 	<<else>>
 		When your mercenaries break down the door to to the shut-in's shack, they are met with a surprised and somewhat unkempt woman staring at them. Despite their lack of social interaction, they know better than to argue with a small army of armed mercenaries and quietly accepts being escorted back to the waiting VTOL.
 	<</if>>
 	<<elseif $origin == "procuress">>
-		<<if random(1,3) == 1>>
+		<<if _raidescape == 1>>
 		When your mercenaries enter the halfway house, the impoverished women within mistake them for an international rescue mission. Before your mercenaries can say otherwise, the women go berserk with the prospect of freedom and break into the procuress' office to tear her apart with their bare hands.
-		<<set $raidseed = 0>>
+		<<set _raidseed = 0>>
 	<<else>>
 		When your mercenaries enter the halfway house, the impoverished women within mistake them for an international rescue mission. Before your mercenaries can say otherwise, the women band together and drag the procuress out of her office and restrain her themselves. The $mercenariesTitle have to do little more than escort the grinning women to the waiting VTOLs, while they drag the protesting procuress with them.
 	<</if>>
 	<<elseif $origin == "investor">>
-		<<if random(1,3) == 1>>
+		<<if _raidescape == 1>>
 		When your mercenaries corner the investor in the exposition, she seemingly mistakes them for international police intent on taking her in for prior economic crimes. Before she can be subdued, the investor swallows a concealed pill and crumples to the ground dead.
-		<<set $raidseed = 0>>
+		<<set _raidseed = 0>>
 	<<else>>
 		When your mercenaries corner the investor in the exposition, she seemingly mistakes them for international police intent on taking her in for prior economic crimes. She begrudgingly surrenders and is subsequently escorted back to a waiting VTOL.
 	<</if>>
 	<<elseif $origin == "scientist">>
-		<<if random(1,3) == 1>>
+		<<if _raidescape == 1>>
 		The bulk of the scientists surrender shortly after your mercenaries make an explosive entrance into their lab. Before she can be cuffed, the chief scientist takes a swig from some mysterious beaker of liquid. From the triumphant look on her face as she keels over dead, your mercenaries suspect the liquid was intended to have a transformative effect rather than a suicidal one.
-		<<set $raidseed = 0>>
+		<<set _raidseed = 0>>
 	<<else>>
 		The bulk of the scientists surrender shortly after your mercenaries make an explosive entrance into their lab. Before she can be cuffed, the chief scientist takes a swig from some mysterious beaker of liquid. As the triumphant look on her face fades, it becomes clear that the liquid did not have the transformative effect that she desired.
 	<</if>>
 	<<elseif $origin == "lawyer">>
-		<<if random(1,3) == 1>>
+		<<if _raidescape == 1>>
 		Your mercenaries capture the law firm's staff without much difficulty, but when they open the door to the lawyer's office they find her frothing from the mouth and unresponsive. From the quantity of pill bottles evident on her desk, it seems she found the sole loophole to escape capture.
-		<<set $raidseed = 0>>
+		<<set _raidseed = 0>>
 	<<else>>
 		Your mercenaries capture the law firm's staff without much difficulty, but when they open the door to the lawyer's office they find her frothing from the mouth and unresponsive. Despite her attempts to drug herself into suicide, the effects are temporary and the lawyer  soon finds herself being hauled off to a waiting VTOL with her staff.
 	<</if>>
 	<</if>>
 <</if>>
 
-<<if $raidseed == 1>>
+<<if _raidseed == 1>>
 	<<if $origin == "housewife">>
 	The housewife watches in terror as your mercenaries slake their lust on her servants and maids, knowing that her respite from a brutal rape must only be a temporary blessing.
 	<<elseif $origin == "university professor">>
@@ -984,147 +985,147 @@ You make your selection and direct your $mercenariesTitle to attack the target.
 	<</if>>
 <<else>>
 	 The $mercenariesTitle are able to carry out their plan.
-	<<set $raidseed = 1>>
+	<<set _raidseed = 1>>
 <</if>>
 
-<<if $raidseed == 1>>
+<<if _raidseed == 1>>
 	<<if $origin == "housewife">>
-	<<if random(1,3) == 1>>
+	<<if _raidescape == 1>>
 		Your mercenaries pry open the door to the manse's panic room to find that the woman has hung herself to escape capture. A waste.
-		<<set $raidseed = 0>>
+		<<set _raidseed = 0>>
 	<<else>>
 		Your mercenaries pry open the door to the manse's panic room and pull the protesting housewife from its depths.
 	<</if>>
 	<<elseif $origin == "university professor">>
-	<<if random(1,3) == 1>>
+	<<if _raidescape == 1>>
 		Your mercenaries are met with surprising resistance by the university's professors and are forced to bid a hasty retreat before security can arrive in greater numbers.
-		<<set $raidseed = 0>>
+		<<set _raidseed = 0>>
 	<<else>>
 		Your mercenaries corner the professors and their department head in one of the university's many conference rooms, hauling them off to the VTOLs when the academics promptly surrender.
 	<</if>>
 	<<elseif $origin == "university student">>
-	<<if random(1,3) == 1>>
+	<<if _raidescape == 1>>
 		Your mercenaries are met with surprising resistance by the university's students and are forced to bid a hasty retreat before security can arrive in greater numbers.
-		<<set $raidseed = 0>>
+		<<set _raidseed = 0>>
 	<<else>>
 		Your mercenaries corner the students in their rooms, hauling them off one by one to the VTOLs as they protest feebly.
 	<</if>>
 	<<elseif $origin == "female military officer">>
-	<<if random(1,3) == 1>>
+	<<if _raidescape == 1>>
 		As your mecenaries gain the upper hand on the officer's escort, she promptly puts her service weapon to her temple and pulls the trigger. A waste.
-		<<set $raidseed = 0>>
+		<<set _raidseed = 0>>
 	<<else>>
 		As your mecenaries gain the upper hand on the officer's escort, she promptly puts her service weapon to her temple but hesitates. Luckily one of your mercenaries is close by and able to pluck the pistol from her stiff fingers. The despondent officer is cuffed and taken back to the VTOL for transport.
 	<</if>>
 	<<elseif $origin == "male military officer">>
-	<<if random(1,3) == 1>>
+	<<if _raidescape == 1>>
 		As your mecenaries gain the upper hand on the officer's escort, he promptly puts his service weapon to his temple and pulls the trigger. A waste.
-		<<set $raidseed = 0>>
+		<<set _raidseed = 0>>
 	<<else>>
 		As your mecenaries gain the upper hand on the officer's escort, he promptly puts his service weapon to his temple but hesitates. Luckily one of your mercenaries is close by and able to pluck the pistol from his stiff fingers. The despondent officer is cuffed and taken back to the VTOL for transport.
 	<</if>>
 	<<elseif $origin == "military soldier">>
-		<<if random(1,3) == 1>>
+		<<if _raidescape == 1>>
 		The young soldiers are unfaltering in their conviction and fight to their last last. When the smoke clears, the barracks is chocked with corpses for none of the soldiers are left alive to capture.
-		<<set $raidseed = 0>>
+		<<set _raidseed = 0>>
 	<<else>>
 		The young soldiers fight valiantly, but when the battle turns against them they decide to surrender. Their sergeant is cuffed with the remaining survivors and taken back to the VTOL for transport.
 	<</if>>
 	<<elseif $origin == "doctor">>
-		<<if random(1,3) == 1>>
+		<<if _raidescape == 1>>
 		The hospital's security staff alone would prove little match for your mercenaries, but they are joined by an uneasy coalition of rival gangster and criminals who had been committed as patients. Though your mercenaries prevail, they discover to their chagrin that the doctors and their staff were slain during the wanton exchange of fire. 
-		<<set $raidseed = 0>>
+		<<set _raidseed = 0>>
 	<<else>>
 		The security staff of the hospital is easily overpowered and surrender rapidly, allowing your mercenaries to take the doctors and their staff into custody with little fuss.
 	<</if>>
 	<<elseif $origin == "nun">>
-		<<if random(1,3) == 1>>
+		<<if _raidescape == 1>>
 		The nuns flee into their inner sanctum as your mercenaries approach and bar the doors behind them as they go. When the last barrier is pried open, your mercenaries discover the nuns have committed suicide as a group rather than be taken prisoner.
-		<<set $raidseed = 0>>
+		<<set _raidseed = 0>>
 	<<else>>
 		Unarmed and defenseless, the nuns are easily cowed by your mercenaries and taken away one by one to the VTOLs. The most pious sister prays vehemently until she is dragged out of the inner sanctum in cuffs.
 	<</if>>
 	<<elseif $origin == "journalist">>
-		<<if random(1,3) == 1>>
+		<<if _raidescape == 1>>
 		Your mercenaries are met with fierce resistance by the staff of the newspaper firm, who take the raid as an opportunity to turn their abolitionist words into violent action. Eventually, your mercenaries retreat from the building before law enforcement can arrive.
-		<<set $raidseed = 0>>
+		<<set _raidseed = 0>>
 	<<else>>
 		Once the lone security guard is subdued, the journalists and editors of the firm quietly accept their restraints and file out of the building and into the waiting VTOL.
 	<</if>>
 	<<elseif $origin == "local news anchor">>
-		<<if random(1,3) == 1>>
+		<<if _raidescape == 1>>
 		Your mercenaries are able to subdue the news anchor and bid a hasty exit from the recording studio. Before they can board the waiting VTOL however, the anchor is struck in the head by a bullet fired by a man who was her longtime fan turned stalker. It seems if he cannot have her, neither can you. 
-		<<set $raidseed = 0>>
+		<<set _raidseed = 0>>
 	<<else>>
 		The news anchor is subdued without issue and quietly escorted out of the recording studio and into the waiting VTOL.
 	<</if>>
 	<<elseif $origin == "classical dancer">>
-		<<if random(1,3) == 1>>
+		<<if _raidescape == 1>>
 		As your mercenaries close in on the stage and reveal their concealed weapons, the darling star of the dance troupe loses her footing in shock and tumbles off the stage. The sharp crack as she hits the ground drives the crowd and remaining members of the troupe hysterical, while your mercenaries exit the theater as chaos surges around them.
-		<<set $raidseed = 0>>
+		<<set _raidseed = 0>>
 	<<else>>
 		Once your mercenaries close in on the stage and reveal their concealed weapons, the dance troupe promptly surrenders. With the shocked audience looking on, each member is cuffed and escorted out the door to the waiting VTOL.
 	<</if>>
 	<<elseif $origin == "law enforcement officer">>
-		<<if random(1,3) == 1>>
+		<<if _raidescape == 1>>
 		Despite being outnumbered and outgunned, the officers stand their ground to the last. The sterling officer of the law your mercenaries sought to capture is the last to fall, stifled by a hail of bullets.
-		<<set $raidseed = 0>>
+		<<set _raidseed = 0>>
 	<<else>>
 		Your mercenaries break through the door of the precinct with their guns drawn. The precinct is so understaffed that each officer has a number of weapons drawn on them from every angle, so its no surprise when the precinct's sterling policewoman formally surrenders the precinct and its officers to your mercenaries.
 	<</if>>
 	<<elseif $origin == "classical musician">>
-		<<if random(1,3) == 1>>
+		<<if _raidescape == 1>>
 		As your mercenaries close in on the stage and reveal their concealed weapons, the crown jewel of the orchestra loses her footing in shock and tumbles off the stage. The sharp crack as she hits the ground drives the crowd and remaining members of the orchestra hysterical, while your mercenaries exit the concert hall as chaos surges around them.
-		<<set $raidseed = 0>>
+		<<set _raidseed = 0>>
 	<<else>>
 		Once your mercenaries close in on the stage and reveal their concealed weapons, the orchestra promptly surrenders. With the shocked audience looking on, each member is cuffed and escorted out the door to the waiting VTOL.
 	<</if>>
 	<<elseif $origin == "politician">>
-		<<if random(1,3) == 1>>
+		<<if _raidescape == 1>>
 		With their security detail defeated and their crowd of supporters offering no protection, the politician tries to take up one of her fallen protector's pistols to defend herself. Unfortunately for her and for your mercenaries, the politician has a staggeringly poor understanding of firearms and manages to shoot themselves in the face when they discharge the weapon. With the politician dead, there is little your mercenaries can do but exit the venue.
-		<<set $raidseed = 0>>
+		<<set _raidseed = 0>>
 	<<else>>
 		With their security detail defeated and their crowd of supporters offering no protection, the politician promptly surrenders in the hopes that they won't be harmed and is escorted to the waiting VTOL.
 	<</if>>
 	<<elseif $origin == "shut-in">>
-		<<if random(1,3) == 1>>
+		<<if _raidescape == 1>>
 		When the $mercenariesTitle break down the door to the shut-in's shack, they are met with a terrible stench of dust and decay. Judging by the body hanging limply from the banisters, the shut-in took their own life some time ago.
-		<<set $raidseed = 0>>
+		<<set _raidseed = 0>>
 	<<else>>
 		When your mercenaries break down the door to to the shut-in's shack, they are met with a surprised and somewhat unkempt woman staring at them. Despite their lack of social interaction, they know better than to argue with a small army of armed mercenaries and quietly accepts being escorted back to the waiting VTOL.
 	<</if>>
 	<<elseif $origin == "procuress">>
-		<<if random(1,3) == 1>>
+		<<if _raidescape == 1>>
 		When your mercenaries enter the halfway house, the impoverished women within mistake them for an international rescue mission. Before your mercenaries can say otherwise, the women go berserk with the prospect of freedom and break into the procuress' office to tear her apart with their bare hands.
-		<<set $raidseed = 0>>
+		<<set _raidseed = 0>>
 	<<else>>
 		When your mercenaries enter the halfway house, the impoverished women within mistake them for an international rescue mission. Before your mercenaries can say otherwise, the women band together and drag the procuress out of her office and restrain her themselves. The $mercenariesTitle have to do little more than escort the grinning women to the waiting VTOLs, while they drag the protesting procuress with them.
 	<</if>>
 	<<elseif $origin == "investor">>
-		<<if random(1,3) == 1>>
+		<<if _raidescape == 1>>
 		When your mercenaries corner the investor in the exposition, she seemingly mistakes them for international police intent on taking her in for prior economic crimes. Before she can be subdued, the investor swallows a concealed pill and crumples to the ground dead.
-		<<set $raidseed = 0>>
+		<<set _raidseed = 0>>
 	<<else>>
 		When your mercenaries corner the investor in the exposition, she seemingly mistakes them for international police intent on taking her in for prior economic crimes. She begrudgingly surrenders and is subsequently escorted back to a waiting VTOL.
 	<</if>>
 	<<elseif $origin == "scientist">>
-		<<if random(1,3) == 1>>
+		<<if _raidescape == 1>>
 		The bulk of the scientists surrender shortly after your mercenaries make an explosive entrance into their lab. Before she can be cuffed, the chief scientist takes a swig from some mysterious beaker of liquid. From the triumphant look on her face as she keels over dead, your mercenaries suspect the liquid was intended to have a transformative effect rather than a suicidal one.
-		<<set $raidseed = 0>>
+		<<set _raidseed = 0>>
 	<<else>>
 		The bulk of the scientists surrender shortly after your mercenaries make an explosive entrance into their lab. Before she can be cuffed, the chief scientist takes a swig from some mysterious beaker of liquid. As the triumphant look on her face fades, it becomes clear that the liquid did not have the transformative effect that she desired.
 	<</if>>
 	<<elseif $origin == "lawyer">>
-		<<if random(1,3) == 1>>
+		<<if _raidescape == 1>>
 		Your mercenaries capture the law firm's staff without much difficulty, but when they open the door to the lawyer's office they find her frothing from the mouth and unresponsive. From the quantity of pill bottles evident on her desk, it seems she found the sole loophole to escape capture.
-		<<set $raidseed = 0>>
+		<<set _raidseed = 0>>
 	<<else>>
 		Your mercenaries capture the law firm's staff without much difficulty, but when they open the door to the lawyer's office they find her frothing from the mouth and unresponsive. Despite her attempts to drug herself into suicide, the effects are temporary and the lawyer  soon finds herself being hauled off to a waiting VTOL with her staff.
 	<</if>>
 	<</if>>
 <</if>>
 
-<<if $raidseed == 1>>
+<<if _raidseed == 1>>
 	<<if $origin == "housewife">>
 	The housewife watches in terror as your mercenaries slake their lust on her servants and maids, knowing that her respite from a brutal rape must only be a temporary blessing.
 	<<elseif $origin == "university professor">>
