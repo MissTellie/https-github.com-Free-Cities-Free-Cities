@@ -140,7 +140,7 @@
 			<</if>>
 		<</if>>
 		<<if $slaves[$i].prestigeDesc == "She is remembered for winning best in show as a cockmilker.">>
-			<<if ($slaves[$i].balls > 5) && ($slaves[$i].dick != 0) && ($slaves[$i].prostate > 1)>>
+			<<if (($slaves[$i].balls > 5) && ($slaves[$i].dick != 0)) || (($slaves[$i].balls > 4) && ($slaves[$i].dick != 0) && ($slaves[$i].prostate > 1))>>
 				She spends extra time with $slaves[$i].slaveName, the massive ejaculating cow.  She can't help but massage the cow's dick and testes to stimulate them further and coax more from them.
 				<<set $slaves[$i].devotion += 3, $slaves[$i].trust += 3>>
 			<<else>>
