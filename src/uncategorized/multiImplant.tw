@@ -21,7 +21,7 @@ You head down to your <<if $surgeryUpgrade == 1>>heavily upgraded and customized
 					<br><hr>
 					<<include "Surgery Degradation">>
 					
-					<<set $dump = $organs.pluck([_o], [_o])>>
+					<<set $organs.deleteAt(_o)>>
 				<</if>>
 			<<case "testicles">>
 				<<if ($activeSlave.dick >= 0) && ($activeSlave.balls == 0)>>
@@ -34,7 +34,7 @@ You head down to your <<if $surgeryUpgrade == 1>>heavily upgraded and customized
 					<br><hr>
 					<<include "Surgery Degradation">>
 					
-					<<set $dump = $organs.pluck([_o], [_o])>>
+					<<set $organs.deleteAt(_o)>>
 				<</if>>
 			<<case "scrotum">>
 				<<if ($activeSlave.scrotum == 0) && ($activeSlave.balls >= 0)>>
@@ -45,7 +45,7 @@ You head down to your <<if $surgeryUpgrade == 1>>heavily upgraded and customized
 					<br><hr>
 					<<include "Surgery Degradation">>
 					
-					<<set $dump = $organs.pluck([_o], [_o])>>
+					<<set $organs.deleteAt(_o)>>
 				<</if>>
 			<<case "foreskin">>
 				<<if ($activeSlave.foreskin == 0) && ($activeSlave.penis >= 0)>>
@@ -56,7 +56,7 @@ You head down to your <<if $surgeryUpgrade == 1>>heavily upgraded and customized
 					<br><hr>
 					<<include "Surgery Degradation">>
 					
-					<<set $dump = $organs.pluck([_o], [_o])>>
+					<<set $organs.deleteAt(_o)>>
 				<</if>>
 			<<case "ovaries">>
 				<<if ($activeSlave.ovaries == 0) && ($activeSlave.vagina >= 0)>>
@@ -68,7 +68,7 @@ You head down to your <<if $surgeryUpgrade == 1>>heavily upgraded and customized
 					<br><hr>
 					<<include "Surgery Degradation">>
 
-					<<set $dump = $organs.pluck([_o], [_o])>>
+					<<set $organs.deleteAt(_o)>>
 				<</if>>
 			<<case "prostate">>
 				<<if ($activeSlave.prostate == 0)>>
@@ -79,7 +79,7 @@ You head down to your <<if $surgeryUpgrade == 1>>heavily upgraded and customized
 					<br><hr>
 					<<include "Surgery Degradation">>
 					
-					<<set $dump = $organs.pluck([_o], [_o])>>
+					<<set $organs.deleteAt(_o)>>
 				<</if>>
 			<<case "eyes">>
 				<<if ($activeSlave.eyes == -2) && ($activeSlave.origEye != "implant")>>
@@ -92,7 +92,7 @@ You head down to your <<if $surgeryUpgrade == 1>>heavily upgraded and customized
 					<br><hr>
 					<<include "Surgery Degradation">>
 					
-					<<set $dump = $organs.pluck([_o], [_o])>>
+					<<set $organs.deleteAt(_o)>>
 				<</if>>
 			<<case "voicebox">>
 				<<if ($activeSlave.voice == 0)>>
@@ -110,7 +110,7 @@ You head down to your <<if $surgeryUpgrade == 1>>heavily upgraded and customized
 					<br><hr>
 					<<include "Surgery Degradation">>
 				
-					<<set $dump = $organs.pluck([_o], [_o])>>
+					<<set $organs.deleteAt(_o)>>
 				<</if>>
 			<<default>>
 				Error: OrganType: $organs[_o].type not known.
@@ -147,7 +147,7 @@ You head down to your <<if $surgeryUpgrade == 1>>heavily upgraded and customized
 			<<set $activeSlave.health -= 10>>
 			<br><hr>
 			<<include "Surgery Degradation">>
-			<<set $dump = $limbs.pluck([_l], [_l])>>
+			<<set $limbs.deleteAt(_l)>>
 
 			<<set $slaves[_i] = $activeSlave>>
 			<<break>>

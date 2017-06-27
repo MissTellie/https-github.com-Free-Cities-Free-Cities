@@ -190,207 +190,207 @@
 
 <<switch $activeSlave.nationality>>
 <<case "American">>
-	<<if $activeSlave.race is "black">>
-		<<set $activeSlave.birthName = $africanAmericanSlaveNames.random(), $activeSlave.birthSurname = $africanAmericanSlaveSurnames.random()>>
-	<<elseif $activeSlave.race is "latina">>
-		<<set $activeSlave.birthName = $latinaSlaveNames.random(), $activeSlave.birthSurname = $latinaSlaveSurnames.random()>>
-	<<elseif $activeSlave.race is "asian">>
-		<<set $activeSlave.birthName = $asianAmericanSlaveNames.random(), $activeSlave.birthSurname = $asianAmericanSlaveSurnames.random()>>
-	<<elseif $activeSlave.race is "middle eastern">>
-		<<set $activeSlave.birthName = $egyptianSlaveNames.random(), $activeSlave.birthSurname = $egyptianSlaveSurnames.random()>>
+	<<if $activeSlave.race == "black">>
+		<<set $activeSlave.birthName = setup.africanAmericanSlaveNames.random(), $activeSlave.birthSurname = setup.africanAmericanSlaveSurnames.random()>>
+	<<elseif $activeSlave.race == "latina">>
+		<<set $activeSlave.birthName = setup.latinaSlaveNames.random(), $activeSlave.birthSurname = setup.latinaSlaveSurnames.random()>>
+	<<elseif $activeSlave.race == "asian">>
+		<<set $activeSlave.birthName = setup.asianAmericanSlaveNames.random(), $activeSlave.birthSurname = setup.asianAmericanSlaveSurnames.random()>>
+	<<elseif $activeSlave.race == "middle eastern">>
+		<<set $activeSlave.birthName = setup.egyptianSlaveNames.random(), $activeSlave.birthSurname = setup.egyptianSlaveSurnames.random()>>
 	<<else>>
-		<<set $activeSlave.birthName = $whiteAmericanSlaveNames.random(), $activeSlave.birthSurname = $whiteAmericanSlaveSurnames.random()>>
+		<<set $activeSlave.birthName = setup.whiteAmericanSlaveNames.random(), $activeSlave.birthSurname = setup.whiteAmericanSlaveSurnames.random()>>
 	<</if>>
 <<case "Canadian">>
-	<<set $activeSlave.birthName = $canadianSlaveNames.random(), $activeSlave.birthSurname = $canadianSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.canadianSlaveNames.random(), $activeSlave.birthSurname = setup.canadianSlaveSurnames.random()>>
 <<case "Mexican">>
-	<<set $activeSlave.birthName = $mexicanSlaveNames.random(), $activeSlave.birthSurname = $mexicanSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.mexicanSlaveNames.random(), $activeSlave.birthSurname = setup.mexicanSlaveSurnames.random()>>
 <<case "Puerto Rican">>
-	<<set $activeSlave.birthName = $puertoRicanSlaveNames.random(), $activeSlave.birthSurname = $puertoRicanSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.puertoRicanSlaveNames.random(), $activeSlave.birthSurname = setup.puertoRicanSlaveSurnames.random()>>
 <<case "Haitian">>
-	<<set $activeSlave.birthName = $haitianSlaveNames.random(), $activeSlave.birthSurname = $haitianSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.haitianSlaveNames.random(), $activeSlave.birthSurname = setup.haitianSlaveSurnames.random()>>
 <<case "Jamaican">>
-	<<set $activeSlave.birthName = $jamaicanSlaveNames.random(), $activeSlave.birthSurname = $jamaicanSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.jamaicanSlaveNames.random(), $activeSlave.birthSurname = setup.jamaicanSlaveSurnames.random()>>
 <<case "Cuban">>
-	<<set $activeSlave.birthName = $cubanSlaveNames.random(), $activeSlave.birthSurname = $cubanSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.cubanSlaveNames.random(), $activeSlave.birthSurname = setup.cubanSlaveSurnames.random()>>
 <<case "Guatemalan">>
-	<<set $activeSlave.birthName = $guatemalanSlaveNames.random(), $activeSlave.birthSurname = $guatemalanSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.guatemalanSlaveNames.random(), $activeSlave.birthSurname = setup.guatemalanSlaveSurnames.random()>>
 <<case "Chilean">>
-	<<set $activeSlave.birthName = $chileanSlaveNames.random(), $activeSlave.birthSurname = $chileanSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.chileanSlaveNames.random(), $activeSlave.birthSurname = setup.chileanSlaveSurnames.random()>>
 <<case "Peruvian">>
-	<<set $activeSlave.birthName = $peruvianSlaveNames.random(), $activeSlave.birthSurname = $peruvianSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.peruvianSlaveNames.random(), $activeSlave.birthSurname = setup.peruvianSlaveSurnames.random()>>
 <<case "Bolivian">>
-	<<set $activeSlave.birthName = $bolivianSlaveNames.random(), $activeSlave.birthSurname = $bolivianSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.bolivianSlaveNames.random(), $activeSlave.birthSurname = setup.bolivianSlaveSurnames.random()>>
 <<case "Venezuelan">>
-	<<set $activeSlave.birthName = $venezuelanSlaveNames.random(), $activeSlave.birthSurname = $venezuelanSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.venezuelanSlaveNames.random(), $activeSlave.birthSurname = setup.venezuelanSlaveSurnames.random()>>
 <<case "Russian">>
-	<<set $activeSlave.birthName = $russianSlaveNames.random(), $activeSlave.birthSurname = $russianSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.russianSlaveNames.random(), $activeSlave.birthSurname = setup.russianSlaveSurnames.random()>>
 <<case "Ukrainian">>
-	<<set $activeSlave.birthName = $ukrainianSlaveNames.random(), $activeSlave.birthSurname = $ukrainianSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.ukrainianSlaveNames.random(), $activeSlave.birthSurname = setup.ukrainianSlaveSurnames.random()>>
 <<case "Italian">>
-	<<set $activeSlave.birthName = $italianSlaveNames.random(), $activeSlave.birthSurname = $italianSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.italianSlaveNames.random(), $activeSlave.birthSurname = setup.italianSlaveSurnames.random()>>
 <<case "Spanish">>
-	<<set $activeSlave.birthName = $spanishSlaveNames.random(), $activeSlave.birthSurname = $spanishSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.spanishSlaveNames.random(), $activeSlave.birthSurname = setup.spanishSlaveSurnames.random()>>
 <<case "British">>
-	<<set $activeSlave.birthName = $britishSlaveNames.random(), $activeSlave.birthSurname = $britishSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.britishSlaveNames.random(), $activeSlave.birthSurname = setup.britishSlaveSurnames.random()>>
 <<case "French">>
-	<<set $activeSlave.birthName = $frenchSlaveNames.random(), $activeSlave.birthSurname = $frenchSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.frenchSlaveNames.random(), $activeSlave.birthSurname = setup.frenchSlaveSurnames.random()>>
 <<case "German">>
-	<<set $activeSlave.birthName = $germanSlaveNames.random(), $activeSlave.birthSurname = $germanSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.germanSlaveNames.random(), $activeSlave.birthSurname = setup.germanSlaveSurnames.random()>>
 <<case "Lithuanian">>
-	<<set $activeSlave.birthName = $lithuanianSlaveNames.random(), $activeSlave.birthSurname = $lithuanianSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.lithuanianSlaveNames.random(), $activeSlave.birthSurname = setup.lithuanianSlaveSurnames.random()>>
 <<case "Norwegian">>
-	<<set $activeSlave.birthName = $norwegianSlaveNames.random(), $activeSlave.birthSurname = $norwegianSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.norwegianSlaveNames.random(), $activeSlave.birthSurname = setup.norwegianSlaveSurnames.random()>>
 <<case "Slovak">>
-	<<set $activeSlave.birthName = $slovakSlaveNames.random(), $activeSlave.birthSurname = $slovakSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.slovakSlaveNames.random(), $activeSlave.birthSurname = setup.slovakSlaveSurnames.random()>>
 <<case "Danish">>
-	<<set $activeSlave.birthName = $danishSlaveNames.random(), $activeSlave.birthSurname = $danishSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.danishSlaveNames.random(), $activeSlave.birthSurname = setup.danishSlaveSurnames.random()>>
 <<case "Dutch">>
-	<<set $activeSlave.birthName = $dutchSlaveNames.random(), $activeSlave.birthSurname = $dutchSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.dutchSlaveNames.random(), $activeSlave.birthSurname = setup.dutchSlaveSurnames.random()>>
 <<case "Austrian">>
-	<<set $activeSlave.birthName = $austrianSlaveNames.random(), $activeSlave.birthSurname = $austrianSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.austrianSlaveNames.random(), $activeSlave.birthSurname = setup.austrianSlaveSurnames.random()>>
 <<case "Swiss">>
-	<<set $activeSlave.birthName = $swissSlaveNames.random(), $activeSlave.birthSurname = $swissSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.swissSlaveNames.random(), $activeSlave.birthSurname = setup.swissSlaveSurnames.random()>>
 <<case "Serbian">>
-	<<set $activeSlave.birthName = $serbianSlaveNames.random(), $activeSlave.birthSurname = $serbianSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.serbianSlaveNames.random(), $activeSlave.birthSurname = setup.serbianSlaveSurnames.random()>>
 <<case "Belgian">>
-	<<set $activeSlave.birthName = $belgianSlaveNames.random(), $activeSlave.birthSurname = $belgianSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.belgianSlaveNames.random(), $activeSlave.birthSurname = setup.belgianSlaveSurnames.random()>>
 <<case "Czech">>
-	<<set $activeSlave.birthName = $czechSlaveNames.random(), $activeSlave.birthSurname = $czechSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.czechSlaveNames.random(), $activeSlave.birthSurname = setup.czechSlaveSurnames.random()>>
 <<case "Portuguese">>
-	<<set $activeSlave.birthName = $portugueseSlaveNames.random(), $activeSlave.birthSurname = $portugueseSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.portugueseSlaveNames.random(), $activeSlave.birthSurname = setup.portugueseSlaveSurnames.random()>>
 <<case "Swedish">>
-	<<set $activeSlave.birthName = $swedishSlaveNames.random(), $activeSlave.birthSurname = $swedishSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.swedishSlaveNames.random(), $activeSlave.birthSurname = setup.swedishSlaveSurnames.random()>>
 <<case "Romanian">>
-	<<set $activeSlave.birthName = $romanianSlaveNames.random(), $activeSlave.birthSurname = $romanianSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.romanianSlaveNames.random(), $activeSlave.birthSurname = setup.romanianSlaveSurnames.random()>>
 <<case "Hungarian">>
-	<<set $activeSlave.birthName = $hungarianSlaveNames.random(), $activeSlave.birthSurname = $hungarianSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.hungarianSlaveNames.random(), $activeSlave.birthSurname = setup.hungarianSlaveSurnames.random()>>
 <<case "Estonian">>
-	<<set $activeSlave.birthName = $estonianSlaveNames.random(), $activeSlave.birthSurname = $estonianSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.estonianSlaveNames.random(), $activeSlave.birthSurname = setup.estonianSlaveSurnames.random()>>
 <<case "Irish">>
-	<<set $activeSlave.birthName = $irishSlaveNames.random(), $activeSlave.birthSurname = $irishSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.irishSlaveNames.random(), $activeSlave.birthSurname = setup.irishSlaveSurnames.random()>>
 <<case "Icelandic">>
-	<<set $activeSlave.birthName = $icelandicSlaveNames.random(), $activeSlave.birthSurname = $icelandicSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.icelandicSlaveNames.random(), $activeSlave.birthSurname = setup.icelandicSlaveSurnames.random()>>
 <<case "Finnish">>
-	<<set $activeSlave.birthName = $finnishSlaveNames.random(), $activeSlave.birthSurname = $finnishSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.finnishSlaveNames.random(), $activeSlave.birthSurname = setup.finnishSlaveSurnames.random()>>
 <<case "Greek">>
-	<<set $activeSlave.birthName = $greekSlaveNames.random(), $activeSlave.birthSurname = $greekSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.greekSlaveNames.random(), $activeSlave.birthSurname = setup.greekSlaveSurnames.random()>>
 <<case "Polish">>
-	<<set $activeSlave.birthName = $polishSlaveNames.random(), $activeSlave.birthSurname = $polishSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.polishSlaveNames.random(), $activeSlave.birthSurname = setup.polishSlaveSurnames.random()>>
 <<case "Brazilian">>
-	<<set $activeSlave.birthName = $brazilianSlaveNames.random(), $activeSlave.birthSurname = $brazilianSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.brazilianSlaveNames.random(), $activeSlave.birthSurname = setup.brazilianSlaveSurnames.random()>>
 <<case "Egyptian">>
-	<<set $activeSlave.birthName = $egyptianSlaveNames.random(), $activeSlave.birthSurname = $egyptianSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.egyptianSlaveNames.random(), $activeSlave.birthSurname = setup.egyptianSlaveSurnames.random()>>
 <<case "Colombian">>
-	<<set $activeSlave.birthName = $colombianSlaveNames.random(), $activeSlave.birthSurname = $colombianSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.colombianSlaveNames.random(), $activeSlave.birthSurname = setup.colombianSlaveSurnames.random()>>
 <<case "Argentinian">>
-	<<set $activeSlave.birthName = $argentinianSlaveNames.random(), $activeSlave.birthSurname = $argentinianSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.argentinianSlaveNames.random(), $activeSlave.birthSurname = setup.argentinianSlaveSurnames.random()>>
 <<case "Turkish">>
-	<<set $activeSlave.birthName = $turkishSlaveNames.random(), $activeSlave.birthSurname = $turkishSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.turkishSlaveNames.random(), $activeSlave.birthSurname = setup.turkishSlaveSurnames.random()>>
 <<case "Iranian">>
-	<<set $activeSlave.birthName = $iranianSlaveNames.random(), $activeSlave.birthSurname = $iranianSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.iranianSlaveNames.random(), $activeSlave.birthSurname = setup.iranianSlaveSurnames.random()>>
 <<case "Armenian">>
-	<<set $activeSlave.birthName = $armenianSlaveNames.random(), $activeSlave.birthSurname = $armenianSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.armenianSlaveNames.random(), $activeSlave.birthSurname = setup.armenianSlaveSurnames.random()>>
 <<case "Israeli">>
-	<<set $activeSlave.birthName = $israeliSlaveNames.random(), $activeSlave.birthSurname = $israeliSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.israeliSlaveNames.random(), $activeSlave.birthSurname = setup.israeliSlaveSurnames.random()>>
 <<case "Saudi">>
-	<<set $activeSlave.birthName = $saudiSlaveNames.random(), $activeSlave.birthSurname = $saudiSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.saudiSlaveNames.random(), $activeSlave.birthSurname = setup.saudiSlaveSurnames.random()>>
 <<case "South African">>
-	<<if $activeSlave.race is "black">>
-		<<set $activeSlave.birthName = $blackSouthAfricanSlaveNames.random(), $activeSlave.birthSurname = $blackSouthAfricanSlaveSurnames.random()>>
+	<<if $activeSlave.race == "black">>
+		<<set $activeSlave.birthName = setup.blackSouthAfricanSlaveNames.random(), $activeSlave.birthSurname = setup.blackSouthAfricanSlaveSurnames.random()>>
 	<<else>>
-		<<set $activeSlave.birthName = $whiteSouthAfricanSlaveNames.random(), $activeSlave.birthSurname = $whiteSouthAfricanSlaveSurnames.random()>>
+		<<set $activeSlave.birthName = setup.whiteSouthAfricanSlaveNames.random(), $activeSlave.birthSurname = setup.whiteSouthAfricanSlaveSurnames.random()>>
 	<</if>>
 <<case "Nigerian">>
-	<<set $activeSlave.birthName = $nigerianSlaveNames.random(), $activeSlave.birthSurname = $nigerianSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.nigerianSlaveNames.random(), $activeSlave.birthSurname = setup.nigerianSlaveSurnames.random()>>
 <<case "Congolese">>
-	<<set $activeSlave.birthName = $congoleseSlaveNames.random(), $activeSlave.birthSurname = $congoleseSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.congoleseSlaveNames.random(), $activeSlave.birthSurname = setup.congoleseSlaveSurnames.random()>>
 <<case "Kenyan">>
-	<<set $activeSlave.birthName = $kenyanSlaveNames.random(), $activeSlave.birthSurname = $kenyanSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.kenyanSlaveNames.random(), $activeSlave.birthSurname = setup.kenyanSlaveSurnames.random()>>
 <<case "Tanzanian">>
-	<<set $activeSlave.birthName = $tanzanianSlaveNames.random(), $activeSlave.birthSurname = $tanzanianSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.tanzanianSlaveNames.random(), $activeSlave.birthSurname = setup.tanzanianSlaveSurnames.random()>>
 <<case "Zimbabwean">>
-	<<set $activeSlave.birthName = $zimbabweanSlaveNames.random(), $activeSlave.birthSurname = $zimbabweanSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.zimbabweanSlaveNames.random(), $activeSlave.birthSurname = setup.zimbabweanSlaveSurnames.random()>>
 <<case "Ghanan">>
-	<<set $activeSlave.birthName = $ghananSlaveNames.random(), $activeSlave.birthSurname = $ghananSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.ghananSlaveNames.random(), $activeSlave.birthSurname = setup.ghananSlaveSurnames.random()>>
 <<case "Ugandan">>
-	<<set $activeSlave.birthName = $ugandanSlaveNames.random(), $activeSlave.birthSurname = $ugandanSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.ugandanSlaveNames.random(), $activeSlave.birthSurname = setup.ugandanSlaveSurnames.random()>>
 <<case "Ethiopian">>
-	<<set $activeSlave.birthName = $ethiopianSlaveNames.random(), $activeSlave.birthSurname = $ethiopianSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.ethiopianSlaveNames.random(), $activeSlave.birthSurname = setup.ethiopianSlaveSurnames.random()>>
 <<case "Moroccan">>
-	<<set $activeSlave.birthName = $moroccanSlaveNames.random(), $activeSlave.birthSurname = $moroccanSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.moroccanSlaveNames.random(), $activeSlave.birthSurname = setup.moroccanSlaveSurnames.random()>>
 <<case "Chinese">>
-	<<set $activeSlave.birthName = $chineseSlaveNames.random(), $activeSlave.birthSurname = $chineseSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.chineseSlaveNames.random(), $activeSlave.birthSurname = setup.chineseSlaveSurnames.random()>>
 <<case "Korean">>
-	<<set $activeSlave.birthName = $koreanSlaveNames.random(), $activeSlave.birthSurname = $koreanSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.koreanSlaveNames.random(), $activeSlave.birthSurname = setup.koreanSlaveSurnames.random()>>
 <<case "Thai">>
-	<<set $activeSlave.birthName = $thaiSlaveNames.random(), $activeSlave.birthSurname = $thaiSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.thaiSlaveNames.random(), $activeSlave.birthSurname = setup.thaiSlaveSurnames.random()>>
 <<case "Vietnamese">>
-	<<set $activeSlave.birthName = $vietnameseSlaveNames.random(), $activeSlave.birthSurname = $vietnameseSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.vietnameseSlaveNames.random(), $activeSlave.birthSurname = setup.vietnameseSlaveSurnames.random()>>
 <<case "Japanese">>
-	<<set $activeSlave.birthName = $japaneseSlaveNames.random(), $activeSlave.birthSurname = $japaneseSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.japaneseSlaveNames.random(), $activeSlave.birthSurname = setup.japaneseSlaveSurnames.random()>>
 <<case "Indonesian">>
-	<<set $activeSlave.birthName = $indonesianSlaveNames.random(), $activeSlave.birthSurname = $indonesianSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.indonesianSlaveNames.random(), $activeSlave.birthSurname = setup.indonesianSlaveSurnames.random()>>
 <<case "Filipina">>
-	<<set $activeSlave.birthName = $filipinaSlaveNames.random(), $activeSlave.birthSurname = $filipinaSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.filipinaSlaveNames.random(), $activeSlave.birthSurname = setup.filipinaSlaveSurnames.random()>>
 <<case "Bangladeshi">>
-	<<set $activeSlave.birthName = $bangladeshiSlaveNames.random(), $activeSlave.birthSurname = $bangladeshiSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.bangladeshiSlaveNames.random(), $activeSlave.birthSurname = setup.bangladeshiSlaveSurnames.random()>>
 <<case "Malaysian">>
-	<<set $activeSlave.birthName = $malaysianSlaveNames.random(), $activeSlave.birthSurname = $malaysianSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.malaysianSlaveNames.random(), $activeSlave.birthSurname = setup.malaysianSlaveSurnames.random()>>
 <<case "Uzbek">>
-	<<set $activeSlave.birthName = $uzbekSlaveNames.random(), $activeSlave.birthSurname = $uzbekSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.uzbekSlaveNames.random(), $activeSlave.birthSurname = setup.uzbekSlaveSurnames.random()>>
 <<case "Afghan">>
-	<<set $activeSlave.birthName = $afghanSlaveNames.random(), $activeSlave.birthSurname = $afghanSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.afghanSlaveNames.random(), $activeSlave.birthSurname = setup.afghanSlaveSurnames.random()>>
 <<case "Nepalese">>
-	<<set $activeSlave.birthName = $nepaleseSlaveNames.random(), $activeSlave.birthSurname = $nepaleseSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.nepaleseSlaveNames.random(), $activeSlave.birthSurname = setup.nepaleseSlaveSurnames.random()>>
 <<case "Burmese">>
-	<<set $activeSlave.birthName = $burmeseSlaveNames.random(), $activeSlave.birthSurname = $burmeseSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.burmeseSlaveNames.random(), $activeSlave.birthSurname = setup.burmeseSlaveSurnames.random()>>
 <<case "Iraqi">>
-	<<set $activeSlave.birthName = $iraqiSlaveNames.random(), $activeSlave.birthSurname = $iraqiSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.iraqiSlaveNames.random(), $activeSlave.birthSurname = setup.iraqiSlaveSurnames.random()>>
 <<case "Yemeni">>
-	<<set $activeSlave.birthName = $yemeniSlaveNames.random(), $activeSlave.birthSurname = $yemeniSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.yemeniSlaveNames.random(), $activeSlave.birthSurname = setup.yemeniSlaveSurnames.random()>>
 <<case "Sudanese">>
-	<<set $activeSlave.birthName = $sudaneseSlaveNames.random(), $activeSlave.birthSurname = $sudaneseSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.sudaneseSlaveNames.random(), $activeSlave.birthSurname = setup.sudaneseSlaveSurnames.random()>>
 <<case "Algerian">>
-	<<set $activeSlave.birthName = $algerianSlaveNames.random(), $activeSlave.birthSurname = $algerianSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.algerianSlaveNames.random(), $activeSlave.birthSurname = setup.algerianSlaveSurnames.random()>>
 <<case "Tunisian">>
-	<<set $activeSlave.birthName = $tunisianSlaveNames.random(), $activeSlave.birthSurname = $tunisianSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.tunisianSlaveNames.random(), $activeSlave.birthSurname = setup.tunisianSlaveSurnames.random()>>
 <<case "Libyan">>
-	<<set $activeSlave.birthName = $libyanSlaveNames.random(), $activeSlave.birthSurname = $libyanSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.libyanSlaveNames.random(), $activeSlave.birthSurname = setup.libyanSlaveSurnames.random()>>
 <<case "Omani">>
-	<<set $activeSlave.birthName = $omaniSlaveNames.random(), $activeSlave.birthSurname = $omaniSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.omaniSlaveNames.random(), $activeSlave.birthSurname = setup.omaniSlaveSurnames.random()>>
 <<case "Malian">>
-	<<set $activeSlave.birthName = $malianSlaveNames.random(), $activeSlave.birthSurname = $malianSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.malianSlaveNames.random(), $activeSlave.birthSurname = setup.malianSlaveSurnames.random()>>
 <<case "Jordanian">>
-	<<set $activeSlave.birthName = $jordanianSlaveNames.random(), $activeSlave.birthSurname = $jordanianSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.jordanianSlaveNames.random(), $activeSlave.birthSurname = setup.jordanianSlaveSurnames.random()>>
 <<case "Lebanese">>
-	<<set $activeSlave.birthName = $lebaneseSlaveNames.random(), $activeSlave.birthSurname = $lebaneseSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.lebaneseSlaveNames.random(), $activeSlave.birthSurname = setup.lebaneseSlaveSurnames.random()>>
 <<case "Emirati">>
-	<<set $activeSlave.birthName = $emiratiSlaveNames.random(), $activeSlave.birthSurname = $emiratiSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.emiratiSlaveNames.random(), $activeSlave.birthSurname = setup.emiratiSlaveSurnames.random()>>
 <<case "Kazakh">>
-	<<set $activeSlave.birthName = $kazakhSlaveNames.random(), $activeSlave.birthSurname = $kazakhSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.kazakhSlaveNames.random(), $activeSlave.birthSurname = setup.kazakhSlaveSurnames.random()>>
 <<case "Pakistani">>
-	<<set $activeSlave.birthName = $pakistaniSlaveNames.random(), $activeSlave.birthSurname = $pakistaniSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.pakistaniSlaveNames.random(), $activeSlave.birthSurname = setup.pakistaniSlaveSurnames.random()>>
 <<case "Indian">>
-	<<set $activeSlave.birthName = $indianSlaveNames.random(), $activeSlave.birthSurname = $indianSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.indianSlaveNames.random(), $activeSlave.birthSurname = setup.indianSlaveSurnames.random()>>
 <<case "Australian">>
-	<<set $activeSlave.birthName = $australianSlaveNames.random(), $activeSlave.birthSurname = $australianSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.australianSlaveNames.random(), $activeSlave.birthSurname = setup.australianSlaveSurnames.random()>>
 <<case "a New Zealander">>
-	<<set $activeSlave.birthName = $newZealanderSlaveNames.random(), $activeSlave.birthSurname = $newZealanderSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.newZealanderSlaveNames.random(), $activeSlave.birthSurname = setup.newZealanderSlaveSurnames.random()>>
 <<default>>
-	<<set $activeSlave.birthName = $whiteAmericanSlaveNames.random(), $activeSlave.birthSurname = $whiteAmericanSlaveSurnames.random()>>
+	<<set $activeSlave.birthName = setup.whiteAmericanSlaveNames.random(), $activeSlave.birthSurname = setup.whiteAmericanSlaveSurnames.random()>>
 <</switch>>
 
 <<set $args[0].slaveName = $args[0].birthName>>
 <<if $useFSNames == 1>>
 <<if $arcologies[0].FSRomanRevivalist > 20>>
-	<<set $activeSlave.slaveName = $romanSlaveNames.random(), $activeSlave.slaveSurname = $romanSlaveSurames.random()>>
+	<<set $activeSlave.slaveName = setup.romanSlaveNames.random(), $activeSlave.slaveSurname = setup.romanSlaveSurnames.random()>>
 <<elseif $arcologies[0].FSAztecRevivalist > 20>>
-	<<set $activeSlave.slaveName = $aztecSlaveNames.random(), $activeSlave.slaveSurname = 0>>	
+	<<set $activeSlave.slaveName = setup.aztecSlaveNames.random(), $activeSlave.slaveSurname = 0>>
 <<elseif $arcologies[0].FSEgyptianRevivalist > 20>>
-	<<set $activeSlave.slaveName = $ancientEgyptianSlaveNames.random(), $activeSlave.slaveSurname = 0>>
+	<<set $activeSlave.slaveName = setup.ancientEgyptianSlaveNames.random(), $activeSlave.slaveSurname = 0>>
 <<elseif $arcologies[0].FSEdoRevivalist > 20>>
-	<<set $activeSlave.slaveName = $edoSlaveNames.random(, $activeSlave.slaveSurname = $romanSlaveSurames.random())>>
+	<<set $activeSlave.slaveName = setup.edoSlaveNames.random(, $activeSlave.slaveSurname = setup.romanSlaveSurnames.random())>>
 <<elseif $arcologies[0].FSDegradationist != "unset">>
 	<<include "Degrading Name">>
 <<else>>

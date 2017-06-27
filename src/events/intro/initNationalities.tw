@@ -73,11 +73,10 @@
 
 /*Nationalities Setup*/
 
-<<set $basenationalities = ["American", "Afghan", "Algerian","Argentinian", "Armenian", "Australian", "Austrian", "Bangladeshi", "Belgian", "Bolivian", "Brazilian", "British", "Burmese", "Canadian", "Chilean", "Chinese", "Czech", "Colombian", "Congolese", "Cuban", "Danish", "Dutch", "Egyptian", "Emirati", "Estonian", "Ethiopian", "Filipina", "Finnish", "French", "German", "Ghanan", "Greek", "Guatemalan", "Haitian", "Hungarian", "Icelandic", "Indonesian", "Indian", "Iranian", "Iraqi", "Italian", "Irish", "Israeli", "Jamaican", "Japanese", "Jordanian", "Kazakh", "Kenyan", "Korean", "Lebanese", "Libyan", "Lithuanian", "Malaysian", "Malian", "Mexican", "Moroccan", "Nepalese", "a New Zealander", "Nigerian", "Norwegian", "Omani", "Pakistani", "Peruvian", "Polish", "Portuguese", "Puerto Rican", "Romanian", "Russian", "Saudi", "Serbian", "Slovak", "South African", "Spanish", "Sudanese", "Swedish", "Swiss", "Tanzanian", "Thai", "Tunisian", "Turkish", "Ugandan", "Ukrainian", "Uzbek", "Venezuelan", "Vietnamese", "Yemeni", "Zimbabwean"]>>
 <<set $nationalities = []>>
 
 <<if $terrain == "oceanic">>
-	<<set $nationalities = clone($basenationalities)>>
+	<<set $nationalities = clone(setup.baseNationalities)>>
 	<<set $arcologies[0].FSSupremacistRace = "white">>
 	<<set $arcologies[0].FSSubjugationistRace = "middle eastern">>
 <<else>>
@@ -194,7 +193,7 @@
 <</if>>
 
 <<if $internationalTrade != 0>>
-	<<set $nationalities = clone($basenationalities)>>
+	<<set $nationalities = clone(setup.baseNationalities)>>
 	<<if $internationalVariety == 0>>
 		<<set $nationalities.push("Chinese","Chinese","Chinese","Chinese","Chinese","Chinese","Chinese","Chinese","Chinese","Chinese","Chinese","Chinese","Chinese","Chinese")>>
 		<<set $nationalities.push("Indian","Indian","Indian","Indian","Indian","Indian","Indian","Indian","Indian","Indian")>>

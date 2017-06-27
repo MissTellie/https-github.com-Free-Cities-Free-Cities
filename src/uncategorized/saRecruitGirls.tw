@@ -77,7 +77,7 @@ uses your online resources and some @@.yellowgreen;modest funds@@ to convince $r
 	She does her best to convince them that being your slave whore will be safer and healthier than streetwalking.
 	<</if>>
 <<elseif $recruiterTarget is "expectant mothers">> /* now you can ginger too */
-  <<if $Recruiter.preg > 5 or $fakeBellies.includes($bellyAccessory)>>
+  <<if $Recruiter.preg > 5 || setup.fakeBellies.includes($bellyAccessory)>>
 	Since she's visibly pregnant herself, she speaks with authority when she says that Free Cities medicine can keep them and their pregnancies safe and healthy.
 	<<set $recruiterProgress += 1>>
   <<else>>
@@ -200,7 +200,7 @@ She uses her extra time and @@.yellowgreen;recruitment allowance@@ this week to 
 	<<set _FSmatch++, $arcologies[0].FSGenderRadicalist += 0.01*$FSSingleSlaveRep>>
 <</if>> <</if>>
 <<if $arcologies[0].FSGenderFundamentalist != "unset">>
-	<<if $slaves[$i].balls < 1 && ($slaves[$i].preg > 5 || $fakeBellies.includes($bellyAccessory))>>
+	<<if $slaves[$i].balls < 1 && ($slaves[$i].preg > 5 || setup.fakeBellies.includes($bellyAccessory))>>
 		<<if $slaves[$i].preg > 5>> <<set _seed += 4>>
 		<<else>> <<set _seed += 1>>
 		<</if>>
@@ -405,7 +405,7 @@ She is able to smartly <<if $arcologies[0].FSPaternalist != "unset">>answer<<els
 	<<if $slaves[$i].balls < 1>>
 		<<if $slaves[$i].preg > 5>>
 		She unashamedly live streams an obstetric health check in the nude, promising to broadcast similar footage right up until, and during, the birth.
-		<<elseif $fakeBellies.includes($bellyAccessory)>>
+		<<elseif setup.fakeBellies.includes($bellyAccessory)>>
 		With some discreet editing, she uploads fake ultrasounds to match her plastic pregnancy, bringing a little more attention to your fertility campaigns.
 		<<else>>
 		She posts plenty of snapshots of gravid mothers-to-be. But with no belly bump of her own to feature, the impact is no different from any preggo porn already floating around the net.

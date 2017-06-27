@@ -68,10 +68,10 @@ Time is short, but you are well placed to acquire some choice slaves. With an ad
 		<<set $activeSlave.analSkill = 0>>
 		<<set $activeSlave.oralSkill = 0>>
 		<<set $activeSlave.whoreSkill = 0>>
-		<<set $activeSlave.recruiter = 0>>
 		<<set $activeSlave.health = random(30,60)>>
 		<<set $activeSlave.behavioralFlaw = either("bitchy", "arrogant")>>
 		<<include "New Slave Intro">>
+		<<set $activeSlave.recruiter = 0>> /* override New Slave Intro */
 	<</replace>>
 <</link>> // You will need to utilize a portion of your reputation and ¤50000 to enslave her.//
 <<else>>
@@ -113,10 +113,10 @@ Time is short, but you are well placed to acquire some choice slaves. With an ad
 		<<set $activeSlave.oralSkill = 0>>
 		<<set $activeSlave.whoreSkill = 0>>
 		<<set $activeSlave.combatSkill = 1>>
-		<<set $activeSlave.recruiter = 0>>
 		<<set $activeSlave.health = random(30,60)>>
 		<<set $activeSlave.behavioralFlaw = either("bitchy", "arrogant")>>
 		<<include "New Slave Intro">>
+		<<set $activeSlave.recruiter = 0>> /* override New Slave Intro */
 	<</replace>>
 <</link>> // Purchasing the goods and hiring the VTOLs will cost about ¤35000.//
 <<else>>
@@ -159,9 +159,9 @@ Time is short, but you are well placed to acquire some choice slaves. With an ad
 			<<set $activeSlave.entertainSkill = 25>>
 			<<set $activeSlave.whoreSkill = 0>>
 			<<set $activeSlave.health = random(30,60)>>
-			<<set $activeSlave.recruiter = 0>>
 			<<set $activeSlave.behavioralFlaw = either("bitchy", "arrogant")>>
 			<<AddSlave $activeSlave>> /* skip New Slave Intro */
+			<<set $activeSlave.recruiter = 0>> /* override New Slave Intro */
 		<</for>>
 	<</replace>>
 <</link>> // It will cost about ¤25000 to enslave them.//
@@ -208,9 +208,9 @@ Time is short, but you are well placed to acquire some choice slaves. With an ad
 		<<set $activeSlave.whoreSkill = 0>>
 		<<set $activeSlave.health = random(30,60)>>
 		<<set $activeSlave.births = 2>>
-		<<set $activeSlave.recruiter = 0>>
 		<<set $activeSlave.behavioralFlaw = either("bitchy", "arrogant")>>
 		<<include "New Slave Intro">>
+		<<set $activeSlave.recruiter = 0>> /* override New Slave Intro */
 	<</replace>>
 <</link>> // It will cost about ¤15000 to enslave her.//
 <<else>>

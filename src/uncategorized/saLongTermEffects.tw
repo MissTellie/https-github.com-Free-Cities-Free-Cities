@@ -455,7 +455,7 @@
 			<<set $slaves[$i].waist -= 3>>
 		<</if>>
 	<</if>>
-<<elseif $fakeBellies.includes($bellyAccessory)>>
+<<elseif setup.fakeBellies.includes($bellyAccessory)>>
   <<if ($slaves[$i].devotion <= 20) && ($slaves[$i].trust >= -50) && ($slaves[$i].fetish == "pregnancy")>>
 	<<if ($slaves[$i].fetishStrength > 60)>>
 	  As a pregnancy fetishist, she @@.hotpink;openly enjoys@@ wearing her fake belly around.
@@ -1586,11 +1586,9 @@
 			<<set $slaves[$i].devotion -= 3>>
 		<</if>>
 	<</if>>
-	<<if ($slaves[$i].assignment == "serve the public") || ($slaves[$i].assignment == "whore") || ($slaves[$i].assignment == "work in the brothel") || ($slaves[$i].assignment == "serve in the club") || ($slaves[$i].assignment == "work a glory hole") || ($slaves[$i].assignment == "be confined in the arcade")>>
+	<<if ["whore", "serve the public", "work in the brothel", "serve in the club", "work a glory hole", "be confined in the arcade"].includes($slaves[$i].assignment)>>
 		Her paraphilia is satisfied by how many dicks she gets to suck at work.
-	<<elseif ($slaves[$i].assignment == "serve in the master suite") && ($slaves[$i].toyHole == "mouth") && ($PC.dick == 1)>>
-		Her paraphilia is satisfied by constant oral sex with you.
-	<<elseif ($slaves[$i].assignment == "please you") && ($slaves[$i].toyHole == "mouth") && ($PC.dick == 1)>>
+	<<elseif ($PC.dick == 1) && ($slaves[$i].toyHole == "mouth") && ["please you", "serve in the master suite"].includes($slaves[$i].assignment)>>
 		Her paraphilia is satisfied by constant oral sex with you.
 	<<elseif $slaves[$i].dietCum == 1>>
 		Her paraphilia is satisfied by what she gets to eat.
@@ -1620,11 +1618,9 @@
 			<<set $slaves[$i].devotion -= 3>>
 		<</if>>
 	<</if>>
-	<<if ($slaves[$i].assignment == "serve the public") || ($slaves[$i].assignment == "whore") || ($slaves[$i].assignment == "work in the brothel") || ($slaves[$i].assignment == "serve in the club") || ($slaves[$i].assignment == "work a glory hole") || ($slaves[$i].assignment == "be confined in the arcade")>>
+	<<if ["whore", "serve the public", "work in the brothel", "serve in the club", "work a glory hole", "be confined in the arcade"].includes($slaves[$i].assignment)>>
 		Her paraphilia is satisfied by how many dicks get shoved up her butt at work.
-	<<elseif ($slaves[$i].assignment == "serve in the master suite") && ($slaves[$i].toyHole == "ass")>>
-		Her paraphilia is satisfied by constant anal sex with you.
-	<<elseif ($slaves[$i].assignment == "please you") && ($slaves[$i].toyHole == "ass")>>
+	<<elseif ($slaves[$i].toyHole == "ass") && ["please you", "serve in the master suite"].includes($slaves[$i].assignment)>>
 		Her paraphilia is satisfied by constant anal sex with you.
 	<<elseif $suppository != 0>>
 		Her paraphilia is satisfied by the way she gets to take medication.
@@ -1661,7 +1657,7 @@
 			<<set $slaves[$i].devotion -= 3>>
 		<</if>>
 	<</if>>
-	<<if ($slaves[$i].assignment == "serve the public") || ($slaves[$i].assignment == "whore") || ($slaves[$i].assignment == "work in the brothel") || ($slaves[$i].assignment == "serve in the club")>>
+	<<if ["whore", "serve the public", "work in the brothel", "serve in the club"].includes($slaves[$i].assignment)>>
 		Her paraphilia is satisfied by how often she gets publicly fucked at work.
 	<<elseif $slaves[$i].clothes == "none">>
 		Her paraphilia is satisfied by her total nudity.
@@ -1686,7 +1682,7 @@
 			<<set $slaves[$i].devotion -= 3>>
 		<</if>>
 	<</if>>
-	<<if ($slaves[$i].assignment == "get milked") || ($slaves[$i].assignment == "work in the dairy")>>
+	<<if ["get milked", "work in the dairy"].includes($slaves[$i].assignment)>>
 		Her paraphilia is satisfied by her work as a cow; she can feel her udders swelling with milk.
 	<<elseif $slaves[$i].health < 0>>
 		Her paraphilia is ameliorated by her poor health; she knows she can't take expansion right now.
@@ -1767,7 +1763,7 @@
 	<</if>>
 	<<if ($slaves[$i].assignment == "work in the dairy") && ($dairyRestraintsSetting >= 2)>>
 		Her paraphilia is satisfied by her horrible life as a producer of useful fluids and a receptacle for machine rape.
-	<<elseif ($slaves[$i].assignment == "work a glory hole") || ($slaves[$i].assignment == "be confined in the arcade")>>
+	<<elseif ["work a glory hole", "be confined in the arcade"].includes($slaves[$i].assignment)>>
 		Her paraphilia is satisfied by her horrible life as a helpless hole for an infinite bag of dicks.
 	<<elseif $slaves[$i].trust < -50>>
 		Her paraphilia is satisfied by her constant terror.
@@ -1792,9 +1788,9 @@
 			<<set $slaves[$i].devotion -= 3>>
 		<</if>>
 	<</if>>
-	<<if ($slaves[$i].assignment == "serve the public") || ($slaves[$i].assignment == "whore") || ($slaves[$i].assignment == "work in the brothel") || ($slaves[$i].assignment == "serve in the club") || ($slaves[$i].assignment == "work a glory hole") || ($slaves[$i].assignment == "be confined in the arcade") || ($slaves[$i].assignment == "work as a servant") || ($slaves[$i].assignment == "be the Attendant") || ($slaves[$i].assignment == "be the Milkmaid")>>
+	<<if ["whore", "serve the public", "work in the brothel", "serve in the club", "work a glory hole", "be confined in the arcade", "work as a servant", "be the Attendant", "be the Milkmaid"].includes($slaves[$i].assignment)>>
 		Her paraphilia is satisfied by how she's expected to serve others' sexual needs at work.
-	<<elseif ($slaves[$i].assignment == "serve in the master suite") || ($slaves[$i].assignment == "please you")>>
+	<<elseif ["please you", "serve in the master suite"].includes($slaves[$i].assignment)>>
 		Her paraphilia is satisfied by how she's expected to serve your sexual needs at work.
 	<<elseif $slaves[$i].assignment == "be a subordinate slave">>
 		Her paraphilia is satisfied by how she's expected to serve other slaves' sexual needs.
@@ -1821,11 +1817,9 @@
 	<</if>>
 	<<if $slaves[$i].preg > 0>>
 		Her paraphilia is satisfied by her pregnancy.
-	<<elseif ($slaves[$i].assignment == "serve in the master suite") && ($slaves[$i].toyHole == "pussy") && ($PC.dick == 1)>>
+	<<elseif ($PC.dick == 1) && ($slaves[$i].toyHole == "pussy") && ["please you", "serve in the master suite"].includes($slaves[$i].assignment)>>
 		Her paraphilia is satisfied by constant vaginal sex with you.
-	<<elseif ($slaves[$i].assignment == "please you") && ($slaves[$i].toyHole == "pussy") && ($PC.dick == 1)>>
-		Her paraphilia is satisfied by constant vaginal sex with you.
-	<<elseif $fakeBellies.includes($bellyAccessory)>>
+	<<elseif setup.fakeBellies.includes($bellyAccessory)>>
 		She @@.mediumorchid;loathes@@ being forced to carry a fake pregnancy.
 		<<set $slaves[$i].devotion -= 3>>
 	<<else>>
@@ -1920,7 +1914,7 @@
 	<</if>>
 <<else>>
 	<<if $slaves[$i].trust >= -50>>
-		<<if $gratefulCareers.includes($slaves[$i].career)>>
+		<<if setup.gratefulCareers.includes($slaves[$i].career)>>
 		<<set $slaves[$i].trust += 1>>
 		She remembers how hard her life was before she was a slave, and
 		<<if $slaves[$i].trust > 50>>
@@ -1933,7 +1927,7 @@
 		<</if>>
 	<</if>>
 	<<if $slaves[$i].devotion >= -50>>
-		<<if $menialCareers.includes($slaves[$i].career)>>
+		<<if setup.menialCareers.includes($slaves[$i].career)>>
 		<<set $slaves[$i].devotion += 1>>
 		She took orders a lot before she was a slave, and is subconsciously
 		<<if $slaves[$i].trust > 50>>
@@ -2943,7 +2937,7 @@
 		<<if $slaves[$i].preg == 10>>
 			$possessiveCap areolae darken with $possessive progressing pregnancy.
 		<<else>>
-			<<if $fakeBellies.includes($bellyAccessory)>>
+			<<if setup.fakeBellies.includes($bellyAccessory)>>
 				Her growing pregnancy renders her fake belly moot.
 				<<set $slaves[$i].bellyAccessory = "none">>
 			<</if>>
