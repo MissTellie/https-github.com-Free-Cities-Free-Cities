@@ -168,7 +168,7 @@
 	<</if>>
 <</if>>
 
-<<if $entertainmentCareers.includes($args[0].career)>>
+<<if setup.entertainmentCareers.includes($args[0].career)>>
 	<<set $beauty += 1>>
 <<elseif ($week-$args[0].weekAcquired >= 20) && ($args[0].entertainSkill >= 100)>>
 	<<set $beauty += 1>>
@@ -184,11 +184,11 @@
 	<</if>>
 <</if>>
 <</if>>
-	
+
 <<else>> /* FUCKDOLL */
 
 <<set $beauty += 100 + ($args[0].waist/20) - ($args[0].muscles/30) +($args[0].lips/10) + ($args[0].face/10) +(1.5*$args[0].butt) - (3*$args[0].dick) - (2*$args[0].balls) + ($args[0].clit) + (($args[0].height-160)/10) + (2*$args[0].hips)>>
-	
+
 <</if>> /* CLOSES FUCKDOLL CHECK */
 
 <<if ($arcologies[0].FSTransformationFetishist > 20) || ($arcologies[0].FSAssetExpansionist > 20)>>
@@ -394,7 +394,7 @@
 		<<set $beauty += 2*$args[0].dick>>
 	<</if>>
 	<</if>>
-<<elseif $arcologies[0].FSGenderRadicalistLawDicks == 2>>
+<<elseif $arcologies[0].FSGenderRadicalistLawFuta == 2>>
 	<<if $args[0].dick > 0>>
 	<<if $args[0].balls > 0>>
 		<<set $beauty += $args[0].dick+$args[0].balls>>
@@ -611,7 +611,7 @@
 	<<set $FResult += 2>>
 <</if>>
 
-<<if $whoreCareers.includes($args[0].career)>>
+<<if setup.whoreCareers.includes($args[0].career)>>
 	<<set $FResult += 1>>
 <<elseif ($args[0].oralCount + $args[0].analCount + $args[0].vaginalCount + $args[0].mammaryCount + $args[0].penetrativeCount > 1000)>>
 	<<set $FResult += 1>>
@@ -645,11 +645,11 @@
 	<<set $racialVarieties.push($args[0].race)>>
 	<</if>>
 <</if>>
-	
+
 <<else>> /* FUCKDOLL */
 
 <<set $FResult += $args[0].fuckdoll/10>>
-	
+
 <</if>> /* CLOSES FUCKDOLL CHECK */
 
 <<set $FResult += $args[0].aphrodisiacs*2>>
@@ -698,7 +698,7 @@
 	<<set $deadliness += 2>>
 <</if>>
 
-<<if $bodyguardCareers.includes($Bodyguard.career)>>
+<<if setup.bodyguardCareers.includes($Bodyguard.career)>>
 	<<set $deadliness += 1>>
 <</if>>
 
@@ -787,9 +787,9 @@
 	<<set $release = 1>>
 <<elseif ($args[0].assignment == "work in the dairy") && (($args[0].fetish == "boobs") || ($args[0].energy > 95))>>
 	<<set $release = 1>>
-<<elseif ($args[0].assignment == "get cockmilked")>>
+<<elseif ($args[0].assignment == "get milked") && $args[0].balls > 0>>
 	<<set $release = 1>>
-<<elseif ($args[0].assignment == "work in the collection facility")>>
+<<elseif ($args[0].assignment == "work in the dairy") && $args[0].balls > 0>>
 	<<set $release = 1>>
 <<elseif ($args[0].assignment == "be your Head Girl") && ($HGRelease == 1)>>
 	<<set $release = 1>>
@@ -799,144 +799,363 @@
 
 <<widget "SlaveTitle">>
 
-<<if $args[0].vagina > -1>>
-	<<if $args[0].dick > 0>>
-	<<if $args[0].balls > 0>>
-		<<if $args[0].ovaries == 1>>
+<<if $args[0].dick == 0>>
+	<<if $args[0].vagina == -1>> /* NULLS */
 		<<if $args[0].age > 35>>
-			<<set $desc = "futanari MILF">>
+			<<if $args[0].muscles > 30>>
+				<<if $args[0].height > 185>>
+					<<set $desc = "null MILF amazon">>
+				<<else>>
+					<<set $desc = "null muscleMILF">>
+				<</if>>
+			<<elseif ($args[0].lactation > 0) && ($args[0].boobs > 2000)>>
+				<<set $desc = "null MILFcow">>
+			<<elseif ($args[0].boobsImplant > 0) && ($args[0].buttImplant > 0)>>
+				<<set $desc = "MILF bimbonull">>
+			<<elseif $args[0].boobs > 6000>>
+				<<set $desc = "null boobMILF">>
+			<<elseif $args[0].butt > 6>>
+				<<set $desc = "null assMILF">>
+			<<else>>
+				<<set $desc = "MILFnull">>
+			<</if>>
 		<<elseif $args[0].age >= 25>>
-			<<set $desc = "futanari">>
+			<<if $args[0].muscles > 30>>
+				<<if $args[0].height > 185>>
+					<<set $desc = "null amazon">>
+				<<else>>
+					<<set $desc = "null muscleslave">>
+				<</if>>
+			<<elseif ($args[0].lactation > 0) && ($args[0].boobs > 2000)>>
+				<<set $desc = "nullcow">>
+			<<elseif ($args[0].boobsImplant > 0) && ($args[0].buttImplant > 0)>>
+				<<set $desc = "bimbonull">>
+			<<elseif $args[0].boobs > 6000>>
+				<<set $desc = "null boobslave">>
+			<<elseif $args[0].butt > 6>>
+				<<set $desc = "null buttslave">>
+			<<else>>
+				<<set $desc = "null">>
+			<</if>>
 		<<else>>
-			<<set $desc = "futanari girl">>
+			<<if $args[0].muscles > 30>>
+				<<if $args[0].height > 185>>
+					<<set $desc = "null amazon slavegirl">>
+				<<else>>
+					<<set $desc = "null musclegirl">>
+				<</if>>
+			<<elseif ($args[0].lactation > 0) && ($args[0].boobs > 2000)>>
+				<<set $desc = "null girlcow">>
+			<<elseif ($args[0].boobsImplant > 0) && ($args[0].buttImplant > 0)>>
+				<<set $desc = "null bimbogirl">>
+			<<elseif $args[0].boobs > 6000>>
+				<<set $desc = "null boobgirl">>
+			<<elseif $args[0].butt > 6>>
+				<<set $desc = "null assgirl">>
+			<<else>>
+				<<set $desc = "nullgirl">>
+			<</if>>
 		<</if>>
-		<<else>>
+	<<else>> /* FEMALES */
 		<<if $args[0].age > 35>>
-			<<set $desc = "true herm MILF">>
+			<<if $args[0].muscles > 30>>
+				<<if $args[0].height > 185>>
+					<<set $desc = "MILF amazon">>
+				<<else>>
+					<<set $desc = "muscleMILF">>
+				<</if>>
+			<<elseif ($args[0].lactation > 0) && ($args[0].boobs > 2000)>>
+				<<set $desc = "MILFcow">>
+			<<elseif ($args[0].boobsImplant > 0) && ($args[0].buttImplant > 0)>>
+				<<set $desc = "MILF bimbo">>
+			<<elseif $args[0].boobs > 6000>>
+				<<set $desc = "boobMILF">>
+			<<elseif $args[0].butt > 6>>
+				<<set $desc = "assMILF">>
+			<<else>>
+				<<set $desc = "MILF">>
+			<</if>>
 		<<elseif $args[0].age >= 25>>
-			<<set $desc = "true herm">>
+			<<if $args[0].muscles > 30>>
+				<<if $args[0].height > 185>>
+					<<set $desc = "amazon">>
+				<<else>>
+					<<set $desc = "muscleslave">>
+				<</if>>
+			<<elseif ($args[0].lactation > 0) && ($args[0].boobs > 2000)>>
+				<<set $desc = "cow">>
+			<<elseif ($args[0].boobsImplant > 0) && ($args[0].buttImplant > 0)>>
+				<<set $desc = "bimbo">>
+			<<elseif $args[0].boobs > 6000>>
+				<<set $desc = "boobslave">>
+			<<elseif $args[0].butt > 6>>
+				<<set $desc = "buttslave">>
+			<<else>>
+				<<set $desc = "slave">>
+			<</if>>
 		<<else>>
-			<<set $desc = "true hermgirl">>
+			<<if $args[0].muscles > 30>>
+				<<if $args[0].height > 185>>
+					<<set $desc = "amazon slavegirl">>
+				<<else>>
+					<<set $desc = "musclegirl">>
+				<</if>>
+			<<elseif ($args[0].lactation > 0) && ($args[0].boobs > 2000)>>
+				<<set $desc = "girlcow">>
+			<<elseif ($args[0].boobsImplant > 0) && ($args[0].buttImplant > 0)>>
+				<<set $desc = "bimbogirl">>
+			<<elseif $args[0].boobs > 6000>>
+				<<set $desc = "boobgirl">>
+			<<elseif $args[0].butt > 6>>
+				<<set $desc = "assgirl">>
+			<<else>>
+				<<set $desc = "slavegirl">>
+			<</if>>
 		<</if>>
-		<</if>>
-	<<else>>
-		<<if $args[0].ovaries == 1>>
-		<<if $args[0].age > 35>>
-			<<set $desc = "futa MILF">>
-		<<elseif $args[0].age >= 25>>
-			<<set $desc = "futa">>
-		<<else>>
-			<<set $desc = "futagirl">>
-		<</if>>
-		<<else>>
-		<<if $args[0].age > 35>>
-			<<set $desc = "herm MILF">>
-		<<elseif $args[0].age >= 25>>
-			<<set $desc = "herm">>
-		<<else>>
-			<<set $desc = "hermgirl">>
-		<</if>>
-		<</if>>
-	<</if>>
-	<<if $args[0].dick > 5 and $args[0].balls > 5 and $args[0].boobs > 5000>>
-		<<set $desc = "hyper " + $desc>>
-	<</if>>
-	<<else>>
-	<<if $args[0].age > 35>>
-		<<if $args[0].muscles > 30>>
-		<<if $args[0].height > 185>>
-			<<set $desc = "MILF amazon">>
-		<<else>>
-			<<set $desc = "muscle MILF">>
-		<</if>>
-		<<elseif ($args[0].lactation > 0) && ($args[0].boobs > 2000)>>
-		<<set $desc = "MILF cow">>
-		<<elseif ($args[0].boobsImplant > 0) && ($args[0].buttImplant > 0)>>
-		<<set $desc = "MILF bimbo">>
-		<<elseif ($args[0].boobs > 6000)>>
-		<<set $desc = "boob MILF">>
-		<<else>>
-		<<set $desc = "MILF">>
-		<</if>>
-	<<elseif $args[0].age >= 25>>
-		<<if $args[0].muscles > 30>>
-		<<if $args[0].height > 185>>
-			<<set $desc = "amazon">>
-		<<else>>
-			<<set $desc = "muscle slave">>
-		<</if>>
-		<<elseif ($args[0].lactation > 0) && ($args[0].boobs > 2000)>>
-		<<set $desc = "cow">>
-		<<elseif ($args[0].boobsImplant > 0) && ($args[0].buttImplant > 0)>>
-		<<set $desc = "bimbo">>
-		<<elseif ($args[0].boobs > 6000)>>
-		<<set $desc = "boob slave">>
-		<<else>>
-		<<set $desc = "slave">>
-		<</if>>
-	<<else>>
-		<<if $args[0].muscles > 30>>
-		<<if $args[0].height > 185>>
-			<<set $desc = "amazon slavegirl">>
-		<<else>>
-			<<set $desc = "musclegirl">>
-		<</if>>
-		<<elseif ($args[0].lactation > 0) && ($args[0].boobs > 2000)>>
-		<<set $desc = "cowgirl">>
-		<<elseif ($args[0].boobsImplant > 0) && ($args[0].buttImplant > 0)>>
-		<<set $desc = "bimbogirl">>
-		<<elseif ($args[0].boobs > 6000)>>
-		<<set $desc = "boobgirl">>
-		<<else>>
-		<<set $desc = "slavegirl">>
-		<</if>>
-	<</if>>
 	<</if>>
 <<else>>
-	<<if $args[0].balls > 0>>
-	<<if ($args[0].boobs > 300) && ($args[0].butt > 2)>>
-		<<if $args[0].age > 35>>
-		<<set $desc = "shemale MILF">>
-		<<else>>
-		<<set $desc = "shemale">>
-		<</if>>
-	<<else>>
-		<<if ($args[0].shoulders < 1) && ($args[0].muscles <= 30)>>
-		<<if ($args[0].faceShape == "masculine") || ($args[0].faceShape == "androgynous")>>
+	<<if $args[0].vagina != -1>>
+		<<if $args[0].balls > 0>> /* FUTANARI: cock & balls & vagina */
 			<<if $args[0].age > 35>>
-			<<set $desc = "sissy MILF">>
-			<<else>>
-			<<set $desc = "sissy">>
-			<</if>>
-		<<else>>
-			<<if $args[0].age > 35>>
-			<<set $desc = "trap MILF">>
+				<<if $args[0].muscles > 30>>
+					<<if $args[0].height > 185>>
+						<<set $desc = "futanari MILF amazon">>
+					<<else>>
+						<<set $desc = "futanari muscleMILF">>
+					<</if>>
+				<<elseif ($args[0].lactation > 0) && ($args[0].boobs > 2000)>>
+					<<set $desc = "futanari MILFcow">>
+				<<elseif ($args[0].boobsImplant > 0) && ($args[0].buttImplant > 0)>>
+					<<set $desc = "futanari MILF bimbo">>
+				<<elseif $args[0].boobs > 6000>>
+					<<set $desc = "futanari boobMILF">>
+				<<elseif $args[0].butt > 6>>
+					<<set $desc = "futanari assMILF">>
+				<<else>>
+					<<set $desc = "futanari MILF">>
+				<</if>>
 			<<elseif $args[0].age >= 25>>
-			<<set $desc = "trap">>
+				<<if $args[0].muscles > 30>>
+					<<if $args[0].height > 185>>
+						<<set $desc = "futanari amazon">>
+					<<else>>
+						<<set $desc = "muscle futanari">>
+					<</if>>
+				<<elseif ($args[0].lactation > 0) && ($args[0].boobs > 2000)>>
+					<<set $desc = "futanari cow">>
+				<<elseif ($args[0].boobsImplant > 0) && ($args[0].buttImplant > 0)>>
+					<<set $desc = "futanari bimbo">>
+				<<elseif $args[0].boobs > 6000>>
+					<<set $desc = "boob futanari">>
+				<<elseif $args[0].butt > 6>>
+					<<set $desc = "butt futanari">>
+				<<else>>
+					<<set $desc = "futanari">>
+				<</if>>
 			<<else>>
-			<<set $desc = "trapgirl">>
+				<<if $args[0].muscles > 30>>
+					<<if $args[0].height > 185>>
+						<<set $desc = "young futanari amazon">>
+					<<else>>
+						<<set $desc = "young muscle futanari">>
+					<</if>>
+				<<elseif ($args[0].lactation > 0) && ($args[0].boobs > 2000)>>
+					<<set $desc = "futanari girlcow">>
+				<<elseif ($args[0].boobsImplant > 0) && ($args[0].buttImplant > 0)>>
+					<<set $desc = "futanari bimbogirl">>
+				<<elseif $args[0].boobs > 6000>>
+					<<set $desc = "futanari boobgirl">>
+				<<elseif $args[0].butt > 6>>
+					<<set $desc = "futanari assgirl">>
+				<<else>>
+					<<set $desc = "futanari girl">>
+				<</if>>
+			<</if>>
+		<<else>> /* FUTANARI: cock & vagina */
+			<<if $args[0].age > 35>>
+				<<if $args[0].muscles > 30>>
+					<<if $args[0].height > 185>>
+						<<set $desc = "futaMILF amazon">>
+					<<else>>
+						<<set $desc = "muscle futaMILF">>
+					<</if>>
+				<<elseif ($args[0].lactation > 0) && ($args[0].boobs > 2000)>>
+					<<set $desc = "futaMILF cow">>
+				<<elseif ($args[0].boobsImplant > 0) && ($args[0].buttImplant > 0)>>
+					<<set $desc = "futaMILF bimbo">>
+				<<elseif $args[0].boobs > 6000>>
+					<<set $desc = "futa boobMILF">>
+				<<elseif $args[0].butt > 6>>
+					<<set $desc = "futa assMILF">>
+				<<else>>
+					<<set $desc = "futaMILF">>
+				<</if>>
+			<<elseif $args[0].age >= 25>>
+				<<if $args[0].muscles > 30>>
+					<<if $args[0].height > 185>>
+						<<set $desc = "futa amazon">>
+					<<else>>
+						<<set $desc = "muscle futa">>
+					<</if>>
+				<<elseif ($args[0].lactation > 0) && ($args[0].boobs > 2000)>>
+					<<set $desc = "futacow">>
+				<<elseif ($args[0].boobsImplant > 0) && ($args[0].buttImplant > 0)>>
+					<<set $desc = "futa bimbo">>
+				<<elseif $args[0].boobs > 6000>>
+					<<set $desc = "boobfuta">>
+				<<elseif $args[0].butt > 6>>
+					<<set $desc = "assfuta">>
+				<<else>>
+					<<set $desc = "futa">>
+				<</if>>
+			<<else>>
+				<<if $args[0].muscles > 30>>
+					<<if $args[0].height > 185>>
+						<<set $desc = "futagirl amazon">>
+					<<else>>
+						<<set $desc = "muscle futagirl">>
+					<</if>>
+				<<elseif ($args[0].lactation > 0) && ($args[0].boobs > 2000)>>
+					<<set $desc = "futa girlcow">>
+				<<elseif ($args[0].boobsImplant > 0) && ($args[0].buttImplant > 0)>>
+					<<set $desc = "futa bimbogirl">>
+				<<elseif $args[0].boobs > 6000>>
+					<<set $desc = "futa boobgirl">>
+				<<elseif $args[0].butt > 6>>
+					<<set $desc = "futa assgirl">>
+				<<else>>
+					<<set $desc = "futagirl">>
+				<</if>>
 			<</if>>
 		<</if>>
-		<<else>>
-		<<set $desc = "bitch">>
-		<</if>>
-	<</if>>
-	<<else>>
-	<<if ($args[0].faceShape == "masculine") || ($args[0].faceShape == "androgynous")>>
-		<<if $args[0].age > 35>>
-		<<set $desc = "gelded MILF">>
-		<<else>>
-		<<set $desc = "gelded bitch">>
+		<<if $args[0].dick > 5 && $args[0].balls > 5 && $args[0].boobs > 5000>>
+			<<set $desc = "hyper " + $desc>>
 		<</if>>
 	<<else>>
-		<<if $args[0].age > 35>>
-		<<set $desc = "dickMILF">>
-		<<elseif $args[0].age >= 25>>
-		<<set $desc = "dickslave">>
+		<<if $args[0].balls > 0>>
+			<<if ($args[0].boobs > 300) && ($args[0].butt > 2)>> /* SHEMALES: cock & balls, T&A above minimum */
+				<<if $args[0].age > 35>>
+					<<set $desc = "sheMILF">>
+				<<elseif $args[0].age >= 25>>
+					<<set $desc = "shemale">>
+				<<else>>
+					<<set $desc = "tgirl">>
+				<</if>>
+				<<if $args[0].muscles > 30>>
+					<<if $args[0].height > 185>>
+						<<set $desc = $desc+" amazon">>
+					<<else>>
+						<<set $desc = "muscle "+$desc>>
+					<</if>>
+				<<elseif ($args[0].lactation > 0) && ($args[0].boobs > 2000)>>
+					<<set $desc = $desc+" cow">>
+				<<elseif ($args[0].boobsImplant > 0) && ($args[0].buttImplant > 0)>>
+					<<set $desc = $desc+" bimbo">>
+				<<elseif $args[0].boobs > 6000>>
+					<<set $desc = "topheavy "+$desc>>
+				<<elseif $args[0].butt > 6>>
+					<<set $desc = "bottomheavy "+$desc>>
+				<</if>>
+			<<else>>
+				<<if ($args[0].shoulders < 1) && ($args[0].muscles <= 30)>>
+					<<if ($args[0].faceShape == "masculine") || ($args[0].faceShape == "androgynous")>> /* SISSIES: feminine shoulders or muscles, masculine faces */
+						<<if $args[0].age > 35>>
+							<<set $desc = "sissyMILF">>
+						<<else>>
+							<<set $desc = "sissy">>
+						<</if>>
+					<<else>> /* TRAPS: feminine shoulders or muscles, feminine faces */
+						<<if $args[0].age > 35>>
+							<<set $desc = "trapMILF">>
+						<<elseif $args[0].age >= 25>>
+							<<set $desc = "trap">>
+						<<else>>
+							<<set $desc = "trapgirl">>
+						<</if>>
+					<</if>>
+					<<if $args[0].lactation > 0>>
+						<<set $desc = $desc+" cow">>
+					<<elseif ($args[0].boobsImplant > 0) && ($args[0].buttImplant > 0)>>
+						<<set $desc = $desc+" bimbo">>
+					<</if>>
+				<<else>> /* BITCHES: masculine shoulders or muscles */
+					<<if $args[0].muscles > 30>>
+						<<if $args[0].height > 185>>
+							<<set $desc = "amazon bitch">>
+						<<else>>
+							<<set $desc = "muscle bitch">>
+						<</if>>
+					<<elseif $args[0].lactation > 0>>
+						<<set $desc = "bitchcow">>
+					<<elseif ($args[0].boobsImplant > 0) && ($args[0].buttImplant > 0)>>
+						<<set $desc = "bimbo bitch">>
+					<<else>>
+						<<set $desc = "bitch">>
+					<</if>>
+					<<if $args[0].age > 35>>
+						<<set $desc = "mature "+$desc>>
+					<<elseif $args[0].age < 25>>
+						<<set $desc = "young "+$desc>>
+					<</if>>
+				<</if>>
+			<</if>>
 		<<else>>
-		<<set $desc = "dickgirl">>
+			<<if $args[0].age > 35>>
+				<<if $args[0].muscles > 30>>
+					<<if $args[0].height > 185>>
+						<<set $desc = "dickMILF amazon">>
+					<<else>>
+						<<set $desc = "muscle dickMILF">>
+					<</if>>
+				<<elseif ($args[0].lactation > 0) && ($args[0].boobs > 2000)>>
+					<<set $desc = "dickMILF cow">>
+				<<elseif ($args[0].boobsImplant > 0) && ($args[0].buttImplant > 0)>>
+					<<set $desc = "dickMILF bimbo">>
+				<<elseif $args[0].boobs > 6000>>
+					<<set $desc = "boob dickMILF">>
+				<<elseif $args[0].butt > 6>>
+					<<set $desc = "ass dickMILF">>
+				<<else>>
+					<<set $desc = "dickMILF">>
+				<</if>>
+			<<elseif $args[0].age >= 25>>
+				<<if $args[0].muscles > 30>>
+					<<if $args[0].height > 185>>
+						<<set $desc = "dickslave amazon">>
+					<<else>>
+						<<set $desc = "muscle dickslave">>
+					<</if>>
+				<<elseif ($args[0].lactation > 0) && ($args[0].boobs > 2000)>>
+					<<set $desc = "dickcow">>
+				<<elseif ($args[0].boobsImplant > 0) && ($args[0].buttImplant > 0)>>
+					<<set $desc = "dickbimbo">>
+				<<elseif $args[0].boobs > 6000>>
+					<<set $desc = "boob dickslave">>
+				<<elseif $args[0].butt > 6>>
+					<<set $desc = "ass dickslave">>
+				<<else>>
+					<<set $desc = "dickslave">>
+				<</if>>
+			<<else>>
+				<<if $args[0].muscles > 30>>
+					<<if $args[0].height > 185>>
+						<<set $desc = "dickgirl amazon">>
+					<<else>>
+						<<set $desc = "muscle dickgirl">>
+					<</if>>
+				<<elseif ($args[0].lactation > 0) && ($args[0].boobs > 2000)>>
+					<<set $desc = "dickgirl cow">>
+				<<elseif ($args[0].boobsImplant > 0) && ($args[0].buttImplant > 0)>>
+					<<set $desc = "dickgirl bimbo">>
+				<<elseif $args[0].boobs > 6000>>
+					<<set $desc = "boob dickgirl">>
+				<<elseif $args[0].butt > 6>>
+					<<set $desc = "ass dickgirl">>
+				<<else>>
+					<<set $desc = "dickslave">>
+				<</if>>
+			<</if>>
 		<</if>>
-	<</if>>
 	<</if>>
 <</if>>
 
@@ -1128,42 +1347,42 @@
 <<if $args[0].career != 0>>
 	<<if $args[0].career == "a slave">>
 	<<set $slaveMultiplier += 0.1>>
-	<<elseif $bodyguardCareers.includes($args[0].career)>>
+	<<elseif setup.bodyguardCareers.includes($args[0].career)>>
 	<<set $slaveMultiplier += 0.1>>
-	<<elseif $wardenessCareers.includes($args[0].career)>>
+	<<elseif setup.wardenessCareers.includes($args[0].career)>>
 	<<set $slaveMultiplier += 0.1>>
-	<<elseif $attendantCareers.includes($args[0].career)>>
+	<<elseif setup.attendantCareers.includes($args[0].career)>>
 	<<set $slaveMultiplier += 0.1>>
-	<<elseif $schoolteacherCareers.includes($args[0].career)>>
+	<<elseif setup.schoolteacherCareers.includes($args[0].career)>>
 	<<set $slaveMultiplier += 0.1>>
-	<<elseif $stewardessCareers.includes($args[0].career)>>
+	<<elseif setup.stewardessCareers.includes($args[0].career)>>
 	<<set $slaveMultiplier += 0.1>>
-	<<elseif $milkmaidCareers.includes($args[0].career)>>
+	<<elseif setup.milkmaidCareers.includes($args[0].career)>>
 	<<set $slaveMultiplier += 0.1>>
-	<<elseif $madamCareers.includes($args[0].career)>>
+	<<elseif setup.madamCareers.includes($args[0].career)>>
 	<<set $slaveMultiplier += 0.1>>
-	<<elseif $DJCareers.includes($args[0].career)>>
+	<<elseif setup.DJCareers.includes($args[0].career)>>
 	<<set $slaveMultiplier += 0.1>>
-	<<elseif $HGCareers.includes($args[0].career)>>
+	<<elseif setup.HGCareers.includes($args[0].career)>>
 	<<set $slaveMultiplier += 0.1>>
-	<<elseif $entertainmentCareers.includes($args[0].career)>>
+	<<elseif setup.entertainmentCareers.includes($args[0].career)>>
 	<<set $slaveMultiplier += 0.05>>
-	<<elseif $whoreCareers.includes($args[0].career)>>
+	<<elseif setup.whoreCareers.includes($args[0].career)>>
 	<<set $slaveMultiplier += 0.05>>
-	<<elseif $gratefulCareers.includes($args[0].career)>>
+	<<elseif setup.gratefulCareers.includes($args[0].career)>>
 	<<set $slaveMultiplier += 0.05>>
-	<<elseif $menialCareers.includes($args[0].career)>>
+	<<elseif setup.menialCareers.includes($args[0].career)>>
 	<<set $slaveMultiplier += 0.05>>
 	<</if>>
 <</if>>
 <<if ($week-$args[0].weekAcquired >= 20) && ($args[0].entertainSkill >= 100)>>
-<<if $entertainmentCareers.includes($args[0].career)>>
+<<if setup.entertainmentCareers.includes($args[0].career)>>
 <<else>>
 	<<set $slaveMultiplier += 0.05>>
 <</if>>
 <</if>>
 <<if ($args[0].oralCount + $args[0].analCount + $args[0].vaginalCount + $args[0].mammaryCount + $args[0].penetrativeCount > 1000)>>
-<<if $whoreCareers.includes($args[0].career)>>
+<<if setup.whoreCareers.includes($args[0].career)>>
 <<else>>
 	<<set $slaveMultiplier += 0.05>>
 <</if>>

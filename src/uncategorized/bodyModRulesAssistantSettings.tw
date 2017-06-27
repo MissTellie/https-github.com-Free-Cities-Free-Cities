@@ -275,7 +275,7 @@ Pussylips piercings: ''
 <</if>>
 
 
-<<if ($seeDicks > 0)>>
+<<if ($seeDicks > 0 || $currentRule.dickPiercing > 0)>>
 <br>
 Shaft piercings: ''
 <span id = "dickpiercing">
@@ -767,6 +767,11 @@ Your brand design is ''$brandDesign.''
 <<if ($arcologies[0].FSRomanRevivalist != "unset")>>
 | //FS// <<link "Republican Crest">>
 <<set $brandDesign = "a small crest of your Republic">>
+<<RAChangeBrandDesign>>
+<</link>>  <</if>>
+<<if ($arcologies[0].FSAztecRevivalist != "unset")>>
+| //FS// <<link "Seven Serpents">>
+<<set $brandDesign = "a small symbol of the Aztec gods">>
 <<RAChangeBrandDesign>>
 <</link>>  <</if>>
 <<if ($arcologies[0].FSEgyptianRevivalist != "unset")>>

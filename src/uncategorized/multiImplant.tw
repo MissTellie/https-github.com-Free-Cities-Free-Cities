@@ -21,7 +21,7 @@ You head down to your <<if $surgeryUpgrade == 1>>heavily upgraded and customized
 					<br><hr>
 					<<include "Surgery Degradation">>
 					
-					<<set $dump = $organs.pluck([_o], [_o])>>
+					<<set $organs.deleteAt(_o)>>
 				<</if>>
 			<<case "testicles">>
 				<<if ($activeSlave.dick >= 0) && ($activeSlave.balls == 0)>>
@@ -34,7 +34,7 @@ You head down to your <<if $surgeryUpgrade == 1>>heavily upgraded and customized
 					<br><hr>
 					<<include "Surgery Degradation">>
 					
-					<<set $dump = $organs.pluck([_o], [_o])>>
+					<<set $organs.deleteAt(_o)>>
 				<</if>>
 			<<case "scrotum">>
 				<<if ($activeSlave.scrotum == 0) && ($activeSlave.balls >= 0)>>
@@ -45,18 +45,18 @@ You head down to your <<if $surgeryUpgrade == 1>>heavily upgraded and customized
 					<br><hr>
 					<<include "Surgery Degradation">>
 					
-					<<set $dump = $organs.pluck([_o], [_o])>>
+					<<set $organs.deleteAt(_o)>>
 				<</if>>
 			<<case "foreskin">>
 				<<if ($activeSlave.foreskin == 0) && ($activeSlave.penis >= 0)>>
 					<<set $cash -= $surgeryCost>>
-					<<set $activeSlave.foreskin to $activeSlave.balls>>
+					<<set $activeSlave.foreskin to $activeSlave.penis>>
 					<<set $activeSlave.health -= 10>>
 					<<set $surgeryType = "addForeskin">>
 					<br><hr>
 					<<include "Surgery Degradation">>
 					
-					<<set $dump = $organs.pluck([_o], [_o])>>
+					<<set $organs.deleteAt(_o)>>
 				<</if>>
 			<<case "ovaries">>
 				<<if ($activeSlave.ovaries == 0) && ($activeSlave.vagina >= 0)>>
@@ -68,7 +68,7 @@ You head down to your <<if $surgeryUpgrade == 1>>heavily upgraded and customized
 					<br><hr>
 					<<include "Surgery Degradation">>
 
-					<<set $dump = $organs.pluck([_o], [_o])>>
+					<<set $organs.deleteAt(_o)>>
 				<</if>>
 			<<case "prostate">>
 				<<if ($activeSlave.prostate == 0)>>
@@ -79,7 +79,7 @@ You head down to your <<if $surgeryUpgrade == 1>>heavily upgraded and customized
 					<br><hr>
 					<<include "Surgery Degradation">>
 					
-					<<set $dump = $organs.pluck([_o], [_o])>>
+					<<set $organs.deleteAt(_o)>>
 				<</if>>
 			<<case "eyes">>
 				<<if ($activeSlave.eyes == -2) && ($activeSlave.origEye != "implant")>>
@@ -92,7 +92,7 @@ You head down to your <<if $surgeryUpgrade == 1>>heavily upgraded and customized
 					<br><hr>
 					<<include "Surgery Degradation">>
 					
-					<<set $dump = $organs.pluck([_o], [_o])>>
+					<<set $organs.deleteAt(_o)>>
 				<</if>>
 			<<case "voicebox">>
 				<<if ($activeSlave.voice == 0)>>
@@ -110,7 +110,7 @@ You head down to your <<if $surgeryUpgrade == 1>>heavily upgraded and customized
 					<br><hr>
 					<<include "Surgery Degradation">>
 				
-					<<set $dump = $organs.pluck([_o], [_o])>>
+					<<set $organs.deleteAt(_o)>>
 				<</if>>
 			<<default>>
 				Error: OrganType: $organs[_o].type not known.
@@ -122,7 +122,7 @@ You head down to your <<if $surgeryUpgrade == 1>>heavily upgraded and customized
 	<</for>>
 	<<if $slaves[_i].amp != 0>>
 	<<for _l = 0; _l < $limbs.length; _l++>>
-		<<if ($limbs[_l].ID == $slaves[_i].ID) && ($organs[_o].weeksToCompletion == 0)>>
+		<<if ($limbs[_l].ID == $slaves[_i].ID) && ($limbs[_l].weeksToCompletion == 0)>>
 			<<set $activeSlave = $slaves[_i]>>
 
 			<<switch $limbs[_l].type>>
@@ -147,7 +147,7 @@ You head down to your <<if $surgeryUpgrade == 1>>heavily upgraded and customized
 			<<set $activeSlave.health -= 10>>
 			<br><hr>
 			<<include "Surgery Degradation">>
-			<<set $dump = $limbs.pluck([_l], [_l])>>
+			<<set $limbs.deleteAt(_l)>>
 
 			<<set $slaves[_i] = $activeSlave>>
 			<<break>>
@@ -157,7 +157,7 @@ You head down to your <<if $surgeryUpgrade == 1>>heavily upgraded and customized
 		
 <</for>>
 
-/* This needs to be down here to over-ride any Surgery Degredation calls */
+/* This needs to be down here to over-ride any Surgery Degradation calls */
 <<set $nextButton = "Continue">>
 <<set $nextLink = "Main">>
 

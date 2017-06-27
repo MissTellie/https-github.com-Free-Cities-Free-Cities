@@ -13,21 +13,22 @@
 <<if $assistant == 1>>
 	<br><br>
 	<<if $assistantName == "your personal assistant">>Your personal assistant<<else>>$assistantName<</if>>'s $assistantAppearance avatar appears on your desk next to the message.
-	<<if $assistantAppearance == "monstergirl">>
+	<<switch $assistantAppearance>>
+	<<case "monstergirl">>
 		"I vote yes. Even though whatever that lab is producing can't possibly be as interesting as me," she says haughtily, and twirls a strand of tentacle hair.
-	<<elseif $assistantAppearance == "shemale">>
+	<<case "shemale">>
 		"I vote yes," she says sweetly. "Whatever they're doing, it's probably interesting. I'd love to fuck something interesting."
-	<<elseif $assistantAppearance == "amazon">>
+	<<case "amazon">>
 		"I vote yes!" she shouts. "Whatever they're doing, their girls are probably valuable. And everything's more fun if you loot it instead of buying it."
-	<<elseif $assistantAppearance == "businesswoman">>
+	<<case "businesswoman">>
 		"I vote yes," she says. "The likelihood that the lab is producing something valuable is overwhelming. The potential profits are," and she pauses to fan herself, "exciting."
-	<<elseif $assistantAppearance == "goddess">>
+	<<case "goddess">>
 		"I vote yes," she says. "Whatever is in that lab deserves some loving attention and... more variety is always appreciated."
-	<<elseif $assistantAppearance == "schoolgirl">>
+	<<case "schoolgirl">>
 		"I vote yeah," she says. "I just wanna see what that lab is doing. Could be cool!"
-	<<else>>
+	<<default>>
 		"I would suggest agreement," she says. "Even if the prize does not appeal to you personally, she's likely to be quite valuable. Selling her could net you quite a profit."
-	<</if>>
+	<</switch>>
 <</if>>
 
 <</nobr>>\

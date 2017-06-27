@@ -161,13 +161,22 @@ of the slave girls will have dicks.
 
 /* Accordion 000-250-006 */
 <br />
-	Accordion effects on weekly reports are 
+	Accordion effects on weekly reports are
 <<if $useAccordion == 0>>
-	@@color:red;DISABLED@@. [[Enable|Intro Summary][$useAccordion = 1]]
+	@@.red;DISABLED@@. [[Enable|Intro Summary][$useAccordion = 1]]
 <<else>>
-	@@color:cyan;ENABLED@@. [[Disable|Intro Summary][$useAccordion = 0]]
+	@@.cyan;ENABLED@@. [[Disable|Intro Summary][$useAccordion = 0]]
 <</if>>
 /* Accordion 000-250-006 */
+
+<br>
+
+Economic Tabs on weekly reports are
+<<if $useTabs == 0>>
+@@.red;DISABLED@@. [[Enable|Intro Summary][$useTabs = 1]]
+<<else>>
+@@.cyan;ENABLED@@. [[Disable|Intro Summary][$useTabs = 0]]
+<</if>>
 
 <br>
 
@@ -202,7 +211,7 @@ The Free City is located in ''$continent''.
 <</if>>
 <</if>>
 
-<<if ($targetArcology.type != "RomanRevivalist") && ($targetArcology.type != "EgyptianRevivalist") && ($targetArcology.type != "EdoRevivalist") && ($targetArcology.type != "ArabianRevivalist") && ($targetArcology.type != "ChineseRevivalist")>>
+<<if ($targetArcology.type != "RomanRevivalist") && ($targetArcology.type != "AztecRevivalist") && ($targetArcology.type != "EgyptianRevivalist") && ($targetArcology.type != "EdoRevivalist") && ($targetArcology.type != "ArabianRevivalist") && ($targetArcology.type != "ChineseRevivalist")>>
 <br>
 The lingua franca of your arcology is ''$language''.
 <<if $language != "English">>
@@ -258,7 +267,7 @@ Career: ''$PC.career''.
 	[[Medicine|Intro Summary][$PC.career = "medicine"]] |
 	[[Celebrity|Intro Summary][$PC.career = "celebrity"]]
 <</if>>
-	
+
 <br>
 
 Method of acquiring your arcology: ''$PC.rumor''.
@@ -309,7 +318,13 @@ Age:
 <</if>>
 
 <br>
-Name your character: <<textbox "$PCName" $PCName "Intro Summary">>
+Name your character: (given name) <<textbox "$PC.name" $PC.name "Intro Summary">> (surname)
+<<if $PC.surname>>
+	<<textbox "$PC.surname" $PC.surname "Intro Summary">>
+	<<link "Go by a single name">><<set $PC.slaveSurname = 0>><<goto "Intro Summary">><</link>>
+<<else>>
+	<<textbox "$PC.surname" "" "Intro Summary">>
+<</if>>
 <br>
 Preferred refreshment: <<textbox "$PC.refreshment" $PC.refreshment "Intro Summary">> [[Cigars|Intro Summary][$PC.refreshment = "cigar",$PC.refreshmentType = 0]] | [[Whiskey|Intro Summary][$PC.refreshment = "whiskey",$PC.refreshmentType = 1]]
 <br>
@@ -342,6 +357,13 @@ Image display
 		''enabled.'' [[Disable|Intro Summary][$seeSummaryImages = 0]]
 	<<else>>
 		''disabled.'' [[Enable|Intro Summary][$seeSummaryImages = 1]]
+	<</if>>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	Slave images in the weekly report are
+	<<if $seeReportImages == 1>>
+		''enabled.'' [[Disable|Intro Summary][$seeReportImages = 0]]
+	<<else>>
+		''disabled.'' [[Enable|Intro Summary][$seeReportImages = 1]]
 	<</if>>
 <<else>>
 	''disabled.'' [[Enable|Intro Summary][$seeImages = 1]] //Requires image resources.//
@@ -382,6 +404,12 @@ Image display
 	<<elseif $PC.career == "engineer">>
 		<<set $PC.engineering = 100>>
 	<<elseif $PC.career == "medicine">>
+		<<set $PC.medicine = 100>>
+	<<elseif $PC.career == "arcology owner">>
+		<<set $PC.trading = 100>>
+		<<set $PC.warfare = 100>>
+		<<set $PC.slaving = 100>>
+		<<set $PC.engineering = 100>>
 		<<set $PC.medicine = 100>>
 	<</if>>
 	<<set $girls = 2>>

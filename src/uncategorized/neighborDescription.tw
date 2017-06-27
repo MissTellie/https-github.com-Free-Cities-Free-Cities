@@ -30,9 +30,9 @@
 Its leadership has control of approximately <<print Math.trunc(($arcologies[$i].ownership*random(100-$economicUncertainty,100+$economicUncertainty))/100)>>% of the arcology<<if $arcologies[$i].minority > $arcologies[$i].ownership-10>>, a dangerously narrow margin over competition with a <<print Math.trunc(($arcologies[$i].minority*random(100-$economicUncertainty,100+$economicUncertainty))/100)>>% share<</if>>.
 <</if>>
 <</if>>
-<<if $arcologies[$i].PCminority > 0>>You own $arcologies[$i].PCminority% of this arcology<</if>><<if ($arcologies[$i].government == "your trustees") || ($arcologies[$i].government == "your agent")>><<if $arcologies[$i].minority > $arcologies[$i].PCminority-10>>, a dangerously narrow margin over competition with a <<print Math.trunc(($arcologies[$i].minority*random(100-$economicUncertainty,100+$economicUncertainty))/100)>>% share<</if>><</if>>.
+<<if $arcologies[$i].PCminority > 0>>You own $arcologies[$i].PCminority% of this arcology<</if>><<if ($arcologies[$i].government == "your trustees") || ($arcologies[$i].government == "your agent")>><<if $arcologies[$i].minority > $arcologies[$i].PCminority-10>>, a dangerously narrow margin over competition with a <<print Math.trunc(($arcologies[$i].minority*random(100-$economicUncertainty,100+$economicUncertainty))/100)>>% share<</if>>.<</if>>
 <<set $economicUncertainty -= 2*$assistantPower>>
-The arcology has an estimated GSP of @@color:yellowgreen;¤<<print Math.trunc((0.1*$arcologies[$i].prosperity*random(100-$economicUncertainty,100+$economicUncertainty))/100)>>m,@@
+The arcology has an estimated GSP of @@.yellowgreen;¤<<print Math.trunc((0.1*$arcologies[$i].prosperity*random(100-$economicUncertainty,100+$economicUncertainty))/100)>>m,@@
 <<if Math.abs($arcologies[$i].prosperity - $averageProsperity) < 5>>
 	average among
 <<elseif $arcologies[$i].prosperity > $averageProsperity>>
@@ -341,6 +341,24 @@ its neighbors.
 	<<set $desc = $desc + "almost obnoxiously aspirational, with citizens competing to serve the state best.">>
 	<<else>>
 	<<set $desc = $desc + "working its way through sword and sandals fashion towards proper historicity.">>
+	<</if>>
+	<<set $seed.push($desc)>>
+<</if>>
+<<if $arcologies[$i].FSAztecRevivalist != "unset">>
+	<<if $arcologies[$i].FSAztecRevivalist > 80>>
+	<<set $desc = "committed to ">>
+	<<elseif $arcologies[$i].FSAztecRevivalist > 20>>
+	<<set $desc = "pursuing ">>
+	<<else>>
+	<<set $desc = "just establishing ">>
+	<</if>>
+	<<set $desc = $desc + "Aztec Revivalism, and is ">>
+	<<if $arcologies[$i].FSAztecRevivalist > 95>>
+	<<set $desc = $desc + "world famous for its incredible architecture and highly qualified leading caste and military.">>
+	<<elseif $arcologies[$i].FSAztecRevivalist > 40>>
+	<<set $desc = $desc + "busily constructing great pyramids and statues with commensurate costs.">>
+	<<else>>
+	<<set $desc = $desc + "struggling to embrace the amount of blood sacrifice and prayer involved.">>
 	<</if>>
 	<<set $seed.push($desc)>>
 <</if>>

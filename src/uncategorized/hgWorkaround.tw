@@ -1,30 +1,22 @@
-:: HG Workaround
+:: HG Workaround [silently]
 
-<<if ($HeadGirl == 0)>>
-	<<for $i = 0; $i < $slaves.length; $i++>>
-	<<if ($slaves[$i].assignment == "be your Head Girl")>>
-		<<set $slaves[$i].assignment = "rest">>
-		<<set $slaves[$i].assignmentVisible = 1>>
-		<<break>>
-	<</if>>
+<<if $HeadGirl != 0>>
+	<<set _ID = $HeadGirl.ID, _SL = $slaves.length>>
+	<<for _i = 0; _i < _SL; _i++>>
+		<<if (_ID == $slaves[_i].ID)>>
+			<<removeJob $slaves[_i] "be your Head Girl">>
+			<<break>>
+		<</if>>
 	<</for>>
-	<<if $personalAttention == "HG">>
-	<<set $personalAttention = "business">>
-	<</if>>
+<</if>>
+<<if $i > -1>>
+	<<assignJob $slaves[$i] "be your Head Girl">>
+	<<set $HeadGirl = $slaves[$i]>>
 <<else>>
-	<<for $i = 0; $i < $slaves.length; $i++>>
-	<<if $HeadGirl.ID == $slaves[$i].ID>>
-		<<set $slaves[$i].assignment = "be your Head Girl">>
-		<<set $slaves[$i].assignmentVisible = 1>>
-		<<set $slaves[$i].choosesOwnAssignment = 0>>
-		<<set $slaves[$i].sentence = 0>>
-	<<elseif ($slaves[$i].assignment == "be your Head Girl")>>
-		<<set $slaves[$i].assignment = "rest">>
-		<<set $slaves[$i].assignmentVisible = 1>>
-	<</if>>
-	<</for>>
+	<<set $HeadGirl = 0>>
 <</if>>
 
 <<set $HGTimeInGrade = 0>>
 
 <<goto "Main">>
+

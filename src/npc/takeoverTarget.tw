@@ -1,11 +1,10 @@
 :: Takeover Target [nobr]
 
-<<set $ui = "start">>
-<<set $showBodyMods = 1>>
+<<set $ui = "start", $showBodyMods = 1>>
 
 Before you deploy the <<if $PC.rumor == "wealth">>financial reserves that<<elseif $PC.rumor == "diligence">>carefully constructed plan that<<elseif $PC.rumor == "force">>mercenaries and <<if $continent == "Europe">>//maskirovka//<<else>>cover plan<</if>> that<<elseif $PC.rumor == "social engineering">>clever social manipulation that<<else>>optimistic plan you hope<</if>> will allow you to take over an arcology, you need to select a target. There are a number of vulnerable arcologies that you could <<if $PC.rumor == "wealth">>attempt a hostile takeover of<<elseif $PC.rumor == "diligence">>work to take over<<elseif $PC.rumor == "force">>attack<<elseif $PC.rumor == "social engineering">>infiltrate<<else>>aspire to take over<</if>> with a reasonable chance of success. Free Cities are volatile places, even compared to the troubled state of the rest of the world. There are always arcologies whose owners are on the brink of failure, and you could target one of them.
-<<if $PC.career == "arcology owner">>(Since you've @@color:springgreen;owned an arcology before,@@ you identify more potential target arcologies than an novice might.)<</if>>
-Alternatively, arcologies are being built every day, and their owners' control is often uncertain. @@color:orange;Which arcology will you target?@@
+<<if $PC.career == "arcology owner">>(Since you've @@.springgreen;owned an arcology before,@@ you identify more potential target arcologies than a novice might.)<</if>>
+Alternatively, arcologies are being built every day, and their owners' control is often uncertain. @@.orange;Which arcology will you target?@@
 <br><br>
 
 [[A newly constructed arcology|Terrain Intro][$targetArcology.type = "New"]]
@@ -14,7 +13,7 @@ Alternatively, arcologies are being built every day, and their owners' control i
 <br>&nbsp;&nbsp;&nbsp;&nbsp;
 //Recommended for new players.//
 <hr style="margin:0">
-<<set _arcologyTypes = ["Supremacist", "Subjugationist", "Paternalist", "AssetExpansionist", "SlimnessEnthusiast", "TransformationFetishist", "BodyPurist", "MaturityPreferentialist", "YouthPreferentialist", "Pastoralist", "PhysicalIdealist", "ChattelReligionist", "RomanRevivalist", "EgyptianRevivalist", "EdoRevivalist", "ArabianRevivalist", "ChineseRevivalist", "Multiculturalist"]>>
+<<set _arcologyTypes = ["Supremacist", "Subjugationist", "Paternalist", "AssetExpansionist", "SlimnessEnthusiast", "TransformationFetishist", "BodyPurist", "MaturityPreferentialist", "YouthPreferentialist", "Pastoralist", "PhysicalIdealist", "ChattelReligionist", "RomanRevivalist", "AztecRevivalist", "EgyptianRevivalist", "EdoRevivalist", "ArabianRevivalist", "ChineseRevivalist", "Multiculturalist"]>>
 <<if $seeDicks != 0>><<set _arcologyTypes.push("GenderRadicalist")>><</if>>
 <<if $seeDicks != 100>><<set _arcologyTypes.push("GenderFundamentalist")>><</if>>
 <<if $seeExtreme != 0>><<set _arcologyTypes.push("Degradationist")>><</if>>
@@ -32,76 +31,77 @@ Alternatively, arcologies are being built every day, and their owners' control i
 		<<set $targetArcology.race = _races.random()>>
 		<<switch $targetArcology.race>>
 		<<case "white">>
-			<<set $targetArcology.name = $ArcologyNamesSupremacistWhite.random()>>
+			<<set $targetArcology.name = setup.ArcologyNamesSupremacistWhite.random()>>
 		<<case "asian">>
-			<<set $targetArcology.name = $ArcologyNamesSupremacistAsian.random()>>
+			<<set $targetArcology.name = setup.ArcologyNamesSupremacistAsian.random()>>
 		<<case "latina">>
-			<<set $targetArcology.name = $ArcologyNamesSupremacistLatina.random()>>
+			<<set $targetArcology.name = setup.ArcologyNamesSupremacistLatina.random()>>
 		<<case "middle eastern">>
-			<<set $targetArcology.name = $ArcologyNamesSupremacistMiddleEastern.random()>>
+			<<set $targetArcology.name = setup.ArcologyNamesSupremacistMiddleEastern.random()>>
 		<<case "black">>
-			<<set $targetArcology.name = $ArcologyNamesSupremacistBlack.random()>>
+			<<set $targetArcology.name = setup.ArcologyNamesSupremacistBlack.random()>>
 		<<case "indo-aryan">>
-			<<set $targetArcology.name = $ArcologyNamesSupremacistIndoAryan.random()>>
+			<<set $targetArcology.name = setup.ArcologyNamesSupremacistIndoAryan.random()>>
 		<<case "pacific islander">>
-			<<set $targetArcology.name = $ArcologyNamesSupremacistPacificIslander.random()>>
+			<<set $targetArcology.name = setup.ArcologyNamesSupremacistPacificIslander.random()>>
 		<<case "malay">>
-			<<set $targetArcology.name = $ArcologyNamesSupremacistMalay.random()>>
+			<<set $targetArcology.name = setup.ArcologyNamesSupremacistMalay.random()>>
 		<<case "amerindian">>
-			<<set $targetArcology.name = $ArcologyNamesSupremacistAmerindian.random()>>
+			<<set $targetArcology.name = setup.ArcologyNamesSupremacistAmerindian.random()>>
 		<<case "southern european">>
-			<<set $targetArcology.name = $ArcologyNamesSupremacistSouthernEuropean.random()>>
+			<<set $targetArcology.name = setup.ArcologyNamesSupremacistSouthernEuropean.random()>>
 		<<case "semitic">>
-			<<set $targetArcology.name = $ArcologyNamesSupremacistSemitic.random()>>
+			<<set $targetArcology.name = setup.ArcologyNamesSupremacistSemitic.random()>>
 		<<default>>
-			<<set $targetArcology.name = $ArcologyNamesSupremacistMixedRace.random()>>
+			<<set $targetArcology.name = setup.ArcologyNamesSupremacistMixedRace.random()>>
 		<</switch>>
 	<<case "Subjugationist">>
 		<<set $targetArcology.race = _races.random()>>
 		<<switch $targetArcology.race>>
 		<<case "white">>
-			<<set $targetArcology.name = $ArcologyNamesSubjugationistWhite.random()>>
+			<<set $targetArcology.name = setup.ArcologyNamesSubjugationistWhite.random()>>
 		<<case "asian">>
-			<<set $targetArcology.name = $ArcologyNamesSubjugationistAsian.random()>>
+			<<set $targetArcology.name = setup.ArcologyNamesSubjugationistAsian.random()>>
 		<<case "latina">>
-			<<set $targetArcology.name = $ArcologyNamesSubjugationistLatina.random()>>
+			<<set $targetArcology.name = setup.ArcologyNamesSubjugationistLatina.random()>>
 		<<case "middle eastern">>
-			<<set $targetArcology.name = $ArcologyNamesSubjugationistMiddleEastern.random()>>
+			<<set $targetArcology.name = setup.ArcologyNamesSubjugationistMiddleEastern.random()>>
 		<<case "black">>
-			<<set $targetArcology.name = $ArcologyNamesSubjugationistBlack.random()>>
+			<<set $targetArcology.name = setup.ArcologyNamesSubjugationistBlack.random()>>
 		<<case "indo-aryan">>
-			<<set $targetArcology.name = $ArcologyNamesSubjugationistIndoAryan.random()>>
+			<<set $targetArcology.name = setup.ArcologyNamesSubjugationistIndoAryan.random()>>
 		<<case "pacific islander">>
-			<<set $targetArcology.name = $ArcologyNamesSubjugationistPacificIslander.random()>>
+			<<set $targetArcology.name = setup.ArcologyNamesSubjugationistPacificIslander.random()>>
 		<<case "malay">>
-			<<set $targetArcology.name = $ArcologyNamesSubjugationistMalay.random()>>
+			<<set $targetArcology.name = setup.ArcologyNamesSubjugationistMalay.random()>>
 		<<case "amerindian">>
-			<<set $targetArcology.name = $ArcologyNamesSubjugationistAmerindian.random()>>
+			<<set $targetArcology.name = setup.ArcologyNamesSubjugationistAmerindian.random()>>
 		<<case "southern european">>
-			<<set $targetArcology.name = $ArcologyNamesSubjugationistSouthernEuropean.random()>>
+			<<set $targetArcology.name = setup.ArcologyNamesSubjugationistSouthernEuropean.random()>>
 		<<case "semitic">>
-			<<set $targetArcology.name = $ArcologyNamesSubjugationistSemitic.random()>>\
+			<<set $targetArcology.name = setup.ArcologyNamesSubjugationistSemitic.random()>>\
 		<<default>>
-			<<set $targetArcology.name = $ArcologyNamesSubjugationistMixedRace.random()>>
+			<<set $targetArcology.name = setup.ArcologyNamesSubjugationistMixedRace.random()>>
 		<</switch>>
-	<<case "GenderRadicalist">><<set $targetArcology.name = $ArcologyNamesGenderRadicalist.random()>>
-	<<case "GenderFundamentalist">><<set $targetArcology.name = $ArcologyNamesGenderFundamentalist.random()>>
-	<<case "Paternalist">><<set $targetArcology.name = $ArcologyNamesPaternalist.random()>>
-	<<case "Degradationist">><<set $targetArcology.name = $ArcologyNamesDegradationist.random()>>
-	<<case "AssetExpansionist">><<set $targetArcology.name = $ArcologyNamesAssetExpansionist.random()>>
-	<<case "SlimnessEnthusiast">><<set $targetArcology.name = $ArcologyNamesSlimnessEnthusiast.random()>>
-	<<case "TransformationFetishist">><<set $targetArcology.name = $ArcologyNamesTransformationFetishist.random()>>
-	<<case "BodyPurist">><<set $targetArcology.name = $ArcologyNamesBodyPurist.random()>>
-	<<case "MaturityPreferentialist">><<set $targetArcology.name = $ArcologyNamesMaturityPreferentialist.random()>>
-	<<case "YouthPreferentialist">><<set $targetArcology.name = $ArcologyNamesYouthPreferentialist.random()>>
-	<<case "Pastoralist">><<set $targetArcology.name = $ArcologyNamesPastoralist.random()>>
-	<<case "PhysicalIdealist">><<set $targetArcology.name = $ArcologyNamesPhysicalIdealist.random()>>
-	<<case "ChattelReligionist">><<set $targetArcology.name = $ArcologyNamesChattelReligionist.random()>>
-	<<case "RomanRevivalist">><<set $targetArcology.name = $ArcologyNamesRomanRevivalist.random()>>
-	<<case "EgyptianRevivalist">><<set $targetArcology.name = $ArcologyNamesEgyptianRevivalist.random()>>
-	<<case "EdoRevivalist">><<set $targetArcology.name = $ArcologyNamesEdoRevivalist.random()>>
-	<<case "ArabianRevivalist">><<set $targetArcology.name = $ArcologyNamesArabianRevivalist.random()>>
-	<<case "ChineseRevivalist">><<set $targetArcology.name = $ArcologyNamesChineseRevivalist.random()>>
+	<<case "GenderRadicalist">><<set $targetArcology.name = setup.ArcologyNamesGenderRadicalist.random()>>
+	<<case "GenderFundamentalist">><<set $targetArcology.name = setup.ArcologyNamesGenderFundamentalist.random()>>
+	<<case "Paternalist">><<set $targetArcology.name = setup.ArcologyNamesPaternalist.random()>>
+	<<case "Degradationist">><<set $targetArcology.name = setup.ArcologyNamesDegradationist.random()>>
+	<<case "AssetExpansionist">><<set $targetArcology.name = setup.ArcologyNamesAssetExpansionist.random()>>
+	<<case "SlimnessEnthusiast">><<set $targetArcology.name = setup.ArcologyNamesSlimnessEnthusiast.random()>>
+	<<case "TransformationFetishist">><<set $targetArcology.name = setup.ArcologyNamesTransformationFetishist.random()>>
+	<<case "BodyPurist">><<set $targetArcology.name = setup.ArcologyNamesBodyPurist.random()>>
+	<<case "MaturityPreferentialist">><<set $targetArcology.name = setup.ArcologyNamesMaturityPreferentialist.random()>>
+	<<case "YouthPreferentialist">><<set $targetArcology.name = setup.ArcologyNamesYouthPreferentialist.random()>>
+	<<case "Pastoralist">><<set $targetArcology.name = setup.ArcologyNamesPastoralist.random()>>
+	<<case "PhysicalIdealist">><<set $targetArcology.name = setup.ArcologyNamesPhysicalIdealist.random()>>
+	<<case "ChattelReligionist">><<set $targetArcology.name = setup.ArcologyNamesChattelReligionist.random()>>
+	<<case "RomanRevivalist">><<set $targetArcology.name = setup.ArcologyNamesRomanRevivalist.random()>>
+	<<case "AztecRevivalist">><<set $targetArcology.name = setup.ArcologyNamesAztecRevivalist.random()>>
+	<<case "EgyptianRevivalist">><<set $targetArcology.name = setup.ArcologyNamesEgyptianRevivalist.random()>>
+	<<case "EdoRevivalist">><<set $targetArcology.name = setup.ArcologyNamesEdoRevivalist.random()>>
+	<<case "ArabianRevivalist">><<set $targetArcology.name = setup.ArcologyNamesArabianRevivalist.random()>>
+	<<case "ChineseRevivalist">><<set $targetArcology.name = setup.ArcologyNamesChineseRevivalist.random()>>
 	<<default>><<set $targetArcology.name = "Arcology X-4">>
 	<</switch>>
 	<<set $targetArcology.FSProgress = either(10,30,50)>>
@@ -146,37 +146,40 @@ Alternatively, arcologies are being built every day, and their owners' control i
 		has just begun to adopt
 	<</if>>
 	<<switch _targetArcologies[$i].type>>
-	<<case "Supremacist">>@@color:orange;Supremacy of the _targetArcologies[$i].race race.@@
-	<<case "Subjugationist">>@@color:orange;Subjugation of the _targetArcologies[$i].race race.@@
-	<<case "GenderRadicalist">>@@color:orange;Gender Radicalism,@@ a movement that supports feminization of slavegirls with dicks.
-	<<case "GenderFundamentalist">>@@color:orange;Gender Fundamentalism,@@ a reaction to modern libertinism that seeks to reinforce gender roles.
-	<<case "Paternalist">>@@color:orange;Paternalism,@@ an optimistic strain of slavery that protects and improves slaves.
-	<<case "Degradationist">>@@color:orange;Degradationism,@@ an extreme branch of modern slavery that treats slaves as subhuman.
-	<<case "AssetExpansionist">>@@color:orange;Asset Expansionism,@@ a societal preoccupation with expansion of body parts, especially breasts.
-	<<case "SlimnessEnthusiast">>@@color:orange;Slimness Enthusiasm,@@ an aesthetic movement that fetishizes the lithe female form.
-	<<case "TransformationFetishist">>@@color:orange;Transformation Fetishism,@@ a focus on implants and other kinds of surgical alteration.
-	<<case "BodyPurist">>@@color:orange;Body Purism,@@ a reaction to extreme surgical fetishism that prefers bodies grown biologically.
-	<<case "MaturityPreferentialist">>@@color:orange;Maturity Preferentialism,@@ an appetite for mature slaves based on MILF fetishism.
-	<<case "YouthPreferentialist">>@@color:orange;Youth Preferentialism,@@ which focuses on youth and virginity in slaves.
-	<<case "Pastoralist">>@@color:orange;Pastoralism,@@ an appetite for products of the human body, especially milk.
-	<<case "PhysicalIdealist">>@@color:orange;Physical Idealism,@@ an aspirational movement which fetishizes muscle and physical fitness.
-	<<case "ChattelReligionist">>@@color:orange;Chattel Religionism,@@ a religious revival in the context of modern slavery.
-	<<case "RomanRevivalist">>@@color:orange;Roman Revivalism,@@ which seeks to recreate the glory that was ancient Rome.
+	<<case "Supremacist">>@@.orange;Supremacy of the _targetArcologies[$i].race race.@@
+	<<case "Subjugationist">>@@.orange;Subjugation of the _targetArcologies[$i].race race.@@
+	<<case "GenderRadicalist">>@@.orange;Gender Radicalism,@@ a movement that supports feminization of slavegirls with dicks.
+	<<case "GenderFundamentalist">>@@.orange;Gender Fundamentalism,@@ a reaction to modern libertinism that seeks to reinforce gender roles.
+	<<case "Paternalist">>@@.orange;Paternalism,@@ an optimistic strain of slavery that protects and improves slaves.
+	<<case "Degradationist">>@@.orange;Degradationism,@@ an extreme branch of modern slavery that treats slaves as subhuman.
+	<<case "AssetExpansionist">>@@.orange;Asset Expansionism,@@ a societal preoccupation with expansion of body parts, especially breasts.
+	<<case "SlimnessEnthusiast">>@@.orange;Slimness Enthusiasm,@@ an aesthetic movement that fetishizes the lithe female form.
+	<<case "TransformationFetishist">>@@.orange;Transformation Fetishism,@@ a focus on implants and other kinds of surgical alteration.
+	<<case "BodyPurist">>@@.orange;Body Purism,@@ a reaction to extreme surgical fetishism that prefers bodies grown biologically.
+	<<case "MaturityPreferentialist">>@@.orange;Maturity Preferentialism,@@ an appetite for mature slaves based on MILF fetishism.
+	<<case "YouthPreferentialist">>@@.orange;Youth Preferentialism,@@ which focuses on youth and virginity in slaves.
+	<<case "Pastoralist">>@@.orange;Pastoralism,@@ an appetite for products of the human body, especially milk.
+	<<case "PhysicalIdealist">>@@.orange;Physical Idealism,@@ an aspirational movement which fetishizes muscle and physical fitness.
+	<<case "ChattelReligionist">>@@.orange;Chattel Religionism,@@ a religious revival in the context of modern slavery.
+	<<case "RomanRevivalist">>@@.orange;Roman Revivalism,@@ which seeks to recreate the glory that was ancient Rome.
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;
 		It has an established lingua franca: Latin.
-	<<case "EgyptianRevivalist">>@@color:orange;Egyptian Revivalism,@@ a movement to rebuild the monuments and greatness of ancient Egypt.
+	<<case "AztecRevivalist">>@@.orange;Aztec Revivalism,@@ which aspires to reach the heights of the Aztec Empire at it's peak.
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;
+		It has an established lingua franca: Nahuatl.
+	<<case "EgyptianRevivalist">>@@.orange;Egyptian Revivalism,@@ a movement to rebuild the monuments and greatness of ancient Egypt.
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;
 		It has an established lingua franca: Ancient Egyptian.
-	<<case "EdoRevivalist">>@@color:orange;Edo Revivalism,@@ an insular movement with a focus on the cultural superiority of old Japan.
+	<<case "EdoRevivalist">>@@.orange;Edo Revivalism,@@ an insular movement with a focus on the cultural superiority of old Japan.
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;
 		It has an established lingua franca: Japanese.
-	<<case "ArabianRevivalist">>@@color:orange;Arabian Revivalism,@@ a melding of Arabian history and recent mythology of the Near East.
+	<<case "ArabianRevivalist">>@@.orange;Arabian Revivalism,@@ a melding of Arabian history and recent mythology of the Near East.
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;
 		It has an established lingua franca: Arabic.
-	<<case "ChineseRevivalist">>@@color:orange;Chinese Revivalism,@@ which modernizes the assumed superiority of the Middle Kingdom.
+	<<case "ChineseRevivalist">>@@.orange;Chinese Revivalism,@@ which modernizes the assumed superiority of the Middle Kingdom.
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;
 		It has an established lingua franca: Chinese.
-	<<default>>@@color:orange;Multiculturalism,@@ a celebration of the total liberty that was the original purpose of the Free Cities.
+	<<default>>@@.orange;Multiculturalism,@@ a celebration of the total liberty that was the original purpose of the Free Cities.
 	<</switch>>
 	<hr style="margin:0">
 <</for>>

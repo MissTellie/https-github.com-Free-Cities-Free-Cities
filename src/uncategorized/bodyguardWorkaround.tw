@@ -1,24 +1,19 @@
-:: Bodyguard Workaround
+:: Bodyguard Workaround [silently]
 
-
-	<<for $i = 0; $i < $slaves.length; $i++>>
-	<<if ($slaves[$i].assignment == "guard you") && ($slaves[$i].ID != $Bodyguard.ID)>>
-		<<set $slaves[$i].assignment = "rest">>
-		<<set $slaves[$i].assignmentVisible = 1>>
-		<<break>>
-	<</if>>
+<<if $Bodyguard != 0>>
+	<<set _ID = $Bodyguard.ID, _SL = $slaves.length>>
+	<<for _i = 0; _i < _SL; _i++>>
+		<<if (_ID == $slaves[_i].ID)>>
+			<<removeJob $slaves[_i] "guard you">>
+			<<break>>
+		<</if>>
 	<</for>>
-
-	<<for $i = 0; $i < $slaves.length; $i++>>
-	<<if $Bodyguard.ID == $slaves[$i].ID>>
-		<<set $slaves[$i].assignment = "guard you">>
-		<<set $slaves[$i].assignmentVisible = 1>>
-		<<set $slaves[$i].choosesOwnAssignment = 0>>
-		<<set $slaves[$i].sentence = 0>>
-		<<break>>
-	<</if>>
-	<</for>>
-
-
+<</if>>
+<<if $i > -1>>
+	<<assignJob $slaves[$i] "guard you">>
+	<<set $Bodyguard = $slaves[$i]>>
+<<else>>
+	<<set $Bodyguard = 0>>
+<</if>>
 
 <<goto "Main">>

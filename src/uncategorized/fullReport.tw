@@ -1,21 +1,16 @@
 :: Full Report [nobr]
 
 /* 000-250-006 */
-<<if $seeImages == 1>>
+<<if $seeImages>>
+<<if $seeReportImages>>
     <div class="imageRef medImg">
     <<SlaveArt $slaves[$i] 2 0>>
-</div>
+    </div>
+<</if>>
 <</if>>
 /* 000-250-006 */
 
 <<SlavePronouns $slaves[$i]>>
-
-''__@@color:pink;$slaves[$i].slaveName@@__''
-
-<<if $slaves[$i].choosesOwnAssignment == 1>>
-	<<include "SA chooses own job">>
-	She
-<</if>>
 
 <<switch $slaves[$i].assignment>>
 <<case "rest">>
@@ -27,6 +22,7 @@
 <<case "work a glory hole">>
 	<<include "SA work a glory hole">>
 <<case "get milked">>
+	<<set $servantMilkersMultiplier = 1>>
 	<<include "SA get milked">>
 <<case "take classes">>
 	<<include "SA take classes">>
@@ -51,7 +47,7 @@
 
 <<if $servantMilkers == 1 && $slaves[$i].lactation > 0 && $slaves[$i].assignment != "get milked">>
 	$possessiveCap assignment
-	<<if $servantMilkersJobs.includes($slaves[$i].assignment)>>
+	<<if setup.servantMilkersJobs.includes($slaves[$i].assignment)>>
 		is not strenuous, so $pronoun <<if $slaves[$i].devotion > 20>><<if $slaves[$i].fetish == "boobs">>eagerly <</if>>uses<<elseif $slaves[$i].devotion >= -20>>is required to use<<else>>is forced to use<</if>> the penthouse milkers frequently,
 		<<set $servantMilkersMultiplier = 0.5>>
 	<<else>>
@@ -60,7 +56,7 @@
 	<</if>>
 	<<silently>><<include "SA get milked">><</silently>>
 	<<set $servantMilkersMultiplier = 1>>
-	and $pronoun gives $milk liters of milk over the week, which is sold for @@color:yellowgreen;¤$milkSale.@@
+	and $pronoun gives $milk liters of milk over the week, which is sold for @@.yellowgreen;¤$milkSale.@@
 <</if>>
 
 <br>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -71,14 +67,7 @@
 <<if $showEWD == 0>>
 	<<silently>>
 	<<include "SA rules">>
-	<<if $slaves[$i].choosesOwnClothes == 1>>
 	<<include "SA chooses own clothes">>
-	<<if ($slaves[$i].devotion <= 20)>>
-		<<set $slaves[$i].devotion -= 5>>
-	<<else>>
-		<<set $slaves[$i].devotion += 1>>
-	<</if>>
-	<</if>>
 	<<include "SA diet">>
 	<<include "SA long term effects">>
 	<<include "SA drugs">>
@@ -87,14 +76,7 @@
 	<</silently>>
 <<else>>
 	<<include "SA rules">>
-	<<if $slaves[$i].choosesOwnClothes == 1>>
 	<<include "SA chooses own clothes">>
-	<<if ($slaves[$i].devotion <= 20)>>
-		<<set $slaves[$i].devotion -= 5>>
-	<<else>>
-		<<set $slaves[$i].devotion += 1>>
-	<</if>>
-	<</if>>
 	<<include "SA diet">>
 	<<include "SA long term effects">>
 	<<include "SA drugs">>

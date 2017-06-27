@@ -1,6 +1,4 @@
-:: FAnus
-
-<<nobr>>
+:: FAnus [nobr]
 
 <<set $activeSlave.analCount++, $analTotal++>>
 
@@ -43,26 +41,24 @@ You call her over so you can
 	Her perineum piercing has a big ring in it, which you should be able to feel when you hilt yourself in her ass.
 <</if>>
 
-
-<<if ($activeSlave.anusTat != 0) && ($activeSlave.anusTat != 4)>>
+<<if ($activeSlave.anusTat !== 0) && ($activeSlave.anusTat !== 4)>>
+Her anus is invitingly bleached,
 <<if ($activeSlave.vagina > -1)>>
-	Her anus is invitingly bleached, which is appropriate: rather than looking like she has a hole for fucking and an ass, it looks like she has two fuckholes.
-<<elseif ($activeSlave.balls == 0)>>
-	Her anus is invitingly bleached, making it look like she has a natural fuckhole despite the fact that she's a gelding.
+	which is appropriate: rather than looking like she has a hole for fucking and an ass, it looks like she has two fuckholes.
 <<else>>
-	Her anus is invitingly bleached, making it look like she has a natural fuckhole despite the fact that she's a shemale.
+	making her sole fuckable hole look nice and natural.
 <</if>>
 <</if>>
 
 <<if ($activeSlave.anus == 0)>>
 	<<if ($activeSlave.devotion > 20)>>
-		She accepts your orders without comment and presents her virgin anus for defloration. You<<if ($PC.dick == 0)>> don a strap-on and<</if>> gently sodomize her. You gently ease into her butthole and slowly accelerate your thrusting into her ass. Since she is already well broken, this new connection with her <<if def $PC.customTitle>>$PC.customTitle<<elseif $PC.title != 0>>master<<else>>mistress<</if>> @@color:hotpink;increases her devotion to you.@@ @@color:lime;Her tight little ass has been broken in.@@ She looks forward to having her asshole fucked by you again.
+		She accepts your orders without comment and presents her virgin anus for defloration. You<<if ($PC.dick == 0)>> don a strap-on and<</if>> gently sodomize her. You gently ease into her butthole and slowly accelerate your thrusting into her ass. Since she is already well broken, this new connection with her <<Master>> @@.hotpink;increases her devotion to you.@@ @@.lime;Her tight little ass has been broken in.@@ She looks forward to having her asshole fucked by you again.
 		<<set $activeSlave.devotion += 4>>
 	<<elseif ($activeSlave.devotion >= -20)>>
-		She is clearly unhappy at the idea of taking a dick up her butt. She obeys orders anyway, and lies there wincing and moaning as you<<if ($PC.dick == 0)>> don a strap-on and<</if>> fuck her ass. You gently ease into her butthole and slowly accelerate your thrusting into her ass. However she still squeals in pain as you continue pounding. @@color:lime;Her tight little ass has been broken in,@@ and she @@color:gold;fears further anal pain.@@
+		She is clearly unhappy at the idea of taking a dick up her butt. She obeys orders anyway, and lies there wincing and moaning as you<<if ($PC.dick == 0)>> don a strap-on and<</if>> fuck her ass. You gently ease into her butthole and slowly accelerate your thrusting into her ass. However she still squeals in pain as you continue pounding. @@.lime;Her tight little ass has been broken in,@@ and she @@.gold;fears further anal pain.@@
 		<<set  $activeSlave.trust -= 5>>
 	<<else>>
-		She is appalled at the idea of taking it up the ass<<if ($PC.dick == 0)>> and cries with fear as you don a strap-on<</if>>. She does anyway though, sobbing into the cushions<<if $activeSlave.amp != 1>> while you hold her arms behind her<</if>>. You force yourself into her butthole and continue thrusting your member into her ass. She sobs and cries with disgust while you pump into her rear. The painful anal rape @@color:mediumorchid;decreases her devotion to you.@@ @@color:lime;Her tight little ass has been broken in,@@ and she is @@color:gold;terrified of further anal pain.@@
+		She is appalled at the idea of taking it up the ass<<if ($PC.dick == 0)>> and cries with fear as you don a strap-on<</if>>. She does anyway though, sobbing into the cushions<<if $activeSlave.amp != 1>> while you hold her arms behind her<</if>>. You force yourself into her butthole and continue thrusting your member into her ass. She sobs and cries with disgust while you pump into her rear. The painful anal rape @@.mediumorchid;decreases her devotion to you.@@ @@.lime;Her tight little ass has been broken in,@@ and she is @@.gold;terrified of further anal pain.@@
 		<<set $activeSlave.devotion -= 10, $activeSlave.trust -= 10>>
 	<</if>>
 	<<set $activeSlave.anus++>>
@@ -111,12 +107,20 @@ You call her over so you can
 		as her limp dick flops around.
 	<<elseif ($activeSlave.dick != 0)>>
 		as her erect dick waves in the air.
+	<<elseif $activeSlave.vagina == -1>>
+		as it does its duty as her sole fuckhole.
 	<<else>>
 		as it substitutes for her pussy.
 	<</if>>
 	She gets aroused despite her discomfort with anal, though she doesn't orgasm.
 <<else>>
-	<<if ($activeSlave.amp != 1)>>She kneels on the couch<<else>>You lay her on the couch<</if>> with her <<if $seeRace == 1>>$activeSlave.race <</if>>butt facing you, back strongly arched to angle her rectum for more comfortable anal coupling<<if ($PC.dick == 0)>>; you don a strap-on and rub a little lubricant into her rear<</if>>. You take your time and fuck her butthole for a good long while. <<if ($activeSlave.anus == 1)>>Her ass is so tight that she has to concentrate on relaxing for you.<<elseif ($activeSlave.anus == 2)>>Her experienced ass feels great.<<else>>Her asspussy is so loose you can pound it as hard as you like.<</if>> She rubs her <<if ($activeSlave.amp == 1)>>body against you as much as she can manage<<elseif ($activeSlave.dick != 0) && ($activeSlave.hormones < 1) && ($activeSlave.balls != 0)>>hardon<<elseif ($activeSlave.dick != 0)>>soft dick<<elseif ($activeSlave.vaginalAccessory == "chastity belt")>>nipples<<elseif ($activeSlave.clit > 2)>>huge, stiff clit<<else>>clit<</if>>, and brings herself to orgasm before you. <<if ($PC.dick == 0)>>The sight of her gasping and shaking her way through an anal orgasm brings you to climax yourself, and you shove yourself against the strap-on harness with enough force to give the slave's sensitized hole a final brutal stretching.<<else>>Her orgasmic rectal spasms squeeze your cock and you blow your load inside her ass.<</if>>
+	<<if ($activeSlave.amp != 1)>>She kneels on the couch<<else>>You lay her on the couch<</if>> with her <<if $seeRace == 1>>$activeSlave.race <</if>>butt facing you, back strongly arched to angle her rectum for more comfortable anal coupling.
+	<<if $activeSlave.amp != 1 && $activeSlave.prostate > 1 && $activeSlave.dick > 3>>
+		<<if $PC.dick == 0>>While you don a strap-on, she<<else>>She<</if>> shoves her slavering dick down and around towards her ass and squeezes it, pushing a lot of her precum out to lube her own asshole.
+	<<else>>
+		<<if $PC.dick == 0>>You don a strap-on and let some saliva fall onto its head<<else>>You let some saliva fall onto your dickhead<</if>> before penetrating her.
+	<</if>>
+	You take your time and fuck her butthole for a good long while. <<if ($activeSlave.anus == 1)>>Her ass is so tight that she has to concentrate on relaxing for you.<<elseif ($activeSlave.anus == 2)>>Her experienced ass feels great.<<else>>Her asspussy is so loose you can pound it as hard as you like.<</if>> She rubs her <<if ($activeSlave.amp == 1)>>body against you as much as she can manage<<elseif ($activeSlave.dick != 0) && ($activeSlave.hormones < 1) && ($activeSlave.balls != 0)>>hardon<<elseif ($activeSlave.dick != 0)>>soft dick<<elseif ($activeSlave.vaginalAccessory == "chastity belt") or ($activeSlave.clit == 0)>>nipples<<elseif ($activeSlave.clit > 2)>>huge, stiff clit<<else>>clit<</if>>, and brings herself to orgasm before you. <<if ($PC.dick == 0)>>The sight of her gasping and shaking her way through an anal orgasm brings you to climax yourself, and you shove yourself against the strap-on harness with enough force to give the slave's sensitized hole a final brutal stretching.<<else>>Her orgasmic rectal spasms squeeze your cock and you blow your load inside her ass.<</if>>
 <</if>>
 
 <<if ($activeSlave.preg > 10)>>
@@ -133,12 +137,12 @@ You call her over so you can
 
 <<if (random(1,100) > (100 + $activeSlave.devotion))>>
 	<<if ($activeSlave.fetish != "buttslut") && ($activeSlave.energy <= 95) && ($activeSlave.sexualFlaw != "hates anal")>>
-		Being assraped has given her a @@color:red;hatred of anal sex.@@
+		Being assraped has given her a @@.red;hatred of anal sex.@@
 		<<set $activeSlave.sexualFlaw = "hates anal">>
 	<</if>>
 <<elseif (random(1,100) > (110-$activeSlave.devotion))>>
 	<<if ($activeSlave.fetish == "none") && ($activeSlave.sexualFlaw != "hates anal")>>
-		Orgasming to the sensation of your member in her bottom @@color:lightcoral;has her eager for anal.@@
+		Orgasming to the sensation of your member in her bottom @@.lightcoral;has her eager for anal.@@
 		<<set $activeSlave.fetish = "buttslut", $activeSlave.fetishKnown = 1>>
 	<</if>>
 <</if>>
@@ -211,4 +215,3 @@ You call her over so you can
 <</for>>
 <</if>>
 <<set _Anus = "">>
-<</nobr>>

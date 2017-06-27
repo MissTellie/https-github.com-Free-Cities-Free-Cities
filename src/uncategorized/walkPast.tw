@@ -98,7 +98,7 @@
 		<</if>>
 	<<case "serve in the master suite">>
 		<<if $activeSlave.fuckdoll > 0>>
-			waiting for use in $masterSuiteName, next to a display case full of other sex toys. 
+			waiting for use in $masterSuiteName, next to a display case full of other sex toys.
 		<<elseif $masterSuiteUpgradeLuxury == 1>>
 			<<if _seed > 50>>
 				is kneeling on the big bed in $masterSuiteName, awaiting your return.
@@ -460,6 +460,8 @@
 		oversee your other slaves;
 	<<case "be your Recruiter">>
 		use her connections to recruit slaves;
+	<<default>>
+		_partnerSlave.assignment;
 	<</switch>>
 
 	<<if (_partnerSlave.amp == 1)>>
@@ -723,7 +725,7 @@
 		<<case "dom" "sadist">>
 			sleeping in bed together. $activeSlave.slaveName is spooning her _activeSlaveRel possessively<<if $activeSlave.amp !== 1>>, and even in her sleep, has a proprietary hand on _partnerSlave.slaveName's <<if _partnerSlave.balls > 0>>balls<<elseif _partnerSlave.balls > 0>>soft cock<<else>>pussy<</if>><</if>>.
 		<<case "pregnancy">>
-			sleeping in bed together. 
+			sleeping in bed together.
 			<<if $activeSlave.preg > 20 && _activeSlaveRel.preg > 20>>
 				They are pressed as close as they can be with their rounded middles in the way.
 			<<elseif $activeSlave.preg > 20>>
@@ -980,80 +982,128 @@
 	<<BoobsDescription>>
 	<<switch $activeSlave.clothes>>
 	<<case "uncomfortable straps">>
-		The strap over her tits presses the soft flesh, and the ring around each nipple forces them to stick out.
+		<<if $activeSlave.boobs < 300>>
+			The rings constantaly rub against her chest and force her nipples to stick out.
+		<<else>>
+			The strap over her tits presses the soft flesh, and the ring around each nipple forces them to stick out.
+		<</if>>
 	<<case "shibari ropes">>
-		The ropes binding her chest dig into the soft flesh as she moves.
+		<<if $activeSlave.boobs < 300>>
+			The ropes binding her chest shift slightly with every step, since she lacks any breasts to hold them in place.
+		<<else>>
+			The ropes binding her chest dig into the soft flesh as she moves.
+		<</if>>
 	<<case "restrictive latex">>
-		Her tits stick out through her latex outfit.
+		<<if $activeSlave.boobs < 300>>
+			Her lack of breasts draws your eyes straight to her exposed nipples.
+		<<else>>
+			Her tits stick out through her latex outfit.
+		<</if>>
 	<<case "attractive lingerie">>
 		Her pretty white lace bra has thoughtful cuts that tastefully let her nipples stick through.
 	<<case "a succubus outfit">>
-		Her succubus outfit presents this sex demon's breasts, inviting a damning fondle.
+		<<if $activeSlave.boobs < 300>>
+			Her succubus outfit presents this sex demon's flat chest, inviting a damning fondle.
+		<<else>>
+			Her succubus outfit presents this sex demon's breasts, inviting a damning fondle.
+		<</if>>
 	<<case "a slutty maid outfit">>
-		Her maid outfit covers her breasts with a thin white blouse designed to be easy to pull down.
+		<<if $activeSlave.boobs < 300>>
+			Her maid outfit covers her flat chest with a thin white blouse designed to be easy to pull down.
+		<<else>>
+			Her maid outfit covers her breasts with a thin white blouse designed to be easy to pull down.
+		<</if>>
 	<<case "a nice maid outfit">>
-		Her maid outfit covers her breasts demurely, offering the diverting task of pulling it off her.
+		<<if $activeSlave.boobs < 300>>
+			Her maid outfit covers her flat chest demurely, offering the diverting task of pulling it off her.
+		<<else>>
+			Her maid outfit covers her breasts demurely, offering the diverting task of pulling it off her.
+		<</if>>
 	<<case "a string bikini">>
-		Her string bikini covers only her nipples, leaving the remainder of her breasts naked.
+		Her string bikini covers only her nipples, leaving the remainder of her <<if $activeSlave.boobs < 300>>flat chest<<else>>breasts<</if>> naked.
 	<<case "clubslut netting">>
 		As she moves, the weave of the netting over her chest slips back and forth across her nipples.
 	<<case "a cheerleader outfit">>
-		As she moves, her chest threatens to fall out of her cheerleader top.
+		<<if $activeSlave.boobs < 300>>
+			As she moves, the tight fabric rubs across her obvious nipples.
+		<<else>>
+			As she moves, her chest threatens to fall out of her cheerleader top.
+		<</if>>
 	<<case "cutoffs and a t-shirt">>
-		Her tits are bare under her t-shirt, so movement gives delicious hints of their motion.
+		<<if $activeSlave.boobs < 300>>
+			Her non-existent breasts are bare under her t-shirt; not that you can really tell since they lack motion completely.
+		<<else>>
+			Her tits are bare under her t-shirt, so movement gives delicious hints of their motion.
+		<</if>>
 	<<case "a slutty outfit">>
 		<<if (random(1,100) > 50)>>
-		For today's slutty outfit she's chosen a handkerchief top that occasionally comes untied and spills her breasts out naked.
+			For today's slutty outfit she's chosen a handkerchief top that occasionally comes untied and <<if $activeSlave.boobs < 300>>reveals her flat chest<<else>>spills her breasts out naked<</if>>.
 		<<else>>
-		For today's slutty outfit she's chosen a halter top cut so low that her breasts occasionally pop out.
+			For today's slutty outfit she's chosen a halter top cut so low that <<if $activeSlave.boobs < 300>>it occasionally slips down her flat chest to reveal a nipple<<else>>her breasts occasionally pop out<</if>>.
 		<</if>>
 	<<case "a slave gown">>
-		Her gorgeous dress has thoughtful cuts that tastefully bares her breasts.
+		Her gorgeous dress has thoughtful cuts that tastefully bares her <<if $activeSlave.boobs < 300>>non-existent <</if>>breasts.
 	<<case "slutty business attire">>
-		Her suit jacket and blouse are low enough to show off a lot of boob.
+		Her suit jacket and blouse are low enough to show off a lot of boob<<if $activeSlave.boobs < 300>>, or they would, had she had any<</if>>.
 	<<case "nice business attire">>
 		Her suit jacket and blouse are businesslike, but they could be removed easily enough.
 	<<case "a halter top dress">>
 		Her beautiful halter top dress almost seems to be sculpted around her body.
 	<<case "a ball gown">>
-		Her fabulous silken ball gown is tailored to accentuate the shape of her breasts.
+		Her fabulous silken ball gown is tailored to accentuate the shape of her <<if $activeSlave.boobs < 300>>flat chest<<else>>breasts<</if>>.
 	<<case "a slutty nurse outfit">>
-		Her jacket presents her breasts to be ogled.
+		Her jacket presents her <<if $activeSlave.boobs < 300>>nipples<<else>>breasts<</if>> to be ogled.
 	<<case "a schoolgirl outfit">>
-		Her blouse lewdly displays her breasts.
+		Her blouse lewdly displays her <<if $activeSlave.boobs < 300>>$activeSlave.nipples nipples<<else>>breasts<</if>>.
 	<<case "a kimono">>
 	<<case "a hijab and abaya">>
 	<<case "battledress">>
-		Her tank top and sports bra support rather than flatter her breasts.
+		<<if $activeSlave.boobs < 300>>
+			As she moves, you can occasionally spot her lack of undergarments.
+		<<else>>
+			Her tank top and sports bra support rather than flatter her breasts.
+		<</if>>
 	<<case "a fallen nuns habit">>
-		Her slutty nun outfit leaves her tits sinfully bare.
+		Her slutty nun outfit leaves her <<if $activeSlave.boobs < 300>>flat <</if>>tits sinfully bare.
 	<<case "a chattel habit">>
-		Her chattel habit leaves her tits virtuously bare.
+		Her chattel habit leaves her <<if $activeSlave.boobs < 300>>flat <</if>>tits virtuously bare.
 	<<case "a penitent nuns habit">>
 		Her habit chafes her nipples so harshly that it would probably be a relief to her to have it stripped off her.
 	<<case "a comfortable bodysuit">>
-		Her bodysuit is tight enough to show off every contour of her chest.
+		Her bodysuit is tight enough to show off <<if $activeSlave.boobs < 300>>just how flat she is<<else>>every contour of her chest<</if>>.
 	<<case "a latex catsuit">>
-		Her latex catsuit is tight enough to show off every contour of her chest.
+		Her latex catsuit is tight enough to show off <<if $activeSlave.boobs < 300>>just how flat she is<<else>>every contour of her chest<</if>>.
 	<<case "a military uniform">>
 		Her uniform tunic and shirt are formal, but they could be removed easily enough.
 	<<case "a nice nurse outfit">>
 		Her nurse's outfit is functional, but they could be removed easily enough.
 	<<case "a mini dress">>
-		Her mini dress is tight enough to show off every contour of her chest.
+		Her mini dress is tight enough to show off <<if $activeSlave.boobs < 300>>just how flat she is<<else>>every contour of her chest<</if>>.
 	<<case "a leotard">>
-		Her leotard is tight enough that it not only hugs her breasts, but shows off her nipples.
+		<<if $activeSlave.boobs < 300>>
+			Her leotard draws the eye straight to her obvious nipples, since it lacks anything else to show off.
+		<<else>>
+			Her leotard is tight enough that it not only hugs her breasts, but shows off her nipples.
+		<</if>>
 	<<case "a bunny outfit">>
-		Her strapless corset teddy presents her boobs while still managing to look a bit classy.
+		<<if $activeSlave.boobs < 300>>
+			With no breasts to speak of, her strapless corset teddy manages to look rather slutty.
+		<<else>>
+			Her strapless corset teddy presents her boobs while still managing to look a bit classy.
+		<</if>>
 	<<case "harem gauze">>
-		Her breasts are clearly visible through the thin gauze that covers them.
+		Her <<if $activeSlave.boobs < 300>>non-existent <</if>>breasts are clearly visible through the thin gauze that covers them.
 	<<case "slutty jewelry">>
-		The light chain under her breasts accentuates their natural movement.
+		<<if $activeSlave.boobs < 300>>
+			The light chain across her non-existent breasts is the only thing on her chest capable of moving as she walks.
+		<<else>>
+			The light chain under her breasts accentuates their natural movement.
+		<</if>>
 	<<default>>
 		<<if ($activeSlave.vaginalAccessory == "chastity belt")>>
-			Since she's wearing nothing but a chastity belt, her breasts are delightfully naked.
+			Since she's wearing nothing but a chastity belt, her <<if $activeSlave.boobs < 300>>non-existent <</if>>breasts are delightfully naked.
 		<<else>>
-			Her naked breasts catch your eye.
+			Her naked <<if $activeSlave.boobs < 300>> flat chest and nipples<<else>>breasts<</if>> catch your eye.
 		<</if>>
 	<</switch>>
 	<<set $target = "FBoobs">>
@@ -1110,7 +1160,7 @@
 		<</if>>
 	<<case "a slave gown">>
 		<<if ($activeSlave.amp == 1)>>
-		Her gorgeous dress is specially designed for her limbless form, but without legs to support it it can hardly conceal the outline of everything she has.
+		Her gorgeous dress is specially designed for her limbless form, but without legs to support it, it can hardly conceal the outline of everything she has.
 		<<else>>
 		Her gorgeous dress has a thoughtful cut that runs all the way from her ankle to over her hip, baring a leg all the way up.
 		<</if>>
@@ -1162,6 +1212,10 @@
 		Her teddy covers her rear, but in tight satin that flatters its curves.
 	<<case "harem gauze">>
 		Her hips are clearly visible through the thin gauze that covers it.
+	<<case "a toga">>
+		Her stellar behind is accented by the light material of her toga.
+	<<case "a huipil ">>
+		Her huipil is so short that her butt is on display.
 	<<case "slutty jewelry">>
 		Her belt of light chain accentuates her hips.
 	<<default>>
@@ -1214,6 +1268,10 @@
 			Her huge belly threatens to pop the buttons off her jacket.
 		<<case "harem gauze">>
 			Her silken garb and huge pregnant belly makes her look like a belly dancer.
+		<<case "a toga">>
+			Her loose fitted toga leaves plenty of space for her swollen belly.
+		<<case "a huipil">>
+			Her pregnant belly is so huge that the huipil won't even come close to reaching her protruding navel.
 		<<case "a comfortable bodysuit">>
 			Her huge belly lewdly fills her bodysuit. <<if ($activeSlave.bellyAccessory !== "a huge empathy belly") && ($activeSlave.bellyAccessory !== "a large empathy belly")>>You swear you can see her babies kicking underneath the form fitting material.<</if>>
 		<<case "a schoolgirl outfit">>
@@ -1272,6 +1330,10 @@
 			Her big belly strains the buttons on her jacket.
 		<<case "harem gauze">>
 			Her silken garb and big pregnant belly makes her look like a belly dancer.
+		<<case "a toga">>
+			Her loose fitted toga leaves plenty of space for her swollen belly.
+		<<case "a huipil">>
+			Her pregnant belly is so big that the huipil won't even reach her protruding navel.
 		<<case "a comfortable bodysuit">>
 			Her big belly fills her bodysuit. <<if ($activeSlave.bellyAccessory !== "a medium empathy belly")>>You swear you can see her babies kicking underneath the form fitting material.<</if>>
 		<<case "a schoolgirl outfit">>
@@ -1332,6 +1394,10 @@
 			Slight jiggling from her fat gut can be seen under her jacket.
 		<<case "harem gauze">>
 			Her silken garb and fat, jiggly gut makes her look like a belly dancer.
+		<<case "a toga">>
+			Her toga swerves loosely from side to side as her chubby body moves inside it.
+		<<case "a huipil">>
+			Her lithe huipil can't hide her voluptuous shape unless she stands completely still.
 		<<case "a comfortable bodysuit">>
 			The taut material of her bodysuit shows every jiggle in her fat gut as she moves.
 		<<case "a schoolgirl outfit">>
@@ -1345,7 +1411,7 @@
 		<<case "a chattel habit">>
 			Her fat gut jiggles around the strip of cloth down her front as she moves.
 		<<case "a bunny outfit">>
-			She is a sight in her bunny outfit. The front of her fat gut is held still be her teddy, but everything else of it jiggles obscenely with her every motion.
+			She is a sight in her bunny outfit. The front of her fat gut is held still by her teddy, but everything else of it jiggles obscenely with her every motion.
 		<<default>>
 			Her bare, jiggling, fat gut catches your eye.
 		<</switch>>
@@ -1392,6 +1458,10 @@
 			Her growing belly bulges her suit jacket.
 		<<case "harem gauze">>
 			Her silken garb and growing pregnant belly makes her look like a belly dancer.
+		<<case "a toga">>
+			Her toga is so loose that you can barely notice her growing belly.
+		<<case "a huipil">>
+			Her growing belly can be seen from the sides of her huipil.
 		<<case "a comfortable bodysuit">>
 			Her growing belly fills her bodysuit.
 		<<case "a schoolgirl outfit">>
@@ -1405,7 +1475,7 @@
 		<<case "a chattel habit">>
 			Her growing belly shows under the strip of cloth on her front.
 		<<case "a bunny outfit">>
-			Her growing belly is fills her teddy.
+			Her growing belly fills her teddy.
 		<<default>>
 			Her barely visible pregnancy catches your eye.
 		<</switch>>
@@ -1510,6 +1580,10 @@
 		Her fluffy white cottontail draws attention to her butt, inevitably bringing anal to mind.
 	<<case "harem gauze">>
 		Her ass is clearly visible through the thin gauze that covers it.
+	<<case "a toga">>
+		Her toga is so transparent it can't hide her asscrack, which looks very seductive
+	<<case "a huipil">>
+		Her huipil can be easily lifted to access her naked butt.
 	<<case "slutty jewelry">>
 		Her belt of light chain threatens to dip into her asscrack with each step.
 	<<default>>
@@ -1549,6 +1623,10 @@
 		Her black bowtie contrasts with her white collar, drawing the eye towards her neck and face.
 	<<case "ancient Egyptian">>
 		Her wesekh glints richly as she moves, sparkling with opulence and sensuality.
+	<<case "ball gag">>
+		Her ball gag uncomfortably holds her jaw apart as it fills her mouth.
+	<<case "bit gag">>
+		Her bit gag uncomfortably keeps her from closing her jaw; drool visibly pools along the corners of her mouth, where the rod forces back her cheeks.
 	<<default>>
 		Her unadorned <<if $PC.dick == 1>>throat is just waiting to be wrapped around a thick shaft<<else>>lips are just begging for a cunt to lavish attention on<</if>>.
 	<</switch>>

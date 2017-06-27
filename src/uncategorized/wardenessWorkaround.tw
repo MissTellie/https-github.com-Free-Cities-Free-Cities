@@ -1,36 +1,21 @@
-:: Wardeness Workaround
+:: Wardeness Workaround [silently]
 
-
-	<<for $i = 0; $i < $slaves.length; $i++>>
-	<<if ($slaves[$i].assignment == "be the Wardeness") && ($slaves[$i].ID != $Wardeness.ID)>>
-		<<set $slaves[$i].assignment = "rest">>
-		<<set $slaves[$i].assignmentVisible = 1>>
-		<<break>>
-	<</if>>
+<<if $Wardeness != 0>>
+	<<set _ID = $Wardeness.ID, _SL = $slaves.length>>
+	<<for _i = 0; _i < _SL; _i++>>
+		<<if (_ID == $slaves[_i].ID)>>
+			<<removeJob $slaves[_i] "be the Wardeness">>
+			<<break>>
+		<</if>>
 	<</for>>
-
-	<<for $i = 0; $i < $slaves.length; $i++>>
-	<<if $Wardeness.ID == $slaves[$i].ID>>
-		<<if $slaves[$i].ID == $personalAttention>>
-			<<set $personalAttention = "business">>
-		<</if>>
-		<<set $slaves[$i].assignment = "be the Wardeness">>
-		<<if $slaves[$i].choosesOwnClothes == 1>><<include "SA chooses own clothes">><</if>>
-		<<set $slaves[$i].assignmentVisible = 0>>
-		<<set $slaves[$i].sentence = 0>>
-		<<set $slaves[$i].livingRules = "luxurious">>
-		<<if $slaves[$i].ID == $HeadGirl.ID>>
-			<<set $HeadGirl = 0>>
-		<</if>>
-		<<if $slaves[$i].ID == $Recruiter.ID>>
-			<<set $Recruiter = 0>>
-		<</if>>
-		<<if $slaves[$i].ID == $Bodyguard.ID>>
-			<<set $Bodyguard = 0>>
-		<</if>>
-		<<break>>
-	<</if>>
-	<</for>>
-
+<</if>>
+<<if $i > -1>>
+	<<assignJob $slaves[$i] "be the Wardeness">>
+	<<set $slaves[$i].livingRules = "luxurious">>
+	<<set $Wardeness = $slaves[$i]>>
+<<else>>
+	<<set $Wardeness = 0>>
+<</if>>
 
 <<goto "Cellblock">>
+

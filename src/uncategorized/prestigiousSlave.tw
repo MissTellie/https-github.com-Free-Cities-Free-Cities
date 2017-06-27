@@ -157,7 +157,7 @@ You check to see if any especially prestigious slaves are on auction. <<if $pres
 	<<set $activeSlave.health = random(40,60)>>
 	<<set $activeSlave.hColor = "white">>
 	<<set $activeSlave.pubicHColor = "white">>
-	<<set $activeSlave.eyeColor = "pale">>
+	<<set $activeSlave.eyeColor = "pale grey">>
 	<<set $activeSlave.skin = "extremely pale">>
 	<<set $activeSlave.age = 18>>
 	<<set $activeSlave.customDesc = "Her eyes are unsettling; though her irises are a pale grey color, in some lights the whole eye takes on a red cast.">>
@@ -370,10 +370,13 @@ You check to see if any especially prestigious slaves are on auction. <<if $pres
 	<<set $activeSlave.chem = 100>>
 	<<set $activeSlave.anus = random(1,2)>>
 	<<set $activeSlave.dick = random(1,2)>>
+	<<if $activeSlave.dick > 0>><<set $activeSlave.foreskin = $activeSlave.dick>><</if>>
+	<<set $activeSlave.prostate = 1>>
 	<<set $activeSlave.vagina = 1>>
 	<<set $activeSlave.ovaries = 1>>
 	<<set $activeSlave.preg = 0>>
 	<<set $activeSlave.balls = random(1,2)>>
+	<<if $activeSlave.balls > 0>><<set $activeSlave.scrotum = $activeSlave.balls>><</if>>
 	<<set $activeSlave.weight = random(-80,-20)>>
 	<<set $activeSlave.attrXX = random(30,50)>>
 	<<set $activeSlave.attrXY = random(30,50)>>
@@ -401,7 +404,10 @@ You check to see if any especially prestigious slaves are on auction. <<if $pres
 	<<set $activeSlave.butt += random(1,2)>>
 	<<set $activeSlave.anus = 1>>
 	<<set $activeSlave.dick = random(4,6)>>
+	<<set $activeSlave.prostate = 1>>
+	<<if $activeSlave.dick > 0>><<set $activeSlave.foreskin = $activeSlave.dick>><</if>>
 	<<set $activeSlave.balls = random(4,6)>>
+	<<if $activeSlave.balls > 0>><<set $activeSlave.scrotum = $activeSlave.balls>><</if>>
 	<<set $activeSlave.weight = random(20,80)>>
 	<<set $activeSlave.attrXX = random(80,100)>>
 	<<set $activeSlave.attrXY = random(80,100)>>
@@ -442,8 +448,8 @@ You check to see if any especially prestigious slaves are on auction. <<if $pres
 	<<set $activeSlave.anus = 3>>
 	<<set $activeSlave.dick = 5>>
 	<<if $activeSlave.foreskin > 0>><<set $activeSlave.foreskin = $activeSlave.dick>><</if>>
-<<if $activeSlave.balls > 0>><<set $activeSlave.scrotum = $activeSlave.balls>><</if>>
 	<<set $activeSlave.balls = 5>>
+	<<if $activeSlave.balls > 0>><<set $activeSlave.scrotum = $activeSlave.balls>><</if>>
 	<<set $activeSlave.weight = 0>>
 	<<set $activeSlave.clitPiercing = 1>>
 	<<set $activeSlave.tonguePiercing = 1>>
@@ -502,7 +508,9 @@ You check to see if any especially prestigious slaves are on auction. <<if $pres
 	<<set $activeSlave.health = random(80,90)>>
 	<<set $activeSlave.anus = 1>>
 	<<set $activeSlave.dick = random(3,5)>>
+	<<if $activeSlave.dick > 0>><<set $activeSlave.foreskin = $activeSlave.dick>><</if>>
 	<<set $activeSlave.balls = random(3,5)>>
+	<<if $activeSlave.balls > 0>><<set $activeSlave.scrotum = $activeSlave.balls>><</if>>
 	<<set $activeSlave.weight = 0>>
 	<<set $activeSlave.oralSkill = 15>>
 	<<set $activeSlave.analSkill = 0>>
@@ -554,7 +562,7 @@ You check to see if any especially prestigious slaves are on auction. <<if $pres
 	<<set $activeSlave.health = random(40,60)>>
 	<<set $activeSlave.hColor = "white">>
 	<<set $activeSlave.pubicHColor = "white">>
-	<<set $activeSlave.eyeColor = "pale">>
+	<<set $activeSlave.eyeColor = "pale grey">>
 	<<set $activeSlave.skin = "extremely pale">>
 	<<set $activeSlave.age = 18>>
 	<<set $activeSlave.customDesc = "Her eyes are unsettling; though her irises are a pale grey color, in some lights the whole eye takes on a red cast.">>
@@ -683,8 +691,8 @@ You check to see if any especially prestigious slaves are on auction. <<if $pres
 	<<set $activeSlave.anus = 0>>
 	<<set $activeSlave.dick = 2>>
 	<<if $activeSlave.foreskin > 0>><<set $activeSlave.foreskin = $activeSlave.dick>><</if>>
-<<if $activeSlave.balls > 0>><<set $activeSlave.scrotum = $activeSlave.balls>><</if>>
 	<<set $activeSlave.balls = 1>>
+	<<if $activeSlave.balls > 0>><<set $activeSlave.scrotum = $activeSlave.balls>><</if>>
 	<<set $activeSlave.weight = 0>>
 	<<set $activeSlave.vaginalSkill = 0>>
 	<<set $activeSlave.oralSkill = 100>>
@@ -759,9 +767,6 @@ It will take ¤<<print $slaveCost>> to win the auction.
 <</if>>
 <</nobr>>
 
-<<set $saleDescription = 1>>\
-<<set $applyLaw = 1>>\
-<<include "Long Slave Description">>\
-<<set $saleDescription = 0>>\
+<<set $saleDescription = 1, $applyLaw = 1>><<include "Long Slave Description">>\
 
 <</if>>

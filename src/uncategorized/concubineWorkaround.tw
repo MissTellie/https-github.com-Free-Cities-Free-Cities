@@ -1,35 +1,21 @@
-:: Concubine Workaround
+:: Concubine Workaround [silently]
 
-
-	<<for $i = 0; $i < $slaves.length; $i++>>
-	<<if ($slaves[$i].assignment == "be your Concubine") && ($slaves[$i].ID != $Concubine.ID)>>
-		<<set $slaves[$i].assignment = "rest">>
-		<<set $slaves[$i].assignmentVisible = 1>>
-		<<break>>
-	<</if>>
+<<if $Concubine != 0>>
+	<<set _ID = $Concubine.ID, _SL = $slaves.length>>
+	<<for _i = 0; _i < _SL; _i++>>
+		<<if (_ID == $slaves[_i].ID)>>
+			<<removeJob $slaves[_i] "be your Concubine">>
+			<<break>>
+		<</if>>
 	<</for>>
-
-	<<for $i = 0; $i < $slaves.length; $i++>>
-	<<if $Concubine.ID == $slaves[$i].ID>>
-		<<set $slaves[$i].assignment = "be your Concubine">>
-		<<if $slaves[$i].choosesOwnClothes == 1>><<include "SA chooses own clothes">><</if>>
-		<<set $slaves[$i].assignmentVisible = 0>>
-		<<set $slaves[$i].sentence = 0>>
-		<<set $slaves[$i].livingRules = "luxurious">>
-		<<if $slaves[$i].ID == $personalAttention>>
-		<<set $personalAttention = "business">>
-		<</if>>
-		<<if $slaves[$i].ID == $HeadGirl.ID>>
-			<<set $HeadGirl = 0>>
-		<</if>>
-		<<if $slaves[$i].ID == $Recruiter.ID>>
-			<<set $Recruiter = 0>>
-		<</if>>
-		<<if $slaves[$i].ID == $Bodyguard.ID>>
-			<<set $Bodyguard = 0>>
-		<</if>>
-		<<break>>
-	<</if>>
-	<</for>>
+<</if>>
+<<if $i > -1>>
+	<<assignJob $slaves[$i] "be your Concubine">>
+	<<set $slaves[$i].livingRules = "luxurious">>
+	<<set $Concubine = $slaves[$i]>>
+<<else>>
+	<<set $Concubine = 0>>
+<</if>>
 
 <<goto "Master Suite">>
+

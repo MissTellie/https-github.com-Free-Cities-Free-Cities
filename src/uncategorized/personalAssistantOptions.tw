@@ -1,6 +1,6 @@
 :: Personal assistant options [nobr]
 
-<<set $nextButton = "Back", $nextLink = "Manage Arcology">>
+<<set $nextButton = "Back", $nextLink = "Main">>
 
 <<if $marketAssistantLimit>><<set $marketAssistantLimit to Math.clamp($marketAssistantLimit, 10000, 10000000)>><</if>>
 
@@ -74,6 +74,7 @@ She is currently using the ''$assistantAppearance'' avatar.
 		<<if $arcologies[0].FSMaturityPreferentialist != "unset">> <<set _seed.push("maturity preferentialism")>> <</if>>
 		<<if $arcologies[0].FSPastoralist != "unset">> <<set _seed.push("pastoralism")>> <</if>>
 		<<if $arcologies[0].FSChattelReligionist != "unset">> <<set _seed.push("chattel religionism")>> <</if>>
+		<<if $arcologies[0].FSAztecRevivalist != "unset">> <<set _seed.push("Aztec revivalism")>> <</if>>
 		<<if $arcologies[0].FSEgyptianRevivalist != "unset">> <<set _seed.push("Egyptian revivalism")>> <</if>>
 	<<case "amazon">>
 		<<if $arcologies[0].FSSupremacist != "unset">> <<set _seed.push($arcologies[0].FSSupremacistRace + " supremacy")>> <</if>>
@@ -81,6 +82,7 @@ She is currently using the ''$assistantAppearance'' avatar.
 		<<if $arcologies[0].FSBodyPurist != "unset">> <<set _seed.push("body purism")>> <</if>>
 		<<if $arcologies[0].FSPhysicalIdealist != "unset">> <<set _seed.push("physical idealism")>> <</if>>
 		<<if $arcologies[0].FSRomanRevivalist != "unset">> <<set _seed.push("Roman revivalism")>> <</if>>
+		<<if $arcologies[0].FSAztecRevivalist != "unset">> <<set _seed.push("Aztec revivalism")>> <</if>>
 		<<if $arcologies[0].FSEdoRevivalist != "unset">> <<set _seed.push("Edo revivalism")>> <</if>>
 	<<case "schoolgirl">>
 		<<if $arcologies[0].FSGenderFundamentalist != "unset">> <<set _seed.push("gender fundamentalism")>> <</if>>
@@ -161,6 +163,7 @@ It has no impact on public opinion.
 	<<if $arcologies[0].FSMaturityPreferentialist != "unset">> <<set _seed.push("maturity preferentialism")>> <</if>>
 	<<if $arcologies[0].FSPastoralist != "unset">> <<set _seed.push("pastoralism")>> <</if>>
 	<<if $arcologies[0].FSChattelReligionist != "unset">> <<set _seed.push("chattel religionism")>> <</if>>
+	<<if $arcologies[0].FSAztecRevivalist != "unset">> <<set _seed.push("Aztec revivalism")>> <</if>>
 	<<if $arcologies[0].FSEgyptianRevivalist != "unset">> <<set _seed.push("Egyptian revivalism")>> <</if>>
 	<<if _seed.length > 0>>
 		<<set _desc = "">>
@@ -184,6 +187,7 @@ It has no impact on public opinion.
 	<<if $arcologies[0].FSBodyPurist != "unset">> <<set _seed.push("body purism")>> <</if>>
 	<<if $arcologies[0].FSPhysicalIdealist != "unset">> <<set _seed.push("physical idealism")>> <</if>>
 	<<if $arcologies[0].FSRomanRevivalist != "unset">> <<set _seed.push("Roman revivalism")>> <</if>>
+	<<if $arcologies[0].FSAztecRevivalist != "unset">> <<set _seed.push("Aztec revivalism")>> <</if>>
 	<<if $arcologies[0].FSEdoRevivalist != "unset">> <<set _seed.push("Edo revivalism")>> <</if>>
 	<<if _seed.length > 0>>
 		<<set _desc = "">>
@@ -338,6 +342,10 @@ She can further refine her avatar to match the arcology's social profile<<if $as
 <</if>>
 <<if $assistantFSAppearance != "roman revivalist" && $arcologies[0].FSRomanRevivalistDecoration > 20>>
 	[[Roman Revivalist|Personal assistant options][$assistantFSAppearance = "roman revivalist"]]
+	<br>
+<</if>>
+<<if $assistantFSAppearance != "aztec revivalist" && $arcologies[0].FSAztecRevivalistDecoration > 20>>
+	[[Aztec Revivalist|Personal assistant options][$assistantFSAppearance = "aztec revivalist"]]
 	<br>
 <</if>>
 <<if $assistantFSAppearance != "egyptian revivalist" && $arcologies[0].FSEgyptianRevivalistDecoration > 20>>

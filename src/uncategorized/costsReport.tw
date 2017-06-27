@@ -1,10 +1,8 @@
-:: Costs Report
+:: Costs Report [nobr]
 
-<<set $nextButton = "Back to Main">>\
-<<set $nextLink = "Main">>\
-\
+<<set $nextButton = "Back to Main", $nextLink = "Main">>
+
 //Your weekly costs are as follows.//
-<<nobr>>
 
 <<if $girls == 3>>
 	Since you are accustomed to luxury, your __personal living expenses__ are ¤<<print ($girls*(250+($economy*500)))>>.
@@ -15,11 +13,13 @@
 <</if>>
 
 <<if $mercenaries > 0>>
-	<<if ($PC.warfare >= 100) || ($PC.career == "arcology owner")>>
-	<br>__Mercenary__ expenses: ¤<<print ($mercenaries*500)>> //Reduced by your @@color:springgreen;mercenary contacts@@//
-	<<else>>
-	<br>__Mercenary__ expenses: ¤<<print ($mercenaries*1000)>>
-	<</if>>
+	<<set _mercCosts = $mercenaries*2000>>
+	<<if $barracks>><<set _mercCosts *= 0.5>><</if>>
+	<<if ($PC.warfare >= 100) || ($PC.career == "arcology owner")>><<set _mercCosts *= 0.5>><</if>>
+	<<set $costs += _mercCosts>>
+	<br>__Mercenary__ expenses: ¤_mercCosts
+	<<if $barracks>><<else>>//@@.red;Increased by the lack of a barracks.@@//<</if>>
+	<<if ($PC.warfare >= 100) || ($PC.career == "arcology owner")>>//Reduced by your @@.springgreen;mercenary contacts.@@//<</if>>
 <</if>>
 <<if $brothel > 0>>
 	<<set $seed = 0>>
@@ -44,9 +44,6 @@
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;Additional maintenance for milking machines upgraded with biological components: ¤<<print ($bioreactorsXY+$bioreactorsXX+$bioreactorsHerm+$bioreactorsBarren)*100>>
 	<</if>>
 <</if>>
-<<if $collectionFacility > 0>>
-	<br>__Collection Facility__ maintenance: ¤<<print ($collectionFacility*$facilityCost)+(0.2*$dairyStimulatorsUpgrade*$collectionFacility*$facilityCost)+(0.2*$collectionFacilityUpgradeMilkers*$collectionFacility*$facilityCost)>>
-<</if>>
 <<if ($servantsQuarters > 0) && ($servantsQuartersUpgradeMonitoring > 0)>>
 	<br>__Servants' Quarters__ maintenance: ¤<<print (0.2*$servantsQuartersUpgradeMonitoring*$servantsQuarters*$facilityCost)>>
 <</if>>
@@ -57,7 +54,7 @@
 	<<if ($researchLab.built == "true")>>
 		<br>__Research Lab__ maintenance: ¤<<print (100*$researchLab.maxSpace)>>
 		<<if $researchLab.hired != 0>>&nbsp;__Scientists__: ¤<<print (300*$researchLab.hired)>><</if>>
-		<<if $researchLab.menials != 0>>&nbsp;__Menial slaves__: ¤<<print (100*$researchLab.hired)>><</if>>
+		<<if $researchLab.menials != 0>>&nbsp;__Menial slaves__: ¤<<print (100*$researchLab.menials)>><</if>>
 	<</if>>
 <</if>>
 <<if $FSSpending != 0>>
@@ -122,6 +119,18 @@
 
 <<if $CoursingAssociation == 1>>
 	<br>Coursing Association membership: ¤1000
+<</if>>
+
+<<if ($personalAttention == "trading")>>
+	<br>Trading trainer fees: ¤10000
+<<elseif ($personalAttention == "warfare")>>
+	<br>Warfare trainer fees: ¤10000
+<<elseif ($personalAttention == "slaving")>>
+	<br>Slaving trainer fees: ¤10000
+<<elseif ($personalAttention == "engineering")>>
+	<br>Engineering trainer fees: ¤10000
+<<elseif ($personalAttention == "medicine")>>
+	<br>Medicine trainer fees: ¤10000
 <</if>>
 
 <br>
@@ -231,7 +240,8 @@
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;Standard drugs: ¤<<print ($drugsCost*2)>>
 		<<set $individualCosts += ($drugsCost*2)>>
 	<</if>>
-	<<if ($slaves[$i].curatives > 0)>>
+	<<if $slaves[$i].curatives == 1 && $slaves[$i].assignmentVisible != 1>>
+	<<elseif $slaves[$i].curatives > 0>>
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;Health drugs: ¤<<print $drugsCost+($slaves[$i].curatives*$drugsCost)>>
 		<<set $individualCosts += $drugsCost+($slaves[$i].curatives*$drugsCost)>>
 	<</if>>
@@ -257,4 +267,3 @@
 	<br>
 <</for>>
 
-<</nobr>>

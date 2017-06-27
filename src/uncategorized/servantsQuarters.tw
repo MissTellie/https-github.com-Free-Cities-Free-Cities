@@ -10,6 +10,8 @@ $servantsQuartersNameCaps
 <<switch $servantsQuartersDecoration>>
 <<case "Roman Revivalist">>
 	are spartan, yet functional. At one end of the long dormitory there is an alcove with a shrine to the Roman goddess of domesticity.
+<<case "Aztec Revivalist">>
+	are simple, yet grandiose. In every corner stands a monument to a god, and as the sun peeks through, all the obsidian ornaments glisten with light.
 <<case "Egyptian Revivalist">>
 	are utilitarian, yet warm and well-kept. At one end of the long dormitory there is an alcove with a shrine to the Egyptian goddess of servility.
 <<case "Edo Revivalist">>
@@ -75,7 +77,7 @@ $servantsQuartersNameCaps
 <</if>>
 
 <<if $servantMilkers == 1>>
-	<br>Since servants spend most of their time in the penthouse, any who are lactating will use the ubiquitous milkers
+	<br>Since servants spend most of their time in the penthouse, any who are lactating will use the ubiquitous milkers.
 <</if>>
 
 <br><br>
@@ -85,9 +87,9 @@ $servantsQuartersNameCaps
 	<<if canAchieveErection($Stewardess)>>
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;
 		<<if $stewardessImpregnates == 1>>
-			Keeping the cows pregnant is part of her job. [[Order her to stop impregnating|Servants' Quarters][$stewardessImpregnates = 0]]
+			Keeping the maids pregnant is part of her job. [[Order her to stop impregnating|Servants' Quarters][$stewardessImpregnates = 0]]
 		<<else>>
-			She could be directed to keep the cows pregnant herself. [[Order her to impregnate|Servants' Quarters][$stewardessImpregnates = 1]]
+			She could be directed to keep the maids pregnant herself. [[Order her to impregnate|Servants' Quarters][$stewardessImpregnates = 1]]
 		<</if>>
 	<</if>>
 <<else>>

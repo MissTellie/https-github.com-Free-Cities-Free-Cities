@@ -29,11 +29,11 @@
 	<<set $activeSlave.intelligenceImplant = 1>>
 <</if>>
 <<if ($activeSlave.age <= 24)>>
-	<<set $activeSlave.career = $youngCareers.random()>>
+	<<set $activeSlave.career = setup.youngCareers.random()>>
 <<elseif ($activeSlave.intelligenceImplant == 1)>>
-	<<set $activeSlave.career = $educatedCareers.random()>>
+	<<set $activeSlave.career = setup.educatedCareers.random()>>
 <<else>>
-	<<set $activeSlave.career = $uneducatedCareers.random()>>
+	<<set $activeSlave.career = setup.uneducatedCareers.random()>>
 <</if>>
 
 <<set $activeSlave.vaginalSkill = random(0,15)>>
@@ -164,7 +164,7 @@
 	<<set $activeSlave.skin = either("pale", "dark", "light")>>
 	<<set $activeSlave.hColor = either("black")>>
 	<<set $activeSlave.hStyle = "neat">>
-<<case "middle eastern" "semitic" "southern European">>
+<<case "middle eastern" "semitic" "southern european">>
 	<<set $activeSlave.butt = either(1, 2, 2, 3, 3)>>
 	<<set $activeSlave.boobs = BoobGenerator.rollBreast(0)>>
 	<<set $activeSlave.lips = random(5,25)>>
@@ -188,7 +188,7 @@
 <</if>>
 
 <<set $activeSlave.origEye = $activeSlave.eyeColor>>
-<<set $activeSlave.hColor = $activeSlave.origHColor>>
+<<set $activeSlave.origHColor = $activeSlave.hColor>>
 <<set $activeSlave.pubicHColor = $activeSlave.hColor>>
 <<set $activeSlave.pubicHStyle = either("waxed","in a strip","neat","bushy")>>
 <<set $seed = []>>
@@ -282,6 +282,7 @@
 
 <<set $activeSlave.clit = either(0, 0, 0, 0, 0, 0, 1, 1, 2)>>
 <<set $activeSlave.labia = either(0, 0, 0, 1, 1, 1, 1, 2, 2, 3)>>
+<<set $activeSlave.foreskin = random(0,4)>>
 
 <<set $activeSlave.voice = either(1, 2, 2, 2, 2, 2, 2, 3, 3, 3)>>
 

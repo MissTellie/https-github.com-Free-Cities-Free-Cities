@@ -1,12 +1,6 @@
-:: Public Servant Workaround
+:: Public Servant Workaround [silently]
 
-<<set $activeSlave.assignment = "serve the public">>
-<<set $activeSlave.choosesOwnAssignment = 0>>
-<<for $i = 0; $i < $slaves.length; $i++>>
-	<<if $activeSlave.ID == $slaves[$i].ID>>
-	<<set $slaves[$i] = $activeSlave>>
-	<<break>>
-	<</if>>
-<</for>>
+<<assignJob $slaves[$i] "serve the public">>
 
 <<goto "Main">>
+

@@ -10,6 +10,8 @@ $brothelNameCaps
 <<switch $brothelDecoration>>
 <<case "Roman Revivalist">>
 	is decorated as a Roman whorehouse. Refreshments are served at a bar, and someone is playing pipes in the back.
+<<case "Aztec Revivalist">>
+	is decorated as an Aztec ode to fertility and nature. Clients may sacrifice a bit of blood to honor the goddess of Filth or to partake in a fertility ritual before joining the girl of their choosing.
 <<case "Egyptian Revivalist">>
 	is decorated as an ancient Egyptian fertility temple. Customers are bade relax on couches next to running water so that slaves may dance to entice them.
 <<case "Edo Revivalist">>
@@ -110,7 +112,16 @@ $brothelNameCaps
 <<elseif $Madam != 0>>
 	$Madam.slaveName is alone in $brothelName, and has nothing to do but keep the place clean and plan future sales efforts.
 <<else>>
-	$brothelNameCaps is empty and desolate. [[Decommission the brothel|Main][$brothel = 0, $brothelUpgradeDrugs = 0, $brothelDecoration = "standard"]]
+	$brothelNameCaps is empty and desolate.
+	<<link "Decommission the brothel">>
+		<<set $brothel = 0, $brothelUpgradeDrugs = 0, $brothelDecoration = "standard">>
+		<<for _i = 0; _i < $sectors.length; _i++>>
+		<<if $sectors[_i].type == "Brothel">>
+			<<set $sectors[_i].type = "Shops">><<break>>
+		<</if>>
+		<</for>>
+		<<goto "Main">>
+	<</link>>
 <</if>>
 
 <<set _Tmult0 = Math.trunc($brothel*1000*$upgradeMultiplierArcology)>>
@@ -119,7 +130,9 @@ $brothelNameCaps
 
 <br>
 <<if $brothelUpgradeDrugs == 1>>
-	It has been upgraded with aphrodisiac injection systems that monitor the whores and adjust dosage to keep them healthy but desperately horny and hopelessly addicted.
+	It has been upgraded with aphrodisiac injection systems that monitor the whores and adjust dosage to keep them healthy but desperately horny and hopelessly addicted. [[Disable the aphrodisiac injection systems|Brothel][$brothelUpgradeDrugs = 0.1]] //Will reduce upkeep costs//
+<<elseif $brothelUpgradeDrugs == 0.1>>
+	It has been upgraded with aphrodisiac injection systems that monitor the whores and adjust dosage to keep them healthy but desperately horny and hopelessly addicted. The systems are currently disabled. [[Enable them|Brothel][$brothelUpgradeDrugs = 1]] //Will increase upkeep costs//
 <<else>>
 	<<set _Tmult1 = Math.trunc(10000*$upgradeMultiplierArcology)>>
 	It is a standard brothel. [[Upgrade the brothel with aphrodisiac injection systems|Brothel][$cash -= _Tmult1, $brothelUpgradeDrugs = 1]] //Costs ¤_Tmult1 and will increase upkeep costs//

@@ -14,7 +14,16 @@ $pitNameCaps is clean and ready,
 <<elseif _DL > 0>>
 	with slaves assigned to the week's bout.
 <<else>>
-	but no slaves are assigned fight.
+	but no slaves are assigned to fight.
+	<<link "Decommission the pit">>
+		<<set $pit = 0>>
+		<<for _i = 0; _i < $sectors.length; _i++>>
+		<<if $sectors[_i].type == "Pit">>
+			<<set $sectors[_i].type = "Markets">><<break>>
+		<</if>>
+		<</for>>
+		<<goto "Main">>
+	<</link>>
 <</if>>
 
 //<<if def $PC.customTitle>>$PC.customTitle<<elseif $PC.title != 0>>Sir<<else>>Ma'am<</if>>, slaves assigned here can continue their usual duties.//

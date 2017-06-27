@@ -65,7 +65,7 @@ Mousetrap.bind("a", function () {
 Mousetrap.bind("b", function () {
 	$("#manageBG a.macro-link").trigger("click");
 });
-Mousetrap.bind("r", function () {
+Mousetrap.bind("u", function () {
 	$("#manageRecruiter a.macro-link").trigger("click");
 });
 Mousetrap.bind("o", function () {
@@ -77,17 +77,14 @@ Mousetrap.bind("y", function () {
 Mousetrap.bind("f", function () {
 	$("#story-caption #FSButton a.macro-link").trigger("click");
 });
-Mousetrap.bind("l", function () {
-	$("#story-caption #LanguageButton a.macro-link").trigger("click");
-});
 Mousetrap.bind("t", function () {
 	$("#story-caption #PAOButton a.macro-link").trigger("click");
 });
-Mousetrap.bind("u", function () {
+Mousetrap.bind("v", function () {
 	$("#story-caption #URButton a.macro-link").trigger("click");
 });
-Mousetrap.bind("w", function () {
-	$("#story-caption #WARButton a.macro-link").trigger("click");
+Mousetrap.bind("r", function () {
+	$("#RAButton a.macro-link").trigger("click");
 });
 
 /**
@@ -129,31 +126,59 @@ if (typeof SlaveStatsChecker == "undefined") {
 	window.SlaveStatsChecker = SlaveStatsChecker;
 };
 
+window.removeFromArray = function(arr, val) {
+	for (var i = 0; i < arr.length; i++) {
+		if (val == arr[i])
+			return arr.splice(i,1);
+	}
+	return null;
+};
+
 window.canGetPregnant = function(slave) {
 	if (!slave) {
 		return null;
-	} else if (slave.preg != 0) {
+	} else if (slave.preg == -1) { /* contraceptives check */
 		return false;
-	} else if (slave.ovaries != 1) {
+	} else if (isFertile(slave) == false) { /* check other fertility factors */
 		return false;
-	} else if (canDoVaginal(slave) == false) {
+	} else if ((slave.ovaries == 1) && (canDoVaginal(slave) == true)) {
+		return true;
+	} else {
+		return false;
+	}
+};
+
+/* assuming slave1 is fertile, could slave2 impregnate slave1? slave2 must have dick and balls; both slaves must not be in chastity; slave2 need not achieve erection */
+window.canImpreg = function(slave1, slave2) {
+	if (!slave1 || !slave2) {
+		return null;
+	} else if (slave2.dick < 1) {
+		return false;
+	} else if (slave2.balls < 1) {
+		return false;
+	} else if (slave2.dickAccessory == "chastity") {
+		return false;
+	} else if (slave2.dickAccessory == "combined chastity") {
+		return false;
+	} else if (canGetPregnant(slave1) == false) { /* includes chastity checks */
 		return false;
 	} else {
 		return true;
 	}
 };
 
+/* contraceptives (.preg == -1) do not negate this function */
 window.isFertile = function(slave) {
 	if (!slave) {
 		return null;
-	} else if (slave.preg > 0) {
+	} else if (slave.preg > 0) { /* currently pregnant */
 		return false;
-	} else if (slave.preg < -1) {
+	} else if (slave.preg < -1) { /* sterile */
 		return false;
-	} else if (slave.ovaries != 1) {
-		return false;
-	} else {
+	} else if (slave.ovaries == 1) {
 		return true;
+	} else {
+		return false;
 	}
 };
 
@@ -221,6 +246,12 @@ window.canTalk = function(slave) {
 		return false;
 	} else if (slave.lips > 95) {
 		return false;
+	} else if (slave.collar == "dildo gag") {
+		return false;
+	} else if (slave.collar == "ball gag") {
+		return false;
+	} else if (slave.collar == "bit gag") {
+		return false;
 	} else {
 		return true;
 	}
@@ -266,43 +297,26 @@ window.relationTargetWord = function(slave) {
 };
 
 window.ruleApplied = function(slave, ID) {
-	if (!slave) {
+	if (!slave || !slave.currentRules)
 		return null;
-	}else if (!slave.currentRules) {
-		return null;
-	} else {
-		for(var d=0; d < slave.currentRules.length; ++d){
-			if(slave.currentRules[d] == ID){
-				return true;
-			}
-		}return false;
-	}
+	return slave.currentRules.includes(ID);
 };
 
 window.ruleAssignment = function(applyAssignment, assignment) {
-	for(var d=0; d < applyAssignment.length; ++d){
-		if(applyAssignment[d] == assignment){
-
-			return true;
-		}
-	}return false;
+	if (!applyAssignment)
+		return false;
+	return applyAssignment.includes(assignment);
 };
 
 window.ruleFacility = function(applyFacility, facility) {
-	for(var d=0; d < applyFacility.length; ++d){
-		if(applyFacility[d] == facility){
-			return true;
-		}
-	}return false;
+	if (!applyFacility)
+		return false;
+	return applyFacility.includes(facility);
 };
 
 window.ruleExcludeSlaveFacility = function(rule, slave) {
-	if (!slave) {
+	if (!slave || !rule || !rule.excludeFacility) {
 		return null;
-	}else if (!rule) {
-		return null;
-	}else if (!rule.excludeFacility) {
-		return false;
 	} else {
 		for(var d=0; d < rule.excludeFacility.length; ++d){
 			if(rule.excludeFacility[d] == "hgsuite"){
@@ -391,16 +405,13 @@ window.ruleExcludeSlaveFacility = function(rule, slave) {
 				}
 			}
 		}
+		return false;
 	}
 };
 
 window.ruleAppliedToSlaveFacility = function(rule, slave) {
-	if (!slave) {
+	if (!slave || !rule || !rule.facility) {
 		return null;
-	}else if (!rule) {
-		return null;
-	}else if (!rule.facility) {
-		return false;
 	} else {
 		for(var d=0; d < rule.facility.length; ++d){
 			if(rule.facility[d] == "hgsuite"){
@@ -493,977 +504,116 @@ window.ruleAppliedToSlaveFacility = function(rule, slave) {
 };
 
 window.ruleSlaveSelected = function(slave, rule) {
-	if (!slave) {
+	if (!slave || !rule) {
 		return null;
-	}else if (!rule) {
-		return null;
-	}else if (!rule.selectedSlaves) {
+	} else if (!rule.selectedSlaves) {
 		return false;
-	} else {
-		for(var d=0; d < rule.selectedSlaves.length; ++d){
-			if(slave.ID == rule.selectedSlaves[d]){
-				return true;
-			}
-		}return false;
 	}
+	return rule.selectedSlaves.includes(slave.ID);
 };
 
 window.ruleSlaveExcluded = function(slave, rule) {
-	if (!slave) {
+	if (!slave || !rule) {
 		return null;
-	}else if (!rule) {
-		return null;
-	}else if (!rule.excludedSlaves) {
+	} else if (!rule.excludedSlaves) {
 		return false;
-	} else {
-		for(var d=0; d < rule.excludedSlaves.length; ++d){
-			if(slave.ID == rule.excludedSlaves[d]){
-				return true;
-			}
-		}return false;
 	}
-};
-window.hasSurgeryRule = function(slave, rules) {
-	if (!slave) {
-		return false;
-	}else if (!rules) {
-		return false;
-	}else if (!slave.currentRules) {
-		return false;
-	}else {
-		for(var d=rules.length-1; d >= 0; --d){
-			for(var e=0; e < slave.currentRules.length;++e){
-				if(slave.currentRules[e] == rules[d].ID){
-					if (rules[d].autoSurgery > 0){
-						return true;
-					}
-				}
-			}
-		}return false;
-	}
+	return rule.excludedSlaves.includes(slave.ID);
 };
 
-window.lastPregRule = function(slave, rules) {
-	if (!slave) {
-		return null;
-	}else if (!rules) {
-		return null;
-	}else if (!slave.currentRules) {
+window.hasSurgeryRule = function(slave, rules) {
+	if (!slave || !rules || !slave.currentRules)
 		return false;
-	}else {
-		for(var d=rules.length-1; d >= 0;--d){
-			for(var e=0; e < slave.currentRules.length;++e){
-				if(slave.currentRules[e] == rules[d].ID){
-					if (rules[d].preg == -1){
-						return rules[d];
-					}
-				}
+
+	for (var d = rules.length-1; d >= 0; d--) {
+		if (ruleApplied(slave, rules[d].ID)) {
+			if (rules[d].autoSurgery > 0) {
+				return true;
 			}
-		}return null;
+		}
 	}
+	return false;
+};
+
+window.hasRuleFor = function(slave, rules, what) {
+	if (!slave || !rules || !slave.currentRules)
+		return false;
+
+	for (var d = rules.length-1; d >= 0; d--) {
+		if (ruleApplied(slave, rules[d].ID)) {
+			if (rules[d][what] !== "no default setting") {
+				return true;
+			}
+		}
+	}
+	return false;
 };
 
 window.hasHColorRule = function(slave, rules) {
-	if (!slave) {
-		return false;
-	}else if (!rules) {
-		return false;
-	}else if (!slave.currentRules) {
-		return false;
-	}else {
-		for(var d=rules.length-1; d >= 0;--d){
-			for(var e=0; e < slave.currentRules.length;++e){
-				if(slave.currentRules[e] == rules[d].ID){
-					if (rules[d].hColor != "no default setting"){
-						return true;
-					}
-				}
-			}
-		}return false;
-	}
-};
+	return hasRuleFor(slave, rules, "hColor");
+}
 
 window.hasHStyleRule = function(slave, rules) {
-	if (!slave) {
-		return false;
-	}else if (!rules) {
-		return false;
-	}else if (!slave.currentRules) {
-		return false;
-	}else {
-		for(var d=rules.length-1; d >= 0;--d){
-			for(var e=0; e < slave.currentRules.length;++e){
-				if(slave.currentRules[e] == rules[d].ID){
-					if (rules[d].hStyle != "no default setting"){
-						return true;
-					}
-				}
-			}
-		}return false;
-	}
+	return hasRuleFor(slave, rules, "hStyle");
 };
 
 window.hasEyeColorRule = function(slave, rules) {
-	if (!slave) {
+	return hasRuleFor(slave, rules, "eyeColor");
+};
+
+window.lastPregRule = function(slave, rules) {
+	if (!slave || !rules)
+		return null;
+	if (!slave.currentRules)
 		return false;
-	}else if (!rules) {
-		return false;
-	}else if (!slave.currentRules) {
-		return false;
-	}else {
-		for(var d=rules.length-1; d >= 0;--d){
-			for(var e=0; e < slave.currentRules.length;++e){
-				if(slave.currentRules[e] == rules[d].ID){
-					if (rules[d].hStyle != "no default setting"){
-						return true;
-					}
-				}
+
+	for (var d = rules.length-1; d >= 0; d--) {
+		if (ruleApplied(slave, rules[d].ID)) {
+			if (rules[d].preg == -1) {
+				return true;
 			}
-		}return false;
+		}
 	}
+
+	return null;
 };
 
-window.lastEyeWearRule = function(slave, rules) {
-	if (!slave) {
+window.lastSurgeryRuleFor = function(slave, rules, what) {
+	if (!slave || !rules || !slave.currentRules)
 		return null;
-	}else if (!rules) {
-		return null;
-	}else if (!slave.currentRules) {
-		return null;
-	}else {
-		for(var d=rules.length-1; d >= 0;--d){
-			for(var e=0; e < slave.currentRules.length;++e){
-				if(slave.currentRules[e] == rules[d].ID){
-					if (rules[d].eyewear != "no default setting"){
-						return rules[d];
-					}
-				}
-			}
-		}return null;
-	}
-};
 
-window.lastEyeColorRule = function(slave, rules) {
-	if (!slave) {
-		return null;
-	}else if (!rules) {
-		return null;
-	}else if (!slave.currentRules) {
-		return null;
-	}else {
-		for(var d=rules.length-1; d >= 0;--d){
-			for(var e=0; e < slave.currentRules.length;++e){
-				if(slave.currentRules[e] == rules[d].ID){
-					if (rules[d].eyeColor != "no default setting"){
-						return rules[d];
-					}
-				}
-			}
-		}return null;
-	}
-};
+	for (var d = rules.length-1; d >= 0; d--) {
+		if (!rules[d].surgery)
+			return null;
 
-window.lastMakeupRule = function(slave, rules) {
-	if (!slave) {
-		return null;
-	}else if (!rules) {
-		return null;
-	}else if (!slave.currentRules) {
-		return null;
-	}else {
-		for(var d=rules.length-1; d >= 0;--d){
-			for(var e=0; e < slave.currentRules.length;++e){
-				if(slave.currentRules[e] == rules[d].ID){
-					if (rules[d].makeup != "no default setting"){
-						return rules[d];
-					}
-				}
+		if (ruleApplied(slave, rules[d].ID)) {
+			if (rules[d].surgery[what] != "no default setting") {
+				return rules[d];
 			}
-		}return null;
+		}
 	}
-};
 
-window.lastNailsRule = function(slave, rules) {
-	if (!slave) {
-		return null;
-	}else if (!rules) {
-		return null;
-	}else if (!slave.currentRules) {
-		return null;
-	}else {
-		for(var d=rules.length-1; d >= 0;--d){
-			for(var e=0; e < slave.currentRules.length;++e){
-				if(slave.currentRules[e] == rules[d].ID){
-					if (rules[d].nails != "no default setting"){
-						return rules[d];
-					}
-				}
-			}
-		}return null;
-	}
-};
-
-window.lastHColorRule = function(slave, rules) {
-	if (!slave) {
-		return null;
-	}else if (!rules) {
-		return null;
-	}else if (!slave.currentRules) {
-		return null;
-	}else {
-		for(var d=rules.length-1; d >= 0;--d){
-			for(var e=0; e < slave.currentRules.length;++e){
-				if(slave.currentRules[e] == rules[d].ID){
-					if (rules[d].hColor != "no default setting"){
-						return rules[d];
-					}
-				}
-			}
-		}return null;
-	}
-};
-
-window.lastHStyleRule = function(slave, rules) {
-	if (!slave) {
-		return null;
-	}else if (!rules) {
-		return null;
-	}else if (!slave.currentRules) {
-		return null;
-	}else {
-		for(var d=rules.length-1; d >= 0;--d){
-			for(var e=0; e < slave.currentRules.length;++e){
-				if(slave.currentRules[e] == rules[d].ID){
-					if (rules[d].hStyle != "no default setting"){
-						return rules[d];
-					}
-				}
-			}
-		}return null;
-	}
-};
-
-window.lastHLengthRule = function(slave, rules) {
-	if (!slave) {
-		return null;
-	}else if (!rules) {
-		return null;
-	}else if (!slave.currentRules) {
-		return null;
-	}else {
-		for(var d=rules.length-1; d >= 0;--d){
-			for(var e=0; e < slave.currentRules.length;++e){
-				if(slave.currentRules[e] == rules[d].ID){
-					if (rules[d].hLength != "no default setting"){
-						return rules[d];
-					}
-				}
-			}
-		}return null;
-	}
-};
-
-window.lastPubicHColorRule = function(slave, rules) {
-	if (!slave) {
-		return null;
-	}else if (!rules) {
-		return null;
-	}else if (!slave.currentRules) {
-		return null;
-	}else {
-		for(var d=rules.length-1; d >= 0;--d){
-			for(var e=0; e < slave.currentRules.length;++e){
-				if(slave.currentRules[e] == rules[d].ID){
-					if (rules[d].pubicHColor != "no default setting"){
-						return rules[d];
-					}
-				}
-			}
-		}return null;
-	}
-};
-
-window.lastPubicHStyleRule = function(slave, rules) {
-	if (!slave) {
-		return null;
-	}else if (!rules) {
-		return null;
-	}else if (!slave.currentRules) {
-		return null;
-	}else {
-		for(var d=rules.length-1; d >= 0;--d){
-			for(var e=0; e < slave.currentRules.length;++e){
-				if(slave.currentRules[e] == rules[d].ID){
-					if (rules[d].pubicHStyle != "no default setting"){
-						return rules[d];
-					}
-				}
-			}
-		}return null;
-	}
-};
-
-window.lastNipplesPiercingRule = function(slave, rules) {
-	if (!slave) {
-		return null;
-	}else if (!rules) {
-		return null;
-	}else if (!slave.currentRules) {
-		return null;
-	}else {
-		for(var d=rules.length-1; d >= 0;--d){
-			for(var e=0; e < slave.currentRules.length;++e){
-				if(slave.currentRules[e] == rules[d].ID){
-					if (rules[d].nipplesPiercing != "no default setting"){
-						return rules[d];
-					}
-				}
-			}
-		}return null;
-	}
-};
-window.lastAreolaePiercingRule = function(slave, rules) {
-	if (!slave) {
-		return null;
-	}else if (!rules) {
-		return null;
-	}else if (!slave.currentRules) {
-		return null;
-	}else {
-		for(var d=rules.length-1; d >= 0;--d){
-			for(var e=0; e < slave.currentRules.length;++e){
-				if(slave.currentRules[e] == rules[d].ID){
-					if (rules[d].areolaePiercing != "no default setting"){
-						return rules[d];
-					}
-				}
-			}
-		}return null;
-	}
-};
-window.lastClitPiercingRule = function(slave, rules) {
-	if (!slave) {
-		return null;
-	}else if (!rules) {
-		return null;
-	}else if (!slave.currentRules) {
-		return null;
-	}else {
-		for(var d=rules.length-1; d >= 0;--d){
-			for(var e=0; e < slave.currentRules.length;++e){
-				if(slave.currentRules[e] == rules[d].ID){
-					if (rules[d].clitPiercing != "no default setting"){
-						return rules[d];
-					}
-				}
-			}
-		}return null;
-	}
-};
-window.lastClitSettingRule = function(slave, rules) {
-    if (!slave) {
-        return null;
-    }else if (!rules) {
-        return null;
-    }else if (!slave.currentRules) {
-        return null;
-    }else {
-        for(var d=rules.length-1; d >= 0;--d){
-            for(var e=0; e < slave.currentRules.length;++e){
-                if(slave.currentRules[e] == rules[d].ID){
-                    if (rules[d].clitSetting != "no default setting"){
-                        return rules[d];
-                    }
-                }
-            }
-        }return null;
-    }
-};
-window.lastClitSettingXYRule = function(slave, rules) {
-    if (!slave) {
-        return null;
-    }else if (!rules) {
-        return null;
-    }else if (!slave.currentRules) {
-        return null;
-    }else {
-        for(var d=rules.length-1; d >= 0;--d){
-            for(var e=0; e < slave.currentRules.length;++e){
-                if(slave.currentRules[e] == rules[d].ID){
-                    if (rules[d].clitSettingXY != "no default setting"){
-                        return rules[d];
-                    }
-                }
-            }
-        }return null;
-    }
-};
-window.lastClitSettingXXRule = function(slave, rules) {
-    if (!slave) {
-        return null;
-    }else if (!rules) {
-        return null;
-    }else if (!slave.currentRules) {
-        return null;
-    }else {
-        for(var d=rules.length-1; d >= 0;--d){
-            for(var e=0; e < slave.currentRules.length;++e){
-                if(slave.currentRules[e] == rules[d].ID){
-                    if (rules[d].clitSettingXX != "no default setting"){
-                        return rules[d];
-                    }
-                }
-            }
-        }return null;
-    }
-};
-window.lastClitSettingEnergyRule = function(slave, rules) {
-    if (!slave) {
-        return null;
-    }else if (!rules) {
-        return null;
-    }else if (!slave.currentRules) {
-        return null;
-    }else {
-        for(var d=rules.length-1; d >= 0;--d){
-            for(var e=0; e < slave.currentRules.length;++e){
-                if(slave.currentRules[e] == rules[d].ID){
-                    if (rules[d].clitSettingEnergy != "no default setting"){
-                        return rules[d];
-                    }
-                }
-            }
-        }return null;
-    }
-};
-window.lastVaginaPiercingRule = function(slave, rules) {
-	if (!slave) {
-		return null;
-	}else if (!rules) {
-		return null;
-	}else if (!slave.currentRules) {
-		return null;
-	}else {
-		for(var d=rules.length-1; d >= 0;--d){
-			for(var e=0; e < slave.currentRules.length;++e){
-				if(slave.currentRules[e] == rules[d].ID){
-					if (rules[d].vaginaPiercing != "no default setting"){
-						return rules[d];
-					}
-				}
-			}
-		}return null;
-	}
-};
-window.lastDickPiercingRule = function(slave, rules) {
-	if (!slave) {
-		return null;
-	}else if (!rules) {
-		return null;
-	}else if (!slave.currentRules) {
-		return null;
-	}else {
-		for(var d=rules.length-1; d >= 0;--d){
-			for(var e=0; e < slave.currentRules.length;++e){
-				if(slave.currentRules[e] == rules[d].ID){
-					if (rules[d].dickPiercing != "no default setting"){
-						return rules[d];
-					}
-				}
-			}
-		}return null;
-	}
-};
-window.lastAnusPiercingRule = function(slave, rules) {
-	if (!slave) {
-		return null;
-	}else if (!rules) {
-		return null;
-	}else if (!slave.currentRules) {
-		return null;
-	}else {
-		for(var d=rules.length-1; d >= 0;--d){
-			for(var e=0; e < slave.currentRules.length;++e){
-				if(slave.currentRules[e] == rules[d].ID){
-					if (rules[d].anusPiercing != "no default setting"){
-						return rules[d];
-					}
-				}
-			}
-		}return null;
-	}
-};
-window.lastLipsPiercingRule = function(slave, rules) {
-	if (!slave) {
-		return null;
-	}else if (!rules) {
-		return null;
-	}else if (!slave.currentRules) {
-		return null;
-	}else {
-		for(var d=rules.length-1; d >= 0;--d){
-			for(var e=0; e < slave.currentRules.length;++e){
-				if(slave.currentRules[e] == rules[d].ID){
-					if (rules[d].lipsPiercing != "no default setting"){
-						return rules[d];
-					}
-				}
-			}
-		}return null;
-	}
-};
-window.lastTonguePiercingRule = function(slave, rules) {
-	if (!slave) {
-		return null;
-	}else if (!rules) {
-		return null;
-	}else if (!slave.currentRules) {
-		return null;
-	}else {
-		for(var d=rules.length-1; d >= 0;--d){
-			for(var e=0; e < slave.currentRules.length;++e){
-				if(slave.currentRules[e] == rules[d].ID){
-					if (rules[d].tonguePiercing != "no default setting"){
-						return rules[d];
-					}
-				}
-			}
-		}return null;
-	}
-};
-window.lastEarPiercingRule = function(slave, rules) {
-	if (!slave) {
-		return null;
-	}else if (!rules) {
-		return null;
-	}else if (!slave.currentRules) {
-		return null;
-	}else {
-		for(var d=rules.length-1; d >= 0;--d){
-			for(var e=0; e < slave.currentRules.length;++e){
-				if(slave.currentRules[e] == rules[d].ID){
-					if (rules[d].earPiercing != "no default setting"){
-						return rules[d];
-					}
-				}
-			}
-		}return null;
-	}
-};
-window.lastEyebrowPiercingRule = function(slave, rules) {
-	if (!slave) {
-		return null;
-	}else if (!rules) {
-		return null;
-	}else if (!slave.currentRules) {
-		return null;
-	}else {
-		for(var d=rules.length-1; d >= 0;--d){
-			for(var e=0; e < slave.currentRules.length;++e){
-				if(slave.currentRules[e] == rules[d].ID){
-					if (rules[d].earPiercing != "no default setting"){
-						return rules[d];
-					}
-				}
-			}
-		}return null;
-	}
-};
-window.lastNosePiercingRule = function(slave, rules) {
-	if (!slave) {
-		return null;
-	}else if (!rules) {
-		return null;
-	}else if (!slave.currentRules) {
-		return null;
-	}else {
-		for(var d=rules.length-1; d >= 0;--d){
-			for(var e=0; e < slave.currentRules.length;++e){
-				if(slave.currentRules[e] == rules[d].ID){
-					if (rules[d].nosePiercing != "no default setting"){
-						return rules[d];
-					}
-				}
-			}
-		}return null;
-	}
-};
-window.lastNavelPiercingRule = function(slave, rules) {
-	if (!slave) {
-		return null;
-	}else if (!rules) {
-		return null;
-	}else if (!slave.currentRules) {
-		return null;
-	}else {
-		for(var d=rules.length-1; d >= 0;--d){
-			for(var e=0; e < slave.currentRules.length;++e){
-				if(slave.currentRules[e] == rules[d].ID){
-					if (rules[d].navelPiercing != "no default setting"){
-						return rules[d];
-					}
-				}
-			}
-		}return null;
-	}
-};
-window.lastCorsetPiercingRule = function(slave, rules) {
-	if (!slave) {
-		return null;
-	}else if (!rules) {
-		return null;
-	}else if (!slave.currentRules) {
-		return null;
-	}else {
-		for(var d=rules.length-1; d >= 0;--d){
-			for(var e=0; e < slave.currentRules.length;++e){
-				if(slave.currentRules[e] == rules[d].ID){
-					if (rules[d].corsetPiercing != "no default setting"){
-						return rules[d];
-					}
-				}
-			}
-		}return null;
-	}
-};
-window.lastBoobsTatRule = function(slave, rules) {
-	if (!slave) {
-		return null;
-	}else if (!rules) {
-		return null;
-	}else if (!slave.currentRules) {
-		return null;
-	}else {
-		for(var d=rules.length-1; d >= 0;--d){
-			for(var e=0; e < slave.currentRules.length;++e){
-				if(slave.currentRules[e] == rules[d].ID){
-					if (rules[d].boobsTat != "no default setting"){
-						return rules[d];
-					}
-				}
-			}
-		}return null;
-	}
-};
-window.lastButtTatRule = function(slave, rules) {
-	if (!slave) {
-		return null;
-	}else if (!rules) {
-		return null;
-	}else if (!slave.currentRules) {
-		return null;
-	}else {
-		for(var d=rules.length-1; d >= 0;--d){
-			for(var e=0; e < slave.currentRules.length;++e){
-				if(slave.currentRules[e] == rules[d].ID){
-					if (rules[d].buttTat != "no default setting"){
-						return rules[d];
-					}
-				}
-			}
-		}return null;
-	}
-};
-window.lastVaginaTatRule = function(slave, rules) {
-	if (!slave) {
-		return null;
-	}else if (!rules) {
-		return null;
-	}else if (!slave.currentRules) {
-		return null;
-	}else {
-		for(var d=rules.length-1; d >= 0;--d){
-			for(var e=0; e < slave.currentRules.length;++e){
-				if(slave.currentRules[e] == rules[d].ID){
-					if (rules[d].vaginaTat != "no default setting"){
-						return rules[d];
-					}
-				}
-			}
-		}return null;
-	}
-};
-window.lastDickTatRule = function(slave, rules) {
-	if (!slave) {
-		return null;
-	}else if (!rules) {
-		return null;
-	}else if (!slave.currentRules) {
-		return null;
-	}else {
-		for(var d=rules.length-1; d >= 0;--d){
-			for(var e=0; e < slave.currentRules.length;++e){
-				if(slave.currentRules[e] == rules[d].ID){
-					if (rules[d].dickTat != "no default setting"){
-						return rules[d];
-					}
-				}
-			}
-		}return null;
-	}
-};
-window.lastAnusTatRule = function(slave, rules) {
-	if (!slave) {
-		return null;
-	}else if (!rules) {
-		return null;
-	}else if (!slave.currentRules) {
-		return null;
-	}else {
-		for(var d=rules.length-1; d >= 0;--d){
-			for(var e=0; e < slave.currentRules.length;++e){
-				if(slave.currentRules[e] == rules[d].ID){
-					if (rules[d].anusTat != "no default setting"){
-						return rules[d];
-					}
-				}
-			}
-		}return null;
-	}
-};
-window.lastLipsTatRule = function(slave, rules) {
-	if (!slave) {
-		return null;
-	}else if (!rules) {
-		return null;
-	}else if (!slave.currentRules) {
-		return null;
-	}else {
-		for(var d=rules.length-1; d >= 0;--d){
-			for(var e=0; e < slave.currentRules.length;++e){
-				if(slave.currentRules[e] == rules[d].ID){
-					if (rules[d].lipsTat != "no default setting"){
-						return rules[d];
-					}
-				}
-			}
-		}return null;
-	}
-};
-window.lastShouldersTatRule = function(slave, rules) {
-	if (!slave) {
-		return null;
-	}else if (!rules) {
-		return null;
-	}else if (!slave.currentRules) {
-		return null;
-	}else {
-		for(var d=rules.length-1; d >= 0;--d){
-			for(var e=0; e < slave.currentRules.length;++e){
-				if(slave.currentRules[e] == rules[d].ID){
-					if (rules[d].shouldersTat != "no default setting"){
-						return rules[d];
-					}
-				}
-			}
-		}return null;
-	}
-};
-window.lastArmsTatRule = function(slave, rules) {
-	if (!slave) {
-		return null;
-	}else if (!rules) {
-		return null;
-	}else if (!slave.currentRules) {
-		return null;
-	}else {
-		for(var d=rules.length-1; d >= 0;--d){
-			for(var e=0; e < slave.currentRules.length;++e){
-				if(slave.currentRules[e] == rules[d].ID){
-					if (rules[d].armsTat != "no default setting"){
-						return rules[d];
-					}
-				}
-			}
-		}return null;
-	}
-};
-window.lastLegsTatRule = function(slave, rules) {
-	if (!slave) {
-		return null;
-	}else if (!rules) {
-		return null;
-	}else if (!slave.currentRules) {
-		return null;
-	}else {
-		for(var d=rules.length-1; d >= 0;--d){
-			for(var e=0; e < slave.currentRules.length;++e){
-				if(slave.currentRules[e] == rules[d].ID){
-					if (rules[d].legsTat != "no default setting"){
-						return rules[d];
-					}
-				}
-			}
-		}return null;
-	}
-};
-window.lastStampTatRule = function(slave, rules) {
-	if (!slave) {
-		return null;
-	}else if (!rules) {
-		return null;
-	}else if (!slave.currentRules) {
-		return null;
-	}else {
-		for(var d=rules.length-1; d >= 0;--d){
-			for(var e=0; e < slave.currentRules.length;++e){
-				if(slave.currentRules[e] == rules[d].ID){
-					if (rules[d].stampTat != "no default setting"){
-						return rules[d];
-					}
-				}
-			}
-		}return null;
-	}
+	return null;
 };
 
 window.lastLactationSurgeryRule = function(slave, rules) {
-	if (!slave) {
-		return null;
-	}else if (!rules) {
-		return null;
-	}else if (!slave.currentRules) {
-		return null;
-	}else {
-		for(var d=rules.length-1; d >= 0;--d){
-			if (!rules[d].surgery) {
-				return null;
-			}
-			for(var e=0; e < slave.currentRules.length;++e){
-				if(slave.currentRules[e] == rules[d].ID){
-					if (rules[d].surgery.lactation != "no default setting"){
-						return rules[d];
-					}
-				}
-			}
-		}return null;
-	}
-};
+	return lastSurgeryRuleFor(slave, rules, "lactation");
+}
+
+window.lastProstateSurgeryRule = function(slave, rules) {
+	return lastSurgeryRuleFor(slave, rules, "prostate");
+}
+
 window.lastLipSurgeryRule = function(slave, rules) {
-	if (!slave) {
-		return null;
-	}else if (!rules) {
-		return null;
-	}else if (!slave.currentRules) {
-		return null;
-	}else {
-		for(var d=rules.length-1; d >= 0;--d){
-			if (!rules[d].surgery) {
-				return null;
-			}
-			for(var e=0; e < slave.currentRules.length;++e){
-				if(slave.currentRules[e] == rules[d].ID){
-					if (rules[d].surgery.lips != "no default setting"){
-						return rules[d];
-					}
-				}
-			}
-		}return null;
-	}
+	return lastSurgeryRuleFor(slave, rules, "lips");
 };
+
 window.lastBoobSurgeryRule = function(slave, rules) {
-	if (!slave) {
-		return null;
-	}else if (!rules) {
-		return null;
-	}else if (!slave.currentRules) {
-		return null;
-	}else {
-		for(var d=rules.length-1; d >= 0;--d){
-			if (!rules[d].surgery) {
-				return null;
-			}
-			for(var e=0; e < slave.currentRules.length;++e){
-				if(slave.currentRules[e] == rules[d].ID){
-					if (rules[d].surgery.boobs != "no default setting"){
-						return rules[d];
-					}
-				}
-			}
-		}return null;
-	}
+	return lastSurgeryRuleFor(slave, rules, "boobs");
 };
+
 window.lastButtSurgeryRule = function(slave, rules) {
-	if (!slave) {
-		return null;
-	}else if (!rules) {
-		return null;
-	}else if (!slave.currentRules) {
-		return null;
-	}else {
-		for(var d=rules.length-1; d >= 0;--d){
-			if (!rules[d].surgery) {
-				return null;
-			}
-			for(var e=0; e < slave.currentRules.length;++e){
-				if(slave.currentRules[e] == rules[d].ID){
-					if (rules[d].surgery.butt != "no default setting"){
-						return rules[d];
-					}
-				}
-			}
-		}return null;
-	}
-};
-
-window.checkThresholds = function(number, rule) {
-	if (!rule) {
-		return null;
-	} else {
-		if ((rule.thresholdUpper != "none") && (rule.thresholdLower != "none")){
-			if (!rule.eqLower && !rule.eqUpper){
-				if((number < rule.thresholdUpper) && (number > rule.thresholdLower)){
-					return true;
-				}
-			}
-			else if (rule.eqLower && !rule.eqUpper){
-				if((number < rule.thresholdUpper) && (number >= rule.thresholdLower)){
-					return true;
-				}
-			}
-			else if (!rule.eqLower && rule.eqUpper){
-				if((number <= rule.thresholdUpper) && (number > rule.thresholdLower)){
-					return true;
-				}
-			}
-			else {
-				if((number <= rule.thresholdUpper) && (number >= rule.thresholdLower)){
-					return true;
-				}
-			}
-		}
-		else if (rule.thresholdUpper != "none"){
-			if (!rule.eqUpper) {
-				if(number < rule.thresholdUpper){
-					return true;
-				}
-			}
-			else{
-				if(number <= rule.thresholdUpper){
-					return true;
-				}
-			}
-		}
-		else if (rule.thresholdLower != "none"){
-			if (!rule.eqLower) {
-				if(number > rule.thresholdLower){
-					return true;
-				}
-			}
-			else{
-				if(number >= rule.thresholdLower){
-					return true;
-				}
-			}
-		}return false;
-	}
-};
-
-window.removeFromArray = function(arr, val) {
-	for (var i = 0; i < arr.length; i++)
-		if (val == arr[i])
-			return arr.splice(i,1);
-	return null;
+	return lastSurgeryRuleFor(slave, rules, "butt");
 };
 
 window.milkAmount = function(slave) {
@@ -1526,6 +676,8 @@ window.cumAmount = function(slave) {
 		}
 		if (slave.prostate == 0) {
 			cum *= 0.8
+		} else if (slave.prostate == 2) {
+			cum *= 1.2
 		}
 		if (slave.devotion > 50) {
 			cum += (cum*(slave.devotion/100))
@@ -1542,3 +694,53 @@ window.cumAmount = function(slave) {
 		return cum
 	}
 };
+
+
+window.mergeRules = function(rules) {
+    var combinedRule = {};
+
+    for (var i = 0; i < rules.length; i++) {
+        for (var attr in rules[i]) {
+
+            // A rule overrides any preceding ones if,
+            //   * there are no preceding ones,
+            //   * or it sets autoBrand,
+            //   * or it sets setAssignment to something other that "none",
+            //   * or it sets assignFacility to something other that "none",
+            //   * or it sets none of the above and is not "no default setting"
+            var applies = (
+                combinedRule[attr] === undefined
+                || (attr === "autoBrand" && rules[i][attr])
+                || (attr === "setAssignment" && rules[i][attr] !== "none")
+                || (attr === "assignFacility" && rules[i][attr] !== "none")
+                || (
+                    attr !== "autoBrand"
+                    && attr !== "setAssignment"
+                    && attr !== "assignFacility"
+                    && rules[i][attr] !== "no default setting"
+                )
+            );
+
+            if (applies) {
+                if (attr == "setAssignment" && combinedRule.assignFacility !== "none") {
+                    // If the rules so far have set assignFacility, unset it,
+                    // since the assignment overrides it.  We assume that a
+                    // given rule won't set both assignFacility and
+                    // setAssignment.  If that happens, which one will prevail
+                    // is down to the enumeration order of "for ... in".
+                    combinedRule.assignFacility = "none";
+                    combinedRule.facilityRemove = false;
+                }
+                if (attr == "assignFacility" && combinedRule.setAssignment !== "none")
+                    // Similarly, if setAssignment is set, unset it.
+                    combinedRule.setAssignment = "none";
+
+                combinedRule[attr] = rules[i][attr];
+            }
+        }
+    }
+
+    return combinedRule;
+}
+
+

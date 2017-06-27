@@ -1,13 +1,12 @@
 :: Matchmaking [nobr]
 
-<<set $nextButton = "Back", $nextLink = "Main">>
+<<set $nextButton = "Back", $nextLink = "AS Dump">>
 
 <<if $subSlave == 0>>
 
 <<SlaveTitle $eventSlave>>
 
 /* 000-250-006 */
-/* <<if $seeImages == 1>><<SlaveArt $eventSlave 2 0>><</if>> */
 <<if $seeImages == 1>>
     <div class="imageRef medImg">
     <<SlaveArt $eventSlave 2 0>>
@@ -22,12 +21,12 @@ You order $eventSlave.slaveName to come to your office. The <<if $eventSlave.rel
 	She's an emotional slut, and worships you and values herself primarily in terms of sex. She's such a perfect sex slave that she'd probably fuck anyone or anything you told her to, and love you all the more for giving her the chance. If you were to decide that even a sex slave like her needs a little more structure than constant omnisexual lust, you could probably set her up with another universal slut.
 <</if>>
 Their relationship would probably be somewhat artificial at first, and they'd have to struggle at it, but after a period of adjustment, you'd have two worshipful slaves again, except that they'd be together. It'd definitely help if they had compatible behavioral quirks and sexual fetishes.
+<br><br>
 
 <span id="result">
 
 <<if ($MixedMarriage == 1)>>
 <<if $eventSlave.relationship == -2>>
-<br><br>
 <<if ($weddingPlanned != 0)>>
 You could marry her yourself, but that would have to wait, since you already have a wedding planned this week.
 <<else>>
@@ -39,7 +38,7 @@ Of course, you could marry her yourself, since you've decide to enable marriage 
 
 You tell $eventSlave.slaveName that you're going to marry her. (A proposal, of course, would be inappropriate, even in so enlightened a place as your arcology.) You're not exactly lacking in ways to make <<if $eventSlave.age > 30>>women<<else>>girls<</if>> burst into tears, but this one is unusually effective. When she's gotten herself under control again, <<if $eventSlave.amp == 1>>looking somewhat embarrassed that she can't wipe her own tears<<else>>distractedly cuffing away her tears<</if>> and consciously breathing deeply,
 <<if canTalk($eventSlave)>>
-	she says, "Thank you, <<if $PC.title == 0>><<if SlaveStatsChecker.checkForLisp($eventSlave)>>Mithtreth<<else>>Mistress<</if>><<else>><<if SlaveStatsChecker.checkForLisp($eventSlave)>>Mathter<<else>>Master<</if>><</if>>. I am going to do my <<if SlaveStatsChecker.checkForLisp($eventSlave)>>betht<<else>>best<</if>> to be a
+	she says, "Thank you, <<Master $eventSlave>>. I am going to do my <<if SlaveStatsChecker.checkForLisp($eventSlave)>>betht<<else>>best<</if>> to be a
 	<<if ($eventSlave.fetishKnown == 1) && ($eventSlave.fetishStrength > 60)>>
 		<<if ($eventSlave.fetish == "submissive")>>
 		perfect submissive wife to you,
@@ -65,8 +64,8 @@ You tell $eventSlave.slaveName that you're going to marry her. (A proposal, of c
 	<<else>>
 		good wife,
 	<</if>>
-	<<if $PC.title == 0>><<if SlaveStatsChecker.checkForLisp($eventSlave)>>Mithtreth<<else>>Mistress<</if>><<else>><<if SlaveStatsChecker.checkForLisp($eventSlave)>>Mathter<<else>>Master<</if>><</if>>. Oh, thank you, M-<<if $PC.title == 0>><<if SlaveStatsChecker.checkForLisp($eventSlave)>>Mithtreth<<else>>Mistress<</if>><<else>><<if SlaveStatsChecker.checkForLisp($eventSlave)>>Mathter<<else>>Master<</if>><</if>>," she blubbers, and starts crying again.
-<<elseif canTalk($eventSlave)>>
+	<<Master $eventSlave>>. Oh, thank you, <<Master $eventSlave>>," she blubbers, and starts crying again.
+<<elseif $eventSlave.amp != 1>>
 	she shakily signs her thanks twice in a row before breaking down again.
 <<else>>
 	she painstakingly mouths her thanks, since she cannot speak or use hands to sign.
@@ -120,11 +119,18 @@ Despite her devotion and trust, she is still a slave, and probably knows that he
 		"Done," she says.
 	<</if>>
 	<<set $eventSlave.relationship = -3>>
-	<<for _i = 0; _i < $slaves.length; _i++>>
-		<<if $slaves[_i].ID == $eventSlave.ID>>
-			<<set $slaves[_i] = $eventSlave>>
-		<</if>>
-	<</for>>
+	<<if $PC.surname>>
+		<br><br><span id="surnaming">
+		<<link "Give her your surname">>
+			<<replace "#surnaming">>
+				<<set $eventSlave.slaveSurname = $PC.surname, $eventSlave.devotion += 5, $eventSlave.trust += 5>>
+				You also command $assistantName to rename your new slave wife $eventSlave.slaveName $eventSlave.slaveSurname. The new Mrs. $eventSlave.slaveSurname hears this, of course, and breaks down again. Being brusquely redesignated as your slave wife was such a sterile experience that she wasn't sure it was real, and hearing that she's to take your surname @@.mediumaquamarine;reassures her@@ that it is. Not to mention, she might be a $desc, but she's still a girl, and hearing that she wouldn't get a decent wedding did disappoint her, but this makes up for it. You might not be all that expressive, but @@.hotpink;she's your wife,@@ and that's what matters to her.
+				<<set $activeSlave = $eventSlave>>
+			<</replace>>
+		<</link>>
+		</span>
+	<</if>>
+	<<set $activeSlave = $eventSlave>>
 	<</replace>>
 <</link>>
 <br><<link "Have your assistant marry her to you">>
@@ -160,7 +166,7 @@ Despite her devotion and trust, she is still a slave, and probably knows that he
 	<</if>>
 	<<if $eventSlave.dickAccessory == ("chastity")>>
 		Her slave dick is hidden by its chastity cage.
-	<<elseif ($eventSlave.dick > 0) && ($eventSlave.balls > 0) && ($eventSlave.hormones < 1)>>
+	<<elseif ($eventSlave.dick > 0) && canAchieveErection($eventSlave)>>
 		<<if ($eventSlave.dick > 4) && ($eventSlave.preg > 10)>>
 		She's hugely erect, with her lacy g-string only serving to hold her dick agonizingly pressed against the bottom of her pregnant belly.
 		<<elseif $eventSlave.dick > 4>>
@@ -220,17 +226,27 @@ Despite her devotion and trust, she is still a slave, and probably knows that he
 			slave wife's sadistic tendencies!"
 			<<elseif ($eventSlave.fetish == "masochist")>>
 			slave wife's pain!"
+			<<else>>
+			slave wife!"
 			<</if>>
 		<<else>>
 			slave wife!"
 		<</if>>
 	<</if>>
 	<<set $eventSlave.relationship = -3>>
-	<<for _i = 0; _i < $slaves.length; _i++>>
-		<<if $slaves[_i].ID == $eventSlave.ID>>
-			<<set $slaves[_i] = $eventSlave>>
-		<</if>>
-	<</for>>
+	<<if $PC.surname>>
+		<br><br><span id="surnaming">
+		<<link "Give her your surname">>
+			<<replace "#surnaming">>
+				<<set $eventSlave.slaveSurname = $PC.surname, $eventSlave.devotion += 5, $eventSlave.trust += 5>>
+				Before you get too distracted, you tell your lovely new wife that she's now to be known as $eventSlave.slaveName $eventSlave.slaveSurname. It would be an understatement to say she's delighted. She's a good $desc, but even she has to retain a kernel of doubt about whether a marriage between an owner and a piece of property is really worth much. This @@.mediumaquamarine;reassures her@@ that it is. Her special day probably wasn't exactly like she might once have imagined it, but she obviously thinks it's been @@.hotpink;very nice,@@ all things considered.
+				<<if canTalk($eventSlave)>>"$eventSlave.slaveName $eventSlave.slaveSurname," she murmurs to herself occasionally, smiling.<</if>>
+				<<set $activeSlave = $eventSlave>>
+			<</replace>>
+		<</link>>
+		</span>
+	<</if>>
+	<<set $activeSlave = $eventSlave>>
 	<</replace>>
 <</link>>
 <<if $cash > 10000>>
@@ -282,7 +298,6 @@ Despite her devotion and trust, she is still a slave, and probably knows that he
 <<else>>
 
 /* 000-250-006 */
-/* <<if $seeImages == 1>><<SlaveArt $eventSlave 2 0>><<SlaveArt $subSlave 2 0>><</if>> */
 <<if $seeImages == 1>>
     <div class="imageRef medImg">
     <<SlaveArt $eventSlave 2 0>>
@@ -300,8 +315,8 @@ You decide to set $eventSlave.slaveName up with $subSlave.slaveName. Telling the
 	You praise their total commitment to sexual slavery, and let them know they'll continue to be sex slaves, but tell them that it's time for them to settle down. They give you identical looks of horror, and fail to notice how much of a perfect couple they already are. Patiently, you explain that their sex lives will remain more or less unchanged; just because two slaves are together doesn't mean they can't and won't have sex with other people. They look doubtful, but cheer up when you inform them that they'll be spending a lot of alone time together for a few days.
 <</if>>
 <br><br>
-Being ordered into a relationship would be difficult for anyone, but they're so obedient that @@color:lightgreen;they do their best and make it work.@@ You ensure that they do, and your determined efforts to do so @@color:mediumorchid;reduce their devotion to you,@@ though it's mostly by redirection towards each other. And in any case, they remain devoted enough, and will likely return to their earlier worshipfulness in a few weeks at most.
-<<set _matched = 0>>
+Being ordered into a relationship would be difficult for anyone, but they're so obedient that @@.lightgreen;they do their best and make it work.@@ You ensure that they do, and your determined efforts to do so @@.mediumorchid;reduce their devotion to you,@@ though it's mostly by redirection towards each other. And in any case, they remain devoted enough, and will likely return to their earlier worshipfulness in a few weeks at most.
+<<set _matched = 1>>
 <<if ($eventSlave.fetish == "submissive") && ($subSlave.fetish == "dom")>>
 	$subSlave.slaveName is a dom and $eventSlave.slaveName is a sub. It's a match out of bad fiction.
 <<elseif ($subSlave.fetish == "submissive") && ($eventSlave.fetish == "dom")>>
@@ -330,9 +345,11 @@ Being ordered into a relationship would be difficult for anyone, but they're so 
 	$eventSlave.slaveName can indulge the fantasy that she's getting pregnant each and every time $subSlave.slaveName cums inside her.
 <<elseif ($subSlave.fetish == "pregnancy") && canAchieveErection($eventSlave)>>
 	$subSlave.slaveName can indulge the fantasy that she's getting pregnant each and every time $eventSlave.slaveName cums inside her.
+<<else>>
+	<<set _matched = 0>>
 <</if>>
 <<if _matched == 1>>
-	Their sexual compatibility is excellent, and they @@color:mediumaquamarine;trust you more@@ for matching them so perfectly.
+	Their sexual compatibility is excellent, and they @@.mediumaquamarine;trust you more@@ for matching them so perfectly.
 	<<set $eventSlave.trust += 10>>
 	<<set $subSlave.trust += 10>>
 <<elseif $eventSlave.fetish == $subSlave.fetish>>
@@ -361,13 +378,13 @@ Being ordered into a relationship would be difficult for anyone, but they're so 
 	<</switch>>
 	and they bond over their shared sexual tastes, easing their acclimation to having another slave play a major role in their sex lives. They're almost as happy sharing stories about their past sexual exploits as they are actually having sex.
 <<else>>
-	Their fetishes aren't very compatible, and though as a couple of inventive nymphos they do their absolute best to fuck each other senseless, they @@color:gold;trust you a less@@ out of doubt in the sexual match.
+	Their fetishes aren't very compatible, and though as a couple of inventive nymphos they do their absolute best to fuck each other senseless, they @@.gold;trust you a less@@ out of doubt in the sexual match.
 	<<set $eventSlave.trust -= 10>>
 	<<set $subSlave.trust -= 10>>
 <</if>>
 <<if $eventSlave.behavioralQuirk == $subSlave.behavioralQuirk>>
 	They're both
-	<<switch $eventSlave.behavioralQuirk>> 
+	<<switch $eventSlave.behavioralQuirk>>
 	<<case "confident">>
 		confident, and soon come to an understanding that they'll be able to <<if $eventSlave.relationship == -2>>serve you better together<<else>>fuck third parties better as a pair<</if>>.
 	<<case "cutting">>
@@ -392,7 +409,7 @@ Being ordered into a relationship would be difficult for anyone, but they're so 
 		advocates for slavery. Not only do they share this, but they believe that your orders are good for them, including your order that they be together.
 	<</switch>>
 <<else>>
-	They approach life as slaves differently, and it's @@color:gold;tough for them to reconcile their differences over their values.@@
+	They approach life as slaves differently, and it's @@.gold;tough for them to reconcile their differences over their values.@@
 	<<set $eventSlave.trust -= 10>>
 	<<set $subSlave.trust -= 10>>
 <</if>>
@@ -405,11 +422,11 @@ Being ordered into a relationship would be difficult for anyone, but they're so 
 <<set $eventSlave.devotion -= 20>>
 
 <<for _i = 0; _i < $slaves.length; _i++>>
-	<<if $slaves[_i].ID == $eventSlave.ID>>
-		<<set $slaves[_i] = $eventSlave>>
-	<<elseif $slaves[_i].ID == $subSlave.ID>>
+	<<if $slaves[_i].ID == $subSlave.ID>>
 		<<set $slaves[_i] = $subSlave>>
 	<</if>>
 <</for>>
+
+<<set $activeSlave = $eventSlave>>
 
 <</if>>

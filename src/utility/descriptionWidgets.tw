@@ -12,112 +12,110 @@
 <<elseif ($personalAttention == "medicine")>>This week you will learn medicine.
 <<else>>
 	<<if _PA > -1>>
-		You plan to train ''__@@color:pink;$slaves[_PA].slaveName@@__'' to $trainingRegimen this week.
+		You plan to train ''__@@.pink;$slaves[_PA].slaveName<<if $slaves[_PA].slaveSurname>> $slaves[_PA].slaveSurname<</if>>@@__'' to $trainingRegimen this week.
 	<</if>>
 <</if>>
-<span id="managePA"><strong><<link "Change plans">><<goto "Personal Attention Select">><</link>></strong></span> @@color:cyan;[A]@@
+<span id="managePA"><strong><<link "Change plans">><<goto "Personal Attention Select">><</link>></strong></span> @@.cyan;[A]@@
 <br>
 <<if _HG > -1>>
-	''__@@color:pink;$HeadGirl.slaveName@@__'' is <<if ndef $headGirlFocus>>serving as your head girl<<if $arcologies[0].FSEgyptianRevivalistLaw == 1>> and Consort<</if>>.<<else>>your head girl<<if $arcologies[0].FSEgyptianRevivalistLaw == 1>> and Consort,<</if>> and is focusing on your slaves' $headGirlFocus.<</if>>
-	<span id="manageHG"><strong><<link "Manage Head Girl">><<goto "HG Select">><</link>></strong></span> @@color:cyan;[H]@@
+	''__@@.pink;$HeadGirl.slaveName<<if $HeadGirl.slaveSurname>> $HeadGirl.slaveSurname<</if>>@@__'' is <<if ndef $headGirlFocus>>serving as your head girl<<if $arcologies[0].FSEgyptianRevivalistLaw == 1>> and Consort<</if>>.<<else>>your head girl<<if $arcologies[0].FSEgyptianRevivalistLaw == 1>> and Consort,<</if>> and is focusing on your slaves' $headGirlFocus.<</if>>
+	<span id="manageHG"><strong><<link "Manage Head Girl">><<goto "HG Select">><</link>></strong></span> @@.cyan;[H]@@
 <<elseif (_HG == -1) && ($slaves.length > 1)>>
-	You have not selected a Head Girl<<if $arcologies[0].FSEgyptianRevivalistLaw == 1>> and Consort<</if>>. <span id="manageHG"><strong><<link "Select one">><<goto "HG Select">><</link>></strong></span> @@color:cyan;[H]@@
+	You have not selected a Head Girl<<if $arcologies[0].FSEgyptianRevivalistLaw == 1>> and Consort<</if>>. <span id="manageHG"><strong><<link "Select one">><<goto "HG Select">><</link>></strong></span> @@.cyan;[H]@@
 <<elseif (_HG == -1)>>
 	//You do not have enough slaves to keep a Head Girl//
 <</if>>
 <br>
 <<if _RC > -1>>
-	''__@@color:pink;$Recruiter.slaveName@@__'' is working to recruit girls.
-	<span id="manageRecruiter"><strong><<link "Manage Recruiter">><<goto "Recruiter Select">><</link>></strong></span> @@color:cyan;[R]@@
+	''__@@.pink;$Recruiter.slaveName<<if $Recruiter.slaveSurname>> $Recruiter.slaveSurname<</if>>@@__'' is working to recruit girls.
+	<span id="manageRecruiter"><strong><<link "Manage Recruiter">><<goto "Recruiter Select">><</link>></strong></span> @@.cyan;[U]@@
 <<else>>
 	You have not selected a Recruiter.
-	<span id="manageRecruiter"><strong><<link "Select one">><<goto "Recruiter Select">><</link>></strong></span> @@color:cyan;[R]@@
+	<span id="manageRecruiter"><strong><<link "Select one">><<goto "Recruiter Select">><</link>></strong></span> @@.cyan;[U]@@
 <</if>>
 <<if ($dojo != 0)>>
 	<br>
 	<<if _BG > -1>>
-		''__@@color:pink;$Bodyguard.slaveName@@__'' is serving as your bodyguard. <span id="manageBG"><strong><<link "Manage Bodyguard">><<goto "BG Select">><</link>></strong></span> @@color:cyan;[B]@@
+		''__@@.pink;$Bodyguard.slaveName<<if $Bodyguard.slaveSurname>> $Bodyguard.slaveSurname<</if>>@@__'' is serving as your bodyguard. <span id="manageBG"><strong><<link "Manage Bodyguard">><<goto "BG Select">><</link>></strong></span> @@.cyan;[B]@@
 	<<else>>
-		You have not selected a Bodyguard. <span id="manageBG"><strong><<link "Select one">><<goto "BG Select">><</link>></strong></span> @@color:cyan;[B]@@
+		You have not selected a Bodyguard. <span id="manageBG"><strong><<link "Select one">><<goto "BG Select">><</link>></strong></span> @@.cyan;[B]@@
 	<</if>>
 <</if>>
 
 <<if $organsCompleted > 0>>
-<<for _j = 0; _j < $organs.length; _j++>>
+<<for _dwj = 0; _dwj < $organs.length; _dwj++>>
 	<<set _validHost = 0>>
 	<<set $dumped = 0>>
-	<<for _i = 0; _i < $slaves.length; _i++>>
-		<<set _Slave = $slaves[_i]>>
-		<<if ($organs[_j] != 0) && ($organs[_j].ID == _Slave.ID)>>
+	<<for _dwi = 0; _dwi < $slaves.length; _dwi++>>
+		<<set _Slave = $slaves[_dwi]>>
+		<<if ($organs[_dwj] != 0) && ($organs[_dwj].ID == _Slave.ID)>>
 			<<set _validHost = 1>>
-			<<if ($organs[_j].weeksToCompletion == 0)>>
-				<br>@@color:yellow;The fabricator has completed an organ for@@ <span id="name"><<print "[[_Slave.slaveName|Slave Interact][$activeSlave = $slaves[" + _i + "]]]">></span>, @@color:yellow; which is ready to be implanted.@@
+			<<if ($organs[_dwj].weeksToCompletion <= 0)>>
+				<br>@@.yellow;The fabricator has completed an organ for@@ <span id="name"><<print "[[_Slave.slaveName|Slave Interact][$activeSlave = $slaves[" + _dwi + "]]]">></span>, @@.yellow; which is ready to be implanted.@@
 			<</if>>
 		<</if>>
 	<</for>>
 	<<if _validHost == 0>>
-		<<set $dump = $organs.pluck([_j], [_j])>>
-		<<set _j-->>
+		<<set $dump = $organs.deleteAt(_dwj), _dwj-->>
 	<</if>>
 <</for>>
 <</if>>
 <<if $limbsCompleted > 0>>
-<<for _j = 0; _j < $limbs.length; _j++>>
+<<for _dwj = 0; _dwj < $limbs.length; _dwj++>>
 	<<set _validHost = 0>>
 	<<set $dumped = 0>>
-	<<for _i = 0; _i < $slaves.length; _i++>>
-		<<set _Slave = $slaves[_i]>>
-		<<if ($limbs[_j] != 0) && ($limbs[_j].ID == _Slave.ID)>>
+	<<for _dwi = 0; _dwi < $slaves.length; _dwi++>>
+		<<set _Slave = $slaves[_dwi]>>
+		<<if ($limbs[_dwj] != 0) && ($limbs[_dwj].ID == _Slave.ID)>>
 			<<set _validHost = 1>>
-			<<if ($limbs[_j].weeksToCompletion == 0)>>
-				<br>@@color:yellow;The facility has completed a set of limbs for@@ <span id="name"><<print "[[_Slave.slaveName|Slave Interact][$activeSlave = $slaves[" + _i + "]]]">></span>, @@color:yellow; which is ready to be attached.@@
+			<<if ($limbs[_dwj].weeksToCompletion <= 0)>>
+				<br>@@.yellow;The facility has completed a set of limbs for@@ <span id="name"><<print "[[_Slave.slaveName|Slave Interact][$activeSlave = $slaves[" + _dwi + "]]]">></span>, @@.yellow; which is ready to be attached.@@
 			<</if>>
 		<</if>>
 	<</for>>
 	<<if _validHost == 0>>
-		<<set $dump = $organs.pluck([_j], [_j])>>
-		<<set _j-->>
+		<<set $dump = $limbs.deleteAt(_dwj), _dwj-->>
 	<</if>>
 <</for>>
 <</if>>
 <<if ($organsCompleted > 0) && ($limbsCompleted > 0)>>
-	<br>[[Implant and Attach|Multiple Organ Implant]] @@color:yellow;all organs and limbs that are ready.@@
+	<br>[[Implant and Attach|Multiple Organ Implant]] @@.yellow;all organs and limbs that are ready.@@
 <<elseif ($organsCompleted > 1)>>
-	<br>[[Implant|Multiple Organ Implant]] @@color:yellow;all organs that are ready for implantation.@@
+	<br>[[Implant|Multiple Organ Implant]] @@.yellow;all organs that are ready for implantation.@@
 <<elseif ($limbsCompleted > 1)>>
-	<br>[[Attach|Multiple Organ Implant]] @@color:yellow;all sets of limbs that are ready to be attached.@@
+	<br>[[Attach|Multiple Organ Implant]] @@.yellow;all sets of limbs that are ready to be attached.@@
 <</if>>
 <br>
-<span id="buySlaves"><strong><<link "Buy Slaves">><<goto "Buy Slaves">><</link>></strong></span> @@color:cyan;[S]@@
-<<if ($slaveCostFactor > 1.1)>>
-	@@color:yellow;There is a bull market for slaves; the price of slaves is very high.@@
+<<if ($slaveCostFactor > 1.05)>>
+	@@.yellow;There is a bull market for slaves; the price of slaves is very high.@@
 <<elseif ($slaveCostFactor > 1)>>
-	@@color:yellow;The slave market is bullish; the price of slaves is high.@@
-<<elseif ($slaveCostFactor < 0.9)>>
-	@@color:yellow;There is a bear market for slaves; the price of slaves is very low.@@
+	@@.yellow;The slave market is bullish; the price of slaves is high.@@
+<<elseif ($slaveCostFactor < 0.95)>>
+	@@.yellow;There is a bear market for slaves; the price of slaves is very low.@@
 <<elseif ($slaveCostFactor < 1)>>
-	@@color:yellow;The slave market is bearish; the price of slaves is low.@@
+	@@.yellow;The slave market is bearish; the price of slaves is low.@@
 <<else>>
 	The slave market is stable; the price of slaves is average.
 <</if>>
+<span id="buySlaves"><strong><<link "Buy Slaves">><<goto "Buy Slaves">><</link>></strong></span> @@.cyan;[S]@@
 	<<if $TSS.schoolSale != 0>>
-		<br>@@color:yellow;For your first purchase, @@<strong>[[The Slavegirl School][$slavesSeen += 1]]</strong>@@color:yellow; will sell at half price this week.@@
+		<br>@@.yellow;For your first purchase, @@<strong>[[The Slavegirl School][$slavesSeen += 1]]</strong>@@.yellow; will sell at half price this week.@@
 	<</if>>
 	<<if $GRI.schoolSale != 0>>
-		<br>@@color:yellow;For your first purchase, @@<strong>[[Growth Research Institute][$slavesSeen += 1]]</strong>@@color:yellow; will sell at half price this week.@@
+		<br>@@.yellow;For your first purchase, @@<strong>[[Growth Research Institute][$slavesSeen += 1]]</strong>@@.yellow; will sell at half price this week.@@
 	<</if>>
 	<<if $SCP.schoolSale != 0>>
-		<br>@@color:yellow;For your first purchase, @@<strong>[[St. Claver Preparatory][$slavesSeen += 1]]</strong>@@color:yellow; will sell at half price this week.@@
+		<br>@@.yellow;For your first purchase, @@<strong>[[St. Claver Preparatory][$slavesSeen += 1]]</strong>@@.yellow; will sell at half price this week.@@
 	<</if>>
 	<<if ($seeDicks != 0)>>
 		<<if $LDE.schoolSale != 0>>
-			<br>@@color:yellow;For your first purchase, @@<strong>[[L'école des Enculées][$slavesSeen += 1]]</strong>@@color:yellow; will sell at half price this week.@@
+			<br>@@.yellow;For your first purchase, @@<strong>[[L'école des Enculées][$slavesSeen += 1]]</strong>@@.yellow; will sell at half price this week.@@
 		<</if>>
 		<<if $TGA.schoolSale != 0>>
-			<br>@@color:yellow;For your first purchase, @@<strong>[[The Gymnasium-Academy][$slavesSeen += 1]]</strong>@@color:yellow; will sell at half price this week.@@
+			<br>@@.yellow;For your first purchase, @@<strong>[[The Gymnasium-Academy][$slavesSeen += 1]]</strong>@@.yellow; will sell at half price this week.@@
 		<</if>>
 		<<if $TFS.schoolSale != 0>>
-			<br>@@color:yellow;For your first purchase, @@<strong>[[The Futanari Sisters][$slavesSeen += 1]]</strong>@@color:yellow; will sell at half price this week.@@
+			<br>@@.yellow;For your first purchase, @@<strong>[[The Futanari Sisters][$slavesSeen += 1]]</strong>@@.yellow; will sell at half price this week.@@
 		<</if>>
 	<</if>>
 </center>
@@ -161,6 +159,8 @@
 			$activeSlave.slaveName's blouse is professional, but can't conceal the gigantic dimensions of $possessive tits.
 		<<elseif $activeSlave.boobs > 800>>
 			$activeSlave.slaveName's blouse is professional, but can't conceal how big $possessive tits are.
+		<<elseif $activeSlave.boobs < 300>>
+			$activeSlave.slaveName's blouse is professional and includes a pleated front over $possessive flat chest.
 		<<else>>
 			$activeSlave.slaveName's blouse is professional and includes a pleated front over $possessive breasts.
 		<</if>>
@@ -168,6 +168,15 @@
 		$activeSlave.slaveName has a length of chain painfully
 		<<if $activeSlave.boobs > 800>>
 			tightened around the base of each breast, forcing them out.
+		<<elseif $activeSlave.boobs < 300>>
+			<<switch $activeSlave.nipples>>
+			<<case "huge">>
+				wrapped around each of $possessive huge nipples, since they are the only things protruding from $possessive chest.
+			<<case "inverted">>
+				wrapped tightly across $possessive flat chest, through the cleft of $possessive inverted nipples.
+			<<default>>
+				wrapped tightly across $possessive flat chest, directly $possessive $activeSlave.nipples nipples.
+			<</switch>>
 		<<else>>
 			looped under $possessive chest, forcing $possessive breasts up.
 		<</if>>
@@ -177,16 +186,30 @@
 			can't begin to contain $possessive tits, so $pronoun's just tied it under them for support.
 		<<elseif $activeSlave.boobs > 800>>
 			can't close over $possessive tits, so $pronoun's just buttoned it up to where they start and let them fill it out above that.
+		<<elseif $activeSlave.boobs < 300>>
+			tightly hugs $possessive flat chest.
 		<<else>>
 			rests comfortably over $possessive breasts.
 		<</if>>
 	<<case "body oil">>
-		$activeSlave.slaveName's breasts are covered in a sexy sheen of body oil.
+		<<if $activeSlave.boobs < 300>>
+			$activeSlave.slaveName's flat chest is covered in a sexy sheen of body oil.
+		<<else>>
+			$activeSlave.slaveName's breasts are covered in a sexy sheen of body oil.
+		<</if>>
 	<<case "a toga">>
 		<<if $activeSlave.boobs > 6000>>
 			$activeSlave.slaveName's breasts are too big to cover with $possessive toga, so $pronoun leaves them hanging free.
+		<<elseif $activeSlave.boobs < 300>>
+			$activeSlave.slaveName is wearing $possessive toga so as to leave one $activeSlave.nipples nipple bare.
 		<<else>>
 			$activeSlave.slaveName is wearing $possessive toga so as to leave one breast bare.
+		<</if>>
+	<<case "a huipil">>
+		<<if $activeSlave.boobs > 2000>>
+			$activeSlave.slaveName's breasts are so big that they pull up $possessive huipil uncomfortably high, so $pronoun needs to fold it between them.
+		<<else>>
+			$activeSlave.slaveName is wearing $possessive huipil which accentuates her breasts.
 		<</if>>
 	<<case "a slutty qipao">>
 		$activeSlave.slaveName's qipao
@@ -196,6 +219,8 @@
 			barely covers $possessive breasts, it strains to contain their absurd size. Breast flesh spills from any gap it can find.
 		<<elseif $activeSlave.boobs > 2000>>
 			demurely covers $possessive breasts, though it cannot conceal their absurd size.
+		<<elseif $activeSlave.boobs < 300>>
+			demurely hugs $possessive flat chest.
 		<<else>>
 			demurely covers $possessive breasts.
 		<</if>>
@@ -205,6 +230,8 @@
 			outfit has special straps for $possessive massive boobs: one strap down the front of each with steel rings to let $possessive nipples through, and a strap around the base of each, painfully squeezing $possessive breasts out to make them seem even bigger.
 		<<elseif $activeSlave.boobs > 800>>
 			outfit's straining straps restrain the flesh of $possessive tits like a string bikini, with steel rings to let $possessive nipples through.
+		<<elseif $activeSlave.boobs < 300>>
+			outfit's straps pass over $possessive flat chest like a string bikini, with steel rings to let $possessive $activeSlave.nipples nipples through.
 		<<else>>
 			outfit's straps pass over $possessive breasts like a string bikini, with steel rings to let $possessive nipples through.
 		<</if>>
@@ -214,6 +241,8 @@
 			breasts are restrained by yards and yards of rope.
 		<<elseif $activeSlave.boobs > 800>>
 			boobs are tightly bound with rope, soft flesh pushing out from between them.
+		<<elseif $activeSlave.boobs < 300>>
+			flat chest is tightly bound with rope, drawing attention to $possessive flat chest.
 		<<else>>
 			chest is tightly bound with rope.
 		<</if>>
@@ -223,6 +252,8 @@
 			breasts protrude through holes in $possessive latex suit, which are too small for them, painfully constricting $possessive and making them seem even bigger.
 		<<elseif $activeSlave.boobs > 800>>
 			breasts protrude through holes in $possessive latex suit.
+		<<elseif $activeSlave.boobs < 300>>
+			$activeSlave.nipples nipples poke through holes in $possessive latex suit, since $pronoun has nothing else protruding from her chest.
 		<<else>>
 			latex suit leaves $possessive chest bare.
 		<</if>>
@@ -234,24 +265,28 @@
 			lace bra cannot cover the whole breast; its cups are half-moon shaped, and designed to offer what support they can to the bottom of them.
 		<<elseif $activeSlave.boobs > 800>>
 			sturdy lace bra supports $possessive huge breasts.
+		<<elseif $activeSlave.boobs < 300>>
+			pretty lace bra hugs $possessive flat chest.
 		<<else>>
 			pretty lace bra accentuates $possessive breasts.
 		<</if>>
 	<<case "a succubus outfit">>
-		$activeSlave.slaveName's corset ends just below $possessive breasts, leaving them bare.
+		$activeSlave.slaveName's corset ends just below $possessive <<if $activeSlave.boobs < 300>>non-existent <</if>>breasts, leaving them bare.
 		<<if $activeSlave.boobs > 2000>>
 			It hugs $possessive tightly and comes up to right under where they start, forcing them to spill over and hide its upper half.
 		<<elseif $activeSlave.boobs > 400>>
 			It hugs $possessive tightly and comes up to right under where they start, presenting them like a push-up bra.
 		<</if>>
 	<<case "a slutty maid outfit">>
-		$activeSlave.slaveName's maid dress stops below $possessive breasts, but the outfit includes a thin white blouse
+		$activeSlave.slaveName's maid dress stops below $possessive <<if $activeSlave.boobs < 300>>non-existent <</if>>breasts, but the outfit includes a thin white blouse
 		<<if $activeSlave.boobs > 4000>>
 			that fails to even come close to covering $possessive immense breasts.
 		<<elseif $activeSlave.boobs > 2000>>
 			that covers them to just over $possessive nipples when $pronoun pulls it up over them. It's pulled down by $possessive huge chest whenever $pronoun moves.
 		<<elseif $activeSlave.boobs > 800>>
 			that covers them to just over $possessive nipples, leaving a large area of deliciously unsupported and jiggling cleavage.
+		<<elseif $activeSlave.boobs < 300>>
+			that hugs $possessive flat chest and lets $possessive $activeSlave.nipples nipples protrude through the fabric.
 		<<else>>
 			to cover them.
 		<</if>>
@@ -261,6 +296,8 @@
 			immense breasts as best it can; it barely succeeds at its task, straining at the seams and allowing breast flesh to spill out of every available gap.
 		<<elseif $activeSlave.boobs > 2000>>
 			breasts, though it cannot conceal their enormous mass.
+		<<elseif $activeSlave.boobs < 300>>
+			flat chest, though it does nothing to hide how flat $pronoun is.
 		<<else>>
 			breasts.
 		<</if>>
@@ -270,6 +307,8 @@
 			half-corset, but only the bottom edge is visible: the rest is swallowed up under $possessive gigantic tits.
 		<<elseif $activeSlave.boobs > 800>>
 			half-corset to force $possessive big boobs up and forward, forming a lot of cleavage even though they're bare.
+		<<elseif $activeSlave.boobs < 300>>
+			half-corset that tightly hugs $possessive flat chest.
 		<<else>>
 			half-corset to force $possessive boobs up and forward.
 		<</if>>
@@ -280,7 +319,7 @@
 		<<elseif $activeSlave.boobs > 300>>
 			boobs completely bare. It tucks into a golden belt, which is cinched up right under $possessive breasts.
 		<<else>>
-			chest completely bare. It tucks into a golden belt cinched around $possessive middle torso.
+			flat chest completely bare. It tucks into a golden belt cinched around $possessive middle torso.
 		<</if>>
 	<<case "a penitent nuns habit">>
 		If $pronoun fails to hold $possessive torso totally still, the coarse cloth of $possessive top agonizingly scrapes across $possessive nipples, bare under $possessive habit.
@@ -289,6 +328,8 @@
 			With even the slightest movement, $activeSlave.slaveName's huge breasts pull $possessive nipples out from under the tiny scrap of cloth that $possessive string bikini affords them.
 		<<elseif $activeSlave.boobs > 800>>
 			$activeSlave.slaveName's big breasts threaten to break out of $possessive straining string bikini top.
+		<<elseif $activeSlave.boobs < 300>>
+			$activeSlave.slaveName's string bikini top barely covers anything, affording only a tiny scrap of cloth for each nipple; not that there is much else to cover on $possessive flat chest.
 		<<else>>
 			$activeSlave.slaveName's string bikini top barely covers anything, affording only a tiny scrap of cloth for each nipple.
 		<</if>>
@@ -300,6 +341,8 @@
 			clubslut netting is stretched to the breaking point by $possessive massive boobs.
 		<<elseif $activeSlave.boobs > 800>>
 			clubslut netting is stretched by $possessive big breasts.
+		<<elseif $activeSlave.boobs < 300>>
+			clubslut netting hugs $possessive flat chest.
 		<<else>>
 			clubslut netting hugs $possessive chest tightly.
 		<</if>>
@@ -311,6 +354,8 @@
 			is strongly engineered, but it can barely support $possessive enormous bust.
 		<<elseif $activeSlave.boobs > 800>>
 			gives $possessive an acre of cleavage.
+		<<elseif $activeSlave.boobs < 300>>
+			tightly clings to $possessive flat chest, prominently displaying $possessive $activeSlave.nipples nipples.
 		<<else>>
 			does its best to make $possessive boobs look bigger than they are.
 		<</if>>
@@ -323,7 +368,7 @@
 		<<elseif $activeSlave.boobs > 800>>
 			t-shirt is held out and away from $possessive midriff by $possessive big breasts.
 		<<else>>
-			t-shirt is tied up to bare $possessive midriff.
+			t-shirt is tied up to bare $possessive midriff.<<if $activeSlave.boobs < 300>> $possessiveCap <<print either("androgynous", "flat")>> breasts are barely there.<</if>>
 		<</if>>
 	<<case "a slutty outfit">>
 		$activeSlave.slaveName
@@ -333,6 +378,8 @@
 			has to be careful choosing slutty outfits that can restrain $possessive massive breasts.
 		<<elseif $activeSlave.boobs > 800>>
 			has to be careful choosing slutty outfits that can handle $possessive big breasts.
+		<<elseif $activeSlave.boobs < 300>>
+			chooses slutty outfits that go well on a girl with no tits.
 		<<else>>
 			chooses slutty outfits that accentuate $possessive breasts.
 		<</if>>
@@ -344,6 +391,8 @@
 			is carefully engineered and is somehow able to cover the enormous mass of $possessive breasts.
 		<<elseif $activeSlave.boobs > 800>>
 			is carefully tailored, tastefully covering yet enhancing $possessive big breasts.
+		<<elseif $activeSlave.boobs < 300>>
+			is carefully tailored to closely hug $possessive flat chest.
 		<<else>>
 			subtly accentuates $possessive breasts.
 		<</if>>
@@ -356,6 +405,8 @@
 			$activeSlave.slaveName's enormous breasts are bulging inside a beautiful halter top dress.
 		<<elseif $activeSlave.boobs > 800>>
 			$activeSlave.slaveName's is draped inside a beautiful halter top dress, making $possessive big breasts the center of attention.
+		<<elseif $activeSlave.boobs < 300>>
+			$activeSlave.slaveName is wearing a beautiful silky halter top dress, almost as if it was sculpted to hug $possessive flat chest.
 		<<else>>
 			$activeSlave.slaveName is wearing a beautiful silky halter top dress, almost as if it was sculpted to match $possessive frame.
 		<</if>>
@@ -368,6 +419,8 @@
 			$activeSlave.slaveName somehow managed to fit the enormous mass of $possessive breasts inside a fabulous silken ball gown.
 		<<elseif $activeSlave.boobs > 800>>
 			$activeSlave.slaveName's fabulous silken ball gown is carefully tailored, beautifully covering yet enhancing $possessive big breasts.
+		<<elseif $activeSlave.boobs < 300>>
+			$activeSlave.slaveName's fabulous silken ball gown is carefully tailored, beautifully carressing $possessive flat chest.
 		<<else>>
 			$activeSlave.slaveName's draped inside a fabulous silken ball gown.
 		<</if>>
@@ -377,6 +430,8 @@
 			and blouse are both open in front, leaving $possessive boobs bare, since there's no way $pronoun could button $possessive clothes over $possessive tits.
 		<<elseif $activeSlave.boobs > 800>>
 			is open in front, and $possessive straining blouse barely restrains $possessive tits.
+		<<elseif $activeSlave.boobs < 300>>
+			is open in front, tightly hugging $possessive flat chest and prominently diplaying $possessive $activeSlave.nipples nipples.
 		<<else>>
 			is open in front, and $possessive blouse barely covers $possessive breasts.
 		<</if>>
@@ -390,13 +445,23 @@
 			tits are so big that they strain even $possessive specially tailored blouse and jacket.
 		<<elseif $activeSlave.boobs > 800>>
 			big tits strain against $possessive tailored blouse and jacket.
+		<<elseif $activeSlave.boobs < 300>>
+			suit jacket is fitted tightly to $possessive flat chest.
 		<<else>>
 			suit jacket conceals a flattering bra that lifts and presents $possessive bosom.
 		<</if>>
 	<<case "a comfortable bodysuit">>
-		$activeSlave.slaveName's bodysuit is so tightly form-fitting that $possessive breasts are individually hugged and supported by the material.
+		<<if $activeSlave.boobs < 300>>
+			$activeSlave.slaveName's bodysuit is so tightly form-fitting that it clings to $possessive flat chest and prominently displays $possessive $activeSlave.nipples nipples.
+		<<else>>
+			$activeSlave.slaveName's bodysuit is so tightly form-fitting that $possessive breasts are individually hugged and supported by the material.
+		<</if>>
 	<<case "a latex catsuit">>
-		$activeSlave.slaveName's latex catsuit fits $possessive like a second skin, showing off every detail of $possessive nipples and breasts.
+		<<if $activeSlave.boobs < 300>>
+			$activeSlave.slaveName's latex catsuit fits $possessive like a second skin, showing off every detail of $possessive $activeSlave.nipples nipples and distinct lack of breasts.
+		<<else>>
+			$activeSlave.slaveName's latex catsuit fits $possessive like a second skin, showing off every detail of $possessive nipples and breasts.
+		<</if>>
 	<<case "a military uniform">>
 		<<if $activeSlave.boobs > 6000>>
 			$activeSlave.slaveName's tits are so immense that $possessive specially tailored shirt and tunic are incapable of being buttoned up.
@@ -407,7 +472,7 @@
 		<<elseif $activeSlave.boobs > 800>>
 			$activeSlave.slaveName's big tits strain against $possessive tailored shirt and tunic.
 		<<else>>
-			$activeSlave.slaveName cuts a dashing figure in $possessive tunic.
+			$activeSlave.slaveName cuts a dashing figure in $possessive tunic.<<if $activeSlave.boobs < 300>> $possessiveCap <<print either("androgynous", "flat")>> breasts are barely there.<</if>>
 		<</if>>
 	<<case "a nice nurse outfit">>
 		$activeSlave.slaveName's
@@ -419,6 +484,8 @@
 			massive tits strain against $possessive scrub top, filling it out completely despite its utilitarian cut.
 		<<elseif $activeSlave.boobs > 800>>
 			sizable tits nicely fill out $possessive scrub top, despite its utilitarian cut.
+		<<elseif $activeSlave.boobs < 300>>
+			scrub top tightly hugs $possessive flat chest.
 		<<else>>
 			tits are hidden beneath $possessive scrub top.
 		<</if>>
@@ -430,6 +497,8 @@
 			massive breasts stretch $possessive custom tailored dress to its absolute limit.
 		<<elseif $activeSlave.boobs > 800>>
 			big breasts stretch taut against $possessive dress, leaving nothing to the imagination.
+		<<elseif $activeSlave.boobs < 300>>
+			dress tighly hugs $possessive flat chest, prominently displaying $possessive $activeSlave.nipples nipples though the fabric.
 		<<else>>
 			chest stretches taut against $possessive dress, leaving little to the imagination.
 		<</if>>
@@ -439,6 +508,8 @@
 			tits are so big that even $possessive specially tailored leotard cannot really support them.
 		<<elseif $activeSlave.boobs > 800>>
 			big tits stretch the spandex of $possessive leotard taut across their width.
+		<<elseif $activeSlave.boobs < 300>>
+			leotard tighly hugs $possessive flat chest, prominently displaying $possessive $activeSlave.nipples nipples though the spandex.
 		<<else>>
 			chest is flattered by $possessive leotard.
 		<</if>>
@@ -452,6 +523,8 @@
 			tits are so big that $possessive teddy conceals special stays to keep them from popping out at the slightest movement.
 		<<elseif $activeSlave.boobs > 800>>
 			big tits are perpetually on the verge of spilling out of $possessive top.
+		<<elseif $activeSlave.boobs < 300>>
+			teddy tightly clings to her flat chest somehow making her look even flatter.
 		<<else>>
 			teddy conceals cunning stays designed to make $possessive bosom look considerably bigger than it actually is.
 		<</if>>
@@ -459,6 +532,8 @@
 		$activeSlave.slaveName's harem girl outfit
 		<<if $activeSlave.boobs > 800>>
 			lets $possessive breasts swing free beneath
+		<<elseif $activeSlave.boobs < 300>>
+			gently covers $possessive flat chest with
 		<<else>>
 			only covers $possessive breasts with
 		<</if>>
@@ -468,9 +543,11 @@
 		<<if $activeSlave.boobs > 2000>>
 			barely closes beneath $possessive tits, leaving almost everything visible.
 		<<elseif $activeSlave.boobs > 800>>
-			jacket pushes $possessive tits together to form some great cleavage.
+			pushes $possessive tits together to form some great cleavage.
+		<<elseif $activeSlave.boobs < 300>>
+			tightly hugs $possessive flat chest, since it has no breasts to form cleavage with.
 		<<else>>
-			jacket pushes $possessive tits together to form as much cleavage as possible.
+			pushes $possessive tits together to form as much cleavage as possible.
 		<</if>>
 	<<case "a schoolgirl outfit">>
 		$activeSlave.slaveName's
@@ -478,6 +555,8 @@
 			breasts are too big for $possessive blouse, so $pronoun's tied it under them; they're so huge that the blouse disappears entirely beneath them.
 		<<elseif $activeSlave.boobs > 800>>
 			breasts are too big for $possessive blouse, so $pronoun's tied it under them and left them totally bare.
+		<<elseif $activeSlave.boobs < 300>>
+			blouse tightly hugs $possessive flat chest.
 		<<else>>
 			blouse only barely covers $possessive breasts.
 		<</if>>
@@ -489,17 +568,20 @@
 			barely covers $possessive breasts. It reveals most of $possessive chest, just covering the outer edges of $possessive breasts and their nipples.
 		<<elseif $activeSlave.boobs > 2000>>
 			demurely covers $possessive breasts, though it cannot conceal their absurd size.
+		<<elseif $activeSlave.boobs < 300>>
+			demurely rests over $possessive flat chest.
 		<<else>>
 			demurely covers $possessive breasts.
 		<</if>>
 	<<case "battledress">>
-		$activeSlave.slaveName's
 		<<if $activeSlave.boobs > 10000>>
-			immense breasts are barely supported by a specially engineered, space-age sports bra.
+			$activeSlave.slaveName's immense breasts are barely supported by a specially engineered, space-age sports bra.
 		<<elseif $activeSlave.boobs > 2000>>
-			huge breasts are supported by a specially engineered, space-age sports bra under $possessive tank top.
+			$activeSlave.slaveName's huge breasts are supported by a specially engineered, space-age sports bra under $possessive tank top.
+		<<elseif $activeSlave.boobs < 300>>
+			$activeSlave.slaveName is flat as an ironing board; $pronoun wears $possessive tanktop without a bra underneath.
 		<<else>>
-			breasts are supported by a sports bra under $possessive tank top.
+			$activeSlave.slaveName's breasts are supported by a sports bra under $possessive tank top.
 		<</if>>
 	<<case "slutty jewelry">>
 		$activeSlave.slaveName's bangles include a
@@ -507,6 +589,8 @@
 			thin chain that runs under $possessive breasts, disappearing entirely.
 		<<elseif $activeSlave.boobs > 800>>
 			thin chain that runs under $possessive breasts, appearing and disappearing enticingly when $pronoun moves.
+		<<elseif $activeSlave.boobs < 300>>
+			thin chain that runs across $possessive flat chest.
 		<<else>>
 			light chain that loops under $possessive breasts.
 		<</if>>
@@ -514,12 +598,16 @@
 	<</switch>>
 <</if>>
 <<else>>
-	$activeSlave.slaveName's breasts are bare and ready for surgery.
+	<<if $activeSlave.boobs < 300>>
+		$activeSlave.slaveName's flat chest is bare and begging for surgery.
+	<<else>>
+		$activeSlave.slaveName's breasts are bare and ready for surgery.
+	<</if>>
 <</if>>
 <</if>>
 
 $possessiveCap
-<<if $activeSlave.boobs < 300>><<print either("androgynous", "flat")>> breasts are barely there.
+<<if $activeSlave.boobs < 300>>breasts are practically non-existent.
 <<elseif $activeSlave.boobs < 400>><<print either("pointy", "tiny")>> breasts<<if $showBoobCCs == 1>>, <<print $activeSlave.boobs>> CCs each,<</if>> would only fill A cups.
 <<elseif $activeSlave.boobs < 500>><<print either("perky", "small")>> <<print either("tits", "breasts", "boobs", "bosoms")>><<if $showBoobCCs == 1>>, <<print $activeSlave.boobs>> CCs each,<</if>> would fill B cups.
 <<elseif $activeSlave.boobs < 650>><<print either("healthy", "curved")>> <<print either("tits", "breasts", "boobs", "bosoms")>><<if $showBoobCCs == 1>>, <<print $activeSlave.boobs>> CCs each,<</if>> would fill C cups.
@@ -574,7 +662,7 @@ $possessiveCap
 	<<if $activeSlave.boobs > 12000>>
 		When $pronoun's on $possessive back, some of their natural perkiness can still be seen in the way they tend to obscure $possessive head and shoulders.
 	<<elseif $activeSlave.boobs > 5000>>
-		Their natural perkiness has helped them resist their enormous size, making them look like a normal pair of merely gigantic tits that have growth to be bigger than $possessive head without changing shape.
+		Their natural perkiness has helped them resist their enormous size, making them look like a normal pair of merely gigantic tits that have grown to be bigger than $possessive head without changing shape.
 	<<elseif $activeSlave.boobs > 2500>>
 		They're orbs of soft flesh, resting heavily against $possessive chest and each other. They remain naturally perky, defying gravity.
 	<<elseif $activeSlave.boobs > 1000>>
@@ -701,6 +789,39 @@ $possessiveCap
 <</if>>
 <</if>>
 
+<<if $activeSlave.boobs > 7500>>
+<<if $activeSlave.fuckdoll > 0>>
+	The difficulties of having gigantic breasts are much reduced for a Fuckdoll, since it's almost always restrained, stationary, or both.
+<<else>>
+	<<if canWalk($activeSlave)>>
+		$possessiveCap breasts are so massive that it is difficult for $object to move.
+		<<if $activeSlave.muscles > 95>>
+		However, $pronoun is so powerfully built that $pronoun can manage it with effort, using $possessive arms to support them.
+		<<elseif $activeSlave.muscles > 30>>
+		$pronounCap can barely manage to get to $possessive feet unaided, and usually walks with $possessive arms crossed under $possessive tits to help take their weight.
+		<<elseif $activeSlave.muscles > 5>>
+		$pronounCap requires assistance to get to $possessive feet, and uses a stand to support them when $pronoun must remain upright for more than a short time.
+		<<elseif ($activeSlave.assignment == "work in the dairy") && ($dairyRestraintsSetting > 1) && ($activeSlave.boobs > 10000)>>
+		The straps that secure $object to the milking machine have become less necessary since $possessive breasts grew to the point where they pin $object to it.
+		<<else>>
+		$pronounCap cannot get to $possessive feet unaided, and uses a wheeled stand to support $possessive boobs when $pronoun must walk or remain upright.
+		<</if>>
+	<<elseif $activeSlave.boobs >= 20000>>
+		They each are easily as big as $object, making $object mostly boob.
+	<<else>>
+		Together they are nearly the same size as $possessive torso, making $object about half boob.
+	<</if>>
+	<<if ($activeSlave.assignment != "work in the dairy") || ($dairyRestraintsSetting < 2)>>
+		<<if $boobAccessibility == 1>>
+		Fortunately for $object, the penthouse is adapted for daily life with a bosom
+		<<else>>
+		$pronounCap has trouble living in your penthouse, which is not designed for girls with chests
+		<</if>>
+		wider than a standard doorway.
+	<</if>>
+<</if>>
+<</if>>
+
 <<if $activeSlave.fuckdoll == 0>>
 <<if $activeSlave.shoulders < -1>>
 	$possessiveCap shoulders and chest are very narrow and
@@ -745,40 +866,9 @@ $possessiveCap
 	<<elseif $arcologies[0].FSGenderRadicalist != "unset">>
 	giving $object a somewhat mannish appearance.
 	<<elseif $arcologies[0].FSGenderFundamentalist != "unset">>
-	giving $object an @@color:red;ugly, mannish appearance.@@
+	giving $object an @@.red;ugly, mannish appearance.@@
 	<<else>>
-	giving $object an @@color:red;unattractive, somewhat mannish, appearance.@@
-	<</if>>
-<</if>>
-<</if>>
-
-<<if $activeSlave.boobs > 7500>>
-<<if $activeSlave.fuckdoll > 0>>
-	The difficulties of having gigantic breasts are much reduced for a Fuckdoll, since it's almost always restrained, stationary, or both.
-<<else>>
-	<<if $activeSlave.amp != 1>>
-		$possessiveCap breasts are so massive that it is difficult for $object to move.
-		<<if $activeSlave.muscles > 95>>
-		However, $pronoun is so powerfully built that $pronoun can manage it with effort, using $possessive arms to support them.
-		<<elseif $activeSlave.muscles > 30>>
-		$pronounCap can barely manage to get to $possessive feet unaided, and usually walks with $possessive arms crossed under $possessive tits to help take their weight.
-		<<elseif $activeSlave.muscles > 5>>
-		$pronounCap requires assistance to get to $possessive feet, and uses a stand to support them when $pronoun must remain upright for more than a short time.
-		<<elseif ($activeSlave.assignment == "work in the dairy") && ($dairyRestraintsSetting > 1) && ($activeSlave.boobs > 10000)>>
-		The straps that secure $object to the milking machine have become less necessary since $possessive breasts grew to the point where they pin $object to it.
-		<<else>>
-		$pronounCap cannot get to $possessive feet unaided, and uses a wheeled stand to support $possessive boobs when $pronoun must walk or remain upright.
-		<</if>>
-	<<else>>
-		Together they are nearly the same size as $possessive torso, making $object about half boob.
-	<</if>>
-	<<if ($activeSlave.assignment != "work in the dairy") || ($dairyRestraintsSetting < 2)>>
-		<<if $boobAccessibility == 1>>
-		Fortunately for $object, the penthouse is adapted for daily life with a bosom
-		<<else>>
-		$pronounCap has trouble living in your penthouse, which is not designed for girls with chests
-		<</if>>
-		wider than a standard doorway.
+	giving $object an @@.red;unattractive, somewhat mannish, appearance.@@
 	<</if>>
 <</if>>
 <</if>>
@@ -861,7 +951,7 @@ $possessiveCap
 			stiffly erect. They'd be inverted if $pronoun weren't so aroused, but $pronoun's so horny they stay popped out.
 		<<case "huge">>
 			<<if ($activeSlave.boobs-$activeSlave.boobsImplant > 7500)>>
-			and in proportion with $possessive breasts: they're stiffly erect and
+			in proportion with $possessive breasts: they're stiffly erect and
 			<<if ($activeSlave.dick > 0) && ($activeSlave.dick < 3)>>
 				bigger than $possessive girlcock.
 			<<elseif ($activeSlave.height < 160) && ($activeSlave.amp != 1)>>
@@ -968,7 +1058,7 @@ $possessiveCap
 	<<case 3>>
 		$possessiveCap $seed areolae are unnaturally broad, covering much of the <<if $activeSlave.boobShape == "saggy">>bottom<<else>>front<</if>> of each breast.
 		<<if $activeSlave.areolaePiercing > 0>>
-			$pronounCap has many stud piercings around their edges, forming a metal border between nipple and breast.
+			$pronounCap has many stud piercings around their edges, forming a metal border between $seed nipple and breast.
 		<</if>>
 	<<case 4>>
 		$possessiveCap huge $seed areolae are heart-shaped, an obvious surgical alteration.
@@ -984,7 +1074,7 @@ $possessiveCap
 		<</if>>
 	<<default>>
 		<<if $activeSlave.areolaePiercing > 0>>
-			$pronounCap has stud piercings in circles around the edges of $possessive minimal areolae.
+			$pronounCap has stud piercings in circles around the edges of $possessive minimal $seed areolae.
 		<</if>>
 		$possessiveCap $activeSlave.nipples nipples are surrounded by a minimal $seed areolae.
 	<</switch>>
@@ -1011,13 +1101,13 @@ $possessiveCap
 	<</if>>
 <<else>>
 	<<if $activeSlave.nipplesPiercing == 1>>
-		$possessiveCap nipples have a simple piercing, which keeps them a little harder than they would normally be.
+		$possessiveCap $seed nipples have a simple piercing, which keeps them a little harder than they would normally be.
 	<<elseif $activeSlave.nipplesPiercing == 2>>
-		$possessiveCap nipples are heavily pierced with several rings and studs, and there is a chain between them.
+		$possessiveCap $seed nipples are heavily pierced with several rings and studs, and there is a chain between them.
 		<<if ($activeSlave.boobShape == "saggy") && ($activeSlave.boobs > 2500)>>
-			It's been shortened to take advantage of the way $possessive tits sag, and holds $possessive nipples almost together, producing cleavage that runs from $possessive nipples all the way up to $possessive sternum.
+			It's been shortened to take advantage of the way $possessive tits sag, and holds $possessive $seed nipples almost together, producing cleavage that runs from $possessive $seed nipples all the way up to $possessive sternum.
 		<<else>>
-			The constant tugging keeps $possessive nipples erect.
+			The constant tugging keeps $possessive $seed nipples erect.
 		<</if>>
 	<</if>>
 	<<if $activeSlave.nipplesPiercing > 0>>
@@ -1152,6 +1242,13 @@ $possessiveCap
 	covers $possessive ass, though it cannot conceal its absurd size.
 	<<else>>
 	covers $possessive ass.
+	<</if>>
+<<case "a huipil">>
+	$possessiveCap huipil
+	<<if $activeSlave.butt > 6>>
+	covers $possessive butt, though it cannot stop it from spilling from the sides.
+	<<else>>
+	covers $possessive butt.
 	<</if>>
 <<case "a kimono">>
 	$possessiveCap kimono demurely covers $possessive
@@ -1474,35 +1571,35 @@ $pronounCap's got a
 
 <<if $activeSlave.hips < -1>>
 	<<if $activeSlave.butt > 2>>
-	$possessiveCap butt is @@color:red;disproportionately large@@ for $possessive narrow hips<<if $arcologies[0].FSTransformationFetishist == "unset">>.<<else>>, but your transformation fetishist arcology considers this attractive.<</if>>
+	$possessiveCap butt is @@.red;disproportionately large@@ for $possessive narrow hips<<if $arcologies[0].FSTransformationFetishist == "unset">>.<<else>>, but your transformation fetishist arcology considers this attractive.<</if>>
 	<<else>>
 	$possessiveCap hips are very narrow.
 	<</if>>
 <<elseif $activeSlave.hips < 0>>
 	<<if $activeSlave.butt > 4>>
-	$possessiveCap butt is @@color:red;disproportionately large@@ for $possessive trim hips<<if $arcologies[0].FSTransformationFetishist == "unset">>.<<else>>, but your transformation fetishist arcology considers this attractive.<</if>>
+	$possessiveCap butt is @@.red;disproportionately large@@ for $possessive trim hips<<if $arcologies[0].FSTransformationFetishist == "unset">>.<<else>>, but your transformation fetishist arcology considers this attractive.<</if>>
 	<<else>>
 	$possessiveCap butt is complemented by $possessive trim hips.
 	<</if>>
 <<elseif $activeSlave.hips > 1>>
 	<<if $activeSlave.butt <= 3>>
-	$possessiveCap butt is @@color:red;disproportionately small@@ for $possessive very wide hips.
+	$possessiveCap butt is @@.red;disproportionately small@@ for $possessive very wide hips.
 	<<else>>
 	$possessiveCap butt is flattered by $possessive very wide hips.
 	<</if>>
 <<elseif $activeSlave.hips > 0>>
 	<<if $activeSlave.butt > 8>>
-	$possessiveCap butt is @@color:red;disproportionately large@@ for $possessive broad hips<<if $arcologies[0].FSTransformationFetishist == "unset">>.<<else>>, but your transformation fetishist arcology considers this attractive.<</if>>
+	$possessiveCap butt is @@.red;disproportionately large@@ for $possessive broad hips<<if $arcologies[0].FSTransformationFetishist == "unset">>.<<else>>, but your transformation fetishist arcology considers this attractive.<</if>>
 	<<elseif $activeSlave.butt <= 2>>
-	$possessiveCap butt is @@color:red;disproportionately small@@ for $possessive broad hips.
+	$possessiveCap butt is @@.red;disproportionately small@@ for $possessive broad hips.
 	<<else>>
 	$possessiveCap butt is complemented by $possessive broad hips.
 	<</if>>
 <<else>>
 	<<if $activeSlave.butt > 6>>
-	$possessiveCap butt is @@color:red;disproportionately large@@ for $possessive womanly hips<<if $arcologies[0].FSTransformationFetishist == "unset">>.<<else>>, but your transformation fetishist arcology considers this attractive.<</if>>
+	$possessiveCap butt is @@.red;disproportionately large@@ for $possessive womanly hips<<if $arcologies[0].FSTransformationFetishist == "unset">>.<<else>>, but your transformation fetishist arcology considers this attractive.<</if>>
 	<<elseif $activeSlave.butt <= 1>>
-	$possessiveCap butt is @@color:red;disproportionately small@@ for $possessive ample hips.
+	$possessiveCap butt is @@.red;disproportionately small@@ for $possessive ample hips.
 	<<else>>
 	$possessiveCap butt is complemented by $possessive ample hips.
 	<</if>>
@@ -1583,7 +1680,7 @@ $pronounCap's got a
 	<<case "Asian art">>
 		Each of $possessive buttocks bears a tattoo of a coiled dragon, advancing meaningfully towards $possessive anus.
 	<</switch>>
-	<<if ($activeSlave.brand != 0) && ($activeSlave.brandLocation == "left buttock") || ($activeSlave.brandLocation == "right buttock") || ($activeSlave.brandLocation == "buttocks") || ($activeSlave.brandLocation == "left thigh") || ($activeSlave.brandLocation == "right thigh") || ($activeSlave.brandLocation == "thighs")>>
+	<<if ($activeSlave.brand != 0) && (($activeSlave.brandLocation == "left buttock") || ($activeSlave.brandLocation == "right buttock") || ($activeSlave.brandLocation == "buttocks") || ($activeSlave.brandLocation == "left thigh") || ($activeSlave.brandLocation == "right thigh") || ($activeSlave.brandLocation == "thighs"))>>
 		$pronounCap has $activeSlave.brand branded into the flesh of $possessive $activeSlave.brandLocation.
 	<</if>>
 	<<switch $activeSlave.legsTat>>
@@ -1594,7 +1691,7 @@ $pronounCap's got a
 	<<case "advertisements">>
 		$possessiveCap thighs are used as simple ad space, promoting $arcologies[0].name and your business pursuits.
 	<<case "rude words">>
-		$possessiveCap left thigh reads $desc and the right 'Slut.'
+		$possessiveCap left thigh reads '$desc' and the right 'slut.'
 	<<case "scenes">>
 		$pronounCap has symmetrical tattoos on each thigh depicting $possessive being spitroasted.
 	<<case "degradation">>
@@ -1626,7 +1723,7 @@ $pronounCap's got a
 	<<switch $activeSlave.clothes>>
 	<<case "a Fuckdoll suit">>
 		The suit has a wide opening for its rear hole, leaving the anus bare and unprotected.
-	<<case is "chains">>
+	<<case "chains">>
 		<<if ($activeSlave.vaginalAccessory == "anal chastity") || ($activeSlave.vaginalAccessory == "combined chastity") || ($activeSlave.dickAccessory == "anal chastity") || ($activeSlave.dickAccessory == "combined chastity")>>
 			$possessiveCap anal chastity belt is completely visible and a chain runs down around it.
 		<<else>>
@@ -1761,7 +1858,7 @@ $pronounCap's got a
 	<<case "harem gauze">>
 		$possessiveCap
 		<<if ($activeSlave.vaginalAccessory == "anal chastity") || ($activeSlave.vaginalAccessory == "combined chastity") || ($activeSlave.dickAccessory == "anal chastity") || ($activeSlave.dickAccessory == "combined chastity")>>
-			anal chastity belt is clearly visible through $possessive gauze.
+			anal chastity belt is clearly
 		<<else>>
 			<<if $activeSlave.anus > 1>>
 				well-fucked asshole is clearly
@@ -1868,7 +1965,7 @@ $pronounCap's got a
 		<<else>>
 			is made to be easily liftable for access to $possessive anus.
 		<</if>>
-	<<case "conservative clothing" "a toga" "cutoffs and a t-shirt" "battledress" "slutty business attire" "nice business attire" "a military uniform" "a bunny outfit" "a nice nurse outfit" "a kimono" >>
+	<<case "conservative clothing" "a toga" "huipil" "cutoffs and a t-shirt" "battledress" "slutty business attire" "nice business attire" "a military uniform" "a bunny outfit" "a nice nurse outfit" "a kimono" >>
 		/* We could use chastity belt descriptions! */
 	<<default>>
 		<<if ($activeSlave.anus > 2)>>
@@ -1928,7 +2025,7 @@ $pronounCap's got a
 <</if>>
 <<set $analSkinDesc = either("crinkled", "puckered", "puffy")>>
 <<if $activeSlave.anus == 0>>
-	$pronounCap is an @@color:lime;anal virgin;@@ $possessive asshole is fresh and tight.
+	$pronounCap is an @@.lime;anal virgin;@@ $possessive asshole is fresh and tight.
 <<elseif $activeSlave.anus == 1>>
 	<<set $seed = either("anal opening", "anus", "butthole", "asshole")>>
 	$possessiveCap $seed is <<set $seed = either("very", "nice and")>>$seed tight,
@@ -1983,10 +2080,8 @@ $pronounCap's got a
 	$possessiveCap asshole has seen hard use lately and looks a little sore.
 <</if>>
 
-<<if $saleDescription == 1>>
-<<if $gingering == "ginger">>
+<<if $saleDescription == 1 && $gingering == "ginger">>
 	$possessiveCap asshole looks unusually puffy and sore. $pronounCap's either been cruelly assraped lately, or $pronoun's had an irritant placed in $possessive anus.
-<</if>>
 <</if>>
 
 <<if $showBodyMods == 1>>
@@ -2008,7 +2103,7 @@ $pronounCap's got a
 <<if $activeSlave.anusTat != 0>>
 <<switch $activeSlave.anusTat>>
 <<case "bleached">>
-	$possessiveCap anus is bleached and looks like a sexual organ.
+	$possessiveCap anus is bleached.
 <<case "flowers">>
 	$pronounCap has a huge blooming flower tattooed right over $possessive anus.
 <<case "advertisements">>
@@ -2026,12 +2121,12 @@ $pronounCap's got a
 <<case "sacrilege">>
 	$pronounCap has a ring of Aramaic text tattooed around $possessive anus, which translates to horrible blasphemy.
 <<case "tribal patterns">>
-	$possessiveCap anus is bleached and looks like a sexual organ. It is tattooed with a tribal pattern that changes interestingly when $pronoun relaxes or tightens $possessive sphincter.
+	$possessiveCap anus is bleached. It is tattooed with a tribal pattern that changes interestingly when $pronoun relaxes or tightens $possessive sphincter.
 <<case "degradation">>
-	$possessiveCap anus is bleached and looks like a sexual organ. It is tattooed with gothic script in a ring around $possessive hole, reading '<<if $PC.title == 1>>Master<<else>>Mistress<</if>> Made Me An Anal Slut.'
+	$possessiveCap anus is bleached. It is tattooed with gothic script in a ring around $possessive hole, reading '<<if $PC.title == 1>>Master<<else>>Mistress<</if>> Made Me An Anal Slut.'
 <<case "counting">>
 	<<if $activeSlave.analCount == 0>>
-		$pronounCap has a dashed line tattooed around $possessive
+		$pronounCap has a dashed line tattooed around $possessive anus as a guideline for where her anal count will be inscribed.
 	<<elseif $activeSlave.analCount < 1000>>
 		$pronounCap has a fine rings tattooed around $possessive anus, one for each hundred cocks.
 	<<else>>
@@ -2056,13 +2151,13 @@ $pronounCap's got a
 	<</if>>
 <<else>>
 	<<if $activeSlave.analSkill >= 100>>
-		$pronounCap is a @@color:aquamarine;masterful anal slut@@.
+		$pronounCap is a @@.aquamarine;masterful anal slut@@.
 	<<elseif $activeSlave.analSkill > 60>>
-		$pronounCap is an @@color:aquamarine;expert anal slut@@.
+		$pronounCap is an @@.aquamarine;expert anal slut@@.
 	<<elseif $activeSlave.analSkill > 30>>
-		$pronounCap is a @@color:aquamarine;skilled anal slut@@.
+		$pronounCap is a @@.aquamarine;skilled anal slut@@.
 	<<elseif $activeSlave.analSkill > 10>>
-		$pronounCap has @@color:aquamarine;basic knowledge about anal@@.
+		$pronounCap has @@.aquamarine;basic knowledge about anal@@.
 	<<else>>
 		$pronounCap is unskilled at taking anal.
 	<</if>>
@@ -2080,7 +2175,11 @@ $pronounCap's got a
 	<<if ($dairyPregSetting > 1) && ($activeSlave.ovaries == 1)>>
 		$activeSlave.slaveName's pussy is occupied by a massive dildo, servicing $possessive womb with its ejaculate.
 	<<elseif ($activeSlave.balls > 0)>>
-		$activeSlave.slaveName's dick is buried in $possessive milking machine's cum receptacle.
+		<<if $activeSlave.dick > 0>>
+			$activeSlave.slaveName's dick is buried in $possessive milking machine's cum receptacle.
+		<<else>>
+			The milking machine keeps a cup against $activeSlave.slaveName's tiny cumhole, since $pronoun has balls, but lacks a penis. This limits the machine to anal stimulation to milk $possessive balls, and it's raping her ass forcefully.
+		<</if>>
 	<<elseif ($activeSlave.vagina > -1)>>
 		$activeSlave.slaveName's pussy is being serviced by a drug-ejaculating dildo.
 	<</if>>
@@ -2105,7 +2204,7 @@ $pronounCap's got a
 		<<else>>
 			front hole is left completely bare by the Fuckdoll suit's protective material.
 		<</if>>
-	<<elseif $activeSlave.dick = 0>>
+	<<elseif $activeSlave.dick == 0>>
 		groin is covered by featureless Fuckdoll material; there's nothing of interest there.
 	<</if>>
 <<case "conservative clothing">>
@@ -2151,6 +2250,17 @@ $pronounCap's got a
 	<<if $activeSlave.dick > 3>>
 		Something is tenting the front of $activeSlave.slaveName's toga.
 	<</if>>
+<<case "a huipil">>
+	$activeSlave.slaveName's
+	<<if $activeSlave.dick > 3>>
+		dick is long enough that its head dangles down below the front of $possessive short huipil.
+	<<elseif $activeSlave.dick > 0>>
+		huipil occasionally tents in front when $pronoun moves.
+	<<elseif $activeSlave.vagina == -1>>
+		huipil barely comes down far enough to cover $possessive featureless groin.
+	<<else>>
+		huipil barely comes down far enough to cover $possessive pussy.
+	<</if>>
 <<case "a slutty qipao">>
 	$activeSlave.slaveName's
 	<<if $activeSlave.dick > 3>>
@@ -2169,7 +2279,7 @@ $pronounCap's got a
 	<<elseif $activeSlave.dick > 0>>
 		the base of $possessive dick, letting it pass through.
 	<<elseif $activeSlave.vagina == -1>>
-		over the little hole in $possessive's featureless groin.
+		over the little hole in $possessive featureless groin.
 	<<else>>
 		over $possessive pussy.
 	<</if>>
@@ -2560,14 +2670,10 @@ $pronounCap's got a
 		pussy is partially obscured by a covering of sheer gauze.
 	<</if>>
 <<default>>
-	<<if ($activeSlave.dick > 0) && ($activeSlave.vagina != -1)>>
-		$activeSlave.slaveName's hermaphroditic genitalia are bare and available.
-	<<elseif ($activeSlave.dick == 0)>>
-		$activeSlave.slaveName's pussy is bare.
+	<<if $activeSlave.vagina > -1>>
+		$activeSlave.slaveName's <<if $activeSlave.dick > 0>>hermaphroditic genitalia<<else>>pussy<</if>> bare and available.
 	<<elseif ($activeSlave.dickAccessory == "chastity") || ($activeSlave.dickAccessory == "combined chastity") || ($activeSlave.dickAccessory == "anal chastity")>>
-	<<elseif $activeSlave.vagina == -1>>
-		featureless groin is quite bare.
-	<<else>>
+	<<elseif $activeSlave.dick > 0>>
 		$activeSlave.slaveName's
 		<<switch $activeSlave.dick>>
 		<<case 10>>
@@ -2591,6 +2697,8 @@ $pronounCap's got a
 		<<default>>
 			tiny<<if canAchieveErection($activeSlave)>><<else>> flaccid<</if>> dick is bare.
 		<</switch>>
+	<<else>>
+		$activeSlave.slaveName's <<if $activeSlave.balls > 0>>lonely balls are<<else>>featureless groin is<</if>> bare and vulnerable.
 	<</if>>
 <</switch>>
 <</if>>
@@ -2605,7 +2713,7 @@ $pronounCap's got a
 		$possessiveCap awe-inspiring<<if $seeCircumcision == 1>>, <<if $activeSlave.foreskin > 0>>uncut<<else>>circumcised<</if>><</if>>
 		penis is around 60cm long,
 	<<else>>
-		$pronounCap has a awe-inspiring<<if $seeCircumcision == 1>>, <<if $activeSlave.foreskin > 0>>uncut<<else>>circumcised<</if>><</if>>
+		$pronounCap has an awe-inspiring<<if $seeCircumcision == 1>>, <<if $activeSlave.foreskin > 0>>uncut<<else>>circumcised<</if>><</if>>
 		penis,
 	<</if>> a true masterpiece of modern growth hormone treatment,
 <<case 9>>
@@ -2753,7 +2861,7 @@ $pronounCap's got a
 	<<else>>
 		hanging with its head <<if ($activeSlave.dick > 9)>>below<<else>>between<</if>> $possessive knees.
 	<</if>>
-<<elseif ($gingering == "vasodiolator")>>
+<<elseif ($saleDescription == 1 && $gingering == "vasodilator")>>
 	$pronounCap's painfully erect.
 <<elseif ($activeSlave.balls == 0)>>
 	Since $pronoun has been gelded, $possessive cock is soft.
@@ -2776,23 +2884,27 @@ $pronounCap's got a
 	<<elseif ($activeSlave.energy > 95)>>
 		As a nympho, $pronoun's almost constantly hard.
 	<<elseif ($activeSlave.fetish == "buttslut") && ($activeSlave.fetishStrength > 60) && ($activeSlave.fetishKnown == 1)>>
-		Judging by how hard $pronoun is, $pronoun's probably fantasizing about being buttfucked.
+		Judging by how hard $pronoun is<<if $activeSlave.prostate > 1>> and the constant flow of precum leaking from the tip of $possessive dick<<elseif $activeSlave.prostate > 0>>and the little bead of precum forming at the tip of $possessive dick<</if>>, $pronoun's probably fantasizing about being buttfucked.
 	<<elseif ($activeSlave.fetish == "cumslut") && ($activeSlave.fetishStrength > 60) && ($activeSlave.fetishKnown == 1)>>
-		Judging by how hard $pronoun is, $pronoun's probably fantasizing about being facefucked.
+		Judging by how hard $pronoun is<<if $activeSlave.prostate > 1>> and the constant flow of precum leaking from the tip of $possessive dick<<elseif $activeSlave.prostate > 0>>and the little bead of precum forming at the tip of $possessive dick<</if>>, $pronoun's probably fantasizing about being facefucked.
 	<<elseif ($activeSlave.fetish == "humiliation") && ($activeSlave.fetishStrength > 60) && ($activeSlave.fetishKnown == 1)>>
-		Judging by how hard $pronoun is, $pronoun's probably fantasizing about being humiliated.
+		Judging by how hard $pronoun is<<if $activeSlave.prostate > 1>> and the constant flow of precum leaking from the tip of $possessive dick<<elseif $activeSlave.prostate > 0>>and the little bead of precum forming at the tip of $possessive dick<</if>>, $pronoun's probably fantasizing about being humiliated.
 	<<elseif ($activeSlave.fetish == "submissive") && ($activeSlave.fetishStrength > 60) && ($activeSlave.fetishKnown == 1)>>
-		Judging by how hard $pronoun is, $pronoun's probably fantasizing about submission.
+		Judging by how hard $pronoun is<<if $activeSlave.prostate > 1>> and the constant flow of precum leaking from the tip of $possessive dick<<elseif $activeSlave.prostate > 0>>and the little bead of precum forming at the tip of $possessive dick<</if>>, $pronoun's probably fantasizing about submission.
 	<<elseif ($activeSlave.fetish == "dom") && ($activeSlave.fetishStrength > 60) && ($activeSlave.fetishKnown == 1)>>
-		Judging by how hard $pronoun is, $pronoun's probably fantasizing about dominating someone.
+		Judging by how hard $pronoun is<<if $activeSlave.prostate > 1>> and the constant flow of precum leaking from the tip of $possessive dick<<elseif $activeSlave.prostate > 0>>and the little bead of precum forming at the tip of $possessive dick<</if>>, $pronoun's probably fantasizing about dominating someone.
 	<<elseif ($activeSlave.fetish == "masochist") && ($activeSlave.fetishStrength > 60) && ($activeSlave.fetishKnown == 1)>>
-		Judging by how hard $pronoun is, $pronoun's probably fantasizing about pain.
+		Judging by how hard $pronoun is<<if $activeSlave.prostate > 1>> and the constant flow of precum leaking from the tip of $possessive dick<<elseif $activeSlave.prostate > 0>>and the little bead of precum forming at the tip of $possessive dick<</if>>, $pronoun's probably fantasizing about pain.
 	<<elseif ($activeSlave.fetish == "sadist") && ($activeSlave.fetishStrength > 60) && ($activeSlave.fetishKnown == 1)>>
-		Judging by how hard $pronoun is, $pronoun's probably fantasizing about hurting someone.
+		Judging by how hard $pronoun is<<if $activeSlave.prostate > 1>> and the constant flow of precum leaking from the tip of $possessive dick<<elseif $activeSlave.prostate > 0>>and the little bead of precum forming at the tip of $possessive dick<</if>>, $pronoun's probably fantasizing about hurting someone.
 	<<elseif ($activeSlave.fetish == "pregnancy") && ($activeSlave.fetishStrength > 60) && ($activeSlave.fetishKnown == 1)>>
-		Judging by how hard $pronoun is, $pronoun's probably fantasizing about getting someone pregnant.
+		<<if canGetPregnant($activeSlave)>>
+			Judging by how hard $pronoun is<<if $activeSlave.prostate > 1>> and the constant flow of precum leaking from the tip of $possessive dick<<elseif $activeSlave.prostate > 0>>and the little bead of precum forming at the tip of $possessive dick<</if>>, $pronoun's probably fantasizing about sporting a huge pregnant belly.
+		<<else>>
+			Judging by how hard $pronoun is<<if $activeSlave.prostate > 1>> and the constant flow of precum leaking from the tip of $possessive dick<<elseif $activeSlave.prostate > 0>>and the little bead of precum forming at the tip of $possessive dick<</if>>, $pronoun's probably fantasizing about getting someone pregnant.
+		<</if>>
 	<<elseif ($activeSlave.fetish == "boobs") && ($activeSlave.fetishStrength > 60) && ($activeSlave.fetishKnown == 1)>>
-		Judging by how hard $pronoun is, $pronoun's probably fantasizing about boobs.
+		Judging by how hard $pronoun is<<if $activeSlave.prostate > 1>> and the constant flow of precum leaking from the tip of $possessive dick<<elseif $activeSlave.prostate > 0>>and the little bead of precum forming at the tip of $possessive dick<</if>>, $pronoun's probably fantasizing about boobs.
 	<<elseif ($activeSlave.devotion > 50)>>
 		As a devoted sex slave, $pronoun has no trouble keeping herself hard for $object <<if def $PC.customTitle>>$PC.customTitle<<elseif $PC.title != 0>>Master<<else>>Mistress<</if>>.
 	<<elseif ($activeSlave.devotion > 20)>>
@@ -2804,7 +2916,7 @@ $pronounCap's got a
 <<if ($activeSlave.foreskin > 0)>>
 <<if ($activeSlave.foreskin - $activeSlave.dick < -1)>>
 	$possessiveCap cockhead is much too large for $possessive foreskin, probably as a result of recent penis growth it hasn't had time to stretch to accommodate yet.
-	<<if canAchieveErection($activeSlave) && (($activeSlave.devotion > 20) || ($activeSlave.aphrodisiacs > 0) || ($gingering == "vasodiolator"))>>
+	<<if canAchieveErection($activeSlave) && (($activeSlave.devotion > 20) || ($activeSlave.aphrodisiacs > 0) || ($saleDescription == 1 && $gingering == "vasodilator"))>>
 	The bit of erect dickhead visible at the tip of the uncomfortably stretched skin is an angry color from being squeezed so hard.
 	<<elseif canAchieveErection($activeSlave)>>
 	$pronounCap isn't erect right now, but getting a hardon will probably be very uncomfortable for $object.
@@ -2813,7 +2925,7 @@ $pronounCap's got a
 	<</if>>
 <<elseif ($activeSlave.foreskin - $activeSlave.dick < 0)>>
 	$possessiveCap foreskin is stretched by $possessive dickhead, probably as a result of recent penis growth it hasn't had time to get used to yet.
-	<<if canAchieveErection($activeSlave) && (($activeSlave.devotion > 20) || ($activeSlave.aphrodisiacs > 0) || ($gingering == "vasodiolator"))>>
+	<<if canAchieveErection($activeSlave) && (($activeSlave.devotion > 20) || ($activeSlave.aphrodisiacs > 0) || ($saleDescription == 1 && $gingering == "vasodilator"))>>
 	$possessiveCap erection has stretched the skin there taut.
 	<<elseif canAchieveErection($activeSlave)>>
 	$pronounCap isn't erect right now, but getting a hardon will probably be a bit uncomfortable for $object.
@@ -2822,7 +2934,7 @@ $pronounCap's got a
 	<</if>>
 <<elseif ($activeSlave.foreskin - $activeSlave.dick > 0)>>
 	$possessiveCap foreskin seems too large for $possessive dick, probably as a result of recent penis shrinkage.
-	<<if canAchieveErection($activeSlave) && (($activeSlave.devotion > 20) || ($activeSlave.aphrodisiacs > 0) || ($gingering == "vasodiolator"))>>
+	<<if canAchieveErection($activeSlave) && (($activeSlave.devotion > 20) || ($activeSlave.aphrodisiacs > 0) || ($saleDescription == 1 && $gingering == "vasodilator"))>>
 	$possessiveCap erection cannot fully retract it, though it's loose enough that this doesn't look uncomfortable.
 	<<elseif canAchieveErection($activeSlave)>>
 	$pronounCap isn't erect right now, making the tip of $possessive dick look shriveled.
@@ -2831,7 +2943,7 @@ $pronounCap's got a
 	<</if>>
 <<elseif ($activeSlave.foreskin - $activeSlave.dick > 1)>>
 	$possessiveCap foreskin is far too large for $possessive dick, probably as a result of recent penis shrinkage.
-	<<if canAchieveErection($activeSlave) && (($activeSlave.devotion > 20) || ($activeSlave.aphrodisiacs > 0) || ($gingering == "vasodiolator"))>>
+	<<if canAchieveErection($activeSlave) && (($activeSlave.devotion > 20) || ($activeSlave.aphrodisiacs > 0) || ($saleDescription == 1 && $gingering == "vasodilator"))>>
 	$possessiveCap erection cannot retract it at all, though it's loose enough that this doesn't look uncomfortable. Orgasming, though, will likely produce a dribbling mess.
 	<<elseif canAchieveErection($activeSlave)>>
 	$pronounCap isn't erect right now, so the excess skin droops lamely off $possessive cockhead.
@@ -2875,7 +2987,7 @@ $pronounCap's got a
 	<<case 1>>
 		a soft little trace of scrotum, since $possessive testicles are so small they have retreated up into $possessive abdomen.
 	<<default>>
-		a tiny hole in $possessive smooth $activeSlave.skin.
+		smooth $activeSlave.skin.
 	<</switch>>
 	<<if $activeSlave.fuckdoll == 0>>
 	<<if $activeSlave.balls > 0>>
@@ -2903,15 +3015,15 @@ $pronounCap's got a
 		<</if>>
 		<<elseif $activeSlave.balls > 1>>
 		<<if $seed == -1>>
-			They're held tightly by a very minimal scrotum that turns them into a soft little bump at $possessive base.
+			They're held tightly by a very minimal scrotum that turns them into a soft little bump.
 		<<elseif $seed == 0>>
-			$possessiveCap comfortable little scrotum allows them to rest softly at $possessive base.
+			$possessiveCap comfortable little scrotum allows them to rest softly.
 		<<else>>
 			They're almost lost in $possessive big soft scrotum, wrinkled for lack of anything to fill it properly.
 		<</if>>
 		<<else>>
 		<<if $seed == 0>>
-			$pronounCap has a soft little trace of scrotum at $possessive base.
+			$pronounCap has a soft little trace of scrotum.
 		<<else>>
 			They've left $possessive scrotum soft and empty.
 		<</if>>
@@ -2920,31 +3032,38 @@ $pronounCap's got a
 	<</if>>
 	<</if>>
 	<<if $activeSlave.prostate > 0>>
-		<<if ($activeSlave.aphrodisiacs > 0)>>
+		<<if ($activeSlave.prostate > 1)>>
+			$possessiveCap's got a string of precum dangling from the hole; her artificially hyperactive prostate keeps her that way.
+		<<elseif ($activeSlave.aphrodisiacs > 0)>>
 			The aphrodisiacs have $possessive so horny that there's a little precum beading at the hole.
 		<<elseif ($activeSlave.energy > 95)>>
-			As a nympho, $pronoun's almost always got a little bead of precum forming at the hole.
+			As a nympho, $pronoun's almost always got a <<if $activeSlave.prostate > 1>>constant flow of precum leaking from<<else>>little bead of precum forming at<</if>> the hole.
 		<<elseif $activeSlave.fetishKnown == 0>>
 		<<elseif $activeSlave.fetishStrength <= 60>>
 		<<elseif ($activeSlave.fetish == "buttslut")>>
-			Judging by the little bead of precum forming at the hole, $pronoun's probably fantasizing about being buttfucked.
+			Judging by the <<if $activeSlave.prostate > 1>>constant flow of precum leaking from<<else>>little bead of precum forming at<</if>> the hole, $pronoun's probably fantasizing about being buttfucked.
 		<<elseif ($activeSlave.fetish == "cumslut")>>
-			Judging by the little bead of precum forming at the hole, $pronoun's probably fantasizing about being facefucked.
+			Judging by the <<if $activeSlave.prostate > 1>>constant flow of precum leaking from<<else>>little bead of precum forming at<</if>> the hole, $pronoun's probably fantasizing about being facefucked.
 		<<elseif ($activeSlave.fetish == "humiliation")>>
-			Judging by the little bead of precum forming at the hole, $pronoun's probably fantasizing about being humiliated.
+			Judging by the <<if $activeSlave.prostate > 1>>constant flow of precum leaking from<<else>>little bead of precum forming at<</if>> the hole, $pronoun's probably fantasizing about being humiliated.
 		<<elseif ($activeSlave.fetish == "submissive")>>
-			Judging by the little bead of precum forming at the hole, $pronoun's probably fantasizing about submission.
+			Judging by the <<if $activeSlave.prostate > 1>>constant flow of precum leaking from<<else>>little bead of precum forming at<</if>> the hole, $pronoun's probably fantasizing about submission.
 		<<elseif ($activeSlave.fetish == "dom")>>
-			Judging by the little bead of precum forming at the hole, $pronoun's probably fantasizing about dominating someone.
+			Judging by the <<if $activeSlave.prostate > 1>>constant flow of precum leaking from<<else>>little bead of precum forming at<</if>> the hole, $pronoun's probably fantasizing about dominating someone.
 		<<elseif ($activeSlave.fetish == "masochist")>>
-			Judging by the little bead of precum forming at the hole, $pronoun's probably fantasizing about pain.
+			Judging by the <<if $activeSlave.prostate > 1>>constant flow of precum leaking from<<else>>little bead of precum forming at<</if>> the hole, $pronoun's probably fantasizing about pain.
 		<<elseif ($activeSlave.fetish == "sadist")>>
-			Judging by the little bead of precum forming at the hole, $pronoun's probably fantasizing about hurting someone.
+			Judging by the <<if $activeSlave.prostate > 1>>constant flow of precum leaking from<<else>>little bead of precum forming at<</if>> the hole, $pronoun's probably fantasizing about hurting someone.
 		<<elseif ($activeSlave.fetish == "pregnancy")>>
-			Judging by the little bead of precum forming at the hole, $pronoun's probably fantasizing about getting someone pregnant.
+			Judging by the <<if $activeSlave.prostate > 1>>constant flow of precum leaking from<<else>>little bead of precum forming at<</if>> the hole, $pronoun's probably fantasizing about getting someone pregnant.
 		<<elseif ($activeSlave.fetish == "boobs")>>
-			Judging by the little bead of precum forming at the hole, $pronoun's probably fantasizing about boobs.
+			Judging by the <<if $activeSlave.prostate > 1>>constant flow of precum leaking from<<else>>little bead of precum forming at<</if>> the hole, $pronoun's probably fantasizing about boobs.
 		<</if>>
+	<</if>>
+	<<if $activeSlave.balls != 0>>
+		This hole is normally almost invisible, making it quite surprising when $pronoun orgasms and shoots cum out of it.
+	<<elseif $activeSlave.prostate != 0>>
+		This hole is normally almost invisible, though it does leak some watery ejaculate when $pronoun orgasms.
 	<</if>>
 <</if>>
 
@@ -2952,7 +3071,7 @@ $pronounCap's got a
 
 <<if ($activeSlave.dick > 0) || ($activeSlave.balls > 0)>>
 <<if $activeSlave.prostate == 0>>
-	Though it's not externally apparent, $possessive's prostate has been removed, giving her ejaculations less body<<if $activeSlave.anus != 0>> and reducing the stimulation $pronoun feels during anal sex<</if>>.
+	Though it's not externally apparent, $possessive prostate has been removed, giving $possessive ejaculations less body<<if $activeSlave.anus != 0>> and reducing the stimulation $pronoun feels during anal sex<</if>>.
 <</if>>
 <</if>>
 
@@ -3024,7 +3143,7 @@ $pronounCap's got a
 <<if ($activeSlave.vagina > -1)>>
 
 <<if $activeSlave.vagina == 0>>
-	$pronounCap is a @@color:lime;virgin.@@ $possessiveCap pussy is fresh,
+	$pronounCap is a @@.lime;virgin.@@ $possessiveCap pussy is fresh,
 <<elseif $activeSlave.vagina == 1>>
 	$possessiveCap pussy is tight and appealing,
 <<elseif $activeSlave.vagina == 2>>
@@ -3072,7 +3191,7 @@ $pronounCap's got a
 	<</if>>
 	<<if $activeSlave.prostate != 0>>
 	<<if $activeSlave.dick == 0>>
-		In stark contrast, however, she's been given a functional prostate gland. It's attached to her urethra, of course, so despite her dryness, she squirts fluid when she orgasms.
+		In stark contrast, however, $pronoun's been given a functional prostate gland. It's attached to $possessive urethra, of course, so despite $possessive dryness, $pronoun squirts <<if $activeSlave.balls > 0>>semen<<else>>fluid<</if>> when $pronoun orgasms.
 	<</if>>
 	<</if>>
 <<elseif ($activeSlave.vaginaLube < 2)>>
@@ -3113,13 +3232,13 @@ $pronounCap's got a
 	<</if>>
 	<<if $activeSlave.prostate != 0>>
 	<<if $activeSlave.dick == 0>>
-		Bizarrely, she's been given a functional prostate gland. It's attached to her urethra, of course, so she squirts copiously when she orgasms.
+		Bizarrely, $pronoun's been given a functional prostate gland. It's attached to $possessive urethra, of course, <<if $activeSlave.balls > 0>>which in combination with $possessive testicles make $possessive squirt copious amounts of fluids and semen with each orgasm<<else>>so $pronoun squirts copiously when $pronoun orgasms<</if>>.
 	<</if>>
 	<</if>>
 <<else>>
 	<<if ($activeSlave.assignment == "work in the dairy") && ($dairyPregSetting > 1)>>
 		The dildo's ejaculate includes a drug that encourages vaginal lubrication, which is having a drastic effect on $possessive, since $pronoun's already very gifted in that regard. The dildo makes a wet noise every time it thrusts into $possessive, and femcum streams into a catchbasin beneath $object. The smell of pussy is overwhelming.
-	<<elseif ($activeSlave.aphrodisiacs > 0) || ($gingering == "vasodiolator")>>
+	<<elseif ($activeSlave.aphrodisiacs > 0) || ($saleDescription == 1 && $gingering == "vasodilator")>>
 		The combination of the aphrodisiacs and $possessive natural tendency to produce a lot of female lubricant is having a drastic effect. $possessiveCap cunt is absolutely beribboned with femcum, and $pronoun smells strongly of wet, clean pussy.
 	<<elseif ($activeSlave.energy > 95)>>
 		$pronounCap has a naturally wet cunt, and in combination with $possessive nymphomania, it's soaking. $pronounCap smells of good clean female arousal.
@@ -3141,7 +3260,11 @@ $pronounCap's got a
 		<<case "masochist">>
 			pain.
 		<<case "pregnancy">>
-			getting pregnant.
+			<<if $activeSlave.preg > 5>>
+				growing rounder.
+			<<else>>
+				getting pregnant.
+			<</if>>
 		<<case "boobs">>
 			boobs.
 		<<default>>
@@ -3156,15 +3279,15 @@ $pronounCap's got a
 	<</if>>
 	<<if $activeSlave.prostate != 0>>
 	<<if $activeSlave.dick == 0>>
-		Bizarrely, she's been given a functional prostate gland. It's attached to her urethra, of course, meaning that when she orgasms, she squirts an unreasonable volume of fluid.
+		Bizarrely, $pronoun's been given a functional prostate gland. It's attached to $possessive urethra, of course, <<if $activeSlave.balls > 0>>which in combination with $possessive testicles make $possessive squirt unreasonable volume of fluids and semen with each orgasm<<else>>meaning that when $pronoun orgasms, $pronoun squirts an unreasonable volume of fluid<</if>>.
 	<</if>>
 	<</if>>
 <</if>>
 <</if>>
 
-<<if ($activeSlave.vaginalAccessory == "chastity belt") && ($activeSlave.clothes == "no clothing")>>
+<<if (($activeSlave.vaginalAccessory == "chastity belt") || ($activeSlave.vaginalAccessory == "combined chastity")) && ($activeSlave.clothes == "no clothing")>>
 	$possessiveCap pussy is protected by a chastity belt.
-<<elseif ($activeSlave.vaginalAccessory == "chastity belt")>>
+<<elseif ($activeSlave.vaginalAccessory == "chastity belt") || ($activeSlave.vaginalAccessory == "combined chastity")>>
 	$possessiveCap pussy is protected by a chastity belt worn under $possessive clothing.
 <<elseif ($activeSlave.vaginalAccessory == "dildo")>>
 	$possessiveCap pussy is filled by a dildo held in place by a strap, which $pronoun can remove for vaginal intercourse.
@@ -3194,6 +3317,14 @@ $pronounCap's got a
 	$possessiveCap pubic hair has been removed to prevent chafing.
 	<<else>>
 	$pronounCap's waxed and smooth.
+	<</if>>
+<<elseif ($activeSlave.pubicHStyle == "bald")>>
+	<<if $activeSlave.fuckdoll > 0>>
+	$possessiveCap pubic hair has been removed to prevent chafing.
+	<<elseif ($activeSlave.assignment == "work in the dairy") && ($dairyRestraintsSetting > 1)>>
+	$possessiveCap pubic hair has been removed to prevent chafing.
+	<<else>>
+	$pronounCap's hairless and smooth.
 	<</if>>
 <<elseif ($activeSlave.pubicHStyle == "in a strip")>>
 	$possessiveCap $activeSlave.pubicHColor pubic hair is waxed into a narrow strip above $possessive <<if $activeSlave.dick > 0>>cock<<elseif $activeSlave.vagina == -1>>smoothness<<else>>pussy<</if>>.
@@ -3228,43 +3359,207 @@ $pronounCap's got a
 <<else>>
 	<<if $activeSlave.vagina == -1>>
 		<<if $seeDicks >= 100>><<elseif $activeSlave.anus == 0>><<else>>Since $pronoun lacks a vagina, $pronoun takes it up <<if $seeRace == 1>>$possessive $activeSlave.race<<else>>the<</if>> ass instead.<</if>>
-	<<elseif $activeSlave.vaginalSkill >= 100>>$pronounCap is a @@color:aquamarine;vanilla sex master@@.
-	<<elseif $activeSlave.vaginalSkill > 60>>$pronounCap is a @@color:aquamarine;vanilla sex expert@@.
-	<<elseif $activeSlave.vaginalSkill > 30>>$pronounCap is @@color:aquamarine;skilled at vanilla sex@@.
-	<<elseif $activeSlave.vaginalSkill > 10>>$pronounCap has @@color:aquamarine;basic knowledge about vanilla sex@@.
+	<<elseif $activeSlave.vaginalSkill >= 100>>$pronounCap is a @@.aquamarine;vanilla sex master@@.
+	<<elseif $activeSlave.vaginalSkill > 60>>$pronounCap is a @@.aquamarine;vanilla sex expert@@.
+	<<elseif $activeSlave.vaginalSkill > 30>>$pronounCap is @@.aquamarine;skilled at vanilla sex@@.
+	<<elseif $activeSlave.vaginalSkill > 10>>$pronounCap has @@.aquamarine;basic knowledge about vanilla sex@@.
 	<<else>>$pronounCap is unskilled at vaginal sex.
 	<</if>>
 <</if>>
 
 <<if ($activeSlave.dick == 0)>>
-<<if ($activeSlave.clit > 0)>>
-	<<if ($activeSlave.clit == 1)>>
-		<<if ($activeSlave.devotion > 50)>>
-			$possessiveCap clit is quite large and visibly hard.
+	<<if ($activeSlave.clit > 0)>>
+		<<if ($activeSlave.foreskin == 0)>>
+			<<if ($activeSlave.clit == 1)>>
+				<<if ($activeSlave.devotion > 50)>>
+					$possessiveCap clit is quite large and visibly hard.
+				<<else>>
+					$possessiveCap clit is quite large.
+				<</if>>
+				 $possessiveCap lack of hood makes it even more prominent.
+			<<elseif ($activeSlave.clit == 2)>>
+				<<if ($activeSlave.devotion > 50)>>
+					$possessiveCap clit is huge and visibly erect.
+				<<else>>
+					$possessiveCap clit is huge.
+				<</if>>
+				 Lack of hood combined with its size means $pronoun can't wear any clothes without being constantly stimulated.
+			<<elseif ($activeSlave.clit == 3)>>
+				<<if ($activeSlave.devotion > 50)>>
+					$possessiveCap clit is enormous, and since it's erect with arousal, it juts out proudly.
+				<<else>>
+					$possessiveCap clit is enormous, almost a pseudophallus.
+				<</if>>
+			<<elseif ($activeSlave.clit == 4)>>
+				<<if ($activeSlave.devotion > 50)>>
+					$possessiveCap clit has reached the size of an average penis, it stands at attention but due to lack of erectile tissues it can't reach the same hardness a penis would.
+				<<else>>
+					$possessiveCap clit has reached the size of an average penis.
+				<</if>>
+			<<else>>
+				<<if ($activeSlave.devotion > 50)>>
+					$possessiveCap clit is massive, having reached the size of a large penis. It is semi-erect since lack of erectile tissues means it can never become fully erect.
+				<<else>>
+					$possessiveCap clit is massive, having reached the size of a large penis.
+				<</if>>
+			<</if>>
+		<<elseif ($activeSlave.foreskin == 1)>>
+			<<if ($activeSlave.clit == 1)>>
+				<<if ($activeSlave.devotion > 50)>>
+					$possessiveCap clit is quite large and visibly hard.
+				<<else>>
+					$possessiveCap clit is quite large.
+				<</if>>
+				 $possessiveCap clitoral hood is stretched thin trying to cover it.
+			<<elseif ($activeSlave.clit == 2)>>
+				<<if ($activeSlave.devotion > 50)>>
+					$possessiveCap clit is huge and visibly erect.
+				<<else>>
+					$possessiveCap clit is huge.
+				<</if>>
+				 $possessiveCap small hood is no longer able to cover it completely and large part of $possessive clitoris is always exposed.
+			<<elseif ($activeSlave.clit == 3)>>
+				<<if ($activeSlave.devotion > 50)>>
+					$possessiveCap clit is enormous, and since it's erect with arousal, it juts out proudly.
+				<<else>>
+					$possessiveCap clit is enormous, almost a pseudophallus.
+				<</if>>
+				 $possessiveCap hood can no longer contain it and has slid back causing $possessive clitoris to be always exposed.
+			<<elseif ($activeSlave.clit == 4)>>
+				<<if ($activeSlave.devotion > 50)>>
+					$possessiveCap clit has reached the size of an average penis, it stands at attention but due to lack of erectile tissues it can't reach the same hardness a penis would.
+				<<else>>
+					$possessiveCap clit has reached the size of an average penis.
+				<</if>>
+				 $possessiveCap hood can no longer contain it and has slid back causing $possessive clitoris to be always exposed.
+			<<else>>
+				<<if ($activeSlave.devotion > 50)>>
+					$possessiveCap clit is massive, having reached the size of a large penis. It is semi-erect since lack of erectile tissues means it can never become fully erect.
+				<<else>>
+					$possessiveCap clit is massive, having reached the size of a large penis.
+				<</if>>
+				 $possessiveCap hood can no longer contain it and has slid back causing $possessive clitoris to be always exposed.
+			<</if>>
+		<<elseif ($activeSlave.foreskin == 2)>>
+			<<if ($activeSlave.clit == 1)>>
+				<<if ($activeSlave.devotion > 50)>>
+					$possessiveCap clit is quite large and visibly hard.
+				<<else>>
+					$possessiveCap clit is quite large.
+				<</if>>
+				 It is completely covered by its hood.
+			<<elseif ($activeSlave.clit == 2)>>
+				<<if ($activeSlave.devotion > 50)>>
+					$possessiveCap clit is huge and visibly erect.
+				<<else>>
+					$possessiveCap clit is huge.
+				<</if>>
+				 Its hood is stretched thin trying to cover it.
+			<<elseif ($activeSlave.clit == 3)>>
+				<<if ($activeSlave.devotion > 50)>>
+					$possessiveCap clit is enormous, and since it's erect with arousal, it juts out proudly.
+				<<else>>
+					$possessiveCap clit is enormous, almost a pseudophallus.
+				<</if>>
+				 It's large enough that the hood can cover only half of it.
+			<<elseif ($activeSlave.clit == 4)>>
+				<<if ($activeSlave.devotion > 50)>>
+					$possessiveCap clit has reached the size of an average penis, it stands at attention but due to lack of erectile tissues it can't reach the same hardness a penis would.
+				<<else>>
+					$possessiveCap clit has reached the size of an average penis.
+				<</if>>
+				 $possessiveCap hood can no longer contain it and has slid back causing $possessive clitoris to be always exposed.
+			<<else>>
+				<<if ($activeSlave.devotion > 50)>>
+					$possessiveCap clit is massive, having reached the size of a large penis. It is semi-erect since lack of erectile tissues means it can never become fully erect.
+				<<else>>
+					$possessiveCap clit is massive, having reached the size of a large penis.
+				<</if>>
+				 $possessiveCap hood can no longer contain it and has slid back causing $possessive clitoris to be always exposed.
+			<</if>>
+		<<elseif ($activeSlave.foreskin == 3)>>
+			<<if ($activeSlave.clit == 1)>>
+				<<if ($activeSlave.devotion > 50)>>
+					$possessiveCap clit is quite large and visibly hard.
+				<<else>>
+					$possessiveCap clit is quite large.
+				<</if>>
+				 The hood covering it is quite large making stimulation difficult.
+			<<elseif ($activeSlave.clit == 2)>>
+				<<if ($activeSlave.devotion > 50)>>
+					$possessiveCap clit is huge and visibly erect.
+				<<else>>
+					$possessiveCap clit is huge.
+				<</if>>
+				 $possessiveCap large hood completely covers it.
+			<<elseif ($activeSlave.clit == 3)>>
+				<<if ($activeSlave.devotion > 50)>>
+					$possessiveCap clit is enormous, and since it's erect with arousal, it juts out proudly.
+				<<else>>
+					$possessiveCap clit is enormous, almost a pseudophallus.
+				<</if>>
+				 $possessiveCap large hood covers all but the tip of $possessive clit even when aroused.
+			<<elseif ($activeSlave.clit == 4)>>
+				<<if ($activeSlave.devotion > 50)>>
+					$possessiveCap clit has reached the size of an average penis, it stands at attention but due to lack of erectile tissues it can't reach the same hardness a penis would.
+				<<else>>
+					$possessiveCap clit has reached the size of an average penis.
+				<</if>>
+				 Even $possessive large hood can't cover it, leaving over half of the clit exposed.
+			<<else>>
+				<<if ($activeSlave.devotion > 50)>>
+					$possessiveCap clit is massive, having reached the size of a large penis. It is semi-erect since lack of erectile tissues means it can never become fully erect.
+				<<else>>
+					$possessiveCap clit is massive, having reached the size of a large penis.
+				<</if>>
+				 $possessiveCap hood can no longer contain it and has slid back causing $possessive clitoris to be always exposed.
+			<</if>>
 		<<else>>
-			$possessiveCap clit is quite large.
-		<</if>>
-	<<elseif ($activeSlave.clit == 2)>>
-		<<if ($activeSlave.devotion > 50)>>
-			$possessiveCap clit is huge and visibly erect.
-		<<else>>
-			$possessiveCap clit is huge.
-		<</if>>
-	<<else>>
-		<<if ($activeSlave.devotion > 50)>>
-			$possessiveCap clit is enormous, and since it's erect with arousal, it juts out proudly.
-		<<else>>
-			$possessiveCap clit is enormous, almost a pseudophallus.
+			<<if ($activeSlave.clit == 1)>>
+				<<if ($activeSlave.devotion > 50)>>
+					$possessiveCap clit is quite large and visibly hard.
+				<<else>>
+					$possessiveCap clit is quite large.
+				<</if>>
+				 $possessiveCap large thick hood covering it makes any stimulation difficult.
+			<<elseif ($activeSlave.clit == 2)>>
+				<<if ($activeSlave.devotion > 50)>>
+					$possessiveCap clit is huge and visibly erect.
+				<<else>>
+					$possessiveCap clit is huge.
+				<</if>>
+				 $possessiveCap large thick hood covering it makes any stimulation difficult.
+			<<elseif ($activeSlave.clit == 3)>>
+				<<if ($activeSlave.devotion > 50)>>
+					$possessiveCap clit is enormous, and since it's erect with arousal, it juts out proudly.
+				<<else>>
+					$possessiveCap clit is enormous, almost a pseudophallus.
+				<</if>>
+				 Matching its size is the thick hood covering it.
+			<<elseif ($activeSlave.clit == 4)>>
+				<<if ($activeSlave.devotion > 50)>>
+					$possessiveCap clit has reached the size of an average penis, it stands at attention but due to lack of erectile tissues it can't reach the same hardness a penis would.
+				<<else>>
+					$possessiveCap clit has reached the size of an average penis.
+				<</if>>
+				 $possessiveCap large hood covering over half of it adds to its penis-like appearance.
+			<<else>>
+				<<if ($activeSlave.devotion > 50)>>
+					$possessiveCap clit is massive, having reached the size of a large penis. It is semi-erect, since lack of erectile tissues means it can never reach full erection.
+				<<else>>
+					$possessiveCap clit is massive, having reached the size of a large penis.
+				<</if>>
+				 Not even its large hood can contain it, leaving over half of it exposed.
+			<</if>>
 		<</if>>
 	<</if>>
-<</if>>
 <</if>>
 
 <<if $showBodyMods == 1>>
 
 <<if ($activeSlave.vagina != -1)>>
 <<if $activeSlave.vaginaPiercing > 0>>
-	$pronounCap has a 
+	$pronounCap has a
 	<<if ($activeSlave.vaginaPiercing == 1)>>
 		simple row of studs
 	<<else>>
@@ -3402,7 +3697,7 @@ $pronounCap's got a
 <<if ($showClothing == 1) && ($saleDescription == 0)>>
 
 $activeSlave.slaveName is
-<<if ($activeSlave.clothes == "choosing $possessive own clothes")>>
+<<if ($activeSlave.clothes == "choosing her own clothes")>>
 	allowed to choose $possessive own clothes, but hasn't made a selection yet,
 <<else>>
 	wearing $activeSlave.clothes,
@@ -3525,6 +3820,30 @@ $activeSlave.slaveName is
 		$possessiveCap sturdy corset is hidden by the toga.
 	<<elseif $activeSlave.bellyAccessory == "an extreme corset">>
 		$possessiveCap extreme corsetage is hidden by the toga.
+	<</if>>
+
+<<case "a huipil">>
+	made of beautiful
+	<<if ($activeSlave.amp == 1)>>
+		silk.
+	<<else>>
+		silk, and
+		<<if ($activeSlave.shoes == "flats")>>
+			little leather sandals.
+		<<elseif ($activeSlave.shoes == "boots")>>
+			high leather boots with thin rope laces and wooden heels.
+		<<elseif ($activeSlave.shoes == "heels")>>
+			beautiful wood and leather stilletos with an ornamented heel.
+		<<elseif ($activeSlave.shoes == "extreme heels")>>
+			high wooden heels with leather straps.
+		<<else>>
+			bare feet with a small ankle chain.
+		<</if>>
+	<</if>>
+	<<if $activeSlave.bellyAccessory == "a corset">>
+		$possessiveCap sturdy corset is visible through the sides.
+	<<elseif $activeSlave.bellyAccessory == "an extreme corset">>
+		$possessiveCap extreme corsetage is visible through the sides.
 	<</if>>
 
 <<case "a slutty qipao">>
@@ -3832,7 +4151,7 @@ $activeSlave.slaveName is
 	<<if ($activeSlave.amp == 1)>>
 		without arm or leg holes, so $possessive limbless torso is in a net.
 	<<else>>
-		<<if ($activeSlave.nails == 2) && ($activeSlave.makeup == 3)>>
+		<<if (($activeSlave.nails == 2) || ($activeSlave.nails == 7) || ($activeSlave.nails == 9)) && (($activeSlave.makeup == 3) || ($activeSlave.makeup == 6) || ($activeSlave.nails == 8))>>
 			$activeSlave.hColor to match $possessive monocolor style,
 		<<elseif ($activeSlave.skin == "dark") || ($activeSlave.skin == "black")>>
 			in white to create a striking contrast with $possessive $activeSlave.skin skin,
@@ -3864,26 +4183,26 @@ $activeSlave.slaveName is
 
 <<case "cutoffs and a t-shirt">>
 	which has
-	<<if ($activeSlave.energy > 95)>>
-		"Fuck me!" across the front in huge letters.
-	<<elseif ($activeSlave.fetish == "buttslut") && ($activeSlave.fetishStrength > 60) && ($activeSlave.fetishKnown == 1)>>
+	<<if ($activeSlave.fetish == "buttslut") && ($activeSlave.fetishStrength > 95) && ($activeSlave.fetishKnown == 1)>>
 		"BUTTSLUT" across the front in capital letters.
-	<<elseif ($activeSlave.fetish == "cumslut") && ($activeSlave.fetishStrength > 60) && ($activeSlave.fetishKnown == 1)>>
+	<<elseif ($activeSlave.fetish == "cumslut") && ($activeSlave.fetishStrength > 95) && ($activeSlave.fetishKnown == 1)>>
 		"CUMSLUT" across the front in capital letters.
-	<<elseif ($activeSlave.fetish == "submissive") && ($activeSlave.fetishStrength > 60) && ($activeSlave.fetishKnown == 1)>>
+	<<elseif ($activeSlave.fetish == "submissive") && ($activeSlave.fetishStrength > 95) && ($activeSlave.fetishKnown == 1)>>
 		"SUB" on the front in capital letters.
-	<<elseif ($activeSlave.fetish == "sadist") && ($activeSlave.fetishStrength > 60) && ($activeSlave.fetishKnown == 1)>>
+	<<elseif ($activeSlave.fetish == "sadist") && ($activeSlave.fetishStrength > 95) && ($activeSlave.fetishKnown == 1)>>
 		"AWFUL BITCH" on the front in capital letters.
-	<<elseif ($activeSlave.fetish == "masochist") && ($activeSlave.fetishStrength > 60) && ($activeSlave.fetishKnown == 1)>>
+	<<elseif ($activeSlave.fetish == "masochist") && ($activeSlave.fetishStrength > 95) && ($activeSlave.fetishKnown == 1)>>
 		"PAINSLUT" on the front in capital letters.
-	<<elseif ($activeSlave.fetish == "dom") && ($activeSlave.fetishStrength > 60) && ($activeSlave.fetishKnown == 1)>>
+	<<elseif ($activeSlave.fetish == "dom") && ($activeSlave.fetishStrength > 95) && ($activeSlave.fetishKnown == 1)>>
 		"TOP" on the front in capital letters.
-	<<elseif ($activeSlave.fetish == "humiliation") && ($activeSlave.fetishStrength > 60) && ($activeSlave.fetishKnown == 1)>>
+	<<elseif ($activeSlave.fetish == "humiliation") && ($activeSlave.fetishStrength > 95) && ($activeSlave.fetishKnown == 1)>>
 		"SEX SLAVE" on the front in capital letters.
-	<<elseif ($activeSlave.fetish == "pregnancy") && ($activeSlave.fetishStrength > 60) && ($activeSlave.fetishKnown == 1)>>
+	<<elseif ($activeSlave.fetish == "pregnancy") && ($activeSlave.fetishStrength > 95) && ($activeSlave.fetishKnown == 1)>>
 		"BREEDER" on the front in capital letters.
-	<<elseif ($activeSlave.fetish == "boobs") && ($activeSlave.fetishStrength > 60) && ($activeSlave.fetishKnown == 1)>>
+	<<elseif ($activeSlave.fetish == "boobs") && ($activeSlave.fetishStrength > 95) && ($activeSlave.fetishKnown == 1)>>
 		"I <3 BOOBS" on the front in capital letters.
+	<<elseif ($activeSlave.energy > 95)>>
+		"Fuck me!" across the front in huge letters.
 	<<elseif ($activeSlave.dick == 0) && ($activeSlave.vagina == -1)>>
 		"NULL ASSWHORE" on the front in capital letters.
 	<<elseif ($activeSlave.dick > 0) && ($activeSlave.vagina > -1)>>
@@ -3899,7 +4218,7 @@ $activeSlave.slaveName is
 	<<elseif ($activeSlave.preg > 0)>>
 		"I'm Pregnant!" across the front in large letters.
 	<<else>>
-		"Property Of $PCName" across the front.
+		"Property Of $PC.name<<if $PC.surname>> $PC.surname<</if>>" across the front.
 	<</if>>
 	<<if $activeSlave.bellyAccessory == "a corset">>
 		It conceals $possessive corset.
@@ -4492,6 +4811,9 @@ $pronounCap has a corset piercing, a ladder of steel rings running up each side 
 <<case "a toga">>
 	$possessive toga hides them completely, but they're laced tightly, so $pronoun's aware they're there.
 
+<<case "a huipil">>
+	$possessive huipil hides them partially, so the leather straps that pull on $possessive's skin are clearly evident.
+
 <<case "a slutty qipao">>
 	$possessive qipao hides them completely, but they're laced tightly with silk cord, so $pronoun's aware they're there.
 
@@ -4632,6 +4954,9 @@ $possessiveCap
 <<if $activeSlave.fuckdoll == 0>>
 <<switch $activeSlave.hStyle>>
 
+<<case "bald">>
+	head is completely bald.
+
 <<case "shaved bald">>
 	hair has been shaved. If $possessive hair were visible, it would be $activeSlave.hColor.
 
@@ -4729,6 +5054,8 @@ $possessiveCap
 			rampages down $possessive back in the glorious feathering of an 80's perm.
 		<<case "a slutty qipao">>
 			cascades down $possessive back, ornamented with little silver talismans here and there.
+		<<case "a huipil">>
+			flows down $possessive back, rustling freely in the wind.
 		<<case "restrictive latex" "a latex catsuit">>
 			is allowed a gap at the back of $possessive head so it can escape to cascade down $possessive back.
 		<<case "harem gauze">>
@@ -4765,6 +5092,8 @@ $possessiveCap
 			is in a big, classic 80's perm.
 		<<case "a slutty qipao">>
 			is brushed back over $possessive shoulders, ornamented with little silver talismans here and there.
+		<<case "a huipil">>
+			flows down $possessive shoulders, giving $possessive a very innocent look.
 		<<case "restrictive latex" "a latex catsuit">>
 			is allowed a gap at the back of $possessive head so it can escape down $possessive back.
 		<<case "harem gauze">>
@@ -4801,6 +5130,8 @@ $possessiveCap
 			is in a classic 80's perm.
 		<<case "a slutty qipao">>
 			is brushed back and ornamented with a little jade talisman.
+		<<case "a huipil">>
+			is short and neat, giving $possessive an innocent look.
 		<<case "restrictive latex" "a latex catsuit">>
 			is crammed under $possessive latex hood.
 		<<case "harem gauze">>
@@ -4873,6 +5204,8 @@ $possessiveCap
 			is in an 80's perm and back in a scrunchy, from which it explodes backwards with 80's violence.
 		<<case "a slutty qipao">>
 			is in a perfect bun, secured with a jade comb; $possessive bun is so large it forms an artful arrangement down to the nape of $possessive neck.
+		<<case "a huipil">>
+			is twisted into two horns that rest on top of $possessive head, the rest is bulked on the back of her neck.
 		<<case "a kimono">>
 			is in a perfect bun, secured with an ivory comb; $possessive bun is so large it forms an artful arrangement down to the nape of $possessive neck.
 		<<case "restrictive latex" "a latex catsuit">>
@@ -4908,6 +5241,8 @@ $possessiveCap
 			is in an 80's perm and back in a scrunchy, from which it bursts backwards with 80's violence.
 		<<case "a slutty qipao">>
 			is in a perfect bun, secured with a jade comb.
+		<<case "a huipil">>
+			is twisted into two horns that rest on top of $possessive head, the rest sits tightly on the back of her neck.
 		<<case "a kimono">>
 			is in a perfect bun, secured with an ivory comb.
 		<<case "restrictive latex" "a latex catsuit">>
@@ -4943,6 +5278,8 @@ $possessiveCap
 			is in an 80's perm and back in a scrunchy, from which it shoots backwards with 80's violence.
 		<<case "a slutty qipao">>
 			is in a tight little bun, secured with a jade comb.
+		<<case "a huipil">>
+			is twisted into two horns that rest on top of $possessive head.
 		<<case "a kimono">>
 			is in a tight little bun, secured with an ivory comb.
 		<<case "restrictive latex" "a latex catsuit">>
@@ -4994,6 +5331,8 @@ $possessiveCap
 		<<case "a slutty qipao">>
 			is back in huge tails secured by jade rings etched with images of
 			<<ImageDesc>>
+		<<case "a huipil">>
+			is twisted into two huge tails that rest on top of $possessive shoulders.
 		<<case "a kimono">>
 			is in huge tails secured by ivory combs carved with images of
 			<<ImageDesc>>
@@ -5044,6 +5383,8 @@ $possessiveCap
 		<<case "a slutty qipao">>
 			is back in big tails secured by jade rings etched with images of
 			<<ImageDesc>>
+		<<case "a huipil">>
+			is twisted into two tails that rest on top of $possessive shoulders.
 		<<case "a kimono">>
 			is in big tails secured by ivory combs carved with images of
 			<<ImageDesc>>
@@ -5094,6 +5435,8 @@ $possessiveCap
 		<<case "a slutty qipao">>
 			is back in short tails secured by jade rings etched with images of
 			<<ImageDesc>>
+		<<case "a huipil">>
+			is twisted into two short tails that give $possessive the look of a little girl.
 		<<case "a kimono">>
 			is in short tails secured by ivory combs carved with images of
 			<<ImageDesc>>
@@ -5148,6 +5491,8 @@ $possessiveCap
 		<<case "a slutty qipao">>
 			is tied back in a huge ponytail secured by jade rings etched with images of
 			<<ImageDesc>>
+		<<case "a huipil">>
+			is tied into a huge ponytail, that leaves $possessive long hair to wave in the wind.
 		<<case "a kimono">>
 			is in a huge ponytail secured by ivory combs carved with images of
 			<<ImageDesc>>
@@ -5198,6 +5543,8 @@ $possessiveCap
 		<<case "a slutty qipao">>
 			is back in a big ponytail secured by jade rings etched with images of
 			<<ImageDesc>>
+		<<case "a huipil">>
+			is tied into a modest ponytail, that leaves $possessive hair to wave in the wind.
 		<<case "a kimono">>
 			is in a big ponytail secured by ivory combs carved with images of
 			<<ImageDesc>>
@@ -5248,6 +5595,8 @@ $possessiveCap
 		<<case "a slutty qipao">>
 			is back in short ponytail secured by jade rings etched with images of
 			<<ImageDesc>>
+		<<case "a huipil">>
+			is tied into a small ponytail, that leaves $possessive short hair to wave in the wind.
 		<<case "a kimono">>
 			is in short ponytail secured by ivory combs carved with images of
 			<<ImageDesc>>
@@ -5300,6 +5649,8 @@ $possessiveCap
 		<<case "a slutty qipao">>
 			is back in huge braids secured by jade rings etched with images of
 			<<ImageDesc>>
+		<<case "a huipil">>
+			is twisted into huge braids, that rest on $possessive shoulders.
 		<<case "a kimono">>
 			is in huge braids secured by ivory combs carved with images of
 			<<ImageDesc>>
@@ -5348,6 +5699,8 @@ $possessiveCap
 		<<case "a slutty qipao">>
 			is back in big braids secured by jade rings etched with images of
 			<<ImageDesc>>
+		<<case "a huipil">>
+			is twisted into braids, that rest on $possessive shoulders.
 		<<case "a kimono">>
 			is in long braids secured by ivory combs carved with images of
 			<<ImageDesc>>
@@ -5375,9 +5728,9 @@ $possessiveCap
 		<<case "slutty business attire">>
 			is tied into long braids and secured by gaudy gold clasps.
 		<<case "nice business attire">>
-			is tied into into long braids and secured so $pronoun can do business without them getting in the way.
+			is tied into long braids and secured so $pronoun can do business without them getting in the way.
 		<<case "a slutty nurse outfit">>
-			is tied into into long braids and secured by white cloth ties emblazoned with little red crosses.
+			is tied into long braids and secured by white cloth ties emblazoned with little red crosses.
 		<<case "a hijab and abaya">>
 			is in braids, but they're hidden by $possessive modest garb.
 		<<default>>
@@ -5396,6 +5749,8 @@ $possessiveCap
 		<<case "a slutty qipao">>
 			is back in short braids secured by jade rings etched with images of
 			<<ImageDesc>>
+		<<case "a huipil">>
+			is twisted into short braids, that rest on $possessive shoulders.
 		<<case "a kimono">>
 			is in short braids secured by ivory combs carved with images of
 			<<ImageDesc>>
@@ -5448,6 +5803,8 @@ $possessiveCap
 		<<case "a slutty qipao">>
 			is in long dreadlocks, some with jade ornaments etched with images of
 			<<ImageDesc>>
+		<<case "a huipil">>
+			is in long dreadlocks, with a couple of small ornaments important to $possessive.
 		<<case "a kimono">>
 			is in long dreadlocks, some in ivory rings carved with images of
 			<<ImageDesc>>
@@ -5496,6 +5853,8 @@ $possessiveCap
 		<<case "a slutty qipao">>
 			is in dreadlocks, some with jade rings etched with images of
 			<<ImageDesc>>
+		<<case "a huipil">>
+			is in dreadlocks, with a couple of small ornaments important to $possessive.
 		<<case "a kimono">>
 			is in dreadlocks, some in ivory rings carved with images of
 			<<ImageDesc>>
@@ -5548,6 +5907,8 @@ $possessiveCap
 		<<case "a slutty qipao">>
 			is in short dreadlocks, some in jade rings etched with images of
 			<<ImageDesc>>
+		<<case "a huipil">>
+			is in short dreadlocks, with a couple of small ornaments important to $possessive.
 		<<case "a kimono">>
 			is in short dreadlocks, some with ivory rings carved with images of
 			<<ImageDesc>>
@@ -5600,6 +5961,8 @@ $possessiveCap
 		<<case "a slutty qipao">>
 			is curled into long flowing locks secured by jade rings etched with images of
 			<<ImageDesc>>
+		<<case "a huipil">>
+			is in long curls, and the locks flow down $possessive shoulders.
 		<<case "a kimono">>
 			is curled into long flowing locks secured by ivory combs carved with images of
 			<<ImageDesc>>
@@ -5648,6 +6011,8 @@ $possessiveCap
 		<<case "a slutty qipao">>
 			is curled into long locks, secured by jade rings etched with images of
 			<<ImageDesc>>
+		<<case "a huipil">>
+			is in curls, and the locks flow down $possessive shoulders.
 		<<case "a kimono">>
 			is curled into long locks, secured by ivory combs carved with images of
 			<<ImageDesc>>
@@ -5696,6 +6061,8 @@ $possessiveCap
 		<<case "a slutty qipao">>
 			is curled into short locks secured by jade rings etched with images of
 			<<ImageDesc>>
+		<<case "a huipil">>
+			is in short curls, and the locks flow down $possessive shoulders.
 		<<case "a kimono">>
 			is curled into short locks secured by ivory combs carved with images of
 			<<ImageDesc>>
@@ -5748,6 +6115,8 @@ $possessiveCap
 		<<case "a slutty qipao">>
 			is permed into long flowing curls secured by jade rings etched with images of
 			<<ImageDesc>>
+		<<case "a huipil">>
+			is permed into long curls, and the locks flow down $possessive shoulders.
 		<<case "a kimono">>
 			is permed into long flowing curls secured by ivory combs carved with images of
 			<<ImageDesc>>
@@ -5796,6 +6165,8 @@ $possessiveCap
 		<<case "a slutty qipao">>
 			is permed into long locks, secured by jade rings etched with images of
 			<<ImageDesc>>
+		<<case "a huipil">>
+			is permed into curls, and the locks flow down $possessive shoulders.
 		<<case "a kimono">>
 			is permed and secured by ivory combs carved with images of
 			<<ImageDesc>>
@@ -5844,6 +6215,8 @@ $possessiveCap
 		<<case "a slutty qipao">>
 			is permed into short waves secured by jade rings etched with images of
 			<<ImageDesc>>
+		<<case "a huipil">>
+			is permed into short curls, and the locks flow down $possessive shoulders.
 		<<case "a kimono">>
 			is permed into short waves secured by ivory combs carved with images of
 			<<ImageDesc>>
@@ -5887,7 +6260,7 @@ $possessiveCap
 		<<switch $activeSlave.clothes>>
 		<<case "chains">>
 			is in luxurious layered locks, caught painfully in $possessive chains here and there.
-		<<case "body oil">>
+		<<case "body oil" "a huipil">>
 			is in luxurious layered locks flowing gorgeously down $possessive back.
 		<<case "a slutty qipao">>
 			is in luxurious layered locks flowing gorgeously down $possessive back, ornamented with little silver talismans here and there.
@@ -5923,7 +6296,7 @@ $possessiveCap
 		<</switch>>
 	<<elseif $activeSlave.hLength > 30>>
 		<<switch $activeSlave.clothes>>
-		<<case "body oil">>
+		<<case "body oil" "a huipil">>
 			in luxurious layered locks.
 		<<case "a slutty qipao">>
 			is in luxurious layered locks flowing over $possessive shoulders, ornamented with little silver talismans here and there.
@@ -5959,7 +6332,7 @@ $possessiveCap
 		<</switch>>
 	<<elseif $activeSlave.hLength > 10>>
 		<<switch $activeSlave.clothes>>
-		<<case "body oil">>
+		<<case "body oil" "a huipil">>
 			is in luxuriously styled short locks.
 		<<case "a slutty qipao">>
 			is in luxuriously styled short locks, brushed back and ornamented with a little jade talisman.
@@ -5995,7 +6368,7 @@ $possessiveCap
 		<</switch>>
 	<<else>>
 		<<switch $activeSlave.clothes>>
-		<<case "body oil" "a military uniform" "a slave gown" "a halter top dress" "a ball gown" "conservative clothing" "nice business attire" "slutty business attire" "battledress">>
+		<<case "body oil" "a huipil" "a military uniform" "a slave gown" "a halter top dress" "a ball gown" "conservative clothing" "nice business attire" "slutty business attire" "battledress">>
 			is in luxuriously styled short locks.
 		<<case "restrictive latex" "a latex catsuit">>
 			fits under $possessive latex hood.
@@ -6021,7 +6394,7 @@ $possessiveCap
 			is shaved into a strip that runs down $possessive back and ends attached to a steel ring.
 		<<case "Western clothing">>
 			is shaved into a strip under $possessive cowboy hat, and cascades magnificently down $possessive back.
-		<<case "body oil">>
+		<<case "body oil" "a huipil">>
 			is shaved into a permed strip which cascades magnificently down $possessive back.
 		<<case "a kimono">>
 			is shaved into a strip that cascades magnificently down $possessive back, with scores of little ivory talismans woven into it.
@@ -6052,7 +6425,7 @@ $possessiveCap
 			is shaved into a long braided strip that ends attached to a steel ring.
 		<<case "Western clothing">>
 			is shaved into a strip under $possessive cowboy hat, but is visible as a party in the back.
-		<<case "body oil">>
+		<<case "body oil" "a huipil">>
 			is shaved into a permed strip which falls down $possessive back.
 		<<case "a kimono">>
 			is shaved into a long braided strip with little ivory talismans woven into it.
@@ -6083,7 +6456,7 @@ $possessiveCap
 			is shaved into a strip down the middle of $possessive head that ends attached to a steel ring.
 		<<case "Western clothing">>
 			is shaved into a strip under $possessive cowboy hat, with nothing but a little rat tail visible in back.
-		<<case "body oil">>
+		<<case "body oil" "a huipil">>
 			is shaved into a permed strip.
 		<<case "a kimono">>
 			is shaved into a strip down the middle of $possessive head with little ivory talismans woven into it.
@@ -6108,6 +6481,8 @@ $possessiveCap
 		<<default>>
 			is shaved into a strip.
 		<</switch>>
+	<<elseif $activeSlave.hStyle == "bald">>
+			is completely bald.
 	<<else>>
 		is shaved into a mohawk.
 	<</if>>
@@ -6198,7 +6573,7 @@ $possessiveCap
 
 <<SlavePronouns $activeSlave>>
 
-$possessiveCap @@color:pink;face is
+$possessiveCap @@.pink;face is
 <<switch $activeSlave.faceShape>>
 <<case "masculine">>
 	<<if $activeSlave.face < -95>>
@@ -6352,7 +6727,7 @@ $pronounCap has
 <<else>>
 	<<if canTalk($activeSlave)>>
 	<<if $activeSlave.lips > 70>>
-		$pronounCap can barely enunciate past $possessive dick-sucking lips; '<<if def $PC.customTitle>>$PC.customTitle<<elseif $PC.title != 0>>Master<<else>>Mistress<</if>>' comes out as '<<if def $PC.customTitleLisp>>$PC.customTitleLisp<<elseif $PC.title != 0>>Mathter<<else>>Mithtreth<</if>>.'
+		$pronounCap can barely enunciate past $possessive dick-sucking lips; '<<if def $PC.customTitle>>$PC.customTitle<<elseif $PC.title != 0>>Master<<else>>Mistress<</if>>' comes out as '<<Master>>.'
 	<</if>>
 	<</if>>
 	<<if $activeSlave.teeth != "normal">>
@@ -6389,10 +6764,10 @@ $pronounCap has
 	<</if>>
 <<else>>
 	$pronounCap is
-	<<if $activeSlave.oralSkill >= 100>>an @@color:aquamarine;oral sex master.@@
-	<<elseif $activeSlave.oralSkill > 60>>an @@color:aquamarine;expert at oral.@@
-	<<elseif $activeSlave.oralSkill > 30>>@@color:aquamarine;orally skilled.@@
-	<<elseif $activeSlave.oralSkill > 10>>@@color:aquamarine;capable of basic oral sex.@@
+	<<if $activeSlave.oralSkill >= 100>>an @@.aquamarine;oral sex master.@@
+	<<elseif $activeSlave.oralSkill > 60>>an @@.aquamarine;expert at oral.@@
+	<<elseif $activeSlave.oralSkill > 30>>@@.aquamarine;orally skilled.@@
+	<<elseif $activeSlave.oralSkill > 10>>@@.aquamarine;capable of basic oral sex.@@
 	<<else>>unskilled at oral sex.
 	<</if>>
 <</if>>
@@ -6407,6 +6782,14 @@ $pronounCap has
 	$possessiveCap makeup is color-coordinated with $possessive $activeSlave.hColor hair.
 <<elseif $activeSlave.makeup == 4>>
 	$pronounCap's wearing stereotypical, garish streetwalker makeup.
+<<elseif $activeSlave.makeup == 5>>
+	$pronounCap's wearing eye-catching neon makeup.
+<<elseif $activeSlave.makeup == 6>>
+	$possessiveCap neon makeup is color-coordinated with $possessive $activeSlave.hColor hair.
+<<elseif $activeSlave.makeup == 7>>
+	$pronounCap's wearing expensive, metallic makeup.
+<<elseif $activeSlave.makeup == 8>>
+	$possessiveCap metallic makeup is color-coordinated with $possessive $activeSlave.hColor hair.
 <</if>>
 <<if $activeSlave.lipsPiercing == 1>>
 	$pronounCap has a simple lip piercing.
@@ -6430,7 +6813,7 @@ $pronounCap has
 		$possessiveCap face appears to bear very heavy, slutty makeup, but on closer inspection, the makeup is actually tattooed on.
 	<</if>>
 <<case "degradation">>
-	'$desc Slave' is tattooed across $possessive forehead.
+	'$desc' is tattooed across $possessive forehead.
 <<case "counting">>
 	<<if $activeSlave.oralCount == 0>>
 		There is a horizontal line tattooed across the $possessive cheeks for symbols counting $possessive oral totals to be inscribed under, once $pronoun has some.
@@ -6486,6 +6869,10 @@ $pronounCap has
 		$pronounCap is wearing the collar from a white formal shirt, and a black bowtie, though these conceal an actual collar that works perfectly well for restraint.
 	<<case "ancient Egyptian">>
 		$pronounCap is wearing a beautiful golden wesekh, a collar that spreads from $possessive neck out onto both shoulders and down $possessive front.
+	<<case "ball gag">>
+		$pronounCap is wearing a mouth filling, <<if $activeSlave.makeup == 3 || $activeSlave.makeup == 6 || $activeSlave.makeup == 8>>$activeSlave.hColor<<else>>red<</if>> ball-shaped gag that prevents her from uttering a word while keeping her uncomfortably aware of her status.
+	<<case "bit gag">>
+		$pronounCap is wearing a jaw spreading, bar-shaped gag that prevents her from speaking while keeping her uncomfortably aware of her status.
 	<<case "cruel retirement counter" "nice retirement counter">>
 		$pronounCap is wearing a <<if $activeSlave.collar == "cruel retirement counter">>heavy metal collar<<else>>nice collar, almost a necklace,<</if>> with a small numerical display reading
 		<<if $activeSlave.indenture > -1>>
@@ -6621,7 +7008,7 @@ $pronounCap has
 <<if ($activeSlave.bellyAccessory == "an extreme corset")>>
 	$activeSlave.slaveName's huge pregnant belly is tightly compressed by $possessive corset; one or the other will eventually win out.
 <<elseif ($activeSlave.bellyAccessory == "a corset")>>
-	$activeSlave.slaveName's huge pregnant belly is compressed by $possessive corset; one or the other will eventually win out.
+	$activeSlave.slaveName's huge pregnant belly comfortably bulges out of $possessive corset.
 <</if>>
 <<switch $activeSlave.clothes>>
 <<case "a Fuckdoll suit">>
@@ -6640,12 +7027,14 @@ $pronounCap has
 	<</if>>
 <<case "chains">>
 	$activeSlave.slaveName's huge pregnant belly is tightly wrapped with chains, causing it to bulge angrily.
-<<case "western clothing">>
+<<case "Western clothing">>
 	$activeSlave.slaveName's flannel shirt can't close over $possessive huge pregnant belly so $pronoun has left the bottom buttons open, leaving $possessive belly hanging out.
 <<case "body oil">>
 	$activeSlave.slaveName's huge belly is covered in a sheen of special oil meant to prevent stretch marks.
 <<case "a toga">>
 	$activeSlave.slaveName's huge pregnant belly parts $possessive toga.
+<<case "a huipil">>
+	$activeSlave.slaveName's huge pregnant belly lifts $possessive huipil.
 <<case "a slutty qipao">>
 	$possessiveCap qipao is slit up the side. However, it merely rests atop $possessive huge pregnant belly.
 <<case "uncomfortable straps">>
@@ -6701,7 +7090,7 @@ $pronounCap has
 <<case "a slutty outfit">>
 	$activeSlave.slaveName's huge pregnant belly really shows what a slut $pronoun is.
 <<case "a slave gown">>
-	$activeSlave.slaveName's slave gown is carefully tailored, giving $possessive a sensual motherly look as it carefully caresses $possessive huge pregnant belly.
+	$activeSlave.slaveName's slave gown is carefully tailored, giving $object a sensual motherly look as it carefully caresses $possessive huge pregnant belly.
 <<case "slutty business attire">>
 	$activeSlave.slaveName's huge pregnant stomach hangs out the front of $possessive suit jacket and blouse, as there is no way $pronoun could close them.
 <<case "nice business attire">>
@@ -6711,7 +7100,7 @@ $pronounCap has
 <<case "a comfortable bodysuit">>
 	$activeSlave.slaveName's bodysuit tightly clings to $possessive huge pregnant belly, displaying $possessive popped navel and any movement $possessive babies make.
 <<case "a slutty nurse outfit">>
-	$activeSlave.slaveName's jacket fails to even come close to closing over $possessive huge pregnant belly, leaving $possessive with only the button below $possessive breasts done.
+	$activeSlave.slaveName's jacket fails to even come close to closing over $possessive huge pregnant belly, leaving $object with only the button below $possessive breasts done.
 <<case "a schoolgirl outfit">>
 	$activeSlave.slaveName's blouse rides up $possessive huge pregnant belly, leaving $possessive looking particularly slutty.
 <<case "a kimono">>
@@ -6740,7 +7129,7 @@ $pronounCap has
 <<if ($activeSlave.bellyAccessory == "an extreme corset")>>
 	$activeSlave.slaveName's pregnant belly is tightly compressed by $possessive corset; one or the other will eventually win out.
 <<elseif ($activeSlave.bellyAccessory == "a corset")>>
-	$activeSlave.slaveName's pregnant belly is compressed by $possessive corset; one or the other will eventually win out.
+	$activeSlave.slaveName's pregnant belly comfortably bulges out of $possessive corset.
 <</if>>
 <<switch $activeSlave.clothes>>
 <<case "a Fuckdoll suit">>
@@ -6759,12 +7148,14 @@ $pronounCap has
 	<</if>>
 <<case "chains">>
 	$activeSlave.slaveName's pregnant belly is tightly wrapped with chains, causing it to bulge angrily.
-<<case "western clothing">>
+<<case "Western clothing">>
 	$activeSlave.slaveName's flannel shirt can't close over $possessive pregnant belly, so $pronoun has left the bottom buttons open leaving $possessive belly hanging out.
 <<case "body oil">>
 	$activeSlave.slaveName's belly is covered in a sheen of special oil meant to prevent stretch marks.
 <<case "a toga">>
 	$activeSlave.slaveName's pregnant belly parts $possessive toga.
+<<case "a huipil">>
+	$activeSlave.slaveName's pregnant belly lifts $possessive huipil.
 <<case "a slutty qipao">>
 	$possessiveCap qipao is slit up the side. However, it only covers the top of $possessive pregnant belly.
 <<case "uncomfortable straps">>
@@ -6830,7 +7221,7 @@ $pronounCap has
 <<case "a comfortable bodysuit">>
 	$activeSlave.slaveName's bodysuit tightly clings to $possessive pregnant belly, displaying $possessive popped navel and any movement $possessive babies make.
 <<case "a slutty nurse outfit">>
-	$activeSlave.slaveName's jacket barely closes over $possessive pregnant belly leaving leaving its' buttons threatening to pop.
+	$activeSlave.slaveName's jacket barely closes over $possessive pregnant belly leaving its' buttons threatening to pop.
 <<case "a schoolgirl outfit">>
 	$activeSlave.slaveName's blouse rides up $possessive pregnant belly, leaving $possessive looking particularly slutty.
 <<case "a kimono">>
@@ -6859,13 +7250,13 @@ $pronounCap has
 <<if ($activeSlave.bellyAccessory == "an extreme corset")>>
 	$activeSlave.slaveName's huge gut is tightly compressed by $possessive corset, $possessive fat billows out of any gap it can find.
 <<elseif ($activeSlave.bellyAccessory == "a corset")>>
-	$activeSlave.slaveName's huge gut is compressed by $possessive corset, $possessive fat bulges out above and below it.
+	$activeSlave.slaveName's huge gut hangs out the hole in $possessive corset designed to accommodate a pregnant belly.
 <<elseif ($activeSlave.bellyAccessory == "a small empathy belly")>>
 	$activeSlave.slaveName's small empathy belly is barely noticeable over $possessive huge gut.
 <</if>>
 <<switch $activeSlave.clothes>>
 <<case "a Fuckdoll suit">>
-	$activeSlave.slaveName's pregnant belly is cruelly squeezed by the suit.
+	$activeSlave.slaveName's fat belly is cruelly squeezed by the suit.
 <<case "conservative clothing">>
 	<<if ($activeSlave.boobs > 20000)>>
 	$activeSlave.slaveName's immense breasts keep $possessive oversized sweater from covering $possessive fat belly, though they do a fine job of hiding it themselves.
@@ -6880,12 +7271,14 @@ $pronounCap has
 	<</if>>
 <<case "chains">>
 	$activeSlave.slaveName's chains sink deep into $possessive fat belly, several even disappearing beneath $possessive folds.
-<<case "western clothing">>
+<<case "Western clothing">>
 	$activeSlave.slaveName's flannel shirt strains to stay shut over $possessive fat belly, fat bulges between $possessive buttons and quite a bit of $possessive lower belly hangs out beneath $possessive shirt.
 <<case "body oil">>
 	$activeSlave.slaveName's fat belly is covered in a sheen of oil.
 <<case "a toga">>
 	$activeSlave.slaveName's toga can barely be pulled shut over $possessive fat belly.
+<<case "a huipil">>
+	$activeSlave.slaveName's huipil gets lifted by $possessive fat belly, so it's useless for covering $possessive body.
 <<case "a slutty qipao">>
 	$possessiveCap qipao is slit up the side. However, it only covers the top of $possessive fat belly, allowing it to hang free.
 <<case "uncomfortable straps">>
@@ -6921,11 +7314,11 @@ $pronounCap has
 <<case "a nice maid outfit">>
 	$activeSlave.slaveName's maid dress is almost conservative, it covers $possessive fat belly completely, but does nothing to hide how big it is.
 <<case "a fallen nuns habit">>
-	$activeSlave.slaveName's latex habit's corset is barely holding toget$possessive over $possessive fat belly, causing flab to spill out from every opening.
+	$activeSlave.slaveName's latex habit's corset is barely holding together over $possessive fat belly, causing flab to spill out from every opening.
 <<case "a penitent nuns habit">>
 	$possessiveCap fat belly fills out $possessive habit. The coarse cloth has plenty of extra skin to aggravate.
 <<case "a string bikini">>
-	$activeSlave.slaveName's fat belly parts $possessive string bikini to eit$possessive side.
+	$activeSlave.slaveName's fat belly parts $possessive string bikini to either side.
 <<case "clubslut netting">>
 	$activeSlave.slaveName's clubslut netting is stretched out by $possessive fat belly, forcing flab to poke through the mesh.
 <<case "a cheerleader outfit">>
@@ -6983,7 +7376,7 @@ $pronounCap has
 <<if ($activeSlave.bellyAccessory == "an extreme corset")>>
 	$activeSlave.slaveName's growing belly is tightly compressed by $possessive corset causing $object distress.
 <<elseif ($activeSlave.bellyAccessory == "a corset")>>
-	$activeSlave.slaveName's growing belly is compressed by $possessive corset making $possessive uncomfortable.
+	$activeSlave.slaveName's growing belly comfortably rounds out $possessive corset.
 <</if>>
 <<switch $activeSlave.clothes>>
 <<case "a Fuckdoll suit">>
@@ -7002,12 +7395,14 @@ $pronounCap has
 	<</if>>
 <<case "chains">>
 	$activeSlave.slaveName's growing belly is tightly wrapped with chains.
-<<case "western clothing">>
+<<case "Western clothing">>
 	$activeSlave.slaveName's flannel shirt bulges with $possessive growing belly.
 <<case "body oil">>
 	$activeSlave.slaveName's growing belly is covered in a sheen of oil.
 <<case "a toga">>
 	$activeSlave.slaveName's growing belly gently bulges under $possessive toga.
+<<case "a huipil">>
+	$activeSlave.slaveName's growing belly slightly bulges under $possessive huipil.
 <<case "a slutty qipao">>
 	$possessiveCap qipao is slit up the side. The front is pushed out by $possessive growing belly.
 <<case "uncomfortable straps">>
@@ -7063,7 +7458,7 @@ $pronounCap has
 <<case "a slutty outfit">>
 	$activeSlave.slaveName's growing belly shows how big of a slut $pronoun is.
 <<case "a slave gown">>
-	$activeSlave.slaveName's slave gown is carefully tailored, giving $possessive a sensual look as it carefully caresses $possessive growing belly.
+	$activeSlave.slaveName's slave gown is carefully tailored, giving $object a sensual look as it carefully caresses $possessive growing belly.
 <<case "slutty business attire">>
 	$activeSlave.slaveName's growing belly bulges $possessive suit jacket and blouse. It peeks out from under their bottom slightly.
 <<case "nice business attire">>
@@ -7121,12 +7516,14 @@ $pronounCap has
 	<</if>>
 <<case "chains">>
 	$activeSlave.slaveName's chains sink into $possessive chubby belly, making noticeable folds in $possessive sides.
-<<case "western clothing">>
+<<case "Western clothing">>
 	$activeSlave.slaveName's flannel shirt bulges with $possessive chubby belly.
 <<case "body oil">>
 	$activeSlave.slaveName's chubby belly is covered in a sheen of oil.
 <<case "a toga">>
 	$activeSlave.slaveName's toga conceals $possessive chubby belly.
+<<case "a huipil">>
+	$activeSlave.slaveName's huipil conceals $possessive chubby little belly.
 <<case "a slutty qipao">>
 	$possessiveCap qipao is slit up the side. The front is pushed out by $possessive chubby belly.
 <<case "uncomfortable straps">>
@@ -7230,7 +7627,7 @@ $pronounCap has
 <</if>>
 
 <<if $activeSlave.fuckdoll == 0>>
-<<if $fakeBellies.includes($bellyAccessory)>>
+<<if setup.fakeBellies.includes($bellyAccessory)>>
 	<<switch $activeSlave.bellyAccessory>>
 	<<case "a huge empathy belly">>
 		$pronounCap is wearing a carefully sculpted silicone belly modeled after a full-term pregnant woman carrying twins.

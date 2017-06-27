@@ -2,7 +2,7 @@
 
 /* GENERIC PLOT EVENTS */
 
-<<set $nextButton = "Continue", $nextLink = "Random Nonindividual Event", $returnTo = "RIE Eligibility Check">>
+<<set $nextButton = "Continue", $nextLink = "Random Nonindividual Event", $returnTo = "Random Nonindividual Event">>
 
 <<switch $Event>>
 <<case "bad curatives">>
@@ -19,11 +19,11 @@
 <</if>>
 <<set $cash += 500*$slaves.length>>
 
-Early one morning, you hear convulsive dry heaving coming from one of the bathrooms. On investigation, it seems that $activeSlave.slaveName woke up feeling terribly nauseous. She's in no danger, but you've hardly checked her over before more slaves stagger in. Every one of your slaves on curatives has been struck by the mysterious malady and has @@color:red;sickened.@@
+Early one morning, you hear convulsive dry heaving coming from one of the bathrooms. On investigation, it seems that $activeSlave.slaveName woke up feeling terribly nauseous. She's in no danger, but you've hardly checked her over before more slaves stagger in. Every one of your slaves on curatives has been struck by the mysterious malady and has @@.red;sickened.@@
 <br><br>
 It doesn't take much investigation before you find other slaveowners reporting the same thing. Elementary detective work fingers a particular drug supplier as the culprit, and before long the unfortunate Pharmaceutical concern is drowning under a rain of harsh public comment and harsher private contract warfare. As the day wears on, the poor slaves feel a bit better, but begin to report discomfort in their breasts. Apparently the problem has to do with contamination of the curative production line with A-HGH production reactants.
 <br><br>
-The firm promptly pays @@color:yellowgreen;fair compensation@@ for the minor damage to your slaves' health. However, you're left with the matter of the boobs to deal with. Over the week, all your slaves on curatives experience at least a little @@color:lime;breast growth,@@ and some gain several cup sizes.
+The firm promptly pays @@.yellowgreen;fair compensation@@ for the minor damage to your slaves' health. However, you're left with the matter of the boobs to deal with. Over the week, all your slaves on curatives experience at least a little @@.lime;breast growth,@@ and some gain several cup sizes.
 
 <<case "strip club closing">>
 
@@ -123,13 +123,13 @@ The crowd of nude slaves led up to the lawn and chained to rings along one edge 
 <<case "aid invitation">>
 
 <<set $seed = []>>
-<<if $seeDicks != 2>>
+<<if ($seeDicks <= 75)>>
 	<<set $seed.push("convent")>>
 	<<set $seed.push("school")>>
 	<<set $seed.push("housewives")>>
 	<<set $seed.push("maternity")>>
 <</if>>
-<<if $seeDicks != 0>>
+<<if ($seeDicks >= 25)>>
 	<<set $seed.push("conversion")>>
 <</if>>
 <<set $PAidTarget = $seed.random()>>
@@ -382,7 +382,7 @@ When the aircraft lands at your penthouse pad, the would-be escapees are still u
 
 As a society free of the encumbrance of governmental oversight, the arcologies of the Free Cities are places where societal evolution and corporate expansion can occur rapidly.
 
-Even so, the incredible speed with which the arcology has improved under your tenure as compared to that of your predecessor, after you obtained ownership through <<if $PC.rumor == "wealth">>a leveraged buyout,<<elseif $PC.rumor == "diligence">>hard work and competence,<<elseif $PC.rumor == "force">>some episodes of violence,<<elseif $PC.rumor == "social engineering">>the creative use of psychology,<<elseif $PC.rumor == "luck">>an incredible opportunity,<</if>> is nothing short of astonishing. Other arcologies have taken many years to develop along anything but strictly conservative lines, and you are not the only arcology owner with a background <<if $PC.career == "wealth">>of substantial wealth.<<elseif $PC.career == "capitalist">>in business.<<elseif $PC.career == "mercenary">>in the world of private contracting.<<elseif $PC.career == "slaver">>as a slavebreaker.<<elseif $PC.career == "engineer">>in arcology engineering.<<elseif $PC.career == "medicine">>in medicine and surgery.<<elseif $PC.career == "celebrity">>in the public sphere.<<else>>in the Free Cities.<</if>> It occurs to you that the arcology's growing role as a place where where those with the means to do so can live in the society you have created, enjoying themselves and their lives to the fullest while subjugating others, should be commemorated.
+Even so, the incredible speed with which the arcology has improved under your tenure as compared to that of your predecessor, after you obtained ownership through <<if $PC.rumor == "wealth">>a leveraged buyout,<<elseif $PC.rumor == "diligence">>hard work and competence,<<elseif $PC.rumor == "force">>some episodes of violence,<<elseif $PC.rumor == "social engineering">>the creative use of psychology,<<elseif $PC.rumor == "luck">>an incredible opportunity,<</if>> is nothing short of astonishing. Other arcologies have taken many years to develop along anything but strictly conservative lines, and you are not the only arcology owner with a background <<if $PC.career == "wealth">>of substantial wealth.<<elseif $PC.career == "capitalist">>in business.<<elseif $PC.career == "mercenary">>in the world of private contracting.<<elseif $PC.career == "slaver">>as a slavebreaker.<<elseif $PC.career == "engineer">>in arcology engineering.<<elseif $PC.career == "medicine">>in medicine and surgery.<<elseif $PC.career == "celebrity">>in the public sphere.<<else>>in the Free Cities.<</if>> It occurs to you that the arcology's growing role as a place where those with the means to do so can live in the society you have created, enjoying themselves and their lives to the fullest while subjugating others, should be commemorated.
 <br><br>
 As any slaveowner with half a mind in the Free Cities knows, there is power in words, and in what they represent. Master. Slave. These two words alone, more than any others, define the arcologies that have taken up the mantle of leading the world forward in these dark times. The time has come to add a new term to the lexicon of the Free Cities - a name. No longer will your arcology be known only as $arcologies[0].name, a bland and uninspiring name if ever there was one.
 <br><br>
@@ -437,7 +437,7 @@ A screen opposite your desk springs to life, <<if $assistant == 0>>showing your 
 <</link>>
 <br><<link "Demand further compensation">>
 	<<replace "#result">>
-	You muster all the contractual remedies available to you and join the crowd of slaveowners laying into the hapless manufacturer. Of course, with so many attackers, there is as much infighting between them as conflict with the helpless enemy, since everyone knows the business will go bankrupt before everyone gets paid. Nevertheless you @@color:yellowgreen;approximately double@@ the money you make out of the situation.
+	You muster all the contractual remedies available to you and join the crowd of slaveowners laying into the hapless manufacturer. Of course, with so many attackers, there is as much infighting between them as conflict with the helpless enemy, since everyone knows the business will go bankrupt before everyone gets paid. Nevertheless you @@.yellowgreen;approximately double@@ the money you make out of the situation.
 	<<set $cash += 500*$slaves.length>>
 	<</replace>>
 <</link>>
@@ -458,7 +458,7 @@ A screen opposite your desk springs to life, <<if $assistant == 0>>showing your 
 <</link>>
 <br><<link "Offer them severance pay">>
 	<<replace "#result">>
-	You have a word with them, stepping closer and speaking quietly to defuse the situation. You tell them you're aware that they're in a difficult place, but you also explain that the Free Cities are a new and changing place. No one can rely on the old way of doing things any more. You offer to pay each of them a small stipend to help tide them over until they find other employment. They're surprised at your munificence but @@color:green;accept it with gratitude.@@
+	You have a word with them, stepping closer and speaking quietly to defuse the situation. You tell them you're aware that they're in a difficult place, but you also explain that the Free Cities are a new and changing place. No one can rely on the old way of doing things any more. You offer to pay each of them a small stipend to help tide them over until they find other employment. They're surprised at your munificence but @@.green;accept it with gratitude.@@
 	<<set $nextButton = "Continue">>
 	<<set $rep += 500>>
 	<<set $cash -= 1000>>
@@ -467,7 +467,7 @@ A screen opposite your desk springs to life, <<if $assistant == 0>>showing your 
 <</link>> //This will cost ¤1000//
 <br><<link "Offer to set them up independently">>
 	<<replace "#result">>
-	You offer a way out of their situation. They, you suggest, can keep working in the now-vacant shop if they work together to pay the rent. They can move into a couple of vacant rooms nearby that you can easily have set up as a bunkhouse. You'll collect a little more rent, and they'll have a second chance. They @@color:green;accept it with gratitude.@@ It's quite likely they'll either fail or have to accept being whores rather than strippers, but that's not your concern. @@color:green;Your arcology's prosperity has increased.@@
+	You offer a way out of their situation. They, you suggest, can keep working in the now-vacant shop if they work together to pay the rent. They can move into a couple of vacant rooms nearby that you can easily have set up as a bunkhouse. You'll collect a little more rent, and they'll have a second chance. They @@.green;accept it with gratitude.@@ It's quite likely they'll either fail or have to accept being whores rather than strippers, but that's not your concern. @@.green;Your arcology's prosperity has increased.@@
 	<<set $nextButton = "Continue">>
 	<<set $arcologies[0].prosperity += 1>>
 	<<set $cash -= 500>>
@@ -480,7 +480,6 @@ A screen opposite your desk springs to life, <<if $assistant == 0>>showing your 
 <<if $PStrip != 3>>
 	<<if $cash >= $contractCost>>
 	<<link "Enslave her">>
-		<<AddSlave $activeSlave>>
 		<<set $cash -= $contractCost>>
 		<<replace "#result">>
 		<<if $PStrip == 1>>
@@ -488,8 +487,6 @@ A screen opposite your desk springs to life, <<if $assistant == 0>>showing your 
 		<<else>>
 			She smiles with gratitude as the biometric scanners scrupulously record her every particular as belonging not to a person but to a piece of human property. She's seen what Free Cities life is, and she seems to have come to the conclusion that being a slave in the penthouse is better than being a free whore on the lower levels.
 		<</if>>
-		<<set $nextLink = "AS Dump">>
-		<<set $returnTo = "Main">>
 		<<include "New Slave Intro">>
 		<</replace>>
 	<</link>>
@@ -499,7 +496,7 @@ A screen opposite your desk springs to life, <<if $assistant == 0>>showing your 
 <<else>>
 	<<link "Take an Arcology Tour">>
 		<<replace "#result">>
-		The cubicle she takes you back into is small, but clean and well-kept. She gives you a kiss on the cheek. "That's not part of the Arcology Tour. Sorry. Here's the start of the real tour." <<if $PC.dick == 1>>She sucks you to full mast while shucking off her skimpy clothing<<if $PC.vagina == 1>>, giggling appreciatively at your pussy and lavishing attention on it with her hands<</if>>. Then she turns around and slides you into her pussy with the ease of long practice. After a good long standing fuck, she begs you to "finish the tour" in her ass and then "pay the tour guide" by coming in her mouth.<<else>>She giggles. "Tour's a little different for a lady like you, Ma'am. Here," she says, and starts to make out with you, pressing you back down onto a bench. She lavishes expert oral attention on your pussy in a series of clever positions that offer every part of her body to you in turn for you to grope, squeeze, and penetrate with your fingers.<</if>> Afterward, as she's hurrying back into her clothes, she says, "We've got the money you paid to set those rooms up, @@color:yellowgreen;here it is.@@ And we're doing pretty good, so we could use a little more working space. We'd like the vacant space next door. We'll furnish it, if you'll let us have it?" @@color:green;$arcologies[0].name's prosperity has increased.@@
+		The cubicle she takes you back into is small, but clean and well-kept. She gives you a kiss on the cheek. "That's not part of the Arcology Tour. Sorry. Here's the start of the real tour." <<if $PC.dick == 1>>She sucks you to full mast while shucking off her skimpy clothing<<if $PC.vagina == 1>>, giggling appreciatively at your pussy and lavishing attention on it with her hands<</if>>. Then she turns around and slides you into her pussy with the ease of long practice. After a good long standing fuck, she begs you to "finish the tour" in her ass and then "pay the tour guide" by coming in her mouth.<<else>>She giggles. "Tour's a little different for a lady like you, Ma'am. Here," she says, and starts to make out with you, pressing you back down onto a bench. She lavishes expert oral attention on your pussy in a series of clever positions that offer every part of her body to you in turn for you to grope, squeeze, and penetrate with your fingers.<</if>> Afterward, as she's hurrying back into her clothes, she says, "We've got the money you paid to set those rooms up, @@.yellowgreen;here it is.@@ And we're doing pretty good, so we could use a little more working space. We'd like the vacant space next door. We'll furnish it, if you'll let us have it?" @@.green;$arcologies[0].name's prosperity has increased.@@
 		<<set $arcologies[0].prosperity += 2>>
 		<<set $space -= 1>>
 		<<set $cash += 500>>
@@ -507,7 +504,7 @@ A screen opposite your desk springs to life, <<if $assistant == 0>>showing your 
 	<</link>>
 	<br><<link "Politely decline">>
 		<<replace "#result">>
-		"Aw," she says, "you're no fun. Well anyway, we've got the money you paid to set those rooms up, @@color:yellowgreen;here it is.@@ And we're doing pretty good, so we could use a little more working space. We'd like the vacant space next door. We'll furnish it, if you'll let us have it?" @@color:green;$arcologies[0].name's prosperity has increased.@@
+		"Aw," she says, "you're no fun. Well anyway, we've got the money you paid to set those rooms up, @@.yellowgreen;here it is.@@ And we're doing pretty good, so we could use a little more working space. We'd like the vacant space next door. We'll furnish it, if you'll let us have it?" @@.green;$arcologies[0].name's prosperity has increased.@@
 		<<set $arcologies[0].prosperity += 2>>
 		<<set $space -= 1>>
 		<<set $cash += 500>>
@@ -518,10 +515,10 @@ A screen opposite your desk springs to life, <<if $assistant == 0>>showing your 
 <<case "militia">>
 
 <<set $personalArms = 0>>
-<<if $AProsperityCap > 60>>
+<<if $arcologyUpgrade.drones == 1>>
 <<link "Arm yourself and your drones">>
 	<<replace "#result">>
-	In a time of uncertainty, the public adores people who protect them. So, in addition to publicly procuring yourself the latest weapons and armor, you update the arcology's drone systems. The security drones' riot cannons can be replaced for easy maintenance, so it's rather easy to provide them with alternate, lethal weaponry that they can switch to if it becomes necessary. $arcologies[0].name becomes known as one of the best-protected in the Free Cities. @@color:green;Your reputation has greatly improved.@@
+	In a time of uncertainty, the public adores people who protect them. So, in addition to publicly procuring yourself the latest weapons and armor, you update the arcology's drone systems. The security drones' riot cannons can be replaced for easy maintenance, so it's rather easy to provide them with alternate, lethal weaponry that they can switch to if it becomes necessary. $arcologies[0].name becomes known as one of the best-protected in the Free Cities. @@.green;Your reputation has greatly improved.@@
 	<<set $nextButton = "Continue">>
 	<<set $rep += 1500>>
 	<<set $cash -= 5000>>
@@ -532,7 +529,7 @@ A screen opposite your desk springs to life, <<if $assistant == 0>>showing your 
 <</if>>
 <<link "Arm yourself">>
 	<<replace "#result">>
-	In a time of uncertainty, the public looks up to people who project strength. So, you purchase yourself some of the latest armor and weapons, and make sure they are visible in a glass-walled cabinet in your office. Many of your wealthier tenants follow suit. A few of them even emulate your example and practice using these implements once a week. @@color:green;Your reputation has improved.@@
+	In a time of uncertainty, the public looks up to people who project strength. So, you purchase yourself some of the latest armor and weapons, and make sure they are visible in a glass-walled cabinet in your office. Many of your wealthier tenants follow suit. A few of them even emulate your example and practice using these implements once a week. @@.green;Your reputation has improved.@@
 	<<set $nextButton = "Continue">>
 	<<set $rep += 500>>
 	<<set $cash -= 2000>> //This will cost ¤2000//
@@ -566,7 +563,6 @@ A screen opposite your desk springs to life, <<if $assistant == 0>>showing your 
 <<case "shoot result">>
 
 <<set $PShoot = 0>>
-<<set $nextLink = "AS Dump">>
 <<include "Generate New Slave">>
 <<set $activeSlave.origin = "You won her at a shotgun match against other arcology owners.">>
 <<set $activeSlave.butt = either(1, 2, 2, 3, 3, 4)>>
@@ -595,7 +591,6 @@ A screen opposite your desk springs to life, <<if $assistant == 0>>showing your 
 	<<set $activeSlave.oldDevotion = 25>>
 	<<set $activeSlave.face = 0>>
 	<<set $activeSlave.dick = 0>>
-	<<set $activeSlave.foreskin = 0>>
 	<<set $activeSlave.vagina = 1>>
 	<<set $activeSlave.balls = 0>>
 	<<set $activeSlave.preg = -1>>
@@ -610,7 +605,7 @@ A screen opposite your desk springs to life, <<if $assistant == 0>>showing your 
 	<<set $activeSlave.fetish = "none">>
 	<<set $activeSlave.behavioralFlaw = "arrogant">>
 	<<set $activeSlave.sexualFlaw = "idealistic">>
-	<<AddSlave $activeSlave>>
+	<<AddSlave $activeSlave>> /* skip New Slave Intro */
 	<</replace>>
 <</link>>
 <br><<link "Hit the plush older slave lagging behind">>
@@ -640,7 +635,7 @@ A screen opposite your desk springs to life, <<if $assistant == 0>>showing your 
 	<<set $activeSlave.fetish to "none">>
 	<<set $activeSlave.behavioralFlaw to "bitchy">>
 	<<set $activeSlave.sexualFlaw to "hates anal">>
-	<<AddSlave $activeSlave>>
+	<<AddSlave $activeSlave>> /* skip New Slave Intro */
 	<</replace>>
 <</link>>
 <br><<link "Hit the slave with the tits, pussy and impressive dick">>
@@ -678,7 +673,7 @@ A screen opposite your desk springs to life, <<if $assistant == 0>>showing your 
 	<<set $activeSlave.fetish to "none">>
 	<<set $activeSlave.behavioralFlaw to "none">>
 	<<set $activeSlave.behavioralFlaw to "odd">>
-	<<AddSlave $activeSlave>>
+	<<AddSlave $activeSlave>> /* skip New Slave Intro */
 	<</replace>>
 <</link>>
 
@@ -687,14 +682,14 @@ A screen opposite your desk springs to life, <<if $assistant == 0>>showing your 
 <<set $PAid = 0>>
 <<link "Agree">>
 	<<replace "#result">>
-	You dispatch your personal VTOL bird immediately. It lands on the roof of the building they're sheltering in, and brings them across the closest border and into a more functional country. You receive a call expressing their heartfelt thanks and promising to @@color:green;spread the word@@ about how you helped them escape, and a wire transfer of their @@color:yellowgreen;payment@@ for the airlift.
+	You dispatch your personal VTOL bird immediately. It lands on the roof of the building they're sheltering in, and brings them across the closest border and into a more functional country. You receive a call expressing their heartfelt thanks and promising to @@.green;spread the word@@ about how you helped them escape, and a wire transfer of their @@.yellowgreen;payment@@ for the airlift.
 	<<set $cash += 2000>>
 	<<set $rep += 100>>
 	<</replace>>
 <</link>>
 <br><<link "Do it for free">>
 	<<replace "#result">>
-	You dispatch your personal VTOL bird immediately. It lands on the roof of the building they're sheltering in, and brings them across the closest border and into a more functional country. You receive a call expressing their heartfelt thanks, and when you refuse their payment for the airlift, they tearfully promise to tell the story of how you @@color:green;extended charity@@ to those in need, belying the rumors about slaveowners.
+	You dispatch your personal VTOL bird immediately. It lands on the roof of the building they're sheltering in, and brings them across the closest border and into a more functional country. You receive a call expressing their heartfelt thanks, and when you refuse their payment for the airlift, they tearfully promise to tell the story of how you @@.green;extended charity@@ to those in need, belying the rumors about slaveowners.
 	<<set $rep += 250>>
 	<</replace>>
 <</link>>
@@ -715,13 +710,13 @@ A screen opposite your desk springs to life, <<if $assistant == 0>>showing your 
 		<<slaveCost _newSlaves[$i]>>
 		<<set $cash += $slaveCost>>
 	<</for>>
-	Prisoners @@color:green;sold.@@
+	Prisoners @@.green;sold.@@
 	<</replace>>
 <</link>>
 <br><<link "Enslave them all">>
 	<<replace "#result">>
 	<<for $i = 0; $i < _newSlaves.length; $i++>>
-		<<AddSlave _newSlaves[$i]>>
+		<<AddSlave _newSlaves[$i]>> /* skip New Slave Intro - TODO: use Bulk Slave Intro */
 	<</for>>
 	You simply enslave all of the escapees yourself. These slaves will more than make up for the costs you expended, in the long run.
 	<</replace>>

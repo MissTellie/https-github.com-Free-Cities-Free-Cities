@@ -1,11 +1,11 @@
-:: The Futanari Sisters
+:: The Futanari Sisters [nobr]
 
-<<set $nextButton = "Back">>\
-<<set $nextLink = "Buy Slaves">>\
-<<set $returnTo = "Buy Slaves">>\
-<<set $showEncyclopedia = 1>><<set $encyclopedia = "Slave Schools">>\
-\
-<<nobr>>
+<<set $nextButton = "Back", $nextLink = "Buy Slaves", $returnTo = "Buy Slaves", $showEncyclopedia = 1, $encyclopedia = "Slave Schools">>
+/* Multi-Purchase Support */
+<<if ndef $newSlaves>><<set $newSlaves = []>><</if>>
+<<if $newSlaves.length > 0>>
+	<<set $nextButton = "Continue", $nextLink = "Bulk Slave Intro", $slaveMarket = "TFS", $returnTo = "Main", $newSlaveIndex = 0>>
+<</if>>
 
 <<if $TFS.schoolPresent == 1>>
 
@@ -24,7 +24,7 @@ This is a large, circular room with a shallow depression in the floor, filled wi
 <br><br>
 Visitors are not common: in fact, visitors are only as frequent as you feel like visiting. It takes a while before they notice you. When a dreamy-eyed young futa finally does, she reaches a lazy hand over to alert the eldest one present by tugging on one of her nipples and pointing in your direction. The elder looks over at you and gives you a friendly wave followed by a wait-one-moment gesture. She's curled up on her back with her cockhead in her own mouth, using both hands to give her own shaft a boob job while a younger futa is eats her ass and fingers her pussy. The futa matron orgasms promptly, sucking down her own cum. She gets up languidly, her plush body, softening forearm-sized dick, and enormous natural boobs making it a wonderful sight.
 <br><br>
-<<if $PC.title == 1>>"Protector,<<else>>"Protectrix,<</if>> thank you so much for coming to see us. Our own Selection of a Sister to serve in slavery is not to take place for some time, but our communications interface in that side room," she points, "will permit you to access a regional listing of Selected Sisters<<if $TFS.farmUpgrade!= 0>>, all of which are fully fertile and produce their own natural female hormones, thanks to you<</if>>." She looks uncharacteristically uncertain. "Will you permit me to <<if $PC.dick == 1>><<if $PC.vagina == 1>>worship your perfect genitalia<<else>>serve your cock<</if>><<else>>adore your pussy<</if>> while you use it? I think my Sisters will forgive me the infidelity." <<if ($PC.dick == 1) && ($PC.vagina == 1) && ($PC.boobs == 1)>>She looks at you speculatively. "Or you could join us for a while."<</if>>
+<<if $PC.title == 1>>"Protector,<<else>>"Protectrix,<</if>> thank you so much for coming to see us. Our own Selection of a Sister to serve in slavery is not to take place for some time, but our communications interface in that side room," she points, "will permit you to access a regional listing of Selected Sisters<<if $TFS.farmUpgrade > 0>>, all of which are fully fertile and produce their own natural female hormones, thanks to you<</if>>." She looks uncharacteristically uncertain. "Will you permit me to <<if $PC.dick == 1>><<if $PC.vagina == 1>>worship your perfect genitalia<<else>>serve your cock<</if>><<else>>adore your pussy<</if>> while you use it? I think my Sisters will forgive me the infidelity." <<if ($PC.dick == 1) && ($PC.vagina == 1) && ($PC.boobs == 1)>>She looks at you speculatively. "Or you could join us for a while."<</if>>
 <br><br>
 <span id="result">
 <<link "Let her give you oral while you browse">>
@@ -79,158 +79,9 @@ The Sisters offer a member selected for sale into slavery for inspection via vid
 
 <</if>>
 
-<</nobr>>
+<br><br>
 
-<<nobr>>
-<<include "Generate XY Slave">>
-<<set $activeSlave.origin = "You bought her from the enigmatic Futanari Sisters after they sold her into slavery.">>
-<<set $activeSlave.career = "a Futanari Sister">>
-<<set $activeSlave.faceShape = either("sensual", "exotic")>>
-<<set $seed = random(1,4)>>
-<<if $seed == 1>>
-	<<set $activeSlave.intelligence to -1>>
-	<<set $activeSlave.chem to 150>>
-	<<set $activeSlave.butt to either(5,6)>>
-	<<set $activeSlave.hips to 1>>
-	<<set $activeSlave.face to either(35,35,35,75,100)>>
-	<<set $activeSlave.boobs = 100*random(12,20)>>
-	<<set $activeSlave.dick = random(2,3)>>
-	<<if $activeSlave.foreskin > 0>><<set $activeSlave.foreskin = $activeSlave.dick>><</if>>
-	<<if $TFS.schoolUpgrade == 1>>
-		<<set $activeSlave.balls = 1>>
-		<<set $activeSlave.scrotum = 0>>
-	<<elseif $TFS.schoolUpgrade == 2>>
-		<<set $activeSlave.balls = 6>>
-		<<set $activeSlave.scrotum = $activeSlave.balls>>
-	<<else>>
-		<<set $activeSlave.balls = random(2,3)>>
-		<<set $activeSlave.scrotum = $activeSlave.balls>>
-	<</if>>
-	<<set $activeSlave.lips to 0>>
-	<<set $activeSlave.weight to 0>>
-	<<set $activeSlave.age to random(25,29)>>
-	<<set $activeSlave.vagina to 2>>
-	<<set $activeSlave.anus to 2>>
-	<<set $activeSlave.fetish to "submissive">>
-<<elseif $seed is 2>>
-	<<set $activeSlave.intelligence to 0>>
-	<<set $activeSlave.chem to 200>>
-	<<set $activeSlave.butt to either(6,7)>>
-	<<set $activeSlave.hips to 2>>
-	<<set $activeSlave.face to either(35,35,75,75,100)>>
-	<<set $activeSlave.boobs = 100*random(20,32)>>
-	<<set $activeSlave.dick = random(3,4)>>
-	<<if $activeSlave.foreskin > 0>><<set $activeSlave.foreskin = $activeSlave.dick>><</if>>
-	<<if $TFS.schoolUpgrade == 1>>
-		<<set $activeSlave.balls = 1>>
-		<<set $activeSlave.scrotum = 0>>
-	<<elseif $TFS.schoolUpgrade == 2>>
-		<<set $activeSlave.balls = 6>>
-		<<set $activeSlave.scrotum = $activeSlave.balls>>
-	<<else>>
-		<<set $activeSlave.balls = random(3,4)>>
-		<<set $activeSlave.scrotum = $activeSlave.balls>>
-	<</if>>
-	<<set $activeSlave.lips to random(15,25)>>
-	<<set $activeSlave.weight to 20>>
-	<<set $activeSlave.age to random(30,34)>>
-	<<set $activeSlave.vagina to 2>>
-	<<set $activeSlave.anus to 2>>
-	<<set $activeSlave.fetish to either("buttslut", "cumslut")>>
-<<elseif $seed is 3>>
-	<<set $activeSlave.intelligence to 1>>
-	<<set $activeSlave.chem to 250>>
-	<<set $activeSlave.butt to either(7,8)>>
-	<<set $activeSlave.hips to 2>>
-	<<set $activeSlave.face to either(35,75,75,100,100)>>
-	<<set $activeSlave.boobs = 100*random(32,42)>>
-	<<set $activeSlave.dick = random(4,5)>>
-	<<if $activeSlave.foreskin > 0>><<set $activeSlave.foreskin = $activeSlave.dick>><</if>>
-	<<if $TFS.schoolUpgrade == 1>>
-		<<set $activeSlave.balls = 1>>
-		<<set $activeSlave.scrotum = 0>>
-	<<elseif $TFS.schoolUpgrade == 2>>
-		<<set $activeSlave.balls = 6>>
-		<<set $activeSlave.scrotum = $activeSlave.balls>>
-	<<else>>
-		<<set $activeSlave.balls = random(4,5)>>
-		<<set $activeSlave.scrotum = $activeSlave.balls>>
-	<</if>>
-	<<set $activeSlave.lips = random(25,55)>>
-	<<set $activeSlave.weight = 20>>
-	<<set $activeSlave.age = random(35,39)>>
-	<<set $activeSlave.vagina = 3>>
-	<<set $activeSlave.anus = 3>>
-	<<set $activeSlave.fetish = either("buttslut", "cumslut")>>
-<<else>>
-	<<set $activeSlave.intelligence to 2>>
-	<<set $activeSlave.chem to 300>>
-	<<set $activeSlave.butt to either(8,9)>>
-	<<set $activeSlave.hips to 2>>
-	<<set $activeSlave.face to either(35,75,100,100,100)>>
-	<<set $activeSlave.boobs = 100*random(44,60)>>
-	<<set $activeSlave.dick = random(5,6)>>
-	<<if $activeSlave.foreskin > 0>><<set $activeSlave.foreskin = $activeSlave.dick>><</if>>
-	<<if $TFS.schoolUpgrade == 1>>
-		<<set $activeSlave.balls = 1>>
-		<<set $activeSlave.scrotum = 0>>
-	<<elseif $TFS.schoolUpgrade == 2>>
-		<<set $activeSlave.balls = 6>>
-		<<set $activeSlave.scrotum = $activeSlave.balls>>
-	<<else>>
-		<<set $activeSlave.balls = random(5,6)>>
-		<<set $activeSlave.scrotum = $activeSlave.balls>>
-	<</if>>
-	<<set $activeSlave.lips = random(25,55)>>
-	<<set $activeSlave.weight = 50>>
-	<<set $activeSlave.age = random(40,42)>>
-	<<set $activeSlave.vagina = 3>>
-	<<set $activeSlave.anus = 3>>
-	<<set $activeSlave.fetish = "dom">>
-<</if>>
-<<set $activeSlave.preg = -2>>
-<<if $TFS.farmUpgrade != 0>>
-	<<set $activeSlave.ovaries = 1>>
-	<<set $activeSlave.preg = -1>>
-	<<if $TFS.farmUpgrade == 2>>
-		<<if $week - $TFS.farmUpgradeAsked < 35>>
-			<<set $activeSlave.preg = random(1,($week - $TFS.farmUpgradeAsked))>>
-		<<else>>
-			<<set $activeSlave.preg = random(1,35)>>
-		<</if>>
-	<</if>>
-<</if>>
-<<set $activeSlave.intelligenceImplant = 1>>
-<<set $activeSlave.teeth = "normal">>
-<<if $TFS.schoolUpgrade == 2>>
-	<<set $activeSlave.energy = 100>>
-<<else>>
-	<<set $activeSlave.energy = $activeSlave.age+random(20,30)>>
-<</if>>
-<<set $activeSlave.devotion = random(30,40)>>
-<<set $activeSlave.trust = random(60,75)>>
-<<set $activeSlave.health = random(60,80)>>
-<<set $activeSlave.muscles = 20>>
-<<set $activeSlave.waist = -15>>
-<<set $activeSlave.shoulders to 1>>
-<<set $activeSlave.vaginalSkill = 100>>
-<<set $activeSlave.oralSkill = 100>>
-<<set $activeSlave.analSkill = 100>>
-<<set $activeSlave.whoreSkill = 15>>
-<<set $activeSlave.entertainSkill = 100>>
-<<set $activeSlave.combatSkill = 0>>
-<<set $activeSlave.pubicHStyle = "waxed">>
-<<if $TFS.schoolUpgrade == 1>>
-	<<set $activeSlave.sexualQuirk = "caring">>
-<</if>>
-<<set $activeSlave.sexualFlaw = either("none", "hates women")>>
-<<set $activeSlave.behavioralFlaw = either("none", "arrogant")>>
-<<set $activeSlave.fetishStrength = 100>>
-<<set $activeSlave.fetishKnown = 0>>
-<<set $activeSlave.attrKnown = 0>>
-<<set $activeSlave.hStyle = "neat">>
-<<set $activeSlave.hLength = 150>>
-<<set $activeSlave.customTat = "She has a simple pink heart tattooed on her right temple.">>
+<<GenerateMarketSlave "TFS">>
 <<slaveCost $activeSlave>>
 <<set $slaveCost = Math.trunc($slaveCost*0.8)>>
 <<if $TFS.schoolSale != 0>>
@@ -239,17 +90,25 @@ The Sisters offer a member selected for sale into slavery for inspection via vid
 	<<set $slaveCost = Math.trunc($slaveCost*0.8)>>
 <</if>>
 <<if $slavesSeen > $slaveMarketLimit>><<set $slaveCost += Math.trunc($slaveCost*(($slavesSeen-$slaveMarketLimit)*0.1))>><</if>>
-<</nobr>>\
-\
+
 The price is ¤<<print $slaveCost>>.<<if $slavesSeen > $slaveMarketLimit>> You have cast such a wide net for slaves this week that it is becoming more expensive to find more for sale. Your reputation helps determine your reach within the slave market.<</if>>
-\
-<<nobr>>
+
 <<if $cash >= $slaveCost>>
-	[[Buy her slave contract|New Slave Intro][$cash -= $slaveCost,$TFS.schoolSale = 0,$TFS.studentsBought += 1,$nextButton = "Continue",$nextLink = "AS Dump",$returnTo = "Main"]]
+	<br>[[Buy her and check out other slaves to order|The Futanari Sisters][$cash -= $slaveCost, $TFS.schoolSale = 0, $TFS.studentsBought += 1, $newSlaves.push($activeSlave), $introType = "multi", $slavesSeen+=1]]
+	<<if $newSlaves.length == 0>>
+		<br>[[Buy her slave contract|New Slave Intro][$cash -= $slaveCost, $TFS.schoolSale = 0, $TFS.studentsBought += 1, $nextButton = "Continue", $nextLink = "AS Dump", $returnTo = "Main"]]
+	<<else>>
+		<br>[[Buy her and Finish your order of slaves|Bulk Slave Intro][$cash -= $slaveCost, $TFS.schoolSale = 0, $TFS.studentsBought += 1, $newSlaves.push($activeSlave)]]
+	<</if>>
 <<else>>
 	//You lack the necessary funds to buy this slave.//
 <</if>>
-<</nobr>>
-[[Request to see a different graduate of the same school|The Futanari Sisters][$slavesSeen += 1]]
+<br>[[Decline to purchase her and check out another slave|The Futanari Sisters][$slavesSeen += 1]]
+<<if $newSlaves.length > 0>>
+	<br>[[Finish your order of slaves|Bulk Slave Intro]]
+<</if>>
 
-<<set $saleDescription = 1>><<include "Long Slave Description">><<set $saleDescription = 0>>
+<br><br>
+
+<<set $saleDescription = 1>><<include "Long Slave Description">>
+
