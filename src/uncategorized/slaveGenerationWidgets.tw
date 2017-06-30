@@ -390,12 +390,12 @@
 <<elseif $arcologies[0].FSEgyptianRevivalist > 20>>
 	<<set $activeSlave.slaveName = setup.ancientEgyptianSlaveNames.random(), $activeSlave.slaveSurname = 0>>
 <<elseif $arcologies[0].FSEdoRevivalist > 20>>
-	<<set $activeSlave.slaveName = setup.edoSlaveNames.random(, $activeSlave.slaveSurname = setup.romanSlaveSurnames.random())>>
+	<<set $activeSlave.slaveName = setup.edoSlaveNames.random(), $activeSlave.slaveSurname = setup.edoSlaveSurnames.random()>>
 <<elseif $arcologies[0].FSDegradationist != "unset">>
 	<<include "Degrading Name">>
+<</if>>
 <<else>>
 	<<set $activeSlave.slaveName = $activeSlave.birthName, $activeSlave.slaveSurname = $activeSlave.birthSurname>>
-<</if>>
 <</if>>
 
 <</widget>>
