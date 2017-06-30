@@ -187,12 +187,6 @@
 <</if>>
 <</if>>
 
-<<if ($eventSlave.devotion >= 20)>>
-<<if ($eventSlave.collar == "ball gag" || $eventSlave.collar == "bit gag" || $eventSlave.collar == "dildo gag")>>
-	<<set $RESSTRevent.push("gagged slave")>>
-<</if>>
-<</if>>
-
 <<if ($HeadGirl != 0)>>
   <<if ($eventSlave.devotion <= 50)>>
   <<if ($eventSlave.anus != 0)>>
@@ -846,6 +840,12 @@
 <</if>>
 
 <</if>> /* closes mute exempt */
+
+<<if ($eventSlave.devotion >= 20)>>
+<<if ($eventSlave.collar == "ball gag" || $eventSlave.collar == "bit gag" || $eventSlave.collar == "dildo gag")>>
+	<<set $RESSTRevent.push("gagged slave")>>
+<</if>>
+<</if>>
 
 <<if $eventSlave.devotion > 20>>
 <<if $eventSlave.butt > 5>>
