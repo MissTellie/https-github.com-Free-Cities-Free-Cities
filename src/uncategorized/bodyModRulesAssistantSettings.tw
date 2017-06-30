@@ -832,128 +832,6 @@ Custom brand design: <<textbox "$brandDesign" $brandDesign "Body Mod Rules Assis
 
 __Rule $r tattoos__
 <br>
-Chest tattoos: ''
-<span id = "chesttattoo">
-<<if $currentRule.boobsTat == 0>>none<<else>>$currentRule.boobsTat<</if>>.
-</span>
-'' <br>&nbsp;&nbsp;&nbsp;&nbsp;
-
-<<link "No default setting">>
-<<set $currentRule.boobsTat = "no default setting">>
-<<RAChangeChestTattoos>>
-<</link>>
-|
-<<link "None">>
-<<set $currentRule.boobsTat = 0>>
-<<RAChangeChestTattoos>>
-<</link>>
-|
-<<link "Tribal patterns">>
-<<set $currentRule.boobsTat = "tribal patterns">>
-<<RAChangeChestTattoos>>
-<</link>>
-|
-<<link "Flowers">>
-<<set $currentRule.boobsTat = "flowers">>
-<<RAChangeChestTattoos>>
-<</link>>
-|
-<<link "Scenes">>
-<<set $currentRule.boobsTat = "scenes">>
-<<RAChangeChestTattoos>>
-<</link>>
-|
-<<link "Asian art">>
-<<set $currentRule.boobsTat = "Asian art">>
-<<RAChangeChestTattoos>>
-<</link>>
-|
-<<link "Degradation">>
-<<set $currentRule.boobsTat = "degradation">>
-<<RAChangeChestTattoos>>
-<</link>>
-|
-<<link "Counting">>
-<<set $currentRule.boobsTat = "counting">>
-<<RAChangeChestTattoos>>
-<</link>>
-|
-<<link "Advertisements">>
-<<set $currentRule.boobsTat = "advertisements">>
-<<RAChangeChestTattoos>>
-<</link>>
-|
-<<link "Rude words">>
-<<set $currentRule.boobsTat = "rude words">>
-<<RAChangeChestTattoos>>
-<</link>>
-|
-<<link "Bovine patterns">>
-<<set $currentRule.boobsTat = "bovine patterns">>
-<<RAChangeChestTattoos>>
-<</link>>
-<br>
-
-Buttock tattoos: ''
-<span id = "butttattoo">
-<<if $currentRule.buttTat == 0>>none<<else>>$currentRule.buttTat<</if>>.
-</span>
-'' <br>&nbsp;&nbsp;&nbsp;&nbsp;
-<<link "No default setting">>
-<<set $currentRule.buttTat = "no default setting">>
-<<RAChangeButtTattoos>>
-<</link>>
-|
-<<link "None">>
-<<set $currentRule.buttTat = 0>>
-<<RAChangeButtTattoos>>
-<</link>>
-|
-<<link "Tribal patterns">>
-<<set $currentRule.buttTat = "tribal patterns">>
-<<RAChangeButtTattoos>>
-<</link>>
-|
-<<link "Flowers">>
-<<set $currentRule.buttTat = "flowers">>
-<<RAChangeButtTattoos>>
-<</link>>
-|
-<<link "Scenes">>
-<<set $currentRule.buttTat = "scenes">>
-<<RAChangeButtTattoos>>
-<</link>>
-|
-<<link "Asian art">>
-<<set $currentRule.buttTat = "Asian art">>
-<<RAChangeButtTattoos>>
-<</link>>
-|
-<<link "Degradation">>
-<<set $currentRule.buttTat = "degradation">>
-<<RAChangeButtTattoos>>
-<</link>>
-|
-<<link "Counting">>
-<<set $currentRule.buttTat = "counting">>
-<<RAChangeButtTattoos>>
-<</link>>
-|
-<<link "Advertisements">>
-<<set $currentRule.buttTat = "advertisements">>
-<<RAChangeButtTattoos>>
-<</link>>
-|
-<<link "Rude words">>
-<<set $currentRule.buttTat = "rude words">>
-<<RAChangeButtTattoos>>
-<</link>>
-|
-<<link "Bovine patterns">>
-<<set $currentRule.buttTat = "bovine patterns">>
-<<RAChangeButtTattoos>>
-<</link>>
-<br>
 
 Facial tattoos: ''
 <span id = "facetattoo">
@@ -1072,6 +950,68 @@ Shoulder tattoos: ''
 <</link>>
 <br>
 
+Chest tattoos: ''
+<span id = "chesttattoo">
+<<if $currentRule.boobsTat == 0>>none<<else>>$currentRule.boobsTat<</if>>.
+</span>
+'' <br>&nbsp;&nbsp;&nbsp;&nbsp;
+
+<<link "No default setting">>
+<<set $currentRule.boobsTat = "no default setting">>
+<<RAChangeChestTattoos>>
+<</link>>
+|
+<<link "None">>
+<<set $currentRule.boobsTat = 0>>
+<<RAChangeChestTattoos>>
+<</link>>
+|
+<<link "Tribal patterns">>
+<<set $currentRule.boobsTat = "tribal patterns">>
+<<RAChangeChestTattoos>>
+<</link>>
+|
+<<link "Flowers">>
+<<set $currentRule.boobsTat = "flowers">>
+<<RAChangeChestTattoos>>
+<</link>>
+|
+<<link "Scenes">>
+<<set $currentRule.boobsTat = "scenes">>
+<<RAChangeChestTattoos>>
+<</link>>
+|
+<<link "Asian art">>
+<<set $currentRule.boobsTat = "Asian art">>
+<<RAChangeChestTattoos>>
+<</link>>
+|
+<<link "Degradation">>
+<<set $currentRule.boobsTat = "degradation">>
+<<RAChangeChestTattoos>>
+<</link>>
+|
+<<link "Counting">>
+<<set $currentRule.boobsTat = "counting">>
+<<RAChangeChestTattoos>>
+<</link>>
+|
+<<link "Advertisements">>
+<<set $currentRule.boobsTat = "advertisements">>
+<<RAChangeChestTattoos>>
+<</link>>
+|
+<<link "Rude words">>
+<<set $currentRule.boobsTat = "rude words">>
+<<RAChangeChestTattoos>>
+<</link>>
+|
+<<link "Bovine patterns">>
+<<set $currentRule.boobsTat = "bovine patterns">>
+<<RAChangeChestTattoos>>
+<</link>>
+<br>
+
 Arm tattoos: ''
 <span id = "armtattoo">
 <<if $currentRule.armsTat == 0>>none<<else>>$currentRule.armsTat<</if>>.
@@ -1130,67 +1070,6 @@ Arm tattoos: ''
 <<link "Bovine patterns">>
 <<set $currentRule.armsTat = "bovine patterns">>
 <<RAChangeArmTattoos>>
-<</link>>
-<br>
-
-Leg tattoos: ''
-<span id = "legtattoo">
-<<if $currentRule.legsTat == 0>>none<<else>>$currentRule.legsTat<</if>>.
-</span>
-'' <br>&nbsp;&nbsp;&nbsp;&nbsp;
-<<link "No default setting">>
-<<set $currentRule.legsTat = "no default setting">>
-<<RAChangeLegTattoos>>
-<</link>>
-|
-<<link "None">>
-<<set $currentRule.legsTat = 0>>
-<<RAChangeLegTattoos>>
-<</link>>
-|
-<<link "Tribal patterns">>
-<<set $currentRule.legsTat = "tribal patterns">>
-<<RAChangeLegTattoos>>
-<</link>>
-|
-<<link "Flowers">>
-<<set $currentRule.legsTat = "flowers">>
-<<RAChangeLegTattoos>>
-<</link>>
-|
-<<link "Scenes">>
-<<set $currentRule.legsTat = "scenes">>
-<<RAChangeLegTattoos>>
-<</link>>
-|
-<<link "Asian art">>
-<<set $currentRule.legsTat = "Asian art">>
-<<RAChangeLegTattoos>>
-<</link>>
-|
-<<link "Degradation">>
-<<set $currentRule.legsTat = "degradation">>
-<<RAChangeLegTattoos>>
-<</link>>
-|
-<<link "Counting">>
-<<set $currentRule.legsTat = "counting">>
-<<RAChangeLegTattoos>>
-<</link>>
-|
-<<link "Advertisements">>
-<<set $currentRule.legsTat = "advertisements">>
-<<RAChangeLegTattoos>>
-<</link>>
-|
-<<link "Rude words">>
-<<set $currentRule.legsTat = "rude words">>
-<<RAChangeLegTattoos>>
-<</link>>
-|
-<<link "Bovine patterns">>
-<<set $currentRule.legsTat = "bovine patterns">>
-<<RAChangeLegTattoos>>
 <</link>>
 <br>
 
@@ -1437,6 +1316,68 @@ Dick tattoo: ''
 
 <br>
 
+
+Buttock tattoos: ''
+<span id = "butttattoo">
+<<if $currentRule.buttTat == 0>>none<<else>>$currentRule.buttTat<</if>>.
+</span>
+'' <br>&nbsp;&nbsp;&nbsp;&nbsp;
+<<link "No default setting">>
+<<set $currentRule.buttTat = "no default setting">>
+<<RAChangeButtTattoos>>
+<</link>>
+|
+<<link "None">>
+<<set $currentRule.buttTat = 0>>
+<<RAChangeButtTattoos>>
+<</link>>
+|
+<<link "Tribal patterns">>
+<<set $currentRule.buttTat = "tribal patterns">>
+<<RAChangeButtTattoos>>
+<</link>>
+|
+<<link "Flowers">>
+<<set $currentRule.buttTat = "flowers">>
+<<RAChangeButtTattoos>>
+<</link>>
+|
+<<link "Scenes">>
+<<set $currentRule.buttTat = "scenes">>
+<<RAChangeButtTattoos>>
+<</link>>
+|
+<<link "Asian art">>
+<<set $currentRule.buttTat = "Asian art">>
+<<RAChangeButtTattoos>>
+<</link>>
+|
+<<link "Degradation">>
+<<set $currentRule.buttTat = "degradation">>
+<<RAChangeButtTattoos>>
+<</link>>
+|
+<<link "Counting">>
+<<set $currentRule.buttTat = "counting">>
+<<RAChangeButtTattoos>>
+<</link>>
+|
+<<link "Advertisements">>
+<<set $currentRule.buttTat = "advertisements">>
+<<RAChangeButtTattoos>>
+<</link>>
+|
+<<link "Rude words">>
+<<set $currentRule.buttTat = "rude words">>
+<<RAChangeButtTattoos>>
+<</link>>
+|
+<<link "Bovine patterns">>
+<<set $currentRule.buttTat = "bovine patterns">>
+<<RAChangeButtTattoos>>
+<</link>>
+<br>
+
 Anal tattoo or bleaching: ''
 <span id = "anustattoo">
 <<if $currentRule.anusTat == 0>>none<<else>>$currentRule.anusTat<</if>>.
@@ -1490,4 +1431,66 @@ Anal tattoo or bleaching: ''
 <<link "Bovine patterns">>
 <<set $currentRule.anusTat = "bovine patterns">>
 <<RAChangeAnusTattoos>>
+<</link>>
+
+<br>
+
+Leg tattoos: ''
+<span id = "legtattoo">
+<<if $currentRule.legsTat == 0>>none<<else>>$currentRule.legsTat<</if>>.
+</span>
+'' <br>&nbsp;&nbsp;&nbsp;&nbsp;
+<<link "No default setting">>
+<<set $currentRule.legsTat = "no default setting">>
+<<RAChangeLegTattoos>>
+<</link>>
+|
+<<link "None">>
+<<set $currentRule.legsTat = 0>>
+<<RAChangeLegTattoos>>
+<</link>>
+|
+<<link "Tribal patterns">>
+<<set $currentRule.legsTat = "tribal patterns">>
+<<RAChangeLegTattoos>>
+<</link>>
+|
+<<link "Flowers">>
+<<set $currentRule.legsTat = "flowers">>
+<<RAChangeLegTattoos>>
+<</link>>
+|
+<<link "Scenes">>
+<<set $currentRule.legsTat = "scenes">>
+<<RAChangeLegTattoos>>
+<</link>>
+|
+<<link "Asian art">>
+<<set $currentRule.legsTat = "Asian art">>
+<<RAChangeLegTattoos>>
+<</link>>
+|
+<<link "Degradation">>
+<<set $currentRule.legsTat = "degradation">>
+<<RAChangeLegTattoos>>
+<</link>>
+|
+<<link "Counting">>
+<<set $currentRule.legsTat = "counting">>
+<<RAChangeLegTattoos>>
+<</link>>
+|
+<<link "Advertisements">>
+<<set $currentRule.legsTat = "advertisements">>
+<<RAChangeLegTattoos>>
+<</link>>
+|
+<<link "Rude words">>
+<<set $currentRule.legsTat = "rude words">>
+<<RAChangeLegTattoos>>
+<</link>>
+|
+<<link "Bovine patterns">>
+<<set $currentRule.legsTat = "bovine patterns">>
+<<RAChangeLegTattoos>>
 <</link>>
