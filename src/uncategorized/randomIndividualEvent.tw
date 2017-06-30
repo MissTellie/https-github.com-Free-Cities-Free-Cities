@@ -207,7 +207,6 @@
 	<<set $RESSevent.push("trusting HG")>>
   <</if>>
   <</if>>
-  <<if ($HeadGirl != 0)>>
   <<if ($eventSlave.ID != $HeadGirl.ID)>>
   <<if ($eventSlave.speechRules != "restrictive")>>
   <<if ($eventSlave.trust > 75)>>
@@ -216,7 +215,6 @@
   <<if ($eventSlave.intelligence >= $HeadGirl.intelligence)>>
   <<if ($eventSlave.oralSkill > $HeadGirl.oralSkill)>>
 	<<set $events.push("RE HG replacement")>>
-  <</if>>
   <</if>>
   <</if>>
   <</if>>
