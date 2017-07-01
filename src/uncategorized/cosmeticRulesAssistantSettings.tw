@@ -46,7 +46,7 @@ Eyewear: ''$currentRule.eyewear.''
 __Rule $r Cosmetic options:__
 <br>
 <span id = "eyecolor">
-Eye coloring: ''$currentRule.eyeColor.''
+Cosmetic contact lenses: ''$currentRule.eyeColor.''
 </span>
 
 <<link "No default setting">>
@@ -127,7 +127,7 @@ Eye coloring: ''$currentRule.eyeColor.''
 <<set $currentRule.eyeColor = "heart-shaped">>
 <<RAChangeEyecolor>>
 <</link>>
-<br>
+<br><br>
 
 Makeup:
 <span id = "makeup">
@@ -175,7 +175,7 @@ Makeup:
 <<RAChangeMakeup>>
 <</link>>
 
-<br>
+<br><br>
 Nails:
 <span id = "nails">
 ''
@@ -226,7 +226,7 @@ Nails:
 <<set $currentRule.nails = 5>>
 <</link>>
 
-<br>
+<br><br>
 
 <<if $currentRule.hStyle != "shaved">>
 
@@ -440,7 +440,8 @@ Hair style: ''$currentRule.hStyle.''
 <<RAChangeHStyle>>
 <</link>>
 
-<br>
+<br><br>
+
 <span id = "phcolor">
 Pubic hair color, when present: ''$currentRule.pubicHColor.''
 </span>
@@ -472,22 +473,6 @@ Pubic hair color, when present: ''$currentRule.pubicHColor.''
 <</link>>
 | <<link "Ginger">>
 <<set $currentRule.pubicHColor = "ginger">>
-<<RAChangePHColor>>
-<</link>>
-| <<link "Red">>
-<<set $currentRule.pubicHColor = "red">>
-<<RAChangePHColor>>
-<</link>>
-| <<link "Green">>
-<<set $currentRule.pubicHColor = "green">>
-<<RAChangePHColor>>
-<</link>>
-| <<link "Blue">>
-<<set $currentRule.pubicHColor = "blue">>
-<<RAChangePHColor>>
-<</link>>
-| <<link "Pink">>
-<<set $currentRule.pubicHColor = "pink">>
 <<RAChangePHColor>>
 <</link>>
 | <<link "Dark Brown">>
@@ -532,6 +517,22 @@ Pubic hair color, when present: ''$currentRule.pubicHColor.''
 <</link>>
 | <<link "White">>
 <<set $currentRule.pubicHColor = "white">>
+<<RAChangePHColor>>
+<</link>>
+| <<link "Blazing red">>
+<<set $currentRule.pubicHColor = "red">>
+<<RAChangePHColor>>
+<</link>>
+| <<link "Neon green">>
+<<set $currentRule.pubicHColor = "green">>
+<<RAChangePHColor>>
+<</link>>
+| <<link "Neon blue">>
+<<set $currentRule.pubicHColor = "blue">>
+<<RAChangePHColor>>
+<</link>>
+| <<link "Neon pink">>
+<<set $currentRule.pubicHColor = "pink">>
 <<RAChangePHColor>>
 <</link>>
 <br>
