@@ -248,16 +248,15 @@ $possessiveCap skin is $activeSlave.skin.
 <<if $activeSlave.origHColor != "bald">>
 	
 	$possessiveCap hair is $activeSlave.hColor.
+	<<if $activeSlave.origHColor != $activeSlave.hColor>>
+		[[Restore natural color|Salon][$activeSlave.hColor = $activeSlave.origHColor]]
+	<</if>>	
 	<br>
-	[[Dye|Salon][$activeSlave.hColor = ($primaryHairColor + $secondaryHairColor),$cash -= $modCost]] her hair $primaryHairColor $secondaryHairColor now?
+	[[Dye her hair|Salon][$activeSlave.hColor = ($primaryHairColor + $secondaryHairColor),$cash -= $modCost]] $primaryHairColor $secondaryHairColor now?
 
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
 
-	Choose $possessive hair color:
-				
-		<<if $activeSlave.origHColor != $activeSlave.hColor>>
-			[[Natural color|Salon][$activeSlave.hColor = $activeSlave.origHColor]] | 
-		<</if>>
+	Choose dye color:
 		[[Blonde|Salon][$primaryHairColor = "blonde"]]
 		| [[Golden|Salon][$primaryHairColor = "golden"]]
 		| [[Platinum Blonde|Salon][$primaryHairColor = "platinum blonde"]]
@@ -282,7 +281,7 @@ $possessiveCap skin is $activeSlave.skin.
 
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;
 		
-	Choose $possessive highlights:
+	Choose highlights:
 		[[None|Salon][$secondaryHairColor = ""]]
 		| [[Blonde|Salon][$secondaryHairColor = " with blonde highlights"]]
 		| [[Black|Salon][$secondaryHairColor = " with black highlights"]]
