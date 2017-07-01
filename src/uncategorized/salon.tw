@@ -248,14 +248,13 @@ $possessiveCap skin is $activeSlave.skin.
 <<if $activeSlave.origHColor != "bald">>
 	
 	$possessiveCap hair is $activeSlave.hColor.
+	<br>
+	[[Dye|Salon][$activeSlave.hColor = ($primaryHairColor + $secondaryHairColor),$cash -= $modCost]] her hair $primaryHairColor $secondaryHairColor now?
 
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
 
 	Choose $possessive hair color:
-	
-		/*<<set $primaryHairColor = "primary">>
-		<<set $secondaryHairColor = "secondary">>*/
-			
+				
 		<<if $activeSlave.origHColor != $activeSlave.hColor>>
 			[[Natural color|Salon][$activeSlave.hColor = $activeSlave.origHColor]] | 
 		<</if>>
@@ -295,12 +294,10 @@ $possessiveCap skin is $activeSlave.skin.
 		| [[Neon blue|Salon][$secondaryHairColor = " with neon blue highlights"]]
 		| [[Neon pink|Salon][$secondaryHairColor = " with neon pink highlights"]]
 
-		<br>
-		You have chosen $primaryHairColor $secondaryHairColor.
-		[[Dye|Salon][$activeSlave.hColor = ($primaryHairColor + $secondaryHairColor),$cash -= $modCost]] her hair.
-		<br>
+
+
 	
-	<br>$possessiveCap hair is $activeSlave.hLength cm long.
+	<br><br>$possessiveCap hair is $activeSlave.hLength cm long.
 	
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
 	Cut $possessive hair:
