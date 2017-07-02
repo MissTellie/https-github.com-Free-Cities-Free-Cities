@@ -219,7 +219,7 @@ $possessiveCap skin is $activeSlave.skin.
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
 	[[Darken skin|Salon][$activeSlave.skin = "dark",$cash -= $modCost]]
 <</if>>
-<br>
+<br><br>
 
 
 /* MARKS */
@@ -243,13 +243,13 @@ $possessiveCap skin is $activeSlave.skin.
 	detracts from $possessive attractiveness.
 	<</if>>
 	[[Bleach it|Salon][$activeSlave.markings = "none",$cash -= $modCost]]
+	<br><br>
 <</if>>
 
 
 /* HAIR */
 
 <<if $activeSlave.origHColor != "bald">>
-<<<<<<< HEAD
 
 	$possessiveCap hair is $activeSlave.hColor.
 	<<if $activeSlave.origHColor != $activeSlave.hColor>>
@@ -306,10 +306,6 @@ $possessiveCap skin is $activeSlave.skin.
 
 	
 	<br><br>$possessiveCap hair is $activeSlave.hLength cm long.
-=======
-	
-	<br>$possessiveCap hair is $activeSlave.hLength cm long.
->>>>>>> cosmetic-ra
 	
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
 	Cut $possessive hair:
