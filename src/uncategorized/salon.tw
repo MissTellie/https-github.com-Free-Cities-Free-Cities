@@ -246,13 +246,17 @@ $possessiveCap skin is $activeSlave.skin.
 /* HAIR */
 
 <<if $activeSlave.origHColor != "bald">>
-	
+
 	$possessiveCap hair is $activeSlave.hColor.
 	<<if $activeSlave.origHColor != $activeSlave.hColor>>
 		[[Restore natural color|Salon][$activeSlave.hColor = $activeSlave.origHColor]]
 	<</if>>	
 	<br>
-	[[Dye her hair|Salon][$activeSlave.hColor = ($primaryHairColor + $secondaryHairColor),$cash -= $modCost]] $primaryHairColor $secondaryHairColor now?
+	<<if $primaryHairColor != 0>>
+		[[Dye her hair|Salon][$activeSlave.hColor = ($primaryHairColor + $secondaryHairColor),$cash -= $modCost, $primaryHairColor = 0, $secondaryHairColor = ""]] $primaryHairColor $secondaryHairColor now?
+	<<else>>
+		Choose a dye color before dyeing her hair.
+	<</if>>
 
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
 
