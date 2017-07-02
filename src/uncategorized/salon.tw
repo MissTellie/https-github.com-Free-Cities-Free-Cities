@@ -337,37 +337,6 @@ $possessiveCap skin is $activeSlave.skin.
 	<</if>>
 	<br>
 		
-		$possessiveCap hair is $activeSlave.hColor.
-
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-
-	Dye $possessive hair:
-		<<if $activeSlave.origHColor != $activeSlave.hColor>>
-			[[Natural color|Salon][$activeSlave.hColor = $activeSlave.origHColor,$cash -= $modCost]] | 
-		<</if>>
-		[[Blonde|Salon][$activeSlave.hColor = "blonde",$cash -= $modCost]]
-		| [[Golden|Salon][$activeSlave.hColor = "golden",$cash -= $modCost]]
-		| [[Platinum Blonde|Salon][$activeSlave.hColor = "platinum blonde",$cash -= $modCost]]
-		| [[Strawberry-blonde|Salon][$activeSlave.hColor = "strawberry-blonde",$cash -= $modCost]]
-		| [[Copper|Salon][$activeSlave.hColor = "copper",$cash -= $modCost]]
-		| [[Ginger|Salon][$activeSlave.hColor = "ginger",$cash -= $modCost]]
-		| [[Dark Brown|Salon][$activeSlave.hColor = "dark brown",$cash -= $modCost]]
-		| [[Brown|Salon][$activeSlave.hColor = "brown",$cash -= $modCost]]
-		| [[Auburn|Salon][$activeSlave.hColor = "auburn",$cash -= $modCost]]
-		| [[Burgundy|Salon][$activeSlave.hColor = "burgundy",$cash -= $modCost]]
-		| [[Chocolate|Salon][$activeSlave.hColor = "chocolate brown",$cash -= $modCost]]
-		| [[Chestnut|Salon][$activeSlave.hColor = "chestnut",$cash -= $modCost]]
-		| [[Hazel|Salon][$activeSlave.hColor = "hazel",$cash -= $modCost]]
-		| [[Black|Salon][$activeSlave.hColor = "black",$cash -= $modCost]]
-		| [[Grey|Salon][$activeSlave.hColor = "grey",$cash -= $modCost]]
-		| [[Silver|Salon][$activeSlave.hColor = "silver",$cash -= $modCost]]
-		| [[White|Salon][$activeSlave.hColor = "white",$cash -= $modCost]]
-		| [[Blazing red|Salon][$activeSlave.hColor = "blazing red",$cash -= $modCost]]
-		| [[Neon green|Salon][$activeSlave.hColor = "neon green",$cash -= $modCost]]
-		| [[Neon blue|Salon][$activeSlave.hColor = "neon blue",$cash -= $modCost]]
-		| [[Neon pink|Salon][$activeSlave.hColor = "neon pink",$cash -= $modCost]]
-		<br>
-		
 	$possessiveCap hair is $activeSlave.hStyle.  //General hairstyles will conform to hair length and clothing choices.//
 
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
