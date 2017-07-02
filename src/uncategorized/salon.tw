@@ -249,38 +249,62 @@ $possessiveCap skin is $activeSlave.skin.
 /* HAIR */
 
 <<if $activeSlave.origHColor != "bald">>
-	
+
 	$possessiveCap hair is $activeSlave.hColor.
+	<<if $activeSlave.origHColor != $activeSlave.hColor>>
+		[[Restore natural color|Salon][$activeSlave.hColor = $activeSlave.origHColor]]
+	<</if>>	
+	<br>
+	<<if $primaryHairColor != 0>>
+		[[Dye her hair|Salon][$activeSlave.hColor = ($primaryHairColor + $secondaryHairColor),$cash -= $modCost, $primaryHairColor = 0, $secondaryHairColor = ""]] $primaryHairColor $secondaryHairColor now?
+	<<else>>
+		Choose a dye color before dyeing her hair.
+	<</if>>
 
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
 
-	Dye $possessive hair:
-		<<if $activeSlave.origHColor != $activeSlave.hColor>>
-			[[Natural color|Salon][$activeSlave.hColor = $activeSlave.origHColor,$cash -= $modCost]] | 
-		<</if>>
-		[[Blonde|Salon][$activeSlave.hColor = "blonde",$cash -= $modCost]]
-		| [[Golden|Salon][$activeSlave.hColor = "golden",$cash -= $modCost]]
-		| [[Platinum Blonde|Salon][$activeSlave.hColor = "platinum blonde",$cash -= $modCost]]
-		| [[Strawberry-blonde|Salon][$activeSlave.hColor = "strawberry-blonde",$cash -= $modCost]]
-		| [[Copper|Salon][$activeSlave.hColor = "copper",$cash -= $modCost]]
-		| [[Ginger|Salon][$activeSlave.hColor = "ginger",$cash -= $modCost]]
-		| [[Dark Brown|Salon][$activeSlave.hColor = "dark brown",$cash -= $modCost]]
-		| [[Brown|Salon][$activeSlave.hColor = "brown",$cash -= $modCost]]
-		| [[Auburn|Salon][$activeSlave.hColor = "auburn",$cash -= $modCost]]
-		| [[Burgundy|Salon][$activeSlave.hColor = "burgundy",$cash -= $modCost]]
-		| [[Chocolate|Salon][$activeSlave.hColor = "chocolate brown",$cash -= $modCost]]
-		| [[Chestnut|Salon][$activeSlave.hColor = "chestnut",$cash -= $modCost]]
-		| [[Hazel|Salon][$activeSlave.hColor = "hazel",$cash -= $modCost]]
-		| [[Black|Salon][$activeSlave.hColor = "black",$cash -= $modCost]]
-		| [[Grey|Salon][$activeSlave.hColor = "grey",$cash -= $modCost]]
-		| [[Silver|Salon][$activeSlave.hColor = "silver",$cash -= $modCost]]
-		| [[White|Salon][$activeSlave.hColor = "white",$cash -= $modCost]]
-		| [[Blazing red|Salon][$activeSlave.hColor = "blazing red",$cash -= $modCost]]
-		| [[Neon green|Salon][$activeSlave.hColor = "neon green",$cash -= $modCost]]
-		| [[Neon blue|Salon][$activeSlave.hColor = "neon blue",$cash -= $modCost]]
-		| [[Neon pink|Salon][$activeSlave.hColor = "neon pink",$cash -= $modCost]]
+	Choose dye color:
+		[[Blonde|Salon][$primaryHairColor = "blonde"]]
+		| [[Golden|Salon][$primaryHairColor = "golden"]]
+		| [[Platinum Blonde|Salon][$primaryHairColor = "platinum blonde"]]
+		| [[Strawberry-blonde|Salon][$primaryHairColor = "strawberry-blonde"]]
+		| [[Copper|Salon][$primaryHairColor = "copper"]]
+		| [[Ginger|Salon][$primaryHairColor = "ginger"]]
+		| [[Dark Brown|Salon][$primaryHairColor = "dark brown"]]
+		| [[Brown|Salon][$primaryHairColor = "brown"]]
+		| [[Auburn|Salon][$primaryHairColor = "auburn"]]
+		| [[Burgundy|Salon][$primaryHairColor = "burgundy"]]
+		| [[Chocolate|Salon][$primaryHairColor = "chocolate brown"]]
+		| [[Chestnut|Salon][$primaryHairColor = "chestnut"]]
+		| [[Hazel|Salon][$primaryHairColor = "hazel"]]
+		| [[Black|Salon][$primaryHairColor = "black"]]
+		| [[Grey|Salon][$primaryHairColor = "grey"]]
+		| [[Silver|Salon][$primaryHairColor = "silver"]]
+		| [[White|Salon][$primaryHairColor = "white"]]
+		| [[Blazing red|Salon][$primaryHairColor = "blazing red"]]
+		| [[Neon green|Salon][$primaryHairColor = "neon green"]]
+		| [[Neon blue|Salon][$primaryHairColor = "neon blue"]]
+		| [[Neon pink|Salon][$primaryHairColor = "neon pink"]]
 
-	<br>$possessiveCap hair is $activeSlave.hLength cm long.
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;
+		
+	Choose highlights:
+		[[None|Salon][$secondaryHairColor = ""]]
+		| [[Blonde|Salon][$secondaryHairColor = " with blonde highlights"]]
+		| [[Black|Salon][$secondaryHairColor = " with black highlights"]]
+		| [[Grey|Salon][$secondaryHairColor = " with grey highlights"]]
+		| [[Silver|Salon][$secondaryHairColor = " with silver highlights"]]
+		| [[White|Salon][$secondaryHairColor = " with white highlights"]]
+		| [[Blazing red|Salon][$secondaryHairColor = " with blazing red highlights"]]
+		| [[Neon green|Salon][$secondaryHairColor = " with neon green highlights"]]
+		| [[Neon blue|Salon][$secondaryHairColor = " with neon blue highlights"]]
+		| [[Neon pink|Salon][$secondaryHairColor = " with neon pink highlights"]]
+		| [[Rainbow|Salon][$secondaryHairColor = " with rainbow highlights"]]
+
+
+
+	
+	<br><br>$possessiveCap hair is $activeSlave.hLength cm long.
 	
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
 	Cut $possessive hair:
