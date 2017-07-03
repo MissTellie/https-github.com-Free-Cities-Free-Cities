@@ -1651,12 +1651,10 @@
 <</if>>
 <</if>>
 
-<<if ($eventSlave.relationship > 3)>>
-<<if ($eventSlave.relationship < 5)>>
+<<if ($eventSlave.relationship == 4)>>
 <<if ($eventSlave.devotion > 20)>>
 <<if ($eventSlave.trust > 20)>>
 	<<set $events.push("RE slave marriage")>>
-<</if>>
 <</if>>
 <</if>>
 <</if>>
@@ -1681,9 +1679,7 @@
 <<if ($eventSlave.lactation > 0)>>
 <<if (($eventSlave.boobs-$eventSlave.boobsImplant) > 6000)>>
 <<if ($eventSlave.assignment == "get milked")>>
-<<if ($eventSlave.prestige == 0)>>
 	<<set $events.push("RE legendary cow")>>
-<</if>>
 <</if>>
 <</if>>
 <</if>>
@@ -1691,15 +1687,13 @@
 <<if ($eventSlave.balls > 4)>>
 <<if ($eventSlave.dick > 4)>>
 <<if ($eventSlave.assignment == "work in the dairy") || ($eventSlave.assignment == "get milked")>>
-<<if $eventSlave.prestige == 0>>
 	<<set $events.push("RE legendary balls")>>
-<</if>>
 <</if>>
 <</if>>
 <</if>>
 
 <<if ($eventSlave.origin == "You sentenced her to enslavement as a punishment for attempted theft of a slave.") || ($eventSlave.origin == "She is an enslaved Daughter of Liberty.")>>
-<<if ($eventSlave.devotion > 95) && ($eventSlave.prestige == 0) && ($eventSlave.assignment == "please you")>>
+<<if ($eventSlave.devotion > 95) && ($eventSlave.assignment == "please you")>>
 	<<set $events.push("RE former abolitionist")>>
 <</if>>
 <</if>>
