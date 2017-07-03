@@ -163,47 +163,12 @@ $activeSlave.slaveName is seated in the auto salon. $pronounCap is awaiting your
 		| [[Neon pink|Salon][$secondaryHairColor = " with neon pink highlights"]]
 		| [[Rainbow|Salon][$secondaryHairColor = " with rainbow highlights"]]
 
-	<br><br>$possessiveCap hair is $activeSlave.hLength cm long.
+	<br><br>$possessiveCap hair is $activeSlave.hStyle and $activeSlave.hLength cm long. //General hairstyles will conform to hair length and clothing choices.//
 	
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	Cut $possessive hair:
-	<<if $activeSlave.hLength > 5>>
-		[[Very short|Salon][$activeSlave.hLength = 5,$cash -= $modCost]]
-		<<if $activeSlave.hLength > 10>>
-			| [[Short|Salon][$activeSlave.hLength = 10,$cash -= $modCost]]
-		<</if>>
-		<<if $activeSlave.hLength > 30>>
-			| [[Shoulder length|Salon][$activeSlave.hLength = 30,$cash -= $modCost]]
-		<</if>>
-		<<if $activeSlave.hLength > 60>>
-			| [[Long|Salon][$activeSlave.hLength = 60,$cash -= $modCost]]
-		<</if>>
-		<<if $activeSlave.hLength > 100>>
-			| [[Very long|Salon][$activeSlave.hLength = 100,$cash -= $modCost]]
-		<</if>>
-	<<else>>
-		//$possessiveCap hair is already very short//
-	<</if>>
-	
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	<<if $activeSlave.hLength == 1>>
-		[[Apply hair growth stimulating treatment|Salon][$activeSlave.hLength = 1,$cash -= $modCost]]
-	<<elseif $activeSlave.hLength < 150>>
-		Give her: [[Extensions|Salon][$activeSlave.hLength += 10,$cash -= $modCost]]
-	<<else>>
-		//$possessiveCap hair is extremely long//
-	<</if>>
-	<br>
-		
-	$possessiveCap hair is $activeSlave.hStyle.  //General hairstyles will conform to hair length and clothing choices.//
-
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
 	<<if $activeSlave.hLength > 1>>
-	Style $possessive hair:
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;
+		Style $possessive hair:
 		[[Neat|Salon][$activeSlave.hStyle = "neat",$cash -= $modCost]]
-		 | [[Shaved|Salon][$activeSlave.hStyle = "shaved",$activeSlave.hLength = 0,$cash -= $modCost]]
-		 | [[Trimmed short|Salon][$activeSlave.hStyle = "trimmed",$activeSlave.hLength = 10,$cash -= $modCost]]
-		 | [[Buzzcut|Salon][$activeSlave.hStyle = "buzzcut",$activeSlave.hLength = 1,$cash -= $modCost]]
 		 | [[Up|Salon][$activeSlave.hStyle = "up",$cash -= $modCost]]
 		 | [[In a ponytail|Salon][$activeSlave.hStyle = "ponytail",$cash -= $modCost]]
 		 | [[In a bun|Salon][$activeSlave.hStyle = "bun",$cash -= $modCost]]
@@ -217,7 +182,39 @@ $activeSlave.slaveName is seated in the auto salon. $pronounCap is awaiting your
 		 | [[Afro|Salon][$activeSlave.hStyle = "afro",$cash -= $modCost]]
 		 | [[Shaved sides|Salon][$activeSlave.hStyle = "strip",$cash -= $modCost]]
 	<<else>>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;
 		//$possessiveCap hair is too short to style meaningfully//
+	<</if>>
+	
+	<<if $activeSlave.hLength > 1>>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;
+		Cut and style $possessive hair:
+		 [[Shaved|Salon][$activeSlave.hStyle = "shaved",$activeSlave.hLength = 0,$cash -= $modCost]]
+		 | [[Trimmed short|Salon][$activeSlave.hStyle = "trimmed",$activeSlave.hLength = 10,$cash -= $modCost]]
+		 | [[Buzzcut|Salon][$activeSlave.hStyle = "buzzcut",$activeSlave.hLength = 1,$cash -= $modCost]]
+	<</if>>
+		
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	Cut or lengthen $possessive hair:
+	<<if $activeSlave.hLength > 5>>
+		[[Very short|Salon][$activeSlave.hLength = 5,$cash -= $modCost]]
+	<</if>>
+	<<if $activeSlave.hLength > 10>>
+		| [[Short|Salon][$activeSlave.hLength = 10,$cash -= $modCost]]
+	<</if>>
+	<<if $activeSlave.hLength > 30>>
+		| [[Shoulder length|Salon][$activeSlave.hLength = 30,$cash -= $modCost]]
+	<</if>>
+	<<if $activeSlave.hLength > 60>>
+		| [[Long|Salon][$activeSlave.hLength = 60,$cash -= $modCost]]
+	<</if>>
+	<<if $activeSlave.hLength > 100>>
+		| [[Very long|Salon][$activeSlave.hLength = 100,$cash -= $modCost]]
+	<</if>>
+	<<if $activeSlave.hLength == 1>>
+		| [[Apply hair growth stimulating treatment|Salon][$activeSlave.hLength = 1,$cash -= $modCost]]
+	<<elseif $activeSlave.hLength < 150>>
+		| [[Apply extensions|Salon][$activeSlave.hLength += 10,$cash -= $modCost]]
 	<</if>>
 <</if>>
 <<if $activeSlave.origHColor == "bald">>
