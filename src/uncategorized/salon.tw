@@ -127,17 +127,12 @@ $activeSlave.slaveName is seated in the auto salon. $pronounCap is awaiting your
 	<br><br>
 	$possessiveCap hair is $activeSlave.hColor.
 	<<if $activeSlave.origHColor != $activeSlave.hColor>>
-		[[Restore natural color|Salon][$activeSlave.hColor = $activeSlave.origHColor]]
-	<</if>>	
-	<br>
-	<<if $primaryHairColor != 0>>
-		[[Dye her hair|Salon][$activeSlave.hColor = ($primaryHairColor + $secondaryHairColor),$cash -= $modCost, $primaryHairColor = 0, $secondaryHairColor = ""]] $primaryHairColor $secondaryHairColor now?
+		[[Restore natural color|Salon][$activeSlave.hColor = $activeSlave.origHColor]] or //choose a new one://
 	<<else>>
 		//Choose a dye color before dyeing her hair://
-	<</if>>
+	<</if>>	
 
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-
 	Colors:
 		[[Blonde|Salon][$primaryHairColor = "blonde"]]
 		| [[Golden|Salon][$primaryHairColor = "golden"]]
@@ -175,6 +170,11 @@ $activeSlave.slaveName is seated in the auto salon. $pronounCap is awaiting your
 		| [[Neon blue|Salon][$secondaryHairColor = " with neon blue highlights"]]
 		| [[Neon pink|Salon][$secondaryHairColor = " with neon pink highlights"]]
 		| [[Rainbow|Salon][$secondaryHairColor = " with rainbow highlights"]]
+
+	<<if $primaryHairColor != 0>>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;
+		[[Dye her hair|Salon][$activeSlave.hColor = ($primaryHairColor + $secondaryHairColor),$cash -= $modCost, $primaryHairColor = 0, $secondaryHairColor = ""]] $primaryHairColor $secondaryHairColor now?
+	<</if>>
 
 	<br><br>$possessiveCap $activeSlave.hStyle hair is $activeSlave.hLength cm long. //General hairstyles will conform to hair length and clothing choices.//
 	
@@ -236,9 +236,9 @@ $activeSlave.slaveName is seated in the auto salon. $pronounCap is awaiting your
 		$pronounCap is completely bald.
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;
 	<<else>>
-		$possessiveCap current wig is $activeSlave.hColor.
-		<<if $primaryHairColor != 0>>
-			[[Change|Salon][$activeSlave.hColor = ($primaryHairColor + $secondaryHairColor),$cash -= $modCost, $primaryHairColor = 0, $secondaryHairColor = ""]] $possessive wig color to $primaryHairColor $secondaryHairColor
+		$possessiveCap current wig is $activeSlave.hColor. 
+		<<if $activeSlave.origHColor == "bald" && $activeSlave.hStyle != "bald">>
+			[[Remove wig|Salon][$activeSlave.hStyle = "bald",$activeSlave.hLength = 0,$cash -= $modCost]] or //choose a new one://
 		<<else>>
 			//Choose a wig color://
 		<</if>>
@@ -280,14 +280,16 @@ $activeSlave.slaveName is seated in the auto salon. $pronounCap is awaiting your
 		| [[Neon blue|Salon][$secondaryHairColor = " with neon blue highlights"]]
 		| [[Neon pink|Salon][$secondaryHairColor = " with neon pink highlights"]]
 		| [[Rainbow|Salon][$secondaryHairColor = " with rainbow highlights"]]
+		
+		<<if $primaryHairColor != 0>>
+			[[Change|Salon][$activeSlave.hColor = ($primaryHairColor + $secondaryHairColor),$cash -= $modCost, $primaryHairColor = 0, $secondaryHairColor = ""]] $possessive wig color to $primaryHairColor $secondaryHairColor
+		<</if>>
 	<</if>>
 
 	<<if $activeSlave.hStyle != "bald">>
 		<br><br>
 		$possessiveCap $activeSlave.hStyle wig is $activeSlave.hLength cm long. 
-		<<if $activeSlave.origHColor == "bald" && $activeSlave.hStyle != "bald">>
-			[[Remove wig.|Salon][$activeSlave.hStyle = "bald",$activeSlave.hLength = 0,$cash -= $modCost]]
-		<</if>>
+
 		
 		//General hairstyles will conform to hair length and clothing choices.//
 		
