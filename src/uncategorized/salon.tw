@@ -438,8 +438,10 @@ $possessiveCap skin is $activeSlave.skin.
 
 <<if $activeSlave.pubicHStyle != "bald">>
 	
-	<br><br>$possessiveCap pubic hair, if present, is $activeSlave.pubicHColor.
-
+	<br><br>$possessiveCap pubic hair, if present, is $activeSlave.pubicHColor.	
+	<<if $activeSlave.pubicHColor != $activeSlave.hColor>>
+		[[Match the curtains?|Salon][$activeSlave.pubicHColor = $activeSlave.hColor,$cash -= $modCost]]
+	<</if>>
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
 	Dye $possessive pubic hair:
 		[[Blonde|Salon][$activeSlave.pubicHColor = "blonde",$cash -= $modCost]]
