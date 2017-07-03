@@ -68,9 +68,7 @@ $activeSlave.slaveName is seated in the auto salon. $pronounCap is awaiting your
 		<<if $activeSlave.origEye != $activeSlave.eyeColor>>
 			[[Remove lenses|Salon][$activeSlave.eyeColor = $activeSlave.origEye]]  
 		<</if>>
-		//Color settings will be applied in addition to eyewear choices.//
-		<br>&nbsp;&nbsp;&nbsp;&nbsp;
-		Give $possessive cosmetic contact lenses:
+		//Choose $possessive cosmetic lenses:
 	<<else>>
 		<<if $activeSlave.eyeColor == "empty">>
 			$possessiveCap has no eyes.  
@@ -80,28 +78,40 @@ $activeSlave.slaveName is seated in the auto salon. $pronounCap is awaiting your
 				[[None|Salon][$activeSlave.eyeColor = "empty"]]  
 			<</if>>
 		<</if>>
-		//Color settings will be applied in addition to eyewear choices.//
-		<br>&nbsp;&nbsp;&nbsp;&nbsp;
-		Choose what kind of eyes you want $possessive to have:
+		//Choose what kind of eyes you want $possessive to have://
+	<</if>>	
+	
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	Color:
+	[[Blue|Salon][$artificialEyeColor = "blue"]]
+	| [[Black|Salon][$artificialEyeColor = "black"]]
+	| [[Brown|Salon][$artificialEyeColor = "brown"]]
+	| [[Green|Salon][$artificialEyeColor = "green"]]
+	| [[Turquoise|Salon][$artificialEyeColor = "turquoise"]]
+	| [[Sky-blue|Salon][$artificialEyeColor = "sky-blue"]]
+	| [[Hazel|Salon][$artificialEyeColor = "hazel"]]
+	| [[Pale-grey|Salon][$artificialEyeColor = "pale-grey"]]
+	| [[White|Salon][$artificialEyeColor = "white"]]
+	| [[Pink|Salon][$artificialEyeColor = "pink"]]
+	| [[Amber|Salon][$artificialEyeColor = "amber"]]
+	| [[Red|Salon][$artificialEyeColor = "red"]]
+	
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	Shape
+	[[Catlike|Salon][$artificialEyeShape = "catlike"]]
+	| [[Serpent-like|Salon][$artificialEyeShape = "serpent-like"]]
+	| [[Devilish|Salon][$artificialEyeShape = "devilish"]]
+	| [[Demonic|Salon][$artificialEyeShape = "demonic"]]
+	| [[Hypnotic|Salon][$artificialEyeShape = "hypnotic"]]
+	| [[Heart-shaped|Salon][$artificialEyeShape = "heart-shaped"]]
+		
+	<<if $artificialEyeColor == "" && $artificialEyeShape != "">>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;	
+		[[Apply|Salon][$activeSlave.eyeColor = ($artificialEyeShape),$cash -= $modCost, $artificialEyeColor = "", $artificialEyeShape = ""]] $artificialEyeShape $artificialEyeColor now? //This will be applied in addition to eyewear choices.//
+	<<elseif $artificialEyeColor != "" || $artificialEyeShape != "">>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;	
+		[[Apply|Salon][$activeSlave.eyeColor = ($artificialEyeShape + " " + $artificialEyeColor),$cash -= $modCost, $artificialEyeColor = "", $artificialEyeShape = ""]] $artificialEyeShape $artificialEyeColor now? //This will be applied in addition to eyewear choices.//
 	<</if>>
-	[[Blue|Salon][$activeSlave.eyeColor = "blue",$cash -= $modCost]]
-	| [[Black|Salon][$activeSlave.eyeColor = "black",$cash -= $modCost]]
-	| [[Brown|Salon][$activeSlave.eyeColor = "brown",$cash -= $modCost]]
-	| [[Green|Salon][$activeSlave.eyeColor = "green",$cash -= $modCost]]
-	| [[Turquoise|Salon][$activeSlave.eyeColor = "turquoise",$cash -= $modCost]]
-	| [[Sky-blue|Salon][$activeSlave.eyeColor = "sky-blue",$cash -= $modCost]]
-	| [[Hazel|Salon][$activeSlave.eyeColor = "hazel",$cash -= $modCost]]
-	| [[Pale-grey|Salon][$activeSlave.eyeColor = "pale-grey",$cash -= $modCost]]
-	| [[White|Salon][$activeSlave.eyeColor = "white",$cash -= $modCost]]
-	| [[Pink|Salon][$activeSlave.eyeColor = "pink",$cash -= $modCost]]
-	| [[Amber|Salon][$activeSlave.eyeColor = "amber",$cash -= $modCost]]
-	| [[Red|Salon][$activeSlave.eyeColor = "red",$cash -= $modCost]]
-	| [[Catlike|Salon][$activeSlave.eyeColor = "catlike",$cash -= $modCost]]
-	| [[Serpent-like|Salon][$activeSlave.eyeColor = "serpent-like",$cash -= $modCost]]
-	| [[Devilish|Salon][$activeSlave.eyeColor = "devilish",$cash -= $modCost]]
-	| [[Demonic|Salon][$activeSlave.eyeColor = "demonic",$cash -= $modCost]]
-	| [[Hypnotic|Salon][$activeSlave.eyeColor = "hypnotic",$cash -= $modCost]]
-	| [[Heart-shaped|Salon][$activeSlave.eyeColor = "heart-shaped",$cash -= $modCost]]
 <<else>>
 	$possessiveCap eyes are artificial and can't be set here.
 <</if>>
