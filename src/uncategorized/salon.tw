@@ -282,6 +282,7 @@ $activeSlave.slaveName is seated in the auto salon. $pronounCap is awaiting your
 		| [[Rainbow|Salon][$secondaryHairColor = " with rainbow highlights"]]
 		
 		<<if $primaryHairColor != 0>>
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;
 			[[Change|Salon][$activeSlave.hColor = ($primaryHairColor + $secondaryHairColor),$cash -= $modCost, $primaryHairColor = 0, $secondaryHairColor = ""]] $possessive wig color to $primaryHairColor $secondaryHairColor
 		<</if>>
 	<</if>>
