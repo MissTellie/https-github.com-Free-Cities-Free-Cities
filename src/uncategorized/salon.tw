@@ -66,19 +66,22 @@ $activeSlave.slaveName is seated in the auto salon. $pronounCap is awaiting your
 	<<if $activeSlave.origEye != "none">>
 		$possessiveCap eyes are $activeSlave.eyeColor.  
 		<<if $activeSlave.origEye != $activeSlave.eyeColor>>
-			[[Remove lenses|Salon][$activeSlave.eyeColor = $activeSlave.origEye]]  
+			[[Remove lenses|Salon][$activeSlave.eyeColor = $activeSlave.origEye]] or //choose new ones://
+		<<else>>
+			//Choose $possessive cosmetic lenses:
 		<</if>>
-		//Choose $possessive cosmetic lenses:
+
 	<<else>>
 		<<if $activeSlave.eyeColor == "empty">>
 			$possessiveCap has no eyes.  
 		<<else>>
 			$possessiveCap glass eyes are $activeSlave.eyeColor.  
 			<<if $activeSlave.eyeColor != "empty">>
-				[[None|Salon][$activeSlave.eyeColor = "empty"]]  
+				[[Remove eyes|Salon][$activeSlave.eyeColor = "empty"]] or //choose new ones://
+			<<else>>
+				//Choose what kind of eyes you want $possessive to have://
 			<</if>>
 		<</if>>
-		//Choose what kind of eyes you want $possessive to have://
 	<</if>>	
 	
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
