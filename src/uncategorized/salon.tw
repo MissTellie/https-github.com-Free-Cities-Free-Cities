@@ -270,6 +270,7 @@ $activeSlave.slaveName is seated in the auto salon. $pronounCap is awaiting your
 	<</if>>
 
 	<<if $activeSlave.hStyle != "bald">>
+		<br><br>
 		$possessiveCap $activeSlave.hStyle wig is $activeSlave.hLength cm long. 
 		<<if $activeSlave.origHColor == "bald" && $activeSlave.hStyle != "bald">>
 			[[Remove wig.|Salon][$activeSlave.hStyle = "bald",$activeSlave.hLength = 0,$cash -= $modCost]]
