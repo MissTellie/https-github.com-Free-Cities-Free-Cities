@@ -289,7 +289,6 @@ $activeSlave.slaveName is seated in the auto salon. $pronounCap is awaiting your
 	<<if $activeSlave.hStyle != "bald">>
 		<br><br>
 		$possessiveCap $activeSlave.hStyle wig is $activeSlave.hLength cm long. 
-
 		
 		//General hairstyles will conform to hair length and clothing choices.//
 		
@@ -303,22 +302,25 @@ $activeSlave.slaveName is seated in the auto salon. $pronounCap is awaiting your
 		<<if $activeSlave.hLength != 90>>[[90cm|Salon][$activeSlave.hLength = 90,$cash -= $modCost]]<</if>>
 		<<if $activeSlave.hLength != 120>>[[120cm|Salon][$activeSlave.hLength = 120,$cash -= $modCost]]<</if>>
 		<<if $activeSlave.hLength != 150>>[[150cm|Salon][$activeSlave.hLength = 150,$cash -= $modCost]]<</if>>
-		
-		<br>&nbsp;&nbsp;&nbsp;&nbsp;
-		Set wig style
-		 | [[Ponytail|Salon][$activeSlave.hStyle = "ponytail",$cash -= $modCost]]
-		 | [[Bun|Salon][$activeSlave.hStyle = "bun",$cash -= $modCost]]
-		 | [[Curled|Salon][$activeSlave.hStyle = "curled",$cash -= $modCost]]
-		 | [[Permed|Salon][$activeSlave.hStyle = "permed",$cash -= $modCost]]
-		 | [[Luxurious|Salon][$activeSlave.hStyle = "luxurious",$cash -= $modCost]]
-		 | [[Dreadlocks|Salon][$activeSlave.hStyle = "dreadlocks",$cash -= $modCost]]
-		 | [[Cornrows|Salon][$activeSlave.hStyle = "cornrows",$cash -= $modCost]]
-		 | [[Braided|Salon][$activeSlave.hStyle = "braided",$cash -= $modCost]]
-		 | [[Tails|Salon][$activeSlave.hStyle = "tails",$cash -= $modCost]]
-		 | [[Afro|Salon][$activeSlave.hStyle = "afro",$cash -= $modCost]]
 	<<else>>
 		$pronounCap is not wearing a wig.
 	<</if>>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	<<if $activeSlave.hStyle != "bald">>	
+		Set wig style:
+	<<else>>
+		Give her a wig:
+	<</if>>
+	 [[Ponytail|Salon][$activeSlave.hStyle = "ponytail",$cash -= $modCost]]
+	 | [[Bun|Salon][$activeSlave.hStyle = "bun",$cash -= $modCost]]
+	 | [[Curled|Salon][$activeSlave.hStyle = "curled",$cash -= $modCost]]
+	 | [[Permed|Salon][$activeSlave.hStyle = "permed",$cash -= $modCost]]
+	 | [[Luxurious|Salon][$activeSlave.hStyle = "luxurious",$cash -= $modCost]]
+	 | [[Dreadlocks|Salon][$activeSlave.hStyle = "dreadlocks",$cash -= $modCost]]
+	 | [[Cornrows|Salon][$activeSlave.hStyle = "cornrows",$cash -= $modCost]]
+	 | [[Braided|Salon][$activeSlave.hStyle = "braided",$cash -= $modCost]]
+	 | [[Tails|Salon][$activeSlave.hStyle = "tails",$cash -= $modCost]]
+	 | [[Afro|Salon][$activeSlave.hStyle = "afro",$cash -= $modCost]]
 <</if>>
 
 
