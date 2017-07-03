@@ -451,10 +451,16 @@ $possessiveCap skin is $activeSlave.skin.
 
 <<if $activeSlave.pubicHStyle != "bald">>
 	
-	<br><br>$possessiveCap pubic hair, if present, is $activeSlave.pubicHColor.	
+	<br><br>$possessiveCap $activeSlave.pubicHStyle pubic hair
+	<<if $activeSlave.pubicHStyle == "waxed">>
+		would be $activeSlave.pubicHColor if present.
+	<<else>>
+		is $activeSlave.pubicHColor.
+	<</if>>
 	<<if $activeSlave.pubicHColor != $activeSlave.hColor>>
 		[[Match the curtains?|Salon][$activeSlave.pubicHColor = $activeSlave.hColor,$cash -= $modCost]]
 	<</if>>
+	
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
 	Dye $possessive pubic hair:
 		[[Blonde|Salon][$activeSlave.pubicHColor = "blonde",$cash -= $modCost]]
@@ -478,9 +484,6 @@ $possessiveCap skin is $activeSlave.skin.
 		| [[Neon green|Salon][$activeSlave.pubicHColor = "green",$cash -= $modCost]]
 		| [[Neon blue|Salon][$activeSlave.pubicHColor = "blue",$cash -= $modCost]]
 		| [[Neon pink|Salon][$activeSlave.pubicHColor = "pink",$cash -= $modCost]]
-
-	
-	<br>$possessiveCap pubic hair is $activeSlave.pubicHStyle.
 
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
 	Style $possessive pubic hair:
