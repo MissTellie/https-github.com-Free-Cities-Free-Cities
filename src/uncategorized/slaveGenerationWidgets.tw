@@ -392,7 +392,7 @@
 <<elseif $arcologies[0].FSEdoRevivalist > 20>>
 	<<set $args[0].slaveName = setup.edoSlaveNames.random(), $args[0].slaveSurname = setup.edoSlaveSurnames.random()>>
 <<elseif $arcologies[0].FSDegradationist != "unset">>
-	<<include "Degrading Name">>
+	<<DegradingName $args[0]>>
 <</if>>
 <<else>>
 	<<set $args[0].slaveName = $args[0].birthName, $args[0].slaveSurname = $args[0].birthSurname>>
