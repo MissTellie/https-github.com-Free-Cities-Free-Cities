@@ -465,7 +465,7 @@ possible societal customizations.
 	<<link "Rename all your slaves according to Degradationist custom">>
 	<<for $i = 0; $i < $slaves.length; $i++>>
 		<<set $activeSlave = $slaves[$i]>>
-		<<include "Degrading Name">>
+		<<DegradingName $activeSlave>>
 		<<set $slaves[$i] = $activeSlave>>
 	<</for>>
 	<<replace "#mass">>
