@@ -624,18 +624,18 @@
 <<if ($slaves[$i].buttplug != "none")>>
 <<if ($slaves[$i].buttplug == "plug")>>
 	<<if $slaves[$i].fuckdoll == 0>>
-	<<if $slaves[$i].fetish != "mindbroken">>
-	<<if $slaves[$i].anus < 1>>
-		Constantly wearing a plug in her virgin butthole @@.lime;stretches it out.@@
-		<<set $slaves[$i].anus += 1>>
-	<<else>>
-		Her asshole is used to being penetrated and wearing her buttplug doesn't affect it.
-	<</if>>
-	<<if ($slaves[$i].sexualFlaw == "hates anal") && (random(1,100) > 50)>>
-		It @@.green;gets her habituated to having her asshole filled.@@
-		<<set $slaves[$i].sexualFlaw = "none">>
-	<</if>>
-	<</if>>
+		<<if $slaves[$i].fetish != "mindbroken">>
+			<<if $slaves[$i].anus < 1>>
+				Constantly wearing a plug in her virgin butthole @@.lime;stretches it out.@@
+				<<set $slaves[$i].anus += 1>>
+			<<else>>
+				Her asshole is used to being penetrated and wearing her buttplug doesn't affect it.
+			<</if>>
+			<<if ($slaves[$i].sexualFlaw == "hates anal") && (random(1,100) > 50)>>
+				It @@.green;gets her habituated to having her asshole filled.@@
+				<<set $slaves[$i].sexualFlaw = "none">>
+			<</if>>
+		<</if>>
 	<</if>>
 <<elseif ($slaves[$i].buttplug == "large plug")>>
 	<<if $slaves[$i].fuckdoll == 0>>
@@ -665,6 +665,11 @@
 		<</if>>
 	<<else>>
 		Her anus accommodates the large plug she's required to wear.
+		<<if ($slaves[$i].fetish == "buttslut") && ($slaves[$i].fetishKnown == 1) && ($slaves[$i].fetishStrength > 60)>>
+			In fact, she @@.hotpink;regularly orgasms@@ even in non-sexual situations as the plug is @@.green;constantly stimulating@@ her rear-end.
+			<<set $slaves[$i].devotion += 1>>
+			<<set $slaves[$i].energy += 1>>
+		<</if>>
 	<</if>>
 <<elseif ($slaves[$i].buttplug == "huge plug")>>
 	<<if ($slaves[$i].anus < 4)>>
@@ -688,6 +693,11 @@
 		<<set $slaves[$i].anus += 1>>
 	<<else>>
 		Her gaping anus accommodates the huge plug she's required to wear.
+		<<if ($slaves[$i].fetish == "buttslut") && ($slaves[$i].fetishKnown == 1) && ($slaves[$i].fetishStrength > 60)>>
+			In fact, she even @@.hotpink;regulary orgasms@@ in non-sexual situations as the plug is @@.green;constantly stimulating@@ her rear-end.
+			<<set $slaves[$i].devotion += 1>>
+			<<set $slaves[$i].energy += 1>>
+		<</if>>
 	<</if>>
 <<elseif ($slaves[$i].buttplug == "tailed plug")>>
 	<<if $slaves[$i].fuckdoll == 0>>

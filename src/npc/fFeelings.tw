@@ -320,7 +320,19 @@ My favorite part of my body i<<s>>
 				<<case "cumslut">>
 					I'm <<s>>o horny, <<Master>>. I can't <<s>>top <<s>>taring at <<if $PC.dick == 1>>cock<<s>> and imagining them down my throat, cumming and cumming<<else>>pu<<ss>>ie<<s>> and imagining how their jui<<c>>e<<s>> ta<<s>>te<</if>>.
 				<<case "buttslut">>
-					I'm <<s>>o horny, <<Master>>. My anu<<s>> is killing me, all I want to do i<<s>> touch it and ma<<ss>>age it and fill it.
+					I'm <<s>>o horny, <<Master>>. 
+					<<if ($activeSlave.buttplug == "plug" && $activeSlave.anus > 2) >>
+					I wear the buttplug you gave me, but it i<<s>> <<s>>o <<s>>mall... It remind<<s>> me of being fucked in the a<<ss>>, but I can bareley feel it. It drive<<s>> me crazy.
+					<<elseif ($activeSlave.buttplug == "plug" && $activeSlave.anus < 3)
+					|| ($activeSlave.buttplug == "large plug" && $activeSlave.anus == 3)
+					|| ($activeSlave.buttplug == "huge plug" && $activeSlave.anus >= 4) >>
+					Thank you for the buttplug. It i<<s>> really fun to have my a<<ss>> filled all day long.
+					<<elseif ($activeSlave.buttplug == "large plug" && $activeSlave.anus < 3)
+					|| ($activeSlave.buttplug == "huge plug" && $activeSlave.anus < 4) >>
+					I like it up the a<<ss>>, but the plug you make me wear is too big. It really hurt<<s>>. Not in the good way.
+					<<else>>
+					My anu<<s>> i<<s>> killing me, all I want to do i<<s>> touch it and ma<<ss>>age it and fill it.
+					<</if>>
 				<<case "boobs">>
 					I'm <<s>>o horny, <<Master>>. I want to rub my nipple<<s>> against everything.
 				<<case "pregnancy">>
