@@ -416,21 +416,27 @@ Treat nails:
 <br><br>
 $possessiveCap skin is $activeSlave.skin.
 
-<<if ($tannableSkin.indexOf($activeSlave.skin) != -1)>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	[[Tan|Salon][$activeSlave.skin = "tanned",$cash -= $modCost]]
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+<<set _needsSpacers = 0>>
+<<if ($bleachableSkin.indexOf($activeSlave.skin) != -1)>>
+	<<if  _needsSpacers == 1>> | <</if>>
+	[[Bleach|Salon][$activeSlave.skin = "pale",$cash -= $modCost]]
+	<<set _needsSpacers = 1>>
 <</if>>
 <<if ($lightenableSkin.indexOf($activeSlave.skin) != -1)>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	<<if  _needsSpacers == 1>> | <</if>>
 	[[Lighten|Salon][$activeSlave.skin = "lightened",$cash -= $modCost]]
+	<<set _needsSpacers = 1>>
 <</if>>
-<<if ($bleachableSkin.indexOf($activeSlave.skin) != -1)>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	[[Bleach|Salon][$activeSlave.skin = "pale",$cash -= $modCost]]
+<<if ($tannableSkin.indexOf($activeSlave.skin) != -1)>>
+	<<if  _needsSpacers == 1>> | <</if>>
+	[[Tan|Salon][$activeSlave.skin = "tanned",$cash -= $modCost]]
+	<<set _needsSpacers = 1>>
 <</if>>
-<<if $activeSlave.skin != "black">>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+<<if ($activeSlave.skin != ("dark" || "black"))>>
+	<<if  _needsSpacers == 1>> | <</if>>
 	[[Darken|Salon][$activeSlave.skin = "dark",$cash -= $modCost]]
+	<<set _needsSpacers = 1>>
 <</if>>
 
 
