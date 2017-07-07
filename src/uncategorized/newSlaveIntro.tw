@@ -1257,14 +1257,14 @@ The legalities completed, ''__@@.pink;$activeSlave.slaveName@@__'' <<if ($active
 <<link "Fill her with fluid">>
 	<<replace "#introResult">>
 		You securely restrain your new slave<<if $dairyRestraintsSetting > 1>> in a milking stall<</if>>.  A quick finger check of her holes allows you to choose wisely from a selection of hollow phalluses, which push into your helpless new slave's 
+		mouth,
+		<<set $activeSlave.oralCount += 1>>
+		<<set $oralTotal += 1>>		
 		<<if ($activeSlave.vagina > 0)>>
 			vagina,
 			<<set $activeSlave.vaginalCount += 1>>
 			<<set $vaginalTotal += 1>>
 		<</if>>		
-		mouth,
-		<<set $activeSlave.oralCount += 1>>
-		<<set $oralTotal += 1>>		
 		<<if $activeSlave.anus > 0>>
 			and squeeze into her ass,
 			<<set $activeSlave.analCount += 1>>
