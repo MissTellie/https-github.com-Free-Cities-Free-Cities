@@ -419,17 +419,18 @@ $possessiveCap skin is $activeSlave.skin.
 <<if ($tannableSkin.indexOf($activeSlave.skin) != -1)>>
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
 	[[Tan|Salon][$activeSlave.skin = "tanned",$cash -= $modCost]]
-<<elseif ($lightenableSkin.indexOf($activeSlave.skin) != -1)>>
+<</if>>
+<<if ($lightenableSkin.indexOf($activeSlave.skin) != -1)>>
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	[[Lighten skin|Salon][$activeSlave.skin = "lightened",$cash -= $modCost]]
+	[[Lighten|Salon][$activeSlave.skin = "lightened",$cash -= $modCost]]
 <</if>>
 <<if ($bleachableSkin.indexOf($activeSlave.skin) != -1)>>
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	[[Bleach skin|Salon][$activeSlave.skin = "pale",$cash -= $modCost]]
+	[[Bleach|Salon][$activeSlave.skin = "pale",$cash -= $modCost]]
 <</if>>
 <<if $activeSlave.skin != "black">>
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	[[Darken skin|Salon][$activeSlave.skin = "dark",$cash -= $modCost]]
+	[[Darken|Salon][$activeSlave.skin = "dark",$cash -= $modCost]]
 <</if>>
 
 
