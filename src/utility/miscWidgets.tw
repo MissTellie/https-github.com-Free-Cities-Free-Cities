@@ -1253,7 +1253,7 @@
 		<<set $zEnunciate = "z">>
 	<</if>>
 <</widget>>
-<<widget "Master">><<if def $args[0]>><<Enunciate $args[0]>><<else>><<Enunciate $activeSlave>><</if>>$titleEnunciate<</widget>>
+<<widget "Master">><<if def $args[0]>><<Enunciate $args[0]>><<elseif ndef $titleEnunciate>><<Enunciate $activeSlave>><</if>>$titleEnunciate<</widget>>
 <<widget "say">>$sayEnunciate<</widget>>
 <<widget "s">>$sEnunciate<</widget>>
 <<widget "S">>$SEnunciate<</widget>>
