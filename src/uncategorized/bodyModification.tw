@@ -10,264 +10,339 @@
 
 $activeSlave.slaveName is lying strapped down on the table in your body modification studio. $pronounCap is entirely at your mercy.
 
-<br>
+/* PIERCINGS */
 
-<<if ($activeSlave.nipplesPiercing + $activeSlave.lipsPiercing + $activeSlave.vaginaPiercing + $activeSlave.anusPiercing + $activeSlave.clitPiercing) < 10>>
-	<br>
-	&nbsp;[[Add piercings wherever possible|Increment Piercings]]
+<<set _piercingCount =(
+$activeSlave.earPiercing + 
+$activeSlave.nosePiercing + 
+$activeSlave.eyebrowPiercing + 
+$activeSlave.lipsPiercing + 
+$activeSlave.tonguePiercing + 
+$activeSlave.nipplesPiercing + 
+$activeSlave.areolaePiercing + 
+$activeSlave.corsetPiercing + 
+$activeSlave.navelPiercing + 
+$activeSlave.clitPiercing + 
+$activeSlave.vaginaPiercing + 
+$activeSlave.dickPiercing + 
+$activeSlave.anusPiercing)>>
+
+
+/*DESCRIPTIONS */
+<br><br>
+Piercings: 
+
+<<if _piercingCount == 0>>
+	Her smooth $activeSlave.skin skin is completely unpierced.
 <</if>>
 
-<br>
+/* Light Piercings */
 
-<<if $activeSlave.earPiercing == 0>>
-	$possessiveCap ears have not been pierced.
+<<if /* do we need a line break */
+($activeSlave.earPiercing == 1) ||  
+($activeSlave.nosePiercing == 1) ||  
+($activeSlave.eyebrowPiercing == 1) ||  
+($activeSlave.lipsPiercing == 1) ||  
+($activeSlave.tonguePiercing == 1) ||  
+($activeSlave.nipplesPiercing == 1) ||  
+($activeSlave.areolaePiercing == 1) ||  
+($activeSlave.corsetPiercing == 1) ||  
+($activeSlave.navelPiercing == 1) ||  
+($activeSlave.clitPiercing == 1) ||  
+($activeSlave.vaginaPiercing == 1) ||  
+($activeSlave.dickPiercing == 1) ||  
+($activeSlave.anusPiercing == 1)>>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+
+<<if /* stud finder */
+	($activeSlave.nosePiercing == 1) || 
+	($activeSlave.eyebrowPiercing == 1) || 
+	($activeSlave.lipsPiercing == 1) || 
+	($activeSlave.tonguePiercing == 1) || 
+	($activeSlave.navelPiercing == 1) || 
+	($activeSlave.clitPiercing == 1) || 
+	($activeSlave.vaginaPiercing == 1)
+	>>
+	She has simple studs in her
+	<<if $activeSlave.nosePiercing == 1>>nose,<</if>>
+	<<if $activeSlave.eyebrowPiercing == 1>>eyebrow,<</if>>
+	<<if $activeSlave.lipsPiercing == 1>>lip,<</if>>
+	<<if $activeSlave.tonguePiercing == 1>>tongue,<</if>>
+	<<if $activeSlave.navelPiercing == 1>>navel,<</if>>
+	<<if ($activeSlave.clitPiercing == 1) && ($activeSlave.vagina != -1)>>clitoris,<</if>>
+	<<if ($activeSlave.vagina != -1)>>
+		<<if ($activeSlave.vaginaPiercing == 1)>>
+			labia in a simple row,
+		<</if>>
+	<</if>>
+	<<if ($activeSlave.clitPiercing == 1) && ($activeSlave.vagina == -1)>>dickhead,<</if>>
+	<<if ($activeSlave.balls != 0) && ($activeSlave.dick > 0) && ($activeSlave.dickPiercing == 1)>> ballsack,<</if>>
+
+	<<if _piercingCount > 15>>
+		and the ammount of metal is starting to weigh her down.
+	<<else>>
+		and there is room for more and heavier piercings.
+	<</if>>
+<</if>>	
+
+<<if $activeSlave.nipplesPiercing == 1 && $activeSlave.earPiercing == 1>>
+	Both her nips and ears have simple piercings.
 <<elseif $activeSlave.earPiercing == 1>>
-	$possessiveCap earlobes are conventionally pierced.
-<<elseif $activeSlave.earPiercing == 2>>
-	$possessiveCap ears are heavily pierced, with multiple lobe piercings and a row of helix piercings.
-<</if>>
-<<if $activeSlave.earPiercing == 0>>
-	[[Pierce them|Body Modification][$activeSlave.earPiercing = 1,$cash -= $modCost]]
-<<elseif $activeSlave.earPiercing == 1>>
-	[[Pierce them heavily|Body Modification][$activeSlave.earPiercing = 2,$cash -= $modCost,$degradation += 1]]
-<</if>>
-<<if $activeSlave.earPiercing > 0>>
-	//[[Remove piercings|Body Modification][$activeSlave.earPiercing = 0,$cash -= $modCost]]//
-<</if>>
-
-<br>
-
-<<if $activeSlave.nosePiercing == 0>>
-	$possessiveCap nose has not been pierced.
-<<elseif $activeSlave.nosePiercing == 1>>
-	$pronounCap has a simple stud in $possessive nose.
-<<elseif $activeSlave.nosePiercing == 2>>
-	$pronounCap has nasal studs and a large septum ring.
-<</if>>
-<<if $activeSlave.nosePiercing == 0>>
-	[[Pierce it|Body Modification][$activeSlave.nosePiercing = 1,$cash -= $modCost]]
-<<elseif $activeSlave.nosePiercing == 1>>
-	[[Pierce it heavily|Body Modification][$activeSlave.nosePiercing = 2,$cash -= $modCost,$degradation += 1]]
-<</if>>
-<<if $activeSlave.nosePiercing > 0>>
-	//[[Remove piercings|Body Modification][$activeSlave.nosePiercing = 0,$cash -= $modCost]]//
-<</if>>
-
-<br>
-
-<<if $activeSlave.eyebrowPiercing == 0>>
-	$possessiveCap eyebrows have not been pierced.
-<<elseif $activeSlave.eyebrowPiercing == 1>>
-	$pronounCap has a simple stud in one eyebrow.
-<<elseif $activeSlave.eyebrowPiercing == 2>>
-	$pronounCap has multiple eyebrow rings.
-<</if>>
-<<if $activeSlave.eyebrowPiercing == 0>>
-	[[Pierce them|Body Modification][$activeSlave.eyebrowPiercing = 1,$cash -= $modCost]]
-<<elseif $activeSlave.eyebrowPiercing == 1>>
-	[[Pierce them heavily|Body Modification][$activeSlave.eyebrowPiercing = 2,$cash -= $modCost,$degradation += 1]]
-<</if>>
-<<if $activeSlave.eyebrowPiercing > 0>>
-	//[[Remove piercings|Body Modification][$activeSlave.eyebrowPiercing = 0,$cash -= $modCost]]//
-<</if>>
-
-<br>
-
-<<if $activeSlave.lipsPiercing == 0>>
-	$possessiveCap lips are unpierced.
-<<elseif $activeSlave.lipsPiercing == 1>>
-	$pronounCap has a simple lip piercing for a stud.
-<<elseif $activeSlave.lipsPiercing == 2>>
-	$possessiveCap lips are heavily pierced.
-<</if>>
-<<if $activeSlave.lipsPiercing == 0>>
-	[[Pierce them|Body Modification][$activeSlave.lipsPiercing = 1,$cash -= $modCost]]
-<<elseif $activeSlave.lipsPiercing == 1>>
-	[[Pierce them heavily|Body Modification][$activeSlave.lipsPiercing = 2,$cash -= $modCost,$degradation += 1]]
-<</if>>
-<<if $activeSlave.lipsPiercing > 0>>
-	//[[Remove piercings|Body Modification][$activeSlave.lipsPiercing = 0,$cash -= $modCost]]//
-<</if>>
-
-<br>
-
-<<if $activeSlave.tonguePiercing == 0>>
-	$possessiveCap tongue is unpierced.
-<<elseif $activeSlave.tonguePiercing == 1>>
-	$pronounCap has a simple tongue stud.
-<<elseif $activeSlave.tonguePiercing == 2>>
-	$possessiveCap tongue is heavily pierced.
-<</if>>
-<<if $activeSlave.tonguePiercing == 0>>
-	[[Pierce it|Body Modification][$activeSlave.tonguePiercing = 1,$cash -= $modCost]]
-<<elseif $activeSlave.tonguePiercing == 1>>
-	[[Pierce it heavily|Body Modification][$activeSlave.tonguePiercing = 2,$cash -= $modCost,$degradation += 1]]
-<</if>>
-<<if $activeSlave.tonguePiercing > 0>>
-	//[[Remove piercings|Body Modification][$activeSlave.tonguePiercing = 0,$cash -= $modCost]]//
-<</if>>
-
-<br>
-
-<<if $activeSlave.nipplesPiercing == 0>>
-	$possessiveCap nipples are fresh and unpierced.
+	She has conventional piercings in her ears.
 <<elseif $activeSlave.nipplesPiercing == 1>>
-	$possessiveCap nipples bear a simple piercing.
-<<elseif $activeSlave.nipplesPiercing == 2>>
-	$possessiveCap nipples are heavily pierced with several rings and studs, and there is a chain between them.
-<</if>>
-<<if $activeSlave.nipplesPiercing == 0>>
-	[[Pierce them|Body Modification][$activeSlave.nipplesPiercing = 1,$cash -= $modCost]]
-<<elseif $activeSlave.nipplesPiercing == 1>>
-	[[Pierce them heavily|Body Modification][$activeSlave.nipplesPiercing = 2,$cash -= $modCost,$degradation += 1]]
-<</if>>
-<<if $activeSlave.nipplesPiercing > 0>>
-	//[[Remove piercings|Body Modification][$activeSlave.nipplesPiercing = 0,$cash -= $modCost]]//
+	Her nipples bear a simple piercing.
 <</if>>
 
-<br>
-
-<<if $activeSlave.areolaePiercing == 1>>
-	$pronounCap has a ring of stud piercings around the borders of each of $possessive areolae.
-<<else>>
-	The edges of $possessive areolae are unpierced.
-<</if>>
-<<if $activeSlave.areolaePiercing == 0>>
-	[[Pierce them|Body Modification][$activeSlave.areolaePiercing = 1,$degradation += 1,$cash -= $modCost]]
-<<else>>
-	//[[Remove piercings|Body Modification][$activeSlave.areolaePiercing = 0,$cash -= $modCost]]//
-<</if>>
-
-<br>
-
-<<if $activeSlave.corsetPiercing == 1>>
-	$pronounCap has a corset piercing, a ladder of rings down either side of $possessive back.
-<<else>>
-	$possessiveCap back is unpierced.
-<</if>>
-<<if $activeSlave.corsetPiercing == 0>>
-	[["Give " + $possessive + " corset piercings"|Body Modification][$activeSlave.corsetPiercing = 1,$degradation += 2,$cash -= $modCost]]
-<<else>>
-	//[[Remove corset piercings|Body Modification][$activeSlave.corsetPiercing = 0,$cash -= $modCost]]//
-<</if>>
-
-<br>
-
-<<if $activeSlave.navelPiercing == 1>>
-	$possessiveCap navel bears a simple stud.
-<<elseif $activeSlave.navelPiercing == 2>>
-	$possessiveCap navel is pierced with a ring, which has a short length of light chain dangling from it.
-<<else>>
-	$possessiveCap navel is unpierced.
-<</if>>
-<<if $activeSlave.navelPiercing < 1>>
-	[[Pierce it|Body Modification][$activeSlave.navelPiercing = 1,$cash -= $modCost]]
-<<elseif $activeSlave.navelPiercing == 1>>
-	[[Pierce it heavily|Body Modification][$activeSlave.navelPiercing = 2,$cash -= $modCost,$degradation += 1]]
-<</if>>
-<<if $activeSlave.navelPiercing > 0>>
-	//[[Remove piercing|Body Modification][$activeSlave.navelPiercing = 0,$cash -= $modCost]]//
-<</if>>
-
-<br>
-
-<<if ($activeSlave.clitPiercing == 0) && ($activeSlave.vagina != -1)>>
-	$possessiveCap clit is unpierced.
-<<elseif ($activeSlave.clitPiercing == 1) && ($activeSlave.vagina != -1)>>
-	$pronounCap has a simple clitoral stud.
-<<elseif ($activeSlave.clitPiercing == 2) && ($activeSlave.vagina != -1)>>
-	$pronounCap has a big ring in $possessive clit.
-<<elseif ($activeSlave.clitPiercing > 2) && ($activeSlave.vagina != -1)>>
-	$pronounCap has a smart piercing in $possessive clit.
-<<elseif ($activeSlave.clitPiercing == 0)>>
-	$possessiveCap dickhead is unpierced.
-<<elseif ($activeSlave.clitPiercing == 1)>>
-	$pronounCap has a simple dickhead stud.
-<<elseif ($activeSlave.clitPiercing == 2)>>
-	$pronounCap has a big ring in $possessive dickhead.
-<<elseif ($activeSlave.clitPiercing > 2)>>
-	$pronounCap has a smart frenulum piercing.
-<</if>>
-<<if ($activeSlave.vagina != -1) || ($activeSlave.dick != 0)>>
-<<if $activeSlave.clitPiercing == 0>>
-	[[Pierce|Body Modification][$activeSlave.clitPiercing = 1,$cash -= $modCost]]
-<<elseif $activeSlave.clitPiercing == 1>>
-	[[Big piercing|Body Modification][$activeSlave.clitPiercing = 2,$cash -= $modCost,$degradation += 1]]
-<</if>>
-<<if $activeSlave.clitPiercing != 3>>
-	 | [[Smart piercing|Body Modification][$activeSlave.clitPiercing = 3,$activeSlave.clitSetting = "all",$cash -=$SPcost,$degradation += 1]] //Costs ¤$SPcost, unlocks options to mold sexuality//
-<</if>>
-<</if>>
-<<if $activeSlave.clitPiercing > 0>>
-	//[[Remove piercings|Body Modification][$activeSlave.clitPiercing = 0,$cash -= $modCost]]//
-<</if>>
-
-<<if ($activeSlave.vagina != -1)>>
-<br>
-<<if ($activeSlave.vaginaPiercing == 0)>>
-	$possessiveCap pussylips are unpierced.
-<<elseif ($activeSlave.vaginaPiercing == 1)>>
-	$pronounCap has a simple row of studs down $possessive labia.
-<<elseif ($activeSlave.vaginaPiercing == 2)>>
-	$pronounCap has a row of big rings down $possessive labia.
-<</if>>
-<<if $activeSlave.vaginaPiercing == 0>>
-	[["Pierce " + $possessive|Body Modification][$activeSlave.vaginaPiercing = 1,$cash -= $modCost]]
-<<elseif $activeSlave.vaginaPiercing == 1>>
-	[[Huge piercings|Body Modification][$activeSlave.vaginaPiercing = 2,$cash -= $modCost,$degradation += 1]]
-<</if>>
-<<if $activeSlave.vaginaPiercing > 0>>
-	//[[Remove piercings|Body Modification][$activeSlave.vaginaPiercing = 0,$cash -= $modCost]]//
-<</if>>
-<</if>>
-
+<<if $activeSlave.areolaePiercing == 1>>Her areolae each have a ring of stud piercings around the borders.<</if>>
 <<if ($activeSlave.dick > 0)>>
-<br>
-<<if ($activeSlave.dickPiercing == 0)>>
-	$possessiveCap shaft is unpierced.
-<<elseif ($activeSlave.dickPiercing == 1)>>
-	$pronounCap has a simple row of studs down $possessive cock.
-<<elseif ($activeSlave.dickPiercing == 2)>>
-	$pronounCap has a row of big rings down $possessive cock.
+	<<if ($activeSlave.dickPiercing == 1)>>There is a simple row of studs running down her cock.<</if>>
 <</if>>
-<<if ($activeSlave.balls != 0)>>
-<<if ($activeSlave.dickPiercing == 1)>>
-	$pronounCap has a couple of studs in $possessive ballsack.
-<<elseif ($activeSlave.dickPiercing == 2)>>
-	$pronounCap has a row of rings down the center of $possessive ballsack, all the way from the base of $possessive shaft = $possessive perineum.
+<<if ($activeSlave.anusPiercing == 1) && ($activeSlave.vagina < 0)>>
+	 Her taint has a simple piercing between the base of $possessive cock and $possessive asshole.
+<<elseif $activeSlave.anusPiercing == 1>>
+	 Her taint has a simple piercing between $possessive pussy and $possessive asshole.
 <</if>>
-<</if>>
-<<if $activeSlave.dickPiercing == 0>>
-	[[Pierce|Body Modification][$activeSlave.dickPiercing = 1,$cash -= $modCost]]
-<<elseif $activeSlave.dickPiercing == 1>>
-	[[Huge piercings|Body Modification][$activeSlave.dickPiercing = 2,$cash -= $modCost,$degradation += 1]]
-<</if>>
-<<if $activeSlave.dickPiercing > 0>>
-	//[[Remove piercings|Body Modification][$activeSlave.dickPiercing = 0,$cash -= $modCost]]//
+<<if $activeSlave.corsetPiercing == 1>>
+	Her back has a 'corset' piercing, with a column of rings down either side of it woven together with ribbons.
 <</if>>
 <</if>>
 
-<br>
-<<if $activeSlave.anusPiercing == 0>>
-	$possessiveCap perineum has not been pierced.
-<<elseif ($activeSlave.anusPiercing == 1) && ($activeSlave.vagina < 0)>>
-	$pronounCap has a simple piercing between the base of $possessive cock and $possessive asshole.
-<<elseif $activeSlave.anusPiercing == 1>>
-	$pronounCap has a simple piercing between $possessive pussy and $possessive asshole.
-<<elseif ($activeSlave.anusPiercing == 2) && ($activeSlave.vagina < 0)>>
-	$pronounCap has a big ring between the base of $possessive cock and $possessive asshole and studs in a ring around $possessive anus.
-<<elseif $activeSlave.anusPiercing == 2>>
-	$pronounCap has a big ring between $possessive pussy and $possessive asshole and studs in a ring around $possessive anus.
-<</if>>
-<<if $activeSlave.anusPiercing == 0>>
-	[[Pierce|Body Modification][$activeSlave.anusPiercing = 1,$cash -= $modCost]]
-<<elseif $activeSlave.anusPiercing == 1>>
-	[[Pierce rim|Body Modification][$activeSlave.anusPiercing = 2,$cash -= $modCost,$degradation += 1]]
-<</if>>
-<<if $activeSlave.anusPiercing > 0>>
-	//[[Remove piercings|Body Modification][$activeSlave.anusPiercing = 0,$cash -= $modCost]]//
+/* Heavy Piercings */
+<<if /* do we need a line break */
+($activeSlave.earPiercing == 2) ||  
+($activeSlave.nosePiercing == 2) ||  
+($activeSlave.eyebrowPiercing == 2) ||  
+($activeSlave.lipsPiercing == 2) ||  
+($activeSlave.tonguePiercing == 2) ||  
+($activeSlave.nipplesPiercing == 2) ||  
+($activeSlave.areolaePiercing == 2) ||  
+($activeSlave.corsetPiercing == 2) ||  
+($activeSlave.navelPiercing == 2) ||  
+($activeSlave.clitPiercing == 2) ||  
+($activeSlave.vaginaPiercing == 2) ||  
+($activeSlave.dickPiercing == 2) ||  
+($activeSlave.anusPiercing == 2)>>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+
+	Quite heavily pierced are her
+	<<if $activeSlave.eyebrowPiercing == 2>>eyebrows with multiple rings,<</if>>
+	<<if $activeSlave.earPiercing == 2>>ears, with multiple lobe piercings and a row of helix piercings,<</if>>
+	<<if $activeSlave.nosePiercing == 2>>nose, with nasal studs and a large septum ring,<</if>>
+	<<if $activeSlave.lipsPiercing == 2>>lips,<</if>>
+	<<if $activeSlave.tonguePiercing == 2>>tongue is heavily pierced,<</if>>
+	<<if $activeSlave.navelPiercing == 2>>navel is pierced with a ring, which has a short length of light chain dangling from it,<</if>>
+	<<if $activeSlave.nipplesPiercing == 2>>nipples, with several rings, studs, and a chain between them,<</if>>
+	<<if ($activeSlave.clitPiercing == 2) && ($activeSlave.vagina != -1)>>clit with a big ring in it,<</if>>
+	<<if ($activeSlave.clitPiercing == 2) && ($activeSlave.vagina == -1)>>dickhead a big ring in it,<</if>>
+	<<if ($activeSlave.vagina != -1) && ($activeSlave.vaginaPiercing == 2)>>labia has a row of big rings down it,<</if>>
+	<<if ($activeSlave.balls != 0) && ($activeSlave.dick > 0) &&($activeSlave.dickPiercing == 2)>>
+		ballsack with a row of rings down the center of it, all the way from the base of $possessive shaft = $possessive perineum,
+	<</if>>
+	<<if ($activeSlave.dickPiercing == 2 && ($activeSlave.dick > 0))>> entire cock with a row of big rings running down it,<</if>>
+	<<if ($activeSlave.anusPiercing == 2) && ($activeSlave.vagina < 0)>>
+		nethers, with a big ring between the base of $possessive cock and $possessive asshole and studs in a ring around $possessive anus,
+	<<elseif $activeSlave.anusPiercing == 2>>
+		nethers, with a big ring between $possessive pussy and $possessive asshole and studs in a ring around $possessive anus,
+	<</if>>
+	
+	<<if _piercingCount > 25>>
+		and the ammount of metal is starting to weigh her down.
+	<<else>>
+		clear reminders of the degredation of her slavery.
+	<</if>>
+	
+	<<if $activeSlave.corsetPiercing == 2>>
+		Her back has a 'corset' piercing, with a column of rings down either side of it woven together with chains.
+	<</if>>
+
 <</if>>
 
+<<if ($activeSlave.clitPiercing > 2)>>
+	<br>  She is equiped with a smart piercing in her
+	<<if $activeSlave.vagina != -1>>
+		clit.
+	<<elseif $activeSlave.vagina == -1>> 
+		frenulum.
+	<</if>>
+<</if>>
+
+
+/* Apply piercings */
+
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+Style:
+[[Light|Body Modification][$piercingLevel = 1]]
+| [[Heavy|Body Modification][$piercingLevel = 2]]
+| [[Smart|Body Modification][$piercingLevel = 3]]
+| [[Remove|Body Modification][$piercingLevel = 0]]
+
+
+<<if $piercingLevel == 1>>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+//Lightly// pierce her:
+
+<<link "Entire body">>
+	<<if $activeSlave.earPiercing != 1>><<set $activeSlave.earPiercing = 1>>			<<set $cash -= $modCost>><</if>>
+	<<if $activeSlave.nosePiercing != 1>><<set $activeSlave.nosePiercing = 1>>			<<set $cash -= $modCost>><</if>>
+	<<if $activeSlave.eyebrowPiercing != 1>><<set $activeSlave.eyebrowPiercing = 1>>	<<set $cash -= $modCost>><</if>>
+	<<if $activeSlave.lipsPiercing != 1>><<set $activeSlave.lipsPiercing = 1>>			<<set $cash -= $modCost>><</if>>
+	<<if $activeSlave.tonguePiercing != 1>><<set $activeSlave.tonguePiercing = 1>>		<<set $cash -= $modCost>><</if>>
+	<<if $activeSlave.nipplesPiercing != 1>><<set $activeSlave.nipplesPiercing = 1>>	<<set $cash -= $modCost>><</if>>
+	<<if $activeSlave.areolaePiercing != 1>><<set $activeSlave.areolaePiercing = 1>>	<<set $cash -= $modCost>><</if>>
+	<<if $activeSlave.corsetPiercing != 1>><<set $activeSlave.corsetPiercing = 1>>		<<set $cash -= $modCost>><</if>>
+	<<if $activeSlave.navelPiercing != 1>><<set $activeSlave.navelPiercing = 1>>		<<set $cash -= $modCost>><</if>>
+	<<if ($activeSlave.vagina != -1)  || ($activeSlave.dick != 0)>>
+		<<if $activeSlave.clitPiercing != 1>><<set $activeSlave.clitPiercing = 1>>		<<set$cash -= $modCost>><</if>>
+	<</if>>
+	<<if ($activeSlave.vagina != -1)>>
+		<<if $activeSlave.vaginaPiercing != 1>><<set $activeSlave.vaginaPiercing = 1>>	<<set$cash -= $modCost>><</if>>
+	<</if>>
+	<<if ($activeSlave.dick > 0)>>
+		<<if $activeSlave.dickPiercing != 1>><<set $activeSlave.dickPiercing = 1>>		<<set$cash -= $modCost>><</if>>
+	<</if>>	
+	<<if $activeSlave.anusPiercing != 1>><<set $activeSlave.anusPiercing = 1>>			<<set $cash -= $modCost>><</if>>
+	<<goto "Body Modification">>
+<</link>>
+
+<<if $activeSlave.earPiercing != 1>> 		| [[Ear|Body Modification][$activeSlave.earPiercing = 1,			$cash -= $modCost]]<</if>>
+<<if $activeSlave.nosePiercing != 1>> 		| [[Nose|Body Modification][$activeSlave.nosePiercing = 1,			$cash -= $modCost]]<</if>>
+<<if $activeSlave.eyebrowPiercing != 1>> 	| [[Eyebrow|Body Modification][$activeSlave.eyebrowPiercing = 1,	$cash -= $modCost]]<</if>>
+<<if $activeSlave.lipsPiercing != 1>> 		| [[Lips|Body Modification][$activeSlave.lipsPiercing = 1,			$cash -= $modCost]]<</if>>
+<<if $activeSlave.tonguePiercing != 1>> 	| [[Tongue|Body Modification][$activeSlave.tonguePiercing = 1,		$cash -= $modCost]]<</if>>
+<<if $activeSlave.nipplesPiercing != 1>> 	| [[Nipples|Body Modification][$activeSlave.nipplesPiercing = 1,	$cash -= $modCost]]<</if>>
+<<if $activeSlave.areolaePiercing != 1>> 	| [[Areolae|Body Modification][$activeSlave.areolaePiercing = 1,	$cash -= $modCost]]<</if>>
+<<if $activeSlave.corsetPiercing != 1>> 	| [[Corset|Body Modification][$activeSlave.corsetPiercing = 1,		$cash -= $modCost]]<</if>>
+<<if $activeSlave.navelPiercing != 1>> 		| [[Navel|Body Modification][$activeSlave.navelPiercing = 1,		$cash -= $modCost]]<</if>>
+<<if ($activeSlave.vagina != -1) || ($activeSlave.dick != 0)>>
+	<<if $activeSlave.vagina != -1>>
+		<<if $activeSlave.clitPiercing != 1>> 	| [[Clit|Body Modification][$activeSlave.clitPiercing = 1,		$cash -= $modCost]]<</if>>
+	<<else>>
+		<<if $activeSlave.clitPiercing != 1>> 	| [[Dickhead|Body Modification][$activeSlave.clitPiercing = 1,	$cash -= $modCost]]<</if>>
+	<</if>>
+<</if>>
+<<if ($activeSlave.vagina != -1)>>
+	<<if $activeSlave.vaginaPiercing != 1>> | [[Vagina|Body Modification][$activeSlave.vaginaPiercing = 1,		$cash -= $modCost]]<</if>>
+<</if>>
+<<if ($activeSlave.dick > 0)>>	
+	<<if $activeSlave.dickPiercing != 1>> 	| [[Dick|Body Modification][$activeSlave.dickPiercing = 1,			$cash -= $modCost]]<</if>>
+<</if>>
+<<if $activeSlave.anusPiercing != 1>> 		| [[Anus|Body Modification][$activeSlave.anusPiercing = 1,			$cash -= $modCost]]<</if>>
+<</if>>
+
+
+<<if $piercingLevel == 2>>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+''Heavily'' pierce her:
+
+<<link "Entire body">>
+	<<if $activeSlave.earPiercing != 2>><<set $activeSlave.earPiercing = 2>>			<<set $cash -= $modCost>><<set $degradation += 1>><</if>>
+	<<if $activeSlave.nosePiercing != 2>><<set $activeSlave.nosePiercing = 2>>			<<set $cash -= $modCost>><<set $degradation += 1>><</if>>
+	<<if $activeSlave.eyebrowPiercing != 2>><<set $activeSlave.eyebrowPiercing = 2>>	<<set $cash -= $modCost>><<set $degradation += 1>><</if>>
+	<<if $activeSlave.lipsPiercing != 2>><<set $activeSlave.lipsPiercing = 2>>			<<set $cash -= $modCost>><<set $degradation += 1>><</if>>
+	<<if $activeSlave.tonguePiercing != 2>><<set $activeSlave.tonguePiercing = 2>>		<<set $cash -= $modCost>><<set $degradation += 1>><</if>>
+	<<if $activeSlave.nipplesPiercing != 2>><<set $activeSlave.nipplesPiercing = 2>>	<<set $cash -= $modCost>><<set $degradation += 1>><</if>>
+	<<if $activeSlave.areolaePiercing != 2>><<set $activeSlave.areolaePiercing = 2>>	<<set $cash -= $modCost>><<set $degradation += 1>><</if>>
+	<<if $activeSlave.corsetPiercing != 2>><<set $activeSlave.corsetPiercing = 2>>		<<set $cash -= $modCost>><<set $degradation += 1>><</if>>
+	<<if $activeSlave.navelPiercing != 2>><<set $activeSlave.navelPiercing = 2>>		<<set $cash -= $modCost>><<set $degradation += 1>><</if>>
+	<<if ($activeSlave.vagina != -1) || ($activeSlave.dick != 0)>>
+		<<if $activeSlave.clitPiercing != 2>><<set $activeSlave.clitPiercing = 2>>		<<set $cash -= $modCost>><<set $degradation += 1>><</if>>
+	<</if>>
+	<<if ($activeSlave.vagina != -1)>>
+		<<if $activeSlave.vaginaPiercing != 2>><<set $activeSlave.vaginaPiercing = 2>>	<<set $cash -= $modCost>><<set $degradation += 1>><</if>>
+	<</if>>
+	<<if ($activeSlave.dick > 0)>>
+		<<if $activeSlave.dickPiercing != 2>><<set $activeSlave.dickPiercing = 2>>		<<set $cash -= $modCost>><<set $degradation += 1>><</if>>
+	<</if>>	
+	<<if $activeSlave.anusPiercing != 2>><<set $activeSlave.anusPiercing = 2>>			<<set $cash -= $modCost>><<set $degradation += 1>><</if>>
+	<<goto "Body Modification">>
+<</link>>
+
+<<if $activeSlave.earPiercing != 2>> 		| [[Ear|Body Modification][$activeSlave.earPiercing = 2,			$cash -= $modCost,$degradation += 1]]<</if>>
+<<if $activeSlave.nosePiercing != 2>> 		| [[Nose|Body Modification][$activeSlave.nosePiercing = 2,			$cash -= $modCost,$degradation += 1]]<</if>>
+<<if $activeSlave.eyebrowPiercing != 2>> 	| [[Eyebrow|Body Modification][$activeSlave.eyebrowPiercing = 2,	$cash -= $modCost,$degradation += 1]]<</if>>
+<<if $activeSlave.lipsPiercing != 2>> 		| [[Lips|Body Modification][$activeSlave.lipsPiercing = 2,			$cash -= $modCost,$degradation += 1]]<</if>>
+<<if $activeSlave.tonguePiercing != 2>> 	| [[Tongue|Body Modification][$activeSlave.tonguePiercing = 2,		$cash -= $modCost,$degradation += 1]]<</if>>
+<<if $activeSlave.nipplesPiercing != 2>> 	| [[Nipples|Body Modification][$activeSlave.nipplesPiercing = 2,	$cash -= $modCost,$degradation += 1]]<</if>>
+<<if $activeSlave.areolaePiercing != 2>> 	| [[Areolae|Body Modification][$activeSlave.areolaePiercing = 2,	$cash -= $modCost,$degradation += 1]]<</if>>
+<<if $activeSlave.corsetPiercing != 2>> 	| [[Corset|Body Modification][$activeSlave.corsetPiercing = 2,		$cash -= $modCost,$degradation += 1]]<</if>>
+<<if $activeSlave.navelPiercing != 2>> 		| [[Navel|Body Modification][$activeSlave.navelPiercing = 2,		$cash -= $modCost,$degradation += 1]]<</if>>
+<<if ($activeSlave.vagina != -1) || ($activeSlave.dick != 0)>>
+	<<if $activeSlave.vagina != -1>>
+		<<if $activeSlave.clitPiercing != 2>> | [[Clit|Body Modification][$activeSlave.clitPiercing = 2,		$cash -= $modCost,$degradation += 1]]<</if>>
+	<<else>>
+		<<if $activeSlave.clitPiercing != 2>> | [[Dickhead|Body Modification][$activeSlave.clitPiercing = 2,	$cash -= $modCost,$degradation += 1]]<</if>>
+	<</if>>
+<</if>>
+<<if ($activeSlave.vagina != -1)>>
+	<<if $activeSlave.vaginaPiercing != 2>> | [[Vagina|Body Modification][$activeSlave.vaginaPiercing = 2,		$cash -= $modCost,$degradation += 1]]<</if>>
+<</if>>
+<<if ($activeSlave.dick > 0)>>	
+	<<if $activeSlave.dickPiercing != 2>> 	| [[Dick|Body Modification][$activeSlave.dickPiercing = 2,			$cash -= $modCost,$degradation += 1]]<</if>>
+<</if>>
+<<if $activeSlave.anusPiercing != 2>> 		| [[Anus|Body Modification][$activeSlave.anusPiercing = 2,			$cash -= $modCost,$degradation += 1]]<</if>>
+<</if>>
+
+
+<<if $piercingLevel == 3>>
+<<if ($activeSlave.vagina != -1) || ($activeSlave.dick != 0)>>
+	<<if $activeSlave.clitPiercing != 3>>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;
+		Give her a [[smart piercing?|Body Modification][$activeSlave.clitPiercing = 3,$activeSlave.clitSetting = "all",$cash -=$SPcost,$degradation += 1]] //Costs ¤$SPcost, unlocks options to mold sexuality//
+	<<else>>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;
+		She already has a smart piercing!
+	<</if>>
+<</if>>
+<</if>>
+
+
+<<if $piercingLevel == 0>>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+Remove piercings from her:
+
+/* no dick/vagina checks in 'remove' so stealth piercings can be cleaned. Check only for piercings.  */
+<<link "Everywhere">>
+	<<if $activeSlave.earPiercing > 0>><<set $activeSlave.earPiercing = 0>>			<<set$cash -= $modCost>><</if>>
+	<<if $activeSlave.nosePiercing > 0>><<set $activeSlave.nosePiercing = 0>>		<<set$cash -= $modCost>><</if>>
+	<<if $activeSlave.eyebrowPiercing > 0>><<set $activeSlave.eyebrowPiercing = 0>>	<<set$cash -= $modCost>><</if>>
+	<<if $activeSlave.lipsPiercing > 0>><<set $activeSlave.lipsPiercing = 0>>		<<set$cash -= $modCost>><</if>>
+	<<if $activeSlave.tonguePiercing > 0>><<set $activeSlave.tonguePiercing = 0>>	<<set$cash -= $modCost>><</if>>
+	<<if $activeSlave.nipplesPiercing > 0>><<set $activeSlave.nipplesPiercing = 0>>	<<set$cash -= $modCost>><</if>>
+	<<if $activeSlave.areolaePiercing > 0>><<set $activeSlave.areolaePiercing = 0>>	<<set$cash -= $modCost>><</if>>
+	<<if $activeSlave.corsetPiercing > 0>><<set $activeSlave.corsetPiercing = 0>>	<<set$cash -= $modCost>><</if>>
+	<<if $activeSlave.navelPiercing > 0>><<set $activeSlave.navelPiercing = 0>>		<<set$cash -= $modCost>><</if>>
+	<<if $activeSlave.clitPiercing > 0>><<set $activeSlave.clitPiercing = 0>>		<<set$cash -= $modCost>><</if>>
+	<<if $activeSlave.vaginaPiercing > 0>><<set $activeSlave.vaginaPiercing = 0>>	<<set$cash -= $modCost>><</if>>
+	<<if $activeSlave.dickPiercing > 0>><<set $activeSlave.dickPiercing = 0>>		<<set$cash -= $modCost>><</if>>
+	<<if $activeSlave.anusPiercing > 0>><<set $activeSlave.anusPiercing = 0>>		<<set$cash -= $modCost>><</if>>
+	<<goto "Body Modification">>
+
+<</link>>
+
+<<if $activeSlave.earPiercing > 0>> 		| [[Ear|Body Modification][$activeSlave.earPiercing = 0,			$cash -= $modCost]]<</if>>
+<<if $activeSlave.nosePiercing > 0>> 		| [[Nose|Body Modification][$activeSlave.nosePiercing = 0,			$cash -= $modCost]]<</if>>
+<<if $activeSlave.eyebrowPiercing > 0>> 	| [[Eyebrow|Body Modification][$activeSlave.eyebrowPiercing = 0,	$cash -= $modCost]]<</if>>
+<<if $activeSlave.lipsPiercing > 0>> 		| [[Lips|Body Modification][$activeSlave.lipsPiercing = 0,			$cash -= $modCost]]<</if>>
+<<if $activeSlave.tonguePiercing > 0>> 		| [[Tongue|Body Modification][$activeSlave.tonguePiercing = 0,		$cash -= $modCost]]<</if>>
+<<if $activeSlave.nipplesPiercing > 0>> 	| [[Nipples|Body Modification][$activeSlave.nipplesPiercing = 0,	$cash -= $modCost]]<</if>>
+<<if $activeSlave.areolaePiercing > 0>> 	| [[Areolae|Body Modification][$activeSlave.areolaePiercing = 0,	$cash -= $modCost]]<</if>>
+<<if $activeSlave.corsetPiercing > 0>> 		| [[Corset|Body Modification][$activeSlave.corsetPiercing = 0,		$cash -= $modCost]]<</if>>
+<<if $activeSlave.navelPiercing > 0>> 		| [[Navel|Body Modification][$activeSlave.navelPiercing = 0,		$cash -= $modCost]]<</if>>
+<<if $activeSlave.vagina != -1>>
+	<<if $activeSlave.clitPiercing > 0>> 	| [[Clit|Body Modification][$activeSlave.clitPiercing = 0,			$cash -= $modCost]]<</if>>
+<<else>>
+	<<if $activeSlave.clitPiercing > 0>> 	| [[Dickhead|Body Modification][$activeSlave.clitPiercing = 0,		$cash -= $modCost]]<</if>>
+<</if>>
+<<if $activeSlave.vaginaPiercing > 0>> 		| [[Vagina|Body Modification][$activeSlave.vaginaPiercing = 0,		$cash -= $modCost]]<</if>>
+<<if $activeSlave.dickPiercing > 0>> 		| [[Dick|Body Modification][$activeSlave.dickPiercing = 0,			$cash -= $modCost]]<</if>>
+<<if $activeSlave.anusPiercing > 0>> 		| [[Anus|Body Modification][$activeSlave.anusPiercing = 0,			$cash -= $modCost]]<</if>>
+<</if>>
+
+<br><br>
+
+
+
+/* TATTOOS */
 
 Tattoos:  
 	<<set _hasTat = 0>>
