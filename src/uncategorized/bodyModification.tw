@@ -268,175 +268,402 @@ $activeSlave.slaveName is lying strapped down on the table in your body modifica
 	//[[Remove piercings|Body Modification][$activeSlave.anusPiercing = 0,$cash -= $modCost]]//
 <</if>>
 
-<br><br>
 
-<<if $activeSlave.brand != 0>>
-	$pronounCap has $activeSlave.brand branded into the flesh of $possessive $activeSlave.brandLocation. | [[Remove Brand|Body Modification][$brandApplied = 0, $activeSlave.brand = 0,$cash -= $modCost,$degradation -= 10]]
+Tattoos:  
+	<<set _hasTat = 0>>
+She has 
+<<if 
+($activeSlave.lipsTat	 == 	"permanent makeup")
+>>
+	slutty makeup permanently tattooed on her face
+<</if>>
+
+<<if 
+($activeSlave.shouldersTat	 == 	"tribal patterns")	 || 
+($activeSlave.lipsTat	 == 	"tribal patterns")	 || 
+($activeSlave.boobsTat	 == 	"tribal patterns")	 || 
+($activeSlave.armsTat	 == 	"tribal patterns")	 || 
+($activeSlave.backTat	 == 	"tribal patterns")	 || 
+($activeSlave.stampTat	 == 	"tribal patterns")	 || 
+($activeSlave.buttTat	 == 	"tribal patterns")	 || 
+($activeSlave.vaginaTat	 == 	"tribal patterns")	 || 
+($activeSlave.dickTat	 == 	"tribal patterns")	 || 
+($activeSlave.anusTat	 == 	"tribal patterns")	 || 
+($activeSlave.legsTat	 == 	"tribal patterns")
+>>
+	tribal patterns traced on her
+	<<set _hasTat = 1>>
+	<<if 	($activeSlave.shouldersTat	 == 	"tribal patterns")	>>	shoulders,	<</if>>
+	<<if 	($activeSlave.lipsTat	 == 	"tribal patterns")	>>	face,	<</if>>
+	<<if 	($activeSlave.boobsTat	 == 	"tribal patterns")	>>	boobs,	<</if>>
+	<<if 	($activeSlave.armsTat	 == 	"tribal patterns")	>>	arms,	<</if>>
+	<<if 	($activeSlave.backTat	 == 	"tribal patterns")	>>	upper back,	<</if>>
+	<<if 	($activeSlave.stampTat	 == 	"tribal patterns")	>>	lower back,	<</if>>
+	<<if 	($activeSlave.buttTat	 == 	"tribal patterns")	>>	buttocks,	<</if>>
+	<<if 	($activeSlave.vaginaTat	 == 	"tribal patterns")	>>	vagina,	<</if>>
+	<<if 	($activeSlave.dickTat	 == 	"tribal patterns")	>>	dick,	<</if>>
+	<<if 	($activeSlave.anusTat	 == 	"tribal patterns")	>>	anus,	<</if>>
+	<<if 	($activeSlave.legsTat	 == 	"tribal patterns")	>>	legs,	<</if>>
+<</if>>
+
+<<if 
+($activeSlave.shouldersTat	 == 	"flowers")	 || 
+($activeSlave.lipsTat	 == 	"flowers")	 || 
+($activeSlave.boobsTat	 == 	"flowers")	 || 
+($activeSlave.armsTat	 == 	"flowers")	 || 
+($activeSlave.backTat	 == 	"flowers")	 || 
+($activeSlave.stampTat	 == 	"flowers")	 || 
+($activeSlave.buttTat	 == 	"flowers")	 || 
+($activeSlave.vaginaTat	 == 	"flowers")	 || 
+($activeSlave.dickTat	 == 	"flowers")	 || 
+($activeSlave.anusTat	 == 	"flowers")	 || 
+($activeSlave.legsTat	 == 	"flowers")
+>>
+	floral patterns traced on her
+	<<set _hasTat = 1>>
+	<<if 	($activeSlave.shouldersTat	 == 	"flowers")	>>	shoulders,	<</if>>
+	<<if 	($activeSlave.lipsTat	 == 	"flowers")	>>	face,	<</if>>
+	<<if 	($activeSlave.boobsTat	 == 	"flowers")	>>	boobs,	<</if>>
+	<<if 	($activeSlave.armsTat	 == 	"flowers")	>>	arms,	<</if>>
+	<<if 	($activeSlave.backTat	 == 	"flowers")	>>	upper back,	<</if>>
+	<<if 	($activeSlave.stampTat	 == 	"flowers")	>>	lower back,	<</if>>
+	<<if 	($activeSlave.buttTat	 == 	"flowers")	>>	buttocks,	<</if>>
+	<<if 	($activeSlave.vaginaTat	 == 	"flowers")	>>	vagina,	<</if>>
+	<<if 	($activeSlave.dickTat	 == 	"flowers")	>>	dick,	<</if>>
+	<<if 	($activeSlave.anusTat	 == 	"flowers")	>>	anus,	<</if>>
+	<<if 	($activeSlave.legsTat	 == 	"flowers")	>>	legs,	<</if>>
+<</if>>
+
+<<if
+($activeSlave.shouldersTat	 == 	"counting")	 || 
+($activeSlave.lipsTat	 == 	"counting")	 || 
+($activeSlave.boobsTat	 == 	"counting")	 || 
+($activeSlave.armsTat	 == 	"counting")	 || 
+($activeSlave.backTat	 == 	"counting")	 || 
+($activeSlave.stampTat	 == 	"counting")	 || 
+($activeSlave.buttTat	 == 	"counting")	 || 
+($activeSlave.vaginaTat	 == 	"counting")	 || 
+($activeSlave.dickTat	 == 	"counting")	 || 
+($activeSlave.anusTat	 == 	"counting")	 || 
+($activeSlave.legsTat	 == 	"counting")
+>>
+	a tally of her sexual encounters inked on her
+	<<set _hasTat = 1>>
+	<<if 	($activeSlave.shouldersTat	 == 	"counting")	>>	shoulders,	<</if>>
+	<<if 	($activeSlave.lipsTat	 == 	"counting")	>>	face,	<</if>>
+	<<if 	($activeSlave.boobsTat	 == 	"counting")	>>	boobs,	<</if>>
+	<<if 	($activeSlave.armsTat	 == 	"counting")	>>	arms,	<</if>>
+	<<if 	($activeSlave.backTat	 == 	"counting")	>>	upper back,	<</if>>
+	<<if 	($activeSlave.stampTat	 == 	"counting")	>>	lower back,	<</if>>
+	<<if 	($activeSlave.buttTat	 == 	"counting")	>>	buttocks,	<</if>>
+	<<if 	($activeSlave.vaginaTat	 == 	"counting")	>>	vagina,	<</if>>
+	<<if 	($activeSlave.dickTat	 == 	"counting")	>>	dick,	<</if>>
+	<<if 	($activeSlave.anusTat	 == 	"counting")	>>	anus,	<</if>>
+	<<if 	($activeSlave.legsTat	 == 	"counting")	>>	legs,	<</if>>
+<</if>>
+
+<<if
+($activeSlave.shouldersTat	 == 	"advertisements")	 || 
+($activeSlave.lipsTat	 == 	"advertisements")	 || 
+($activeSlave.boobsTat	 == 	"advertisements")	 || 
+($activeSlave.armsTat	 == 	"advertisements")	 || 
+($activeSlave.backTat	 == 	"advertisements")	 || 
+($activeSlave.stampTat	 == 	"advertisements")	 || 
+($activeSlave.buttTat	 == 	"advertisements")	 || 
+($activeSlave.vaginaTat	 == 	"advertisements")	 || 
+($activeSlave.dickTat	 == 	"advertisements")	 || 
+($activeSlave.anusTat	 == 	"advertisements")	 || 
+($activeSlave.legsTat	 == 	"advertisements")
+>>
+	lewd advertisements traced on her
+	<<set _hasTat = 1>>
+	<<if 	($activeSlave.shouldersTat	 == 	"advertisements")	>>	shoulders,	<</if>>
+	<<if 	($activeSlave.lipsTat	 == 	"advertisements")	>>	face,	<</if>>
+	<<if 	($activeSlave.boobsTat	 == 	"advertisements")	>>	boobs,	<</if>>
+	<<if 	($activeSlave.armsTat	 == 	"advertisements")	>>	arms,	<</if>>
+	<<if 	($activeSlave.backTat	 == 	"advertisements")	>>	upper back,	<</if>>
+	<<if 	($activeSlave.stampTat	 == 	"advertisements")	>>	lower back,	<</if>>
+	<<if 	($activeSlave.buttTat	 == 	"advertisements")	>>	buttocks,	<</if>>
+	<<if 	($activeSlave.vaginaTat	 == 	"advertisements")	>>	vagina,	<</if>>
+	<<if 	($activeSlave.dickTat	 == 	"advertisements")	>>	dick,	<</if>>
+	<<if 	($activeSlave.anusTat	 == 	"advertisements")	>>	anus,	<</if>>
+	<<if 	($activeSlave.legsTat	 == 	"advertisements")	>>	legs,	<</if>>
+<</if>>
+
+<<if
+($activeSlave.shouldersTat	 == 	"rude words")	 || 		
+($activeSlave.lipsTat	 == 	"rude words")	 || 		
+($activeSlave.boobsTat	 == 	"rude words")	 || 		
+($activeSlave.armsTat	 == 	"rude words")	 || 		
+($activeSlave.backTat	 == 	"rude words")	 || 		
+($activeSlave.stampTat	 == 	"rude words")	 || 		
+($activeSlave.buttTat	 == 	"rude words")	 || 		
+($activeSlave.vaginaTat	 == 	"rude words")	 || 		
+($activeSlave.dickTat	 == 	"rude words")	 || 		
+($activeSlave.anusTat	 == 	"rude words")	 || 		
+($activeSlave.legsTat	 == 	"rude words")
+>>				
+	rude words traced on her
+	<<set _hasTat = 1>>	
+	<<if 	($activeSlave.shouldersTat	 == 	"rude words")	>>	shoulders,	<</if>>
+	<<if 	($activeSlave.lipsTat	 == 	"rude words")	>>	face,	<</if>>
+	<<if 	($activeSlave.boobsTat	 == 	"rude words")	>>	boobs,	<</if>>
+	<<if 	($activeSlave.armsTat	 == 	"rude words")	>>	arms,	<</if>>
+	<<if 	($activeSlave.backTat	 == 	"rude words")	>>	upper back,	<</if>>
+	<<if 	($activeSlave.stampTat	 == 	"rude words")	>>	lower back,	<</if>>
+	<<if 	($activeSlave.buttTat	 == 	"rude words")	>>	buttocks,	<</if>>
+	<<if 	($activeSlave.vaginaTat	 == 	"rude words")	>>	vagina,	<</if>>
+	<<if 	($activeSlave.dickTat	 == 	"rude words")	>>	dick,	<</if>>
+	<<if 	($activeSlave.anusTat	 == 	"rude words")	>>	anus,	<</if>>
+	<<if 	($activeSlave.legsTat	 == 	"rude words")	>>	legs,	<</if>>
+<</if>>
+
+<<if
+($activeSlave.shouldersTat	 == 	"degradation")	 || 		
+($activeSlave.lipsTat	 == 	"degradation")	 || 		
+($activeSlave.boobsTat	 == 	"degradation")	 || 		
+($activeSlave.armsTat	 == 	"degradation")	 || 		
+($activeSlave.backTat	 == 	"degradation")	 || 		
+($activeSlave.stampTat	 == 	"degradation")	 || 		
+($activeSlave.buttTat	 == 	"degradation")	 || 		
+($activeSlave.vaginaTat	 == 	"degradation")	 || 		
+($activeSlave.dickTat	 == 	"degradation")	 || 		
+($activeSlave.anusTat	 == 	"degradation")	 || 		
+($activeSlave.legsTat	 == 	"degradation")
+>>
+	degradating pictures traced on her
+	<<set _hasTat = 1>>
+	<<if 	($activeSlave.shouldersTat	 == 	"degradation")	>>	shoulders,	<</if>>
+	<<if 	($activeSlave.lipsTat	 == 	"degradation")	>>	face,	<</if>>
+	<<if 	($activeSlave.boobsTat	 == 	"degradation")	>>	boobs,	<</if>>
+	<<if 	($activeSlave.armsTat	 == 	"degradation")	>>	arms,	<</if>>
+	<<if 	($activeSlave.backTat	 == 	"degradation")	>>	upper back,	<</if>>
+	<<if 	($activeSlave.stampTat	 == 	"degradation")	>>	lower back,	<</if>>
+	<<if 	($activeSlave.buttTat	 == 	"degradation")	>>	buttocks,	<</if>>
+	<<if 	($activeSlave.vaginaTat	 == 	"degradation")	>>	vagina,	<</if>>
+	<<if 	($activeSlave.dickTat	 == 	"degradation")	>>	dick,	<</if>>
+	<<if 	($activeSlave.anusTat	 == 	"degradation")	>>	anus,	<</if>>
+	<<if 	($activeSlave.legsTat	 == 	"degradation")	>>	legs,	<</if>>
+<</if>>
+
+
+<<if
+($activeSlave.shouldersTat	 == 	"asian art")	 || 		
+($activeSlave.lipsTat	 == 	"asian art")	 || 		
+($activeSlave.boobsTat	 == 	"asian art")	 || 		
+($activeSlave.armsTat	 == 	"asian art")	 || 		
+($activeSlave.backTat	 == 	"asian art")	 || 		
+($activeSlave.stampTat	 == 	"asian art")	 || 		
+($activeSlave.buttTat	 == 	"asian art")	 || 		
+($activeSlave.vaginaTat	 == 	"asian art")	 || 		
+($activeSlave.dickTat	 == 	"asian art")	 || 		
+($activeSlave.anusTat	 == 	"asian art")	 || 		
+($activeSlave.legsTat	 == 	"asian art")
+>>					
+	asian art traced on her
+	<<set _hasTat = 1>>
+	<<if 	($activeSlave.shouldersTat	 == 	"asian art")	>>	shoulders,	<</if>>
+	<<if 	($activeSlave.lipsTat	 == 	"asian art")	>>	face,	<</if>>
+	<<if 	($activeSlave.boobsTat	 == 	"asian art")	>>	boobs,	<</if>>
+	<<if 	($activeSlave.armsTat	 == 	"asian art")	>>	arms,	<</if>>
+	<<if 	($activeSlave.backTat	 == 	"asian art")	>>	upper back,	<</if>>
+	<<if 	($activeSlave.stampTat	 == 	"asian art")	>>	lower back,	<</if>>
+	<<if 	($activeSlave.buttTat	 == 	"asian art")	>>	buttocks,	<</if>>
+	<<if 	($activeSlave.vaginaTat	 == 	"asian art")	>>	vagina,	<</if>>
+	<<if 	($activeSlave.dickTat	 == 	"asian art")	>>	dick,	<</if>>
+	<<if 	($activeSlave.anusTat	 == 	"asian art")	>>	anus,	<</if>>
+	<<if 	($activeSlave.legsTat	 == 	"asian art")	>>	legs,	<</if>>
+<</if>>
+
+<<if
+($activeSlave.shouldersTat	 == 	"scenes")	 || 		
+($activeSlave.lipsTat	 == 	"scenes")	 || 		
+($activeSlave.boobsTat	 == 	"scenes")	 || 		
+($activeSlave.armsTat	 == 	"scenes")	 || 		
+($activeSlave.backTat	 == 	"scenes")	 || 		
+($activeSlave.stampTat	 == 	"scenes")	 || 		
+($activeSlave.buttTat	 == 	"scenes")	 || 		
+($activeSlave.vaginaTat	 == 	"scenes")	 || 		
+($activeSlave.dickTat	 == 	"scenes")	 || 		
+($activeSlave.anusTat	 == 	"scenes")	 || 		
+($activeSlave.legsTat	 == 	"scenes")
+>>					
+	vulgar scenes traced on her
+	<<set _hasTat = 1>>	
+	<<if 	($activeSlave.shouldersTat	 == 	"scenes")	>>	shoulders,	<</if>>
+	<<if 	($activeSlave.lipsTat	 == 	"scenes")	>>	face,	<</if>>
+	<<if 	($activeSlave.boobsTat	 == 	"scenes")	>>	boobs,	<</if>>
+	<<if 	($activeSlave.armsTat	 == 	"scenes")	>>	arms,	<</if>>
+	<<if 	($activeSlave.backTat	 == 	"scenes")	>>	upper back,	<</if>>
+	<<if 	($activeSlave.stampTat	 == 	"scenes")	>>	lower back,	<</if>>
+	<<if 	($activeSlave.buttTat	 == 	"scenes")	>>	buttocks,	<</if>>
+	<<if 	($activeSlave.vaginaTat	 == 	"scenes")	>>	vagina,	<</if>>
+	<<if 	($activeSlave.dickTat	 == 	"scenes")	>>	dick,	<</if>>
+	<<if 	($activeSlave.anusTat	 == 	"scenes")	>>	anus,	<</if>>
+	<<if 	($activeSlave.legsTat	 == 	"scenes")	>>	legs,	<</if>>
+<</if>>
+<<if
+($activeSlave.shouldersTat	 == 	"bovine")	 || 		
+($activeSlave.lipsTat	 == 	"bovine")	 || 		
+($activeSlave.boobsTat	 == 	"bovine")	 || 		
+($activeSlave.armsTat	 == 	"bovine")	 || 		
+($activeSlave.backTat	 == 	"bovine")	 || 		
+($activeSlave.stampTat	 == 	"bovine")	 || 		
+($activeSlave.buttTat	 == 	"bovine")	 || 		
+($activeSlave.vaginaTat	 == 	"bovine")	 || 		
+($activeSlave.dickTat	 == 	"bovine")	 || 		
+($activeSlave.anusTat	 == 	"bovine")	 || 		
+($activeSlave.legsTat	 == 	"bovine")
+>>					
+	the colorings of a cow on her
+	<<set _hasTat = 1>>	
+	<<if 	($activeSlave.shouldersTat	 == 	"bovine")	>>	shoulders,	<</if>>
+	<<if 	($activeSlave.lipsTat	 == 	"bovine")	>>	face,	<</if>>
+	<<if 	($activeSlave.boobsTat	 == 	"bovine")	>>	boobs,	<</if>>
+	<<if 	($activeSlave.armsTat	 == 	"bovine")	>>	arms,	<</if>>
+	<<if 	($activeSlave.backTat	 == 	"bovine")	>>	upper back,	<</if>>
+	<<if 	($activeSlave.stampTat	 == 	"bovine")	>>	lower back,	<</if>>
+	<<if 	($activeSlave.buttTat	 == 	"bovine")	>>	buttocks,	<</if>>
+	<<if 	($activeSlave.vaginaTat	 == 	"bovine")	>>	vagina,	<</if>>
+	<<if 	($activeSlave.dickTat	 == 	"bovine")	>>	dick,	<</if>>
+	<<if 	($activeSlave.anusTat	 == 	"bovine")	>>	anus,	<</if>>
+	<<if 	($activeSlave.legsTat	 == 	"bovine")	>>	legs,	<</if>>
+<</if>>
+
+<<if $activeSlave.anusTat == 0>>
+	a brown anus which you can
+	[[bleach|Body Modification][$activeSlave.anusTat = "bleached",$cash -= $modCost]],
+<<elseif $activeSlave.anusTat == "bleached">>
+	an anus that is bleached,
+<</if>>
+
+<<if _hasTat == 0>>
+	no tattoos at all, and is a blank canvass for your pleasure.
+<<elseif $activeSlave.customTat != "">>
+	only her custom tattoo $activeSlave.customTat.
 <<else>>
-	//Branding will slightly reduce $possessive beauty but may slowly increase your reputation.//
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	[[Brand her|Body Modification][$brandApplied = 1,$activeSlave.brand = $brandDesign,$activeSlave.brandLocation = $brandTarget,$cash -= $modCost,$degradation += 10]] with $brandDesign on the $brandTarget.
+	and all the time in the world.
 <</if>>
 
-<br><br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+Choose a tattoo:
+[[Tribal patterns|Body Modification][$tattooChoice = "tribal patterns"]]
+ | [[Flowers|Body Modification][$tattooChoice = "flowers"]]
+ | [[Counting|Body Modification][$tattooChoice = "counting"]]
+ | [[Advertisements|Body Modification][$tattooChoice = "advertisements"]]
+ | [[Rude words|Body Modification][$tattooChoice = "rude words"]]
+ | [[Degradation|Body Modification][$tattooChoice = "degradation"]]
+ <<if $tattooLocation != "anus">>
+	 | [[Asian art|Body Modification][$tattooChoice = "asian art"]] 
+<</if>>
+ <<if $tattooLocation != "anus" || $tattooLocation != "dick">>	 
+	 | [[Scenes|Body Modification][$tattooChoice = "scenes"]]
+ <</if>>
+ <<if $tattooLocation == "lips">>
+	| [[Permanent makeup|Body Modification][$tattooChoice = "permanent makeup"]]
+ <</if>>
+ <<if _hasTat == 1>>
+ | //[[Remove a tattoo|Body Modification][$tattooChoice = 0]]//
+ <</if>>
 
-Your preferred location for brands is the ''$brandTarget.''
-
 <br>&nbsp;&nbsp;&nbsp;&nbsp;
-Ears:
-[[Left|Body Modification][$brandTarget = "left ear"]]
-| [[Right|Body Modification][$brandTarget = "right ear"]]
-| [[Both|Body Modification][$brandTarget = "ears"]]
-<br>&nbsp;&nbsp;&nbsp;&nbsp;
-Cheeks:
-[[Left|Body Modification][$brandTarget = "left cheek"]]
-| [[Right|Body Modification][$brandTarget = "right cheek"]]
-| [[Both|Body Modification][$brandTarget = "cheeks"]]
-<br>&nbsp;&nbsp;&nbsp;&nbsp;
-Shoulders:
-[[Left|Body Modification][$brandTarget = "left shoulder"]]
-| [[Right|Body Modification][$brandTarget = "right shoulder"]]
-| [[Both|Body Modification][$brandTarget = "shoulders"]]
-<br>&nbsp;&nbsp;&nbsp;&nbsp;
-Breasts:
-[[Left|Body Modification][$brandTarget = "left breast"]]
-| [[Right|Body Modification][$brandTarget = "right breast"]]
-| [[Both|Body Modification][$brandTarget = "breasts"]]
-<br>&nbsp;&nbsp;&nbsp;&nbsp;
-
-<<if $activeSlave.amp == 0>>
-	Arm, upper:
-	[[Left|Body Modification][$brandTarget = "left upper arm"]]
-	| [[Right|Body Modification][$brandTarget = "right upper arm"]]
-	| [[Both|Body Modification][$brandTarget = "upper arms"]]
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	Arm, lower:
-	[[Left|Body Modification][$brandTarget = "left lower arm"]]
-	| [[Right|Body Modification][$brandTarget = "right lower arm"]]
-	| [[Both|Body Modification][$brandTarget = "lower arms"]]
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	Wrist:
-	[[Left|Body Modification][$brandTarget = "left wrist"]]
-	| [[Right|Body Modification][$brandTarget = "right wrist"]]
-	| [[Both|Body Modification][$brandTarget = "wrists"]]
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	Hand:
-	[[Left|Body Modification][$brandTarget = "left hand"]]
-	| [[Right|Body Modification][$brandTarget = "right hand"]]
-	| [[Both|Body Modification][$brandTarget = "hands"]]
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+Choose a location for it:
+[[Shoulders|Body Modification][$tattooLocation = "shoulders"]]
+| [[Facial|Body Modification][$tattooLocation = "lips"]]
+ | [[Breasts|Body Modification][$tattooLocation = "boobs"]]
+ <<if $activeSlave.amp != 1>>
+	| [[Arms|Body Modification][$tattooLocation = "arms"]]
+<</if>>
+ | [[Upper back|Body Modification][$tattooLocation = "back"]]
+ | [[Lower back|Body Modification][$tattooLocation = "stamp"]]
+ | [[Buttocks|Body Modification][$tattooLocation = "butt"]]
+ | [[Vagina|Body Modification][$tattooLocation = "vagina"]]
+ | [[Dick|Body Modification][$tattooLocation = "dick"]]
+ | [[Anus|Body Modification][$tattooLocation = "anus"]]
+ <<if $activeSlave.amp != 1>>
+	| [[Legs|Body Modification][$tattooLocation = "legs"]]
 <</if>>
 
-
-Buttocks:
-[[Left|Body Modification][$brandTarget = "left buttock"]]
-| [[Right|Body Modification][$brandTarget = "right buttock"]]
-| [[Both|Body Modification][$brandTarget = "buttocks"]]
 <br>&nbsp;&nbsp;&nbsp;&nbsp;
-
-<<if $activeSlave.amp == 0>>
-	Thigh: 
-	[[Left|Body Modification][$brandTarget = "left thigh"]]
-	| [[Right|Body Modification][$brandTarget = "right thigh"]]
-	| [[Both|Body Modification][$brandTarget = "thighs"]]
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	Calf: 
-	[[Left|Body Modification][$brandTarget = "left calf"]]
-	| [[Right|Body Modification][$brandTarget = "right calf"]]
-	| [[Both|Body Modification][$brandTarget = "calves"]]
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	Ankle: 
-	[[Left|Body Modification][$brandTarget = "left ankle"]]
-	| [[Right|Body Modification][$brandTarget = "right ankle"]]
-	| [[Both|Body Modification][$brandTarget = "ankles"]]
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	Feet:
-	[[Left|Body Modification][$brandTarget = "left foot"]]
-	| [[Right|Body Modification][$brandTarget = "right foot"]]
-	| [[Both|Body Modification][$brandTarget = "feet"]]
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+<<if $tattooChoice == 0>> 
+	<<if $tattooLocation == "shoulders">>
+		[[Purify her shoulders|Body Modification][$activeSlave.shouldersTat = $tattooChoice,$cash -= $modCost]]
+	<<elseif $tattooLocation == "lips">>
+		[[Purify her face|Body Modification][$activeSlave.lipsTat = $tattooChoice,$cash -= $modCost]]
+	<<elseif $tattooLocation == "boobs">>
+		[[Purify her boobs|Body Modification][$activeSlave.boobsTat = $tattooChoice,$cash -= $modCost]]
+	<<elseif $tattooLocation == "arms">>
+		[[Purify her arms|Body Modification][$activeSlave.armsTat = $tattooChoice,$cash -= $modCost]]
+	<<elseif $tattooLocation == "back">>
+		[[Purify her upper back|Body Modification][$activeSlave.backTat = $tattooChoice,$cash -= $modCost]]
+	<<elseif $tattooLocation == "stamp">>
+		[[Purify her lower back|Body Modification][$activeSlave.stampTat = $tattooChoice,$cash -= $modCost]]
+	<<elseif $tattooLocation == "butt">>
+		[[Purify her buttock|Body Modification][$activeSlave.buttTat = $tattooChoice,$cash -= $modCost]]
+	<<elseif $tattooLocation == "vagina">>
+		[[Purify her vagina|Body Modification][$activeSlave.vaginaTat = $tattooChoice,$cash -= $modCost]]
+	<<elseif $tattooLocation == "dick">>
+		[[Purify her dick|Body Modification][$activeSlave.dickTat = $tattooChoice,$cash -= $modCost]]
+	<<elseif $tattooLocation == "anus">>
+		[[Purify her anus|Body Modification][$activeSlave.anusTat = $tattooChoice,$cash -= $modCost]]
+	<<elseif $tattooLocation == "legs">>
+		[[Purify her legs|Body Modification][$activeSlave.legsTat = $tattooChoice,$cash -= $modCost]]
+	<<else>>
+		You can't purify her on that spot.
+	<</if>>
+<<else>>
+	<<if $tattooLocation == "shoulders"  && $tattooChoice != "permanent makeup">>
+		[[Ink her shoulders|Body Modification][$activeSlave.shouldersTat = $tattooChoice,$cash -= $modCost]]	with $tattooChoice now?
+	<<elseif $tattooLocation == "lips">>
+		[[Ink her face|Body Modification][$activeSlave.lipsTat = $tattooChoice,$cash -= $modCost]]	with $tattooChoice now?
+	<<elseif $tattooLocation == "boobs"  && $tattooChoice != "permanent makeup">>
+		[[Ink her boobs|Body Modification][$activeSlave.boobsTat = $tattooChoice,$cash -= $modCost]]	with $tattooChoice now?
+	<<elseif $tattooLocation == "arms"  && $tattooChoice != "permanent makeup">>
+		[[Ink her arms|Body Modification][$activeSlave.armsTat = $tattooChoice,$cash -= $modCost]]	with $tattooChoice now?
+	<<elseif $tattooLocation == "back"  && $tattooChoice != "permanent makeup">>
+		[[Ink her upper back|Body Modification][$activeSlave.backTat = $tattooChoice,$cash -= $modCost]]	with $tattooChoice now?
+	<<elseif $tattooLocation == "stamp"  && $tattooChoice != "permanent makeup">>
+		[[Ink her lower back|Body Modification][$activeSlave.stampTat = $tattooChoice,$cash -= $modCost]]	with $tattooChoice now?
+	<<elseif $tattooLocation == "butt"  && $tattooChoice != "permanent makeup">>
+		[[Ink her buttock|Body Modification][$activeSlave.buttTat = $tattooChoice,$cash -= $modCost]]	with $tattooChoice now?
+	<<elseif $tattooLocation == "vagina"  && $tattooChoice != "permanent makeup">>
+		[[Ink her vagina|Body Modification][$activeSlave.vaginaTat = $tattooChoice,$cash -= $modCost]]	with $tattooChoice now?
+	<<elseif $tattooLocation == "dick"  && ($tattooChoice != "permanent makeup")>>
+		<<if $tattooChoice == "scenes">>
+			Her dick can't cause a scene.
+		<<else>>
+			[[Ink her dick|Body Modification][$activeSlave.dickTat = $tattooChoice,$cash -= $modCost]]	with $tattooChoice now?
+		<</if>>
+	<<elseif $tattooLocation == "anus" &&  $tattooChoice == "permanent makeup">>
+		<<if> ($tattooChoice == "asian art") || ($tattooChoice == "scenes")>>
+			Her anus is too small to ink that.
+		<<else>>
+			[[Ink her anus|Body Modification][$activeSlave.anusTat = $tattooChoice,$cash -= $modCost]]	with $tattooChoice now?
+		<</if>>
+	<<elseif $tattooLocation == "legs"  && $tattooChoice != "permanent makeup">>
+		[[Ink her legs|Body Modification][$activeSlave.legsTat = $tattooChoice,$cash -= $modCost]]	with $tattooChoice now?
+	<<else>>
+		You can't put $tattooChoice on her in that spot.
+	<</if>>
 <</if>>
 
-Other:
-[[Neck|Body Modification][$brandTarget = "neck"]]
-| [[Chest|Body Modification][$brandTarget = "chest"]]
-| [[Belly|Body Modification][$brandTarget = "belly"]]
-| [[Pubic Mound|Body Modification][$brandTarget = "pubic mound"]]
-| [[Back|Body Modification][$brandTarget = "back"]]
-
-
-/* Branding expansion contributed by Anon1888 */
-
-<br>
-
-Your brand design is ''$brandDesign.''
-
 <br>&nbsp;&nbsp;&nbsp;&nbsp;
-[[Your slaving emblem|Body Modification][$brandDesign = "your personal symbol"]]
-| [[Your initials|Body Modification][$brandDesign = "your initials"]]
-| [[SLUT|Body Modification][$brandDesign = "SLUT"]]
-| [[WHORE|Body Modification][$brandDesign = "WHORE"]]
-| [[SLAVE|Body Modification][$brandDesign = "SLAVE"]]
-| [[COW|Body Modification][$brandDesign = "COW"]]
-| [[MEAT|Body Modification][$brandDesign = "MEAT"]]
-| [[CUMDUMP|Body Modification][$brandDesign = "CUMDUMP"]]
-| [[LOVER|Body Modification][$brandDesign = "LOVER"]]
-| [[Pussy symbol|Body Modification][$brandDesign = "a pussy symbol"]]
-| [[Anus symbol|Body Modification][$brandDesign = "an anus symbol"]]
-| [[Penis symbol|Body Modification][$brandDesign = "a penis symbol"]]
-| [[Lady|Body Modification][$brandDesign = "a lady silhouette"]]
-| [[Princess|Body Modification][$brandDesign = "a princess silhouette"]]
-| [[Queen|Body Modification][$brandDesign = "a queen silhouette"]]
-| [[Angel|Body Modification][$brandDesign = "an angel silhouette"]]
-| [[Devil|Body Modification][$brandDesign = "a devil silhouette"]]
-<<if ($arcologies[0].FSSupremacist != "unset") && ($activeSlave.race != $arcologies[0].FSSupremacistRace)>>
-| //FS// [[Racial Slur|Body Modification][$brandDesign = "a racial slur"]] <</if>>
-<<if ($arcologies[0].FSSubjugationist != "unset") && ($activeSlave.race == $arcologies[0].FSSubjugationistRace)>>
-| //FS// [[Racial Slur|Body Modification][$brandDesign = "a racial slur"]] <</if>>
-<<if ($arcologies[0].FSGenderRadicalist != "unset") || ($arcologies[0].FSGenderFundamentalist != "unset")>>
-| //FS// [[Gender Symbol|Body Modification][$brandDesign = "a gender symbol"]] <</if>>
-<<if ($arcologies[0].FSPaternalist != "unset")>>
-| //FS// [[Personal Symbol|Body Modification][$brandDesign = $possessive+" own personal symbol"]] <</if>>
-<<if ($arcologies[0].FSDegradationist != "unset")>>
-| //FS// [[Chain Symbol|Body Modification][$brandDesign = "a chain symbol"]] <</if>>
-<<if ($arcologies[0].FSBodyPurist != "unset")>>
-| //FS// [[Vitruvian Man|Body Modification][$brandDesign = "a Vitruvian man"]] <</if>>
-<<if ($arcologies[0].FSTransformationFetishist != "unset")>>
-| //FS// [[Scalpel|Body Modification][$brandDesign = "a scalpel"]] <</if>>
-<<if ($arcologies[0].FSYouthPreferentialist != "unset")>>
-| //FS// [[Virginity Status|Body Modification][$brandDesign = $possessive+" virginity status"]] <</if>>
-<<if ($arcologies[0].FSMaturityPreferentialist != "unset")>>
-| //FS// [[Sexual Skill Info|Body Modification][$brandDesign = $possessive+" sexual skills"]] <</if>>
-<<if ($arcologies[0].FSSlimnessEnthusiast != "unset")>>
-| //FS// [[Breast Floor|Body Modification][$brandDesign = $possessive+" absolute minimum breast size"]] <</if>>
-<<if ($arcologies[0].FSAssetExpansionist != "unset")>>
-| //FS// [[Breast Ceiling|Body Modification][$brandDesign = $possessive+" absolute maximum breast size"]] <</if>>
-<<if ($arcologies[0].FSPastoralist != "unset")>>
-| //FS// [[Product Quality|Body Modification][$brandDesign = $possessive+" body product quality"]] <</if>>
-<<if ($arcologies[0].FSPhysicalIdealist != "unset")>>
-| //FS// [[Deadlift Info|Body Modification][$brandDesign = $possessive+" deadlift record"]] <</if>>
-<<if ($arcologies[0].FSChattelReligionist != "unset")>>
-| //FS// [[Religious Symbol|Body Modification][$brandDesign = "a religious symbol"]] <</if>>
-<<if ($arcologies[0].FSRomanRevivalist != "unset")>>
-| //FS// [[Republican Crest|Body Modification][$brandDesign = "the crest of your Republic"]] <</if>>
-<<if ($arcologies[0].FSAztecRevivalist != "unset")>>
-| //FS// [[Seven Serpents|Body Modification][$brandDesign = "the symbol of the Aztec gods"]] <</if>>
-<<if ($arcologies[0].FSEgyptianRevivalist != "unset")>>
-| //FS// [[Dynastic Sigil|Body Modification][$brandDesign = "the sigil of your Dynasty"]] <</if>>
-<<if ($arcologies[0].FSEdoRevivalist != "unset")>>
-| //FS// [[Mon|Body Modification][$brandDesign = "the Shogunate's mon"]] <</if>>
-<<if ($arcologies[0].FSArabianRevivalist != "unset")>>
-| //FS// [[Caliphate Symbol|Body Modification][$brandDesign = "a symbol of the Caliphate"]] <</if>>
-<<if ($arcologies[0].FSChineseRevivalist != "unset")>>
-| //FS// [[Imperial Seal|Body Modification][$brandDesign = "your Imperial Seal"]] <</if>>
-<br>
-Custom brand design: <<textbox "$brandDesign" $brandDesign "Body Modification">> //For best results, use a single word//
 
-<br><br>
+<<if ($activeSlave.customTat == "")>>
+	Give $possessive a custom tattoo: <<textbox "$activeSlave.customTat" $activeSlave.customTat "Slave Interact">>
+<<else>>
+	$pronounCap <<if _hasTat == 1>>also<</if>> has a custom tattoo: $activeSlave.customTat
+	Change it here: <<textbox "$activeSlave.customTat" $activeSlave.customTat "Slave Interact">>
+	//For more than one tat, just use commas//
+<</if>>
+<<if $activeSlave.customTat != "">>
+	//[[Remove custom tattoo|Body Modification][$activeSlave.customTat = "",$cash -= $modCost]]//
+<</if>>
 
 <<if ($activeSlave.lipsTat == 0) && ($activeSlave.buttTat == 0) && ($activeSlave.vaginaTat == 0) && ($activeSlave.boobsTat == 0)>>
-__Apply full-body tattoos:__
 <br>&nbsp;&nbsp;&nbsp;&nbsp;
+Or cover her whole body at once:
+
 <<link "Tribal patterns">>
 
 <<if $activeSlave.boobsTat == 0>>
@@ -1045,264 +1272,233 @@ __Apply full-body tattoos:__
 
 <<goto "Body Modification">>
 <</link>>
-<br>
-<</if>>
-
-<<if $activeSlave.lipsTat == 0>>
-	$pronounCap has no facial tattoos.
 <<else>>
-	$possessiveCap face is tattooed with $activeSlave.lipsTat.
-<</if>>
-<<if $activeSlave.lipsTat == 0>>
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	[[Tribal patterns|Body Modification][$activeSlave.lipsTat = "tribal patterns",$cash -= $modCost]]
-	 | [[Flowers|Body Modification][$activeSlave.lipsTat = "flowers",$cash -= $modCost]]
-	 | [[Counting|Body Modification][$activeSlave.lipsTat = "counting",$cash -= $modCost,$degradation += 1]]
-	 | [[Advertisements|Body Modification][$activeSlave.lipsTat = "advertisements",$cash -= $modCost,$degradation += 1]]
-	 | [[Rude words|Body Modification][$activeSlave.lipsTat = "rude words",$cash -= $modCost,$degradation += 1]]
-	 | [[Degradation|Body Modification][$activeSlave.lipsTat = "degradation",$cash -= $modCost,$degradation += 1]]
- 	 | [[Permanent makeup|Body Modification][$activeSlave.lipsTat = "permanent makeup",$cash -= $modCost,$degradation += 1]]
-<</if>>
-<<if $activeSlave.lipsTat != 0>>
-	//[[Remove tattoos|Body Modification][$activeSlave.lipsTat = 0,$cash -= $modCost]]//
+	//<<link "Remove all her tattoos at once">>//
+		<<if $activeSlave.boobsTat != 0>>
+			<<set $activeSlave.boobsTat = 0>>
+			<<set $cash -= $modCost>>
+		<</if>>
+
+		<<if $activeSlave.buttTat != 0>>
+			<<set $activeSlave.buttTat = 0>>
+			<<set $cash -= $modCost>>
+		<</if>>
+
+		<<if $activeSlave.vaginaTat != 0>>
+			<<set $activeSlave.vaginaTat = 0>>
+			<<set $cash -= $modCost>>
+		<</if>>
+
+		<<if $activeSlave.dick > 0>>
+		<<if $activeSlave.dickTat != 0>>
+			<<set $activeSlave.dickTat = 0>>
+			<<set $cash -= $modCost>>
+		<</if>>
+		<</if>>
+
+		<<if $activeSlave.lipsTat != 0>>
+			<<set $activeSlave.lipsTat = 0>>
+			<<set $cash -= $modCost>>
+		<</if>>
+
+		<<if ($activeSlave.anusTat != 0) || ($activeSlave.anusTat == "bleached")>>
+			<<set $activeSlave.anusTat = 0>>
+			<<set $cash -= $modCost>>
+		<</if>>
+
+		<<if $activeSlave.shouldersTat != 0>>
+			<<set $activeSlave.shouldersTat = 0>>
+			<<set $cash -= $modCost>>
+		<</if>>
+
+		<<if $activeSlave.backTat != 0>>
+			<<set $activeSlave.backTat = 0>>
+			<<set $cash -= $modCost>>
+		<</if>>
+
+		<<if $activeSlave.amp != 1>>
+		<<if $activeSlave.armsTat != 0>>
+			<<set $activeSlave.armsTat = 0>>
+			<<set $cash -= $modCost>>
+		<</if>>
+		<<if $activeSlave.legsTat != 0>>
+			<<set $activeSlave.legsTat = 0>>
+			<<set $cash -= $modCost>>
+		<</if>>
+		<</if>>
+
+		<<if $activeSlave.stampTat != 0>>
+			<<set $activeSlave.stampTat = 0>>
+			<<set $cash -= $modCost>>
+		<</if>>
+
+		<<goto "Body Modification">>
+	<</link>>
 <</if>>
 
-<br>
+<br><br>
 
-<<if $activeSlave.shouldersTat == 0>>
-	$pronounCap has no shoulder tattoos.
+/* Branding */ 
+
+<<if $activeSlave.brand != 0>>
+	$pronounCap has $activeSlave.brand branded into the flesh of $possessive $activeSlave.brandLocation. | [[Remove Brand|Body Modification][$brandApplied = 0, $activeSlave.brand = 0,$cash -= $modCost,$degradation -= 10]]
 <<else>>
-	$possessiveCap shoulders are tattooed with $activeSlave.shouldersTat.
-<</if>>
-<<if $activeSlave.shouldersTat == 0>>
+	//Branding will slightly reduce $possessive beauty but may slowly increase your reputation.//
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	[[Tribal patterns|Body Modification][$activeSlave.shouldersTat = "tribal patterns",$cash -= $modCost]]
-	 | [[Flowers|Body Modification][$activeSlave.shouldersTat = "flowers",$cash -= $modCost]]
-	 | [[Counting|Body Modification][$activeSlave.shouldersTat = "counting",$cash -= $modCost,$degradation += 1]]
-	 | [[Advertisements|Body Modification][$activeSlave.shouldersTat = "advertisements",$cash -= $modCost,$degradation += 1]]
-	 | [[Rude words|Body Modification][$activeSlave.shouldersTat = "rude words",$cash -= $modCost,$degradation += 1]]
-	 | [[Degradation|Body Modification][$activeSlave.shouldersTat = "degradation",$cash -= $modCost,$degradation += 1]]
-	 | [[Asian art|Body Modification][$activeSlave.shouldersTat = "Asian art",$cash -= $modCost,$degradation += 1]]
-	 | [[Scenes|Body Modification][$activeSlave.shouldersTat = "scenes",$cash -= $modCost,$degradation += 1]]
-
-<</if>>
-<<if $activeSlave.shouldersTat != 0>>
-	//[[Remove tattoos|Body Modification][$activeSlave.shouldersTat = 0,$cash -= $modCost]]//
+	[[Brand her|Body Modification][$brandApplied = 1,$activeSlave.brand = $brandDesign,$activeSlave.brandLocation = $brandTarget,$cash -= $modCost,$degradation += 10]] with $brandDesign on the $brandTarget.
 <</if>>
 
-<br>
+<br><br>
 
-<<if $activeSlave.boobsTat == 0>>
-	$possessiveCap chest and breasts are not tattooed.
-<<else>>
-	$possessiveCap chest and breasts are tattooed with $activeSlave.boobsTat.
-<</if>>
-<<if $activeSlave.boobsTat == 0>>
+Your preferred location for brands is the ''$brandTarget.''
+
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+Ears:
+[[Left|Body Modification][$brandTarget = "left ear"]]
+| [[Right|Body Modification][$brandTarget = "right ear"]]
+| [[Both|Body Modification][$brandTarget = "ears"]]
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+Cheeks:
+[[Left|Body Modification][$brandTarget = "left cheek"]]
+| [[Right|Body Modification][$brandTarget = "right cheek"]]
+| [[Both|Body Modification][$brandTarget = "cheeks"]]
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+Shoulders:
+[[Left|Body Modification][$brandTarget = "left shoulder"]]
+| [[Right|Body Modification][$brandTarget = "right shoulder"]]
+| [[Both|Body Modification][$brandTarget = "shoulders"]]
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+Breasts:
+[[Left|Body Modification][$brandTarget = "left breast"]]
+| [[Right|Body Modification][$brandTarget = "right breast"]]
+| [[Both|Body Modification][$brandTarget = "breasts"]]
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+
+<<if $activeSlave.amp == 0>>
+	Arm, upper:
+	[[Left|Body Modification][$brandTarget = "left upper arm"]]
+	| [[Right|Body Modification][$brandTarget = "right upper arm"]]
+	| [[Both|Body Modification][$brandTarget = "upper arms"]]
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	[[Tribal patterns|Body Modification][$activeSlave.boobsTat = "tribal patterns",$cash -= $modCost]]
-	 | [[Flowers|Body Modification][$activeSlave.boobsTat = "flowers",$cash -= $modCost]]
-	 | [[Counting|Body Modification][$activeSlave.boobsTat = "counting",$cash -= $modCost,$degradation += 1]]
-	 | [[Advertisements|Body Modification][$activeSlave.boobsTat = "advertisements",$cash -= $modCost,$degradation += 1]]
-	 | [[Rude words|Body Modification][$activeSlave.boobsTat = "rude words",$cash -= $modCost,$degradation += 1]]
- 	 | [[Degradation|Body Modification][$activeSlave.boobsTat = "degradation",$cash -= $modCost,$degradation += 1]]
-	 | [[Asian art|Body Modification][$activeSlave.boobsTat = "Asian art",$cash -= $modCost,$degradation += 1]]
-	 | [[Scenes|Body Modification][$activeSlave.boobsTat = "scenes",$cash -= $modCost,$degradation += 1]]
-<</if>>
-<<if $activeSlave.boobsTat != 0>>
-	//[[Remove tattoos|Body Modification][$activeSlave.boobsTat = 0,$cash -= $modCost]]//
-<</if>>
-
-<br>
-
-<<if $activeSlave.amp != 1>>
-<<if $activeSlave.armsTat == 0>>
-	$pronounCap has no arm tattoos.
-<<else>>
-	$possessiveCap <<if $activeSlave.amp < 0>>prosthetic <</if>>arms are <<if $activeSlave.amp < 0>>indelibly marked<<else>>tattooed<</if>> with $activeSlave.armsTat.
-<</if>>
-<<if $activeSlave.armsTat == 0>>
+	Arm, lower:
+	[[Left|Body Modification][$brandTarget = "left lower arm"]]
+	| [[Right|Body Modification][$brandTarget = "right lower arm"]]
+	| [[Both|Body Modification][$brandTarget = "lower arms"]]
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	[[Tribal patterns|Body Modification][$activeSlave.armsTat = "tribal patterns",$cash -= $modCost]]
-	 | [[Flowers|Body Modification][$activeSlave.armsTat = "flowers",$cash -= $modCost]]
-	 | [[Counting|Body Modification][$activeSlave.armsTat = "counting",$cash -= $modCost,$degradation += 1]]
-	 | [[Advertisements|Body Modification][$activeSlave.armsTat = "advertisements",$cash -= $modCost,$degradation += 1]]
-	 | [[Rude words|Body Modification][$activeSlave.armsTat = "rude words",$cash -= $modCost,$degradation += 1]]
-	 | [[Degradation|Body Modification][$activeSlave.armsTat = "degradation",$cash -= $modCost,$degradation += 1]]
-	 | [[Asian art|Body Modification][$activeSlave.armsTat = "Asian art",$cash -= $modCost,$degradation += 1]]
-	 | [[Scenes|Body Modification][$activeSlave.armsTat = "scenes",$cash -= $modCost,$degradation += 1]]
-<</if>>
-<<if $activeSlave.armsTat != 0>>
-	//[[Remove tattoos|Body Modification][$activeSlave.armsTat = 0,$cash -= $modCost]]//
-<</if>>
-<</if>>
-
-<br>
-
-<<if $activeSlave.backTat == 0>>
-	$pronounCap has no back tattoo.
-<<else>>
-	$possessiveCap back is tattooed with $activeSlave.backTat.
-<</if>>
-<<if $activeSlave.backTat == 0>>
+	Wrist:
+	[[Left|Body Modification][$brandTarget = "left wrist"]]
+	| [[Right|Body Modification][$brandTarget = "right wrist"]]
+	| [[Both|Body Modification][$brandTarget = "wrists"]]
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	[[Tribal patterns|Body Modification][$activeSlave.backTat = "tribal patterns",$cash -= $modCost]]
-	 | [[Flowers|Body Modification][$activeSlave.backTat = "flowers",$cash -= $modCost]]
-	 | [[Counting|Body Modification][$activeSlave.backTat = "counting",$cash -= $modCost,$degradation += 1]]
-	 | [[Advertisements|Body Modification][$activeSlave.backTat = "advertisements",$cash -= $modCost,$degradation += 1]]
-	 | [[Rude words|Body Modification][$activeSlave.backTat = "rude words",$cash -= $modCost,$degradation += 1]]
-	 | [[Degradation|Body Modification][$activeSlave.backTat = "degradation",$cash -= $modCost,$degradation += 1]]
-	 | [[Asian art|Body Modification][$activeSlave.backTat = "Asian art",$cash -= $modCost,$degradation += 1]]
-	 | [[Scenes|Body Modification][$activeSlave.backTat = "scenes",$cash -= $modCost,$degradation += 1]]		 
-<</if>>
-<<if $activeSlave.backTat != 0>>
-	//[[Remove tattoos|Body Modification][$activeSlave.backTat = 0,$cash -= $modCost]]//
-<</if>>
-
-<br>
-
-<<if $activeSlave.stampTat == 0>>
-	$pronounCap has no lower back tattoos.
-<<else>>
-	$possessiveCap lower back is tattooed with $activeSlave.stampTat.
-<</if>>
-<<if $activeSlave.stampTat == 0>>
+	Hand:
+	[[Left|Body Modification][$brandTarget = "left hand"]]
+	| [[Right|Body Modification][$brandTarget = "right hand"]]
+	| [[Both|Body Modification][$brandTarget = "hands"]]
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	[[Tribal patterns|Body Modification][$activeSlave.stampTat = "tribal patterns",$cash -= $modCost]]
-	 | [[Flowers|Body Modification][$activeSlave.stampTat = "flowers",$cash -= $modCost]]
-	 | [[Counting|Body Modification][$activeSlave.stampTat = "counting",$cash -= $modCost,$degradation += 1]]
-	 | [[Advertisements|Body Modification][$activeSlave.stampTat = "advertisements",$cash -= $modCost,$degradation += 1]]
-	 | [[Rude words|Body Modification][$activeSlave.stampTat = "rude words",$cash -= $modCost,$degradation += 1]]
-	 | [[Degradation|Body Modification][$activeSlave.stampTat = "degradation",$cash -= $modCost,$degradation += 1]]
-	 | [[Asian art|Body Modification][$activeSlave.stampTat = "Asian art",$cash -= $modCost,$degradation += 1]]
-	 | [[Scenes|Body Modification][$activeSlave.stampTat = "scenes",$cash -= $modCost,$degradation += 1]]
-
-<</if>>
-<<if $activeSlave.stampTat != 0>>
-	//[[Remove tattoos|Body Modification][$activeSlave.stampTat = 0,$cash -= $modCost]]//
 <</if>>
 
-<br>
 
-<<if $activeSlave.vaginaTat == 0>>
-	$possessiveCap abdomen and pubis have not been tattooed.
-<<else>>
-	$possessiveCap abdomen and pubis are tattooed with $activeSlave.vaginaTat.
-<</if>>
-<<if $activeSlave.vaginaTat == 0>>
+Buttocks:
+[[Left|Body Modification][$brandTarget = "left buttock"]]
+| [[Right|Body Modification][$brandTarget = "right buttock"]]
+| [[Both|Body Modification][$brandTarget = "buttocks"]]
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+
+<<if $activeSlave.amp == 0>>
+	Thigh: 
+	[[Left|Body Modification][$brandTarget = "left thigh"]]
+	| [[Right|Body Modification][$brandTarget = "right thigh"]]
+	| [[Both|Body Modification][$brandTarget = "thighs"]]
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	[[Tribal patterns|Body Modification][$activeSlave.vaginaTat = "tribal patterns",$cash -= $modCost]]
-	 | [[Flowers|Body Modification][$activeSlave.vaginaTat = "flowers",$cash -= $modCost]]
-	 | [[Counting|Body Modification][$activeSlave.vaginaTat = "counting",$cash -= $modCost,$degradation += 1]]
-	 | [[Advertisements|Body Modification][$activeSlave.vaginaTat = "advertisements",$cash -= $modCost,$degradation += 1]]
-	 | [[Rude words|Body Modification][$activeSlave.vaginaTat = "rude words",$cash -= $modCost,$degradation += 1]]
-	 | [[Degradation|Body Modification][$activeSlave.vaginaTat = "degradation",$cash -= $modCost,$degradation += 1]]
-	 | [[Asian art|Body Modification][$activeSlave.vaginaTat = "Asian art",$cash -= $modCost,$degradation += 1]]
-	 | [[Scenes|Body Modification][$activeSlave.vaginaTat = "scenes",$cash -= $modCost,$degradation += 1]]
-<</if>>
-<<if $activeSlave.vaginaTat != 0>>
-	//[[Remove tattoos|Body Modification][$activeSlave.vaginaTat = 0,$cash -= $modCost]]//
-<</if>>
-
-<<if $activeSlave.dick > 0>>
-<br>
-<<if $activeSlave.dickTat == 0>>
-	$possessiveCap dick has not been tattooed.
-<<else>>
-	$possessiveCap dick is tattooed with $activeSlave.dickTat.
-<</if>>
-<<if $activeSlave.dickTat == 0>>
+	Calf: 
+	[[Left|Body Modification][$brandTarget = "left calf"]]
+	| [[Right|Body Modification][$brandTarget = "right calf"]]
+	| [[Both|Body Modification][$brandTarget = "calves"]]
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	[[Tribal patterns|Body Modification][$activeSlave.dickTat = "tribal patterns",$cash -= $modCost]]
-	 | [[Flowers|Body Modification][$activeSlave.dickTat = "flowers",$cash -= $modCost]]
-	 | [[Counting|Body Modification][$activeSlave.dickTat = "counting",$cash -= $modCost,$degradation += 1]]
-	 | [[Advertisements|Body Modification][$activeSlave.dickTat = "advertisements",$cash -= $modCost,$degradation += 1]]
-	 | [[Rude words|Body Modification][$activeSlave.dickTat = "rude words",$cash -= $modCost,$degradation += 1]]
-	 | [[Degradation|Body Modification][$activeSlave.dickTat = "degradation",$cash -= $modCost,$degradation += 1]]
-<</if>>
-<<if $activeSlave.dickTat != 0>>
-	//[[Remove tattoos|Body Modification][$activeSlave.dickTat = 0,$cash -= $modCost]]//
-<</if>>
-<</if>>
-
-<br>
-
-<<if $activeSlave.buttTat == 0>>
-	$possessiveCap buttocks are not tattooed.
-<<else>>
-	$possessiveCap buttocks are tattooed with $activeSlave.buttTat.
-<</if>>
-<<if $activeSlave.buttTat == 0>>
+	Ankle: 
+	[[Left|Body Modification][$brandTarget = "left ankle"]]
+	| [[Right|Body Modification][$brandTarget = "right ankle"]]
+	| [[Both|Body Modification][$brandTarget = "ankles"]]
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	[[Tribal patterns|Body Modification][$activeSlave.buttTat = "tribal patterns",$cash -= $modCost]]
-	 | [[Flowers|Body Modification][$activeSlave.buttTat = "flowers",$cash -= $modCost]]
-	 | [[Counting|Body Modification][$activeSlave.buttTat = "counting",$cash -= $modCost,$degradation += 1]]
-	 | [[Advertisements|Body Modification][$activeSlave.buttTat = "advertisements",$cash -= $modCost,$degradation += 1]]
-	 | [[Rude words|Body Modification][$activeSlave.buttTat = "rude words",$cash -= $modCost,$degradation += 1]]
-	 | [[Degradation|Body Modification][$activeSlave.buttTat = "degradation",$cash -= $modCost,$degradation += 1]]
-	 | [[Asian art|Body Modification][$activeSlave.buttTat = "Asian art",$cash -= $modCost,$degradation += 1]]
-	 | [[Scenes|Body Modification][$activeSlave.buttTat = "scenes",$cash -= $modCost,$degradation += 1]]
-<</if>>
-<<if $activeSlave.buttTat != 0>>
-	//[[Remove tattoos|Body Modification][$activeSlave.buttTat = 0,$cash -= $modCost]]//
-<</if>>
-
-<br>
-
-<<if $activeSlave.anusTat == 0>>
-	$possessiveCap anus is brown and unbleached.
-<<elseif $activeSlave.anusTat == "bleached">>
-	$possessiveCap anus is bleached.
-<<else>>
-	$possessiveCap anus is tattooed with $activeSlave.anusTat.
-<</if>>
-<<if $activeSlave.anusTat == 0>>
-	[[Bleach it|Body Modification][$activeSlave.anusTat = "bleached",$cash -= $modCost]]
-<<elseif $activeSlave.anusTat == "bleached">>
+	Feet:
+	[[Left|Body Modification][$brandTarget = "left foot"]]
+	| [[Right|Body Modification][$brandTarget = "right foot"]]
+	| [[Both|Body Modification][$brandTarget = "feet"]]
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	[[Tribal pattern|Body Modification][$activeSlave.anusTat = "tribal patterns",$cash -= $modCost,$degradation += 1]]
-	 | [[Flowers|Body Modification][$activeSlave.anusTat = "flowers",$cash -= $modCost]]
-	 | [[Counting|Body Modification][$activeSlave.anusTat = "counting",$cash -= $modCost,$degradation += 1]]
-	 | [[Advertisements|Body Modification][$activeSlave.anusTat = "advertisements",$cash -= $modCost,$degradation += 1]]
-	 | [[Rude words|Body Modification][$activeSlave.anusTat = "rude words",$cash -= $modCost,$degradation += 1]]
-	 | [[Degradation|Body Modification][$activeSlave.anusTat = "degradation",$cash -= $modCost,$degradation += 1]]
 <</if>>
-<<if ($activeSlave.anusTat != 0) && ($activeSlave.anusTat != "bleached")>>
-	//[[Remove tattoo|Body Modification][$activeSlave.anusTat = "bleached",$cash -= $modCost]]//
-<</if>>
+
+Other:
+[[Neck|Body Modification][$brandTarget = "neck"]]
+| [[Chest|Body Modification][$brandTarget = "chest"]]
+| [[Belly|Body Modification][$brandTarget = "belly"]]
+| [[Pubic Mound|Body Modification][$brandTarget = "pubic mound"]]
+| [[Back|Body Modification][$brandTarget = "back"]]
+
+
+/* Branding expansion contributed by Anon1888 */
 
 <br>
 
-<<if $activeSlave.amp != 1>>
-<<if $activeSlave.legsTat == 0>>
-	$pronounCap has no leg tattoos.
-<<else>>
-	$possessiveCap <<if $activeSlave.amp < 0>>prosthetic <</if>>legs are <<if $activeSlave.amp < 0>>indelibly marked<<else>>tattooed<</if>> with $activeSlave.legsTat.
-<</if>>
-<<if $activeSlave.legsTat == 0>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	[[Tribal patterns|Body Modification][$activeSlave.legsTat = "tribal patterns",$cash -= $modCost]]
-	 | [[Flowers|Body Modification][$activeSlave.legsTat = "flowers",$cash -= $modCost]]
-	 | [[Counting|Body Modification][$activeSlave.legsTat = "counting",$cash -= $modCost,$degradation += 1]]
-	 | [[Advertisements|Body Modification][$activeSlave.legsTat = "advertisements",$cash -= $modCost,$degradation += 1]]
-	 | [[Rude words|Body Modification][$activeSlave.legsTat = "rude words",$cash -= $modCost,$degradation += 1]]
-	 | [[Degradation|Body Modification][$activeSlave.legsTat = "degradation",$cash -= $modCost,$degradation += 1]]
-	 | [[Asian art|Body Modification][$activeSlave.legsTat = "Asian art",$cash -= $modCost,$degradation += 1]]
-	 | [[Scenes|Body Modification][$activeSlave.legsTat = "scenes",$cash -= $modCost,$degradation += 1]]
-<</if>>
-<<if $activeSlave.legsTat != 0>>
-	//[[Remove tattoos|Body Modification][$activeSlave.legsTat = 0,$cash -= $modCost]]//
-<</if>>
-<</if>>
+Your brand design is ''$brandDesign.''
 
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+[[Your slaving emblem|Body Modification][$brandDesign = "your personal symbol"]]
+| [[Your initials|Body Modification][$brandDesign = "your initials"]]
+| [[SLUT|Body Modification][$brandDesign = "SLUT"]]
+| [[WHORE|Body Modification][$brandDesign = "WHORE"]]
+| [[SLAVE|Body Modification][$brandDesign = "SLAVE"]]
+| [[COW|Body Modification][$brandDesign = "COW"]]
+| [[MEAT|Body Modification][$brandDesign = "MEAT"]]
+| [[CUMDUMP|Body Modification][$brandDesign = "CUMDUMP"]]
+| [[LOVER|Body Modification][$brandDesign = "LOVER"]]
+| [[Pussy symbol|Body Modification][$brandDesign = "a pussy symbol"]]
+| [[Anus symbol|Body Modification][$brandDesign = "an anus symbol"]]
+| [[Penis symbol|Body Modification][$brandDesign = "a penis symbol"]]
+| [[Lady|Body Modification][$brandDesign = "a lady silhouette"]]
+| [[Princess|Body Modification][$brandDesign = "a princess silhouette"]]
+| [[Queen|Body Modification][$brandDesign = "a queen silhouette"]]
+| [[Angel|Body Modification][$brandDesign = "an angel silhouette"]]
+| [[Devil|Body Modification][$brandDesign = "a devil silhouette"]]
+<<if ($arcologies[0].FSSupremacist != "unset") && ($activeSlave.race != $arcologies[0].FSSupremacistRace)>>
+| //FS// [[Racial Slur|Body Modification][$brandDesign = "a racial slur"]] <</if>>
+<<if ($arcologies[0].FSSubjugationist != "unset") && ($activeSlave.race == $arcologies[0].FSSubjugationistRace)>>
+| //FS// [[Racial Slur|Body Modification][$brandDesign = "a racial slur"]] <</if>>
+<<if ($arcologies[0].FSGenderRadicalist != "unset") || ($arcologies[0].FSGenderFundamentalist != "unset")>>
+| //FS// [[Gender Symbol|Body Modification][$brandDesign = "a gender symbol"]] <</if>>
+<<if ($arcologies[0].FSPaternalist != "unset")>>
+| //FS// [[Personal Symbol|Body Modification][$brandDesign = $possessive+" own personal symbol"]] <</if>>
+<<if ($arcologies[0].FSDegradationist != "unset")>>
+| //FS// [[Chain Symbol|Body Modification][$brandDesign = "a chain symbol"]] <</if>>
+<<if ($arcologies[0].FSBodyPurist != "unset")>>
+| //FS// [[Vitruvian Man|Body Modification][$brandDesign = "a Vitruvian man"]] <</if>>
+<<if ($arcologies[0].FSTransformationFetishist != "unset")>>
+| //FS// [[Scalpel|Body Modification][$brandDesign = "a scalpel"]] <</if>>
+<<if ($arcologies[0].FSYouthPreferentialist != "unset")>>
+| //FS// [[Virginity Status|Body Modification][$brandDesign = $possessive+" virginity status"]] <</if>>
+<<if ($arcologies[0].FSMaturityPreferentialist != "unset")>>
+| //FS// [[Sexual Skill Info|Body Modification][$brandDesign = $possessive+" sexual skills"]] <</if>>
+<<if ($arcologies[0].FSSlimnessEnthusiast != "unset")>>
+| //FS// [[Breast Floor|Body Modification][$brandDesign = $possessive+" absolute minimum breast size"]] <</if>>
+<<if ($arcologies[0].FSAssetExpansionist != "unset")>>
+| //FS// [[Breast Ceiling|Body Modification][$brandDesign = $possessive+" absolute maximum breast size"]] <</if>>
+<<if ($arcologies[0].FSPastoralist != "unset")>>
+| //FS// [[Product Quality|Body Modification][$brandDesign = $possessive+" body product quality"]] <</if>>
+<<if ($arcologies[0].FSPhysicalIdealist != "unset")>>
+| //FS// [[Deadlift Info|Body Modification][$brandDesign = $possessive+" deadlift record"]] <</if>>
+<<if ($arcologies[0].FSChattelReligionist != "unset")>>
+| //FS// [[Religious Symbol|Body Modification][$brandDesign = "a religious symbol"]] <</if>>
+<<if ($arcologies[0].FSRomanRevivalist != "unset")>>
+| //FS// [[Republican Crest|Body Modification][$brandDesign = "the crest of your Republic"]] <</if>>
+<<if ($arcologies[0].FSAztecRevivalist != "unset")>>
+| //FS// [[Seven Serpents|Body Modification][$brandDesign = "the symbol of the Aztec gods"]] <</if>>
+<<if ($arcologies[0].FSEgyptianRevivalist != "unset")>>
+| //FS// [[Dynastic Sigil|Body Modification][$brandDesign = "the sigil of your Dynasty"]] <</if>>
+<<if ($arcologies[0].FSEdoRevivalist != "unset")>>
+| //FS// [[Mon|Body Modification][$brandDesign = "the Shogunate's mon"]] <</if>>
+<<if ($arcologies[0].FSArabianRevivalist != "unset")>>
+| //FS// [[Caliphate Symbol|Body Modification][$brandDesign = "a symbol of the Caliphate"]] <</if>>
+<<if ($arcologies[0].FSChineseRevivalist != "unset")>>
+| //FS// [[Imperial Seal|Body Modification][$brandDesign = "your Imperial Seal"]] <</if>>
 <br>
-
-<<if ($activeSlave.customTat == " ")>>
-	Give $possessive a custom tattoo: <<textbox "$activeSlave.customTat" $activeSlave.customTat "Slave Interact">>
-<<else>>
-	$pronounCap has a custom tattoo: $activeSlave.customTat
-	Change $possessive custom tattoo: <<textbox "$activeSlave.customTat" $activeSlave.customTat "Slave Interact">>
-	<br>//For more than one tat, just use commas//
-<</if>>
-<<if $activeSlave.customTat != "">>
-	//[[Remove custom tattoo|Body Modification][$activeSlave.customTat = "",$cash -= $modCost]]//
-<</if>>
+Custom brand design: <<textbox "$brandDesign" $brandDesign "Body Modification">> //For best results, use a single word//
