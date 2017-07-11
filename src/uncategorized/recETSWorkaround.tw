@@ -122,7 +122,9 @@ They giggle and kiss each other rather sexually, pressing their nearly identical
 <</switch>>
 
 <<if $activeSlave.slaveSurname>><<set _familyName = $activeSlave.slaveSurname>><</if>>
+<<set _familyBirthSurname = $activeSlave.birthSurname>>
 <<NationalityToName $activeSlave>>
 <<if _familyName>><<set $activeSlave.slaveSurname = _familyName>><</if>>
+<<set $activeSlave.birthSurname = _familyBirthSurname>>
 
 <<AddSlave $activeSlave>>
