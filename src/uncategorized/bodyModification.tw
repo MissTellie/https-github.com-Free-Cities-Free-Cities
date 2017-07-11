@@ -1318,7 +1318,9 @@ Choose a tattoo style:
 	<<if $activeSlave.backTat != $tattooChoice>> | [[Upper back|Body Modification][$activeSlave.backTat = $tattooChoice,$cash -= $modCost]]<</if>>
 	<<if $activeSlave.stampTat != $tattooChoice>> | [[Lower back|Body Modification][$activeSlave.stampTat = $tattooChoice,$cash -= $modCost]]<</if>>
 	<<if $activeSlave.buttTat != $tattooChoice>> | [[Buttock|Body Modification][$activeSlave.buttTat = $tattooChoice,$cash -= $modCost]]<</if>>
-	<<if $activeSlave.vaginaTat != $tattooChoice>> | [[Vagina|Body Modification][$activeSlave.vaginaTat = $tattooChoice,$cash -= $modCost]]<</if>>
+	<<if ($activeSlave.vagina != -1)>>
+		<<if $activeSlave.vaginaTat != $tattooChoice>> | [[Vagina|Body Modification][$activeSlave.vaginaTat = $tattooChoice,$cash -= $modCost]]<</if>>
+	<</if>>
 	<<if $activeSlave.dickTat != $tattooChoice>> | [[Dick|Body Modification][$activeSlave.dickTat = $tattooChoice,$cash -= $modCost]]<</if>>
 	<<if $activeSlave.anusTat != $tattooChoice>> | [[Anus|Body Modification][$activeSlave.anusTat = $tattooChoice,$cash -= $modCost]]<</if>>
 	<<if $activeSlave.legsTat != $tattooChoice>> | [[Legs|Body Modification][$activeSlave.legsTat = $tattooChoice,$cash -= $modCost]]<</if>>
@@ -1332,7 +1334,9 @@ Choose a tattoo style:
 	<<if $activeSlave.backTat != $tattooChoice>> | [[Upper back|Body Modification][$activeSlave.backTat = $tattooChoice,$cash -= $modCost]]<</if>>
 	<<if $activeSlave.stampTat != $tattooChoice>> | [[Lower back|Body Modification][$activeSlave.stampTat = $tattooChoice,$cash -= $modCost]]<</if>>
 	<<if $activeSlave.buttTat != $tattooChoice>> | [[Buttock|Body Modification][$activeSlave.buttTat = $tattooChoice,$cash -= $modCost]]<</if>>
-	<<if $activeSlave.vaginaTat != $tattooChoice>> | [[Vagina|Body Modification][$activeSlave.vaginaTat = $tattooChoice,$cash -= $modCost]]<</if>>
+	<<if ($activeSlave.vagina != -1)>>
+		<<if $activeSlave.vaginaTat != $tattooChoice>> | [[Vagina|Body Modification][$activeSlave.vaginaTat = $tattooChoice,$cash -= $modCost]]<</if>>
+	<</if>>
 	<<if $tattooChoice != "scenes">>
 		<<if $activeSlave.dickTat != $tattooChoice>> | [[Dick|Body Modification][$activeSlave.dickTat = $tattooChoice,$cash -= $modCost]]<</if>>
 	<</if>>
