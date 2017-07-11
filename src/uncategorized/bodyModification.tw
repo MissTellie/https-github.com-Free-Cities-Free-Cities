@@ -350,7 +350,7 @@ She has
 <<if 
 ($activeSlave.lipsTat	 == 	"permanent makeup")
 >>
-	slutty makeup permanently tattooed on her face
+	slutty makeup permanently tattooed on her face,
 <</if>>
 
 <<if 
@@ -633,7 +633,7 @@ Choose a tattoo style:
 <<if $tattooChoice != "scenes">> | [[Scenes|Body Modification][$tattooChoice = "scenes"]]<<else>>| Scenes<</if>>
 <<if $tattooChoice != "permanent makeup">> | [[Permanent makeup|Body Modification][$tattooChoice = "permanent makeup"]]<<else>>| Permanent makeup<</if>>
 <<if _hasTat == 1>>
-	<<if $tattooChoice != "0">> | //[[Remove a tattoo|Body Modification][$tattooChoice = 0]]//| Remove a tattoo<</if>>
+	<<if $tattooChoice != "0">> | //[[Remove a tattoo|Body Modification][$tattooChoice = 0]]//<<else>>| Remove a tattoo<</if>>
 <</if>>
 
 <br>&nbsp;&nbsp;&nbsp;&nbsp;
