@@ -298,7 +298,7 @@ Style:
 
 <<if $piercingLevel == 0>>
 <br>&nbsp;&nbsp;&nbsp;&nbsp;
-Remove piercings from her:
+Remove piercings from:
 
 /* no dick/vagina checks in 'remove' so stealth piercings can be cleaned. Check only for piercings.  */
 <<link "Everywhere">>
@@ -622,7 +622,7 @@ She has
 
 <br>&nbsp;&nbsp;&nbsp;&nbsp;
 Choose a tattoo style:
-/* If/else here is so a "highlighted" option is never a link. */
+/* If/else is here so a "highlighted" option is never a link. */
 <<if $tattooChoice != "tribal patterns">>[[Tribal patterns|Body Modification][$tattooChoice = "tribal patterns"]]<<else>>Tribal patterns<</if>>
 <<if $tattooChoice != "flowers">> | [[Flowers|Body Modification][$tattooChoice = "flowers"]]<<else>>| Flowers<</if>>
 <<if $tattooChoice != "counting">> | [[Counting|Body Modification][$tattooChoice = "counting"]]<<else>>| Counting<</if>>
@@ -1348,7 +1348,7 @@ Choose a tattoo style:
 	<</if>>
 	<<if ($tattooChoice != "Asian art") && ($tattooChoice != "scenes")>>
 		<<if $activeSlave.anusTat != $tattooChoice>> | [[Anus|Body Modification][$activeSlave.anusTat = $tattooChoice,$cash -= $modCost]]<</if>>
-	<</if
+	<</if>>
 	<<if $activeSlave.amp < 0>>
 		<<if $activeSlave.legsTat != $tattooChoice>> | [[Legs|Body Modification][$activeSlave.legsTat = $tattooChoice,$cash -= $modCost]]<</if>>
 	<</if>>
