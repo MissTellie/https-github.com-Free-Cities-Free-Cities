@@ -12,7 +12,7 @@
 	<<break>>
 	<</if>>
 <</for>>
-
+<<Enunciate $activeSlave>>
 $activeSlave.slaveName is retiring from sexual slavery this week,
 
 <<if $CitizenRetirement == 1>>
@@ -87,22 +87,20 @@ As she takes her leave, heading the short distance down to her modest little apa
 <<if $activeSlave.fetish != "mindbroken">>
 <<if $activeSlave.devotion > 20>>
 	<<if $activeSlave.devotion > 95>>
-	She's doing her absolute best not to sob, but her lips are quivering.
+		She's doing her absolute best not to sob, but her lips are quivering.
 	<<else>>
-	She looks like she might cry.
+		She looks like she might cry.
 	<</if>>
 	<<if $activeSlave.relationship == -3>>
-	The ring she wore when she was your slave wife is nowhere to be seen; she's either taken it with her as a souvenir, or left it back in her sleeping area. If it's the former, no matter: you can always get more.
+		The ring she wore when she was your slave wife is nowhere to be seen; she's either taken it with her as a souvenir, or left it back in her sleeping area. If it's the former, no matter: you can always get more.
 	<</if>>
 	<<if (canTalk($activeSlave) == false)>>
-	She gestures her thanks, and ironically indicates that she'll see you around.
-	<<elseif SlaveStatsChecker.checkForLisp($activeSlave)>>
-	"Well, thankth, <<Master>>, um, I mean $PC.name. I g-gueth I'll thee you around. I mean, the arcology. Anyway. Bye."
+		She gestures her thanks, and ironically indicates that she'll see you around.
 	<<else>>
-	"Well, thanks, <<if def $PC.customTitle>>$PC.customTitle<<elseif $PC.title != 0>>Master<<else>>Mistress<</if>>, um, I mean $PC.name. I g-guess I'll see you around. I mean, the arcology. Anyway. Bye."
+		"Well, thank<<s>>, <<Master>>, um, I mean $PC.name. I g-gue<<s>> I'll <<s>>ee you around. I mean, the arcology. Anyway. Bye."
 	<</if>>
 	<<if $activeSlave.devotion > 95>>
-	She turns resolutely away and flees, trying to choke back her tears.
+		She turns resolutely away and flees, trying to choke back her tears.
 	<<else>>
 	She turns resolutely away.
 	<</if>>

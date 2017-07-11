@@ -39,8 +39,10 @@
 		<<set $activeSlave.relationTarget = _tempSlave.ID>>
 	<</if>>
 	<<if $activeSlave.slaveSurname>><<set _familyName = $activeSlave.slaveSurname>><</if>>
+	<<set _familyBirthSurname = $activeSlave.birthSurname>>
 	<<NationalityToName $activeSlave>>
 	<<if _familyName>><<set $activeSlave.slaveSurname = _familyName>><</if>>
+	<<set $activeSlave.birthSurname = _familyBirthSurname>>
 	<<set $activeSlave.slaveName = $activeSlave.birthName>>
 	<<set $activeSlave.ID = $IDNumber++>>
 	<<if $activeSlave.attrKnown == 0>>
