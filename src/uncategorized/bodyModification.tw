@@ -523,31 +523,31 @@ She has
 
 
 <<if
-($activeSlave.shouldersTat	 == 	"asian art")	 || 		
-($activeSlave.lipsTat	 == 	"asian art")	 || 		
-($activeSlave.boobsTat	 == 	"asian art")	 || 		
-($activeSlave.armsTat	 == 	"asian art")	 || 		
-($activeSlave.backTat	 == 	"asian art")	 || 		
-($activeSlave.stampTat	 == 	"asian art")	 || 		
-($activeSlave.buttTat	 == 	"asian art")	 || 		
-($activeSlave.vaginaTat	 == 	"asian art")	 || 		
-($activeSlave.dickTat	 == 	"asian art")	 || 		
-($activeSlave.anusTat	 == 	"asian art")	 || 		
-($activeSlave.legsTat	 == 	"asian art")
+($activeSlave.shouldersTat	 == 	"Asian art")	 || 		
+($activeSlave.lipsTat	 == 	"Asian art")	 || 		
+($activeSlave.boobsTat	 == 	"Asian art")	 || 		
+($activeSlave.armsTat	 == 	"Asian art")	 || 		
+($activeSlave.backTat	 == 	"Asian art")	 || 		
+($activeSlave.stampTat	 == 	"Asian art")	 || 		
+($activeSlave.buttTat	 == 	"Asian art")	 || 		
+($activeSlave.vaginaTat	 == 	"Asian art")	 || 		
+($activeSlave.dickTat	 == 	"Asian art")	 || 		
+($activeSlave.anusTat	 == 	"Asian art")	 || 		
+($activeSlave.legsTat	 == 	"Asian art")
 >>					
-	asian art traced on her
+	Asian art traced on her
 	<<set _hasTat = 1>>
-	<<if 	($activeSlave.shouldersTat	 == 	"asian art")	>>	shoulders,	<</if>>
-	<<if 	($activeSlave.lipsTat	 == 	"asian art")	>>	face,	<</if>>
-	<<if 	($activeSlave.boobsTat	 == 	"asian art")	>>	boobs,	<</if>>
-	<<if 	($activeSlave.armsTat	 == 	"asian art")	>>	arms,	<</if>>
-	<<if 	($activeSlave.backTat	 == 	"asian art")	>>	upper back,	<</if>>
-	<<if 	($activeSlave.stampTat	 == 	"asian art")	>>	lower back,	<</if>>
-	<<if 	($activeSlave.buttTat	 == 	"asian art")	>>	buttocks,	<</if>>
-	<<if 	($activeSlave.vaginaTat	 == 	"asian art")	>>	vagina,	<</if>>
-	<<if 	($activeSlave.dickTat	 == 	"asian art")	>>	dick,	<</if>>
-	<<if 	($activeSlave.anusTat	 == 	"asian art")	>>	anus,	<</if>>
-	<<if 	($activeSlave.legsTat	 == 	"asian art")	>>	legs,	<</if>>
+	<<if 	($activeSlave.shouldersTat	 == 	"Asian art")	>>	shoulders,	<</if>>
+	<<if 	($activeSlave.lipsTat	 == 	"Asian art")	>>	face,	<</if>>
+	<<if 	($activeSlave.boobsTat	 == 	"Asian art")	>>	boobs,	<</if>>
+	<<if 	($activeSlave.armsTat	 == 	"Asian art")	>>	arms,	<</if>>
+	<<if 	($activeSlave.backTat	 == 	"Asian art")	>>	upper back,	<</if>>
+	<<if 	($activeSlave.stampTat	 == 	"Asian art")	>>	lower back,	<</if>>
+	<<if 	($activeSlave.buttTat	 == 	"Asian art")	>>	buttocks,	<</if>>
+	<<if 	($activeSlave.vaginaTat	 == 	"Asian art")	>>	vagina,	<</if>>
+	<<if 	($activeSlave.dickTat	 == 	"Asian art")	>>	dick,	<</if>>
+	<<if 	($activeSlave.anusTat	 == 	"Asian art")	>>	anus,	<</if>>
+	<<if 	($activeSlave.legsTat	 == 	"Asian art")	>>	legs,	<</if>>
 <</if>>
 
 <<if
@@ -629,7 +629,7 @@ Choose a tattoo style:
 <<if $tattooChoice != "advertisements">> | [[Advertisements|Body Modification][$tattooChoice = "advertisements"]]<<else>>| Advertisements<</if>>
 <<if $tattooChoice != "rude words">> | [[Rude words|Body Modification][$tattooChoice = "rude words"]]<<else>>| Rude words<</if>>
 <<if $tattooChoice != "degradation">> | [[Degradation|Body Modification][$tattooChoice = "degradation"]]<<else>>| Degradation<</if>>
-<<if $tattooChoice != "asian art">> | [[Asian art|Body Modification][$tattooChoice = "asian art"]] <<else>>| Asian art<</if>>
+<<if $tattooChoice != "Asian art">> | [[Asian art|Body Modification][$tattooChoice = "Asian art"]] <<else>>| Asian art<</if>>
 <<if $tattooChoice != "scenes">> | [[Scenes|Body Modification][$tattooChoice = "scenes"]]<<else>>| Scenes<</if>>
 <<if $tattooChoice != "permanent makeup">> | [[Permanent makeup|Body Modification][$tattooChoice = "permanent makeup"]]<<else>>| Permanent makeup<</if>>
 <<if _hasTat == 1>>
@@ -645,56 +645,12 @@ Choose a tattoo style:
 	Add $tattooChoice to her:
 <</if>>
 
-<<if $tattooChoice == 0>> 
-	<<if $activeSlave.shouldersTat != $tattooChoice>> [[Shoulders|Body Modification][$activeSlave.shouldersTat = $tattooChoice,$cash -= $modCost]]<</if>>
-	<<if $activeSlave.lipsTat != $tattooChoice>> | [[Face|Body Modification][$activeSlave.lipsTat = $tattooChoice,$cash -= $modCost]]<</if>>
-	<<if $activeSlave.boobsTat != $tattooChoice>> | [[Boobs|Body Modification][$activeSlave.boobsTat = $tattooChoice,$cash -= $modCost]]<</if>>
-	<<if $activeSlave.armsTat != $tattooChoice>> | [[Arms|Body Modification][$activeSlave.armsTat = $tattooChoice,$cash -= $modCost]]<</if>>
-	<<if $activeSlave.backTat != $tattooChoice>> | [[Upper back|Body Modification][$activeSlave.backTat = $tattooChoice,$cash -= $modCost]]<</if>>
-	<<if $activeSlave.stampTat != $tattooChoice>> | [[Lower back|Body Modification][$activeSlave.stampTat = $tattooChoice,$cash -= $modCost]]<</if>>
-	<<if $activeSlave.buttTat != $tattooChoice>> | [[Buttock|Body Modification][$activeSlave.buttTat = $tattooChoice,$cash -= $modCost]]<</if>>
-	<<if $activeSlave.vaginaTat != $tattooChoice>> | [[Vagina|Body Modification][$activeSlave.vaginaTat = $tattooChoice,$cash -= $modCost]]<</if>>
-	<<if $activeSlave.dickTat != $tattooChoice>> | [[Dick|Body Modification][$activeSlave.dickTat = $tattooChoice,$cash -= $modCost]]<</if>>
-	<<if $activeSlave.anusTat != $tattooChoice>> | [[Anus|Body Modification][$activeSlave.anusTat = $tattooChoice,$cash -= $modCost]]<</if>>
-	<<if $activeSlave.legsTat != $tattooChoice>> | [[Legs|Body Modification][$activeSlave.legsTat = $tattooChoice,$cash -= $modCost]]<</if>>
-<<elseif $tattooChoice == "permanent makeup">>
-	[[Face|Body Modification][$activeSlave.lipsTat = $tattooChoice,$cash -= $modCost]]
-<<else>>
-	<<if $activeSlave.shouldersTat != $tattooChoice>> [[Shoulders|Body Modification][$activeSlave.shouldersTat = $tattooChoice,$cash -= $modCost]]<</if>>
-	<<if $activeSlave.lipsTat != $tattooChoice>> | [[Face|Body Modification][$activeSlave.lipsTat = $tattooChoice,$cash -= $modCost]]<</if>>
-	<<if $activeSlave.boobsTat != $tattooChoice>> | [[Boobs|Body Modification][$activeSlave.boobsTat = $tattooChoice,$cash -= $modCost]]<</if>>
-	<<if $activeSlave.armsTat != $tattooChoice>> | [[Arms|Body Modification][$activeSlave.armsTat = $tattooChoice,$cash -= $modCost]]<</if>>
-	<<if $activeSlave.backTat != $tattooChoice>> | [[Upper back|Body Modification][$activeSlave.backTat = $tattooChoice,$cash -= $modCost]]<</if>>
-	<<if $activeSlave.stampTat != $tattooChoice>> | [[Lower back|Body Modification][$activeSlave.stampTat = $tattooChoice,$cash -= $modCost]]<</if>>
-	<<if $activeSlave.buttTat != $tattooChoice>> | [[Buttock|Body Modification][$activeSlave.buttTat = $tattooChoice,$cash -= $modCost]]<</if>>
-	<<if $activeSlave.vaginaTat != $tattooChoice>> | [[Vagina|Body Modification][$activeSlave.vaginaTat = $tattooChoice,$cash -= $modCost]]<</if>>
-	<<if $tattooChoice != "scenes">>
-		<<if $activeSlave.dickTat != $tattooChoice>> | [[Dick|Body Modification][$activeSlave.dickTat = $tattooChoice,$cash -= $modCost]]<</if>>
-	<</if>>
-	<<if ($tattooChoice != "asian art") && ($tattooChoice != "scenes")>>
-		<<if $activeSlave.anusTat != $tattooChoice>> | [[Anus|Body Modification][$activeSlave.anusTat = $tattooChoice,$cash -= $modCost]]<</if>>
-	<</if>>
-	<<if $activeSlave.legsTat != $tattooChoice>> | [[Legs|Body Modification][$activeSlave.legsTat = $tattooChoice,$cash -= $modCost]]<</if>>
-<</if>>
 
-<br>&nbsp;&nbsp;&nbsp;&nbsp;
+<<if $tattooChoice != "permanent makeup">> /* Start permanent makeup check */
+<<link "Entire body">>
 
-<<if ($activeSlave.customTat == "")>>
-	Give $possessive a custom tattoo: <<textbox "$activeSlave.customTat" $activeSlave.customTat "Slave Interact">>
-<<else>>
-	$pronounCap <<if _hasTat == 1>>also<</if>> has a custom tattoo: $activeSlave.customTat
-	Change it here: <<textbox "$activeSlave.customTat" $activeSlave.customTat "Slave Interact">>
-	//For more than one tat, just use commas//
-<</if>>
-<<if $activeSlave.customTat != "">>
-	//[[Remove custom tattoo|Body Modification][$activeSlave.customTat = "",$cash -= $modCost]]//
-<</if>>
-
-<<if ($activeSlave.lipsTat == 0) && ($activeSlave.buttTat == 0) && ($activeSlave.vaginaTat == 0) && ($activeSlave.boobsTat == 0)>>
-<br>&nbsp;&nbsp;&nbsp;&nbsp;
-Or cover her whole body at once:
-
-<<link "Tribal patterns">>
+/* Tribal patterns */
+<<if $tattooChoice == "tribal patterns">>
 
 <<if $activeSlave.boobsTat == 0>>
 	<<set $activeSlave.boobsTat = "tribal patterns">>
@@ -754,9 +710,8 @@ Or cover her whole body at once:
 	<<set $cash -= $modCost>>
 <</if>>
 
-<<goto "Body Modification">>
-<</link>>
-| <<link "Flowers">>
+/* flowers */
+<<elseif $tattooChoice == "flowers">>
 
 <<if $activeSlave.boobsTat == 0>>
 	<<set $activeSlave.boobsTat = "flowers">>
@@ -816,9 +771,8 @@ Or cover her whole body at once:
 	<<set $cash -= $modCost>>
 <</if>>
 
-<<goto "Body Modification">>
-<</link>>
-| <<link "Counting">>
+
+<<elseif $tattooChoice == "counting">>
 
 <<if $activeSlave.boobsTat == 0>>
 	<<set $activeSlave.boobsTat = "counting">>
@@ -889,9 +843,7 @@ Or cover her whole body at once:
 	<<set $degradation += 1>>
 <</if>>
 
-<<goto "Body Modification">>
-<</link>>
-| <<link "Advertisements">>
+<<elseif $tattooChoice == "advertisements">>
 
 <<if $activeSlave.boobsTat == 0>>
 	<<set $activeSlave.boobsTat = "advertisements">>
@@ -963,9 +915,7 @@ Or cover her whole body at once:
 	<<set $degradation += 1>>
 <</if>>
 
-<<goto "Body Modification">>
-<</link>>
-| <<link "Rude words">>
+<<elseif $tattooChoice == "rude words">>
 
 <<if $activeSlave.boobsTat == 0>>
 	<<set $activeSlave.boobsTat = "rude words">>
@@ -1037,8 +987,8 @@ Or cover her whole body at once:
 <</if>>
 
 <<goto "Body Modification">>
-<</link>>
-| <<link "Degradation">>
+
+<<elseif $tattooChoice == "degradation">>
 
 <<if $activeSlave.boobsTat == 0>>
 	<<set $activeSlave.boobsTat = "degradation">>
@@ -1109,9 +1059,7 @@ Or cover her whole body at once:
 	<<set $degradation += 1>>
 <</if>>
 
-<<goto "Body Modification">>
-<</link>>
-| <<link "Bovine patterns">>
+<<elseif $tattooChoice == "bovine patterns">>
 
 	<<set $activeSlave.boobsTat = "bovine patterns">>
 	<<set $cash -= $modCost>>
@@ -1170,9 +1118,7 @@ Or cover her whole body at once:
 	<<set $degradation += 1>>
 <</if>>
 
-<<goto "Body Modification">>
-<</link>>
-| <<link "Asian art">>
+<<elseif $tattooChoice == "Asian art">>
 
 <<if $activeSlave.boobsTat == 0>>
 	<<set $activeSlave.boobsTat = "Asian art">>
@@ -1235,9 +1181,7 @@ Or cover her whole body at once:
 	<<set $degradation += 1>>
 <</if>>
 
-<<goto "Body Modification">>
-<</link>>
-| <<link "Scenes">>
+<<elseif $tattooChoice == "Asian art">>
 
 <<if $activeSlave.boobsTat == 0>>
 	<<set $activeSlave.boobsTat = "scenes">>
@@ -1300,72 +1244,116 @@ Or cover her whole body at once:
 	<<set $degradation += 1>>
 <</if>>
 
+<<elseif $tattooChoice == 0>>
+
+	<<if $activeSlave.boobsTat != 0>>
+		<<set $activeSlave.boobsTat = 0>>
+		<<set $cash -= $modCost>>
+	<</if>>
+
+	<<if $activeSlave.buttTat != 0>>
+		<<set $activeSlave.buttTat = 0>>
+		<<set $cash -= $modCost>>
+	<</if>>
+
+	<<if $activeSlave.vaginaTat != 0>>
+		<<set $activeSlave.vaginaTat = 0>>
+		<<set $cash -= $modCost>>
+	<</if>>
+
+	<<if $activeSlave.dick > 0>>
+	<<if $activeSlave.dickTat != 0>>
+		<<set $activeSlave.dickTat = 0>>
+		<<set $cash -= $modCost>>
+	<</if>>
+	<</if>>
+
+	<<if $activeSlave.lipsTat != 0>>
+		<<set $activeSlave.lipsTat = 0>>
+		<<set $cash -= $modCost>>
+	<</if>>
+
+	<<if ($activeSlave.anusTat != 0) || ($activeSlave.anusTat == "bleached")>>
+		<<set $activeSlave.anusTat = 0>>
+		<<set $cash -= $modCost>>
+	<</if>>
+
+	<<if $activeSlave.shouldersTat != 0>>
+		<<set $activeSlave.shouldersTat = 0>>
+		<<set $cash -= $modCost>>
+	<</if>>
+
+	<<if $activeSlave.backTat != 0>>
+		<<set $activeSlave.backTat = 0>>
+		<<set $cash -= $modCost>>
+	<</if>>
+
+	<<if $activeSlave.amp != 1>>
+	<<if $activeSlave.armsTat != 0>>
+		<<set $activeSlave.armsTat = 0>>
+		<<set $cash -= $modCost>>
+	<</if>>
+	<<if $activeSlave.legsTat != 0>>
+		<<set $activeSlave.legsTat = 0>>
+		<<set $cash -= $modCost>>
+	<</if>>
+	<</if>>
+
+	<<if $activeSlave.stampTat != 0>>
+		<<set $activeSlave.stampTat = 0>>
+		<<set $cash -= $modCost>>
+	<</if>>
+<</if>>
+
 <<goto "Body Modification">>
 <</link>>
+<</if>> /* end permanent makeup check. */
+
+
+<<if $tattooChoice == 0>> 
+	<<if $activeSlave.shouldersTat != $tattooChoice>> | [[Shoulders|Body Modification][$activeSlave.shouldersTat = $tattooChoice,$cash -= $modCost]]<</if>>
+	<<if $activeSlave.lipsTat != $tattooChoice>> | [[Face|Body Modification][$activeSlave.lipsTat = $tattooChoice,$cash -= $modCost]]<</if>>
+	<<if $activeSlave.boobsTat != $tattooChoice>> | [[Boobs|Body Modification][$activeSlave.boobsTat = $tattooChoice,$cash -= $modCost]]<</if>>
+	<<if $activeSlave.armsTat != $tattooChoice>> | [[Arms|Body Modification][$activeSlave.armsTat = $tattooChoice,$cash -= $modCost]]<</if>>
+	<<if $activeSlave.backTat != $tattooChoice>> | [[Upper back|Body Modification][$activeSlave.backTat = $tattooChoice,$cash -= $modCost]]<</if>>
+	<<if $activeSlave.stampTat != $tattooChoice>> | [[Lower back|Body Modification][$activeSlave.stampTat = $tattooChoice,$cash -= $modCost]]<</if>>
+	<<if $activeSlave.buttTat != $tattooChoice>> | [[Buttock|Body Modification][$activeSlave.buttTat = $tattooChoice,$cash -= $modCost]]<</if>>
+	<<if $activeSlave.vaginaTat != $tattooChoice>> | [[Vagina|Body Modification][$activeSlave.vaginaTat = $tattooChoice,$cash -= $modCost]]<</if>>
+	<<if $activeSlave.dickTat != $tattooChoice>> | [[Dick|Body Modification][$activeSlave.dickTat = $tattooChoice,$cash -= $modCost]]<</if>>
+	<<if $activeSlave.anusTat != $tattooChoice>> | [[Anus|Body Modification][$activeSlave.anusTat = $tattooChoice,$cash -= $modCost]]<</if>>
+	<<if $activeSlave.legsTat != $tattooChoice>> | [[Legs|Body Modification][$activeSlave.legsTat = $tattooChoice,$cash -= $modCost]]<</if>>
+<<elseif $tattooChoice == "permanent makeup">>
+	[[Face|Body Modification][$activeSlave.lipsTat = $tattooChoice,$cash -= $modCost]]
 <<else>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	//<<link "Remove all her tattoos at once">>//
-		<<if $activeSlave.boobsTat != 0>>
-			<<set $activeSlave.boobsTat = 0>>
-			<<set $cash -= $modCost>>
-		<</if>>
-
-		<<if $activeSlave.buttTat != 0>>
-			<<set $activeSlave.buttTat = 0>>
-			<<set $cash -= $modCost>>
-		<</if>>
-
-		<<if $activeSlave.vaginaTat != 0>>
-			<<set $activeSlave.vaginaTat = 0>>
-			<<set $cash -= $modCost>>
-		<</if>>
-
-		<<if $activeSlave.dick > 0>>
-		<<if $activeSlave.dickTat != 0>>
-			<<set $activeSlave.dickTat = 0>>
-			<<set $cash -= $modCost>>
-		<</if>>
-		<</if>>
-
-		<<if $activeSlave.lipsTat != 0>>
-			<<set $activeSlave.lipsTat = 0>>
-			<<set $cash -= $modCost>>
-		<</if>>
-
-		<<if ($activeSlave.anusTat != 0) || ($activeSlave.anusTat == "bleached")>>
-			<<set $activeSlave.anusTat = 0>>
-			<<set $cash -= $modCost>>
-		<</if>>
-
-		<<if $activeSlave.shouldersTat != 0>>
-			<<set $activeSlave.shouldersTat = 0>>
-			<<set $cash -= $modCost>>
-		<</if>>
-
-		<<if $activeSlave.backTat != 0>>
-			<<set $activeSlave.backTat = 0>>
-			<<set $cash -= $modCost>>
-		<</if>>
-
-		<<if $activeSlave.amp != 1>>
-		<<if $activeSlave.armsTat != 0>>
-			<<set $activeSlave.armsTat = 0>>
-			<<set $cash -= $modCost>>
-		<</if>>
-		<<if $activeSlave.legsTat != 0>>
-			<<set $activeSlave.legsTat = 0>>
-			<<set $cash -= $modCost>>
-		<</if>>
-		<</if>>
-
-		<<if $activeSlave.stampTat != 0>>
-			<<set $activeSlave.stampTat = 0>>
-			<<set $cash -= $modCost>>
-		<</if>>
-
-		<<goto "Body Modification">>
-	<</link>>
+	<<if $activeSlave.shouldersTat != $tattooChoice>> | [[Shoulders|Body Modification][$activeSlave.shouldersTat = $tattooChoice,$cash -= $modCost]]<</if>>
+	<<if $activeSlave.lipsTat != $tattooChoice>> | [[Face|Body Modification][$activeSlave.lipsTat = $tattooChoice,$cash -= $modCost]]<</if>>
+	<<if $activeSlave.boobsTat != $tattooChoice>> | [[Boobs|Body Modification][$activeSlave.boobsTat = $tattooChoice,$cash -= $modCost]]<</if>>
+	<<if $activeSlave.armsTat != $tattooChoice>> | [[Arms|Body Modification][$activeSlave.armsTat = $tattooChoice,$cash -= $modCost]]<</if>>
+	<<if $activeSlave.backTat != $tattooChoice>> | [[Upper back|Body Modification][$activeSlave.backTat = $tattooChoice,$cash -= $modCost]]<</if>>
+	<<if $activeSlave.stampTat != $tattooChoice>> | [[Lower back|Body Modification][$activeSlave.stampTat = $tattooChoice,$cash -= $modCost]]<</if>>
+	<<if $activeSlave.buttTat != $tattooChoice>> | [[Buttock|Body Modification][$activeSlave.buttTat = $tattooChoice,$cash -= $modCost]]<</if>>
+	<<if $activeSlave.vaginaTat != $tattooChoice>> | [[Vagina|Body Modification][$activeSlave.vaginaTat = $tattooChoice,$cash -= $modCost]]<</if>>
+	<<if $tattooChoice != "scenes">>
+		<<if $activeSlave.dickTat != $tattooChoice>> | [[Dick|Body Modification][$activeSlave.dickTat = $tattooChoice,$cash -= $modCost]]<</if>>
+	<</if>>
+	<<if ($tattooChoice != "Asian art") && ($tattooChoice != "scenes")>>
+		<<if $activeSlave.anusTat != $tattooChoice>> | [[Anus|Body Modification][$activeSlave.anusTat = $tattooChoice,$cash -= $modCost]]<</if>>
+	<</if>>
+	<<if $activeSlave.legsTat != $tattooChoice>> | [[Legs|Body Modification][$activeSlave.legsTat = $tattooChoice,$cash -= $modCost]]<</if>>
 <</if>>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+
+<<if ($activeSlave.customTat == "")>>
+	Give $possessive a custom tattoo: <<textbox "$activeSlave.customTat" $activeSlave.customTat "Slave Interact">>
+<<else>>
+	$pronounCap <<if _hasTat == 1>>also<</if>> has a custom tattoo: $activeSlave.customTat
+	Change it here: <<textbox "$activeSlave.customTat" $activeSlave.customTat "Slave Interact">>
+	//For more than one tat, just use commas//
+<</if>>
+<<if $activeSlave.customTat != "">>
+	//[[Remove custom tattoo|Body Modification][$activeSlave.customTat = "",$cash -= $modCost]]//
+<</if>>
+
 
 <br><br>
 
