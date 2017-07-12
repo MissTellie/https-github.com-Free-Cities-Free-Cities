@@ -1404,7 +1404,13 @@ when a dick is pushed inside <<if $activeSlave.vagina >= -1>>either of its lower
 <</if>>
 
 <<ClothingDescription>>
+<<clothingCorsetDescription>>
 
+<<if ($showClothing == 1) && ($saleDescription == 0)>>
+	$pronounCap
+<<else>>
+	$activeSlave.slaveName
+<</if>>
 is
 <<if $activeSlave.height < 150>>petite<<elseif $activeSlave.height < 160>>short<<elseif $activeSlave.height < 170>>an average height<<elseif $activeSlave.height < 185>>tall<<else>>very tall<</if>><<if $showHeightCMs == 1>> at $activeSlave.height cm,<</if>>
 and
