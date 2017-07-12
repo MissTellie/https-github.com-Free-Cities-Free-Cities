@@ -404,6 +404,13 @@
 <</if>>
 <<set $recruit = []>>
 
+<<if $boomerangSlave>>
+<<if $boomerangWeeks > 5>>
+	<<set $events.push("RE boomerang")>>
+	<<if $boomerangWeeks > 10>><<set $events.push("RE boomerang")>><</if>>
+<</if>>
+<</if>>
+
 <<if $seeDicks != 100>> /*XX ACQUISITIONS*/
 
 <<set $recruit.push("repo milf housekeeper")>>
