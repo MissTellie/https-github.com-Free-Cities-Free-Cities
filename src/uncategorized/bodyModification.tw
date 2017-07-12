@@ -1184,22 +1184,12 @@ Choose a tattoo style:
 <</if>>
 
 <<if $activeSlave.lipsTat != "Asian art">>
-	<<set $activeSlave.lipsTat = "permanent makeup">>
-	<<set $cash -= $modCost>>
-	<<set $degradation += 1>>
-<</if>>
-
-<<<<<<< HEAD
-<<if $activeSlave.lipsTat == 0>>
 	<<set $activeSlave.lipsTat = "Asian art">>
 	<<set $cash -= $modCost>>
 	<<set $degradation += 1>>
 <</if>>
 
-<<if ($activeSlave.anusTat == 0)>>
-=======
 <<if ($activeSlave.anusTat != "Asian art")>>
->>>>>>> upstream/master
 	<<set $activeSlave.anusTat = "bleached">>
 	<<set $cash -= $modCost>>
 	<<set $degradation += 1>>
@@ -1301,32 +1291,10 @@ Choose a tattoo style:
 
 <<elseif $tattooChoice == 0>>
 
-<<<<<<< HEAD
-<<if $activeSlave.lipsTat == 0>>
-	$pronounCap has no facial tattoos.
-<<else>>
-	$possessiveCap face is tattooed with $activeSlave.lipsTat.
-<</if>>
-<<if $activeSlave.lipsTat == 0>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	[[Tribal patterns|Body Modification][$activeSlave.lipsTat = "tribal patterns",$cash -= $modCost]]
-	 | [[Flowers|Body Modification][$activeSlave.lipsTat = "flowers",$cash -= $modCost]]
-	 | [[Counting|Body Modification][$activeSlave.lipsTat = "counting",$cash -= $modCost,$degradation += 1]]
-	 | [[Advertisements|Body Modification][$activeSlave.lipsTat = "advertisements",$cash -= $modCost,$degradation += 1]]
-	 | [[Rude words|Body Modification][$activeSlave.lipsTat = "rude words",$cash -= $modCost,$degradation += 1]]
-	 | [[Degradation|Body Modification][$activeSlave.lipsTat = "degradation",$cash -= $modCost,$degradation += 1]]
-	 | [[Asian art|Body Modification][$activeSlave.lipsTat = "Asian art",$cash -= $modCost,$degradation += 1]]
- 	 | [[Permanent makeup|Body Modification][$activeSlave.lipsTat = "permanent makeup",$cash -= $modCost,$degradation += 1]]
-<</if>>
-<<if $activeSlave.lipsTat != 0>>
-	//[[Remove tattoos|Body Modification][$activeSlave.lipsTat = 0,$cash -= $modCost]]//
-<</if>>
-=======
 	<<if $activeSlave.boobsTat != 0>>
 		<<set $activeSlave.boobsTat = 0>>
 		<<set $cash -= $modCost>>
 	<</if>>
->>>>>>> upstream/master
 
 	<<if $activeSlave.buttTat != 0>>
 		<<set $activeSlave.buttTat = 0>>
