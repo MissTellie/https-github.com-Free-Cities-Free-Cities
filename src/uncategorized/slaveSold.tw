@@ -4,6 +4,22 @@
 
 <<set $display = 0>>
 
+<<if !$boomerangSlave || $boomerangWeeks > 15>>
+	<<if $activeSlave.fuckdoll == 0>>
+	<<if canWalk($activeSlave)>>
+	<<if canTalk($activeSlave)>>
+	<<if $activeSlave.fetish != "mindbroken">>
+	<<if $activeSlave.devotion > 50>>
+		<<if $activeSlave.trust > 95 || $activeSlave.trust < -20 || $activeSlave.intelligence < 0>>
+			<<set $boomerangSlave = $activeSlave, $boomerangWeeks = 1, $boomerangBuyer = $buyer>>
+		<</if>>
+	<</if>>
+	<</if>>
+	<</if>>
+	<</if>>
+	<</if>>
+<</if>>
+
 <<if $activeSlave.relation != 0>>
 	<<for $j = 0; $j < $slaves.length; $j++>>
 		<<if $slaves[$j].ID == $activeSlave.relationTarget>>
