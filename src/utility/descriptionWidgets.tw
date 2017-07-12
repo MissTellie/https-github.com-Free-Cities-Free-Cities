@@ -6424,23 +6424,7 @@ $pronounCap has
 
 <<if $activeSlave.fuckdoll == 0>>
 <<if $showBodyMods == 1>>
-<<if $activeSlave.makeup == 1>>
-	$pronounCap's wearing minimal makeup.
-<<elseif $activeSlave.makeup == 2>>
-	$pronounCap's wearing expensive, luxurious makeup.
-<<elseif $activeSlave.makeup == 3>>
-	$possessiveCap makeup is color-coordinated with $possessive $activeSlave.hColor hair.
-<<elseif $activeSlave.makeup == 4>>
-	$pronounCap's wearing stereotypical, garish streetwalker makeup.
-<<elseif $activeSlave.makeup == 5>>
-	$pronounCap's wearing eye-catching neon makeup.
-<<elseif $activeSlave.makeup == 6>>
-	$possessiveCap neon makeup is color-coordinated with $possessive $activeSlave.hColor hair.
-<<elseif $activeSlave.makeup == 7>>
-	$pronounCap's wearing expensive, metallic makeup.
-<<elseif $activeSlave.makeup == 8>>
-	$possessiveCap metallic makeup is color-coordinated with $possessive $activeSlave.hColor hair.
-<</if>>
+	<<makeupDescription>>
 <</if>>
 <</if>>
 
@@ -8106,7 +8090,7 @@ $pronounCap has
 <</widget>>
 
 
-/* Nails */
+/* Styling details */
 
 <<widget "nailsDescription">>
 	 <<if $activeSlave.amp == 1>>
@@ -8131,5 +8115,29 @@ $pronounCap has
 		$possessiveCap nails are shiny, mettalic and color-coordinated with $possessive $activeSlave.hColor hair.
 	<<else>>
 		$possessiveCap nails are neatly clipped.
+	<</if>>
+<</widget>>
+
+<<widget "makeupDescription">>
+	<<if $activeSlave.makeup == 1>>
+		$pronounCap's wearing minimal makeup.
+	<<elseif $activeSlave.makeup == 2>>
+		$pronounCap's wearing expensive, luxurious makeup.
+	<<elseif $activeSlave.makeup == 3>>
+		$possessiveCap makeup is color-coordinated with $possessive $activeSlave.hColor hair.
+	<<elseif $activeSlave.makeup == 4>>
+		$pronounCap's wearing stereotypical, garish streetwalker makeup.
+	<<elseif $activeSlave.makeup == 5>>
+		$pronounCap's wearing eye-catching neon makeup.
+	<<elseif $activeSlave.makeup == 6>>
+		$possessiveCap neon makeup is color-coordinated with $possessive $activeSlave.hColor hair.
+	<<elseif $activeSlave.makeup == 7>>
+		$pronounCap's wearing expensive, metallic makeup.
+	<<elseif $activeSlave.makeup == 8>>
+		$possessiveCap metallic makeup is color-coordinated with $possessive $activeSlave.hColor hair.
+	<<elseif $activeSlave.lipsTat == "permanent makeup">>
+		$possessiveCap face appears to bear very heavy, slutty makeup, but on closer inspection, the makeup is actually tattooed on.
+	<<else>>
+		$possessiveCap face is makeup-free.
 	<</if>>
 <</widget>>
