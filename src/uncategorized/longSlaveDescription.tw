@@ -1764,80 +1764,9 @@ $pronounCap is
 		The piercings on its head run through its suit, helping secure the material to its head.
 	<</if>>
 <<else>>
-	<<if $activeSlave.earPiercing > 0>>
-		<<if $activeSlave.earPiercing == 1>>
-			Her earlobes are conventionally pierced.
-		<<else>>
-			Her ears are heavily pierced, with multiple lobe piercings and a row of helix piercings.
-		<</if>>
-		<<if ($activeSlave.assignment == "get milked") || ($activeSlave.assignment == "work in the dairy")>>
-		She has a plastic livestock tag in one ear to help identify her for milking.
-		<<elseif ($activeSlave.clothes == "attractive lingerie")>>
-		She's wearing pretty, womanly earrings.
-		<<elseif ($activeSlave.clothes == "a succubus outfit")>>
-		She's wearing pentagram earrings.
-		<<elseif ($activeSlave.clothes == "a fallen nuns habit")>>
-		Her earrings mimic tiny crowns of thorns.
-		<<elseif ($activeSlave.clothes == "a chattel habit")>>
-		She's wearing golden earrings in the shape of saintly nudes.
-		<<elseif ($activeSlave.clothes == "a penitent nuns habit")>>
-		Her earrings mimic tiny crowns of thorns.
-		<<elseif ($activeSlave.clothes == "a string bikini")>>
-		She's wearing girly earrings.
-		<<elseif ($activeSlave.clothes == "cutoffs and a t-shirt")>>
-		She's wearing girly earrings.
-		<<elseif ($activeSlave.clothes == "a schoolgirl outfit")>>
-		She's wearing girlish earrings.
-		<<elseif ($activeSlave.clothes == "a kimono")>>
-		She's wearing gorgeous enamelled earrings made to look like tiny koi.
-		<<elseif ($activeSlave.clothes == "a slave gown")>>
-		She's wearing lovely diamond earrings; the stones are cut in an alluring, feminine style.
-		<<elseif ($activeSlave.clothes == "a halter top dress")>>
-		She's wearing lovely diamond earrings; the stones are cut in an alluring, feminine style.
-		<<elseif ($activeSlave.clothes == "a ball gown")>>
-		She's wearing lovely diamond earrings; the stones are cut in an alluring, feminine style.
-		<<elseif ($activeSlave.clothes == "slutty business attire")>>
-		She's wearing lovely diamond earrings; the stones are cut in a gaudy, nouveau riche style.
-		<<elseif ($activeSlave.clothes == "nice business attire")>>
-		She's wearing lovely diamond earrings; the stones are cut in an assertive, unsubtle style.
-		<<elseif ($activeSlave.clothes == "a slutty maid outfit")>>
-		She's wearing big hoop earrings inappropriate for a real maid.
-		<<elseif ($activeSlave.clothes == "a nice maid outfit")>>
-		She's wearing conservative earrings like those a free maid could afford.
-		<<elseif ($activeSlave.clothes == "harem gauze")>>
-		She's wearing broad gold earrings in faux-Arabian style.
-		<<elseif ($activeSlave.clothes == "a bunny outfit")>>
-		She's wearing earrings in the shape of a stylized rabbit's head.
-		<<elseif ($activeSlave.clothes == "slutty jewelry")>>
-		She's wearing gold earrings in the shape of a pair of
-		<<if ($activeSlave.dick > 0) && ($activeSlave.balls == 0)>>
-		  limp dicks.
-		<<elseif ($activeSlave.dick > 0)>>
-		  erect cocks.
-		<<elseif ($activeSlave.oralSkill >= 100)>>
-		  tongues.
-		<<elseif ($activeSlave.boobs > 1000)>>
-		  heavy breasts.
-		<<else>>
-		  female bottoms.
-		<</if>>
-		<</if>>
-	<</if>>
-	<<if $activeSlave.nosePiercing > 0>>
-		<<if $activeSlave.nosePiercing == 1>>
-			She has a simple stud in her nose.
-		<<else>>
-			She has nasal studs and a large septum ring.
-			<<if ($activeSlave.clothes is "slutty jewelry") && ($activeSlave.earPiercing > 0)>>
-				Her bangles include a light chain from her nose ring to her ear piercings on one side.
-			<</if>>
-		<</if>>
-	<</if>>
-	<<if $activeSlave.eyebrowPiercing == 1>>
-		She has a simple stud in one eyebrow.
-	<<elseif $activeSlave.eyebrowPiercing == 2>>
-		She has multiple eyebrow rings.
-	<</if>>
+	<<earPiercingDescription>>
+	<<nosePiercingDescription>>
+	<<eyebrowPiercingDescription>>
 	<<print $activeSlave.customTat>>
 <</if>>
 <</if>>

@@ -21,7 +21,8 @@ $activeSlave.tonguePiercing +
 $activeSlave.nipplesPiercing + 
 $activeSlave.areolaePiercing + 
 $activeSlave.corsetPiercing + 
-$activeSlave.navelPiercing + 
+$activeSlave.navelPiercing +
+$activeSlave.corsetPiercing + 
 $activeSlave.clitPiercing + 
 $activeSlave.vaginaPiercing + 
 $activeSlave.dickPiercing + 
@@ -36,162 +37,41 @@ Piercings:
 	Her smooth $activeSlave.skin skin is completely unpierced.
 <</if>>
 
-/* Light Piercings */
-
-<<if /* do we need a line break */
-($activeSlave.earPiercing == 1) ||  
-($activeSlave.nosePiercing == 1) ||  
-($activeSlave.eyebrowPiercing == 1) ||  
-($activeSlave.lipsPiercing == 1) ||  
-($activeSlave.tonguePiercing == 1) ||  
-($activeSlave.nipplesPiercing == 1) ||  
-($activeSlave.areolaePiercing == 1) ||  
-($activeSlave.corsetPiercing == 1) ||  
-($activeSlave.navelPiercing == 1) ||  
-($activeSlave.clitPiercing == 1) ||  
-($activeSlave.vaginaPiercing == 1) ||  
-($activeSlave.dickPiercing == 1) ||  
-($activeSlave.anusPiercing == 1)>>
-<br>&nbsp;&nbsp;&nbsp;&nbsp;
-
-<<if /* stud finder */
-	($activeSlave.nosePiercing == 1) || 
-	($activeSlave.eyebrowPiercing == 1) || 
-	($activeSlave.lipsPiercing == 1) || 
-	($activeSlave.tonguePiercing == 1) || 
-	($activeSlave.navelPiercing == 1) || 
-	($activeSlave.clitPiercing == 1) || 
-	($activeSlave.vaginaPiercing == 1)
-	>>
-	She has simple studs in her
-	<<if $activeSlave.nosePiercing == 1>>nose,<</if>>
-	<<if $activeSlave.eyebrowPiercing == 1>>eyebrow,<</if>>
-	<<if $activeSlave.lipsPiercing == 1>>lip,<</if>>
-	<<if $activeSlave.tonguePiercing == 1>>tongue,<</if>>
-	<<if $activeSlave.navelPiercing == 1>>navel,<</if>>
-	<<if ($activeSlave.clitPiercing == 1) && ($activeSlave.vagina != -1)>>clitoris,<</if>>
-	<<if ($activeSlave.vagina != -1)>>
-		<<if ($activeSlave.vaginaPiercing == 1)>>
-			labia in a simple row,
-		<</if>>
-	<</if>>
-	<<if ($activeSlave.clitPiercing == 1) && ($activeSlave.vagina == -1)>>dickhead,<</if>>
-	<<if ($activeSlave.balls != 0) && ($activeSlave.dick > 0) && ($activeSlave.dickPiercing == 1)>> ballsack,<</if>>
-
-	<<if _piercingCount > 15>>
-		and the ammount of metal is starting to weigh her down.
-	<<else>>
-		and there is room for more and heavier piercings.
-	<</if>>
-<</if>>	
-
-<<if $activeSlave.nipplesPiercing == 1 && $activeSlave.earPiercing == 1>>
-	Both her nips and ears have simple piercings.
-<<elseif $activeSlave.earPiercing == 1>>
-	She has conventional piercings in her ears.
-<<elseif $activeSlave.nipplesPiercing == 1>>
-	Her nipples bear a simple piercing.
-<</if>>
-
-<<if $activeSlave.areolaePiercing == 1>>Her areolae each have a ring of stud piercings around the borders.<</if>>
-<<if ($activeSlave.dick > 0)>>
-	<<if ($activeSlave.dickPiercing == 1)>>There is a simple row of studs running down her cock.<</if>>
-<</if>>
-<<if ($activeSlave.anusPiercing == 1) && ($activeSlave.vagina < 0)>>
-	 Her taint has a simple piercing between the base of $possessive cock and $possessive asshole.
-<<elseif $activeSlave.anusPiercing == 1>>
-	 Her taint has a simple piercing between $possessive pussy and $possessive asshole.
-<</if>>
-<<if $activeSlave.corsetPiercing == 1>>
-	Her back has a 'corset' piercing, with a column of rings down either side of it.
-<</if>>
-<</if>>
-
-/* Heavy Piercings */
-
-<<if
-($activeSlave.eyebrowPiercing == 2) ||  
-($activeSlave.lipsPiercing == 2) ||  
-($activeSlave.tonguePiercing == 2) ||  
-($activeSlave.clitPiercing == 2) ||  
-($activeSlave.vaginaPiercing == 2)>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	She is quite heavily pierced
-	<<if $activeSlave.eyebrowPiercing == 2>> in the eyebrows with multiple rings,<</if>>
-	<<if $activeSlave.lipsPiercing == 2>> in the lips,<</if>>
-	<<if $activeSlave.tonguePiercing == 2>> in the tongue,<</if>>
-	<<if ($activeSlave.clitPiercing == 2) && ($activeSlave.vagina != -1)>>with a big ring in the clit ,<</if>>
-	<<if ($activeSlave.clitPiercing == 2) && ($activeSlave.vagina == -1)>> with a big ring in the dickhead,<</if>>
-	<<if ($activeSlave.vagina != -1) && ($activeSlave.vaginaPiercing == 2)>>with a row of big rings down her labia,<</if>>	
-	<<if _piercingCount > 25>>
-		and the ammount of metal is starting to weigh her down.
-	<<else>>
-		and cannot escape such clear reminders of the degredation of her slavery.
-	<</if>>
-<</if>>
-
-<<if
-($activeSlave.earPiercing == 2) ||  
-($activeSlave.nosePiercing == 2) ||  
-($activeSlave.nipplesPiercing == 2) ||  
-($activeSlave.areolaePiercing == 2) ||  
-($activeSlave.navelPiercing == 2) ||  
-($activeSlave.vaginaPiercing == 2) ||  
-($activeSlave.dickPiercing == 2) ||  
-($activeSlave.anusPiercing == 2)>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	Grabbing extraordinary attention from clients wherever she goes are:
-	<<if $activeSlave.earPiercing == 2>>
-		<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		- Her ears, with multiple lobe piercings and a row of helix piercings.
-	<</if>>
-	<<if $activeSlave.nosePiercing == 2>>
-		<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		- Her nose, with nasal studs and a large septum ring.
-	<</if>>
-	<<if $activeSlave.nipplesPiercing == 2>>
-		<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		- Her nipples, with several rings, studs, and a chain between them.
-	<</if>>
-	<<if $activeSlave.navelPiercing == 2>>
-		<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		- Her navel, pierced with a ring, with a short length of light chain dangling from it.
-	<</if>>
-	<<if ($activeSlave.dickPiercing == 2 && ($activeSlave.dick > 0))>> 
-		<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		- Her cock, with a row of big rings running down it.<</if>>
-	<<if ($activeSlave.balls != 0) && ($activeSlave.dick > 0) &&($activeSlave.dickPiercing == 2)>>
-		<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		- Her ballsack, with a row of rings down the center of it all the way from the base of $possessive shaft to $possessive perineum.
-	<</if>>
-	<<if ($activeSlave.anusPiercing == 2) && ($activeSlave.vagina < 0)>>
-		<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		- Her nethers, with a big ring between the base of $possessive cock and $possessive asshole and studs in a ring around $possessive anus.
-	<<elseif $activeSlave.anusPiercing == 2>>
-		<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		- Her nethers, with a fat ring piercing her taint between $possessive pussy and $possessive asshole, and studs in a ring around $possessive anus.
-	<</if>>
-<</if>>
-
-	
 
 
-<<if $activeSlave.corsetPiercing == 2>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	Her back has a 'corset' piercing, with a column of heavy rings down either side of it.
-<</if>>
+<<if $activeSlave.earPiercing > 0 >><br><<earPiercingDescription>><</if>> 
+<<if $activeSlave.nosePiercing > 0 >><br><<nosePiercingDescription>><</if>> 
+<<if $activeSlave.eyebrowPiercing > 0 >><br><<eyebrowPiercingDescription>><</if>> 
+<<if $activeSlave.lipsPiercing > 0 >><br><<lipsPiercingDescription>><</if>> 
+<<if $activeSlave.tonguePiercing > 0 >><br><<tonguePiercingDescription>><</if>> 
+<<if $activeSlave.nipplesPiercing > 0 >><br><<nipplesPiercingDescription>><</if>> 
+<<if $activeSlave.areolaePiercing > 0 >><br><<areolaePiercingDescription>><</if>> 
+<<if $activeSlave.navelPiercing > 0 >><br><<navelPiercingDescription>><</if>>
+<<if $activeSlave.corsetPiercing > 0 >><br><<CorsetPiercingDescription>><</if>> 
+<<if $activeSlave.clitPiercing > 0 >><br><<clitPiercingDescription>><</if>> 
+<<if $activeSlave.vaginaPiercing > 0 >><<vaginaPiercingDescription>><br><</if>> 
+<<if $activeSlave.dickPiercing > 0 >><br><<dickPiercingDescription>><</if>> 
+<<if $activeSlave.anusPiercing > 0 >><br><<anusPiercingDescription>><</if>> 
+
+<br><<chastityPiercingDescription>>
 
 
 
-<<if ($activeSlave.clitPiercing > 2)>>
-	<br>  She is equiped with a smart piercing in her
-	<<if $activeSlave.vagina != -1>>
-		clit.
-	<<elseif $activeSlave.vagina == -1>> 
-		frenulum.
-	<</if>>
-<</if>>
 
+/*<<earPiercingDescription>>
+<<nosePiercingDescription>>
+<<eyebrowPiercingDescription>>
+<<lipsPiercingDescription>>
+<<tonguePiercingDescription>>
+<<nipplesPiercingDescription>>
+<<areolaePiercingDescription>>
+<<navelPiercingDescription>>
+<<CorsetPiercingDescription>>
+<<clitPiercingDescription>>
+<<vaginaPiercingDescription>>
+<<dickPiercingDescription>>
+<<anusPiercingDescription>>
+<<chastityPiercingDescription>>*/
 
 /* Apply piercings */
 
