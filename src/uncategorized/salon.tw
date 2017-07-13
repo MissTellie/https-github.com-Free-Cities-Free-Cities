@@ -12,6 +12,7 @@
 <<if $activeSlave.eyes > -2>> /* Begin eye check */
 
 <br><br>
+<<eyeDescription>>
 <<upperFaceDescription>>
 <<if $activeSlave.eyewear != "none">>
 	[[Remove|Salon][$activeSlave.eyewear = "none"]]  
@@ -33,9 +34,10 @@
 	//Blurring options are annoying and impede performance on some assignments.//
 <</if>>
 
-<<if $activeSlave.origEye != "implant">><br><br>
+<<if $activeSlave.origEye != "implant">>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	Custom cosmetic lenses:
 	<<if $activeSlave.origEye != "none">>
-		$possessiveCap eyes are $activeSlave.eyeColor.  
 		<<if $activeSlave.origEye != $activeSlave.eyeColor>>
 			[[Remove lenses|Salon][$activeSlave.eyeColor = $activeSlave.origEye]] or //choose new ones://
 		<<else>>
@@ -49,7 +51,7 @@
 		<</if>>
 	<</if>>	
 	
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	Color:
 	[[Blue|Salon][$artificialEyeColor = "blue"]]
 	| [[Black|Salon][$artificialEyeColor = "black"]]
@@ -64,7 +66,7 @@
 	| [[Amber|Salon][$artificialEyeColor = "amber"]]
 	| [[Red|Salon][$artificialEyeColor = "red"]]
 	
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	Shape:
 	[[Catlike|Salon][$artificialEyeShape = "catlike"]]
 	| [[Serpent-like|Salon][$artificialEyeShape = "serpent-like"]]
