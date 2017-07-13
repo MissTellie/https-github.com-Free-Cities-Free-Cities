@@ -46,7 +46,7 @@ $activeSlave.slaveName is
 	<<if ($activeSlave.amp == 1)>>
 		/* no description yet */
 	<<else>>
-		worker, and
+		$pronounCap's wearing
 		<<footwearDescription>>
 	<</if>>
 
@@ -282,14 +282,16 @@ $activeSlave.slaveName is
 	<<if ($activeSlave.amp == 1)>>
 		cleavage and a short skirt.
 	<<else>>
+		cleavage and a short skirt with
 		<<footwearDescription>>
 	<</if>>
 
 <<case "nice business attire">>
-	a suit
+	a suit jacket and a nice 
 	<<if ($activeSlave.amp == 1)>>
-		jacket and a nice skirt.
+		skirt.
 	<<else>>
+		skirt with
 		<<footwearDescription>>
 	<</if>>
 
@@ -403,7 +405,7 @@ $activeSlave.slaveName is
 	<<if ($activeSlave.amp == 1)>>
 		body.
 	<<else>>
-		which modestly covers $possessive entire body, down to $possessive feet.
+		body, down to $possessive feet.
 		<<footwearDescription>>
 	<</if>>
 
@@ -442,7 +444,7 @@ $activeSlave.slaveName is
 	<<if ($activeSlave.amp == 1)>>
 	/* no description yet */
 	<<else>>
-		$pronounCap is wearing
+		$pronoun is wearing
 		<<footwearDescription>>
 	<</if>>
 	$pronounCap's covered and even veiled, but you can see everything straight through the filmy cloth.
@@ -2579,8 +2581,6 @@ $possessiveCap
 		<</if>>
 
 <<case "a leotard">>
-	a sporty garment that hugs $possessive
-		body closely and
 		<<if ($activeSlave.shoes == "flats")>>
 			a pair of athletic shoes.
 		<<elseif ($activeSlave.shoes == "boots")>>
@@ -2594,7 +2594,6 @@ $possessiveCap
 		<</if>>
 
 <<case "a bunny outfit">>
-		The ensemble includes sheer black hose
 		<<if ($activeSlave.shoes == "flats")>>
 			kitten-heeled strap sandals.
 		<<elseif ($activeSlave.shoes == "boots")>>
@@ -2715,7 +2714,6 @@ $possessiveCap
 		<</if>>
 
 <<case "harem gauze">>
-	$pronounCap's covered and even veiled, but you can see everything straight through the filmy cloth.
 		<<if ($activeSlave.shoes == "flats")>>
 			jeweled thong sandals.
 		<<elseif ($activeSlave.shoes == "boots")>>
