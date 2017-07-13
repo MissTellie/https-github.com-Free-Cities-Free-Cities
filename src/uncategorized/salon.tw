@@ -17,23 +17,20 @@
 	[[Remove|Salon][$activeSlave.eyewear = "none"]]  
 <</if>>
 
-<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
 <<if $activeSlave.origEye == "implant">>
-	//Blurring options are annoying and impede performance on some assignments.//
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
 	Give her: [[Cosmetic glasses|Salon][$activeSlave.eyewear = "glasses",$cash -= $modCost]]
+	//Blurring options are annoying and impede performance on some assignments.//
 <<elseif $activeSlave.eyes == -1>>
-	//Nearsightedness will impede performance on some assignments.//
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
 	Give her: [[Cosmetic glasses|Salon][$activeSlave.eyewear = "glasses",$cash -= $modCost]]
 	| [[Corrective glasses|Salon][$activeSlave.eyewear = "corrective glasses",$cash -= $modCost]]
 	| [[Corrective contacts|Salon][$activeSlave.eyewear = "corrective contacts",$cash -= $modCost]]
+	//Nearsightedness will impede performance on some assignments.//
 <<else>>
-	//Blurring options are annoying and impede performance on some assignments.//
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
 	Give her: [[Cosmetic glasses|Salon][$activeSlave.eyewear = "glasses",$cash -= $modCost]]
 	| [[Blurring glasses|Salon][$activeSlave.eyewear = "blurring glasses",$cash -= $modCost]]
 	| [[Blurring contacts|Salon][$activeSlave.eyewear = "blurring contacts",$cash -= $modCost]]
+	//Blurring options are annoying and impede performance on some assignments.//
 <</if>>
 
 <<if $activeSlave.origEye != "implant">><br><br>
