@@ -43,7 +43,7 @@ $possessiveCap $activeSlave.faceShape face is
 	//$possessiveCap indenture forbids elective surgery//
 <<elseif (($activeSlave.faceImplant < 2) || ($surgeryUpgrade == 1)) && ($activeSlave.face <= 95)>>
 	Facial surgery can either rework it and improve its attractiveness, or simply make it more attractive.
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	<<if $activeSlave.faceShape != "normal">>
 	[[Make conventionally feminine|Surgery Degradation][$activeSlave.faceShape = "normal",$activeSlave.faceImplant += 1,$cash -= $surgeryCost,$activeSlave.health -= 10,$surgeryType = "face"]] |
 	<</if>>
@@ -95,13 +95,11 @@ $possessiveCap $activeSlave.faceShape face is
 <<else>>
 	$pronounCap has working eyes<<if ($activeSlave.eyes == -1)>>, but is nearsighted.
 		<<if ($activeSlave.origEye != "implant")>>
-			<br>&nbsp;&nbsp;&nbsp;&nbsp;
 			[[Correct eyesight|Surgery Degradation][$activeSlave.eyes = 1, $cash -= $surgeryCost, $activeSlave.health -= 10, $surgeryType = "eyeFix"]]
 		<</if>>
 	<<elseif ($activeSlave.eyes == 1)>>
 		and good vision.
 		<<if ($seeExtreme == 1) && ($activeSlave.origEye != "implant")>>
-			<br>&nbsp;&nbsp;&nbsp;&nbsp;
 			[[Blur vision|Surgery Degradation][$activeSlave.eyes = -1, $cash -= $surgeryCost, $activeSlave.health -= 10, $surgeryType = "eyeBlur"]]
 		<</if>>
 	<</if>>	
@@ -391,7 +389,7 @@ $pronounCap has
 	<</if>>
 <</if>>
 
-<<if $activeSlave.vagina > -1>>
+<<if ($activeSlave.vagina > -1) || ($activeSlave.dick > 0)>>
 	<br><br>
 	//<<VaginaDescription>>//
 <</if>>
@@ -444,9 +442,11 @@ $pronounCap has
 <</if>>
 
 <<if ($activeSlave.preg > -2) && ($activeSlave.preg < 1) && ($activeSlave.vagina > -1) && ($activeSlave.ovaries != 0)>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;$pronounCap has a working womb.
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	$pronounCap has a working womb.
 <<elseif ($activeSlave.preg == -2) && ($activeSlave.vagina > -1) && ($activeSlave.ovaries != 0)>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;$pronounCap has a sterile womb.
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	$pronounCap has a sterile womb.
 <</if>>
 <<if ($activeSlave.preg > -2) && ($activeSlave.preg < 1) && ($activeSlave.preg < 1) && ($activeSlave.vagina > -1) && ($activeSlave.ovaries != 0)>>
 	<<if $activeSlave.indentureRestrictions < 1>>
@@ -458,54 +458,69 @@ $pronounCap has
 
 <<if ($activeSlave.ovaries == 1) && ($activeSlave.preg < 1)>>
 	<<if $activeSlave.indentureRestrictions < 1>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;$pronounCap has working ovaries.
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	$pronounCap has working ovaries.
 	[[Oophorectomy|Surgery Degradation][$activeSlave.ovaries = 0,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "ster"]]
 	<</if>>
 <</if>>
 
 <<if ($activeSlave.vagina > 3)>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;$possessiveCap vagina could benefit from surgical repair.
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	$possessiveCap vagina could benefit from surgical repair.
 	[[Repair pussy|Surgery Degradation][$activeSlave.vagina = 3,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "vagina"]] //This will reduce $possessive vaginal skills//
 <<elseif ($surgeryUpgrade == 1) && ($activeSlave.indentureRestrictions < 2)>>
 	<<if ($activeSlave.vagina > 1)>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;$possessiveCap vaginal muscles could benefit from microsurgical rejuvenation.
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	$possessiveCap vaginal muscles could benefit from microsurgical rejuvenation.
 	[[Tighten pussy|Surgery Degradation][$activeSlave.vagina = 1,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "vagina"]] //This will reduce $possessive vaginal skills//
 	<<elseif ($activeSlave.vagina > 0)>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;$possessiveCap pussy is as tight as a virgin's, and $possessive hymen could be restored.
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	$possessiveCap pussy is as tight as a virgin's, and $possessive hymen could be restored.
 	[[Restore virginity|Surgery Degradation][$activeSlave.vagina = 0,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "vagina"]] //This will reduce $possessive vaginal skills//
 	<</if>>
 <</if>>
 
 <<if ($activeSlave.vagina > -1) && ($activeSlave.dick > 0)>>
 	<<if $activeSlave.indentureRestrictions < 1>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;Since $pronoun has both a penis and a vagina, it's possible to remove $possessive pussy and leave $possessive sexually functional.
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	Since $pronoun has both a penis and a vagina, it's possible to remove $possessive pussy and leave $possessive sexually functional.
 	[[Remove pussy|Surgery Degradation][$activeSlave.vagina = -1,$activeSlave.ovaries = 0,$activeSlave.preg = -2,$activeSlave.pregSource = 0,$activeSlave.vaginalSkill = 0,$cash -= $surgeryCost,$activeSlave.health -= 20,$surgeryType = "vaginaRemoval"]] <<if $activeSlave.ovaries == 1>>//This will remove $possessive ovaries as well//<</if>>
 	<</if>>
 <</if>>
 
 <<if ($activeSlave.dick == 0) && ($activeSlave.vagina == -1)>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;$pronounCap is a null, possessing neither penis nor vagina.
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	$pronounCap is a null, possessing neither penis nor vagina.
 <<elseif ($seeCircumcision == 1) && ($activeSlave.indentureRestrictions < 2)>>
 	<<if ($activeSlave.dick != 0) && ($activeSlave.vagina == -1) && ($activeSlave.foreskin == 0)>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;$pronounCap has a circumcised penis.
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	$pronounCap has a circumcised penis.
 	<<elseif ($activeSlave.dick != 0) && ($activeSlave.vagina == -1) && ($activeSlave.foreskin >= 1)>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;$pronounCap has an uncircumcised penis.
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	$pronounCap has an uncircumcised penis.
 	<<elseif ($activeSlave.dick != 0) && ($activeSlave.ovaries != 0) && ($activeSlave.foreskin == 0)>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;$pronounCap has a circumcised penis and a vagina.
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	$pronounCap has a circumcised penis and a vagina.
 	<<elseif ($activeSlave.dick != 0) && ($activeSlave.ovaries != 0) && ($activeSlave.foreskin >= 1)>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;$pronounCap has an uncircumcised penis and a vagina.
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	$pronounCap has an uncircumcised penis and a vagina.
 	<<elseif ($activeSlave.dick != 0) && ($activeSlave.vagina != -1) && ($activeSlave.foreskin == 0)>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;$pronounCap has a circumcised penis and an artificial vagina.
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	$pronounCap has a circumcised penis and an artificial vagina.
 	<<elseif ($activeSlave.dick != 0) && ($activeSlave.vagina != -1) && ($activeSlave.foreskin >= 1)>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;$pronounCap has an uncircumcised penis and an artificial vagina.
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	$pronounCap has an uncircumcised penis and an artificial vagina.
 	<</if>>
 <<else>>
 	<<if ($activeSlave.dick != 0) && ($activeSlave.vagina == -1)>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;$pronounCap has a penis.
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	$pronounCap has a penis.
 	<<elseif ($activeSlave.dick != 0) && ($activeSlave.ovaries != 0)>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;$pronounCap has a penis and a vagina.
+	<br>&nbsp;&nbsp;&nbsp;&nbsp
+	$pronounCap has a penis and a vagina.
 	<<elseif ($activeSlave.dick != 0) && ($activeSlave.vagina != -1)>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;$pronounCap has a penis and an artificial vagina.
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	$pronounCap has a penis and an artificial vagina.
 	<</if>>
 <</if>>
 
@@ -513,7 +528,7 @@ $pronounCap has
 	<<if ($activeSlave.vagina == -1) && ($activeSlave.dick != 0)>>
 		[[Convert genitalia to female|Surgery Degradation][$activeSlave.dick = 0,$activeSlave.dickAccessory = "none",$activeSlave.scrotum = 0,$activeSlave.balls = 0,$activeSlave.vagina = 0,$activeSlave.preg = -2,$activeSlave.vaginalSkill = 0,$cash -= $surgeryCost, $activeSlave.health -= 40, $surgeryType = "mtf"]]
 	<</if>>
-	<<if ($activeSlave.dick == 0) && ($activeSlave.vagina == -1) && ($surgeryUpgrade == 1)>>	
+	<<if ($activeSlave.vagina == -1) && ($activeSlave.dick == 0) && ($surgeryUpgrade == 1)>>	
 		[[Create a vagina|Surgery Degradation][$activeSlave.vagina = 0,$activeSlave.vaginalSkill = 0,$cash -= $surgeryCost, $activeSlave.health -= 40, $surgeryType = "mtf"]]
 	<</if>>
 	<<if ($activeSlave.dick > 0) && ($seeExtreme == 1)>>
@@ -540,9 +555,11 @@ $pronounCap has
 
 <<if ($activeSlave.balls > 0)>>
 	<<if ($activeSlave.balls == 1)>>
-		<br>$possessiveCap testicles are vestigial, but $pronoun has balls. Technically. They are 
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;
+		$possessiveCap testicles are vestigial, but $pronoun has balls. Technically. They are 
 	<<elseif ($activeSlave.balls > 1)>>
-		<br>$pronounCap has testicles 
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;
+		$pronounCap has testicles 
 	<</if>>
 	<<if ($activeSlave.scrotum > 0)>>
 		located in $possessive scrotum.
@@ -567,7 +584,7 @@ $pronounCap has
 <</if>>
 
 <<if $activeSlave.prostate>>
-	<br>$pronounCap has a <<if $activeSlave.prostate > 1>>hyperactive<<else>>normal<</if>> prostate.
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;$pronounCap has a <<if $activeSlave.prostate > 1>>hyperactive<<else>>normal<</if>> prostate.
 	<<if $activeSlave.prostate < 2>>
 		<<if $activeSlave.indentureRestrictions < 2>>
 			[[Implant slow-release productivity drugs|Surgery Degradation][$activeSlave.prostate=2,$cash-=$surgeryCost,$activeSlave.health-=10,$surgeryType="precum"]] //This may cause some leaking//
@@ -600,7 +617,9 @@ $pronounCap has
 
 <<HairDescription>>
 <<if $activeSlave.pubicHStyle != "bald">> 
-	Her pubic hair still grows nautrally.
+	The rest of her body hair still grows nautrally.
+<<else>>
+	$possessiveCap $activeSlave.skin skin is silky smooth and hair free from her neck to her toes.
 <</if>>
 
 <<if $activeSlave.origHColor != "bald" && $activeSlave.pubicHStyle != "bald">>
@@ -609,7 +628,7 @@ $pronounCap has
 <<elseif $activeSlave.origHColor != "bald" && $activeSlave.pubicHStyle == "bald">>
 	[[Remove hair|Surgery Degradation][$activeSlave.origHColor = "bald",$activeSlave.hStyle = "bald",$activeSlave.hLength = 0,$cash -= $surgeryCost,$surgeryType = "hair removal"]]
 <<elseif $activeSlave.origHColor == "bald" && $activeSlave.pubicHStyle != "bald">>
-	[[Remove body hair|Surgery Degradation][$activeSlave.pubicHStyle = "bald",$cash -= $surgeryCost,$surgeryType = "body hair removal"]]
+	[[Remove pubic hair|Surgery Degradation][$activeSlave.pubicHStyle = "bald",$cash -= $surgeryCost,$surgeryType = "body hair removal"]]
 <</if>>
 <br>
 <<BellyDescription>>
@@ -646,7 +665,7 @@ $pronounCap has
 <</if>>
 
 <br><br>
-Work on her skelleton:
+Work on her structurally:
 <br>&nbsp;&nbsp;&nbsp;&nbsp;
 <<if $activeSlave.indentureRestrictions < 1>>
 	<<if ($activeSlave.shouldersImplant == 0)>>
