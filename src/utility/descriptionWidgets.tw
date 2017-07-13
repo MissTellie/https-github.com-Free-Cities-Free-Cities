@@ -7208,6 +7208,9 @@ $pronounCap has
 		<<case "a bunny outfit">>
 			A pair of bunny ears sprout from a headband atop her head.
 		<</switch>>
+		<<if $activeSlave.origEye == "implant">>
+				$pronounCap has artificial eyes.
+		<</if>>
 		<<if ($activeSlave.eyewear == "corrective glasses") || ($activeSlave.eyewear == "blurring glasses") || ($activeSlave.eyewear == "glasses")>>
 			She's wearing a pair of
 			<<switch $activeSlave.clothes>>
@@ -7250,13 +7253,13 @@ $pronounCap has
 			  <<else>>
 				which are just for show.
 			  <</if>>
-			<<elseif $activeSlave.eyes == -2>>
-				which, since she is @@.red;blind@@, are just for show.  She moves carefully as to not bump into things.
-			<<else>>
+			<<elseif $activeSlave.eyes == -1>>
 			  <<if $activeSlave.eyewear == "corrective glasses">>
 				which correct her vision.
 			  <<else>>
 				which do nothing to help her @@.yellow;nearsightedness@@ and consequent clumsiness.
+			<<elseif $activeSlave.eyes < -1>>
+				which, since she is @@.red;blind@@, are just for show.  She moves carefully as to not bump into things.
 			  <</if>>
 			<</if>>
 		<<else>>
@@ -7264,14 +7267,14 @@ $pronounCap has
 			  <<if $activeSlave.eyewear == "blurring contacts">>
 				She's wearing contacts designed to blur her vision, making her clumsy.
 			  <</if>>
-			<<elseif $activeSlave.eyes == -2>>
-				She is @@.red;blind@@, and moves very carefully as a result.
-			<<else>>
+			<<elseif $activeSlave.eyes == -1>>
 			  <<if $activeSlave.eyewear == "corrective contacts">>
 				She's wearing contact lenses to correct her @@.yellow;nearsightedness@@.
 			  <<else>>
 				She's @@.yellow;nearsighted@@, and a bit clumsy as a result.
 			  <</if>>
+			<<elseif $activeSlave.eyes < -1>>
+				She is @@.red;blind@@, and moves very carefully as a result.
 			<</if>>
 		<</if>> /* CLOSES EYEWEAR */
 	<<else>>
@@ -7888,7 +7891,7 @@ $pronounCap has
 		Leather cased lengths of chain form a corset around $possessive waist.
 	<<elseif $activeSlave.bellyAccessory == "an extreme corset">>
 		$pronounCap's encased in a very tight corset made of leather cased iron straps, with eyelets to attach to the chains.
-
+	<</if>>
 <<case "Western clothing">>
 	<<if $activeSlave.bellyAccessory == "a corset">>
 		$possessiveCap sturdy corset is hidden by $possessive flannel.
