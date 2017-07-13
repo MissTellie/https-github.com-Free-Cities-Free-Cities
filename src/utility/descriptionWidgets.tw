@@ -3512,7 +3512,12 @@ $activeSlave.slaveName is
 
 <<default>>
 	so $possessive nude body is on display.
-
+	<<if ($activeSlave.amp == 1)>>
+		In fact, she's devoid even of limbs.
+	<<else>>
+		$pronounCap is wearing
+		<<footwearDescription>>
+	<</if>>
 <</switch>>
 <</if>>
 
@@ -7848,7 +7853,17 @@ $pronounCap has
 	<<chastityPiercingDescription>>
 	
 <<default>>
-	so $possessive nude body is on display.
+		<<if ($activeSlave.shoes == "flats")>>
+			a pair of simple sandals which just call attention to her otherwise nude state.
+		<<elseif ($activeSlave.shoes == "boots")>>
+			a pair of sexy leather boots which just call attention to her otherwise nude state.
+		<<elseif ($activeSlave.shoes == "heels")>>
+			a pair of sexy heels which just call attention to her otherwise nude state.
+		<<elseif ($activeSlave.shoes == "extreme heels")>>
+			a pair of daringly high heels which just call attention to her otherwise nude state.
+		<<else>>
+			nothing on $possessive bare feet either, naturally.
+		<</if>>
 <</switch>>
 <</if>> /* end amp check */
 <</widget>>
