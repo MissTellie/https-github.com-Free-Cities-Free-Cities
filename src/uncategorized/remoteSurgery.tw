@@ -237,7 +237,7 @@ $pronounCap has
 <br><br>
 
 //<<BoobsDescription>>//
-
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
 <<if $activeSlave.boobs > 10000>>
 	//$possessiveCap breasts are as large as $pronoun can physically support//
 <<elseif $activeSlave.indentureRestrictions >= 2>>
@@ -361,11 +361,11 @@ $pronounCap has
 <br><br>
 
 //<<ButtDescription>>//
-
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
 <<if $activeSlave.butt > 7>>
-	//$possessiveCap butt is as large as $pronoun can physically support//
+	$possessiveCap butt is as large as $pronoun can physically support
 <<elseif $activeSlave.indentureRestrictions >= 2>>
-	//$possessiveCap indenture forbids elective surgery//
+	$possessiveCap indenture forbids elective surgery
 <<elseif $activeSlave.buttImplant == 0>>
 	[[Implants|Surgery Degradation][$activeSlave.buttImplant = 1,$activeSlave.butt += 1,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "butt"]]
 	| [[String implants|Surgery Degradation][$activeSlave.buttImplant = 1,$activeSlave.butt += 1,$activeSlave.buttImplantType = 1,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "butt"]]
