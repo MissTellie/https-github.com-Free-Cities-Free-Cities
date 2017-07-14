@@ -2,6 +2,10 @@
 
 <<set $nextButton = "Back to Main", $nextLink = "Main">>
 
+<<for _i=0;_i<$slaves.length;_i++>>
+	<<set $slaves[_i].currentSummary = 0>>
+<</for>>
+
 //These options will affect the short slave summaries that appear on the main menu and the facility management screens.//
 
 <br><br>
