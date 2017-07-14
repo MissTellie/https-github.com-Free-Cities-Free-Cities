@@ -586,7 +586,8 @@ $pronounCap has
 <</if>>
 
 <<if $activeSlave.prostate>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;$pronounCap has a <<if $activeSlave.prostate > 1>>hyperactive<<else>>normal<</if>> prostate.
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	$pronounCap has a <<if $activeSlave.prostate > 1>>hyperactive<<else>>normal<</if>> prostate.
 	<<if $activeSlave.prostate < 2>>
 		<<if $activeSlave.indentureRestrictions < 2>>
 			[[Implant slow-release productivity drugs|Surgery Degradation][$activeSlave.prostate=2,$cash-=$surgeryCost,$activeSlave.health-=10,$surgeryType="precum"]] //This may cause some leaking//
