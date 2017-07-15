@@ -1139,18 +1139,30 @@ when a dick is pushed inside <<if $activeSlave.vagina >= -1>>either of its lower
 	<<if $slaves[_lsd].ID == $activeSlave.rivalryTarget>>
 		$pronounCap
 		<<if $activeSlave.rivalry <= 1>>
-			@@.lightsalmon;dislikes@@ 
+			@@.lightsalmon;dislikes
+			<<if $slaves[_lsd].slaveSurname>> 
+				<<set _rivalName = ($slaves[_lsd].slaveName + " " + $slaves[_lsd].slaveSurname)>>
+			<<else>> 
+				<<set _rivalName = ($slaves[_lsd].slaveName)>>
+			<</if>>
+			[[_rivalName|Slave Interact][$activeSlave = $slaves[_lsd]]].@@
 		<<elseif $activeSlave.rivalry <= 2>>
-			is $slaves[_lsd].slaveName<<if $slaves[_lsd].slaveSurname>> $slaves[_lsd].slaveSurname<</if>>'s @@.lightsalmon;rival.@@
+			is @@.lightsalmon;$slaves[_lsd].slaveName
+			<<if $slaves[_lsd].slaveSurname>> 
+				<<set _rivalName = ($slaves[_lsd].slaveName + " " + $slaves[_lsd].slaveSurname)>>
+			<<else>> 
+				<<set _rivalName = ($slaves[_lsd].slaveName)>>
+			<</if>>
+			[[_rivalName|Slave Interact][$activeSlave = $slaves[_lsd]]]'s rival.@@
 		<<else>>
-			@@.lightsalmon;bitterly hates@@ $slaves[_lsd].slaveName<<if $slaves[_lsd].slaveSurname>> $slaves[_lsd].slaveSurname<</if>>  [[(view)|Slave Interact][$activeSlave = $slaves[_lsd]]].
+			@@.lightsalmon;bitterly hates 
+			<<if $slaves[_lsd].slaveSurname>> 
+				<<set _rivalName = ($slaves[_lsd].slaveName + " " + $slaves[_lsd].slaveSurname)>>
+			<<else>> 
+				<<set _rivalName = ($slaves[_lsd].slaveName)>>
+			<</if>>
+			[[_rivalName|Slave Interact][$activeSlave = $slaves[_lsd]]].@@
    		<</if>>
-		<<if $slaves[_lsd].slaveSurname>> 
-			<<set _rivalName = ($slaves[_lsd].slaveName + " " + $slaves[_lsd].slaveSurname)>>
-		<<else>> 
-			<<set _rivalName = ($slaves[_lsd].slaveName)>>
-		<</if>>
-		[[_rivalName|Slave Interact][$activeSlave = $slaves[_lsd]]].
 		<<break>>
 	<</if>>
   <</for>>
