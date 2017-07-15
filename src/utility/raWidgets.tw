@@ -2470,7 +2470,8 @@ Relationship rules: ''$currentRule.relationshipRules.''
                     <<continue>>
                 <</if>>
 
-                <<CheckAutoRulesActivate $slaves[_rai]>> /* does not use or modify $currentRule */
+                <<set $slaves[_rai].currentSummary = 0>>
+		<<CheckAutoRulesActivate $slaves[_rai]>> /* does not use or modify $currentRule */
                 <<DefaultRules $slaves[_rai]>>           /* does not use or modify $currentRule */
             <</for>>
         <</replace>>
