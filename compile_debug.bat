@@ -1,11 +1,13 @@
 @echo off
 :: Free Cities Basic Compiler - Windows
-:: Will wait for keypress before terminating.
+
+:: Set working directory
+cd %~dp0
 
 :: Will add all *.tw files to StoryIncludes.
 del src\config\start.tw
 copy src\config\start.tw.proto start.tw.tmp >nul
->>start.tw.tmp (for /r "src" %%F in (*.tw) do echo %%F)
+>>start.tw.tmp (for /r "src" %%F in (*.tw) do @echo %%F)
 move start.tw.tmp src\config\start.tw >nul
 
 :: Run the appropriate compiler for the user's CPU architecture.
