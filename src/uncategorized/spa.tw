@@ -102,9 +102,9 @@ $spaNameCaps
 		<</replace>>
 	<</link>>
 <</if>>
- | 
+
 <<if $spaSlaves > 0>>
-	<<link "''Prise a slave out of the spa''">>
+	 | <<link "''Prise a slave out of the spa''">>
 		<<set $leaveSpa = 1>>
 		<<replace #spaComingGoing>>
 			<<if $leaveSpa == 0>>
@@ -117,7 +117,7 @@ $spaNameCaps
 		<</replace>>
 	<</link>>
 <<else>>
-	The spa is empty at the moment.
+	<br><br>//The spa is empty at the moment.<br>//
 <</if>>
 
 <span id="spaComingGoing">
@@ -129,6 +129,6 @@ $spaNameCaps
 	<<include "Slave Summary">>
 <</if>>
 </span>
-/*<<unset $Flag>>*/
+<<unset $Flag>>
 
 <br><br>Rename $spaName: <<textbox "$spaName" $spaName "Spa">> //Use a noun or similar short phrase//
