@@ -1112,10 +1112,22 @@ when a dick is pushed inside <<if $activeSlave.vagina >= -1>>either of its lower
   <<for _lsd = 0; _lsd < $slaves.length; _lsd++>>
 	<<if $slaves[_lsd].ID == $activeSlave.relationTarget>>
 		<<if ($slaves[_lsd].ID == $activeSlave.relationshipTarget) && ($activeSlave.relationship >= 3)>>
-			$pronounCap is @@.lightgreen;$slaves[_lsd].slaveName<<if $slaves[_lsd].slaveSurname>> $slaves[_lsd].slaveSurname<</if>>'s $activeSlave.relation, making their relationship incestuous.@@
+			$pronounCap is @@.lightgreen;
+			<<if $slaves[_lsd].slaveSurname>> 
+				<<set _relationName = ($slaves[_lsd].slaveName + " " + $slaves[_lsd].slaveSurname)>>
+			<<else>> 
+				<<set _relationName = ($slaves[_lsd].slaveName)>>
+			<</if>>
+			<span class=".lightgreen">[[_relationName|Slave Interact][$activeSlave = $slaves[_lsd]]]'s $activeSlave.relation, making their relationship incestuous.@@</span>
 			<<break>>
 		<<else>>
-			$pronounCap is @@.lightgreen;$slaves[_lsd].slaveName<<if $slaves[_lsd].slaveSurname>> $slaves[_lsd].slaveSurname<</if>>'s $activeSlave.relation.@@
+			$pronounCap is @@.lightgreen;
+			<<if $slaves[_lsd].slaveSurname>> 
+				<<set _relationName = ($slaves[_lsd].slaveName + " " + $slaves[_lsd].slaveSurname)>>
+			<<else>> 
+				<<set _relationName = ($slaves[_lsd].slaveName)>>
+			<</if>>
+			[[_relationName|Slave Interact][$activeSlave = $slaves[_lsd]]]'s $activeSlave.relation.@@
 			<<break>>
 		<</if>>
 	<</if>>
@@ -1127,12 +1139,18 @@ when a dick is pushed inside <<if $activeSlave.vagina >= -1>>either of its lower
 	<<if $slaves[_lsd].ID == $activeSlave.rivalryTarget>>
 		$pronounCap
 		<<if $activeSlave.rivalry <= 1>>
-			@@.lightsalmon;dislikes@@ $slaves[_lsd].slaveName<<if $slaves[_lsd].slaveSurname>> $slaves[_lsd].slaveSurname<</if>>.
+			@@.lightsalmon;dislikes@@ 
 		<<elseif $activeSlave.rivalry <= 2>>
 			is $slaves[_lsd].slaveName<<if $slaves[_lsd].slaveSurname>> $slaves[_lsd].slaveSurname<</if>>'s @@.lightsalmon;rival.@@
 		<<else>>
-			@@.lightsalmon;bitterly hates@@ $slaves[_lsd].slaveName<<if $slaves[_lsd].slaveSurname>> $slaves[_lsd].slaveSurname<</if>>.
+			@@.lightsalmon;bitterly hates@@ $slaves[_lsd].slaveName<<if $slaves[_lsd].slaveSurname>> $slaves[_lsd].slaveSurname<</if>>  [[(view)|Slave Interact][$activeSlave = $slaves[_lsd]]].
    		<</if>>
+		<<if $slaves[_lsd].slaveSurname>> 
+			<<set _rivalName = ($slaves[_lsd].slaveName + " " + $slaves[_lsd].slaveSurname)>>
+		<<else>> 
+			<<set _rivalName = ($slaves[_lsd].slaveName)>>
+		<</if>>
+		[[_rivalName|Slave Interact][$activeSlave = $slaves[_lsd]]].
 		<<break>>
 	<</if>>
   <</for>>
