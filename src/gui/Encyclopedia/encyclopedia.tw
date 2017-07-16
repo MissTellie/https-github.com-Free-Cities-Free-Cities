@@ -2,8 +2,6 @@
 
 <<switch $encyclopedia>>\
 <<case "First Game Guide">>\
-//Scroll to the end for more options//
-
 Unfortunately, Twine doesn't have a solid tooltip system at the moment. So, a certain amount of confusion is to be expected. Sorry about that. Flip through the encyclopedia, or at least this gameplay section. It answers a lot of frequently asked questions, and if you read it you can save yourself the trouble of asking your frequently asked question on /d/ or the blog and getting told to read the encyclopedia. If you've still got questions, start a game and read what it says. The game is reasonably good about telling you what's happening to your slaves, and why. It bears repetition that almost all stat effects are called out with colored text. Try this opening strategy if you don't know where to start. It isn't an optimal build, but it works reliably and will show you the basics.
 
 __Starting options__
@@ -1767,6 +1765,13 @@ Choose a more particular entry below:
 
 Choose a more particular entry below:
 \
+<<case "Playing Free Cities">>\
+Welcome to the Free Cities, Master!
+
+//Future room for lore text//
+
+Choose a more particular entry below:
+\
 <<case "Security Force">>\
 ''NOTE: The Security Force is an optional mod, and as such will only be initialized in-game if it is enabled at game start or in the options menu.''
 
@@ -1992,7 +1997,7 @@ Error: bad title.
 | [[Whoring|Encyclopedia][$encyclopedia = "Whoring"]]
 <</if>>
 
-<<if ["First Game Guide","How to Play","Keyboard Shortcuts","The Arcology Interface","Tips and Tricks"].includes($encyclopedia)>>
+<<if ["Playing Free Cities","First Game Guide","How to Play","Keyboard Shortcuts","The Arcology Interface","Tips and Tricks"].includes($encyclopedia)>>
 <br>
 //Gameplay//<br>
 [[First Game Guide|Encyclopedia][$encyclopedia = "First Game Guide"]]
