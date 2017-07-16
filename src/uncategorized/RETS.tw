@@ -1408,12 +1408,11 @@ she adds impishly. Hearing this, $subSlave.slaveName lets the breast pop free of
 	<<set $activeSlave.devotion += 4>>
 	<<for $i = 0; $i < $slaves.length; $i++>>
 	<<if $RERelationshipSlave.ID == $slaves[$i].ID>>
-		<<set $activeSlave.analCount += 1>>
+		<<set $slaves[$i].analCount += 1>>
 		<<set $analTotal += 1>>
-		<<set $activeSlave.penetrativeCount += 1>>
+		<<set $slaves[$i].penetrativeCount += 1>>
 		<<set $penetrativeTotal += 1>>
-		<<set $activeSlave.devotion += 4>>
-		<<set $slaves[$i] = $RERelationshipSlave>>
+		<<set $slaves[$i].devotion += 4>>
 		<<break>>
 	<</if>>
 	<</for>>
@@ -1462,12 +1461,11 @@ she adds impishly. Hearing this, $subSlave.slaveName lets the breast pop free of
 	<<set $activeSlave.trust += 4>>
 	<<for $i = 0; $i < $slaves.length; $i++>>
 	<<if $RERelationshipSlave.ID == $slaves[$i].ID>>
-		<<set $activeSlave.oralCount += 1>>
+		<<set $slaves[$i].oralCount += 1>>
 		<<set $oralTotal += 1>>
-		<<set $activeSlave.penetrativeCount += 1>>
+		<<set $slaves[$i].penetrativeCount += 1>>
 		<<set $penetrativeTotal += 1>>
-		<<set $activeSlave.trust += 4>>
-		<<set $slaves[$i] = $RERelationshipSlave>>
+		<<set $slaves[$i].trust += 4>>
 		<<break>>
 	<</if>>
 	<</for>>
@@ -1615,7 +1613,6 @@ she adds impishly. Hearing this, $subSlave.slaveName lets the breast pop free of
 	When you cum, you thrust as far inside as you can manage and shoot your load deep into her. Denied the taste of most of your semen, deposited far back and beyond her taste buds, she forms a tight seal around your shaft as she pulls her head back and off your cock, sucking the residual drops out of you and onto her tongue. She swallows, gives a <<if $activeSlave.trust > 20>>contented<<else>>relieved<</if>> sigh, and looks up at you @@.hotpink;devotedly.@@
 	<<set $activeSlave.oralCount++, $oralTotal++>>
 	<<set $activeSlave.devotion += 5>>
-	<<for _i to 0; _i < $slaves.length; _i++>><<if $slaves[_i].ID == $subSlave.ID>><<set $slaves[_i] = $subSlave>><<break>><</if>><</for>>
 	<</replace>>
 <</link>>
 <</if>>
