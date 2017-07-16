@@ -1740,11 +1740,6 @@ Choose a more particular entry below:
 
 Choose a more particular entry below:
 \
-<<case "General Concepts">>\
-//Future room for lore text//
-
-Choose a more particular entry below:
-\
 <<case "Lore">>\
 //Future room for lore text//
 
@@ -2032,14 +2027,24 @@ Error: bad title.
  | [[Sexual Energy|Encyclopedia][$encyclopedia = "Sexual Energy"]]
 <</if>>
 
-<<if ["Slaves","Enslaving People","From Rebellious to Devoted","Drugs and Their Effects","Gender","Nymphomania",].includes($encyclopedia)>>
+<<if ["Slaves","Enslaving People","From Rebellious to Devoted","Drugs and Their Effects","Gender","Nymphomania","Hormones (XX)", "Hormones (XY)", "Trust", "Devotion", "Health", "Lingua Franca", "Menial Slaves", "Indentured Servants", "Relationships", "Slave Score (Attractiveness)", "Slave Score (Sexual)","Gingering"].includes($encyclopedia)>>
 <br>
 //Slaves//<br>
 [[Enslaving People|Encyclopedia][$encyclopedia = "Enslaving People"]]
- | [[From Rebellious to Devoted|Encyclopedia][$encyclopedia = "From Rebellious to Devoted"]]
- | [[Drugs and Their Effects|Encyclopedia][$encyclopedia = "Drugs and Their Effects"]]
- | [[Gender|Encyclopedia][$encyclopedia = "Gender"]]
- | [[Nymphomania|Encyclopedia][$encyclopedia = "Nymphomania"]]
+| [[From Rebellious to Devoted|Encyclopedia][$encyclopedia = "From Rebellious to Devoted"]]
+| [[Drugs and Their Effects|Encyclopedia][$encyclopedia = "Drugs and Their Effects"]]
+| [[Gender|Encyclopedia][$encyclopedia = "Gender"]]
+| [[Nymphomania|Encyclopedia][$encyclopedia = "Nymphomania"]]
+|  [[Devotion|Encyclopedia][$encyclopedia = "Devotion"]]
+| [[Trust|Encyclopedia][$encyclopedia = "Trust"]]
+| [[Hormones (XX)|Encyclopedia][$encyclopedia = "Hormones (XX)"]]
+| [[Hormones (XY)|Encyclopedia][$encyclopedia = "Hormones (XY)"]]
+| [[Indentured Servants|Encyclopedia][$encyclopedia = "Indentured Servants"]]
+| [[Lingua Franca|Encyclopedia][$encyclopedia = "Lingua Franca"]]
+| [[Menial Slaves|Encyclopedia][$encyclopedia = "Menial Slaves"]]
+| [[Slave Score (Attractiveness)|Encyclopedia][$encyclopedia = "Slave Score (Attractiveness)"]]
+| [[Slave Score (Sexual)|Encyclopedia][$encyclopedia = "Slave Score (Sexual)"]]
+| [[Gingering|Encyclopedia][$encyclopedia = "Gingering"]]
 <</if>>
 
 <<if ["Obtaining Slaves","Slave Schools","Stables","Household Liquidations","Direct Sales","Pre-Owned Slaves"].includes($encyclopedia)>>
@@ -2152,26 +2157,6 @@ Error: bad title.
 | [[Emotional Slut|Encyclopedia][$encyclopedia = "Emotional Slut"]]
 | [[Slave Marriages|Encyclopedia][$encyclopedia = "Slave Marriages"]]
 | [[Slaveowner Marriages|Encyclopedia][$encyclopedia = "Slaveowner Marriages"]]
-<</if>>
-
-<<if ["General Concepts", "Flaws", "Hormones (XX)", "Hormones (XY)", "Quirks", "Trust", "Devotion", "Health", "Lingua Franca", "Menial Slaves", "Indentured Servants", "Relationships", "Slave Score (Attractiveness)", "Slave Score (Sexual)","Gingering"].includes($encyclopedia)>>
-<br><br>
-//General concepts//<br>
-[[Devotion|Encyclopedia][$encyclopedia = "Devotion"]]
-| [[Flaws|Encyclopedia][$encyclopedia = "Flaws"]]
-| [[Future Societies|Encyclopedia][$encyclopedia = "Future Societies"]]
-| [[Gingering|Encyclopedia][$encyclopedia = "Gingering"]]
-| [[Hormones (XX)|Encyclopedia][$encyclopedia = "Hormones (XX)"]]
-| [[Hormones (XY)|Encyclopedia][$encyclopedia = "Hormones (XY)"]]
-| [[Indentured Servants|Encyclopedia][$encyclopedia = "Indentured Servants"]]
-| [[Lingua Franca|Encyclopedia][$encyclopedia = "Lingua Franca"]]
-| [[Menial Slaves|Encyclopedia][$encyclopedia = "Menial Slaves"]]
-| [[PC Customization|Encyclopedia][$encyclopedia = "PC Customization"]]
-| [[Quirks|Encyclopedia][$encyclopedia = "Quirks"]]
-| [[Relationships|Encyclopedia][$encyclopedia = "Relationships"]]
-| [[Slave Score (Attractiveness)|Encyclopedia][$encyclopedia = "Slave Score (Attractiveness)"]]
-| [[Slave Score (Sexual)|Encyclopedia][$encyclopedia = "Slave Score (Sexual)"]]
-| [[Trust|Encyclopedia][$encyclopedia = "Trust"]]
 <</if>>
 
 <<if ["Lore", "Security Drones", "Water Filtration", "Slave Nutrition", "Disease in the Free Cities", "Free Cities Justice", "Modern Anal", "Slave Couture", "Slave Marriage", "The Ejaculate Market", "The New Rome", "Naked, Barefoot, and Pregnant", "The Top", "The Bottom", "The Purity of the Human Form", "A World Built on Implants", "Slaves as Stock", "Slavery and the Physical Ideal", "Faith in the Free Cities", "Slave Acolyte,  Arcology V-7", "Public Slave,  Arcology A-3", "Mercenary,  Arcology B-2", "Slave Trainer,  Arcology D-10"].includes($encyclopedia)>>
