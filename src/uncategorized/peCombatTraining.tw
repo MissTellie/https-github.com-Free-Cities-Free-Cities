@@ -4,12 +4,7 @@
 
 <<set $nextButton = "Continue", $nextLink = "AS Dump", $returnTo = "RIE Eligibility Check">>
 
-<<for $i = 0; $i < $slaves.length; $i++>>
-<<if $Bodyguard.ID == $slaves[$i].ID>>
-<<set $activeSlave = $slaves[$i]>>
-<<break>>
-<</if>>
-<</for>>
+<<set $activeSlave = $Bodyguard>>
 
 <</nobr>>\
 \
