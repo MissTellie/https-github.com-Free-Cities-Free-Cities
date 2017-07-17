@@ -67,7 +67,7 @@
 	<<case "bovine patterns">>
 		$possessiveCap face is subtly tattooed to give $possessive a somewhat bovine appearance.
 	<<case "possessive">>
-		'Property of $PC.name' is tattooed across $possessive forehead.
+		'Property of $PC.name<<if $PC.surname>> $PC.surname<</if>>' is tattooed across $possessive forehead.
 	<<case "sacrament">>
 		$possessiveCap face is subtly tattooed to give $possessive a decidedly angelic appearance.
 	<<case "sacrilege">>
@@ -104,7 +104,7 @@
 	<<case "Asian art">>
 		An octopus is tattooed on $possessive upper chest; its tentacles reach down to envelop $possessive breasts, their tips reaching for but not quite reaching each nipple.
 	<<case "possessive">>
-		Your personal symbol is tattooed onto $possessive upper chest, leaving the rest of $possessive chest and breasts bare.
+		Your personal symbol is tattooed above $possessive left breast, <<if $PC.surname>>with '$PC.surname Slave' tattooed above $possessive right.<<else>>leaving the rest of $possessive her chest and breasts bare.<</if>>
 	<<case "sacrament">>
 		Each of $possessive breasts is tattooed with a depiction of a crucifix, with $possessive nipples forming the center.
 	<<case "sacrilege">>
@@ -128,13 +128,13 @@
 		Her lewd tattoos cover her arms; they include lots of little vignettes of sex, with dates to show when she was first fucked like that.
 	<<elseif ($activeSlave.armsTat == "Asian art")>>
 		Tattoos of fierce dragons wind around both her arms.
-	<<elseif $activeSlave.shouldersTat == "possessive">>
-		A stylized depiction of your first initial is tattooed on her left arm, with the second tattooed on her right.
-	<<elseif $activeSlave.shouldersTat == "sacrament">>
+	<<elseif $activeSlave.armsTat == "possessive">>
+		Her arm tattoos depict notable moments during her enslavement by you, culminating in a stylized rendition of your first initial on her left hand and your second on the right.
+	<<elseif $activeSlave.armsTat == "sacrament">>
 		Tattoos of swirling thorns run down her arms, culminating in a stylized depiction of a bloody nail on the back of each hand.
-	<<elseif $activeSlave.shouldersTat == "sacrilege">>
+	<<elseif $activeSlave.armsTat == "sacrilege">>
 		Tattoos of swirling flames run down her arms.
-	<<elseif $activeSlave.shouldersTat == "paternalist">>
+	<<elseif $activeSlave.armsTat == "paternalist">>
 		<<if $activeSlave.dick > 0>>
 		  <<if $activeSlave.vagina > -1>>
 			<<if $activeSlave.boobs > 600>>
@@ -351,7 +351,7 @@
 	<<case "Asian art">>
 		Each of $possessive buttocks bears a tattoo of a coiled dragon, advancing meaningfully towards $possessive anus.
 	<<case "possessive">>
-		'$desc' is tattooed across $possessive left buttock; with an identifying number tattooed across $possessive right.
+		'$PC.name made me their' is tattooed across $possessive left buttock; with '$desc' tattooed across $possessive right.
 	<<case "sacrament">>
 		'This is my penance' is tattooed across $possessive left buttock;
 		<<if $activeSlave.vagina > -1>>
@@ -410,13 +410,19 @@
 		'sex slave.'
 		<</if>>
 	<<case "possessive">>
-		<<if $activeSlave.vaginalCount == 0>>
-			$possessiveCap abdomen reads 'My owner hasn't fucked me yet, sorry.'
-		<<elseif $activeSlave.vaginalCount < 500>>
-			Tiny marks are tattooed all over $possessive abdomen, one for every time $pronoun's been fucked by you.
+		$possessiveCap abdomen is tattooed with 
+		<<if ($activeSlave.dick > 0) && canAchieveErection($activeSlave)>>
+		'Dick girl slave
+		<<elseif $activeSlave.dick > 0>>
+		'Limp dick slave
+		<<elseif $activeSlave.preg > 5>>
+		'Breeder slave
+		<<elseif $activeSlave.age > 35>>
+		'MILF slave
 		<<else>>
-			Tiny marks are tattooed all over $possessive abdomen, one for every time $pronoun's been fucked by you. There are so many that they spread up to $possessive breasts and around $possessive sides.
+		'Sex slave
 		<</if>>
+		of <<if $PC.title == 1>>Master<<else>>Mistress<</if>> $PC.name.' 
 	<<case "sacrament">>
 		$possessiveCap abdomen is tattooed with a variety of religious symbols.
 	<<case "sacrilege">>
