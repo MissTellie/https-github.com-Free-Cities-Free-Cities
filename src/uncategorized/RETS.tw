@@ -83,41 +83,70 @@
 
 <<case "boob collision">>
 
-<<set $subSlave = $REBoobCollisionSub>>
-
-<<case "if you enjoy it">>
-
-<<set $subSlave = $REIfYouEnjoyItSub>>
-
-<<case "sadistic description">>
-
-<<set $subSlave = $RESadisticDescriptionSub>>
-
-<<case "shower force">>
-
-<<set $subSlave = $REShowerForceSub>>
-
-<<case "repressed anal virgin">>
-
-<<set $subSlave = $RERepressedAnalVirginSub>>
-<<set _m = $slaves.findIndex(function(s) { return s.ID == $subSlave.ID; })>>
-<<set $slaves[_m].analCount += 1>>
-<<set $analTotal += 1>>
-
-<<case "top exhaustion">>
-
-<<case "simple assault">>
-
-<<set $RESimpleAssaultIDs = $RESimpleAssaultIDs.shuffle()>>
-<<for $i = 0; $i < $RESimpleAssaultIDs.length; $i++>>
-	<<if $eventSlave.ID != $RESimpleAssaultIDs[$i]>>
+<<set $REBoobCollisionSubIDs = $REBoobCollisionSubIDs.shuffle()>>
+<<for $i = 0; $i < $REBoobCollisionSubIDs.length; $i++>>
+	<<if $eventSlave.ID != $REBoobCollisionSubIDs[$i]>>
 		<<for _s = 0; _s < $slaves.length; _s++>>
-			<<if $RESimpleAssaultIDs[$i] == $slaves[_s].ID>>
+			<<if $REBoobCollisionSubIDs[$i] == $slaves[_s].ID>>
 				<<set $subSlave = $slaves[_s]>>
 				<<break>>
 			<</if>>
 		<</for>>
 	<<break>>
+	<</if>>
+<</for>>
+
+<<case "if you enjoy it">>
+
+<<set $REIfYouEnjoyItSubIDs = $REIfYouEnjoyItSubIDs.random()>>
+<<for _s = 0; _s < $slaves.length; _s++>>
+	<<if $REIfYouEnjoyItSubIDs == $slaves[_s].ID>>
+		<<set $subSlave = $slaves[_s]>>
+		<<break>>
+	<</if>>
+<</for>>
+
+<<case "sadistic description">>
+
+<<set $RESadisticDescriptionSubIDs = $RESadisticDescriptionSubIDs.random()>>
+<<for _s = 0; _s < $slaves.length; _s++>>
+	<<if $RESadisticDescriptionSubIDs == $slaves[_s].ID>>
+		<<set $subSlave = $slaves[_s]>>
+		<<break>>
+	<</if>>
+<</for>>
+
+<<case "shower force">>
+
+<<set $REShowerForceSubIDs = $REShowerForceSubIDs.random()>>
+<<for _s = 0; _s < $slaves.length; _s++>>
+	<<if $REShowerForceSubIDs == $slaves[_s].ID>>
+		<<set $subSlave = $slaves[_s]>>
+		<<break>>
+	<</if>>
+<</for>>
+
+<<case "repressed anal virgin">>
+
+<<set $RERepressedAnalVirginSubIDs = $RERepressedAnalVirginSubIDs.random()>>
+<<for _s = 0; _s < $slaves.length; _s++>>
+	<<if $RERepressedAnalVirginSubIDs == $slaves[_s].ID>>
+		<<set $subSlave = $slaves[_s]>>
+		<<set $slaves[_s].analCount += 1>>
+		<<set $analTotal += 1>>
+		<<break>>
+	<</if>>
+<</for>>
+
+<<case "top exhaustion">>
+
+<<case "simple assault">>
+
+<<set $RESimpleAssaultIDs = $RESimpleAssaultIDs.random()>>
+<<for _s = 0; _s < $slaves.length; _s++>>
+	<<if $RESimpleAssaultIDs == $slaves[_s].ID>>
+		<<set $subSlave = $slaves[_s]>>
+		<<break>>
 	<</if>>
 <</for>>
 
@@ -1613,6 +1642,7 @@ she adds impishly. Hearing this, $subSlave.slaveName lets the breast pop free of
 	When you cum, you thrust as far inside as you can manage and shoot your load deep into her. Denied the taste of most of your semen, deposited far back and beyond her taste buds, she forms a tight seal around your shaft as she pulls her head back and off your cock, sucking the residual drops out of you and onto her tongue. She swallows, gives a <<if $activeSlave.trust > 20>>contented<<else>>relieved<</if>> sigh, and looks up at you @@.hotpink;devotedly.@@
 	<<set $activeSlave.oralCount++, $oralTotal++>>
 	<<set $activeSlave.devotion += 5>>
+	<<for _i to 0; _i < $slaves.length; _i++>><<if $slaves[_i].ID == $subSlave.ID>><<set $slaves[_i] = $subSlave>><<break>><</if>><</for>>
 	<</replace>>
 <</link>>
 <</if>>
