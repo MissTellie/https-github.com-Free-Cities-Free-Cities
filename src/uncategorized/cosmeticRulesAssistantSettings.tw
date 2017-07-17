@@ -123,32 +123,55 @@ Cosmetic contact lenses: ''$currentRule.eyeColor.''
 <<set $currentRule.eyeColor = "hypnotic">>
 <<RAChangeEyecolor>>
 <</link>>
-| <<link "Heart-shaped">>
-<<set $currentRule.eyeColor = "heart-shaped">>
-<<RAChangeEyecolor>>
-<</link>>
-| <<link "Wide-eyed">>
-<<set $currentRule.eyeColor = "wide-eyed">>
-<<RAChangeEyecolor>>
-<</link>>
-| <<link "Almond-shaped">>
-<<set $currentRule.eyeColor = "almond-shaped">>
-<<RAChangeEyecolor>>
-<</link>>
-| <<link "Bright">>
-<<set $currentRule.eyeColor = "bright">>
-<<RAChangeEyecolor>>
-<</link>>
-| <<link "Teary">>
-<<set $currentRule.eyeColor = "teary">>
-<<RAChangeEyecolor>>
-<</link>>
-| <<link "Vacant">>
-<<set $currentRule.eyeColor = "vacant">>
-<<RAChangeEyecolor>>
-<</link>>
-<br><br>
+	[[Blue|Cosmetic Rules Assistant Settings][$artificialEyeColor = "blue"]]
+	| [[Black|Cosmetic Rules Assistant Settings][$artificialEyeColor = "black"]]
+	| [[Brown|Cosmetic Rules Assistant Settings][$artificialEyeColor = "brown"]]
+	| [[Green|Cosmetic Rules Assistant Settings][$artificialEyeColor = "green"]]
+	| [[Turquoise|Cosmetic Rules Assistant Settings][$artificialEyeColor = "turquoise"]]
+	| [[Sky-blue|Cosmetic Rules Assistant Settings][$artificialEyeColor = "sky-blue"]]
+	| [[Hazel|Cosmetic Rules Assistant Settings][$artificialEyeColor = "hazel"]]
+	| [[Pale-grey|Cosmetic Rules Assistant Settings][$artificialEyeColor = "pale-grey"]]
+	| [[White|Cosmetic Rules Assistant Settings][$artificialEyeColor = "white"]]
+	| [[Pink|Cosmetic Rules Assistant Settings][$artificialEyeColor = "pink"]]
+	| [[Amber|Cosmetic Rules Assistant Settings][$artificialEyeColor = "amber"]]
+	| [[Red|Cosmetic Rules Assistant Settings][$artificialEyeColor = "red"]]
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	Shape:
+	[[Catlike|Cosmetic Rules Assistant Settings][$artificialEyeShape = "catlike"]]
+	| [[Serpent-like|Cosmetic Rules Assistant Settings][$artificialEyeShape = "serpent-like"]]
+	| [[Devilish|Cosmetic Rules Assistant Settings][$artificialEyeShape = "devilish"]]
+	| [[Demonic|Cosmetic Rules Assistant Settings][$artificialEyeShape = "demonic"]]
+	| [[Hypnotic|Cosmetic Rules Assistant Settings][$artificialEyeShape = "hypnotic"]]
+	| [[Heart-shaped|Cosmetic Rules Assistant Settings][$artificialEyeShape = "heart-shaped"]]
+	| [[Wide-eyed|Cosmetic Rules Assistant Settings][$artificialEyeShape = "wide-eyed"]]
+	| [[Almond-shaped|Cosmetic Rules Assistant Settings][$artificialEyeShape = "almond-shaped"]]
+	| [[Bright|Cosmetic Rules Assistant Settings][$artificialEyeShape = "bright"]]
+	| [[Teary|Cosmetic Rules Assistant Settings][$artificialEyeShape = "teary"]]
+	| [[Vacant|Cosmetic Rules Assistant Settings][$artificialEyeShape = "vacant"]]
 
+<<if $artificialEyeColor == "" && $artificialEyeShape != "">>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;	
+	<<link "Set">>
+	<<set $currentRule.eyeColor = ($artificialEyeShape)>>
+	<<RAChangeEyecolor>>
+	<<set $artificialEyeColor = "">>
+	<<set $artificialEyeShape = "">>
+	<</link>>
+	rule to $artificialEyeShape $artificialEyeColor eyes? //This will be applied in addition to eyewear choices.//
+<<elseif $artificialEyeColor != "" || $artificialEyeShape != "">>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;	
+	<<link "Set">>
+	<<set $currentRule.eyeColor = ($artificialEyeShape + " " + $artificialEyeColor)>>
+	<<RAChangeEyecolor>>
+	<<set $artificialEyeColor = "">>
+	<<set $artificialEyeShape = "">>
+	<</link>>
+	rule to $artificialEyeShape $artificialEyeColor eyes? //This will be applied in addition to eyewear choices.//
+<<else>>
+	error $artificialEyeShape $artificialEyeColor eyes
+<</if>>
+
+<br><br>
 Makeup:
 <span id = "makeup">
 ''
