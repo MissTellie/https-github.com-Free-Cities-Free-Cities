@@ -2171,6 +2171,21 @@ This experience
 	<</if>>
 <</widget>>
 
+/* 
+ Call as <<KnockMeUp>>
+ Penetrative ability and ability to become pregnant must be checked outside of this.
+ $args[0] is the target to get pregnant.
+ $args[1] is the % chance to concieve.
+ $args[2] is the ID of her sire or 0 if undefined.
+*/
+<<widget "KnockMeUp">>
+	<<if random(0,99) < $args[1]>>
+		<<set $args[0].preg = 1>>
+		<<set $args[0].pregSource = $args[2] || 0>>
+		<<SetPregType $args[0]>>
+	<</if>>
+<</widget>>
+
 /*
  Call as <<EventNameLink>>
  $args[0]: Slave.
