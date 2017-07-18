@@ -2,7 +2,7 @@
 :: Free Cities Basic Compiler - Windows
 
 :: Set working directory
-cd %~dp0
+pushd %~dp0
 
 :: Will add all *.tw files to StoryIncludes.
 del src\config\start.tw
@@ -16,5 +16,5 @@ if %PROCESSOR_ARCHITECTURE% == AMD64 (
 ) else (
     CALL "%~dp0devTools\tweeGo\tweego_win86.exe" -o "%~dp0bin/FC.html" "%~dp0src\config\start.tw"
 )
-
+popd
 ECHO Done
