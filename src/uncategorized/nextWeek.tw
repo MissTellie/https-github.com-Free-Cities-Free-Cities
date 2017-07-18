@@ -74,7 +74,7 @@
 		<<set $averageTrust += $slaves[_i].trust*0.5, $averageDevotion += $slaves[_i].devotion*0.5, _slavesContributing += 0.5>>
 	<</if>>
 	/* Persistent Summary flag */
-	<<$slaves[_i].currentSummary = 0>>
+	<<set $slaves[_i].currentSummary = 0>>
 <</for>>
 <<set $averageTrust = $averageTrust/_slavesContributing>>
 <<set $averageDevotion = $averageDevotion/_slavesContributing>>

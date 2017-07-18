@@ -140,7 +140,7 @@
 		<<if $researchLab.advCombatPLimb == 0 && $stockpile.advCombatPLimb > 0>><br>
 			[[Reverse engineer advanced combat limbs|Research Lab][$stockpile.advCombatPLimb -= 1,$researchLab.productionTime = 100,$researchLab.research = "Advanced combat limbs"]]
 		<</if>>
-		<<if $researchLab.cyberneticPLimb == 0 && $researchLab.advPLimbInterface == 1 && ($researchLab.advGracePLimb + $researchLab.advGracePLimb + $researchLab.advCombatPLimb) >= 1>><br>
+		<<if $researchLab.cyberneticPLimb == 0 && $researchLab.advPLimbInterface == 1 && ($researchLab.advGracePLimb + $researchLab.advSexPLimb + $researchLab.advCombatPLimb) >= 1>><br>
 			[[Develop cybernetic limbs|Research Lab][$researchLab.productionTime = 300,$researchLab.research = "Cybernetic limbs"]]
 		<</if>>
 		<<if $researchLab.ocularImplant == 0 && $stockpile.ocularImplant > 0>><br>
