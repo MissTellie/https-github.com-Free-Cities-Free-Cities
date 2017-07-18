@@ -3776,7 +3776,7 @@ check if a rule attribute, any one, is defined and otherwise skip everything.
 		<</if>>
 	<</if>>
 	<<if _combinedRule.growth.lips != "no default setting">>
-		<<if $args[0].butt < _combinedRule.growth.butt>>
+		<<if $args[0].lips < _combinedRule.growth.lips>>
 			<<set _priority = {drug: "lip injections", weight: (_combinedRule.growth.lips-$args[0].lips)/_combinedRule.growth.lips}, _priorities.push(_priority)>>
 		<</if>>
 	<</if>>
