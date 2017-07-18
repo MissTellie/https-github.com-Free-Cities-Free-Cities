@@ -293,7 +293,7 @@ Since $possessive vagina was spared from childbirth, @@.lime;it retained its tig
 		<<set $slaves[$i].devotion -= 40>>
 	<</if>>
 	<<link "Send the child to a citizen school">>
-		<<replace "#result">>
+		<<replace "#babyDisposition">>
 			The child is sent to one of $arcologies[0].name's citizen schools, to be brought up coequal with the arcology's other young people. $slaves[$i].slaveName
 			<<if $slaves[$i].devotion > 95>>
 				loves you already, but she'll @@.hotpink;love you even more@@ for this.
@@ -308,7 +308,7 @@ Since $possessive vagina was spared from childbirth, @@.lime;it retained its tig
 		<</replace>>
 	<</link>> //Will cost ¤100 weekly//
 	| <<link "Have the child raised privately">>
-		<<replace "#result">>
+		<<replace "#babyDisposition">>
 			<<if $slaves[$i].devotion > 95>>
 				will @@.hotpink;worship you utterly@@ for this.
 			<<elseif $slaves[$i].devotion > 50>>
@@ -518,7 +518,7 @@ Childbirth has @@.lime;stretched out $possessive vagina.@@
 		<<set $slaves[$i].devotion -= 40>>
 	<</if>>
 	<<link "Send the child to a citizen school">>
-		<<replace "#result">>
+		<<replace "#babyDisposition">>
 			The child is sent to one of $arcologies[0].name's citizen schools, to be brought up coequal with the arcology's other young people. $slaves[$i].slaveName
 			<<if $slaves[$i].devotion > 95>>
 				loves you already, but she'll @@.hotpink;love you even more@@ for this.
@@ -533,7 +533,7 @@ Childbirth has @@.lime;stretched out $possessive vagina.@@
 		<</replace>>
 	<</link>> //Will cost ¤100 weekly//
 	| <<link "Have the child raised privately">>
-		<<replace "#result">>
+		<<replace "#babyDisposition">>
 			<<if $slaves[$i].devotion > 95>>
 				will @@.hotpink;worship you utterly@@ for this.
 			<<elseif $slaves[$i].devotion > 50>>
