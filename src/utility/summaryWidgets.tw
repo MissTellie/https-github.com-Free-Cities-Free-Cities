@@ -998,12 +998,12 @@ will
 	<</if>>
 
 	<<if $args[0].vagina == 0>>
-		<<set $args[0].summary += "@@.lime;Virgin.@@ ">>
+		<<set $args[0].summary += "@@ @@.lime;Virgin.@@ @@.pink;">>
 	<<elseif ($args[0].preg > 0) && canWalk($args[0]) && ($args[0].clothes == "no clothing") && ($args[0].shoes == "none")>>
-		<<set $args[0].summary += "@@.pink;Naked, barefoot, and pregnant.@@ ">>
+		<<set $args[0].summary += "Naked, barefoot, and pregnant. ">>
 	<</if>>
 	<<if $args[0].anus == 0>>
-		<<set $args[0].summary += "@@.lime;Anal virgin.@@ ">>
+		<<set $args[0].summary += "@@ @@.lime;Anal virgin.@@ @@.pink;">>
 	<</if>>
 	
 	<<if ($args[0].vagina > 3) && ($args[0].anus > 3)>>
