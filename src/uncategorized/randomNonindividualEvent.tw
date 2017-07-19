@@ -17,7 +17,7 @@
 <<else>>
 <<silently>>
 /* initialize event lists as arrays [], not objects {} */
-<<set $events = [], $RecETSevent = [], $REFIevent = [], $PESSevent = [], $PETSevent = [], $REFSevent = [], $activeSlave = 0, $groomSlave = 0, $brideSlave = 0>>
+<<set $events = [], $RecETSevent = [], $REFIevent = [], $PESSevent = [], $PETSevent = [], $REFSevent = [], $activeSlave = 0, $groomSlave = 0, $brideSlave = 0, $recruiterSlave = 0>>
 
 <<set $seed = 0>>
 
@@ -526,14 +526,18 @@
 	<</if>>
 <</if>>
 
-<<set $i = $slaves.findIndex(function(s) { return s.recruiter != 0 && s.fuckdoll == 0 && s.devotion > 50 && s.relation == 0 && canWalk(s); })>>
-<<if $i != -1>>
-	<<set $j = $slavesOriginal.findIndex(function(o) { return o.ID == $slaves[$i].ID; })>>
-	<<if $j != -1>>
-		<<set $events.push("RE relative recruiter")>>
-	<<else>> /* no matching slave object in the slavesOriginal array -- bug? */
-		<<set $slaves[$i].recruiter = 0>>
-	<</if>>
+<<set _recruiterSlaves = $slaves.filter(function(s) { return s.recruiter != 0 && s.fuckdoll == 0 && s.devotion > 50 && s.relation == 0 && canWalk(s); }), $j = -1>>
+<<if def _recruiterSlaves[0]>>
+	<<for _recruiterSlaves.length > 0 && $j == -1>>
+		<<set $recruiterSlave = _recruiterSlaves.pluck()>>
+		<<set $j = $slavesOriginal.findIndex(function(o) { return o.ID == $recruiterSlave.ID; })>>
+		<<if $j != -1>>
+			<<set $events.push("RE relative recruiter")>>
+		<<else>> /* no matching slave object in the slavesOriginal array -- bug? */
+			<<set $i = $slaves.findIndex(function(o) { return o.ID == $recruiterSlave.ID; })>>
+			<<set $slaves[$i].recruiter = 0>>
+		<</if>>
+	<</for>>
 <</if>>
 
 <<if $FSAnnounced == 1>>
