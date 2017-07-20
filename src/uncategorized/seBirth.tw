@@ -292,36 +292,40 @@ Since $possessive vagina was spared from childbirth, @@.lime;it retained its tig
 		will of course @@.mediumorchid;hate you for this.@@
 		<<set $slaves[$i].devotion -= 40>>
 	<</if>>
-	<<link "Send the child to a citizen school">>
-		<<replace "#babyDisposition">>
-			The child is sent to one of $arcologies[0].name's citizen schools, to be brought up coequal with the arcology's other young people. $slaves[$i].slaveName
-			<<if $slaves[$i].devotion > 95>>
+	<<= "
+	<<link 'Send the child to a citizen school'>>
+		<<replace '#babyDisposition'>>
+			The child is sent to one of $arcologies[0].name's citizen schools, to be brought up coequal with the arcology's other young people. $slaves['" + $i + "'].slaveName
+			<<if $slaves['" + $i + "'].devotion > 95>>
 				loves you already, but she'll @@.hotpink;love you even more@@ for this.
-			<<elseif $slaves[$i].devotion > 50>>
+			<<elseif $slaves['" + $i + "'].devotion > 50>>
 				knows about these and will be @@.hotpink;overjoyed.@@ She will miss her child, but she expected that.
-			<<elseif $slaves[$i].devotion > 20>>
+			<<elseif $slaves['" + $i + "'].devotion > 20>>
 				will naturally miss her child, but will @@.hotpink;take comfort@@ in the hope that her offspring will have a better life.
 			<<else>>
 				will naturally retain some resentment over being separated from her child, but this should be balanced by hope that her offspring will have a better life.
 			<</if>>
-			<<set $slaves[$i].devotion += 40, $citizenOrphanageTotal++, $slaveOrphanageTotal-->>
+			<<set $slaves['" + $i + "'].devotion += 40, $citizenOrphanageTotal++, $slaveOrphanageTotal-->>
 		<</replace>>
-	<</link>> //Will cost ¤100 weekly//
-	| <<link "Have the child raised privately">>
-		<<replace "#babyDisposition">>
-			<<if $slaves[$i].devotion > 95>>
+	<</link>> 
+	">>//Will cost ¤100 weekly//
+	<<= "
+	| <<link 'Have the child raised privately'>>
+		<<replace '#babyDisposition'>>
+			<<if $slaves['" + $i + "'].devotion > 95>>
 				will @@.hotpink;worship you utterly@@ for this.
-			<<elseif $slaves[$i].devotion > 50>>
+			<<elseif $slaves['" + $i + "'].devotion > 50>>
 				understands that this is the best possible outcome for the offspring of slave, and will be @@.hotpink;overjoyed.@@
-			<<elseif $slaves[$i].devotion > 20>>
+			<<elseif $slaves['" + $i + "'].devotion > 20>>
 				will miss her child, but will be @@.hotpink;very grateful,@@ since she'll understand this is the best possible outcome for a slave mother.
 			<<else>>
 				will resent being separated from her child, but @@.hotpink;should understand and be grateful@@ that this is the best possible outcome here.
 			<</if>>
 			The child will be raised privately, with expert care and tutoring, an expensive proposition.
-			<<set $slaves[$i].devotion += 60, $privateOrphanageTotal++, $slaveOrphanageTotal-->>
+			<<set $slaves['" + $i + "'].devotion += 60, $privateOrphanageTotal++, $slaveOrphanageTotal-->>
 		<</replace>>
-	<</link>> //Will cost ¤500 weekly//
+	<</link>> 
+	">>//Will cost ¤500 weekly//
 	</span>
 <</if>>
 <</if>>
@@ -517,36 +521,40 @@ Childbirth has @@.lime;stretched out $possessive vagina.@@
 		will of course @@.mediumorchid;hate you for this.@@
 		<<set $slaves[$i].devotion -= 40>>
 	<</if>>
-	<<link "Send the child to a citizen school">>
-		<<replace "#babyDisposition">>
-			The child is sent to one of $arcologies[0].name's citizen schools, to be brought up coequal with the arcology's other young people. $slaves[$i].slaveName
-			<<if $slaves[$i].devotion > 95>>
+	<<= "
+	<<link 'Send the child to a citizen school'>>
+		<<replace '#babyDisposition'>>
+			The child is sent to one of $arcologies[0].name's citizen schools, to be brought up coequal with the arcology's other young people. $slaves['" + $i + "'].slaveName
+			<<if $slaves['" + $i + "'].devotion > 95>>
 				loves you already, but she'll @@.hotpink;love you even more@@ for this.
-			<<elseif $slaves[$i].devotion > 50>>
+			<<elseif $slaves['" + $i + "'].devotion > 50>>
 				knows about these and will be @@.hotpink;overjoyed.@@ She will miss her child, but she expected that.
-			<<elseif $slaves[$i].devotion > 20>>
+			<<elseif $slaves['" + $i + "'].devotion > 20>>
 				will naturally miss her child, but will @@.hotpink;take comfort@@ in the hope that her offspring will have a better life.
 			<<else>>
 				will naturally retain some resentment over being separated from her child, but this should be balanced by hope that her offspring will have a better life.
 			<</if>>
-			<<set $slaves[$i].devotion += 40, $citizenOrphanageTotal++, $slaveOrphanageTotal-->>
+			<<set $slaves['" + $i + "'].devotion += 40, $citizenOrphanageTotal++, $slaveOrphanageTotal-->>
 		<</replace>>
-	<</link>> //Will cost ¤100 weekly//
-	| <<link "Have the child raised privately">>
-		<<replace "#babyDisposition">>
-			<<if $slaves[$i].devotion > 95>>
+	<</link>> 
+	">>//Will cost ¤100 weekly//
+	<<= "
+	| <<link 'Have the child raised privately'>>
+		<<replace '#babyDisposition'>>
+			<<if $slaves['" + $i + "'].devotion > 95>>
 				will @@.hotpink;worship you utterly@@ for this.
-			<<elseif $slaves[$i].devotion > 50>>
+			<<elseif $slaves['" + $i + "'].devotion > 50>>
 				understands that this is the best possible outcome for the offspring of slave, and will be @@.hotpink;overjoyed.@@
-			<<elseif $slaves[$i].devotion > 20>>
+			<<elseif $slaves['" + $i + "'].devotion > 20>>
 				will miss her child, but will be @@.hotpink;very grateful,@@ since she'll understand this is the best possible outcome for a slave mother.
 			<<else>>
 				will resent being separated from her child, but @@.hotpink;should understand and be grateful@@ that this is the best possible outcome here.
 			<</if>>
 			The child will be raised privately, with expert care and tutoring, an expensive proposition.
-			<<set $slaves[$i].devotion += 60, $privateOrphanageTotal++, $slaveOrphanageTotal-->>
+			<<set $slaves['" + $i + "'].devotion += 60, $privateOrphanageTotal++, $slaveOrphanageTotal-->>
 		<</replace>>
-	<</link>> //Will cost ¤500 weekly//
+	<</link>> 
+	">>//Will cost ¤500 weekly//
 	</span>
 <</if>>
 <</if>>
