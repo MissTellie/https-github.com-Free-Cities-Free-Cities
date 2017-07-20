@@ -1832,77 +1832,83 @@ will
 	<</if>>
 	
 	<<if $args[0].attrKnown == 1>>
-	<<set _stats = $summaryStats>>
-	<<if $args[0].attrXY <= 5>>
-		<<set $args[0].summary += "@@.red;XY---">>
-	<<elseif $args[0].attrXY <= 15>>
-		<<set $args[0].summary += "@@.red;XY--">>
-	<<elseif $args[0].attrXY <= 35>>
-		<<set $args[0].summary += "@@.red;XY-">>
-	<<elseif $args[0].attrXY <= 65>>
-		<<set $args[0].summary += "@@.white;XY">>
-	<<elseif $args[0].attrXY <= 85>>
-		<<set $args[0].summary += "@@.green;XY+">>
-	<<elseif $args[0].attrXY <= 95>>
-		<<set $args[0].summary += "@@.green;XY++">>
-	<<elseif $args[0].attrXX > 95>>
-		<<set _stats = 0>>
-		<<if $args[0].energy <= 95>>
-			<<set $args[0].summary += "@@.green;Omni!">>
+		<<set _stats = $summaryStats, _comma = 1, _drive = 1>>
+		<<if $args[0].attrXY <= 5>>
+			<<set $args[0].summary += "@@.red;XY---">>
+		<<elseif $args[0].attrXY <= 15>>
+			<<set $args[0].summary += "@@.red;XY--">>
+		<<elseif $args[0].attrXY <= 35>>
+			<<set $args[0].summary += "@@.red;XY-">>
+		<<elseif $args[0].attrXY <= 65>>
+			<<set $args[0].summary += "@@.white;XY">>
+		<<elseif $args[0].attrXY <= 85>>
+			<<set $args[0].summary += "@@.green;XY+">>
+		<<elseif $args[0].attrXY <= 95>>
+			<<set $args[0].summary += "@@.green;XY++">>
+		<<elseif $args[0].attrXX > 95>>
+			<<set _stats = 0, _comma = 0>>
+			<<if $args[0].energy <= 95>>
+				<<set $args[0].summary += "@@.green;Omni!">>
+			<<else>>
+				<<set _drive = 0>>
+				<<set $args[0].summary += "@@.green;Omni+Nympho!!">>
+			<</if>>
 		<<else>>
-			<<set $args[0].summary += "@@.green;Omni+Nympho!!">>
+			<<set $args[0].summary += "@@.green;XY+++">>
 		<</if>>
-	<<else>>
-		<<set $args[0].summary += "@@.green;XY+++">>
-	<</if>>
-	<<if _stats == 1>>
-		<<set $args[0].summary += "["+$args[0].attrXY+"]@@ ">>
-	<<else>>
-		<<set $args[0].summary += "@@ ">>
-	<</if>>
+		<<if _stats == 1>>
+			<<set $args[0].summary += "["+$args[0].attrXY+"]@@ ">>
+		<<else>>
+			<<set $args[0].summary += "@@ ">>
+		<</if>>
 	
-	<<if $args[0].attrXX <= 5>>
-		<<set $args[0].summary += "@@.red;XX---">>
-	<<elseif $args[0].attrXX <= 15>>
-		<<set $args[0].summary += "@@.red;XX--">>
-	<<elseif $args[0].attrXX <= 35>>
-		<<set $args[0].summary += "@@.red;XX-">>
-	<<elseif $args[0].attrXX <= 65>>
-		<<set $args[0].summary += "@@.white;XX">>
-	<<elseif $args[0].attrXX <= 85>>
-		<<set $args[0].summary += "@@.green;XX+">>
-	<<elseif $args[0].attrXX <= 95>>
-		<<set $args[0].summary += "@@.green;XX++">>
-	<<elseif $args[0].attrXY <= 95>>
-		<<set $args[0].summary += "@@.green;XX+++">>
-	<</if>>
-	<<if $summaryStats>>
-		<<set $args[0].summary += "["+$args[0].attrXX+"]@@ ">>
-	<<else>>
-		<<set $args[0].summary += "@@ ">>
-	<</if>>
-	<<set _stats = $summaryStats>>
-	<<if $args[0].energy > 95>>
-		<<set _stats = 0>>
-		<<if ($args[0].attrXY <= 95) || ($args[0].attrXX <= 95)>>
-			<<set $args[0].summary += "@@.green;Nympho!">>
+		<<if $args[0].attrXX <= 5>>
+			<<set $args[0].summary += "@@.red;XX---">>
+		<<elseif $args[0].attrXX <= 15>>
+			<<set $args[0].summary += "@@.red;XX--">>
+		<<elseif $args[0].attrXX <= 35>>
+			<<set $args[0].summary += "@@.red;XX-">>
+		<<elseif $args[0].attrXX <= 65>>
+			<<set $args[0].summary += "@@.white;XX">>
+		<<elseif $args[0].attrXX <= 85>>
+			<<set $args[0].summary += "@@.green;XX+">>
+		<<elseif $args[0].attrXX <= 95>>
+			<<set $args[0].summary += "@@.green;XX++">>
+		<<elseif $args[0].attrXY <= 95>>
+			<<set $args[0].summary += "@@.green;XX+++">>
+		<<else>>
+			<<set _stats = 0, _comma = 0>>
 		<</if>>
-	<<elseif $args[0].energy > 80>>
-		<<set $args[0].summary += "@@.green;SD++">>
-	<<elseif $args[0].energy > 60>>
-		<<set $args[0].summary += "@@.green;SD+">>
-	<<elseif $args[0].energy > 40>>
-		<<set $args[0].summary += "@@.yellow;SD ">>
-	<<elseif $args[0].energy > 20>>
-		<<set $args[0].summary += "@@.red;SD-">>
-	<<else>>
-		<<set $args[0].summary += "@@.red;SD--">>
-	<</if>>
-	<<if _stats == 1>>
-		<<set $args[0].summary += "["+$args[0].attrXY+"]@@ ">>
-	<<else>>
-		<<set $args[0].summary += "@@ ">>
-	<</if>>
+		<<if _stats == 1>>
+			<<set $args[0].summary += "["+$args[0].attrXX+"]">>
+		<</if>>
+		<<if _comma == 1>>
+			<<set $args[0].summary += "@@ ">>
+		<</if>>
+	
+		<<if _drive == 1>>
+			<<set _stats = $summaryStats>>
+			<<if $args[0].energy > 95>>
+				<<set _stats = 0>>
+				<<if ($args[0].attrXY <= 95) || ($args[0].attrXX <= 95)>>
+					<<set $args[0].summary += "@@.green;Nympho!">>
+				<</if>>
+			<<elseif $args[0].energy > 80>>
+				<<set $args[0].summary += "@@.green;SD++">>
+			<<elseif $args[0].energy > 60>>
+				<<set $args[0].summary += "@@.green;SD+">>
+			<<elseif $args[0].energy > 40>>
+				<<set $args[0].summary += "@@.yellow;SD ">>
+			<<elseif $args[0].energy > 20>>
+				<<set $args[0].summary += "@@.red;SD-">>
+			<<else>>
+				<<set $args[0].summary += "@@.red;SD--">>
+			<</if>>
+			<<if _stats == 1>>
+				<<set $args[0].summary += "["+$args[0].energy+"]">>
+			<</if>>
+			<<set $args[0].summary += "@@ ">>
+		<</if>>
 	<</if>>
 	<</if>>
 	<<if $args[0].clitPiercing == 3>>
@@ -2190,7 +2196,7 @@ will
 	<</if>>
 	<</if>>
 	<<if $args[0].attrKnown == 1>>
-		<<set _stats = $summaryStats, _comma = 1>>
+		<<set _stats = $summaryStats, _comma = 1, _drive = 1>>
 		<<if $args[0].attrXY <= 5>>
 			<<set $args[0].summary += "@@.red;Disgusted by men">>
 		<<elseif $args[0].attrXY <= 15>>
@@ -2204,25 +2210,25 @@ will
 		<<elseif $args[0].attrXY <= 95>>
 			<<set $args[0].summary += "@@.green;Aroused by men">>
 		<<elseif $args[0].attrXX > 95>>
+			<<set _stats = 0, _comma = 0>>
 			<<if $args[0].energy <= 95>>
-				<<set _stats = 0, _comma = 0>>
 				<<set $args[0].summary += "@@.green;Omnisexual!">>
 			<<else>>
-				<<set _stats = 0, _comma = 0>>
+				<<set _drive = 0>>
 				<<set $args[0].summary += "@@.green;Omnisexual nymphomaniac!">>
 			<</if>>
 		<<else>>
 			<<set $args[0].summary += "@@.green;Passionate about men">>
 		<</if>>
-		<<if _stats>>
+		<<if _stats == 1>>
 			<<set $args[0].summary += " ["+$args[0].attrXY+"]">>
 		<</if>>
-		<<if _comma>>
+		<<if _comma == 1>>
 			<<set $args[0].summary += ",@@ ">>
 		<<else>>
 			<<set $args[0].summary += "@@ ">>
 		<</if>>
-		<<set _stats = $summaryStats, _comma = 1>>
+		
 		<<if $args[0].attrXX <= 5>>
 			<<set $args[0].summary += "@@.red;disgusted by women">>
 		<<elseif $args[0].attrXX <= 15>>
@@ -2237,35 +2243,37 @@ will
 			<<set $args[0].summary += "@@.green;aroused by women">>
 		<<elseif $args[0].attrXY <= 95>>
 			<<set $args[0].summary += "@@.green;passionate about women">>
-		<</if>>
-		<<if _stats>>
-			<<set $args[0].summary += " ["+$args[0].attrXX+"].@@ ">>
 		<<else>>
+			<<set _comma = 0>>
+		<</if>>
+		<<if _stats == 1>>
+			<<set $args[0].summary += " ["+$args[0].attrXX+"]">>
+		<</if>>
+		<<if _comma == 1>>
 			<<set $args[0].summary += ".@@ ">>
 		<</if>>
 		
-		<<if $args[0].energy > 95>>
-			<<if ($args[0].attrXY <= 95) || ($args[0].attrXX <= 95)>>
-				<<set _stats = 0, _comma = 0>>
-				<<set $args[0].summary += "@@.green;Nymphomaniac!">>
+		<<if _drive == 1>>
+			<<set _stats = $summaryStats>>
+			<<if $args[0].energy > 95>>
+				<<if ($args[0].attrXY <= 95) || ($args[0].attrXX <= 95)>>
+					<<set _stats = 0>>
+					<<set $args[0].summary += "@@.green;Nymphomaniac!">>
+				<</if>>
+			<<elseif $args[0].energy > 80>>
+				<<set $args[0].summary += "@@.green;Powerful sex drive">>
+			<<elseif $args[0].energy > 60>>
+				<<set $args[0].summary += "@@.green;Good sex drive">>
+			<<elseif $args[0].energy > 40>>
+				<<set $args[0].summary += "@@.yellow;Average sex drive">>
+			<<elseif $args[0].energy > 20>>
+				<<set $args[0].summary += "@@.red;Poor sex drive">>
+			<<else>>
+				<<set $args[0].summary += "@@.red;No sex drive">>
 			<</if>>
-		<<elseif $args[0].energy > 80>>
-			<<set $args[0].summary += "@@.green;Powerful sex drive">>
-		<<elseif $args[0].energy > 60>>
-			<<set $args[0].summary += "@@.green;Good sex drive">>
-		<<elseif $args[0].energy > 40>>
-			<<set $args[0].summary += "@@.yellow;Average sex drive">>
-		<<elseif $args[0].energy > 20>>
-			<<set $args[0].summary += "@@.red;Poor sex drive">>
-		<<else>>
-			<<set $args[0].summary += "@@.red;No sex drive">>
-		<</if>>
-		<<if _stats>>
-			<<set $args[0].summary += " ["+$args[0].energy+"]">>
-		<</if>>
-		<<if _comma>>
-			<<set $args[0].summary += ".@@ ">>
-		<<else>>
+			<<if _stats == 1>>
+				<<set $args[0].summary += " ["+$args[0].energy+"].">>
+			<</if>>
 			<<set $args[0].summary += "@@ ">>
 		<</if>>
 	<</if>>
