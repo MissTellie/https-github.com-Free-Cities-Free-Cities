@@ -288,15 +288,17 @@ Choose a tattoo style:
 	<<if $tattooChoice != "0">> | //[[Remove a tattoo|Body Modification][$tattooChoice = 0]]//<<else>>| Remove a tattoo<</if>>
 <</if>>
 
-<br>&nbsp;&nbsp;&nbsp;&nbsp;
-<<if $tattooChoice == 0>>
-	Clean the ink off of her:
-<<elseif $tattooChoice == "counting">>
-	Add tallies of her sexual exploits to her:
-<<elseif $tattooChoice == "bleached">>
-	Bleach her:
-<<else>>
-	Add $tattooChoice to her:
+<<if $tattooChoice != "">>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	<<if $tattooChoice == 0>>
+		Clean the ink off of her:
+	<<elseif $tattooChoice == "counting">>
+		Add tallies of her sexual exploits to her:
+	<<elseif $tattooChoice == "bleached">>
+		Bleach her:
+	<<else>>
+		Add $tattooChoice to her:
+	<</if>>
 <</if>>
 
 <<if ($tattooChoice != "bleached") && ($tattooChoice != "permanent makeup")>>
