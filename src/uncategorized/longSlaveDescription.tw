@@ -1341,7 +1341,9 @@ when a dick is pushed inside <<if $activeSlave.vagina >= -1>>either of its lower
 <</if>>
 
 <<ClothingDescription>>
-<<clothingCorsetDescription>>
+<<if $showBodyMods == 1>>
+	<<clothingCorsetDescription>>
+<</if>>
 
 <<if ($showClothing == 1) && ($saleDescription == 0)>>
 	$pronounCap
@@ -1717,11 +1719,15 @@ $pronounCap is
 <<LipsDescription>>
 
 <<if $activeSlave.fuckdoll == 0>>
+<<nailsDescription>>
 <<if $showBodyMods == 1>>
-	<<nailsDescription>>
-	<<backTatDescription>>
-	<<shouldersTatDescription>>
-	<<armsTatDescription>>
+	<<if ($activeSlave.armsTat == "bovine patterns") && ($activeSlave.legsTat == "bovine patterns") && ($activeSlave.shouldersTat == "bovine patterns") && ($activeSlave.backTat == "bovine patterns")>>
+		<<bovineTatDescription>>
+	<<else>>
+		<<backTatDescription>>
+		<<shouldersTatDescription>>
+		<<armsTatDescription>>
+	<</if>>
 <</if>>
 <</if>>
 
