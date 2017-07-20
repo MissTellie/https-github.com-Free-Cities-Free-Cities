@@ -78,6 +78,7 @@
 	<<set $devDaughter = _relatedSlaves.find(function(s) { return s.ID == $devMother.relationTarget && s.devotion > 50 && s.anus != 0 && canWalk(s); })>>
 	<<if (def $devDaughter)>>
 		<<set $events.push("RE devoted mother daughter")>>
+		<<break>>
 	<</if>>
 <</for>>
 
@@ -87,6 +88,7 @@
 	<<set $daughter = _relatedSlaves.find(function(s) { return s.ID == $mother.relationTarget && s.devotion < 10 && s.anus != 0 && canWalk(s); })>>
 	<<if (def $daughter)>>
 		<<set $events.push("RE resistant mother daughter")>>
+		<<break>>
 	<</if>>
 <</for>>
 
@@ -96,6 +98,7 @@
 	<<set $olderSister = _relatedSlaves.find(function(s) { return s.ID == $youngerSister.relationTarget && s.anus == 0 && $youngerSister.devotion > (s.devotion+20); })>>
 	<<if (def $olderSister)>>
 		<<set $events.push("RE sibling revenge")>>
+		<<break>>
 	<</if>>
 <</for>>
 
@@ -105,6 +108,7 @@
 	<<set $betaTwin = _relatedSlaves.find(function(s) { return s.ID == $alphaTwin.relationTarget && s.anus > 0 && s.devotion > 50 && canWalk(s); })>>
 	<<if (def $betaTwin)>>
 		<<set $events.push("RE devoted twins")>>
+		<<break>>
 	<</if>>
 <</for>>
 
