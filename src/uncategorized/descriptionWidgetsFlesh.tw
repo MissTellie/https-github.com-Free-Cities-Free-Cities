@@ -924,26 +924,27 @@ $possessiveCap
 <</if>>
 
 <<if $activeSlave.fuckdoll == 0>>
-	<<if $activeSlave.areolaePiercing == 0>>
-		<<switch $activeSlave.areolae>>
-		<<case 1>>
-				$possessiveCap areolae form large, lovely circles of $seed	skin around each nipple.
-		<<case 2>>
-				$possessiveCap areolae are unusually wide, eye-catching circles of $seed skin around each nipple.
-		<<case 3>>
-				$possessiveCap $seed areolae are unnaturally broad, covering much of the <<if $activeSlave.boobShape == "saggy">>bottom<<else>>front<</if>> of each breast.
-		<<case 4>>
-			<<if $activeSlave.boobShape == "saggy">>$possessiveCap motherly boobs point downward, though, leaving only the curved top of each heart visible.<</if>>
-				$possessiveCap huge $seed areolae are heart-shaped, an obvious surgical alteration.
-		<<case 5>>		
-				$possessiveCap huge $seed areolae are star-shaped, an obvious surgical alteration.
-		<<default>>
-				$possessiveCap $activeSlave.nipples nipples are surrounded by a minimal $seed areolae.
-		<</switch>>
-	<<else>>
-		<<areolaePiercingDescription>>
+	<<if $showBodyMods == 1>>
+		<<if $activeSlave.areolaePiercing == 0>>
+			<<switch $activeSlave.areolae>>
+			<<case 1>>
+					$possessiveCap areolae form large, lovely circles of $seed	skin around each nipple.
+			<<case 2>>
+					$possessiveCap areolae are unusually wide, eye-catching circles of $seed skin around each nipple.
+			<<case 3>>
+					$possessiveCap $seed areolae are unnaturally broad, covering much of the <<if $activeSlave.boobShape == "saggy">>bottom<<else>>front<</if>> of each breast.
+			<<case 4>>
+				<<if $activeSlave.boobShape == "saggy">>$possessiveCap motherly boobs point downward, though, leaving only the curved top of each heart visible.<</if>>
+					$possessiveCap huge $seed areolae are heart-shaped, an obvious surgical alteration.
+			<<case 5>>		
+					$possessiveCap huge $seed areolae are star-shaped, an obvious surgical alteration.
+			<<default>>
+					$possessiveCap $activeSlave.nipples nipples are surrounded by a minimal $seed areolae.
+			<</switch>>
+		<<else>>
+			<<areolaePiercingDescription>>
+		<</if>>
 	<</if>>
-	
 	<<if ($showClothing == 1) && ($saleDescription == 0)>>
 	<<if $activeSlave.areolae > 1>>
 	<<switch $activeSlave.clothes>>
@@ -2108,9 +2109,9 @@ $pronounCap's got a
 		<<case 1>>
 			$possessive tight little rosebud.
 		<<case 2>>
-			the bottom the vertical slit formed by $possessive rear pussy.
+			the bottom of the vertical slit formed by $possessive rear pussy.
 		<<case 3>>
-			the bottom the soft slit formed by $possessive lewd rear pussy.
+			the bottom of the soft slit formed by $possessive lewd rear pussy.
 		<<default>>
 			the edge of $possessive open anal gape.
 		<</switch>>
@@ -2875,16 +2876,12 @@ $pronounCap's got a
 <</if>>
 
 <<if $showBodyMods == 1>>
-
-<<vaginaPiercingDescription>>
-<<clitPiercingDescription>>
-
-<<if $activeSlave.fuckdoll == 0>>
-	<<vaginaTatDescription>>
-<</if>>
-
-<<dickPiercingDescription>>
-
+	<<vaginaPiercingDescription>>
+	<<clitPiercingDescription>>
+	<<if $activeSlave.fuckdoll == 0>>
+		<<vaginaTatDescription>>
+	<</if>>
+	<<dickPiercingDescription>>
 <</if>>
 
 <<if $activeSlave.fuckdoll == 0>>
@@ -3224,15 +3221,15 @@ $pronounCap has
 	<</if>>
 <</if>>
 
-<<if $activeSlave.fuckdoll == 0>>
 <<if $showBodyMods == 1>>
-	<<makeupDescription>>
-<</if>>
+	<<if $activeSlave.fuckdoll == 0>>
+		<<makeupDescription>>
+	<</if>>
+	<<lipsPiercingDescription>>
+	<<lipsTatDescription>>
+	<<tonguePiercingDescription>>
 <</if>>
 
-<<lipsPiercingDescription>>
-<<lipsTatDescription>>
-<<tonguePiercingDescription>>
 
 <<if ($showClothing == 1) && ($saleDescription == 0)>>
 
@@ -4036,28 +4033,32 @@ $pronounCap has
 <</if>>
 
 <<if $activeSlave.fuckdoll == 0>>
-<<if setup.fakeBellies.includes($bellyAccessory)>>
-	<<switch $activeSlave.bellyAccessory>>
-	<<case "a huge empathy belly">>
-		$pronounCap is wearing a carefully sculpted silicone belly modeled after a full-term pregnant woman carrying twins.
-	<<case "a large empathy belly">>
-		$pronounCap is wearing a carefully sculpted silicone belly modeled after a full-term pregnant woman.
-	<<case "a medium empathy belly">>
-		$pronounCap is wearing a carefully sculpted silicone belly modeled after a pregnant woman in $possessive second trimester.
-	<<case "a small empathy belly">>
-		$pronounCap is wearing a carefully sculpted silicone belly modeled after a pregnant woman in $possessive first trimester.
-	<</switch>>
-	<<navelPiercingDescription>>
-	<<if ($activeSlave.brand != 0) && ($activeSlave.brandLocation == "belly")>>
-		$possessiveCap fake belly has $activeSlave.brand branded on it.
+	<<if setup.fakeBellies.includes($bellyAccessory)>>
+		<<switch $activeSlave.bellyAccessory>>
+		<<case "a huge empathy belly">>
+			$pronounCap is wearing a carefully sculpted silicone belly modeled after a full-term pregnant woman carrying twins.
+		<<case "a large empathy belly">>
+			$pronounCap is wearing a carefully sculpted silicone belly modeled after a full-term pregnant woman.
+		<<case "a medium empathy belly">>
+			$pronounCap is wearing a carefully sculpted silicone belly modeled after a pregnant woman in $possessive second trimester.
+		<<case "a small empathy belly">>
+			$pronounCap is wearing a carefully sculpted silicone belly modeled after a pregnant woman in $possessive first trimester.
+		<</switch>>
+		<<if $showBodyMods == 1>>
+			<<navelPiercingDescription>>
+			<<if ($activeSlave.brand != 0) && ($activeSlave.brandLocation == "belly")>>
+				$possessiveCap fake belly has $activeSlave.brand branded on it.
+			<</if>>
+		<</if>>
+	<<else>>
+		<<if $showBodyMods == 1>>
+			<<navelPiercingDescription>>
+			<<if ($activeSlave.brand != 0) && ($activeSlave.brandLocation == "belly")>>
+				$pronounCap has $activeSlave.brand branded into the flesh of $possessive $activeSlave.brandLocation.
+			<</if>>
+		<</if>>
 	<</if>>
-<<else>>
-	<<navelPiercingDescription>>
-	<<if ($activeSlave.brand != 0) && ($activeSlave.brandLocation == "belly")>>
-		$pronounCap has $activeSlave.brand branded into the flesh of $possessive $activeSlave.brandLocation.
-	<</if>>
-<</if>>
-<<else>>
+<<elseif $showBodyMods == 1>>
 	<<navelPiercingDescription>>
 <</if>>
 
