@@ -1223,23 +1223,25 @@ Choose a tattoo style:
 <</link>>
 <</if>>
 
-<<if $tattooChoice == 0>> 
-	<<if $activeSlave.shouldersTat != $tattooChoice>> | [[Shoulders|Body Modification][$activeSlave.shouldersTat = $tattooChoice,$cash -= $modCost]]<</if>>
-	<<if $activeSlave.lipsTat != $tattooChoice>> | [[Face|Body Modification][$activeSlave.lipsTat = $tattooChoice,$cash -= $modCost]]<</if>>
-	<<if $activeSlave.boobsTat != $tattooChoice>> | [[Boobs|Body Modification][$activeSlave.boobsTat = $tattooChoice,$cash -= $modCost]]<</if>>
-	<<if $activeSlave.amp == 0>>
-		<<if $activeSlave.armsTat != $tattooChoice>> | [[Arms|Body Modification][$activeSlave.armsTat = $tattooChoice,$cash -= $modCost]]<</if>>
-	<</if>>
-	<<if $activeSlave.backTat != $tattooChoice>> | [[Upper back|Body Modification][$activeSlave.backTat = $tattooChoice,$cash -= $modCost]]<</if>>
-	<<if $activeSlave.stampTat != $tattooChoice>> | [[Lower back|Body Modification][$activeSlave.stampTat = $tattooChoice,$cash -= $modCost]]<</if>>
-	<<if $activeSlave.buttTat != $tattooChoice>> | [[Buttock|Body Modification][$activeSlave.buttTat = $tattooChoice,$cash -= $modCost]]<</if>>
-	<<if ($activeSlave.vagina != -1)>>
-		<<if $activeSlave.vaginaTat != $tattooChoice>> | [[Vagina|Body Modification][$activeSlave.vaginaTat = $tattooChoice,$cash -= $modCost]]<</if>>
-	<</if>>
-	<<if $activeSlave.dickTat != $tattooChoice>> | [[Dick|Body Modification][$activeSlave.dickTat = $tattooChoice,$cash -= $modCost]]<</if>>
-	<<if $activeSlave.anusTat != $tattooChoice>> | [[Anus|Body Modification][$activeSlave.anusTat = $tattooChoice,$cash -= $modCost]]<</if>>
-	<<if $activeSlave.amp == 0>>
-		<<if $activeSlave.legsTat != $tattooChoice>> | [[Legs|Body Modification][$activeSlave.legsTat = $tattooChoice,$cash -= $modCost]]<</if>>
+<<if $tattooChoice == 0>>
+	<<if $activeSlave.shouldersTat != "bovine patterns">>
+		<<if $activeSlave.shouldersTat != $tattooChoice>> | [[Shoulders|Body Modification][$activeSlave.shouldersTat = $tattooChoice,$cash -= $modCost]]<</if>>
+		<<if $activeSlave.lipsTat != $tattooChoice>> | [[Face|Body Modification][$activeSlave.lipsTat = $tattooChoice,$cash -= $modCost]]<</if>>
+		<<if $activeSlave.boobsTat != $tattooChoice>> | [[Boobs|Body Modification][$activeSlave.boobsTat = $tattooChoice,$cash -= $modCost]]<</if>>
+		<<if $activeSlave.amp == 0>>
+			<<if $activeSlave.armsTat != $tattooChoice>> | [[Arms|Body Modification][$activeSlave.armsTat = $tattooChoice,$cash -= $modCost]]<</if>>
+		<</if>>
+		<<if $activeSlave.backTat != $tattooChoice>> | [[Upper back|Body Modification][$activeSlave.backTat = $tattooChoice,$cash -= $modCost]]<</if>>
+		<<if $activeSlave.stampTat != $tattooChoice>> | [[Lower back|Body Modification][$activeSlave.stampTat = $tattooChoice,$cash -= $modCost]]<</if>>
+		<<if $activeSlave.buttTat != $tattooChoice>> | [[Buttock|Body Modification][$activeSlave.buttTat = $tattooChoice,$cash -= $modCost]]<</if>>
+		<<if ($activeSlave.vagina != -1)>>
+			<<if $activeSlave.vaginaTat != $tattooChoice>> | [[Vagina|Body Modification][$activeSlave.vaginaTat = $tattooChoice,$cash -= $modCost]]<</if>>
+		<</if>>
+		<<if $activeSlave.dickTat != $tattooChoice>> | [[Dick|Body Modification][$activeSlave.dickTat = $tattooChoice,$cash -= $modCost]]<</if>>
+		<<if $activeSlave.anusTat != $tattooChoice>> | [[Anus|Body Modification][$activeSlave.anusTat = $tattooChoice,$cash -= $modCost]]<</if>>
+		<<if $activeSlave.amp == 0>>
+			<<if $activeSlave.legsTat != $tattooChoice>> | [[Legs|Body Modification][$activeSlave.legsTat = $tattooChoice,$cash -= $modCost]]<</if>>
+		<</if>>
 	<</if>>
 <<elseif $tattooChoice == "permanent makeup">>
 	[[Face|Body Modification][$activeSlave.lipsTat = $tattooChoice,$cash -= $modCost]]
