@@ -1245,6 +1245,7 @@ Choose a tattoo style:
 	[[Face|Body Modification][$activeSlave.lipsTat = $tattooChoice,$cash -= $modCost]]
 <<elseif $tattooChoice == "bleached">>
 	[[Asshole|Body Modification][$activeSlave.anusTat = $tattooChoice,$cash -= $modCost]]
+<<elseif $tattooChoice == "bovine patterns">>
 <<else>>
 	<<if $activeSlave.shouldersTat != $tattooChoice>> | [[Shoulders|Body Modification][$activeSlave.shouldersTat = $tattooChoice,$cash -= $modCost]]<</if>>
 	<<if $activeSlave.lipsTat != $tattooChoice>> | [[Face|Body Modification][$activeSlave.lipsTat = $tattooChoice,$cash -= $modCost]]<</if>>
