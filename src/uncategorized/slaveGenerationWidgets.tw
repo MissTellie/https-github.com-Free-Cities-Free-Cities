@@ -381,7 +381,7 @@
 	<<set $args[0].birthName = setup.whiteAmericanSlaveNames.random(), $args[0].birthSurname = setup.whiteAmericanSlaveSurnames.random()>>
 <</switch>>
 
-<<set $args[0].slaveName = $args[0].birthName, $args[0].slaveSurname = $args[0].birthSurname>>>
+<<set $args[0].slaveName = $args[0].birthName, $args[0].slaveSurname = $args[0].birthSurname>>
 <<if $useFSNames == 1>>
 <<if $arcologies[0].FSRomanRevivalist > 20>>
 	<<set $args[0].slaveName = setup.romanSlaveNames.random(), $args[0].slaveSurname = setup.romanSlaveSurnames.random()>>
