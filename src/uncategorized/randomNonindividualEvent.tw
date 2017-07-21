@@ -542,6 +542,7 @@
 		<<set $j = $slavesOriginal.findIndex(function(o) { return o.ID == $recruiterSlave.ID; })>>
 		<<if $j != -1>>
 			<<set $events.push("RE relative recruiter")>>
+			<<break>>
 		<<else>> /* no matching slave object in the slavesOriginal array -- bug? */
 			<<set $i = $slaves.findIndex(function(o) { return o.ID == $recruiterSlave.ID; })>>
 			<<set $slaves[$i].recruiter = 0>>
