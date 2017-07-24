@@ -13,7 +13,7 @@ She rejoices since she is actually eager to be milked.
 <<set $aroused = false >>
 <<if $dairySlaves > 1>>
 <br><br>
-While walking to her designated stall, she passes the other cows currently at their milking machines. Not being hurried, she occasionally stop to watch a cow.
+While walking to her designated stall, she passes the other cows currently at their milking machines. Not being hurried, she occasionally stops to watch a cow.
     <<if $activeSlave.fetish == "boobs" >>
     /* TODO: check if there actually are lactating cows at the dairy */
     <<set $aroused = true>>
@@ -74,20 +74,83 @@ All this lewd display turns $activeSlave.slaveName on and she is almost overcome
 /* GETTING IN */
 Eventually, $activeSlave.slaveName arrives at her designated milking stall.
 <<set $assayedSlaveAvailable = 0>>
-<<if ($activeSlave.relation != 0)>>
-    <<for $i = 0; $i < $slaves.length; $i++>>
-    <<if $slaves[$i].ID == $activeSlave.relationTarget >>
-        <<if $slaves[$i].assignment == "work in the dairy">>
-            <<set $assayedSlave = $slaves[$i]>>
-            <<set $assayedSlaveAvailable = 1>>
-        <</if>>
-        <<break>>
-    <</if>>
-    <</for>>
-    <<if $assayedSlaveAvailable == 1>>
-        <<set $assayType = $activeSlave.relation>>
-    <</if>>
-<</if>>
+<<if $familyTesting == 1>>
+	<<if $activeSlave.father > 0>>
+		<<for $i to 0; $i < $slaves.length; $i++>>
+			<<if $activeSlave.father == $slaves[$i].ID && isSlaveAvailable($slaves[$i])>>
+				<<set $assayedSlave to $slaves[$i]>>
+				<<set $assayType to "father">>
+				<<set $assayedSlaveAvailable = 1>>
+				<<break>>
+			<</if>>
+		<</for>>
+	<</if>>
+	<<if $activeSlave.sisters > 0>>
+		<<for $i to 0; $i < $slaves.length; $i++>>
+			<<if areSisters($activeSlave, $relation) == 3 && isSlaveAvailable($relation)>>
+				<<set $assayedSlave to $relation[$i]>>
+				<<set $assayType to "half-sister">>
+				<<set $assayedSlaveAvailable = 1>>
+				<<break>>
+			<</if>>
+		<</for>>
+	<</if>>
+	<<if $activeSlave.mother > 0>>
+		<<for $i to 0; $i < $slaves.length; $i++>>
+			<<if $activeSlave.mother == $slaves[$i].ID && isSlaveAvailable($slaves[$i])>>
+				<<set $assayedSlave to $slaves[$i]>>
+				<<set $assayType to "mother">>
+				<<set $assayedSlaveAvailable = 1>>
+				<<break>>
+			<</if>>
+		<</for>>
+	<</if>>
+	<<if $activeSlave.sisters > 0>>
+		<<for $i to 0; $i < $slaves.length; $i++>>
+			<<if areSisters($activeSlave, $slaves[$i]) == 2 && isSlaveAvailable($slaves[$i])>>
+				<<set $assayedSlave to $slaves[$i]>>
+				<<set $assayType to "sister">>
+				<<set $assayedSlaveAvailable = 1>>
+				<<break>>
+			<</if>>
+		<</for>>
+	<</if>>
+	<<if $activeSlave.daughters > 0>>
+		<<for $i to 0; $i < $slaves.length; $i++>>
+			<<if ($slaves[$i].mother == $activeSlave.ID || $slaves[$i].father == $activeSlave.ID) && isSlaveAvailable($slaves[$i])>>
+				<<set $assayedSlave to $slaves[$i]>>
+				<<set $assayType to "daughter">>
+				<<set $assayedSlaveAvailable = 1>>
+				<<break>>
+			<</if>>
+		<</for>>
+	<</if>>
+	<<if $activeSlave.sisters > 0>>
+		<<for $i to 0; $i < $slaves.length; $i++>>
+			<<if areSisters($activeSlave, $slaves[$i]) == 1 && isSlaveAvailable($slaves[$i])>>
+				<<set $assayedSlave to $slaves[$i]>>
+				<<set $assayType to "twin">>
+				<<set $assayedSlaveAvailable = 1>>
+				<<break>>
+			<</if>>
+		<</for>>
+	<</if>>
+<<else>>
+	<<if ($activeSlave.relation != 0)>>
+		<<for $i = 0; $i < $slaves.length; $i++>>
+		<<if $slaves[$i].ID == $activeSlave.relationTarget >>
+			<<if $slaves[$i].assignment == "work in the dairy">>
+				<<set $assayedSlave = $slaves[$i]>>
+				<<set $assayedSlaveAvailable = 1>>
+			<</if>>
+			<<break>>
+		<</if>>
+		<</for>>
+		<<if $assayedSlaveAvailable == 1>>
+			<<set $assayType = $activeSlave.relation>>
+		<</if>>
+	<</if>>
+<</if>> /*closes extended family mode */
 <<if $assayedSlaveAvailable == 0 && $activeSlave.relationship > 0>>
     <<for $i = 0; $i < $slaves.length; $i++>>
     <<if $slaves[$i].ID == $activeSlave.relationshipTarget>>
@@ -243,7 +306,7 @@ The machine strokes her dick mechanically, but very pleasurable.
 <</if>>
 It does not take long for $activeSlave.slaveName to reach her first orgasm of many. Her muscles tense.
     <<if $activeSlave.dick > 0 >>
-		Her	<<if $activeSlave.balls > 5 >>cum-engorged<</if>> balls swell.
+		Her	<<if $activeSlave.balls > 5 >>cum-engorged<</if>> balls draw up.
 		Her <<if $activeSlave.dick > 8 >>gargantuan member<<elseif $activeSlave.dick > 6 >>huge cock<<else>>dick<</if>> twitches and flexes within its receptacle.
         <<if $activeSlave.balls > 5 >>
 			The copious ejaculation from her over-sized balls give the machine something to work on.

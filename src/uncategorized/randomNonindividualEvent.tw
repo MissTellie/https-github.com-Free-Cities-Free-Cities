@@ -70,6 +70,9 @@
 <</if>>
 
 /* Relationship Events */
+
+<<if $familyTesting == 0>>
+
 <<set _relatedSlaves = $slaves.filter(function(s) { return s.relation != 0; })>>
 
 <<set _devMothers = _relatedSlaves.filter(function(s) { return s.relation == "mother" && s.devotion > 50 && s.anus != 0 && s.relationshipTarget != s.relationTarget && canWalk(s); })>>
@@ -111,6 +114,42 @@
 		<<break>>
 	<</if>>
 <</for>>
+
+<<else>> /* $familyTesting == 1 */
+
+<<set $devMother = $slaves.find(function(s) { return s.daughters > 0 && s.devotion > 50 && s.anus != 0 && canWalk(s); })>>
+<<if (def $devMother)>>
+	<<set $devDaughter = randomDaughter($devMother)>>
+	<<if (def $devDaughter) && ($devDaughter.devotion > 50) && ($devDaughter.anus != 0) && canWalk($devDaughter)>>
+		<<set $events.push("RE devoted mother daughter")>>
+	<</if>>
+<</if>>
+
+<<set $mother = $slaves.find(function(s) { return s.daughters > 0 && s.devotion < 10 && s.anus != 0 && canWalk(s); })>>
+<<if (def $mother)>>
+	<<set $daughter = randomDaughter($mother)>>
+	<<if (def $daughter) && ($daughter.devotion < 10) && ($daughter.anus != 0) && canWalk($daughter)>>
+		<<set $events.push("RE resistant mother daughter")>>
+	<</if>>
+<</if>>
+
+<<set $youngerSister = $slaves.find(function(s) { return s.sisters > 0 && canPenetrate(s); })>>
+<<if (def $youngerSister)>>
+	<<set $olderSister = randomSister($youngerSister)>>
+	<<if (def $olderSister) && ($olderSister.anus == 0) && $youngerSister.devotion > ($olderSister.devotion+20)>>
+		<<set $events.push("RE sibling revenge")>>
+	<</if>>
+<</if>>
+
+<<set $alphaTwin = $slaves.find(function(s) { return s.sisters > 0 && s.anus > 0 && s.devotion > 50 && canWalk(s); })>>
+<<if (def $alphaTwin)>>
+	<<set $betaTwin = randomTwinSister($alphaTwin)>>
+	<<if (def $betaTwin) && ($betaTwin.anus > 0) && ($betaTwin.devotion > 50) && canWalk($betaTwin)>>
+		<<set $events.push("RE devoted twins")>>
+	<</if>>
+<</if>>
+
+<</if>>  /* closes extended family mode */
 
 /* Fetish Interest Events */
 
@@ -497,6 +536,12 @@
 	<<if ($rep/250) > random(1,100)>>
 		<<set $RecETSevent.push("matched pair")>>
 	<</if>>
+	<<if ($rep/250) > random(1,100)>>
+		<<set $RecETSevent.push("incest mother son")>>
+	<</if>>
+	<<if ($rep/250) > random(1,100)>>
+		<<set $RecETSevent.push("incest father daughter")>>
+	<</if>>
 <</if>>
 
 <<else>> /*XX ACQUISITIONS*/
@@ -535,6 +580,22 @@
 	<</if>>
 <</if>>
 
+<<if $familyTesting == 1>>
+
+<<set $i = $slaves.findIndex(function(s) { return s.fuckdoll == 0 && s.canRecruit == 1 && s.devotion > 50 && canWalk(s); })>>
+<<if $i != -1>>
+	<<if random(1,100) > 90+(totalRelatives($slaves[$i])*2)>>
+		<<set $j = $slavesOriginal.findIndex(function(o) { return o.ID == $slaves[$i].ID; })>>
+		<<if $j != -1>>
+			<<set $events.push("RE relative recruiter")>>
+		<<else>> /* no matching slave object in the slavesOriginal array */
+			<<set $slaves[$i].canRecruit = 0>>
+		<</if>>
+	<</if>>
+<</if>>
+
+<<else>> /* extended family mode == 0 */
+
 <<set _recruiterSlaves = $slaves.filter(function(s) { return s.recruiter != 0 && s.fuckdoll == 0 && s.devotion > 50 && s.relation == 0 && canWalk(s); }), $j = -1>>
 <<if def _recruiterSlaves[0]>>
 	<<for _recruiterSlaves.length > 0 && $j == -1>>
@@ -548,6 +609,8 @@
 		<</if>>
 	<</for>>
 <</if>>
+
+<</if>> /* closes extended family mode */
 
 <<if $FSAnnounced == 1>>
 	<<set $FSAcquisitionEvents = []>>
@@ -851,7 +914,7 @@
 <<set $RESSale = []>>
 <<if $cash > 10000>>
 <<if $rep > 6000>>
-	<<if $seeDicks != 2>>
+	<<if $seeDicks != 100>>
 		<<if $TSS.studentsBought == 0>>
 			<<set $events.push("RES Sale")>>
 			<<set $RESSale.push("TSS")>>

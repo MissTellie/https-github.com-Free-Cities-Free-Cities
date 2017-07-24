@@ -13,7 +13,7 @@
 	<<elseif ($activeSlave.trust >= -50)>>
 		<<if canTalk($activeSlave) == false>>gestures<<elseif (_lisping == 1)>>lisps<<else>>mutters<</if>> hesitantly that it's wrong to keep her a slave, and that you should free her.
 	<<else>>
-		<<if canTalk($activeSlave) == false>>gestures a perfunctory plea not to hurt her.<<else>>mutters a perfunctory "Plea<<s>>e don't hurt me, <<Master>>."<</if>>
+		<<if !canTalk($activeSlave)>>gestures a perfunctory plea not to hurt her.<<else>>mutters a perfunctory "Plea<<s>>e don't hurt me, <<if $activeSlave.rudeTitle == 1>><<PoliteRudeTitle $activeSlave>><<else>><<Master>><</if>>."<</if>>
 	<</if>>
 
 <<elseif ($activeSlave.devotion < -20)>>
@@ -196,8 +196,10 @@ My favorite part of my body i<<s>>
 			my pregnant belly, of cour<<s>>e.
 		<<elseif ($activeSlave.dick > 0) && ($activeSlave.balls > 0)>>
 			my cock, I imagine knocking another	<<s>>lave up all the time.
+		<<elseif ($activeSlave.weight > 95)>>
+			my big tummy, I can imagine my<<s>>elf pregnant.
 		<<elseif ($activeSlave.weight > 10)>>
-			my plush tummy, I can imagine my<<s>>elf pregnant.
+			my plu<<s>>h tummy, I can imagine my<<s>>elf pregnant.
 		<<else>>
 			my tight tummy, I like to imagine how it would <<s>>well if I got pregnant.
 		<</if>>
@@ -321,17 +323,14 @@ My favorite part of my body i<<s>>
 					I'm <<s>>o horny, <<Master>>. I can't <<s>>top <<s>>taring at <<if $PC.dick == 1>>cock<<s>> and imagining them down my throat, cumming and cumming<<else>>pu<<ss>>ie<<s>> and imagining how their jui<<c>>e<<s>> ta<<s>>te<</if>>.
 				<<case "buttslut">>
 					I'm <<s>>o horny, <<Master>>. 
-					<<if ($activeSlave.buttplug == "plug" && $activeSlave.anus > 2) >>
-					I wear the buttplug you gave me, but it i<<s>> <<s>>o <<s>>mall... It remind<<s>> me of being fucked in the a<<ss>>, but I can bareley feel it. It drive<<s>> me crazy.
-					<<elseif ($activeSlave.buttplug == "plug" && $activeSlave.anus < 3)
-					|| ($activeSlave.buttplug == "large plug" && $activeSlave.anus == 3)
-					|| ($activeSlave.buttplug == "huge plug" && $activeSlave.anus >= 4) >>
-					Thank you for the buttplug. It i<<s>> really fun to have my a<<ss>> filled all day long.
-					<<elseif ($activeSlave.buttplug == "large plug" && $activeSlave.anus < 3)
-					|| ($activeSlave.buttplug == "huge plug" && $activeSlave.anus < 4) >>
-					I like it up the a<<ss>>, but the plug you make me wear is too big. It really hurt<<s>>. Not in the good way.
+					<<if (["plug", "long plug"].includes($activeSlave.buttplug) && $activeSlave.anus > 2) >>
+						I wear the buttplug you gave me, but it i<<s>> <<s>>o <<s>>mall... It remind<<s>> me of being fucked in the a<<ss>>, but I can bareley feel it. It drive<<s>> me crazy.
+					<<elseif (["plug", "long plug"].includes($activeSlave.buttplug) && $activeSlave.anus < 3) || (["large plug", "long, large plug"].includes($activeSlave.buttplug) && $activeSlave.anus == 3) || (["huge plug", "long, huge plug"].includes($activeSlave.buttplug) && $activeSlave.anus >= 4) >>
+						Thank you for the buttplug. It i<<s>> really fun to have my a<<ss>> filled all day long.
+					<<elseif (["large plug", "long, large plug"].includes($activeSlave.buttplug) && $activeSlave.anus < 3) || (["huge plug", "long, huge plug"].includes($activeSlave.buttplug) && $activeSlave.anus < 4) >>
+						I like it up the a<<ss>>, but the plug you make me wear i<<s>> too big. It really hurt<<s>>. Not in the good way.
 					<<else>>
-					My anu<<s>> i<<s>> killing me, all I want to do i<<s>> touch it and ma<<ss>>age it and fill it.
+						My anu<<s>> i<<s>> killing me, all I want to do i<<s>> touch it and ma<<ss>>age it and fill it.
 					<</if>>
 				<<case "boobs">>
 					I'm <<s>>o horny, <<Master>>. I want to rub my nipple<<s>> against everything.
@@ -560,6 +559,17 @@ My favorite part of my body i<<s>>
 	<<else>>
 		I can almost feel my lip<<s>> <<s>>welling, <<Master>>. It'<<s>> kind of uncomfortable.
 	<</if>>
+<<case "fertility drugs">> 
+<<if isFertile($activeSlave)>>
+	I feel like I need to have a baby, <<Master>>, like right now.
+	<<if ($activeSlave.fetishKnown == 1) && ($activeSlave.fetish == "submissive") && ($activeSlave.fetishStrength > 60)>>
+		I can't wait for <<s>>omeone to cum in me and knock me up.
+	<<elseif ($activeSlave.fetishKnown == 1) && ($activeSlave.fetish == "pregnancy") && ($activeSlave.fetishStrength > 60)>>
+		I can't wait till my belly swell<<s>> with life.
+	<<else>>
+		The<<s>>e will get me pregnant, right?
+	<</if>>
+<</if>>
 <</switch>>
 
 <<switch $activeSlave.assignment>>
@@ -567,7 +577,7 @@ My favorite part of my body i<<s>>
 	<<if ($activeSlave.fetishKnown == 1)>>
 	<<if ($activeSlave.energy > 95)>>
 		It'<<s>> great being a whore. I can't imagine being <<s>>ati<<s>>fied doing anything el<<s>>e.
-	<<elseif ($activeSlave.fetishStrength > 60) && ($activeSlave.fetish != "pregnancy")>>
+	<<elseif ($activeSlave.fetishStrength > 60)>>
 	<<switch $activeSlave.fetish>>
 	<<case "submissive">>
 		It'<<s>> ni<<c>>e being a whore, I get treated like I de<<s>>erve.
@@ -585,6 +595,16 @@ My favorite part of my body i<<s>>
 		It'<<s>> great being a whore. If I wa<<s>> still free, I would fanta<<s>>ize about taking this much anal.
 	<<case "boobs">>
 		It'<<s>> ni<<c>>e being a whore, <<s>>ometime<<s>> customer<<s>> ju<<s>>t play with my boob<<s>> for hour<<s>>.
+	<<case "pregnancy">>
+		<<if $activeSlave.preg > 20>>
+			It'<<s>> ni<<c>>e being a whore, <<s>>ometime<<s>> customer<<s>> ju<<s>>t play with my belly for hour<<s>>.
+		<<elseif isFertile($activeSlave)>>
+			It'<<s>> great being a whore, I'm going to get pregnant and there'<<s>> nothing I can do to <<s>>top it.
+		<<elseif $activeSlave.preg > 0>>
+			It'<<s>> great being a pregnant whore, I get to watch my belly <<s>>well a<<s>> I get fucked. Every week it gets a little bigger.
+		<<else>>
+			Being a whore i<<s>> okay, <<s>>ometime<<s>> I can pretend I can get pregnant.
+		<</if>>
 	<</switch>>
 	<<elseif ($activeSlave.attrKnown == 1) && ($activeSlave.attrXY > 60)>>
 		It'<<s>> ni<<c>>e being a whore, I get fucked by a lot of hot guy<<s>>.
@@ -596,7 +616,7 @@ My favorite part of my body i<<s>>
 	<<if ($activeSlave.fetishKnown == 1)>>
 	<<if ($activeSlave.energy > 95)>>
 		It'<<s>> great being a public <<s>>lut. I can't imagine being <<s>>ati<<s>>fied doing anything el<<s>>e.
-	<<elseif ($activeSlave.fetishStrength > 60) && ($activeSlave.fetish != "pregnancy")>>
+	<<elseif ($activeSlave.fetishStrength > 60)>>
 	<<switch $activeSlave.fetish>>
 	<<case "submissive">>
 		It'<<s>> ni<<c>>e being a public <<s>>lut, I get treated like I de<<s>>erve.
@@ -614,6 +634,16 @@ My favorite part of my body i<<s>>
 		It'<<s>> great being a public <<s>>lut. If I wa<<s>> still free, I would fanta<<s>>ize about taking this much anal.
 	<<case "boobs">>
 		It'<<s>> ni<<c>>e being a public <<s>>lut, <<s>>ometime<<s>> citizen<<s>> ju<<s>>t play with my boob<<s>> for hour<<s>>.
+	<<case "pregnancy">>
+		<<if $activeSlave.preg > 20>>
+			It'<<s>> ni<<c>>e being a public <<s>>lut, <<s>>ometime<<s>> citizen<<s>> ju<<s>>t play with my belly for hour<<s>>.
+		<<elseif isFertile($activeSlave)>>
+			It'<<s>> great being a public <<s>>lut, I'm going to get pregnant and there'<<s>> nothing I can do to <<s>>top it.
+		<<elseif $activeSlave.preg > 0>>
+			It'<<s>> great being a pregnant public <<s>>lut, I get to <<s>>how off my belly all the time.
+		<<else>>
+			Being a public <<s>>lut i<<s>> okay, <<s>>ometime<<s>> I can pretend I can get pregnant.
+		<</if>>
 	<</switch>>
 	<<elseif ($activeSlave.attrKnown == 1) && ($activeSlave.attrXY > 60)>>
 		It'<<s>> ni<<c>>e being a public <<s>>lut, I get fucked by a lot of hot guy<<s>>.
@@ -639,7 +669,7 @@ My favorite part of my body i<<s>>
 	<<else>>
 		<<if ($activeSlave.fetishKnown == 1)>>
 		<<if ($activeSlave.fetish == "buttslut") || ($activeSlave.energy > 95)>>
-			Getting buttfucked to orga<<s>>m whenever I can get hard i<<s>> a dream come true. Actually, getting buttfucked until I cum <<if $activeSlave.scrotum > 0>>even when I'm <<s>>oft <</if>>is pretty ni<<c>>e too.
+			Getting buttfucked to orga<<s>>m whenever I can get hard i<<s>> a dream come true. Actually, getting buttfucked until I cum <<if $activeSlave.prostate > 0>>even when I'm <<s>>oft <</if>>is pretty ni<<c>>e too.
 		<<elseif ($activeSlave.attrKnown == 1) && ($activeSlave.attrXY > 80)>>
 			It'<<s>> okay getting cockmilked, I like all the dick<<s>> around.
 		<<else>>
@@ -695,10 +725,24 @@ My favorite part of my body i<<s>>
 		I'm <<s>>o happy with $slaves[$partner].slaveName." She blushes. "Thank you for her, <<Master>>.
 	<</if>>
 	<<if $activeSlave.relationship >= 3>>
-		<<if ($activeSlave.relation != 0) && ($slaves[$partner].ID == $activeSlave.relationTarget)>>
-			I - I'm fucking my <<if ($activeSlave.relation == "mother")>>daughter<<elseif ($activeSlave.relation == "daughter")>>mother<<else>>$activeSlave.relation<</if>>," she bursts out, blushing even harder.	"It's <<s>>o fucking wrong, but <<if ($activeSlave.relation == "mother")>>she has <<s>>uch a hot little body<<elseif ($activeSlave.relation == "daughter")>>she'<<s>> such a hot MILF<<else>>she's <<s>>o hot<</if>>, I can't <<s>>top.
+		<<if $activeSlave.mother == $slaves[$partner].ID>>
+			"I - I'm fucking my mother," she bursts out, blushing even harder. "It'<<s>> <<s>>o fucking wrong, but <<s>>he'<<s>> <<s>>uch a hot MILF, I can't <<s>>top.
+		<<elseif $activeSlave.father == $slaves[$partner].ID>>
+			I - I'm fucking my father," she bursts out, blushing even harder. "It'<<s>> <<s>>o fucking wrong, but <<s>>he know<<s>> <<s>>o much about penetration, I can't <<s>>top.
+		<<elseif $slaves[$partner].mother == $activeSlave.ID>>
+			I - I'm fucking my daughter," she bursts out, blushing even harder. "It'<<s>> <<s>>o fucking wrong, but <<s>>he ha<<s>> <<s>>uch a hot little body, I can't <<s>>top.
+		<<elseif $slaves[$partner].father == $activeSlave.ID>>
+			I - I'm fucking my daughter," she bursts out, blushing even harder. "It'<<s>> <<s>>o fucking wrong, but <<s>>he ha<<s>> <<s>>uch a hot little body. <<S>>he looks <<s>>o much like her mother, I can't <<s>>top.
+		<<elseif areSisters($activeSlave, $slaves[$partner]) == 1>>
+			I - I'm fucking my twin <<s>>i<<s>>ter," she bursts out, blushing even harder. "It'<<s>> <<s>>o fucking wrong, but <<s>>he'<<s>> <<s>>o hot, I can't <<s>>top.
+		<<elseif areSisters($activeSlave, $slaves[$partner]) == 2>>
+			I - I'm fucking my <<s>>i<<s>>ter," she bursts out, blushing even harder. "It'<<s>> <<s>>o fucking wrong, but <<s>>he'<<s>> <<s>>o hot, I can't <<s>>top.
+		<<elseif areSisters($activeSlave, $slaves[$partner]) == 3>>
+			I - I'm fucking my half-<<s>>i<<s>>ter," she bursts out, blushing even harder. "It'<<s>> <<s>>o fucking wrong, but <<s>>he'<<s>> <<s>>o hot, I can't <<s>>top.
+		<<elseif ($activeSlave.relation != 0) && ($slaves[$partner].ID == $activeSlave.relationTarget)>>
+			I - I'm fucking my <<if ($activeSlave.relation == "mother")>>daughter<<elseif ($activeSlave.relation == "daughter")>>mother<<else>>$activeSlave.relation<</if>>," she bursts out, blushing even harder. "It'<<s>> <<s>>o fucking wrong, but <<if ($activeSlave.relation == "mother")>><<s>>he ha<<s>> <<s>>uch a hot little body<<elseif ($activeSlave.relation == "daughter")>><<s>>he'<<s>> <<s>>uch a hot MILF<<else>><<s>>he'<<s>> <<s>>o hot<</if>>, I can't <<s>>top.
 		<<elseif ($activeSlave.age + 14) < $slaves[$partner].age>>
-			<<S>>he'<<s>> old enough to be my mother." She looks down, blushing a little harder. "But I'm lucky, she'<<s>> such a hot MILF.
+			<<S>>he'<<s>> old enough to be my mother." She looks down, blushing a little harder. "But I'm lucky, <<s>>he'<<s>> <<s>>uch a hot MILF.
 		<<elseif ($activeSlave.age - 14) > $slaves[$partner].age>>
 			<<S>>he'<<s>> young enough to be my daughter." She looks down, blushing a little harder. "But I love her hot young body.
 		<</if>>
@@ -707,15 +751,15 @@ My favorite part of my body i<<s>>
 		<</if>>
 		<<if $slaves[$partner].amp != 0>>
 		<<if $slaves[$partner].amp == -1>>
-			I really do like her P-Limbs. They're a little awkward, and kind of cold, but <<if _lisping == 1>>that'th jutht how she ith<<else>>that's just how she is<</if>>.
+			I really do like her P-Limb<<s>>. They're a little awkward, and kind of cold, but that'<<s>> ju<<s>>t how <<s>>he i<<s>>.
 		<<elseif $slaves[$partner].amp == -2>>
-			And, um." She giggles. "She<<if _lisping == 1>>hath vibe fingerth. Tho that'th awethome<<else>>has vibe fingers. So that's awesome<</if>>.
+			And, um." She giggles. "<<S>>he ha<<s>> vibe finger<<s>>. <<S>>o that'<<s>> awesome.
 		<<elseif $slaves[$partner].amp == -3>>
-			I really like her P-Limbs. They're very pretty, but kind of cold. <<if _lisping == 1>>That'th jutht how she ith<<else>>That's just how she is<</if>>.
+			I really like her P-Limb<<s>>. They're very pretty, but kind of cold. That'<<s>> ju<<s>>t how <<s>>he i<<s>>.
 		<<elseif $slaves[$partner].amp == -4>>
-			Her P-Limbs do <<s>>care me a little, <<s>>ometime<<s>>. Though of course she di<<s>>able<<s>> the weapon<<s>> when we're together." She giggles. "Though I did get her to extend her blades on<<c>>e, so I could ki<<ss>> them for luck.
+			Her P-Limb<<s>> do <<s>>care me a little, <<s>>ometime<<s>>. Though of course <<s>>he di<<s>>able<<s>> the weapon<<s>> when we're together." She giggles. "Though I did get her to extend her blades on<<c>>e, so I could ki<<ss>> them for luck.
 		<<elseif $slaves[$partner].amp == -5>>
-			Her P-Limbs do look cool and I like how <<s>>trong they can make her but they <<s>>care me a little, <<s>>ometime<<s>>. Though of cour<<s>>e she disable<<s>> the weapon<<s>> when we're together." She giggles. "She ha<<s>> vibe fingers, <<s>>o that'<<s>> awe<<s>>ome.
+			Her P-Limb<<s>> do look cool and I like how <<s>>trong they can make her but they <<s>>care me a little, <<s>>ometime<<s>>. Though of cour<<s>>e she di<<s>>able<<s>> the weapon<<s>> when we're together." She giggles. "<<S>>he ha<<s>> vibe finger<<s>>, <<s>>o that'<<s>> awe<<s>>ome.
 		<<else>>
 			She's an amputee, of course, <<s>>o that'<<s>> a little <<s>>ad.
 		<</if>>

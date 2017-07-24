@@ -91,7 +91,27 @@
 		<<elseif $Nurse.relationshipTarget == $slaves[$i].ID>>
 			She dedicates most of her attention to her <<if $Nurse.relationship == 1>>friend<<elseif $Nurse.relationship == 2>>best friend<<elseif $Nurse.relationship == 3>>friend with benefits<<elseif $Nurse.relationship == 4>>lover<<elseif $Nurse.relationship == 5>>slave wife<</if>>, $slaves[$i].slaveName, making sure she has everything she needs and more.  This lavish attention detracts from her overall effectiveness.
 			<<set _idleBonus -= 3, $slaves[$i].devotion++, $slaves[$i].trust++, $slaves[$i].health += 3>>
-		<<elseif $Nurse.relationTarget == $slaves[$i].ID>>
+		<<elseif $familyTesting == 1 && totalRelatives($slaves[$i]) > 0>>
+			<<if $slaves[$i].mother == $Nurse.ID || $slaves[$i].father == $Nurse.ID>>
+				She makes sure to spend extra time caring for her daughter, $slaves[$i].slaveName.
+				<<set $slaves[$i].trust++, $slaves[$i].health++>>
+			<<elseif $slaves[$i].ID == $Nurse.mother>>
+				She makes sure to spend extra time caring for her mother, $slaves[$i].slaveName.
+				<<set $slaves[$i].trust++, $slaves[$i].health++>>
+			<<elseif $slaves[$i].ID == $Nurse.father>>
+				She makes sure to spend extra time caring for her father, $slaves[$i].slaveName.
+				<<set $slaves[$i].trust++, $slaves[$i].health++>>
+			<<elseif areSisters($slaves[$i], $Nurse) == 1>>
+				She makes sure to spend extra time caring for her twin sister, $slaves[$i].slaveName.
+				<<set $slaves[$i].trust++, $slaves[$i].health++>>
+			<<elseif areSisters($slaves[$i], $Nurse) == 2>>
+				She makes sure to spend extra time caring for her sister, $slaves[$i].slaveName.
+				<<set $slaves[$i].trust++, $slaves[$i].health++>>
+			<<elseif areSisters($slaves[$i], $Nurse) == 3>>
+				She makes sure to spend extra time caring for her half-sister, $slaves[$i].slaveName.
+				<<set $slaves[$i].trust++, $slaves[$i].health++>>
+			<</if>>
+		<<elseif $Nurse.relationTarget == $slaves[$i].ID && $familyTesting == 0>>
 			She makes sure to spend extra time caring for her $slaves[$i].relation, $slaves[$i].slaveName.
 			<<set $slaves[$i].trust++, $slaves[$i].health++>>
 		<</if>>

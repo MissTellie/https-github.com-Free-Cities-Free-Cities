@@ -148,6 +148,7 @@
 <<for $i = 0; $i < $slaves.length; $i++>>
 	<<set $individualCosts = 0>>
 	''$slaves[$i].slaveName'':
+	<<if ($slaves[$i].assignment != "work in the dairy" || $dairyRestraintsSetting < 2) && ($slaves[$i].assignment != "be confined in the arcade")>>
 	<<if $slaves[$i].livingRules == "luxurious">>
 	<<if $slaves[$i].relationship >= 4>>
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;Living expenses: ¤<<print ($rulesCost*3)>>
@@ -162,6 +163,10 @@
 	<<else>>
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;Living expenses: ¤<<print ($rulesCost)>>
 		<<set $individualCosts += $rulesCost>>
+	<</if>>
+	<<else>>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;Living expenses: ¤<<print ($rulesCost*.75)>>
+		<<set $individualCosts += ($rulesCost*.75)>>
 	<</if>>
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;Basic slave food cost: ¤<<print $foodCost*4>>
 	<<set $individualCosts += $foodCost*4>>
@@ -181,28 +186,31 @@
 		<<set $individualCosts -= $foodCost>>
 	<</if>>
 	<<if $slaves[$i].lactation > 0>>
-	<<set $individualCosts += $foodCost>>
-	<<if $slaves[$i].lactation > 0>>
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;Food to support
 		<<if $slaves[$i].lactation > 1>>heavy<<else>>natural<</if>> lactation from
 		<<if Math.trunc($slaves[$i].boobs/10000) > 2>>absurd udders<<elseif Math.trunc($slaves[$i].boobs/10000) > 1>>enormous boobs<<else>>reasonable breasts<</if>>:
 		¤<<print $foodCost*$slaves[$i].lactation*(1+Math.trunc($slaves[$i].boobs/10000))>>
 		<<set $individualCosts += $foodCost*$slaves[$i].lactation*(1+Math.trunc($slaves[$i].boobs/10000))>>
 	<</if>>
-	<</if>>
 	<<if $slaves[$i].preg > 5>>
-		<br>&nbsp;&nbsp;&nbsp;&nbsp;Extra feeding to support pregnancy: ¤<<print $foodCost*$slaves[$i].pregType>>
-		<<set $individualCosts += $foodCost*$slaves[$i].pregType>>
+		<<if $slaves[$i].assignment == "work in the dairy" && $dairyFeedersSetting > 0>>
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;Extra feeding costs to support pregnancy are covered by dairy feeders.
+		<<elseif ($slaves[$i].assignment == "serve in the master suite" || $slaves[$i].assignment == "be your concubine") && $masterSuiteUpgradePregnancy == 1>>
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;Extra feeding costs to support pregnancy are covered by $masterSuiteName luxuries.
+		<<else>>
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;Extra feeding to support pregnancy: ¤<<print $foodCost*$slaves[$i].pregType>>
+			<<set $individualCosts += $foodCost*$slaves[$i].pregType>>
+		<</if>>
 	<</if>>
 	<<if $boobAccessibility != 1>>
 	<<if ($slaves[$i].boobs > 7500)>>
-	<<if ($slaves[$i].assignment != "work in the dairy") || ($dairyRestraintsSetting < 2)>>
+	<<if ($slaves[$i].assignment != "work in the dairy" || $dairyRestraintsSetting < 2) && ($slaves[$i].assignment != "be confined in the arcade")>>
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;Increased living expenses due to inconveniently huge boobs: ¤50
 		<<set $individualCosts += 50>>
 	<</if>>
 	<</if>>
 	<</if>>
-	<<if !canSee($slaves[$i])>>
+	<<if !canSee($slaves[$i]) && ($slaves[$i].assignment != "work in the dairy" || $dairyRestraintsSetting < 2) && ($slaves[$i].assignment != "be confined in the arcade")>>
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;Increased living expenses due to lack of sight: ¤50
 		<<set $individualCosts += 50>>
 	<<elseif $slaves[$i].eyes <= -1>>
@@ -212,6 +220,7 @@
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;Increased living expenses due to blurred vision: ¤25
 		<<set $individualCosts += 25>>
 	<</if>>
+	<<if ($slaves[$i].assignment != "work in the dairy" || $dairyRestraintsSetting < 2) && ($slaves[$i].assignment != "be confined in the arcade")>>
 	<<if ($slaves[$i].amp != 0)>>
 	  <<if ($slaves[$i].amp == 1)>>
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;Increased living expenses due to limblessness: ¤$rulesCost
@@ -223,6 +232,7 @@
 	<<elseif !canWalk($slaves[$i])>>
 	  <br>&nbsp;&nbsp;&nbsp;&nbsp;Increased living expenses due to immobility: ¤<<print $rulesCost>>
 	  <<set $individualCosts += $rulesCost>>
+	<</if>>
 	<</if>>
 	<<if $slaves[$i].boobs > 10000>>
 	<<if $slaves[$i].boobsImplantType == 1>>
@@ -238,8 +248,10 @@
 	<</if>>
 	<<if $slaves[$i].preg > 25>>
 	<<if $slaves[$i].universalRulesBirthing == 1>>
+	<<if ($slaves[$i].assignment != "work in the dairy" || $dairyRestraintsSetting < 2)>>
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;Coverage cost for daily pregnancy scanning: ¤50
 		<<set $individualCosts += 50>>
+	<</if>>
 	<</if>>
 	<</if>>
 	<<if $CitizenRetirement == 1>>

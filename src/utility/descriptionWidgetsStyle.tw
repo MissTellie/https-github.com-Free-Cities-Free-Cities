@@ -2181,6 +2181,8 @@ $possessiveCap
 		$pronounCap is wearing an uncomfortable leather collar with a useful steel ring in front.
 	<<case "dildo gag">>
 		$pronounCap is wearing a sturdy leather collar that continues up to restrict $possessive jaw as well. It holds a ring gag in $possessive mouth, into which slots a formidable inward-facing dildo that reaches down $possessive throat. It can be removed to facefuck $object.
+	<<case "massive dildo gag">>
+		$pronounCap is wearing a sturdy leather collar that continues up to restrict $possessive jaw as well. It acts as an anchor for an enormous inward-facing dildo that reaches deep down $possessive throat. The sheer size of the phallus forces $possessive mouth as wide as it will go and considerably bulges $possessive throat. Fortunatly for $object, it is designed to allow $object to be able to breath through $possessive nose; though when removed, the poor girl finds <<print $object>>self incapable of closing $possessive mouth for some time.
 	<<case "tight steel">>
 		$pronounCap is wearing a tight steel collar whose restricting metal touch $pronoun cannot escape.
 	<<case "shock punishment">>
@@ -3334,49 +3336,87 @@ $possessiveCap
 	<</if>>
 <</if>>
 
-<<if ($activeSlave.buttplug == "plug") && ($activeSlave.anus > 2)>>
-	It's filled by a standard buttplug, which is on the verge of falling out.
-<<elseif ($activeSlave.buttplug == "plug")>>
-	It's filled by a standard buttplug.
-<<elseif ($activeSlave.buttplug == "large plug") && ($activeSlave.anus < 2)>>
-	It's agonizingly stretched by a large buttplug.
-<<elseif ($activeSlave.buttplug == "large plug") && ($activeSlave.anus < 3)>>
-	It's uncomfortably filled by a large buttplug.
-<<elseif ($activeSlave.buttplug == "large plug")>>
-	It's comfortably filled by a large buttplug.
-<<elseif ($activeSlave.buttplug == "huge plug") && ($activeSlave.anus < 4)>>
+<<switch $activeSlave.buttplug>>
+<<case "plug">>
+	It's filled by a standard
+	<<if $activeSlave.anus > 2>>
+		buttplug, which is on the verge of falling out.
+	<<else>>
+		buttplug.
+	<</if>>
+	<<if $activeSlave.buttplugAttachment == "tail">>
+		A tail protrudes from the back of the plug and dangles from $possessive rear.
+	<</if>>
+<<case "long plug">>
+	It's filled by a standard sized, overly long
+	<<if $activeSlave.anus > 2>>
+		buttplug, which is on the verge of sliding out $possessive rear.
+	<<else>>
+		buttplug.
+	<</if>>
+	It causes a noticeable bulge in $possessive belly.
+	<<if $activeSlave.buttplugAttachment == "tail">>
+		A tail protrudes from the back of the plug and dangles from $possessive rear.
+	<</if>>
+<<case "large plug">>
+	It's
+	<<if $activeSlave.anus < 2>>
+		agonizingly stretched
+	<<elseif $activeSlave.anus < 3>>
+		uncomfortably
+	<<else>>
+		comfortably
+	<</if>>
+	by a large buttplug.
+	<<if $activeSlave.buttplugAttachment == "tail">>
+		$pronounCap swings the tail from side to side with every shift of $possessive rear.
+	<</if>>
+<<case "long, large plug">>
+	It's
+	<<if $activeSlave.anus < 2>>
+		agonizingly stretched
+	<<elseif $activeSlave.anus < 3>>
+		uncomfortably
+	<<else>>
+		comfortably
+	<</if>>
+	by a large and long buttplug. It causes a noticeable bulge in $possessive belly.
+	<<if $activeSlave.buttplugAttachment == "tail">>
+		$pronounCap swings the tail from side to side with every shift of $possessive rear.
+	<</if>>
+<<case "huge plug">>
+	<<if $activeSlave.anus < 4>>
 	It's agonizingly stretched by a plug so huge $possessive anus is probably being stretched into a permanent gape.
-	<<if $activeSlave.fuckdoll == 0>>
-	<<if ($activeSlave.fetish == "masochist") && ($activeSlave.fetishKnown == 1) && ($activeSlave.fetishStrength > 60)>>
-		$pronounCap's frequently in tears from the pain, which is so sharp it often tips $possessive over into spontaneous orgasm.
+		<<if $activeSlave.fuckdoll == 0>>
+			<<if ($activeSlave.fetish == "masochist") && ($activeSlave.fetishKnown == 1) && ($activeSlave.fetishStrength > 60)>>
+				$pronounCap's frequently in tears from the pain, which is so sharp it often tips $possessive over into spontaneous orgasm.
+			<<else>>
+				$pronounCap spends much of $possessive time sobbing with anal pain and fear at having $possessive hole ruined.
+			<</if>>
+		<</if>>
 	<<else>>
-		$pronounCap spends much of $possessive time sobbing with anal pain and fear at having $possessive hole ruined.
+		Its ridiculous gape is comfortably filled by a huge buttplug.
 	<</if>>
+	<<if $activeSlave.buttplugAttachment == "tail">>
+		$pronounCap sways the tail back and forth with every ginger movement of $possessive rear.
 	<</if>>
-<<elseif ($activeSlave.buttplug == "huge plug")>>
-	Its ridiculous gape is comfortably filled by a huge buttplug.
-<<elseif ($activeSlave.buttplug == "tailed plug") && ($activeSlave.anus > 2)>>
-	It's filled by a tailed buttplug, which is on the verge of falling out. The tail protrudes from the back of the plug and dangles from $possessive rear.
-<<elseif ($activeSlave.buttplug == "tailed plug")>>
-	It's filled by a tailed buttplug.  The tail protrudes from the back of the plug and dangles from $possessive rear.
-<<elseif ($activeSlave.buttplug == "large tailed plug") && ($activeSlave.anus < 2)>>
-	It's agonizingly stretched by a large tailed buttplug.  $pronounCap swings the tail from side to side with every shift of $possessive rear.
-<<elseif ($activeSlave.buttplug == "large tailed plug") && ($activeSlave.anus < 3)>>
-	It's uncomfortably filled by a large tailed buttplug.  $pronounCap swings the tail from side to side with every shift of $possessive rear.
-<<elseif ($activeSlave.buttplug == "large tailed plug")>>
-	It's comfortably filled by a large tailed buttplug.  $pronounCap swings the tail from side to side with every shift of shifts $possessive rear.
-<<elseif ($activeSlave.buttplug == "huge tailed plug") && ($activeSlave.anus < 4)>>
-	It's agonizingly stretched by a tailed plug so huge $possessive anus is probably being stretched into a permanent gape. She sways the tail back and forth with every ginger movement of $possessive rear.
-	<<if $activeSlave.fuckdoll == 0>>
-	<<if ($activeSlave.fetish == "masochist") && ($activeSlave.fetishKnown == 1) && ($activeSlave.fetishStrength > 60)>>
-		$pronounCap's frequently in tears from the pain, which is so sharp it often tips $possessive over into spontaneous orgasm.
+<<case "long, huge plug">>
+	<<if $activeSlave.anus < 4>>
+	It's agonizingly stretched by a plug so huge it causes $possessive belly to bulge and is likely stretching $possessive anus into a permanent gape.
+		<<if $activeSlave.fuckdoll == 0>>
+			<<if ($activeSlave.fetish == "masochist") && ($activeSlave.fetishKnown == 1) && ($activeSlave.fetishStrength > 60)>>
+				$pronounCap's frequently in tears from the pain, which is so sharp it often tips $possessive over into spontaneous orgasm.
+			<<else>>
+				$pronounCap spends much of $possessive time sobbing with anal pain and fear at having $possessive hole ruined.
+			<</if>>
+		<</if>>
 	<<else>>
-		$pronounCap spends much of $possessive time sobbing with anal pain and fear at having $possessive hole ruined.
+		Its ridiculous gape is comfortably filled by a wide and long buttplug. It causes a noticeable bulge in $possessive belly.
 	<</if>>
+	<<if $activeSlave.buttplugAttachment == "tail">>
+		$pronounCap sways the tail back and forth with every ginger movement of $possessive rear.
 	<</if>>
-<<elseif ($activeSlave.buttplug == "huge tailed plug")>>
-	Its ridiculous gape is comfortably filled by a huge tailed buttplug. $pronounCap sways the tail back and forth with every ginger movement of $possessive rear.
-<</if>>
+<</switch>>
 <</widget>>
 
 <<widget "vaginalAccessoryDescription">>

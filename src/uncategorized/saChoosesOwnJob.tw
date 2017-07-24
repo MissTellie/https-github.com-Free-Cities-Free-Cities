@@ -340,7 +340,7 @@
 				<<set $slaves[$i].choosesOwnAssignmentText += " decides to be a whore, a respectable position for a slave in this enlightened arcology.">>
 				<<assignJob $slaves[$i] "whore">>
 			<</if>>
-		<<elseif ($arcologies[0].FSPastoralist > 0)>>">>
+		<<elseif ($arcologies[0].FSPastoralist > 0)>>
 			<<if ($slaves[$i].lactation > 0)>>
 				<<if ($universalRulesAssignsSelfFacility == 1) && ($dairyRestraintsSetting < 2) && ($dairy > $dairySlaves)>>
 					<<set $slaves[$i].choosesOwnAssignmentText += " hurries to join your herd of dairy cows.">>

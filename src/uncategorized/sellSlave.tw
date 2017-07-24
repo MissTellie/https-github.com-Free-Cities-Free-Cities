@@ -79,7 +79,7 @@ A reputable slave appraiser arrives promptly to inspect her and certify her qual
 		<<elseif $arcologies[0].FSAztecRevivalist >= $FSLockinLevel*0.6>>
 			"Sanctity,
 		<<else>>
-			"Your Greatness,			
+			"Your Greatness,
 		<</if>>
 	<</if>>
 	I have appraised your slave. My appraisal is based on her potential income in a brothel, with modification for her special qualities. I have found the following.
@@ -821,6 +821,7 @@ __Bids Received__\
 
 <<if $activeSlave.dick > 0>>
 <<if $activeSlave.devotion > 20>>
+<<if $activeSlave.fetish == "buttslut">>
 <<if $activeSlave.age < 25>>
 <<if $activeSlave.boobs < 400>>
 <<if $activeSlave.weight <= 10>>
@@ -832,6 +833,7 @@ __Bids Received__\
 		<<goto "Slave Sold">>
 	<</link>>
 	<</if>>
+<</if>>
 <</if>>
 <</if>>
 <</if>>
@@ -912,13 +914,13 @@ __Bids Received__\
 <</if>>
 <</if>>
 
-<<if $activeSlave.dick > 0>>
-<<if $activeSlave.fetish == "buttslut">>
-<<if $activeSlave.age < 25>>
-<<if $activeSlave.boobs < 400>>
-<<if $activeSlave.weight <= 10>>
+<<if $activeSlave.devotion > 20>>
+<<if $activeSlave.fetish == "cumslut">>
+<<if $activeSlave.lips > 30>>
+<<if $activeSlave.amp == 0>>
+<<if $activeSlave.oralSkill > 50>>
 	<<if random(1,100) > 60>>
-	<br>''¤<<print 500*Math.trunc(($slaveCost*1.35)/500)>>'' from a prominent citizen who prefers slaves that look like demure girls with their clothes on, and love taking cock up their pretty asspussies.
+	<br>''¤<<print 500*Math.trunc(($slaveCost*1.35)/500)>>'' from a prominent citizen who's looking for a fresh, skilled pair of lips eager to wrap around a thick cock.
 	<<link "Accept bid">>
 		<<set $cash += 500*Math.trunc(($slaveCost*1.35)/500)>>
 		<<set $buyer = "D oral servants">>
@@ -1113,7 +1115,7 @@ __Bids Received__\
 <</if>>
 <</if>>
 
-<<if $activeSlave.combatSkill >= 2>>
+<<if $activeSlave.combatSkill >= 1>>
 <<if $activeSlave.health > 40>>
 <<if $activeSlave.muscles > 25>>
 	<<if random(1,100) > 70>>

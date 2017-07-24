@@ -1,11 +1,23 @@
 :: Options [nobr]
 
-<<set $showEncyclopedia = 0>>
+<<set $showEncyclopedia = 0, $nextButton = "Back", $nextLink = "Main">>
 
 This save was created using FC version $ver build $releaseID.
 
 <br><br>
 [[Apply Backwards Compatibility Update|Backwards Compatibility]]
+
+<br><br>
+<<if $familyTesting == 1>>
+<br><<link "Reset extended family mode controllers">><<goto "family panic">><</link>> //Clears and rebuilds .sister and .daughter tracking.//
+<</if>>
+
+<<if isNaN($rep)>>
+<br>[[Reset Reputation|Options][$rep = 0]]
+<</if>>
+<<if isNaN($cash)>>
+<br>[[Reset Money|Options][$cash = 500]]
+<</if>>
 
 <br><br>
 
@@ -241,7 +253,8 @@ Cheatmode is currently @@.cyan;ENABLED@@. [[Disable|Options][$cheatMode = 0]]
 	<</if>>
 <<else>>
 Cheatmode is currently @@.red;DISABLED@@. [[Enable|Options][$cheatMode = 1]]
-//This will allow manual selection of events and unlock some options that would usually be restricted by progress//<</if>>
+//This will allow manual selection of events and unlock some options that would usually be restricted by progress//
+<</if>>
 <br>
 [[Add money|Options][$cheater = 1, $cash += 100000]] | [[Add rep|Options][$cheater = 1, $rep += 10000]] //Cheating will be flagged in your save//
 <br>

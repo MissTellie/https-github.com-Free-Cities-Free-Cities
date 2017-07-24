@@ -341,6 +341,14 @@ Being ordered into a relationship would be difficult for anyone, but they're so 
 	$eventSlave.slaveName fetishized breasts so much that she thinks $subSlave.slaveName's udders are one of the sexiest things she's ever seen.
 <<elseif ($subSlave.fetish == "boobs") && ($eventSlave.boobs > 4000)>>
 	$subSlave.slaveName fetishized breasts so much that she thinks $eventSlave.slaveName's udders are one of the sexiest things she's ever seen.
+<<elseif ($eventSlave.fetish == "pregnancy") && ($subSlave.fetish == "pregnancy") && $subSlave.preg > 20 && $eventSlave.preg > 20>>
+	$activeSlave.slaveName and $subSlave.slaveName are both heavily pregnant, much to the other's delight.
+<<elseif ($subSlave.fetish == "pregnancy") && $eventSlave.preg > 20>>
+	$subSlave.slaveName fetishizes pregnant bellies so much that she thinks $eventSlave.slaveName gravid middle is one of the sexiest things she's ever seen.
+<<elseif ($eventSlave.fetish == "pregnancy") && $subSlave.preg > 20>>
+	$eventSlave.slaveName fetishizes pregnant bellies so much that she thinks $subSlave.slaveName's gravid middle is one of the sexiest things she's ever seen.
+<<elseif ($eventSlave.fetish == "pregnancy") && ($subSlave.fetish == "pregnancy") && $subSlave.preg > 5 && $eventSlave.preg > 5>>
+	$eventSlave.slaveName and $subSlave.slaveName are both pregnant and just beginning to show. They'll both be able to enjoy the other's swelling body.
 <<elseif ($eventSlave.fetish == "pregnancy") && canAchieveErection($subSlave)>>
 	$eventSlave.slaveName can indulge the fantasy that she's getting pregnant each and every time $subSlave.slaveName cums inside her.
 <<elseif ($subSlave.fetish == "pregnancy") && canAchieveErection($eventSlave)>>
@@ -382,7 +390,7 @@ Being ordered into a relationship would be difficult for anyone, but they're so 
 	<<set $eventSlave.trust -= 10>>
 	<<set $subSlave.trust -= 10>>
 <</if>>
-<<if $eventSlave.behavioralQuirk == $subSlave.behavioralQuirk>>
+<<if $eventSlave.behavioralQuirk == $subSlave.behavioralQuirk && $eventSlave.behavioralQuirk != "none">>
 	They're both
 	<<switch $eventSlave.behavioralQuirk>>
 	<<case "confident">>

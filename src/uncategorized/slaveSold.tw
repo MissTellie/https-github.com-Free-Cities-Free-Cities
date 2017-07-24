@@ -12,6 +12,21 @@
 	<<if $activeSlave.devotion > 50>>
 		<<if $activeSlave.trust > 95 || $activeSlave.trust < -20 || $activeSlave.intelligence < 0>>
 			<<set $boomerangSlave = $activeSlave, $boomerangWeeks = 1, $boomerangBuyer = $buyer>>
+			<<if $familyTesting == 1>>
+				<<set $boomerangMother = []>>
+				<<set $boomerangfather = []>>
+				<<set $boomerangSlave.sisters = 0, $boomerangSlave.daughters = 0>>
+				<<for $i = 0; $i < $slaves.length; $i++>>
+					<<if $slaves[$i].ID != $boomerangSlave.ID>>
+						<<if $slaves[$i].mother == $boomerangSlave.ID>>
+							<<set $boomerangMother.push($slaves[$i].ID)>>
+						<</if>>
+						<<if $slaves[$i].father == $boomerangSlave.ID>>
+							<<set $boomerangfather.push($slaves[$i].ID)>>
+						<</if>>
+					<</if>>
+				<</for>>
+			<</if>>
 		<</if>>
 	<</if>>
 	<</if>>
@@ -20,55 +35,95 @@
 	<</if>>
 <</if>>
 
-<<if $activeSlave.relation != 0>>
-	<<for $j = 0; $j < $slaves.length; $j++>>
-		<<if $slaves[$j].ID == $activeSlave.relationTarget>>
-		<<if $slaves[$j].fetish != "mindbroken">>
-			$slaves[$j].slaveName is @@.mediumorchid;grieved@@ that you are selling her $activeSlave.relation.
-			<br><br>
-			<<set $slaves[$j].devotion -= 20>>
-			<<set $display = 1>>
-			<<break>>
-		<</if>>
-		<</if>>
-	<</for>>
-<</if>>
-<<if $activeSlave.relationship > 0>>
-	<<for $j = 0; $j < $slaves.length; $j++>>
-		<<if $slaves[$j].ID == $activeSlave.relationshipTarget>>
-		<<if $slaves[$j].fetish != "mindbroken">>
-			$slaves[$j].slaveName is @@.mediumorchid;grieved@@ that you are selling her best source of comfort and companionship in a life of bondage.
-			<br><br>
-			<<set $slaves[$j].devotion -= $slaves[$j].relationship>>
-			<<set $display = 1>>
-			<<break>>
-		<</if>>
-		<</if>>
-	<</for>>
-<<elseif $activeSlave.relationship == -3>>
-	Selling one of your slave wives is @@.red;socially unacceptable.@@ In addition, your other devoted slaves are @@.gold;worried@@ that you may not respect their status.
-	<br><br>
-	<<set $rep -= 200>>
-	<<set $display = 1>>
-	<<for $j = 0; $j < $slaves.length; $j++>>
-		<<if $slaves[$j].devotion > 50>>
-			<<set $slaves[$j].trust -= 5>>
-		<</if>>
-	<</for>>
-<</if>>
-<<if $activeSlave.rivalry != 0>>
-	<<for $j = 0; $j < $slaves.length; $j++>>
-		<<if $slaves[$j].ID == $activeSlave.rivalryTarget>>
-		<<if $slaves[$j].fetish != "mindbroken">>
-			$slaves[$j].slaveName is @@.hotpink;pleased@@ that she won't have to see her rival any more.
-			<br><br>
-			<<set $slaves[$j].devotion += $slaves[$j].rivalry*0.3>>
-			<<set $display = 1>>
-			<<break>>
-		<</if>>
-		<</if>>
-	<</for>>
-<</if>>
+	<<if $familyTesting == 1>>
+		<<for $j = 0; $j < $slaves.length; $j++>>
+			<<if $activeSlave.mother == $slaves[$j].ID>>
+				$slaves[$j].slaveName is @@.mediumorchid;grieved@@ that you are selling her daughter.
+				<br><br>
+				<<set $slaves[$j].devotion -= 20>>
+			<</if>>
+			<<if $activeSlave.father == $slaves[$j].ID>>
+				$slaves[$j].slaveName is @@.mediumorchid;disappointed@@ that you are selling her daughter.
+				<br><br>
+				<<set $slaves[$j].devotion -= 10>>
+			<</if>>
+			<<if $activeSlave.ID == $slaves[$j].father>>
+				$slaves[$j].slaveName is @@.mediumorchid;saddened@@ that you are selling her father.
+				<br><br>
+				<<set $slaves[$j].devotion -= 10>>
+			<</if>>
+			<<if $activeSlave.ID == $slaves[$j].mother>>
+				$slaves[$j].slaveName is @@.mediumorchid;grieved@@ that you are selling her mother.
+				<br><br>
+				<<set $slaves[$j].devotion -= 20>>
+			<</if>>
+			<<switch areSisters($activeSlave, $slaves[$j])>>
+			<<case 1>>
+				$slaves[$j].slaveName is @@.mediumorchid;devastated@@ that you are selling her twin.
+				<br><br>
+				<<set $slaves[$j].devotion -= 30>>
+			<<case 2>>
+				$slaves[$j].slaveName is @@.mediumorchid;grieved@@ that you are selling her sister.
+				<br><br>
+				<<set $slaves[$j].devotion -= 20>>
+			<<case 3>>
+				$slaves[$j].slaveName is @@.mediumorchid;disheartened@@ that you are selling her half-sister.
+				<br><br>
+				<<set $slaves[$j].devotion -= 10>>
+			<</switch>>
+		<</for>>
+	<<else>>
+	<<if $activeSlave.relation != 0>>
+		<<for $j = 0; $j < $slaves.length; $j++>>
+			<<if $slaves[$j].ID == $activeSlave.relationTarget>>
+			<<if $slaves[$j].fetish != "mindbroken">>
+				$slaves[$j].slaveName is @@.mediumorchid;grieved@@ that you are selling her $activeSlave.relation.
+				<br><br>
+				<<set $slaves[$j].devotion -= 20>>
+				<<set $display to 1>>
+				<<break>>
+			<</if>>
+			<</if>>
+		<</for>>
+	<</if>>
+	<</if>>
+	<<if $activeSlave.relationship > 0>>
+		<<for $j = 0; $j < $slaves.length; $j++>>
+			<<if $slaves[$j].ID == $activeSlave.relationshipTarget>>
+			<<if $slaves[$j].fetish != "mindbroken">>
+				$slaves[$j].slaveName is @@.mediumorchid;grieved@@ that you are selling her best source of comfort and companionship in a life of bondage.
+				<br><br>
+				<<set $slaves[$j].devotion -= $slaves[$j].relationship>>
+				<<set $display = 1>>
+				<<break>>
+			<</if>>
+			<</if>>
+		<</for>>
+	<<elseif $activeSlave.relationship == -3>>
+		Selling one of your slave wives is @@.red;socially unacceptable.@@ In addition, your other devoted slaves are @@.gold;worried@@ that you may not respect their status.
+		<<ClearSummaryCache>>
+		<br><br>
+		<<set $rep -= 200>>
+		<<set $display = 1>>
+		<<for $j = 0; $j < $slaves.length; $j++>>
+			<<if $slaves[$j].devotion > 50>>
+				<<set $slaves[$j].trust -= 5>>
+			<</if>>
+		<</for>>
+	<</if>>
+	<<if $activeSlave.rivalry != 0>>
+		<<for $j = 0; $j < $slaves.length; $j++>>
+			<<if $slaves[$j].ID == $activeSlave.rivalryTarget>>
+			<<if $slaves[$j].fetish != "mindbroken">>
+				$slaves[$j].slaveName is @@.hotpink;pleased@@ that she won't have to see her rival any more.
+				<br><br>
+				<<set $slaves[$j].devotion += $slaves[$j].rivalry*0.3>>
+				<<set $display = 1>>
+				<<break>>
+			<</if>>
+			<</if>>
+		<</for>>
+	<</if>>
 
 <<set $seed = 0>>
 <<switch $buyer>>
@@ -438,7 +493,7 @@
 <<case "aztec revivalist arcology">>
 	$activeSlave.slaveName is transported after losing a military engagement. Though her will remains strong, she's @@.gold;filled with fear@@ when she sees the rivers of blood that flow through the city.
 	<<for $j = 0; $j < $slaves.length; $j++>>
-	<<if ($slaves[$j].combatSkill > 1)>>
+	<<if ($slaves[$j].combatSkill > 0)>>
 		<<set $slaves[$j].trust -= 2>>
 		<<set $seed = 1>>
 	<</if>>
@@ -670,19 +725,19 @@
 <<case "D cannibal">>
 	$activeSlave.slaveName is never seen again. Her buyer prefers to keep whatever happened to her private. However, rumors of steaks, rump roasts, sweetbreads, and blood pudding eaten at three in the morning filter out from time to time. Naturally, these murmurs never fail to @@.gold;terrify@@ your other slaves.
 	<<for $j = 0; $j < $slaves.length; $j++>>
-	<<set $slaves[$j].trust -= 2>>
+		<<set $slaves[$j].trust -= 2>>
 	<</for>>
 
 <<case "harvester">>
 	Though $activeSlave.slaveName's fate as a source of organs for transplantation is not announced, rumors of what happens to girls who @@.gold;fail to be valuable to you@@ pass among your slaves.
 	<<for $j = 0; $j < $slaves.length; $j++>>
-	<<set $slaves[$j].trust -= 2>>
+		<<set $slaves[$j].trust -= 2>>
 	<</for>>
 
 <<case "D amazon hunter">>
 	When $activeSlave.slaveName's buyer appears, the big girl is almost bashful. He tries to resist the impulse, but quickly breaks down and sweeps her into a tight hug. She accepts the embrace meekly. Your other slaves find this @@.mediumaquamarine;very romantic.@@
 	<<for $j = 0; $j < $slaves.length; $j++>>
-	<<set $slaves[$j].trust += 1>>
+		<<set $slaves[$j].trust += 1>>
 	<</for>>
 
 <<case "D oral servants">>
@@ -741,7 +796,7 @@
 <<case "fuckdoll">>
 	Though $activeSlave.slaveName's fate as a living fucktoy is not obvious, since most of her body will for ever after be encased in thick latex, rumors of what happens to girls who @@.gold;fail to be valuable to you@@ pass among your slaves.
 	<<for $j = 0; $j < $slaves.length; $j++>>
-	<<set $slaves[$j].trust -= 2>>
+		<<set $slaves[$j].trust -= 2>>
 	<</for>>
 
 <<default>>

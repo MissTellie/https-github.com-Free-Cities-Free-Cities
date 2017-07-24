@@ -85,7 +85,7 @@ You head down to your <<if $surgeryUpgrade == 1>>heavily upgraded and customized
 				<<if ($activeSlave.eyes == -2) && ($activeSlave.origEye != "implant")>>
 					<<set $cash -= $surgeryCost>>
 					<<set $activeSlave.eyes to 1>>
-					<<set $activeSlave.eyeColor to "pale pink">>
+					<<set $activeSlave.eyeColor = "pale pink">>
 					/* no way to salvage original eye color */
 					<<set $activeSlave.health -= 20>>
 					<<set $surgeryType = "unblind">>
