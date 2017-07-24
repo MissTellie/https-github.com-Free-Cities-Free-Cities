@@ -39,42 +39,35 @@
 		<<for $j = 0; $j < $slaves.length; $j++>>
 			<<if $activeSlave.mother == $slaves[$j].ID>>
 				$slaves[$j].slaveName is @@.mediumorchid;grieved@@ that you are selling her daughter.
-				<<ClearSummaryCache $slaves[$j]>>
 				<br><br>
 				<<set $slaves[$j].devotion -= 20>>
 			<</if>>
 			<<if $activeSlave.father == $slaves[$j].ID>>
 				$slaves[$j].slaveName is @@.mediumorchid;disappointed@@ that you are selling her daughter.
-				<<ClearSummaryCache $slaves[$j]>>
 				<br><br>
 				<<set $slaves[$j].devotion -= 10>>
 			<</if>>
 			<<if $activeSlave.ID == $slaves[$j].father>>
 				$slaves[$j].slaveName is @@.mediumorchid;saddened@@ that you are selling her father.
-				<<ClearSummaryCache $slaves[$j]>>
 				<br><br>
 				<<set $slaves[$j].devotion -= 10>>
 			<</if>>
 			<<if $activeSlave.ID == $slaves[$j].mother>>
 				$slaves[$j].slaveName is @@.mediumorchid;grieved@@ that you are selling her mother.
-				<<ClearSummaryCache $slaves[$j]>>
 				<br><br>
 				<<set $slaves[$j].devotion -= 20>>
 			<</if>>
 			<<switch areSisters($activeSlave, $slaves[$j])>>
 			<<case 1>>
 				$slaves[$j].slaveName is @@.mediumorchid;devastated@@ that you are selling her twin.
-				<<ClearSummaryCache $slaves[$j]>>
 				<br><br>
 				<<set $slaves[$j].devotion -= 30>>
 			<<case 2>>
 				$slaves[$j].slaveName is @@.mediumorchid;grieved@@ that you are selling her sister.
-				<<ClearSummaryCache $slaves[$j]>>
 				<br><br>
 				<<set $slaves[$j].devotion -= 20>>
 			<<case 3>>
 				$slaves[$j].slaveName is @@.mediumorchid;disheartened@@ that you are selling her half-sister.
-				<<ClearSummaryCache $slaves[$j]>>
 				<br><br>
 				<<set $slaves[$j].devotion -= 10>>
 			<</switch>>
@@ -85,7 +78,6 @@
 			<<if $slaves[$j].ID == $activeSlave.relationTarget>>
 			<<if $slaves[$j].fetish != "mindbroken">>
 				$slaves[$j].slaveName is @@.mediumorchid;grieved@@ that you are selling her $activeSlave.relation.
-				<<ClearSummaryCache $slaves[$j]>>
 				<br><br>
 				<<set $slaves[$j].devotion -= 20>>
 				<<set $display to 1>>
@@ -100,7 +92,6 @@
 			<<if $slaves[$j].ID == $activeSlave.relationshipTarget>>
 			<<if $slaves[$j].fetish != "mindbroken">>
 				$slaves[$j].slaveName is @@.mediumorchid;grieved@@ that you are selling her best source of comfort and companionship in a life of bondage.
-				<<ClearSummaryCache $slaves[$j]>>
 				<br><br>
 				<<set $slaves[$j].devotion -= $slaves[$j].relationship>>
 				<<set $display = 1>>
@@ -125,7 +116,6 @@
 			<<if $slaves[$j].ID == $activeSlave.rivalryTarget>>
 			<<if $slaves[$j].fetish != "mindbroken">>
 				$slaves[$j].slaveName is @@.hotpink;pleased@@ that she won't have to see her rival any more.
-				<<ClearSummaryCache $slaves[$j]>>
 				<br><br>
 				<<set $slaves[$j].devotion += $slaves[$j].rivalry*0.3>>
 				<<set $display = 1>>
