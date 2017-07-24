@@ -56,12 +56,14 @@
 	<</if>>
 	<<set $activeSlave.anus = 1>>
 <</if>>
-<<if $args[0]>>
-	<<set $analTotal += $args[0],
-	$activeSlave.analCount += $args[0]>>
-<<else>>
-	<<set $analTotal++,
-	$activeSlave.analCount++>>
+<<if canDoAnal($activeSlave)>>
+	<<if $args[0]>>
+		<<set $analTotal += $args[0],
+		$activeSlave.analCount += $args[0]>>
+	<<else>>
+		<<set $analTotal++,
+		$activeSlave.analCount++>>
+	<</if>>
 <</if>>
 <</widget>>
 
@@ -134,7 +136,7 @@
 			<</if>>
 		<</if>>
 		<<set $activeSlave.vagina = 1>>
-	<<elseif ($activeSlave.anus == 0)>>
+	<<elseif canDoAnal($activeSlave) && ($activeSlave.anus == 0)>>
 		@@.lime;This breaks in $activeSlave.slaveName's virgin ass.@@
 		<<if ($activeSlave.devotion > 50)>>
 			As it's her first time, you ease yourself into her butthole and gradually speed up your thrusts while she slowly learns to move her hips along with you. She moans loudly. She thinks of losing her anal virginity to you as a @@.hotpink;connection@@ with her beloved <<if def $PC.customTitle>>$PC.customTitle<<elseif $PC.title != 0>>Master<<else>>Mistress<</if>>. She looks forward to having her asshole fucked by you again.
@@ -150,12 +152,18 @@
 		<</if>>
 		<<set $activeSlave.anus = 1>>
 	<</if>>
-	<<if $args[1]>>
-		<<set $vaginalTotal += $args[1], $analTotal += $args[1],
-		$activeSlave.vaginalCount += $args[1], $activeSlave.analCount += $args[1]>>
+	<<if canDoAnal($activeSlave)>>
+		<<if $args[1]>>
+			<<set $vaginalTotal += $args[1], $analTotal += $args[1], $activeSlave.vaginalCount += $args[1], $activeSlave.analCount += $args[1]>>
+		<<else>>
+			<<set $vaginalTotal++, $analTotal++, $activeSlave.vaginalCount++, $activeSlave.analCount++>>
+		<</if>>
 	<<else>>
-		<<set $vaginalTotal++, $analTotal++,
-		$activeSlave.vaginalCount++, $activeSlave.analCount++>>
+		<<if $args[1]>>
+			<<set $vaginalTotal += $args[1], $activeSlave.vaginalCount += $args[1]>>
+		<<else>>
+			<<set $vaginalTotal++, $activeSlave.vaginalCount++>>
+		<</if>>
 	<</if>>
 <<elseif canDoAnal($activeSlave)>>
 	<<if ($activeSlave.anus == 0)>>
@@ -264,12 +272,18 @@
 		Since it's $slaves[$partner].slaveName's first time, you take your time and gently ease yourself into her butthole before gradually increasing the intensity of your thrusts into her ass. @@.lime;This breaks in $slaves[$partner].slaveName's virgin ass.
 		<<set $slaves[$partner].anus++>>
 	<</if>>
-	<<if $args[1]>>
-		<<set $vaginalTotal += $args[1], $analTotal += $args[1],
-		$slaves[$partner].vaginalCount += $args[1], $slaves[$partner].analCount += $args[1]>>
+	<<if canDoAnal($slaves[$partner])>>
+		<<if $args[1]>>
+			<<set $vaginalTotal += $args[1], $analTotal += $args[1], $slaves[$partner].vaginalCount += $args[1], $slaves[$partner].analCount += $args[1]>>
+		<<else>>
+			<<set $vaginalTotal++, $analTotal++, $slaves[$partner].vaginalCount++, $slaves[$partner].analCount++>>
+		<</if>>
 	<<else>>
-		<<set $vaginalTotal++, $analTotal++,
-		$slaves[$partner].vaginalCount++, $slaves[$partner].analCount++>>
+		<<if $args[1]>>
+			<<set $vaginalTotal += $args[1], $slaves[$partner].vaginalCount += $args[1]>>
+		<<else>>
+			<<set $vaginalTotal++, $slaves[$partner].vaginalCount++>>
+		<</if>>
 	<</if>>
 <<elseif canDoAnal($slaves[$partner])>>
 	<<if ($slaves[$partner].anus == 0)>>
@@ -1170,6 +1184,30 @@
 %/
 <<widget "AddSlave">>
 
+<<switch $args[0].eyeColor>>
+<<case "milky white" "implant">><<set $args[0].origEye = either("blue", "green", "brown", "hazel", "light blue", "light green", "dark green", "dark blue")>>
+<<default>><<set $args[0].origEye = $args[0].eyeColor>>
+<</switch>>
+<<set $args[0].origHColor = $args[0].hColor>>
+<<set $args[0].pubicHColor = $args[0].hColor>>
+
+<<if $familyTesting == 1>>
+	<<set $args[0].sisters = 0>>
+	<<set $args[0].daughters = 0>>
+	<<for _k = 0; _k < $slaves.length; _k++>>
+		<<if $slaves[_k].mother == $args[0].ID || $slaves[_k].father == $args[0].ID>>
+			<<set $args[0].daughters += 1>>
+		<</if>>
+		<<if $args[0].mother == $slaves[_k].ID || $args[0].father == $slaves[_k].ID>>
+			<<set $slaves[_k].daughters += 1>>
+		<</if>>
+		<<if areSisters($slaves[_k], $args[0]) > 0>>
+			<<set $args[0].sisters += 1>>
+			<<set $slaves[_k].sisters += 1>>
+		<</if>>
+	<</for>>
+<</if>>
+
 <<if $args[0].dick > 0>>
 	<<if $args[0].balls > 0>>
 	<<if $args[0].devotion <= 50>>
@@ -1245,6 +1283,10 @@
 		<<if def $args[0].customTitle && $args[0].customTitle != "">>
 			<<set $titleEnunciate = $args[0].customTitle>>
 		<</if>>
+		<<if def $PC.customTitle>><<set $writtenTitle = $PC.customTitle>><<elseif $PC.title != 0>><<set $writtenTitle = "Master">><<else>><<set $writtenTitle = "Mistress">><</if>>
+		<<if def $args[0].customTitle && $args[0].customTitle != "" && $args[0].rudeTitle == 0>>
+			<<set $writtenTitle = $args[0].customTitle>>
+		<</if>>
 		<<set $sayEnunciate = "say">>
 		<<set $sEnunciate = "s">>
 		<<set $SEnunciate = "S">>
@@ -1254,6 +1296,7 @@
 	<</if>>
 <</widget>>
 <<widget "Master">><<if def $args[0]>><<Enunciate $args[0]>><<elseif ndef $titleEnunciate>><<Enunciate $activeSlave>><</if>>$titleEnunciate<</widget>>
+<<widget "WrittenMaster">><<if def $args[0]>><<Enunciate $args[0]>><<elseif ndef $titleEnunciate>><<Enunciate $activeSlave>><</if>>$writtenTitle<</widget>>
 <<widget "say">><<if def $args[0] && $sayEnunciate != "lisp">>$args[0]<<else>>$sayEnunciate<</if>><</widget>>
 <<widget "s">>$sEnunciate<</widget>>
 <<widget "S">>$SEnunciate<</widget>>
@@ -1767,7 +1810,7 @@ This experience
 <<elseif ($arcologies[0].FSYouthPreferentialist == "unset") && ($dairyDecoration == "Youth Preferentialist")>>
 	<<set $dairyDecoration = "standard">>
 <<elseif ($arcologies[0].FSMaturityPreferentialist == "unset") && ($dairyDecoration == "Maturity Preferentialist")>>
-	<<set $clubDecoration = "standard">>
+	<<set $dairyDecoration = "standard">>
 <<elseif ($arcologies[0].FSSlimnessEnthusiast == "unset") && ($dairyDecoration == "Slimness Enthusiast")>>
 	<<set $dairyDecoration = "standard">>
 <<elseif ($arcologies[0].FSAssetExpansionist == "unset") && ($dairyDecoration == "Asset Expansionist")>>
@@ -2186,6 +2229,12 @@ This experience
 	<</if>>
 <</widget>>
 
+<<widget "PlayerName">>$PC.name<<if $PC.surname>> $PC.surname<</if>><</widget>>
+
+<<widget "SlaveFullName">>$args[0].slaveName<<if $args[0].slaveSurname>> $args[0].slaveSurname<</if>><</widget>>
+
+<<widget "PoliteRudeTitle">><<if $args[0].intelligence < -2>><<Master>><<elseif $args[0].trust > 0>>$PC.name<<else>>$PC.surname<</if>><</widget>>
+
 /*
  Call as <<EventNameLink>>
  $args[0]: Slave.
@@ -2209,7 +2258,7 @@ This experience
 
 <<set _names = []>>
 
-<<if $seeRace>>
+<<if ($seeRace == 1)>>
 <<if ($args[0].race == "white")>>
 	<<set _names.push("White", "Pale")>>
 <<elseif ($args[0].race == "asian")>>
@@ -2509,10 +2558,10 @@ This experience
 	<<set $args[0].slaveName = either("Pimp", "Madam")>>
 <<elseif ($args[0].assignment == "be the DJ")>>
 	<<set $args[0].slaveName = either("Bass", "Booth")>>
+<<elseif ($args[0].assignment == "be the Milkmaid") && $cumSlaves > 3>>
+	<<set $args[0].slaveName = either("Milker", "Fucker")>>
 <<elseif ($args[0].assignment == "be the Milkmaid")>>
 	<<set $args[0].slaveName = either("Farm", "Dairy")>>
-<<elseif ($args[0].assignment == "be the Collectrix")>>
-	<<set $args[0].slaveName = either("Milker", "Fucker")>>
 <<elseif ($args[0].assignment == "be your Head Girl")>>
 	<<set $args[0].slaveName = either("Chief", "Head")>>
 <<elseif ($args[0].assignment == "be the Schoolteacher")>>

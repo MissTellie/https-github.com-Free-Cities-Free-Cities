@@ -58,6 +58,8 @@
 	The arcology
 <</if>>
 <</for>>
+<<elseif $arcologies[$i].government == "your trustees">>
+	is being run by @@.mediumseagreen;your trustees@@. The arcology
 <</if>>
 
 <<if $arcologies[$i].direction == 0>>
@@ -1868,10 +1870,10 @@ has an estimated GSP of @@.yellowgreen;¤<<print Math.trunc((0.1*$arcologies[$i]
 <</if>>
 <<if $arcologies[$i].FSSupremacist > 60>>
 	<<set _influential = 1>>
-<<elseif $arcologies[$i].FSGenderRadicalist > 60>>
-	<<set _influential = 1>>
 <</if>>
-<<if $arcologies[$i].FSGenderFundamentalist > 60>>
+<<if $arcologies[$i].FSGenderRadicalist > 60>>
+	<<set _influential = 1>>
+<<elseif $arcologies[$i].FSGenderFundamentalist > 60>>
 	<<set _influential = 1>>
 <</if>>
 <<if $arcologies[$i].FSPaternalist > 60>>

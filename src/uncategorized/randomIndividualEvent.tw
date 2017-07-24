@@ -139,16 +139,22 @@
 <</if>>
 <</if>>
 
-<<if $eventSlave.devotion > 20>>
-<<if $eventSlave.sexualQuirk == "perverted" || $eventSlave.energy > 80>>
-<<if $eventSlave.relation == "mother">>
-<<if $eventSlave.lactation>>
-<<if $eventSlave.releaseRules != "restrictive">>
-	<<set $RETSevent.push("incestuous nursing")>>
-<</if>>
-<</if>>
-<</if>>
-<</if>>
+<<if $familyTesting == 0>>
+	<<if $eventSlave.devotion > 20>>
+	<<if $eventSlave.sexualQuirk == "perverted" || $eventSlave.energy > 80>>
+	<<if $eventSlave.relation == "mother">>
+	<<if $eventSlave.lactation>>
+	<<if $eventSlave.releaseRules != "restrictive">>
+		<<set $RETSevent.push("incestuous nursing")>>
+	<</if>>
+	<</if>>
+	<</if>>
+	<</if>>
+	<</if>>
+<<else>>
+	<<if $eventSlave.devotion > 20 && ($eventSlave.sexualQuirk == "perverted" || $eventSlave.energy > 80) && $eventSlave.lactation > 0 && $eventSlave.releaseRules != "restrictive" && $eventSlave.daughters > 0>>
+		<<set $RETSevent.push("incestuous nursing")>>
+	<</if>>
 <</if>>
 
 <<if ($eventSlave.intelligence > 1)>>
@@ -1204,7 +1210,7 @@
 <<if ($eventSlave.hormones < 1)>>
 <<if ($eventSlave.balls > 0)>>
 <<if ($eventSlave.dickAccessory != "chastity" && $eventSlave.dickAccessory != "combined chastity")>>
-<<if ($eventSlave.vaginalAccessory != "chastity belt") >>
+<<if ($eventSlave.vaginalAccessory != "chastity belt") && ($eventSlave.vaginalAccessory != "combined chastity")>>
 	<<set $RESSevent.push("slave dick on slave")>>
 <</if>>
 <</if>>
@@ -1285,7 +1291,7 @@
 <</if>>
 <</if>>
 
-<<if ($eventSlave.buttplug == "large plug")>>
+<<if ($eventSlave.buttplug == "large plug") || ($eventSlave.buttplug == "long, large plug")>>
 <<if ($eventSlave.assignment != "stay confined")>>
 <<if ($eventSlave.devotion <= 20)>>
 <<if ($eventSlave.trust >= -50)>>

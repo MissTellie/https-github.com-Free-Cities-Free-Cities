@@ -248,6 +248,8 @@ window.canTalk = function(slave) {
 		return false;
 	} else if (slave.collar == "dildo gag") {
 		return false;
+	} else if (slave.collar == "massive dildo gag") {
+		return false;
 	} else if (slave.collar == "ball gag") {
 		return false;
 	} else if (slave.collar == "bit gag") {

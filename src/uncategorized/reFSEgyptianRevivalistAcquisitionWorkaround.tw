@@ -16,10 +16,12 @@ They arrive hand-in-hand and don't let go of each other until the end of the ens
 <<set _secondSlave.oldDevotion = $activeSlave.devotion>>
 <<set _secondSlave.age -= random (1, 3)>>
 
-<<set _secondSlave.relation to "sister">>
-<<set _secondSlave.relationTarget to $activeSlave.ID>>
-<<set _secondSlave.relationship to 4>>
-<<set _secondSlave.relationshipTarget to $activeSlave.ID>>
+<<if $familyTesting == 0>>
+	<<set _secondSlave.relation = "sister">>
+	<<set _secondSlave.relationTarget = $activeSlave.ID>>
+<</if>>
+<<set _secondSlave.relationship = 4>>
+<<set _secondSlave.relationshipTarget = $activeSlave.ID>>
 
 <<if _secondSlave.age < 18>>
 	<<set _secondSlave.age = 18>>

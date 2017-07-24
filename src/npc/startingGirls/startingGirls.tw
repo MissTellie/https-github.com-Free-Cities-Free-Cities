@@ -20,23 +20,27 @@
 <</if>>
 
 <<if $startingGirlCopied == 1>>
-	<<set _tempSlave = clone($activeSlave), $activeSlave = $slaveWithoutBonuses>>
-	<<if _tempSlave.relation != 0>>
-		<<if _tempSlave.relation == "sister">>
-			<<set $activeSlave.relation = "sister">>
-			<<set $activeSlave.age -= 5>>
-			<<set $activeSlave.age += random(0,10)>>
-		<<elseif _tempSlave.relation == "mother">>
-			<<set $activeSlave.relation = "daughter">>
-			<<set $activeSlave.age -= random(16,24)>>
-		<<elseif _tempSlave.relation == "daughter">>
-			<<set $activeSlave.relation = "mother">>
-			<<set $activeSlave.age += random(16,24)>>
-			<<if $activeSlave.vagina == 0>><<set $activeSlave.vagina++>><</if>>
-		<<elseif _tempSlave.relation == "twin">>
-			<<set $activeSlave.relation = "twin">>
+	<<if $familyTesting == 1>>
+
+	<<else>>
+		<<set _tempSlave = clone($activeSlave), $activeSlave = $slaveWithoutBonuses>>
+		<<if _tempSlave.relation != 0>>
+			<<if _tempSlave.relation == "sister">>
+				<<set $activeSlave.relation = "sister">>
+				<<set $activeSlave.age -= 5>>
+				<<set $activeSlave.age += random(0,10)>>
+			<<elseif _tempSlave.relation == "mother">>
+				<<set $activeSlave.relation = "daughter">>
+				<<set $activeSlave.age -= random(16,24)>>
+			<<elseif _tempSlave.relation == "daughter">>
+				<<set $activeSlave.relation = "mother">>
+				<<set $activeSlave.age += random(16,24)>>
+				<<if $activeSlave.vagina == 0>><<set $activeSlave.vagina++>><</if>>
+			<<elseif _tempSlave.relation == "twin">>
+				<<set $activeSlave.relation = "twin">>
+			<</if>>
+			<<set $activeSlave.relationTarget = _tempSlave.ID>>
 		<</if>>
-		<<set $activeSlave.relationTarget = _tempSlave.ID>>
 	<</if>>
 	<<if $activeSlave.slaveSurname>><<set _familyName = $activeSlave.slaveSurname>><</if>>
 	<<set _familyBirthSurname = $activeSlave.birthSurname>>
@@ -99,6 +103,7 @@ __You are customizing this slave:__
 <</if>>
 <<set $activeSlave.height = Math.clamp($activeSlave.height, 91, 274) || 140>>
 <<set $activeSlave.boobs = Math.clamp(Math.trunc($activeSlave.boobs/50)*50, 0, 25000) || 200>>
+<<set $activeSlave.canRecruit = 0>>
 
 <span id="slaveinfo">
 <<set $saleDescription = 1>>
@@ -1091,7 +1096,7 @@ Her nationality is $activeSlave.nationality.
 	<<set $archetyped = 1, $activeSlave.nationality = "American", $fixedNationality = "American">>
 	<<StartingGirlsWorkaround>>
 	<<StartingGirlsRefresh>>
-	<<set $activeSlave.eyeColor = "blue", $activeSlave.skin = "tanned", $activeSlave.hColor = "blonde", $activeSlave.pubicHColor = "blonde", $activeSlave.markings = "none", $activeSlave.height = 190, $activeSlave.face = 3, $activeSlave.muscles = 20, $activeSlave.weight = -20>>
+	<<set $activeSlave.eyeColor = "blue", $activeSlave.skin = "tanned", $activeSlave.hColor = "blonde", $activeSlave.pubicHColor = "blonde", $activeSlave.markings = "none", $activeSlave.height = 190, $activeSlave.face = 95, $activeSlave.muscles = 20, $activeSlave.weight = -20>>
 	<<SaleDescription>>
 	<<StartingGirlsCost>>
 <</link>>
@@ -1118,7 +1123,7 @@ Her nationality is $activeSlave.nationality.
 <<link "Wellspring">>
 	<<StartingGirlsWorkaround>>
 	<<StartingGirlsRefresh>>
-	<<set $activeSlave.analSkill = 0, $activeSlave.oralSkill = 0, $activeSlave.vaginalSkill = 0, $activeSlave.whoreSkill = 0, $activeSlave.entertainSkill = 0, $activeSlave.combatSkill = 0, $activeSlave.age = 18, $activeSlave.fetishKnown = 0, $activeSlave.attrKnown = 0, $activeSlave.health = 10, $activeSlave.intelligence = -3,  $activeSlave.intelligenceImplant = 0, $activeSlave.vagina = 3, $activeSlave.anus = 3, $activeSlave.ovaries = 1, $activeSlave.dick = 5, $activeSlave.balls = 5, $activeSlave.lactation = 2, $activeSlave.nipples = "huge", $activeSlave.boobs = 10000>>
+	<<set $activeSlave.analSkill = 0, $activeSlave.oralSkill = 0, $activeSlave.vaginalSkill = 0, $activeSlave.whoreSkill = 0, $activeSlave.entertainSkill = 0, $activeSlave.combatSkill = 0, $activeSlave.age = 18, $activeSlave.fetishKnown = 0, $activeSlave.attrKnown = 0, $activeSlave.health = 10, $activeSlave.intelligence = -3,  $activeSlave.intelligenceImplant = 0, $activeSlave.vagina = 3, $activeSlave.anus = 3, $activeSlave.ovaries = 1, $activeSlave.dick = 5, $activeSlave.balls = 5, $activeSlave.prostate = 1, $activeSlave.lactation = 2, $activeSlave.nipples = "huge", $activeSlave.boobs = 10000>>
 	<<SaleDescription>>
 	<<StartingGirlsCost>>
 <</link>>

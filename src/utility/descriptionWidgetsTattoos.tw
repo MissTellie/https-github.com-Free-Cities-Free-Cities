@@ -67,7 +67,7 @@
 	<<case "bovine patterns">>
 		$possessiveCap face is subtly tattooed to give $possessive a somewhat bovine appearance.
 	<<case "possessive">>
-		'Property of $PC.name<<if $PC.surname>> $PC.surname<</if>>' is tattooed across $possessive forehead.
+		'Property of <<PlayerName>>' is tattooed across $possessive forehead.
 	<<case "sacrament">>
 		$possessiveCap face is subtly tattooed to give $possessive a decidedly angelic appearance.
 	<<case "sacrilege">>
@@ -104,7 +104,7 @@
 	<<case "Asian art">>
 		An octopus is tattooed on $possessive upper chest; its tentacles reach down to envelop $possessive breasts, their tips reaching for but not quite reaching each nipple.
 	<<case "possessive">>
-		Your personal symbol is tattooed above $possessive left breast, <<if $PC.surname>>with '$PC.surname Slave' tattooed above $possessive right.<<else>>leaving the rest of $possessive her chest and breasts bare.<</if>>
+		Your personal symbol is tattooed above $possessive left breast, <<PlayerName>>' tattooed above $possessive right.<<else>>leaving the rest of $possessive her chest and breasts bare.<</if>>
 	<<case "sacrament">>
 		Each of $possessive breasts is tattooed with a depiction of a crucifix, with $possessive nipples forming the center.
 	<<case "sacrilege">>
@@ -240,30 +240,30 @@
 				'Shemale<<if $activeSlave.age > 35>> MILF<</if>> Slave'
 			<<else>>
 				'Dickgirl<<if $activeSlave.age > 35>> MILF<</if>> Slave'
-		  <</if>>
+			<</if>>
 		<<else>>
-		  <<if ($activeSlave.boobs > 800) && ($activeSlave.lactation > 0)>>
-			'Slave Cow'
-		  <<elseif ($activeSlave.age > 35)>>
-			'MILF Slave'
-		  <<elseif ($activeSlave.age < 25)>>
-			'Slave Girl'
-		  <<else>>
-			'Sex Slave'
-		  <</if>>
+			<<if ($activeSlave.boobs > 800) && ($activeSlave.lactation > 0)>>
+				'Slave Cow'
+			<<elseif ($activeSlave.age > 35)>>
+				'MILF Slave'
+			<<elseif ($activeSlave.age < 25)>>
+				'Slave Girl'
+			<<else>>
+				'Sex Slave'
+			<</if>>
 		<</if>>
 		tattooed across her back in gothic script.
 	<<elseif $activeSlave.backTat == "counting">>
 		Her back is tattooed with tick marks to count the days of her sexual slavery
 		<<set $seed = (($week-$activeSlave.weekAcquired)*7)+random(-3,3)>>
 		<<if $seed < 10>>
-		  here. There are only a few.
+			here. There are only a few.
 		<<else>>
-		  here: $seed of them.
+			here: $seed of them.
 		<</if>>
 	<<elseif $activeSlave.shouldersTat == "bovine patterns">>
 		$possessiveCap back is covered in a large saddle-like blotch.
-  <</if>>
+<</if>>
 <</widget>>
 
 <<widget "stampTatDescription">>

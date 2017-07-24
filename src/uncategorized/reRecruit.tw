@@ -478,8 +478,8 @@ The situation does yield a few business opportunities too, as not all of the guy
 <<set $activeSlave.oralSkill = random(15,40)>>
 <<set $activeSlave.whoreSkill = 0>>
 <<set $activeSlave.age = random(18,21)>>
-<<set $activeSlave.boobs = 150>>
 <<set $activeSlave.boobsImplant = random(3,6)*100>>
+<<set $activeSlave.boobs = $activeSlave.boobsImplant+150>>
 <<set $activeSlave.vagina = 0>>
 <<set $activeSlave.vaginalSkill = 0>>
 <<set $activeSlave.ovaries = 0>>
@@ -825,7 +825,7 @@ The young woman is best described as being 'angelic', in a stereotypical Western
 <<set $activeSlave.devotion = random(-15,10)>>
 <<set $activeSlave.trust = random(-20,10)>>
 <<set $activeSlave.health = random(30,50)>>
-<<set $activeSlave.shoulders = random(1, 2)>>
+<<set $activeSlave.shoulders = random(1,2)>>
 <<set $activeSlave.face = random(20,60)>>
 <<set $activeSlave.vaginalSkill = 0>>
 <<set $activeSlave.analSkill = random(0,15)>>
@@ -1193,6 +1193,9 @@ Knowing what's coming, the teachers in the facility do train their pupils accord
 <<set $activeSlave.trust = random(-25,0)>>
 <<set $activeSlave.health = random(10,40)>>
 <<set $activeSlave.face = random(20,60)>>
+<<if $activeSlave.faceShape == "masculine">>
+	<<set $activeSlave.faceShape = "cute">>
+<</if>>
 <<set $activeSlave.vaginalSkill = 0>>
 <<set $activeSlave.analSkill = 15>>
 <<set $activeSlave.oralSkill = 35>>
@@ -1259,6 +1262,7 @@ Knowing what's coming, the teachers in the facility do train their pupils accord
 <<set $activeSlave.behavioralFlaw = "arrogant">>
 <<set $activeSlave.nationality = "American">>
 <<set $activeSlave.birthName = setup.whiteAmericanSlaveNames.random(), $activeSlave.birthSurname = setup.whiteAmericanSlaveSurnames.random()>>
+<<set $activeSlave.slaveName = $activeSlave.birthName, $activeSlave.slaveSurname = $activeSlave.birthSurname>>
 <<set $activeSlave.race = "white">>
 <<set $activeSlave.skin = "tanned">>
 <<set $activeSlave.voice = 3>>
@@ -1294,6 +1298,7 @@ At any rate, she's a fine capture. And unsurprisingly, they want to get rid of h
 <<set $activeSlave.health = random(-80,-60)>>
 <<set $activeSlave.intelligence = -1>>
 <<set $activeSlave.intelligenceImplant = 0>>
+<<set $activeSlave.career = setup.uneducatedCareers.random()>>
 
 A call comes in from an old world household. The caller appears on your screen, a worn down matronly woman flanked by her two daughters. The middle-aged mother addresses you in a formal yet halting manner, as if rehearsing an unfamiliar speech. "I don't know how closely you watch the old world from where you are, but finding steady work without an education is becoming increasingly difficult".
 <br><br>

@@ -88,6 +88,8 @@
 	<<case "a huipil">>
 		<<if $activeSlave.boobs > 2000>>
 			$activeSlave.slaveName's breasts are so big that they pull up $possessive huipil uncomfortably high, so $pronoun needs to fold it between them.
+		<<elseif $activeSlave.boobs < 300>>
+			$activeSlave.slaveName's huipil rests on $possessive flat chest.
 		<<else>>
 			$activeSlave.slaveName is wearing $possessive huipil which accentuates her breasts.
 		<</if>>
@@ -966,7 +968,7 @@ $possessiveCap
 <<nipplesPiercingDescription>>
 <<boobsTatDescription>>
 <<if $activeSlave.fuckdoll != 0>>
-	<<if ($activeSlave.brand != 0) && ($activeSlave.brandLocation == "left breast") || ($activeSlave.brandLocation == "right breast") || ($activeSlave.brandLocation == "breasts")>>
+	<<if ($activeSlave.brand != 0) && (($activeSlave.brandLocation == "left breast") || ($activeSlave.brandLocation == "right breast") || ($activeSlave.brandLocation == "breasts"))>>
 		$pronounCap has $activeSlave.brand branded into the flesh of one of $possessive $activeSlave.brandLocation.
 	<</if>>
 	
@@ -2250,9 +2252,9 @@ $pronounCap's got a
 	<<elseif ($activeSlave.fetish == "boobs") && ($activeSlave.fetishStrength > 60) && ($activeSlave.fetishKnown == 1)>>
 		Judging by how hard $pronoun is<<if $activeSlave.prostate > 1>> and the constant flow of precum leaking from the tip of $possessive dick<<elseif $activeSlave.prostate > 0>> and the little bead of precum forming at the tip of $possessive dick<</if>>, $pronoun's probably fantasizing about boobs.
 	<<elseif ($activeSlave.devotion > 50)>>
-		As a devoted sex slave, $pronoun has no trouble keeping herself hard for $object <<if def $PC.customTitle>>$PC.customTitle<<elseif $PC.title != 0>>Master<<else>>Mistress<</if>>.
+		As a devoted sex slave, $pronoun has no trouble keeping herself hard for $possessive <<WrittenMaster>>.
 	<<elseif ($activeSlave.devotion > 20)>>
-		As an obedient sex slave, $pronoun does $possessive best to keep <<print $possessive>>self hard for $object <<if def $PC.customTitle>>$PC.customTitle<<elseif $PC.title != 0>>Master<<else>>Mistress<</if>>.
+		As an obedient sex slave, $pronoun does $possessive best to keep <<print $possessive>>self hard for $possessive <<WrittenMaster>>.
 	<<elseif ($activeSlave.dick > 1)>>
 		Judging by the softness of $possessive dick, $pronoun doesn't find $possessive situation arousing.
 	<</if>>
@@ -2415,7 +2417,7 @@ $pronounCap's got a
 
 <<if $activeSlave.prostate == 0>>
 <<if ($activeSlave.dick > 0) || ($activeSlave.balls > 0)>>
-  <<if ($activeSlave.genes == "XY")>>
+	<<if ($activeSlave.genes == "XY")>>
 	Though it's not externally apparent, $possessive prostate has been removed,
 	<<else>>
 	$pronounCap is lacking a prostate,
@@ -2611,12 +2613,20 @@ $pronounCap's got a
 	$possessiveCap pussy is protected by a chastity belt worn under $possessive clothing.
 <<elseif ($activeSlave.vaginalAccessory == "dildo")>>
 	$possessiveCap pussy is filled by a dildo held in place by a strap, which $pronoun can remove for vaginal intercourse.
+<<elseif ($activeSlave.vaginalAccessory == "long dildo")>>
+	$possessiveCap pussy is filled by a very long dildo held in place by a strap, which $pronoun can remove for vaginal intercourse. It noticeably bulges $possessive stomach.
 <<elseif ($activeSlave.vaginalAccessory == "large dildo") && ($activeSlave.vagina < 2)>>
 	$possessiveCap pussy is painfully stretched by a large dildo held in place by a strap, which $pronoun can remove for vaginal intercourse.
+<<elseif ($activeSlave.vaginalAccessory == "long, large dildo") && ($activeSlave.vagina < 2)>>
+	$possessiveCap pussy is painfully stretched by a very long and large dildo held in place by a strap, which $pronoun can remove for vaginal intercourse. It noticeably bulges $possessive stomach.
 <<elseif ($activeSlave.vaginalAccessory == "large dildo") && ($activeSlave.vagina < 3)>>
 	$possessiveCap pussy is uncomfortably filled by a large dildo held in place by a strap, which $pronoun can remove for vaginal intercourse.
+<<elseif ($activeSlave.vaginalAccessory == "long, large dildo") && ($activeSlave.vagina < 3)>>
+	$possessiveCap pussy is uncomfortably filled by a very long and large dildo held in place by a strap, which $pronoun can remove for vaginal intercourse. It noticeably bulges $possessive stomach.
 <<elseif ($activeSlave.vaginalAccessory == "large dildo")>>
 	$possessiveCap pussy is comfortably filled by a large dildo held in place by a strap, which $pronoun can remove for vaginal intercourse.
+<<elseif ($activeSlave.vaginalAccessory == "long, large dildo")>>
+	$possessiveCap pussy is comfortably filled by a very long and large dildo held in place by a strap, which $pronoun can remove for vaginal intercourse. It noticeably bulges $possessive stomach.
 <<elseif ($activeSlave.vaginalAccessory == "huge dildo") && ($activeSlave.vagina < 4)>>
 	$possessiveCap pussy is filled to the breaking point by an enormous dildo.
 	<<if ($activeSlave.fetish == "masochist") && ($activeSlave.fetishKnown == 1) && ($activeSlave.fetishStrength > 60)>>
@@ -2624,8 +2634,17 @@ $pronounCap's got a
 	<<else>>
 		$pronounCap can barely move with the discomfort, and $pronoun sometimes breaks down in tears at having $possessive cunt permanently stretched.
 	<</if>>
+<<elseif ($activeSlave.vaginalAccessory == "long, huge dildo") && ($activeSlave.vagina < 4)>>
+	$possessiveCap pussy is filled to the breaking point by an enormously wide and long dildo. It noticeably bulges $possessive stomach.
+	<<if ($activeSlave.fetish == "masochist") && ($activeSlave.fetishKnown == 1) && ($activeSlave.fetishStrength > 60)>>
+		$pronounCap can barely move with the discomfort, but $pronoun frequently climaxes with agony.
+	<<else>>
+		$pronounCap can barely move with the discomfort, and $pronoun sometimes breaks down in tears at having $possessive cunt permanently stretched.
+	<</if>>
 <<elseif ($activeSlave.vaginalAccessory == "huge dildo")>>
 	$possessiveCap cavernous pussy is comfortably filled by a huge dildo.
+<<elseif ($activeSlave.vaginalAccessory == "long, huge dildo")>>
+	$possessiveCap cavernous pussy is comfortably filled by an enormously wide and long dildo. It noticeably bulges $possessive stomach.
 <</if>>
 
 <</if>>
@@ -2889,25 +2908,25 @@ $pronounCap's got a
 <<if ($activeSlave.aphrodisiacs > 0)>>
 <<if ($activeSlave.aphrodisiacs > 1)>>
 	<<if ($activeSlave.dick != 0) && ($activeSlave.hormones > 0) && ($activeSlave.amp == 1)>>
-		The extreme dose of aphrodisiacs combined with the hormones that keep $possessive flaccid have $possessive in a state of extreme sexual frustration; $pronoun's unconsciously humping $possessive ass against whatever's next to $possessive for anal stimulation and humping $possessive dick against whatever $pronoun can manage to mount without limbs.
+		The extreme dose of aphrodisiacs combined with the hormones that keep $object flaccid have $object in a state of extreme sexual frustration; $pronoun's unconsciously humping $possessive ass against whatever's next to $object for anal stimulation and humping $possessive dick against whatever $pronoun can manage to mount without limbs.
 	<<elseif ($activeSlave.dick != 0) && ($activeSlave.balls == 0) && ($activeSlave.amp == 1)>>
-		The extreme dose of aphrodisiacs combined with the lack of balls that keeps $possessive flaccid have $possessive in a state of extreme sexual frustration; $pronoun's unconsciously humping $possessive ass against whatever's next to $possessive for anal stimulation and humping $possessive limp dick against whatever $pronoun can manage to mount without limbs.
+		The extreme dose of aphrodisiacs combined with the lack of balls that keeps $object flaccid have $object in a state of extreme sexual frustration; $pronoun's unconsciously humping $possessive ass against whatever's next to $object for anal stimulation and humping $possessive limp dick against whatever $pronoun can manage to mount without limbs.
 	<<elseif ($activeSlave.dick != 0) && ($activeSlave.hormones > 0)>>
-		The extreme dose of aphrodisiacs combined with the hormones that keep $possessive flaccid have $possessive in a state of extreme sexual frustration; $pronoun's rubbing $possessive limp dick distractedly and unconsciously humping $possessive ass against whatever's next to $possessive for anal stimulation.
+		The extreme dose of aphrodisiacs combined with the hormones that keep $object flaccid have $object in a state of extreme sexual frustration; $pronoun's rubbing $possessive limp dick distractedly and unconsciously humping $possessive ass against whatever's next to $object for anal stimulation.
 	<<elseif ($activeSlave.dick != 0) && ($activeSlave.balls == 0)>>
-		The extreme dose of aphrodisiacs combined with the lack of balls that keeps $possessive flaccid have $possessive in a state of extreme sexual frustration; $pronoun's rubbing $possessive limp dick distractedly and unconsciously humping $possessive ass against whatever's next to $possessive for anal stimulation.
+		The extreme dose of aphrodisiacs combined with the lack of balls that keeps $object flaccid have $object in a state of extreme sexual frustration; $pronoun's rubbing $possessive limp dick distractedly and unconsciously humping $possessive ass against whatever's next to $object for anal stimulation.
 	<<elseif ($activeSlave.dick != 0)>>
 		The extreme dose of aphrodisiacs has $possessive cock painfully erect and precum drips from its head.
 	<</if>>
 <<else>>
 	<<if ($activeSlave.dick != 0) && ($activeSlave.hormones > 0) && ($activeSlave.amp == 1)>>
-		The aphrodisiacs combined with the hormones that keep $possessive flaccid have $possessive sexually frustrated; $pronoun's unconsciously rubbing $possessive ass against whatever's next to $possessive, and humping $possessive dick against whatever $pronoun can manage to mount without limbs.
+		The aphrodisiacs combined with the hormones that keep $object flaccid have $object sexually frustrated; $pronoun's unconsciously rubbing $possessive ass against whatever's next to $object, and humping $possessive dick against whatever $pronoun can manage to mount without limbs.
 	<<elseif ($activeSlave.dick != 0) && ($activeSlave.balls == 0) && ($activeSlave.amp == 1)>>
-		The aphrodisiacs combined with the lack of balls that keeps $possessive flaccid have $possessive sexually frustrated; $pronoun's unconsciously rubbing $possessive ass against whatever's next to $possessive, and humping $possessive dick against whatever $pronoun can manage to mount without limbs.
+		The aphrodisiacs combined with the lack of balls that keeps $object flaccid have $object sexually frustrated; $pronoun's unconsciously rubbing $possessive ass against whatever's next to $object, and humping $possessive dick against whatever $pronoun can manage to mount without limbs.
 	<<elseif ($activeSlave.dick != 0) && ($activeSlave.hormones > 0)>>
-		The aphrodisiacs combined with the hormones that keep $possessive flaccid have $possessive sexually frustrated; $pronoun's touching $possessive limp dick distractedly and unconsciously rubbing $possessive ass against whatever's next to $object.
+		The aphrodisiacs combined with the hormones that keep $object flaccid have $object sexually frustrated; $pronoun's touching $possessive limp dick distractedly and unconsciously rubbing $possessive ass against whatever's next to $object.
 	<<elseif ($activeSlave.dick != 0) && ($activeSlave.balls == 0)>>
-		The aphrodisiacs combined with the lack of balls that keeps $possessive flaccid have $possessive sexually frustrated; $pronoun's touching $possessive limp dick distractedly and unconsciously rubbing $possessive ass against whatever's next to $object.
+		The aphrodisiacs combined with the lack of balls that keeps $object flaccid have $object sexually frustrated; $pronoun's touching $possessive limp dick distractedly and unconsciously rubbing $possessive ass against whatever's next to $object.
 	<</if>>
 <</if>>
 <</if>>
@@ -3176,7 +3195,7 @@ $pronounCap has
 <<else>>
 	<<if canTalk($activeSlave)>>
 	<<if $activeSlave.lips > 70>>
-		$pronounCap can barely enunciate past $possessive dick-sucking lips; '<<if def $PC.customTitle>>$PC.customTitle<<elseif $PC.title != 0>>Master<<else>>Mistress<</if>>' comes out as '<<Master>>.'
+		$pronounCap can barely enunciate past $possessive dick-sucking lips; '<<if def $PC.customTitle>>$PC.customTitle<<elseif $PC.title != 0>>Master<<else>>Mistress<</if>>' comes out as '<<if def $PC.customTitleLisp>>$PC.customTitleLisp<<elseif $PC.title != 0>>Mathter<<else>>Mithtreth<</if>>.'
 	<</if>>
 	<</if>>
 	<<if $activeSlave.teeth != "normal">>

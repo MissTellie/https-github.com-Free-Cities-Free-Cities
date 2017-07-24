@@ -16,9 +16,16 @@
 <<set $activeSlave.health = random(-20,0)>>
 <<slaveCost $activeSlave>>
 <<set $slaveCost -= 3000>>
-
-<<set $activeSlave.relation = "sister">>
-<<set $activeSlave.relationTarget = $activeSlave.ID + 1000>>
+<<if $familyTesting == 1>>
+	<<set $activeSlave.mother = $missingParentID>>
+	<<set $missingParentID-->>
+	<<set $activeSlave.father = $missingParentID>>
+	<<set $activeSlave.canRecruit = 0>>
+	<<set $missingParentID-->>
+<<else>>
+	<<set $activeSlave.relation = "sister">>
+	<<set $activeSlave.relationTarget = $activeSlave.ID + 1000>>
+<</if>>
 <<set $activeSlave.relationship = 4>>
 <<set $activeSlave.relationshipTarget = $activeSlave.ID + 1000>>
 

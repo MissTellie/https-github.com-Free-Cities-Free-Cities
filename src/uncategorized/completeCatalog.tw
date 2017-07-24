@@ -11,6 +11,39 @@
 	<<print "[[$heroSlaves[$i].slaveName|Complete Catalog][$activeSlave = getHeroSlave($heroSlaves[" + $i + "], $baseHeroSlave)]]">>
 <</for>>
 
+<<if $familyTesting == 1>>
+	/* special slaves exceptions to keep siblings sensible */
+	<<if $activeSlave.mother == -9999 && $activeSlave.father == -9998>> /* The twins - Camille & Kennerly */
+		<<for _k = 0; _k < $slaves.length; _k++>>
+			<<if areSisters($slaves[_k], $activeSlave) > 0>>
+				<<set $activeSlave.age = $slaves[_k].age, $activeSlave.birthWeek = $slaves[_k].birthWeek>>
+			<</if>>
+		<</for>>
+	<</if>>
+	<<if $activeSlave.mother == -9997 && $activeSlave.father == -9996>> /* The siblings - Elisa & Martin */
+		<<for _k = 0; _k < $slaves.length; _k++>>
+			<<if areSisters($slaves[_k], $activeSlave) > 0>>
+				<<if $activeSlave.birthName == "Elisa">>
+					<<set $activeSlave.age = $slaves[_k].age-1>>
+				<<elseif $activeSlave.birthName == "Martin">>
+					<<set $activeSlave.age = $slaves[_k].age+1>>
+				<</if>>
+			<</if>>
+		<</for>>
+	<</if>>
+	<<if $activeSlave.mother == -9995 && $activeSlave.father == -9994>> /* The fruit siblings - Green & Purple Grape */
+		<<for _k = 0; _k < $slaves.length; _k++>>
+			<<if areSisters($slaves[_k], $activeSlave) > 0>>
+				<<if $activeSlave.birthName == "Green Grape">>
+					<<set $activeSlave.age = $slaves[_k].age-5>>
+				<<elseif $activeSlave.birthName == "Purple Grape">>
+					<<set $activeSlave.age = $slaves[_k].age+5>>
+				<</if>>
+			<</if>>
+		<</for>>
+	<</if>>
+<</if>>
+
 <br><br>
 
 <<include "Long Slave Description">>

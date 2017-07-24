@@ -2471,7 +2471,166 @@ will
 	<<set $args[0].summary += _break>>
 <</if>>
 <<if $abbreviateMental == 1>>
+
 <<set $args[0].summary += "@@.lightgreen;">>
+<<if $familyTesting == 1>>
+
+	<<if $args[0].mother > 0>>
+		<<set _ssj = $slaves.findIndex(function(s) { return s.ID == $args[0].mother; })>>
+		<<if _ssj != -1>>
+			<<set $args[0].summary += ""+$slaves[_ssj].slaveName>>
+			<<if $slaves[_ssj].slaveSurname>> 
+				<<set $args[0].summary += " "+$slaves[_ssj].slaveSurname>>
+			<</if>>
+			<<set $args[0].summary += "'s daughter">>
+			<<if $args[0].relationshipTarget == $slaves[_ssj].ID>>
+				<<if $args[0].relationship == 1>><<set $args[0].summary += " & friend">>
+				<<elseif $args[0].relationship == 2>><<set $args[0].summary += " & BFF">>
+				<<elseif $args[0].relationship == 3>><<set $args[0].summary += " & FWB">>
+				<<elseif $args[0].relationship == 4>><<set $args[0].summary += " & lover">>
+				<<else>><<set $args[0].summary += " & wife">>
+				<</if>>
+				<<set _relationshipHandled = 1>>
+			<<else>>
+				<<set $args[0].summary += "&nbsp;&nbsp;&nbsp;&nbsp;">>
+			<</if>>
+		<</if>>
+	<<elseif $args[0].mother == -1>>
+		<<set $args[0].summary += "Your daughter">>
+		<<if $args[0].relationship == -3>>
+			<<set $args[0].summary += " & wife">>
+			<<set _relationshipHandled = 1>>
+		<<elseif $args[0].relationship == -2>>
+			<<set $args[0].summary += " & lover">>
+			<<set _relationshipHandled = 1>>
+		<</if>>
+	<</if>>
+	<<if $args[0].father > 0 && $args[0].father != $args[0].mother>>
+		<<set _ssj = $slaves.findIndex(function(s) { return s.ID == $args[0].father; })>>
+		<<if _ssj != -1>>
+			<<set $args[0].summary += ""+$slaves[_ssj].slaveName>>
+			<<if $slaves[_ssj].slaveSurname>> 
+				<<set $args[0].summary += " "+$slaves[_ssj].slaveSurname>>
+			<</if>>
+			<<set $args[0].summary += "'s daughter">>
+			<<if $args[0].relationshipTarget == $slaves[_ssj].ID>>
+				<<if $args[0].relationship == 1>><<set $args[0].summary += " & friend">>
+				<<elseif $args[0].relationship == 2>><<set $args[0].summary += " & BFF">>
+				<<elseif $args[0].relationship == 3>><<set $args[0].summary += " & FWB">>
+				<<elseif $args[0].relationship == 4>><<set $args[0].summary += " & lover">>
+				<<else>><<set $args[0].summary += " & wife">>
+				<</if>>
+				<<set _relationshipHandled = 1>>
+			<<else>>
+				<<set $args[0].summary += "&nbsp;&nbsp;&nbsp;&nbsp;">>
+			<</if>>
+		<</if>>
+	<<elseif $args[0].father == -1>>
+		<<set $args[0].summary += "Your daughter">>
+		<<if $args[0].relationship == -3>>
+			<<set $args[0].summary += " & wife">>
+			<<set _relationshipHandled = 1>>
+		<<elseif $args[0].relationship == -2>>
+			<<set $args[0].summary += " & lover">>
+			<<set _relationshipHandled = 1>>
+		<</if>>
+	<</if>>
+	<<if $args[0].daughters == 1>>
+		<<set _ssj = $slaves.findIndex(function(s) { return s.mother == $args[0].ID; })>>
+		<<if _ssj != -1>>
+			<<set $args[0].summary += ""+$slaves[_ssj].slaveName>>
+			<<if $slaves[_ssj].slaveSurname>> 
+				<<set $args[0].summary += " "+$slaves[_ssj].slaveSurname>>
+			<</if>>
+			<<set $args[0].summary += "'s mother">>
+			<<if $args[0].relationshipTarget == $slaves[_ssj].ID>>
+				<<if $args[0].relationship == 1>><<set $args[0].summary += " & friend">>
+				<<elseif $args[0].relationship == 2>><<set $args[0].summary += " & BFF">>
+				<<elseif $args[0].relationship == 3>><<set $args[0].summary += " & FWB">>
+				<<elseif $args[0].relationship == 4>><<set $args[0].summary += " & lover">>
+				<<else>><<set $args[0].summary += " & wife">>
+				<</if>>
+				<<set _relationshipHandled = 1>>
+			<<else>>
+				<<set $args[0].summary += "&nbsp;&nbsp;&nbsp;&nbsp;">>
+			<</if>>
+		<</if>>
+		<<set _ssj = $slaves.findIndex(function(s) { return s.father == $args[0].ID; })>>
+		<<if _ssj != -1>>
+			<<set $args[0].summary += ""+$slaves[_ssj].slaveName>>
+			<<if $slaves[_ssj].slaveSurname>> 
+				<<set $args[0].summary += " "+$slaves[_ssj].slaveSurname>>
+			<</if>>
+			<<set $args[0].summary += "'s father">>
+			<<if $args[0].relationshipTarget == $slaves[_ssj].ID && _relationshipHandled != 1>>
+				<<if $args[0].relationship == 1>><<set $args[0].summary += " & friend">>
+				<<elseif $args[0].relationship == 2>><<set $args[0].summary += " & BFF">>
+				<<elseif $args[0].relationship == 3>><<set $args[0].summary += " & FWB">>
+				<<elseif $args[0].relationship == 4>><<set $args[0].summary += " & lover">>
+				<<else>><<set $args[0].summary += " & wife">>
+				<</if>>
+				<<set _relationshipHandled = 1>>
+			<<else>>
+				<<set $args[0].summary += "&nbsp;&nbsp;&nbsp;&nbsp;">>
+			<</if>>
+		<</if>>
+	<<elseif $args[0].daughters > 1>>
+		<<set $args[0].summary += "multiple daughters">>
+	<</if>>
+	<<if $args[0].sisters == 1>>
+		<<set _ssj = $slaves.findIndex(function(s) { return areSisters(s, $args[0]) > 0; })>>
+		<<if _ssj != -1>>
+			<<set $args[0].summary += ""+$slaves[_ssj].slaveName>>
+			<<if $slaves[_ssj].slaveSurname>> 
+				<<set $args[0].summary += " "+$slaves[_ssj].slaveSurname>>
+			<</if>>
+			<<set $args[0].summary += "'s sister">>
+			<<if $args[0].relationshipTarget == $slaves[_ssj].ID>>
+				<<if $args[0].relationship == 1>><<set $args[0].summary += " & friend">>
+				<<elseif $args[0].relationship == 2>><<set $args[0].summary += " & BFF">>
+				<<elseif $args[0].relationship == 3>><<set $args[0].summary += " & FWB">>
+				<<elseif $args[0].relationship == 4>><<set $args[0].summary += " & lover">>
+				<<else>><<set $args[0].summary += " & wife">>
+				<</if>>
+				<<set _relationshipHandled = 1>>
+			<<else>>
+				<<set $args[0].summary += "&nbsp;&nbsp;&nbsp;&nbsp;">>
+			<</if>>
+		<</if>>
+	<<elseif $args[0].sisters > 1>>
+		<<set $args[0].summary += "multiple sisters">>
+	<</if>>
+	<<if $args[0].relationship > 0 && _relationshipHandled != 1>>
+		<<set _ssj = $slaves.findIndex(function(s) { return s.ID == $args[0].relationshipTarget; })>>
+		<<if _ssj != -1>>
+			<<set $args[0].summary += $slaves[_ssj].slaveName>>
+			<<if $slaves[_ssj].slaveSurname>>
+				<<set $args[0].summary += " "+$slaves[_ssj].slaveSurname>>
+			<</if>>
+			<<set $args[0].summary += "'s">>
+			<<switch $args[0].relationship>>
+			<<case 1>>
+				<<set $args[0].summary += " friend">>
+			<<case 2>>
+				<<set $args[0].summary += " BFF">>
+			<<case 3>>
+				<<set $args[0].summary += " FWB">>
+			<<case 4>>
+				<<set $args[0].summary += " lover">>
+			<<case 5>>
+				<<set $args[0].summary += " wife">>
+			<</switch>>
+		<</if>>
+	<<elseif $args[0].relationship == -3>>
+		<<set $args[0].summary += "Your wife">>
+	<<elseif $args[0].relationship == -2>>
+		<<set $args[0].summary += "E Bonded">>
+	<<elseif $args[0].relationship == -1>>
+		<<set $args[0].summary += "E Slut">>
+	<</if>>
+	<<set $args[0].summary += "&nbsp;&nbsp;&nbsp;&nbsp;">>
+
+<<else>>
 
 <<if $args[0].relation != 0>>
 <<for _ssj = 0; _ssj < _SL; _ssj++>>
@@ -2492,7 +2651,6 @@ will
 <<if $args[0].relationship > 0>>
 <<for _ssj = 0; _ssj < _SL; _ssj++>>
 	<<if $args[0].relationshipTarget == $slaves[_ssj].ID>>
-
 		<<if $args[0].relationshipTarget != $args[0].relationTarget>>
 			<<set $args[0].summary += $slaves[_ssj].slaveName>>
 			<<if $slaves[_ssj].slaveSurname>>
@@ -2526,6 +2684,8 @@ will
 <<elseif $args[0].relationship == -1>>
 	<<set $args[0].summary += "E Slut&nbsp;&nbsp;&nbsp;&nbsp;">>
 <</if>>
+
+<</if>> /*closes extended family mode */
 <<set $args[0].summary += "@@ ">>
 
 <<if $args[0].rivalry != 0>>
@@ -2556,6 +2716,207 @@ will
 <</if>>
 
 <<elseif $abbreviateMental == 2>>
+
+<<if $familyTesting == 1>>
+	<<if $args[0].mother > 0>>
+		<<set _ssj = $slaves.findIndex(function(s) { return s.ID == $args[0].mother; })>>
+		<<if _ssj != -1>>
+			<<set $args[0].summary += $slaves[_ssj].slaveName>>
+			<<if $slaves[_ssj].slaveSurname>>
+				<<set $args[0].summary += " "+$slaves[_ssj].slaveSurname>>
+			<</if>>
+			<<set $args[0].summary += "'s @@.lightgreen;daughter@@ ">>
+			<<if $args[0].relationshipTarget == $slaves[_ssj].ID>>
+				<<switch $args[0].relationship>>
+				<<case 1>>
+					<<set $args[0].summary += "and @@.lightgreen;friend.@@ ">>
+				<<case 2>>
+					<<set $args[0].summary += "and @@.lightgreen;best friend.@@ ">>
+				<<case 3>>
+					<<set $args[0].summary += "and @@.lightgreen;FWB.@@ ">>
+				<<case 4>>
+					<<set $args[0].summary += "and @@.lightgreen;lover.@@ ">>
+				<<case 5>>
+					<<set $args[0].summary += "and @@.lightgreen;slave wife.@@ ">>
+				<</switch>>
+				<<set _relationshipHandled = 1>>
+			<<else>>
+				<<set $args[0].summary += "&nbsp;&nbsp;&nbsp;&nbsp;">>
+			<</if>>
+		<</if>>
+	<<elseif $args[0].mother == -1>>
+		<<set $args[0].summary += "Your @@.lightgreen;daughter@@ ">>
+		<<if $args[0].relationship == -3>>
+			<<set $args[0].summary += "and @@.lightgreen;wife.@@ ">>
+			<<set _relationshipHandled = 1>>
+		<<elseif $args[0].relationship == -2>>
+			<<set $args[0].summary += "and @@.lightgreen;lover.@@ ">>
+			<<set _relationshipHandled = 1>>
+		<</if>>
+	<</if>>
+	<<if $args[0].father > 0 && $args[0].father != $args[0].mother>>
+		<<set _ssj = $slaves.findIndex(function(s) { return s.ID == $args[0].father; })>>
+		<<if _ssj != -1>>
+			<<set $args[0].summary += $slaves[_ssj].slaveName>>
+			<<if $slaves[_ssj].slaveSurname>>
+				<<set $args[0].summary += " "+$slaves[_ssj].slaveSurname>>
+			<</if>>
+			<<set $args[0].summary += "'s @@.lightgreen;daughter@@ ">>
+			<<if $args[0].relationshipTarget == $slaves[_ssj].ID>>
+				<<switch $args[0].relationship>>
+				<<case 1>>
+					<<set $args[0].summary += "and @@.lightgreen;friend.@@ ">>
+				<<case 2>>
+					<<set $args[0].summary += "and @@.lightgreen;best friend.@@ ">>
+				<<case 3>>
+					<<set $args[0].summary += "and @@.lightgreen;FWB.@@ ">>
+				<<case 4>>
+					<<set $args[0].summary += "and @@.lightgreen;lover.@@ ">>
+				<<case 5>>
+					<<set $args[0].summary += "and @@.lightgreen;slave wife.@@ ">>
+				<</switch>>
+				<<set _relationshipHandled = 1>>
+			<<else>>
+				<<set $args[0].summary += "&nbsp;&nbsp;&nbsp;&nbsp;">>
+			<</if>>
+		<</if>>
+	<<elseif $args[0].father == -1>>
+		<<set $args[0].summary += "Your @@.lightgreen;daughter@@ ">>
+		<<if $args[0].relationship == -3>>
+			<<set $args[0].summary += "and @@.lightgreen;wife.@@ ">>
+			<<set _relationshipHandled = 1>>
+		<<elseif $args[0].relationship == -2>>
+			<<set $args[0].summary += "and @@.lightgreen;lover.@@ ">>
+			<<set _relationshipHandled = 1>>
+		<</if>>
+	<</if>>
+	<<if $args[0].daughters == 1>>
+		<<set _ssj = $slaves.findIndex(function(s) { return s.mother == $args[0].ID; })>>
+		<<if _ssj != -1>>
+			<<set $args[0].summary += $slaves[_ssj].slaveName>>
+			<<if $slaves[_ssj].slaveSurname>>
+				<<set $args[0].summary += " "+$slaves[_ssj].slaveSurname>>
+			<</if>>
+			<<set $args[0].summary += "'s @@.lightgreen;mother@@ ">>
+			<<if $args[0].relationshipTarget == $slaves[_ssj].ID>>
+				<<switch $args[0].relationship>>
+				<<case 1>>
+					<<set $args[0].summary += "and @@.lightgreen;friend.@@ ">>
+				<<case 2>>
+					<<set $args[0].summary += "and @@.lightgreen;best friend.@@ ">>
+				<<case 3>>
+					<<set $args[0].summary += "and @@.lightgreen;FWB.@@ ">>
+				<<case 4>>
+					<<set $args[0].summary += "and @@.lightgreen;lover.@@ ">>
+				<<case 5>>
+					<<set $args[0].summary += "and @@.lightgreen;slave wife.@@ ">>
+				<</switch>>
+				<<set _relationshipHandled = 1>>
+			<<else>>
+				<<set $args[0].summary += "&nbsp;&nbsp;&nbsp;&nbsp;">>
+			<</if>>
+		<</if>>
+		<<set _ssj = $slaves.findIndex(function(s) { return s.father == $args[0].ID; })>>
+		<<if _ssj != -1>>
+			<<set $args[0].summary += $slaves[_ssj].slaveName>>
+			<<if $slaves[_ssj].slaveSurname>>
+				<<set $args[0].summary += " "+$slaves[_ssj].slaveSurname>>
+			<</if>>
+			<<set $args[0].summary += "'s @@.lightgreen;father@@ ">>
+			<<if $args[0].relationshipTarget == $slaves[_ssj].ID>>
+				<<switch $args[0].relationship>>
+				<<case 1>>
+					<<set $args[0].summary += "and @@.lightgreen;friend.@@ ">>
+				<<case 2>>
+					<<set $args[0].summary += "and @@.lightgreen;best friend.@@ ">>
+				<<case 3>>
+					<<set $args[0].summary += "and @@.lightgreen;FWB.@@ ">>
+				<<case 4>>
+					<<set $args[0].summary += "and @@.lightgreen;lover.@@ ">>
+				<<case 5>>
+					<<set $args[0].summary += "and @@.lightgreen;slave wife.@@ ">>
+				<</switch>>
+				<<set _relationshipHandled = 1>>
+			<<else>>
+				<<set $args[0].summary += "&nbsp;&nbsp;&nbsp;&nbsp;">>
+			<</if>>
+		<</if>>
+	<<elseif $args[0].daughters > 1>>
+		<<if $args[0].daughters > 10>>
+			<<set $args[0].summary += "@@.lightgreen;Has tons of daughters.@@ ">>
+		<<elseif $args[0].daughters > 5>>
+			<<set $args[0].summary += "@@.lightgreen;Has many daughters.@@ ">>
+		<<else>>
+			<<set $args[0].summary += "@@.lightgreen;Has several daughters.@@ ">>
+		<</if>>
+	<</if>>
+	<<if $args[0].sisters == 1>>
+		<<set _ssj = $slaves.findIndex(function(s) { return areSisters(s, $args[0]) > 0; })>>
+		<<if _ssj != -1>>
+			<<set $args[0].summary += $slaves[_ssj].slaveName>>
+			<<if $slaves[_ssj].slaveSurname>>
+				<<set $args[0].summary += " "+$slaves[_ssj].slaveSurname>>
+			<</if>>
+			<<set $args[0].summary += "'s @@.lightgreen;sister@@ ">>
+			<<if $args[0].relationshipTarget == $slaves[_ssj].ID>>
+				<<switch $args[0].relationship>>
+				<<case 1>>
+					<<set $args[0].summary += "and @@.lightgreen;friend.@@ ">>
+				<<case 2>>
+					<<set $args[0].summary += "and @@.lightgreen;best friend.@@ ">>
+				<<case 3>>
+					<<set $args[0].summary += "and @@.lightgreen;FWB.@@ ">>
+				<<case 4>>
+					<<set $args[0].summary += "and @@.lightgreen;lover.@@ ">>
+				<<case 5>>
+					<<set $args[0].summary += "and @@.lightgreen;slave wife.@@ ">>
+				<</switch>>
+				<<set _relationshipHandled = 1>>
+			<<else>>
+				<<set $args[0].summary += "&nbsp;&nbsp;&nbsp;&nbsp;">>
+			<</if>>
+		<</if>>
+	<<elseif $args[0].sisters > 1>>
+		<<if $args[0].sisters > 10>>
+			<<set $args[0].summary += "@@.lightgreen;One of many sisters.@@ ">>
+		<<elseif $args[0].sisters > 5>>
+			<<set $args[0].summary += "@@.lightgreen;Has many sisters.@@ ">>
+		<<else>>
+			<<set $args[0].summary += "@@.lightgreen;Has several sisters.@@ ">>
+		<</if>>
+	<</if>>
+	<<if $args[0].relationship > 0 && _relationshipHandled != 1>>
+		<<set _ssj = $slaves.findIndex(function(s) { return s.ID == $args[0].relationTarget; })>>
+		<<if _ssj != -1>>
+			<<set $args[0].summary += $slaves[_ssj].slaveName>>
+			<<if $slaves[_ssj].slaveSurname>>
+				<<set $args[0].summary += " "+$slaves[_ssj].slaveSurname>>
+			<</if>>
+			<<set $args[0].summary += "'s ">>
+			<<switch $args[0].relationship>>
+			<<case 1>>
+				<<set $args[0].summary += "@@.lightgreen;friend.@@ ">>
+			<<case 2>>
+				<<set $args[0].summary += "@@.lightgreen;best friend.@@ ">>
+			<<case 3>>
+				<<set $args[0].summary += "@@.lightgreen;FWB.@@ ">>
+			<<case 4>>
+				<<set $args[0].summary += "@@.lightgreen;lover.@@ ">>
+			<<case 5>>
+				<<set $args[0].summary += "@@.lightgreen;slave wife.@@ ">>
+			<</switch>>
+		<</if>>
+	<<elseif $args[0].relationship == -3>>
+		<<set $args[0].summary += "@@.lightgreen;Your wife.@@">>
+	<<elseif $args[0].relationship == -2>>
+		<<set $args[0].summary += "@@.lightgreen;Emotionally bonded to you.@@">>
+	<<elseif $args[0].relationship == -1>>
+		<<set $args[0].summary += "@@.lightgreen;Emotional slut.@@">>
+	<</if>>
+	<<set $args[0].summary += "&nbsp;&nbsp;&nbsp;&nbsp;">>
+	
+<<else>>
+
 <<if $args[0].relation != 0>>
 <<for _ssj = 0; _ssj < _SL; _ssj++>>
 	<<if $args[0].relationTarget == $slaves[_ssj].ID>>
@@ -2614,6 +2975,8 @@ will
 <<elseif $args[0].relationship == -1>>
 	<<set $args[0].summary += "@@.lightgreen;Emotional slut.@@&nbsp;&nbsp;&nbsp;&nbsp;">>
 <</if>>
+
+<</if>> /* closes extended family mode */
 
 <<if $args[0].rivalry != 0>>
 <<for _ssj = 0; _ssj < _SL; _ssj++>>
@@ -2830,12 +3193,16 @@ will
 	<<set $args[0].summary += "Large buttplug. ">>
 <<case "huge plug">>
 	<<set $args[0].summary += "Huge buttplug. ">>
-<<case "tailed plug">>
-	<<set $args[0].summary += "Tailed buttplug. ">>
-<<case "large tailed plug">>
-	<<set $args[0].summary += "Large tailed buttplug. ">>
-<<case "huge tailed plug">>
-	<<set $args[0].summary += "Huge tailed buttplug. ">>
+<<case "long plug">>
+	<<set $args[0].summary += "Long buttplug. ">>
+<<case "long, large plug">>
+	<<set $args[0].summary += "Large, long buttplug. ">>
+<<case "long, huge plug">>
+	<<set $args[0].summary += "Enormous buttplug. ">>
+<</switch>>
+<<switch $args[0].buttplugAttachment>>
+<<case "tail">>
+	<<set $args[0].summary += "Attached tail. ">>
 <</switch>>
 <</if>>
 <</if>>
