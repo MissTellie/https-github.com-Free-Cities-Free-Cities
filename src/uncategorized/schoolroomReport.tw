@@ -89,7 +89,27 @@
 		<<elseif $Schoolteacher.relationshipTarget == $slaves[$i].ID>>
 			She dedicates most of her attention to her <<if $Schoolteacher.relationship == 1>>friend<<elseif $Schoolteacher.relationship == 2>>best friend<<elseif $Schoolteacher.relationship == 3>>friend with benefits<<elseif $Schoolteacher.relationship == 4>>lover<<elseif $Schoolteacher.relationship == 5>>slave wife<</if>>, $slaves[$i].slaveName, making sure she understands that day's lesson.
 			<<set $slaves[$i].devotion += 2, $slaves[$i].trust += 2>>
-		<<elseif $Schoolteacher.relationTarget == $slaves[$i].ID>>
+		<<elseif $familyTesting == 1 && totalRelatives($slaves[$i]) > 0>>
+			<<if $slaves[$i].mother == $Schoolteacher.ID || $slaves[$i].father == $Schoolteacher.ID>>
+				She makes sure to spend extra time teaching her daughter, $slaves[$i].slaveName.
+				<<set $slaves[$i].trust++>>
+			<<elseif $slaves[$i].ID == $Schoolteacher.mother>>
+				She makes sure to spend extra time teaching her mother, $slaves[$i].slaveName.
+				<<set $slaves[$i].trust++>>
+			<<elseif $slaves[$i].ID == $Schoolteacher.father>>
+				She makes sure to spend extra time teaching her father, $slaves[$i].slaveName.
+				<<set $slaves[$i].trust++>>
+			<<elseif areSisters($slaves[$i], $Schoolteacher) == 1>>
+				She makes sure to spend extra time teaching her twin sister, $slaves[$i].slaveName.
+				<<set $slaves[$i].trust++>>
+			<<elseif areSisters($slaves[$i], $Schoolteacher) == 2>>
+				She makes sure to spend extra time teaching her sister, $slaves[$i].slaveName.
+				<<set $slaves[$i].trust++>>
+			<<elseif areSisters($slaves[$i], $Schoolteacher) == 3>>
+				She makes sure to spend extra time teaching her half-sister, $slaves[$i].slaveName.
+				<<set $slaves[$i].trust++>>
+			<</if>>
+		<<elseif $Schoolteacher.relationTarget == $slaves[$i].ID && $familyTesting == 0>>
 			She makes sure to spend extra time teaching her $slaves[$i].relation, $slaves[$i].slaveName.
 			<<set $slaves[$i].trust++>>
 		<</if>>

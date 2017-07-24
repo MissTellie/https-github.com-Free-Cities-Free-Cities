@@ -38,6 +38,7 @@
 
 <<for $i = 0; $i < $slaves.length; $i++>>
 
+<<if ($slaves[$i].assignment != "work in the dairy" || $dairyRestraintsSetting < 2) && ($slaves[$i].assignment != "be confined in the arcade")>>
 <<if $slaves[$i].livingRules == "luxurious">>
 	<<if $slaves[$i].relationship >= 4>>
 	<<set $costs += ($rulesCost*3)>>
@@ -48,6 +49,9 @@
 	<<set $costs += ($rulesCost*2)>>
 <<else>>
 	<<set $costs += $rulesCost>>
+<</if>>
+<<else>>
+	<<set $costs += ($rulesCost*.75)>>
 <</if>>
 
 <<set $costs += $foodCost*4>>
@@ -66,12 +70,16 @@
 	<<set $costs += $foodCost*$slaves[$i].lactation*(1+Math.trunc($slaves[$i].boobs/10000))>>
 <</if>>
 <<if $slaves[$i].preg > 5>>
-	<<set $costs += $foodCost*$slaves[$i].pregType>>
+	<<if $slaves[$i].assignment == "work in the dairy" && $dairyFeedersSetting > 0>>
+	<<elseif ($slaves[$i].assignment == "serve in the master suite" || $slaves[$i].assignment == "be your concubine") && $masterSuiteUpgradePregnancy == 1>>
+	<<else>>
+		<<set $costs += $foodCost*$slaves[$i].pregType>>
+	<</if>>
 <</if>>
 
 <<if $boobAccessibility != 1>>
 	<<if ($slaves[$i].boobs > 7500)>>
-	<<if ($slaves[$i].assignment != "work in the dairy") || ($dairyRestraintsSetting < 2)>>
+	<<if ($slaves[$i].assignment != "work in the dairy" || $dairyRestraintsSetting < 2) && ($slaves[$i].assignment != "be confined in the arcade")>>
 	<<set $costs += 50>>
 	<</if>>
 	<</if>>
@@ -90,7 +98,9 @@
 
 <<if $slaves[$i].preg > 25>>
 <<if $slaves[$i].universalRulesBirthing == 1>>
+<<if ($slaves[$i].assignment != "work in the dairy" || $dairyRestraintsSetting < 2)>>
 	<<set $costs += 50>>
+<</if>>
 <</if>>
 <</if>>
 
@@ -128,6 +138,7 @@
 	<</if>>
 <</if>>
 
+<<if ($slaves[$i].assignment != "work in the dairy" || $dairyRestraintsSetting < 2) && ($slaves[$i].assignment != "be confined in the arcade")>>
 <<if ($slaves[$i].amp != 0)>>
   <<if ($slaves[$i].amp == 1)>>
 	<<set $costs += $rulesCost>>
@@ -137,8 +148,9 @@
 <<elseif !canWalk($slaves[$i])>>
   <<set $costs += $rulesCost>>
 <</if>>
+<</if>>
 
-<<if !canSee($slaves[$i])>>
+<<if !canSee($slaves[$i]) && ($slaves[$i].assignment != "work in the dairy" || $dairyRestraintsSetting < 2) && ($slaves[$i].assignment != "be confined in the arcade")>>
 	<<set $costs += 50>>
 <<elseif $slaves[$i].eyes <= -1>>
 	<<if $slaves[$i].eyewear != "corrective glasses">>

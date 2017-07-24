@@ -321,8 +321,8 @@ $pronounCap has
 	<<if $activeSlave.indentureRestrictions >= 2>>
 		$possessiveCap indenture does not allow breast restructuring.
 	<<else>>
-		<<if ($activeSlave.boobShape == "saggy") && ($activeSlave.boobShape == "perky")>>
-			[[Breast lift|Surgery Degradation][$activeSlave.boobShape = "normal", $activeSlave.health -= 20,$cash -= $surgeryCost, $surgeryType = "breastLift"]]<<if $activeSlave.preg > 20 || ($activeSlave.boobs >= 5000 && $activeSlave.boobs < 8000)>>//$possessiveCap current state will may result in $possessive breasts becoming saggy again//<</if>>
+		<<if ($activeSlave.boobShape == "saggy") || ($activeSlave.boobShape == "downward-facing")>>
+			[[Breast lift|Surgery Degradation][$activeSlave.boobShape = "normal", $activeSlave.health -= 20,$cash -= $surgeryCost, $surgeryType = "breastLift"]]<<if $activeSlave.preg > 20 || ($activeSlave.boobs >= 5000 && $activeSlave.boobs < 8000)>>//$possessiveCap current state may result in $possessive breasts becoming saggy again//<</if>>
 		<<else>>
 			<<if ($activeSlave.boobShape == "normal")>>
 				[[Reshape them to be perkier|Surgery Degradation][$activeSlave.boobShape = "perky",$cash -= $surgeryCost,$activeSlave.health -= 10,$surgeryType = "breastReconstruction"]]

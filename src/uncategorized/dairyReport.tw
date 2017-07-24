@@ -127,7 +127,27 @@
 		<<elseif $Milkmaid.relationshipTarget == $slaves[$i].ID>>
 			She dotes over her <<if $Milkmaid.relationship == 1>>friend<<elseif $Milkmaid.relationship == 2>>best friend<<elseif $Milkmaid.relationship == 3>>friend with benefits<<elseif $Milkmaid.relationship == 4>>lover<<elseif $Milkmaid.relationship == 5>>slave wife<</if>>, $slaves[$i].slaveName, making sure she is happy and comfortable.
 			<<set $slaves[$i].devotion++, $slaves[$i].trust++>>
-		<<elseif $Milkmaid.relationTarget == $slaves[$i].ID>>
+		<<elseif $familyTesting == 1 && totalRelatives($slaves[$i]) > 0>>
+			<<if $slaves[$i].mother == $Milkmaid.ID || $slaves[$i].father == $Milkmaid.ID>>
+				She pays special attention to her daughter, $slaves[$i].slaveName, making sure she is well kept and happy.
+				<<set $slaves[$i].trust++>>
+			<<elseif $slaves[$i].ID == $Milkmaid.mother>>
+				She pays special attention to her mother, $slaves[$i].slaveName, making sure she is well kept and happy.
+				<<set $slaves[$i].trust++>>
+			<<elseif $slaves[$i].ID == $Milkmaid.father>>
+				She pays special attention to her father, $slaves[$i].slaveName, making sure she is well kept and happy.
+				<<set $slaves[$i].trust++>>
+			<<elseif areSisters($slaves[$i], $Milkmaid) == 1>>
+				She pays special attention to her twin sister, $slaves[$i].slaveName, making sure she is well kept and happy.
+				<<set $slaves[$i].trust++>>
+			<<elseif areSisters($slaves[$i], $Milkmaid) == 2>>
+				She pays special attention to her sister, $slaves[$i].slaveName, making sure she is well kept and happy.
+				<<set $slaves[$i].trust++>>
+			<<elseif areSisters($slaves[$i], $Milkmaid) == 3>>
+				She pays special attention to her half-sister, $slaves[$i].slaveName, making sure she is well kept and happy.
+				<<set $slaves[$i].trust++>>
+			<</if>>
+		<<elseif $Milkmaid.relationTarget == $slaves[$i].ID && $familyTesting == 0>>
 			She pays special attention to her $slaves[$i].relation, $slaves[$i].slaveName, making sure she is well kept and happy.
 			<<set $slaves[$i].trust++>>
 		<</if>>
@@ -136,7 +156,7 @@
 				She spends extra time with $slaves[$i].slaveName, the well-known cow. She is fascinated by $slaves[$i].slaveName's massive $slaves[$i].boobs cc breasts and spends extra time massaging and kneading them to maximize production.
 				<<set $slaves[$i].devotion += 3, $slaves[$i].trust += 3>>
 			<<else>>
-				She is disappointed that the well-known cow $slaves[$i].slaveName<<if ($slaves[$i].lactation == 0)>> isn't producing milk anymore. <<else>>'s breasts have shrunken considerably from their height.<</if>>
+				She is disappointed that the well-known cow $slaves[$i].slaveName<<if ($slaves[$i].lactation == 0)>> isn't producing milk anymore. <<else>>'s breasts have shrunken considerably from their heyday.<</if>>
 			<</if>>
 		<</if>>
 		<<if $slaves[$i].prestigeDesc == "She is remembered for winning best in show as a cockmilker.">>
@@ -144,7 +164,7 @@
 				She spends extra time with $slaves[$i].slaveName, the massive ejaculating cow.  She can't help but massage the cow's dick and testes to stimulate them further and coax more from them.
 				<<set $slaves[$i].devotion += 3, $slaves[$i].trust += 3>>
 			<<else>>
-				She is disappointed that the (formerly) massive ejaculating cow $slaves[$i].slaveName<<if $slaves[$i].balls == 0 || $slaves[$i].dick == 0>> is incapable of giving cum. <<elseif $slaves[$i].prostate != 2>> no longer possesses a hyperactive prostate. <<else>>'s balls are considerably smaller than at their height.<</if>>
+				She is disappointed that the (formerly) massive ejaculating cow $slaves[$i].slaveName<<if $slaves[$i].balls == 0 || $slaves[$i].dick == 0>> is incapable of giving cum. <<elseif $slaves[$i].prostate != 2>> no longer possesses a hyperactive prostate. <<else>>'s balls are considerably smaller than at their heyday.<</if>>
 			<</if>>
 		<</if>>
 	<</for>>
@@ -203,7 +223,7 @@
 	<<if ($legendaryCowID == 0) && ($slaves[$i].lactation > 0) && (($slaves[$i].boobs-$slaves[$i].boobsImplant) > 6000) && ($slaves[$i].devotion > 50) && ($slaves[$i].prestige == 0)>>
 		<<set $legendaryCowID = $slaves[$i].ID>>
 	<</if>>
-	<<if ($legendaryBallsID == 0)	&& ($slaves[$i].dick != 0)	&& ($slaves[$i].balls > 5 || ($slaves[$i].balls > 4 && $slaves[$i].prostate > 1))	&& ($slaves[$i].devotion > 50)	&& ($slaves[$i].prestige == 0) >>
+	<<if ($legendaryBallsID == 0) && ($slaves[$i].dick != 0) && ($slaves[$i].balls > 5 || ($slaves[$i].balls > 4 && $slaves[$i].prostate > 1)) && ($slaves[$i].devotion > 50) && ($slaves[$i].prestige == 0)>>
 		<<set $legendaryBallsID = $slaves[$i].ID>>
 	<</if>>
 
@@ -402,7 +422,7 @@
 				<<elseif ($slaves[$i].career != "a bioreactor")>>
 					<<set $slaves[$i].career = "a bioreactor", _careerForgotten++>>
 				<<elseif ($slaves[$i].intelligence > -1)>>
-					<<set $slaves[$i].intelligence--, $intelligenceLost++>>
+					<<set $slaves[$i].intelligence--, _intelligenceLost++>>
 				<<elseif ($slaves[$i].devotion >= -20)>>
 					<<set $slaves[$i].devotion -= 10>>
 				<<elseif ($slaves[$i].trust > -20)>>

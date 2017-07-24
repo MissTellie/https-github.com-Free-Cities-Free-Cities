@@ -58,8 +58,8 @@
 <<if $slaves[$i].curatives > 0>>
 		<<set $birthDamage -= 3>>
 <</if>>
-<<if setup.nurseCareers.includes($slaves[$i].career) and $slaves[$i].fetish != "mindbroken">>
-	<<set $birthDamage to 0>>
+<<if setup.nurseCareers.includes($slaves[$i].career) && $slaves[$i].fetish != "mindbroken">>
+	<<set $birthDamage = 0>>
 <</if>>
 
 /* early birth calcs */
@@ -443,7 +443,7 @@ $daddy's virile cock and balls.
 <br>
 	$possessiveCap @@.green;wide hips@@ greatly aided childbirth.
 <</if>>
-<<if setup.nurseCareers.includes($slaves[$i].career)>>
+<<if setup.nurseCareers.includes($slaves[$i].career) && $slaves[$i].fetish != "mindbroken">>
 <br>
 	Thanks to $possessive @@.green;previous career@@, childbirth went smoothly.
 <</if>>
@@ -491,8 +491,7 @@ Childbirth stood no chance of stretching $possessive gaping vagina.
 Childbirth has @@.lime;stretched out $possessive vagina.@@
 <</if>>
 
-<<if $slaves[$i].fetish != "mindbroken">>
-<<if $slaves[$i].fuckdoll == 0>>
+<<if $slaves[$i].fetish != "mindbroken" && $slaves[$i].fuckdoll == 0>>
 	<br>
 	<<if $slaves[$i].pregSource == -1>>
 	<<if $slaves[$i].devotion < 20>>
@@ -557,7 +556,6 @@ Childbirth has @@.lime;stretched out $possessive vagina.@@
 	">>//Will cost ¤500 weekly//
 	</span>
 <</if>>
-<</if>>
 
 <<if lastPregRule($slaves[$i],$defaultRules)>><<set $slaves[$i].preg = -1>><<else>><<set $slaves[$i].preg = 0>><</if>>
 <<set $slaves[$i].births += $slaves[$i].pregType>>
@@ -588,7 +586,7 @@ Childbirth has @@.lime;stretched out $possessive vagina.@@
 <</if>>
 
 <<if $slaveDead != 1>>
-    <<set $slaves[$i].labor = 0>>
+	<<set $slaves[$i].labor = 0>>
 <<else>>
     <<set $slaveDead = 0>>
 <</if>>

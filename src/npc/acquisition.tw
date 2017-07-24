@@ -3,6 +3,39 @@
 <<set $fixedNationality = 0>>
 
 <<if $saveImported == 1>><<set _valueOwed = 5000>><<else>><<set _valueOwed = 50000>><</if>>
+<<if $familyTesting == 1>>
+	<<for _i = 0; _i < $slaves.length; _i++>>
+		<<set _slaveMomFound = 0, _slaveDadFound = 0>>
+		<<for _j = 0; _j < $slaves.length; _j++>>
+			<<if $slaves[_i].mother > 0 && $slaves[_i].mother == $slaves[_j].ID>>
+				<<set _slaveMomFound = 1>>
+			<</if>>
+			<<if $slaves[_i].father > 0 && $slaves[_i].father == $slaves[_j].ID>>
+				<<set _slaveDadFound = 1>>
+			<</if>>
+		<</for>>
+		<<if _slaveMomFound == 0 && $slaves[_i].mother > 0>>
+			<<set _lostMom = $slaves[_i].mother>>
+			<<set $slaves[_i].mother = $missingParentId>>
+			<<for _j = 0; _j < $slaves.length; _j++>>
+				<<if $slaves[_j].mother == _lostMom>>
+					<<set $slaves[_j].mother = $missingParentId>>
+				<</if>>
+			<</for>>
+			<<set $missingParentId-->>
+		<</if>>
+		<<if _slaveDadFound == 0 && $slaves[_i].father > 0>>
+			<<set _lostDad = $slaves[_i].father>>
+			<<set $slaves[_i].father = $missingParentId>>
+			<<for _j = 0; _j < $slaves.length; _j++>>
+				<<if $slaves[_j].father == _lostDad>>
+					<<set $slaves[_j].father = $missingParentId>>
+				<</if>>
+			<</for>>
+			<<set $missingParentId-->>
+		<</if>>
+	<</for>>
+<</if>>
 
 You've done it.
 <br><br>
@@ -289,7 +322,7 @@ The previous owner seems to have left in something of a hurry.
 		<<set $activeSlave.combatSkill = 1>>
 		<<set $activeSlave.behavioralFlaw = "malicious", $activeSlave.behavioralQuirk = "none">>
 		<<set $activeSlave.clothes = "a huipil", $activeSlave.collar = "pretty jewelry", $activeSlave.shoes = "none">>
-		<<set $activeSlave.assignment = "be your Head Girl" $HeadGirl = $activeSlave>>
+		<<set $activeSlave.assignment = "be your Head Girl", $HeadGirl = $activeSlave>>
 	<<case "EgyptianRevivalist">>
 		<<include "Generate New Slave">>
 		<<set $activeSlave.devotion = random(25,45), $activeSlave.trust = random(25,45), $activeSlave.health = random(25,45)>>
@@ -355,8 +388,10 @@ The previous owner seems to have left in something of a hurry.
 		<<break>>
 	<</if>>
 	<<set $activeSlave = getHeroSlave($heroSlaves[$j], $baseHeroSlave)>>
+	<<set $dump = $heroSlaves.pluck($j,$j)>>
 	<<slaveCost $activeSlave>>
 	<<if _valueGiven + $slaveCost < _valueOwed*2>>
+		<<NationalityToAccent $activeSlave>>
 		<<set $activeSlave.pubicHColor = $activeSlave.hColor>>
 		<<set $activeSlave.pubicHStyle = "waxed">>
 		<<set $activeSlave.oldDevotion = $activeSlave.devotion>>
@@ -442,6 +477,19 @@ The previous owner seems to have left in something of a hurry.
 		<</if>>
 	<</if>>
 <</for>>
+<<if $familyTesting == 1>>
+	<<set $slaves.forEach(function(s) { s.sisters = 0; s.daughters = 0; })>>
+	<<for _fp = 0; _fp < $slaves.length; _fp++>>
+		<<for _fpt = 0; _fpt < $slaves.length; _fpt++>>
+			<<if ($slaves[_fpt].mother == $slaves[_fp].ID) || ($slaves[_fpt].father == $slaves[_fp].ID)>>
+				<<set $slaves[_fp].daughters++>>
+			<</if>>
+			<<if areSisters($slaves[_fpt], $slaves[_fp]) > 0>>
+				<<set $slaves[_fp].sisters++>>
+			<</if>>
+		<</for>>
+	<</for>>
+<</if>>
 <<set $averageTrust = $averageTrust/_slavesContributing>>
 <<set $averageDevotion = $averageDevotion/_slavesContributing>>
 <<set $enduringTrust = $averageTrust>>

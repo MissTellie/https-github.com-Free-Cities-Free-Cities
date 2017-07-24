@@ -1,6 +1,9 @@
 :: Generate XX Slave [nobr]
 
 <<BaseSlave>>
+/*possible missed variables*/
+<<set $activeSlave.vaginaLube = 1, $activeSlave.ovaries = 1, $activeSlave.canRecruit = 1>>
+
 <<if $retirementAge > 42>>
 	<<set $activeSlave.age = random(18,42)>>
 <<else>>
@@ -76,7 +79,7 @@
 	<<set $activeSlave.shoulders = either(-2, -1, -1, 0, 0, 1)>>
 <</if>>
 
-<<set $activeSlave.weight = random (-100,100)>>
+<<set $activeSlave.weight = random(-100,100)>>
 <<if ($activeSlave.weight < -30)>>
 	<<set $activeSlave.waist = random(-55,0)>>
 <<elseif ($activeSlave.weight <= 30)>>

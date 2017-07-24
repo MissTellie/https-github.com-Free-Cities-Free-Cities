@@ -13,6 +13,12 @@
 
 /* RECRUITERS */
 
+<<if $familyTesting == 1>>
+	<<if $activeSlave.canRecruit == 1>>
+		/*<<set $recruiters.push($activeSlave)>>*/
+	<</if>>
+<<else>>
+
 <<if ($activeSlave.relation == 0)>>
 <<if random(1,100) <= 5>>
 	<<set $activeSlave.recruiter = "twin">>
@@ -25,6 +31,8 @@
 <<elseif ($activeSlave.age < 25) && ($activeSlave.age > 18) && (random(1,100) <= 20)>>
 	<<set $activeSlave.recruiter = "young sister">>
 <</if>>
+<</if>>
+
 <</if>>
 
 <<if $applyCareerBonus == 1>>

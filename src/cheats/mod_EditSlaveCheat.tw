@@ -23,13 +23,24 @@
 
 <br>
 
-''Slave Blood Relations (twin, sister, mother, daughter):''
-<<textbox "$activeSlave.relation" $activeSlave.relation>>
+<<if $familyTesting == 1>>
+	''Enter the IDs for this slaves parents(-2 through 0:random and untracked by system, all others are applicable):''
+	<br>
+	''mother ID''
+	<<textbox "$activeSlave.mother" $activeSlave.mother>>
+	<br>
+	''father ID''
+	<<textbox "$activeSlave.father" $activeSlave.father>>
+<<else>>
+	''Slave Blood Relations (twin, sister, mother, daughter):''
+	<<textbox "$activeSlave.relation" $activeSlave.relation>>
 
-<br>
+	<br>
 
-''Blood Relations Target ID:''
-<<textbox "$activeSlave.relationTarget" $activeSlave.relationTarget>>
+	''Blood Relations Target ID:''
+	<<textbox "$activeSlave.relationTarget" $activeSlave.relationTarget>>
+<</if>>
+
 <br>
 ''Relationship (-3:married to you, -2:relationship, -1:emotional slut, 0:none, 1:like, 2:friend, 3:sex friend, 4:lover, 5:married): $activeSlave.relationship |''
 <<textbox "$activeSlave.relationship" $activeSlave.relationship>>
@@ -478,8 +489,8 @@ Plush.
 ''Genes (XX:female, XY:male):'' $activeSlave.genes
 <<textbox "$activeSlave.genes" $activeSlave.genes>>
 <br>
-<<radiobutton "$activeSlave.amp" "XX">> Female
-<<radiobutton "$activeSlave.amp" "XY">> Male
+<<radiobutton "$activeSlave.genes" "XX">> Female
+<<radiobutton "$activeSlave.genes" "XY">> Male
 
 <br><br>
 
@@ -1187,8 +1198,8 @@ Paraphilias:
 <<radiobutton "$activeSlave.sexualQuirk" "unflinching">> Unflinching
 <<radiobutton "$activeSlave.sexualQuirk" "size queen">> Size Queen
 <<if $activeSlave.sexualQuirk != "none">>
-	<<if ($activeSlave.sexualFlaw != "cum addict") && ($activeSlave.sexualFlaw != "anal addict") && ($activeSlave.sexualFlaw != "attention whore") && ($activeSlave.sexualFlaw != "breast growth") && ($activeSlave.sexualFlaw != "abusive") && ($activeSlave.sexualFlaw != "malicious") &&  ($activeSlave.sexualFlaw != "self hating") && ($activeSlave.sexualFlaw != "neglectful") &&  ($activeSlave.sexualFlaw != "breeder")>>
-		<<set $activeSlave.sexualFlaw = "none">>	
+	<<if ($activeSlave.sexualFlaw != "cum addict") && ($activeSlave.sexualFlaw != "anal addict") && ($activeSlave.sexualFlaw != "attention whore") && ($activeSlave.sexualFlaw != "breast growth") && ($activeSlave.sexualFlaw != "abusive") && ($activeSlave.sexualFlaw != "malicious") && ($activeSlave.sexualFlaw != "self hating") && ($activeSlave.sexualFlaw != "neglectful") && ($activeSlave.sexualFlaw != "breeder")>>
+		<<set $activeSlave.sexualFlaw = "none">>
 	<</if>>
 <</if>>
 

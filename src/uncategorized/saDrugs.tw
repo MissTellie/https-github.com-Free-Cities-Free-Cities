@@ -349,7 +349,7 @@
 <</if>>
 <<set $slaves[$i].chem = Math.clamp($slaves[$i].chem-0.5, 0, 1000)>>
 
-<<if $slaves[$i].curatives < 2>>
+<<if $slaves[$i].curatives < 2 && $slaves[$i].assignment != "get treatment in the clinic">>
 <<if $slaves[$i].health < -50>>
 	It's difficult being so ill, and $pronoun @@.mediumorchid;resents you@@ for not treating $possessive.
 	<<set $slaves[$i].devotion -= 2>>
@@ -386,7 +386,7 @@
 	<</if>>
 <</if>>
 
-<<if $slaves[$i].fuckdoll == 0>>
+<<if $slaves[$i].fuckdoll == 0 && $slaves[$i].fetish != "mindbroken">>
 <<if $suppository == 1>>
 <<if ($slaves[$i].aphrodisiacs > 0) || ($slaves[$i].curatives > 0) || ($slaves[$i].drugs == "psychosuppressants") || ($slaves[$i].drugs == "hormone enhancers") || ($slaves[$i].hormones != 0)>>
 	<<if ($slaves[$i].sexualFlaw == "hates anal")>>
