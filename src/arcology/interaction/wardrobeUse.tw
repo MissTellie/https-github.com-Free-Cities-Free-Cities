@@ -466,6 +466,110 @@ Clothes: ''<span id="clothes">$activeSlave.clothes</span>.''
 	<</link>>
 <</if>>
 
+<<if $activeSlave.vagina > -1>>
+	<br><br>Vaginal accessory: ''<span id="vaginalAccessory">$activeSlave.vaginalAccessory</span>.''
+	<span id="vaginalAccessoryDescription"><<if $activeSlave.vaginalAccessory != "none">><br><</if>>//<<vaginalAccessoryDescription>>//</span>
+	<br>
+	<<link "None">>
+		<<set $activeSlave.vaginalAccessory = "none">>
+		<<replace "#vaginalAccessory">>$activeSlave.vaginalAccessory<</replace>>
+		<<replace "#buttplugDescription">>//<<vaginalAccessoryDescription>>//<</replace>>
+		<<replace "#buttplugDescription">>//<<buttplugDescription>>//<</replace>>
+	<</link>>
+	| <<link "Dildo">>
+		<<set $activeSlave.vaginalAccessory = "dildo">>
+		<<replace "#vaginalAccessory">>$activeSlave.vaginalAccessory<</replace>>
+		<<replace "#buttplugDescription">>//<<vaginalAccessoryDescription>>//<</replace>>
+		<<replace "#buttplugDescription">>//<<buttplugDescription>>//<</replace>>
+	<</link>>
+	<<if $toysBoughtDildos == 1>>
+		| <<link "Long dildo">>
+			<<set $activeSlave.vaginalAccessory = "long dildo">>
+			<<replace "#vaginalAccessory">>$activeSlave.vaginalAccessory<</replace>>
+			<<replace "#buttplugDescription">>//<<vaginalAccessoryDescription>>//<</replace>>
+			<<replace "#buttplugDescription">>//<<buttplugDescription>>//<</replace>>
+		<</link>>
+	<</if>>
+	| <<link "Large dildo">>
+		<<set $activeSlave.vaginalAccessory = "large dildo">>
+		<<replace "#vaginalAccessory">>$activeSlave.vaginalAccessory<</replace>>
+		<<replace "#buttplugDescription">>//<<vaginalAccessoryDescription>>//<</replace>>
+		<<replace "#buttplugDescription">>//<<buttplugDescription>>//<</replace>>
+	<</link>>
+	<<if $toysBoughtDildos == 1>>
+		| <<link "Large and long dildo">>
+			<<set $activeSlave.vaginalAccessory = "long, large dildo">>
+			<<replace "#vaginalAccessory">>$activeSlave.vaginalAccessory<</replace>>
+			<<replace "#buttplugDescription">>//<<vaginalAccessoryDescription>>//<</replace>>
+			<<replace "#buttplugDescription">>//<<buttplugDescription>>//<</replace>>
+		<</link>>
+	<</if>>
+	<<if $activeSlave.vagina >= 2>>
+		| <<link "Huge dildo">>
+			<<set $activeSlave.vaginalAccessory = "huge dildo">>
+			<<replace "#vaginalAccessory">>$activeSlave.vaginalAccessory<</replace>>
+			<<replace "#buttplugDescription">>//<<vaginalAccessoryDescription>>//<</replace>>
+			<<replace "#buttplugDescription">>//<<buttplugDescription>>//<</replace>>
+		<</link>>
+		<<if $toysBoughtDildos == 1>>
+			| <<link "Huge and long dildo">>
+				<<set $activeSlave.vaginalAccessory = "long, huge dildo">>
+				<<replace "#vaginalAccessory">>$activeSlave.vaginalAccessory<</replace>>
+				<<replace "#buttplugDescription">>//<<vaginalAccessoryDescription>>//<</replace>>
+				<<replace "#buttplugDescription">>//<<buttplugDescription>>//<</replace>>
+			<</link>>
+		<</if>>
+	<</if>>
+	| <<link "Chastity belt">>
+		<<set $activeSlave.vaginalAccessory = "chastity belt">>
+		<<replace "#vaginalAccessory">>$activeSlave.vaginalAccessory<</replace>>
+		<<replace "#buttplugDescription">>//<<vaginalAccessoryDescription>>//<</replace>>
+		<<replace "#buttplugDescription">>//<<buttplugDescription>>//<</replace>>
+	<</link>>
+	| <<link "Anal chastity belt">>
+		<<set $activeSlave.vaginalAccessory = "anal chastity">>
+		<<replace "#vaginalAccessory">>$activeSlave.vaginalAccessory<</replace>>
+		<<replace "#buttplugDescription">>//<<vaginalAccessoryDescription>>//<</replace>>
+		<<replace "#buttplugDescription">>//<<buttplugDescription>>//<</replace>>
+	<</link>>
+
+	| <<link "Combined chastity belt">>
+		<<set $activeSlave.vaginalAccessory = "combined chastity">>
+		<<replace "#vaginalAccessory">>$activeSlave.vaginalAccessory<</replace>>
+		<<replace "#buttplugDescription">>//<<vaginalAccessoryDescription>>//<</replace>>
+		<<replace "#buttplugDescription">>//<<buttplugDescription>>//<</replace>>
+	<</link>>
+<</if>>
+
+<<if $activeSlave.dick > 0>>
+	<br><br>Dick accessory: ''<span id="dickAccessory">$activeSlave.dickAccessory</span>.''
+	<span id="dickAccessoryDescription"><<if $activeSlave.dickAccessory != "none">><br><</if>>//<<dickAccessoryDescription>>//</span>
+	<br>
+	<<link "None">>
+		<<set $activeSlave.dickAccessory = "none">>
+		<<replace "#dickAccessory">>$activeSlave.dickAccessory<</replace>>
+		<<replace "#buttplugDescription">>//<<dickAccessoryDescription>>//<</replace>>
+		<<replace "#buttplugDescription">>//<<buttplugDescription>>//<</replace>>
+	<</link>>
+	| <<link "Chastity cage">>
+		<<set $activeSlave.dickAccessory = "chastity">>
+		<<replace "#dickAccessory">>$activeSlave.dickAccessory<</replace>>
+		<<replace "#buttplugDescription">>//<<dickAccessoryDescription>>//<</replace>>
+		<<replace "#buttplugDescription">>//<<buttplugDescription>>//<</replace>>
+	<</link>>
+	| <<link "Anal chastity belt">>
+		<<set $activeSlave.dickAccessory = "anal chastity">>
+		<<replace "#dickAccessory">>$activeSlave.dickAccessory<</replace>>
+		<<replace "#buttplugDescription">>//<<dickAccessoryDescription>>//<</replace>>
+		<<replace "#buttplugDescription">>//<<buttplugDescription>>//<</replace>>
+	<</link>>
+	| <<link "Combined chastity belt">>
+		<<set $activeSlave.dickAccessory = "combined chastity">>
+		<<replace "#dickAccessory">>$activeSlave.dickAccessory<</replace>>
+		<<replace "#buttplugDescription">>//<<dickAccessoryDescription>>//<</replace>>
+		<<replace "#buttplugDescription">>//<<buttplugDescription>>//<</replace>>
+	<</link>>
+<</if>>
 <br><br>
 Anal accessory: ''<span id="buttplug">$activeSlave.buttplug</span>.''
 <br>
@@ -519,81 +623,6 @@ Anal accessory: ''<span id="buttplug">$activeSlave.buttplug</span>.''
 	&nbsp;&nbsp;&nbsp;&nbsp;Anal accessory attachment: ''<span id="buttplugAttach">$activeSlave.buttplugAttachment</span>.''
 	<<link "None">><<set $activeSlave.buttplugAttachment = "none">><<replace "#buttplugAttach">>$activeSlave.buttplugAttachment<</replace>><</link>>
 	<<if $toysBoughtButtPlugTails == 1>> | <<link "Tail">><<set $activeSlave.buttplugAttachment = "tail">><<replace "#buttplugAttach">>$activeSlave.buttplugAttachment<</replace>><</link>><</if>>
-<</if>>
-
-<<if $activeSlave.vagina > -1>>
-	<br>Vaginal accessory: ''<span id="vaginalAccessory">$activeSlave.vaginalAccessory</span>.''
-
-	<<link "None">>
-		<<set $activeSlave.vaginalAccessory = "none">>
-		<<replace "#vaginalAccessory">>$activeSlave.vaginalAccessory<</replace>>
-	<</link>>
-	| <<link "Dildo">>
-		<<set $activeSlave.vaginalAccessory = "dildo">>
-		<<replace "#vaginalAccessory">>$activeSlave.vaginalAccessory<</replace>>
-	<</link>>
-	<<if $toysBoughtDildos == 1>>
-		| <<link "Long dildo">>
-			<<set $activeSlave.vaginalAccessory = "long dildo">>
-			<<replace "#vaginalAccessory">>$activeSlave.vaginalAccessory<</replace>>
-		<</link>>
-	<</if>>
-	| <<link "Large dildo">>
-		<<set $activeSlave.vaginalAccessory = "large dildo">>
-		<<replace "#vaginalAccessory">>$activeSlave.vaginalAccessory<</replace>>
-	<</link>>
-	<<if $toysBoughtDildos == 1>>
-		| <<link "Large and long dildo">>
-			<<set $activeSlave.vaginalAccessory = "long, large dildo">>
-			<<replace "#vaginalAccessory">>$activeSlave.vaginalAccessory<</replace>>
-		<</link>>
-	<</if>>
-	<<if $activeSlave.vagina >= 2>>
-		| <<link "Huge dildo">>
-			<<set $activeSlave.vaginalAccessory = "huge dildo">>
-			<<replace "#vaginalAccessory">>$activeSlave.vaginalAccessory<</replace>>
-		<</link>>
-		<<if $toysBoughtDildos == 1>>
-			| <<link "Huge and long dildo">>
-				<<set $activeSlave.vaginalAccessory = "long, huge dildo">>
-				<<replace "#vaginalAccessory">>$activeSlave.vaginalAccessory<</replace>>
-			<</link>>
-		<</if>>
-	<</if>>
-	| <<link "Chastity belt">>
-		<<set $activeSlave.vaginalAccessory = "chastity belt">>
-		<<replace "#vaginalAccessory">>$activeSlave.vaginalAccessory<</replace>>
-	<</link>>
-	| <<link "Anal chastity belt">>
-		<<set $activeSlave.vaginalAccessory = "anal chastity">>
-		<<replace "#vaginalAccessory">>$activeSlave.vaginalAccessory<</replace>>
-	<</link>>
-
-	| <<link "Combined chastity belt">>
-		<<set $activeSlave.vaginalAccessory = "combined chastity">>
-		<<replace "#vaginalAccessory">>$activeSlave.vaginalAccessory<</replace>>
-	<</link>>
-<</if>>
-
-<<if $activeSlave.dick > 0>>
-	<br>Dick accessory: ''<span id="dickAccessory">$activeSlave.dickAccessory</span>.''
-
-	<<link "None">>
-		<<set $activeSlave.dickAccessory = "none">>
-		<<replace "#dickAccessory">>$activeSlave.dickAccessory<</replace>>
-	<</link>>
-	| <<link "Chastity cage">>
-		<<set $activeSlave.dickAccessory = "chastity">>
-		<<replace "#dickAccessory">>$activeSlave.dickAccessory<</replace>>
-	<</link>>
-	| <<link "Anal chastity belt">>
-		<<set $activeSlave.dickAccessory = "anal chastity">>
-		<<replace "#dickAccessory">>$activeSlave.dickAccessory<</replace>>
-	<</link>>
-	| <<link "Combined chastity belt">>
-		<<set $activeSlave.dickAccessory = "combined chastity">>
-		<<replace "#dickAccessory">>$activeSlave.dickAccessory<</replace>>
-	<</link>>
 <</if>>
 
 <br><br>
