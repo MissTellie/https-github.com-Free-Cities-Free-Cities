@@ -543,7 +543,7 @@ Clothes: ''<span id="clothes">$activeSlave.clothes</span>.''
 
 <<if $activeSlave.dick > 0>>
 	<br><br>Dick accessory: ''<span id="dickAccessory">$activeSlave.dickAccessory</span>.''
-	<span id="dickAccessoryDescription"><<if $activeSlave.dickAccessory != "none">><br><</if>>//<<dickAccessoryDescription>>//</span>
+	<span id="dickAccessoryDescription"><<if ($activeSlave.dickAccessory != "none") && ($activeSlave.dickAccessory != "anal chastity")>><br><</if>>//<<dickAccessoryDescription>>//</span>
 	<br>
 	<<link "None">>
 		<<set $activeSlave.dickAccessory = "none">>
@@ -554,7 +554,7 @@ Clothes: ''<span id="clothes">$activeSlave.clothes</span>.''
 	| <<link "Chastity cage">>
 		<<set $activeSlave.dickAccessory = "chastity">>
 		<<replace "#dickAccessory">>$activeSlave.dickAccessory<</replace>>
-		<<replace "#dickAccessoryDescription">>//<<dickAccessoryDescription>>//<</replace>>
+		<<replace "#dickAccessoryDescription">><br>//<<dickAccessoryDescription>>//<</replace>>
 		<<replace "#buttplugDescription">>//<<buttplugDescription>>//<</replace>>
 	<</link>>
 	| <<link "Anal chastity belt">>
@@ -566,7 +566,7 @@ Clothes: ''<span id="clothes">$activeSlave.clothes</span>.''
 	| <<link "Combined chastity belt">>
 		<<set $activeSlave.dickAccessory = "combined chastity">>
 		<<replace "#dickAccessory">>$activeSlave.dickAccessory<</replace>>
-		<<replace "#dickAccessoryDescription">>//<<dickAccessoryDescription>>//<</replace>>
+		<<replace "#dickAccessoryDescription">><br>//<<dickAccessoryDescription>>//<</replace>>
 		<<replace "#buttplugDescription">>//<<buttplugDescription>>//<</replace>>
 	<</link>>
 <</if>>
