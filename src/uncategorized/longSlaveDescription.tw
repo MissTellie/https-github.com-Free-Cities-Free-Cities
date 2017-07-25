@@ -309,6 +309,7 @@ She comes to you for an inspection
 		<<elseif $activeSlave.devotion >= -50>>resents.
 		<<else>>hates.
 		<</if>>
+		<<if $activeSlave.birthSurname && $seed == 1>>Her original surname is $activeSlave.birthSurname.<</if>>
 	<</if>>
 <<else>>
 	$activeSlave.slaveName<<if $activeSlave.slaveSurname>> $activeSlave.slaveSurname<</if>> is not its original name: it was once called $activeSlave.birthName<<if $activeSlave.birthSurname>> $activeSlave.birthSurname<</if>>.
