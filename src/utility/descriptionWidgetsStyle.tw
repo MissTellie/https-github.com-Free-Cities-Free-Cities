@@ -3464,8 +3464,10 @@ $possessiveCap
 
 
 <<widget "dickAccessoryDescription">>
+	<<if ($activeSlave.dickAccessory == "chastity") || ($activeSlave.dickAccessory == "combined chastity")>>
 	$possessiveCap cock is encased in a tight chastity cage, which is designed to be comfortable as long as $pronoun remains soft.
 	<<if ($activeSlave.energy > 95)>>
 		The poor nympho looks painfully frustrated by this, and a long string of precum is dangling from the hole in the bottom of the cage.
+	<</if>>
 	<</if>>
 <</widget>>
