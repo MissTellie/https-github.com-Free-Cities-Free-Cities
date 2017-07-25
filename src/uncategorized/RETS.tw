@@ -182,12 +182,19 @@
 
 <<case "incestuous nursing">>
 
-<<for _s = 0; _s < $slaves.length; _s++>>
-	<<if $activeSlave.relationTarget == $slaves[_s].ID>>
-		<<set $subSlave = $slaves[_s]>>
-		<<break>>
+<<if $familyTesting == 0>>
+	<<for _s = 0; _s < $slaves.length; _s++>>
+		<<if $activeSlave.relationTarget == $slaves[_s].ID>>
+			<<set $subSlave = $slaves[_s]>>
+			<<break>>
+		<</if>>
+	<</for>>
+<<else>>
+	<<set $subSlave = randomAvailableDaughter($activeSlave)>>
+	<<if ndef $subSlave>>
+		<<set $subSlave = randomDaughter($activeSlave)>>
 	<</if>>
-<</for>>
+<</if>>
 
 <<default>>
 	<br>ERROR: bad RETS event $RETSevent
@@ -356,9 +363,9 @@ Surprisingly, the slave on top doesn't seem too unhappy with this. She's no slav
 <</if>>
 "H-h-hi-i
 <<if SlaveStatsChecker.checkForLisp($subSlave)>>
-	<<if def $PC.customTitleLisp>>$PC.customTitleLisp<<elseif $PC.title != 0>>M-m-ma-a-th-t-ter<<else>>M-m-mi-i-ith-t-r-r-e-es-s-s<</if>>," she lisps
+	<<if $subSlave.customTitleLisp == "">>$subSlave.customTitleLisp<<elseif def $PC.customTitleLisp>>$PC.customTitleLisp<<elseif $PC.title != 0>>M-m-ma-a-th-t-ter<<else>>M-m-mi-i-ith-t-r-r-e-es-s-s<</if>>," she lisps
 <<else>>
-	<<if def $PC.customTitle>>$PC.customTitle<<elseif $PC.title != 0>>M-m-ma-a-st-t-ter<<else>>M-m-mi-i-is-st-r-r-e-es-s-s<</if>>," she says
+	<<if $subSlave.customTitle == "">>$subSlave.customTitle<<elseif def $PC.customTitle>>$PC.customTitle<<elseif $PC.title != 0>>M-m-ma-a-st-t-ter<<else>>M-m-mi-i-is-st-r-r-e-es-s-s<</if>>," she says
 <</if>>
 breathlessly, doing her best to greet you properly despite the bouncing.
 <br><br>

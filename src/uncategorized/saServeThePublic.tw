@@ -37,7 +37,7 @@
 <</if>>
 <<if $slaves[$i].assignment == "be the DJ">>
 	<<if $clubSlaves+$slavesGettingHelp > 0>>
-	<<set $beauty = Math.trunc($beauty*((5-$clubSlaves-$slavesGettingHelp)/5))>>
+		<<set $beauty = Math.trunc($beauty*((5-$clubSlaves-$slavesGettingHelp)/5))>>
 	<</if>>
 <</if>>
 
@@ -168,7 +168,7 @@ the public.
 			The DJ is such a gorgeous diva that she's swept along by her charisma, and does her best to be a worthy part of her entourage.
 			<</if>>
 		<</if>>
-		<<if ($slaves[$i].sexualFlaw != "none") && (random(1,100) > 90)>>
+		<<if !["none", "neglectful", "cum addict", "anal addict", "attention whore", "breast growth", "abusive", "malicious", "self hating", "breeder"].includes($slaves[$i].sexualFlaw) && (random(1,100) > 90)>>
 			$DJ.slaveName manages to @@.green;break@@ $slaves[$i].slaveName of her sexual flaws.
 			<<set $slaves[$i].sexualFlaw = "none">>
 		<<elseif ($slaves[$i].behavioralFlaw != "none") && (random(1,100) > 90)>>
@@ -417,18 +417,48 @@ Her appearance attracted $beauty members of the public (<<print Math.trunc($beau
 	She's a better slut because public service is her main sexual outlet.
 <</if>>
 
-<<if $slaves[$i].relation != 0>>
-	<<for $j = 0; $j < $slaves.length; $j++>>
-	<<if $slaves[$j].ID == $slaves[$i].relationTarget>>
-		<<if $slaves[$j].assignment == $slaves[$i].assignment>>
-		Since her $slaves[$j].relation $slaves[$j].slaveName is a public slut too, she earns extra attention.
-		<<if $arcologies[0].FSEgyptianRevivalist > 20>>
-			Citizens are very excited about being able to participate in incestuous sex like the ancient Egyptians.
+<<if $familyTesting == 1>>
+	<<if totalRelatives($slaves[$i]) > 0>>
+		<<set _children = $slaves.filter(function(s) { return ($slaves[$i].ID == s.father || $slaves[$i].ID == s.mother || s.ID == $slaves[$i].father || s.ID == $slaves[$i].mother || areSisters($slaves[$i], s) > 0) && s.assignment == "serve the public"; })>>
+		<<if _children.length > 2>>
+			Since her relatives,
+			<<for _sstp = 0; _sstp < _children.length; _sstp++>>
+				<<if _sstp < _children.length-1>>
+					_children[_sstp].slaveName,
+				<<else>>
+					and _children[_sstp].slaveName,
+				<</if>>
+			<</for>>
+			are public sluts too, she earns extra attention.
+			<<if $arcologies[0].FSEgyptianRevivalist > 20>>
+				Citizens are very excited about being able to participate in incestuous sex like the ancient Egyptians.
+			<</if>>
+		<<elseif _children.length > 1>>
+			Since her relatives, _children[0].slaveName and _children[1].slaveName, are public sluts too, she earns extra attention.
+			<<if $arcologies[0].FSEgyptianRevivalist > 20>>
+				Citizens are very excited about being able to participate in incestuous sex like the ancient Egyptians.
+			<</if>>
+		<<elseif _children.length > 0>>
+			Since her relative, _children[0].slaveName, is a public slut too, she earns extra attention.
+			<<if $arcologies[0].FSEgyptianRevivalist > 20>>
+				Citizens are very excited about being able to participate in incestuous sex like the ancient Egyptians.
+			<</if>>
 		<</if>>
-		<</if>>
-		<<break>>
 	<</if>>
-	<</for>>
+<<else>>
+	<<if $slaves[$i].relation != 0>>
+		<<for $j = 0; $j < $slaves.length; $j++>>
+		<<if $slaves[$j].ID == $slaves[$i].relationTarget>>
+			<<if $slaves[$j].assignment == $slaves[$i].assignment>>
+			Since her $slaves[$j].relation $slaves[$j].slaveName is a public slut too, she earns extra attention.
+			<<if $arcologies[0].FSEgyptianRevivalist > 20>>
+				Citizens are very excited about being able to participate in incestuous sex like the ancient Egyptians.
+			<</if>>
+			<</if>>
+			<<break>>
+		<</if>>
+		<</for>>
+	<</if>>
 <</if>>
 <<if $slaves[$i].relationship > 0>>
 	<<for $j = 0; $j < $slaves.length; $j++>>
@@ -676,7 +706,7 @@ Her appearance attracted $beauty members of the public (<<print Math.trunc($beau
 <<case "sadist">>
 	She receives some extra attention for her willingness to abuse other slaves.
 <<case "pregnancy">>
-	<<if ($slaves[$i].vagina > 0) && ($slaves[$i].vaginalAccessory != "chastity belt")>>
+	<<if ($slaves[$i].vagina > 0) && canDoVaginal($slaves[$i])>>
 	As an impregnation fetishist she's very enthusiastic about vaginal sex.
 	<</if>>
 <<case "mindbroken">>

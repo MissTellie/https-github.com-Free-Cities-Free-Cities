@@ -9,55 +9,52 @@
 		<</if>>
 		<<if ($activeSlave.assignment == "get milked") || ($activeSlave.assignment == "work in the dairy")>>
 		She has a plastic livestock tag in one ear to help identify her for milking.
-		<<elseif ($activeSlave.clothes == "attractive lingerie")>>
-		She's wearing pretty, womanly earrings.
-		<<elseif ($activeSlave.clothes == "a succubus outfit")>>
-		She's wearing pentagram earrings.
-		<<elseif ($activeSlave.clothes == "a fallen nuns habit")>>
-		Her earrings mimic tiny crowns of thorns.
-		<<elseif ($activeSlave.clothes == "a chattel habit")>>
-		She's wearing golden earrings in the shape of saintly nudes.
-		<<elseif ($activeSlave.clothes == "a penitent nuns habit")>>
-		Her earrings mimic tiny crowns of thorns.
-		<<elseif ($activeSlave.clothes == "a string bikini")>>
-		She's wearing girly earrings.
-		<<elseif ($activeSlave.clothes == "cutoffs and a t-shirt")>>
-		She's wearing girly earrings.
-		<<elseif ($activeSlave.clothes == "a schoolgirl outfit")>>
-		She's wearing girlish earrings.
-		<<elseif ($activeSlave.clothes == "a kimono")>>
-		She's wearing gorgeous enamelled earrings made to look like tiny koi.
-		<<elseif ($activeSlave.clothes == "a slave gown")>>
-		She's wearing lovely diamond earrings; the stones are cut in an alluring, feminine style.
-		<<elseif ($activeSlave.clothes == "a halter top dress")>>
-		She's wearing lovely diamond earrings; the stones are cut in an alluring, feminine style.
-		<<elseif ($activeSlave.clothes == "a ball gown")>>
-		She's wearing lovely diamond earrings; the stones are cut in an alluring, feminine style.
-		<<elseif ($activeSlave.clothes == "slutty business attire")>>
-		She's wearing lovely diamond earrings; the stones are cut in a gaudy, nouveau riche style.
-		<<elseif ($activeSlave.clothes == "nice business attire")>>
-		She's wearing lovely diamond earrings; the stones are cut in an assertive, unsubtle style.
-		<<elseif ($activeSlave.clothes == "a slutty maid outfit")>>
-		She's wearing big hoop earrings inappropriate for a real maid.
-		<<elseif ($activeSlave.clothes == "a nice maid outfit")>>
-		She's wearing conservative earrings like those a free maid could afford.
-		<<elseif ($activeSlave.clothes == "harem gauze")>>
-		She's wearing broad gold earrings in faux-Arabian style.
-		<<elseif ($activeSlave.clothes == "a bunny outfit")>>
-		She's wearing earrings in the shape of a stylized rabbit's head.
-		<<elseif ($activeSlave.clothes == "slutty jewelry")>>
-		She's wearing gold earrings in the shape of a pair of
-		<<if ($activeSlave.dick > 0) && ($activeSlave.balls == 0)>>
-		  limp dicks.
-		<<elseif ($activeSlave.dick > 0)>>
-		  erect cocks.
-		<<elseif ($activeSlave.oralSkill >= 100)>>
-		  tongues.
-		<<elseif ($activeSlave.boobs > 1000)>>
-		  heavy breasts.
 		<<else>>
-		  female bottoms.
-		<</if>>
+			<<switch $activeSlave.clothes>>
+			<<case "attractive lingerie" "attractive lingerie for a pregnant woman">>
+				She's wearing pretty, womanly earrings.
+			<<case "a succubus outfit">>
+				She's wearing pentagram earrings.
+			<<case "a fallen nuns habit">>
+				Her earrings mimic tiny crowns of thorns.
+			<<case "a chattel habit">>
+				She's wearing golden earrings in the shape of saintly nudes.
+			<<case "a penitent nuns habit">>
+				Her earrings mimic tiny crowns of thorns.
+			<<case "a string bikini" "cutoffs and a t-shirt">>
+				She's wearing girly earrings.
+			<<case "a schoolgirl outfit">>
+				She's wearing girlish earrings.
+			<<case "a kimono">>
+				She's wearing gorgeous enamelled earrings made to look like tiny koi.
+			<<case "a slave gown" "a halter top dress" "a ball gown" "a maternity dress">>
+				She's wearing lovely diamond earrings; the stones are cut in an alluring, feminine style.
+			<<case "slutty business attire">>
+				She's wearing lovely diamond earrings; the stones are cut in a gaudy, nouveau riche style.
+			<<case "nice business attire">>
+				She's wearing lovely diamond earrings; the stones are cut in an assertive, unsubtle style.
+			<<case "a slutty maid outfit">>
+				She's wearing big hoop earrings inappropriate for a real maid.
+			<<case "a nice maid outfit">>
+				She's wearing conservative earrings like those a free maid could afford.
+			<<case "harem gauze">>
+				She's wearing broad gold earrings in faux-Arabian style.
+			<<case "a bunny outfit">>
+				She's wearing earrings in the shape of a stylized rabbit's head.
+			<<case "slutty jewelry">>
+				She's wearing gold earrings in the shape of a pair of
+				<<if ($activeSlave.dick > 0) && ($activeSlave.balls == 0)>>
+					limp dicks.
+				<<elseif ($activeSlave.dick > 0)>>
+					erect cocks.
+				<<elseif ($activeSlave.oralSkill >= 100)>>
+					tongues.
+				<<elseif ($activeSlave.boobs > 1000)>>
+					heavy breasts.
+				<<else>>
+					female bottoms.
+				<</if>>
+			<</switch>>
 		<</if>>
 	<</if>>
 <</widget>>
@@ -237,7 +234,7 @@
 		<<if ($activeSlave.clothes == "slutty jewelry")>>
 			Since $pronoun's wearing slutty bangles $pronoun has a short length of light chain dangling from $possessive clit ring; it constantly stimulates $possessive pussylips.
 		<</if>>
-	<<elseif ($activeSlave.clitPiercing > 2) && ($activeSlave.vagina != -1)>>
+	<<elseif ($activeSlave.clitPiercing > 2) && ($activeSlave.vagina != -1) && ($activeSlave.dick == 0)>>
 		$pronounCap has a smart piercing in $possessive clit.
 	<<elseif ($activeSlave.clitPiercing == 1)>>
 		$pronounCap has a simple dickhead stud.
@@ -313,6 +310,7 @@
 
 <<widget "CorsetPiercingDescription">>
 
+<<if $activeSlave.corsetPiercing > 0>>
 <<if $activeSlave.fuckdoll == 0>>
 
 $pronounCap has a corset piercing, a ladder of steel rings running up each side of $possessive back:
@@ -471,6 +469,7 @@ $pronounCap has a corset piercing, a ladder of steel rings running up each side 
 <</switch>>
 <</if>>
 
+<</if>>
 <</if>>
 
 <</widget>>

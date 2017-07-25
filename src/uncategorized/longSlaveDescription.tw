@@ -21,9 +21,6 @@
 <<if ndef $activeSlave.buttImplantType>>
   <<set $activeSlave.buttImplantType = 0>>
 <</if>>
-<<if ndef $activeSlave.bellyTat>>
-  <<set $activeSlave.bellyTat = 0>>
-<</if>>
 <<if ndef $activeSlave.cSec>>
   <<set $activeSlave.cSec = 0>>
 <</if>>
@@ -31,7 +28,12 @@
   <<set $activeSlave.labor = 0>>
 <</if>>
 
-&nbsp;&nbsp;&nbsp;&nbsp;''@@.pink;$activeSlave.slaveName<<if $activeSlave.slaveSurname>> $activeSlave.slaveSurname<</if>>@@''<<if ($activeSlave.customLabel != "")>> (@@.yellow;''<<print $activeSlave.customLabel>>''@@)<</if>>
+&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+''@@.pink;<<SlaveFullName $activeSlave>>@@''
+
+<<if ($activeSlave.customLabel != "")>> (@@.yellow;''<<print $activeSlave.customLabel>>''@@)<</if>>
 
 <<if $ui == "start">>
 <<elseif $saleDescription == 1>>
@@ -86,7 +88,7 @@ is
 	<<if $activeSlave.assignment == "be a subordinate slave">>
 	<<for _lsd = 0; _lsd < $slaves.length; _lsd++>>
 		<<if $activeSlave.subTarget == $slaves[_lsd].ID>>
-			She has been ordered to serve ''@@.pink;$slaves[_lsd].slaveName<<if $slaves[_lsd].slaveSurname>> $slaves[_lsd].slaveSurname<</if>>@@'' specifically.
+			She has been ordered to serve ''@@.pink;<<SlaveFullName $slaves[_lsd]>>@@'' specifically.
 			<<break>>
 		<</if>>
 	<</for>>
@@ -99,35 +101,36 @@ You order another slave to bring it before your desk so you can inspect it.
 You go down to $dairyName to inspect her heaving body.
 <<else>>
 She comes to you for an inspection
-<<if $activeSlave.assignment == "whore">>
+<<switch $activeSlave.assignment>>
+<<case "whore">>
 	between customers.
-<<elseif $activeSlave.assignment == "serve the public">>
+<<case "serve the public">>
 	from where she was offering herself publicly.
-<<elseif $activeSlave.assignment == "work a glory hole">>
+<<case "work a glory hole">>
 	straight from confinement in a glory hole.
-<<elseif $activeSlave.assignment == "get milked">>
+<<case "get milked">>
 	between milkings.
-<<elseif $activeSlave.assignment == "rest">>
+<<case "rest">>
 	from where she was resting.
-<<elseif $activeSlave.assignment == "please you">>
+<<case "please you">>
 	from where she was offering herself to you.
-<<elseif $activeSlave.assignment == "be a subordinate slave">>
+<<case "be a subordinate slave">>
 	straight from orally servicing another slave.
-<<elseif $activeSlave.assignment == "be a servant">>
+<<case "be a servant">>
 	straight from bathing another slave.
-<<elseif $activeSlave.assignment == "train slaves">>
+<<case "train slaves">>
 	between slave training contracts.
-<<elseif $activeSlave.assignment == "stay confined">>
+<<case "stay confined">>
 	straight from her confinement.
-<<elseif $activeSlave.assignment == "guard you">>
+<<case "guard you">>
 	armed and alert.
-<<elseif $activeSlave.assignment == "recruit girls">>
+<<case "recruit girls">>
 	after she finishes cybering with a prospective recruit.
-<<elseif $activeSlave.assignment == "be your Head Girl">>
+<<case"be your Head Girl">>
 	with updates on your other slaves ready for your review.
-<<else>>
+<<default>>
 	as quickly as she can.
-<</if>>
+<</switch>>
 <</if>>
 
 <<if $activeSlave.sentence > 0>>
@@ -184,15 +187,15 @@ She comes to you for an inspection
 <<if $slaves[_lsd].ID == $activeSlave.relationshipTarget>>
 	She is
 	<<if $activeSlave.relationship <= 1>>
-		@@.lightgreen;friends with $slaves[_lsd].slaveName<<if $slaves[_lsd].slaveSurname>> $slaves[_lsd].slaveSurname<</if>>;@@ the rules <<if $activeSlave.relationshipRules != "restrictive">>encourage<<else>> discourage<</if>> their relationship.
+		''@@.lightgreen;friends with <<SlaveFullName $slaves[_lsd]>>;@@'' the rules <<if $activeSlave.relationshipRules != "restrictive">>encourage<<else>> discourage<</if>> their relationship.
 	<<elseif $activeSlave.relationship <= 2>>
-		@@.lightgreen;best friends with $slaves[_lsd].slaveName<<if $slaves[_lsd].slaveSurname>> $slaves[_lsd].slaveSurname<</if>>;@@ the rules <<if $activeSlave.relationshipRules != "restrictive">>encourage<<else>> discourage<</if>> their close relationship.
+		''@@.lightgreen;best friends with <<SlaveFullName $slaves[_lsd]>>;@@'' the rules <<if $activeSlave.relationshipRules != "restrictive">>encourage<<else>> discourage<</if>> their close relationship.
 	<<elseif $activeSlave.relationship <= 3>>
-		@@.lightgreen;$slaves[_lsd].slaveName<<if $slaves[_lsd].slaveSurname>> $slaves[_lsd].slaveSurname<</if>>'s friend with benefits;@@ the rules <<if $activeSlave.relationshipRules == "permissive">>encourage<<else>> discourage<</if>> their sexual relationship.
+		''@@.lightgreen;<<SlaveFullName $slaves[_lsd]>>'s friend with benefits;@@'' the rules <<if $activeSlave.relationshipRules == "permissive">>encourage<<else>> discourage<</if>> their sexual relationship.
 	<<elseif $activeSlave.relationship <= 4>>
-		@@.lightgreen;$slaves[_lsd].slaveName<<if $slaves[_lsd].slaveSurname>> $slaves[_lsd].slaveSurname<</if>>'s lover;@@ the rules <<if $activeSlave.relationshipRules == "permissive">>encourage<<else>> discourage<</if>> their passionate relationship.
+		''@@.lightgreen;<<SlaveFullName $slaves[_lsd]>>'s lover;@@'' the rules <<if $activeSlave.relationshipRules == "permissive">>encourage<<else>> discourage<</if>> their passionate relationship.
 	<<elseif $slaves[_lsd].relationship > 4>>
-		@@.lightgreen;$slaves[_lsd].slaveName<<if $slaves[_lsd].slaveSurname>> $slaves[_lsd].slaveSurname<</if>>'s slave wife;@@ the rules <<if 		$activeSlave.relationshipRules == "permissive">>encourage<<else>> discourage<</if>> marital bliss.
+		''@@.lightgreen;<<SlaveFullName $slaves[_lsd]>>'s slave wife;@@'' the rules <<if $activeSlave.relationshipRules == "permissive">>encourage<<else>> discourage<</if>> marital bliss.
 	<</if>>
 	<<break>>
 <</if>>
@@ -1108,60 +1111,60 @@ when a dick is pushed inside <<if $activeSlave.vagina >= -1>>either of its lower
 <</if>>
 <</if>>
 
+<<if $familyTesting == 1>>
+
+<<Family>>
+
+<<if $activeSlave.relationship >= 3 && totalRelatives($activeSlave) > 0>>
+	<<set _lover = $slaves.find(function(s) { return s.ID == $activeSlave.relationshipTarget; })>>
+	<<if def _lover>>
+		<<if $activeSlave.mother == _lover.ID>>
+			$pronounCap is in an @@.lightgreen;incestuous relationship with $possessive mother, <<SlaveFullName _lover>>.@@
+		<<elseif $activeSlave.father == _lover.ID>>
+			$pronounCap is in an @@.lightgreen;incestuous relationship with $possessive father, <<SlaveFullName _lover>>.@@
+		<<elseif _lover.mother == $activeSlave.ID || _lover.father == $activeSlave.ID>>
+			$pronounCap is in an @@.lightgreen;incestuous relationship with $possessive daughter, <<SlaveFullName _lover>>.@@
+		<<else>>
+			<<switch areSisters($activeSlave, _lover)>>
+			<<case 1>>
+				$pronounCap is in an @@.lightgreen;incestuous relationship with $possessive twin, <<SlaveFullName _lover>>.@@
+			<<case 2>>
+				$pronounCap is in an @@.lightgreen;incestuous relationship with $possessive sister, <<SlaveFullName _lover>>.@@
+			<<case 3>>
+				$pronounCap is in an @@.lightgreen;incestuous relationship with $possessive half-sister, <<SlaveFullName _lover>>.@@
+			<</switch>>
+		<</if>>
+	<</if>>
+<</if>>
+
+<<else>>
+
 <<if $activeSlave.relation != 0>>
   <<for _lsd = 0; _lsd < $slaves.length; _lsd++>>
 	<<if $slaves[_lsd].ID == $activeSlave.relationTarget>>
 		<<if ($slaves[_lsd].ID == $activeSlave.relationshipTarget) && ($activeSlave.relationship >= 3)>>
-			$pronounCap is @@.lightgreen;
-			<<if $slaves[_lsd].slaveSurname>> 
-				<<set _relationName = ($slaves[_lsd].slaveName + " " + $slaves[_lsd].slaveSurname)>>
-			<<else>> 
-				<<set _relationName = ($slaves[_lsd].slaveName)>>
-			<</if>>
-			<span class=".lightgreen">[[_relationName|Slave Interact][$activeSlave = $slaves[_lsd]]]'s $activeSlave.relation, making their relationship incestuous.@@</span>
+			$pronounCap is @@.lightgreen;<<SlaveFullName $slaves[_lsd]>>'s $activeSlave.relation, making their relationship incestuous.@@
 			<<break>>
 		<<else>>
-			$pronounCap is @@.lightgreen;
-			<<if $slaves[_lsd].slaveSurname>> 
-				<<set _relationName = ($slaves[_lsd].slaveName + " " + $slaves[_lsd].slaveSurname)>>
-			<<else>> 
-				<<set _relationName = ($slaves[_lsd].slaveName)>>
-			<</if>>
-			[[_relationName|Slave Interact][$activeSlave = $slaves[_lsd]]]'s $activeSlave.relation.@@
+			$pronounCap is @@.lightgreen;<<SlaveFullName $slaves[_lsd]>>'s $activeSlave.relation.@@
 			<<break>>
 		<</if>>
 	<</if>>
   <</for>>
 <</if>>
 
+<</if>> /* closes extended family mode */
+
 <<if $activeSlave.rivalry != 0>>
   <<for _lsd = 0; _lsd < $slaves.length; _lsd++>>
 	<<if $slaves[_lsd].ID == $activeSlave.rivalryTarget>>
 		$pronounCap
 		<<if $activeSlave.rivalry <= 1>>
-			@@.lightsalmon;dislikes
-			<<if $slaves[_lsd].slaveSurname>> 
-				<<set _rivalName = ($slaves[_lsd].slaveName + " " + $slaves[_lsd].slaveSurname)>>
-			<<else>> 
-				<<set _rivalName = ($slaves[_lsd].slaveName)>>
-			<</if>>
-			[[_rivalName|Slave Interact][$activeSlave = $slaves[_lsd]]].@@
+			@@.lightsalmon;dislikes@@ <<SlaveFullName $slaves[_lsd]>>.
 		<<elseif $activeSlave.rivalry <= 2>>
-			is @@.lightsalmon;$slaves[_lsd].slaveName
-			<<if $slaves[_lsd].slaveSurname>> 
-				<<set _rivalName = ($slaves[_lsd].slaveName + " " + $slaves[_lsd].slaveSurname)>>
-			<<else>> 
-				<<set _rivalName = ($slaves[_lsd].slaveName)>>
-			<</if>>
-			[[_rivalName|Slave Interact][$activeSlave = $slaves[_lsd]]]'s rival.@@
+			is <<SlaveFullName $slaves[_lsd]>>'s @@.lightsalmon;rival.@@
 		<<else>>
-			@@.lightsalmon;bitterly hates 
-			<<if $slaves[_lsd].slaveSurname>> 
-				<<set _rivalName = ($slaves[_lsd].slaveName + " " + $slaves[_lsd].slaveSurname)>>
-			<<else>> 
-				<<set _rivalName = ($slaves[_lsd].slaveName)>>
-			<</if>>
-			[[_rivalName|Slave Interact][$activeSlave = $slaves[_lsd]]].@@
+			@@.lightsalmon;bitterly hates@@ <<SlaveFullName $slaves[_lsd]>>.
    		<</if>>
 		<<break>>
 	<</if>>
@@ -1634,7 +1637,7 @@ $pronounCap is
 			cheap glasses,
 		<<case "a bunny outfit">>
 			girly retro glasses,
-		<<case "a slutty qipao" "a kimono" "a revealing huipil" "a slutty maid outfit" "a nice maid outfit">>
+		<<case "a slutty qipao" "a kimono" "a huipil" "a slutty maid outfit" "a nice maid outfit">>
 			an old fashioned pair of horn rimmed glasses,
 		<<case "a fallen nuns habit" "a cheerleader outfit" "a slutty nurse outfit">>
 			a daring pair of horn rimmed glasses,
@@ -1800,7 +1803,7 @@ $pronounCap is
 			She's on aphrodisiacs and is allowed to masturbate, so as she obeys your commands she idly rubs her shaft and pussy with one hand while the other pinches a nipple.
 		<<elseif ($activeSlave.releaseRules == "permissive")>>
 			She's on aphrodisiacs and is allowed to masturbate, so as she obeys your commands she idly rubs her pussy with one hand while the other pinches a nipple.
-		<<elseif ($activeSlave.dick != 0) && ($activeSlave.hormones < 1) && ($activeSlave.balls != 0) && ($activeSlave.dickAccessory != "chastity")>>
+		<<elseif ($activeSlave.dick != 0) && canPenetrate($activeSlave)>>
 			She's on aphrodisiacs and is not allowed to masturbate, so as she obeys your commands she shifts her weight uncomfortably. Her erect dick sways as she does.
 		<<else>>
 			She's on aphrodisiacs and is not allowed to masturbate, so as she obeys your commands she shifts her weight uncomfortably.

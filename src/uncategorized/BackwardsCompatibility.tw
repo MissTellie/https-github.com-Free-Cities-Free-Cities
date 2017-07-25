@@ -118,6 +118,21 @@
 	<<unset $modestClothes>>
 <</if>>
 
+<<if ndef $familyTesting>>
+	<<set $familyTesting = 0>>
+<</if>>
+<<if ndef $toysBoughtDildos>>
+	<<set $toysBoughtDildos = 0>>
+<</if>>
+<<if ndef $toysBoughtGags>>
+	<<set $toysBoughtGags = 0>>
+<</if>>
+<<if ndef $toysBoughtButtPlugs>>
+	<<set $toysBoughtButtPlugs = 0>>
+<</if>>
+<<if ndef $toysBoughtButtPlugTails>>
+	<<set $toysBoughtButtPlugTails = 0>>
+<</if>>
 <<if ndef $arcologies[0].FSAztecRevivalist>>
 	<<for _bci = 0; _bci < $arcologies.length; _bci++>>
 		<<set $arcologies[_bci].FSAztecRevivalist = "unset", $arcologies[_bci].FSAztecRevivalistDecoration = 0>>
@@ -1081,7 +1096,7 @@ Setting missing global variables:
 
 <<if ndef $researchLab>>
 	<<set $researchLab = {}>>
-	<<set $researchLab.built = 0>>
+	<<set $researchLab.built = "false">>
 <</if>>
 
 <<if ndef $TSS>>
@@ -1244,7 +1259,7 @@ Setting missing global variables:
 <</if>>
 
 <<if ndef $justiceEvents>>
-	<<set $justiceEvents to ["slave deal", "slave training", "majority deal", "indenture deal", "virginity deal"]>>
+	<<set $justiceEvents = ["slave deal", "slave training", "majority deal", "indenture deal", "virginity deal"]>>
 <</if>>
 
 <<if ($ver.includes("0.6") == true) || ($ver.includes("0.7") == true) || ($ver.includes("0.8") == true) || ($ver == "0.9")>>
@@ -1299,6 +1314,25 @@ Setting missing slave variables:
 <<for _bci = 0; _bci < $slaves.length; _bci++>>
 <<set _Slave = $slaves[_bci]>>
 
+<<if ndef _Slave.mother>>
+	<<set _Slave.mother = 0>>
+<</if>>
+<<if ndef _Slave.father>>
+	<<set _Slave.father = 0>>
+<</if>>
+<<if ndef _Slave.sisters>>
+	<<set _Slave.sisters = 0>>
+<</if>>
+<<if ndef _Slave.daughters>>
+	<<set _Slave.daughters = 0>>
+<</if>>
+<<if ndef _Slave.canRecruit>>
+	<<set _Slave.canRecruit = 0>>
+<</if>>
+<<if ndef _Slave.buttplugAttachment>>
+	<<set _Slave.buttplugAttachment = "none">>
+<</if>>
+
 <<if _Slave.race == "southern European">>
 	<<set _Slave.race = "southern european">>
 <</if>>
@@ -1340,6 +1374,14 @@ Setting missing slave variables:
 <</if>>
 <<if ndef _Slave.rudeTitle>>
 	<<set _Slave.rudeTitle = 0>>
+<</if>>
+
+<<if ndef _Slave.genes>>
+	<<if _Slave.ovaries == 1>>
+		<<set _Slave.genes = "XX">>
+	<<else>>
+		<<set _Slave.genes = "XY">>
+	<</if>>
 <</if>>
 
 <<if $releaseID < 1000>>
@@ -1615,7 +1657,7 @@ Setting missing slave variables:
 		<<set _Slave.lips = 85>>
 	<<elseif _Slave.lips == 2>>
 		<<set _Slave.lips = 55>>
-	<<else>>
+	<<elseif _Slave.lips == 1>>
 		<<set _Slave.lips = 35>>
 	<</if>>
 	<</if>>

@@ -70,55 +70,115 @@
 	$HeadGirl.slaveName @@.lightgreen;resolves the rivalry@@ between her and $slaves[$i].slaveName, mostly by the expedient of punishing $slaves[$i].slaveName savagely whenever she gives any trouble.
 	<<set $HeadGirl.rivalry = 0, $HeadGirl.rivalryTarget = 0, $slaves[$i].rivalry = 0, $slaves[$i].rivalryTarget = 0>>
 <<elseif ($HeadGirl.relationship == 0)>>
-	<<if $slaves[$i].relation != 0 && $slaves[$i].relationTarget == $HeadGirl.ID>>
-		$HeadGirl.slaveName
-		<<if $HeadGirl.devotion > 95>>
-			is so inured to the perversities of slavery that she @@.hotpink;enjoys@@ the prospect of sexual service from her
-			<<set $HeadGirl.devotion += 1>>
-		<<elseif $HeadGirl.devotion > 60>>
-			is so devoted to you that she accepts the prospect of sexual service from her
-		<<else>>
-			is somewhat @@.mediumorchid;disturbed@@ by the prospect of sexual service from her
-			<<set $HeadGirl.devotion -= 2>>
+	<<if $familyTesting == 1>>
+		<<if $slaves[$i].mother == $HeadGirl.ID || $slaves[$i].father == $HeadGirl.ID || $slaves[$i].ID == $HeadGirl.mother || $slaves[$i].ID == $HeadGirl.father || areSisters($HeadGirl, $slaves[$i]) > 0>>
+			$HeadGirl.slaveName
+			<<if $HeadGirl.devotion > 95>>
+				is so inured to the perversities of slavery that she @@.hotpink;enjoys@@ the prospect of sexual service from her
+				<<set $HeadGirl.devotion += 1>>
+			<<elseif $HeadGirl.devotion > 60>>
+				is so devoted to you that she accepts the prospect of sexual service from her
+			<<else>>
+				is somewhat @@.mediumorchid;disturbed@@ by the prospect of sexual service from her
+				<<set $HeadGirl.devotion -= 2>>
+			<</if>>
+			<<if $slaves[$i].mother == $HeadGirl.ID || $slaves[$i].father == $HeadGirl.ID>>
+				daughter.
+			<<elseif $HeadGirl.mother == $slaves[$i].ID>>
+				mother.
+			<<elseif $HeadGirl.father == $slaves[$i].ID>>
+				father.
+			<<else>>
+				<<switch areSisters($HeadGirl, $slaves[$i])>>
+				<<case 1>>twin.
+				<<case 2>>sister.
+				<<case 3>>half-sister.
+				<</switch>>
+			<</if>>
+			$slaves[$i].slaveName
+			<<if $slaves[$i].devotion > 95>>
+				is so inured to the perversities of slavery that she @@.hotpink;enjoys@@ the prospect of sexually servicing her
+				<<set $slaves[$i].devotion += 1>>
+			<<elseif $slaves[$i].devotion > 60>>
+				is so devoted to you that she accepts the prospect of sexually servicing her
+			<<elseif $slaves[$i].devotion > 40>>
+				is somewhat @@.mediumorchid;disturbed@@ by the prospect of sexually servicing her
+				<<set $slaves[$i].devotion -= 2>>
+			<<elseif $slaves[$i].devotion > 20>>
+				is @@.mediumorchid;disturbed@@ by the prospect of sexually servicing her
+				<<set $slaves[$i].devotion -= 4>>
+			<<elseif $slaves[$i].devotion >= -20>>
+				is @@.mediumorchid;strongly disturbed@@ by the prospect of sexually servicing her
+				<<set $slaves[$i].devotion -= 5>>
+			<<else>>
+				is @@.mediumorchid;revolted@@ by the prospect of sexually servicing her
+				<<set $slaves[$i].devotion -= 10>>
+			<</if>>
+			<<if $HeadGirl.mother == $slaves[$i].ID || $HeadGirl.father == $slaves[$i].ID>>
+				daughter.
+			<<elseif $slaves[$i].mother == $HeadGirl.ID>>
+				mother.
+			<<elseif $slaves[$i].father == $HeadGirl.ID>>
+				father.
+			<<else>>
+				<<switch areSisters($HeadGirl, $slaves[$i])>>
+				<<case 1>>twin.
+				<<case 2>>sister.
+				<<case 3>>half-sister.
+				<</switch>>
+			<</if>>
 		<</if>>
-		<<if $HeadGirl.relation == "twin">>
-			twin.
-		<<elseif $HeadGirl.relation == "sister">>
-			sister.
-		<<elseif $HeadGirl.relation == "mother">>
-			daughter.
-		<<elseif $HeadGirl.relation == "daughter">>
-			mother.
+	<<else>>
+		<<if $slaves[$i].relation != 0 && $slaves[$i].relationTarget == $HeadGirl.ID>>
+			$HeadGirl.slaveName
+			<<if $HeadGirl.devotion > 95>>
+				is so inured to the perversities of slavery that she @@.hotpink;enjoys@@ the prospect of sexual service from her
+				<<set $HeadGirl.devotion += 1>>
+			<<elseif $HeadGirl.devotion > 60>>
+				is so devoted to you that she accepts the prospect of sexual service from her
+			<<else>>
+				is somewhat @@.mediumorchid;disturbed@@ by the prospect of sexual service from her
+				<<set $HeadGirl.devotion -= 2>>
+			<</if>>
+			<<if $HeadGirl.relation == "twin">>
+				twin.
+			<<elseif $HeadGirl.relation == "sister">>
+				sister.
+			<<elseif $HeadGirl.relation == "mother">>
+				daughter.
+			<<elseif $HeadGirl.relation == "daughter">>
+				mother.
+			<</if>>
+			$slaves[$i].slaveName
+			<<if $slaves[$i].devotion > 95>>
+				is so inured to the perversities of slavery that she @@.hotpink;enjoys@@ the prospect of sexually servicing her
+				<<set $slaves[$i].devotion += 1>>
+			<<elseif $slaves[$i].devotion > 60>>
+				is so devoted to you that she accepts the prospect of sexually servicing her
+			<<elseif $slaves[$i].devotion > 40>>
+				is somewhat @@.mediumorchid;disturbed@@ by the prospect of sexually servicing her
+				<<set $slaves[$i].devotion -= 2>>
+			<<elseif $slaves[$i].devotion > 20>>
+				is @@.mediumorchid;disturbed@@ by the prospect of sexually servicing her
+				<<set $slaves[$i].devotion -= 4>>
+			<<elseif $slaves[$i].devotion >= -20>>
+				is @@.mediumorchid;strongly disturbed@@ by the prospect of sexually servicing her
+				<<set $slaves[$i].devotion -= 5>>
+			<<else>>
+				is @@.mediumorchid;revolted@@ by the prospect of sexually servicing her
+				<<set $slaves[$i].devotion -= 10>>
+			<</if>>
+			<<if $slaves[$i].relation == "twin">>
+				twin.
+			<<elseif $slaves[$i].relation == "sister">>
+				sister.
+			<<elseif $slaves[$i].relation == "mother">>
+				daughter.
+			<<elseif $slaves[$i].relation == "daughter">>
+				mother.
+			<</if>>
 		<</if>>
-		$slaves[$i].slaveName
-		<<if $slaves[$i].devotion > 95>>
-			is so inured to the perversities of slavery that she @@.hotpink;enjoys@@ the prospect of sexually servicing her
-			<<set $slaves[$i].devotion += 1>>
-		<<elseif $slaves[$i].devotion > 60>>
-			is so devoted to you that she accepts the prospect of sexually servicing her
-		<<elseif $slaves[$i].devotion > 40>>
-			is somewhat @@.mediumorchid;disturbed@@ by the prospect of sexually servicing her
-			<<set $slaves[$i].devotion -= 2>>
-		<<elseif $slaves[$i].devotion > 20>>
-			is @@.mediumorchid;disturbed@@ by the prospect of sexually servicing her
-			<<set $slaves[$i].devotion -= 4>>
-		<<elseif $slaves[$i].devotion >= -20>>
-			is @@.mediumorchid;strongly disturbed@@ by the prospect of sexually servicing her
-			<<set $slaves[$i].devotion -= 5>>
-		<<else>>
-			is @@.mediumorchid;revolted@@ by the prospect of sexually servicing her
-			<<set $slaves[$i].devotion -= 10>>
-		<</if>>
-		<<if $slaves[$i].relation == "twin">>
-			twin.
-		<<elseif $slaves[$i].relation == "sister">>
-			sister.
-		<<elseif $slaves[$i].relation == "mother">>
-			daughter.
-		<<elseif $slaves[$i].relation == "daughter">>
-			mother.
-		<</if>>
-	<</if>>
+	<</if>> /*closes extended family mode */
 	<<if ($slaves[$i].relationship == 0) && ($slaves[$i].devotion > 20)>>
 		$slaves[$i].slaveName sees $HeadGirl.slaveName constantly, and does her best to @@.lightgreen;become her friend.@@
 		<<set $HeadGirl.relationship = 1, $HeadGirl.relationshipTarget = $slaves[$i].ID, $slaves[$i].relationship = 1, $slaves[$i].relationshipTarget = $HeadGirl.ID>>
@@ -440,7 +500,7 @@
 		<<elseif canDoAnal($slaves[$i])>>
 			<<set $slaves[$i].analCount += 3, $analTotal += 3>>
 		<<elseif $slaves[$i] >= 300>>
-					<<set $slaves[$i].mammaryCount += 3, $mammaryTotal += 3>>
+			<<set $slaves[$i].mammaryCount += 3, $mammaryTotal += 3>>
 		<<else>>
 			<<set $slaves[$i].oralCount += 3, $oralTotal += 3>>
 		<</if>>

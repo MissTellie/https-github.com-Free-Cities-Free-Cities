@@ -464,9 +464,7 @@ possible societal customizations.
 	<br>
 	<<link "Rename all your slaves according to Degradationist custom">>
 	<<for $i = 0; $i < $slaves.length; $i++>>
-		<<set $activeSlave = $slaves[$i]>>
-		<<DegradingName $activeSlave>>
-		<<set $slaves[$i] = $activeSlave>>
+		<<DegradingName $slaves[$i]>>
 	<</for>>
 	<<replace "#mass">>
 		<br>Slaves renamed.<br>
@@ -1832,7 +1830,7 @@ possible societal customizations.
 <<elseif ($arcologies[0].FSYouthPreferentialist == "unset") && ($dairyDecoration == "Youth Preferentialist")>>
 	<<set $dairyDecoration = "standard">>
 <<elseif ($arcologies[0].FSMaturityPreferentialist == "unset") && ($dairyDecoration == "Maturity Preferentialist")>>
-	<<set $clubDecoration = "standard">>
+	<<set $dairyDecoration = "standard">>
 <<elseif ($arcologies[0].FSSlimnessEnthusiast == "unset") && ($dairyDecoration == "Slimness Enthusiast")>>
 	<<set $dairyDecoration = "standard">>
 <<elseif ($arcologies[0].FSAssetExpansionist == "unset") && ($dairyDecoration == "Asset Expansionist")>>
