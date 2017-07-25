@@ -425,13 +425,13 @@ Clothes: ''<span id="clothes">$activeSlave.clothes</span>.''
 <br>Torso accessory: ''<span id="bellyAccessory">$activeSlave.bellyAccessory</span>.''
 
 
-<span id="bellyAccessoryDescription"><br>//<<clothingCorsetDescription>><<CorsetPiercingDescription>>//</span>
+<span id="bellyAccessoryDescription">//<<if $activeSlave.bellyAccessory != "none">><br><</if>><<clothingCorsetDescription>><<CorsetPiercingDescription>>//</span>
 <br>
 	
 <<link "None">>
 	<<set $activeSlave.bellyAccessory = "none">>
 	<<replace "#bellyAccessory">>$activeSlave.bellyAccessory<</replace>>
-	<<replace "#bellyAccessoryDescription">><br>//<<clothingCorsetDescription>><<CorsetPiercingDescription>>//<</replace>>
+	<<replace "#bellyAccessoryDescription">>//<<clothingCorsetDescription>><<CorsetPiercingDescription>>//<</replace>>
 <</link>>
 | <<link "Tight corset">>
 	<<set $activeSlave.bellyAccessory = "a corset">>
@@ -468,12 +468,8 @@ Clothes: ''<span id="clothes">$activeSlave.clothes</span>.''
 
 <br><br>
 Anal accessory: ''<span id="buttplug">$activeSlave.buttplug</span>.''
-
-<<if $activeSlave.buttplug != "none">>
-	<br>
-	<span id="buttplugDescription">//<<buttplugDescription>>//</span>
-<</if>>
-
+<br>
+<span id="buttplugDescription">//<<buttplugDescription>>//</span>
 <br>
 	
 <<link "None">>
