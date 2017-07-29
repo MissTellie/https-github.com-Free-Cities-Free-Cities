@@ -967,11 +967,10 @@ $possessiveCap
 
 <<nipplesPiercingDescription>>
 <<boobsTatDescription>>
-<<if $activeSlave.fuckdoll != 0>>
+<<if $activeSlave.fuckdoll == 0>>
 	<<if ($activeSlave.brand != 0) && (($activeSlave.brandLocation == "left breast") || ($activeSlave.brandLocation == "right breast") || ($activeSlave.brandLocation == "breasts"))>>
-		$pronounCap has $activeSlave.brand branded into the flesh of one of $possessive $activeSlave.brandLocation.
-	<</if>>
-	
+		<<brandDescription>>
+	<</if>>	
 <</if>>
 <</if>>
 
@@ -2638,7 +2637,7 @@ $pronounCap's got a
 <<if $showBodyMods == 1>>
 	<<if ($activeSlave.brand != 0)>>
 	<<if ($activeSlave.brandLocation == "pubic mound")>>
-		$pronounCap has $activeSlave.brand branded into the flesh of $possessive $activeSlave.brandLocation.
+		<<brandDescription>>
 	<</if>>
 	<</if>>
 <</if>>
@@ -4024,18 +4023,9 @@ $pronounCap has
 		<<case "a small empathy belly">>
 			$pronounCap is wearing a carefully sculpted silicone belly modeled after a pregnant woman in $possessive first trimester.
 		<</switch>>
-		<<if $showBodyMods == 1>>
+		<<if ($showBodyMods == 1) && ($activeSlave.brandLocation == "belly")>>
 			<<navelPiercingDescription>>
-			<<if ($activeSlave.brand != 0) && ($activeSlave.brandLocation == "belly")>>
-				$possessiveCap fake belly has $activeSlave.brand branded on it.
-			<</if>>
-		<</if>>
-	<<else>>
-		<<if $showBodyMods == 1>>
-			<<navelPiercingDescription>>
-			<<if ($activeSlave.brand != 0) && ($activeSlave.brandLocation == "belly")>>
-				$pronounCap has $activeSlave.brand branded into the flesh of $possessive $activeSlave.brandLocation.
-			<</if>>
+			<<brandDescription>>
 		<</if>>
 	<</if>>
 <<elseif $showBodyMods == 1>>
