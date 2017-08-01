@@ -1,8 +1,8 @@
-:: Sell Slave
+:: Sell Slave [nobr]
 
-<<set $nextButton = "Back">>\
-<<set $nextLink = "Slave Interact">>\
-<<nobr>>
+<<set $nextButton = "Back">>
+<<set $nextLink = "Slave Interact">>
+
 You prepare her for sale. Her response to being put up for purchase is
 <<if $activeSlave.devotion < -50>>muted; perhaps she hopes a new master will be less hateful than you.
 <<elseif $activeSlave.devotion < -20>>muted weeping; for some reason, she doesn't like being treated like meat on a slab.
@@ -474,10 +474,10 @@ A reputable slave appraiser arrives promptly to inspect her and certify her qual
 
 <</if>> /* CLOSES APPRAISAL */
 
-<</nobr>>
+<br><br>
 
-__Bids Received__\
-<<nobr>>
+__Bids Received__
+<br>
 
 <<set $buyer = 0>>
 <<set $seed = 500*Math.trunc(($slaveCost*1.15)/500)>>
@@ -1453,6 +1453,50 @@ __Bids Received__\
 	<</if>>
 <</if>>
 
+<<if $plot>>
+<<if $peacekeepers>>
+<<if $peacekeepers.strength >= 50>>
+<<if $peacekeepers.attitude < 100>>
+	<<if $activeSlave.oralSkill + $activeSlave.analSkill + $activeSlave.vaginalSkill > 100>>
+		<br>''¤<<print 500*Math.trunc(($slaveCost*0.5)/500)>>'' from the officer in charge of 'recreational activities' for General $peacekeepers.generalName's forces. This is far less than the slave is worth, but the bid comes with the implicit offer of more influence over the peacekeepers.
+		<<link "Accept bid">>
+			<<set $cash += 500*Math.trunc(($slaveCost*0.5)/500), $buyer = "peacekeepers">>
+			<<goto "Slave Sold">>
+		<</link>>
+	<</if>>
+<<else>>
+	<<switch $peacekeepers.tastes>>
+	<<case "lusty futanari">>
+		<<if $activeSlave.fetish == $activeSlave.balls > 0 && $activeSlave.scrotum > 0 && $activeSlave.dick > 0 && $activeSlave.vagina > -1 && $activeSlave.energy > 50>>
+			<br>''¤<<print 500*Math.trunc(($slaveCost*1.2)/500)>>'' from the sex slave buyer for General $peacekeepers.generalName's client state, which prefers $peacekeepers.tastes.
+			<<link "Accept bid">><<set $cash += 500*Math.trunc(($slaveCost*1.2)/500), $buyer = "peacekeepers">><<goto "Slave Sold">><</link>>
+		<</if>>
+	<<case "cum addicts">>
+		<<if $activeSlave.fetish == "cumslut" && $activeSlave.fetishStrength > 95 && $activeSlave.sexualFlaw == "cum addict">>
+			<br>''¤<<print 500*Math.trunc(($slaveCost*1.2)/500)>>'' from the sex slave buyer for General $peacekeepers.generalName's client state, which prefers $peacekeepers.tastes.
+			<<link "Accept bid">><<set $cash += 500*Math.trunc(($slaveCost*1.2)/500), $buyer = "peacekeepers">><<goto "Slave Sold">><</link>>
+		<</if>>
+	<<case "horny MILFs">>
+		<<if $activeSlave.age > 34 && $activeSlave.energy > 80>>
+			<br>''¤<<print 500*Math.trunc(($slaveCost*1.2)/500)>>'' from the sex slave buyer for General $peacekeepers.generalName's client state, which prefers $peacekeepers.tastes.
+			<<link "Accept bid">><<set $cash += 500*Math.trunc(($slaveCost*1.2)/500), $buyer = "peacekeepers">><<goto "Slave Sold">><</link>>
+		<</if>>
+	<<case "big-breasted cows">>
+		<<if $activeSlave.boobs > 2000 && $activeSlave.lactation > 1>>
+			<br>''¤<<print 500*Math.trunc(($slaveCost*1.2)/500)>>'' from the sex slave buyer for General $peacekeepers.generalName's client state, which prefers $peacekeepers.tastes.
+			<<link "Accept bid">><<set $cash += 500*Math.trunc(($slaveCost*1.2)/500), $buyer = "peacekeepers">><<goto "Slave Sold">><</link>>
+		<</if>>
+	<<case "beautiful young sex slaves">>
+		<<if $activeSlave.age < 25 && $activeSlave.face > 95>>
+			<br>''¤<<print 500*Math.trunc(($slaveCost*1.2)/500)>>'' from the sex slave buyer for General $peacekeepers.generalName's client state, which prefers $peacekeepers.tastes.
+			<<link "Accept bid">><<set $cash += 500*Math.trunc(($slaveCost*1.2)/500), $buyer = "peacekeepers">><<goto "Slave Sold">><</link>>
+		<</if>>
+	<</switch>>
+<</if>>
+<</if>>
+<</if>>
+<</if>>
+
 <br>
 <br>
 <<link "Re-list her">>
@@ -1460,5 +1504,3 @@ __Bids Received__\
 	<<goto "Sell Slave">>
 <</link>>
 //This will cost ¤500//
-
-<</nobr>>

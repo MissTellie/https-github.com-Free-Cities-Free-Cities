@@ -2,51 +2,45 @@
 
 <<set $nextButton = "Continue", $nextLink = "Random Nonindividual Event">>
 
-<<set $peacekeepers.undermining = 0>>
+<<set $peacekeepers.strength = -10>>
 
-General $peacekeepers.generalName's peacekeeping force has stabilized the neighboring region somewhat. True to his word, the general has indeed concentrated on his peacekeeping mandate, and hasn't done anything that might be construed as a move against the Free City or its interests. There are somewhat fewer refugees available from that area, and it's a less complete refuge for bad actors, but other than that, there hasn't been much reason for you to take notice. Until today, when General $peacekeepers.generalName gives you a call.
-
-<br><br>
-
-It's a video link, and the general is in the field somewhere, wearing scuffed armor with his insignia of rank on the neck protector. He looks tired, and stress worse than simple fatigue is etched on his face, but he looks at you directly and gets on with it. "$PC.name<<if $PC.surname>> $PC.surname<</if>>," he says, "to start, I'd like to assure you this is a secure line from my end. We rely on structural security more than you in the Free Cities, with your cutting-edge computing power, but it's effective." He's in what looks like a field command post, in what's almost certainly an improvised secure communications booth. "The situation is this," he explains. "I have two problems, and I hope you may be able to solve them both at once in a way that will be beneficial to you."
+General $peacekeepers.generalName contacts you again, looking more tired and battered than ever. There's a strange light in his eyes, though, as though he's resolved to make a big bet. And once he starts speaking, it turns out that he is. "$PC.name<<if $PC.surname>> $PC.surname<</if>>," he says, "<<if $peacekeepers.attitude > 10>>you've been supportive of my peacekeeping mission here in the past<<else>>I understand your attitude towards my peacekeeping mission here must be mixed<</if>>. But all that's about to change." He straightens up, falling back on a military bearing. "The support - funding, supply, everything - for my men and women here is ending, effective now. Right now, in fact. I'm not sure how I'm going to get everyone home." He looks through the video feed at you.
 
 <br><br>
 
-"First," he says sharply, "I'm not getting the support I need out here." It obviously pains him to admit this, and the muscles along his jaw tense as he does, as though he's chewing on the words. "And I'm not giving anything away by telling you that. It's obvious enough, if you compare what I'm being asked to do here with the resources the politicians back home are willing to provide." At this, $assistantName displays a quick summary of the political developments in the general's home country. He's right; the expensive peacekeeping force is unpopular, and its support is being reduced by opportunistic politicans. "It isn't bad yet," he says, "but if this keeps up, I'm going to be rationing the most modern medical supplies for my wounded men and women. That's hard."
+"If we're going home."
 
 <br><br>
 
-"And second," he continues, "I'm having difficulty housing the prisoners we're taking. We're the only functioning law and order in this area, and in order to keep control I'm having to lock up everyone from armed bandits to petty looters. I don't have the resources to imprison them decently. I'm already getting flak about conditions in our main prison camp, here." He arches an eyebrow. "Some people back home seem to care more about keeping prisoners comfortable than they care about getting my wounded men and women the best possible care. And I can't just reduce the prisoner population, either. There are too many of them. Word would get out, and there'd be hell to pay back home."
+"The world's changed," he continues. "Or maybe it's gone back to the way it used to be. There's nothing for my people back home but discharge and unemployment. If they're lucky. It's too much to ask good men and women, good, armed, men and women, to do that. Not when we already control what used to be a nation, right here." He gestures around him, probably indicating maps you can't see. "We're already the government here. It's a battered, war-torn country, but it's a country. If I start levying taxes here, it'll keep my men and women fed. And clothed. And in something like the status they deserve." And, he does not need to add, General $peacekeepers.generalName will be a powerful warlord.
 
 <br><br>
 
-The singular solution to the two problems is obvious. It's equally obvious that General $peacekeepers.generalName isn't going to be the one to propose it. He's not stupid.
+"But," he says. "But. This is going to be difficult. I can't be sure I'll succeed. As for me, I'd take the chance and be damned, just for the chance to tell the politicans back home what they can do with their orders. But there's my men and women. They'll do what I ask, but I won't ask it of them without a good, solid chance." His eyes narrow. "I need funding, and I need it now. I can't offer anything in return, not right away. But I pay my debts. And we'll be a buffer between external threats and the Free City. And finally, any resentment about old world power in the area among your people will be wiped away overnight."
 
 <br><br>
 <span id="result">
-<<if $cash >= 100000>>
-	<<link "Offer to assist">>
-		<<replace "#result">>
-			Understanding that the general needs to couch the situation in a way he can justify in public, and perhaps in a way he can justify to himself, you offer to house the prisoners on a contract basis, with immediate payment to the general so he can meet his forces' immediate needs. Naturally, the prisoners will be kept busy while you keep them; menial labor seems appropriate. It's unlikely that the situation will ever stabilize to the point where they can be released, so for safety, they should all be detained indefinitely. And of course, each prisoner's individual detention will be available for resale. Just like any other slave's.
-			<br><br>
-			The general is unable to keep from smiling slightly when he hears that you understand perfectly and are willing and able to assist. There's some bitterness there, but not much. The two of you adjust the terms. The new menial slaves will be delivered immediately, several hundred of them; the general prefers to have this be a one-time transfer. After all, having an ongoing prisoner pipeline between his prisoner pens and the Free City might draw unwanted political attention. For now, he has the funds he needs, not to mention an empty prison camp.
-			<<set $peacekeepers.attitude += 5, $cash -= 100000, $helots += 200>>
-		<</replace>>
-	<</link>> //This will cost ¤100000 and provide a number of menial slaves//
-<<else>>
-	//You lack the funds to buy the prisoners.//
-<</if>>
-<br><<link "Connect the general with Free Cities pharmaceutical sources">>
+<<link "Provide immediate assistance">>
 	<<replace "#result">>
-		<<if $cash < 100000>>Unfortunately, you lack the funds to buy the prisoners.<</if>>
-		It would be very expensive to provide the general with the kind of money necessary to make a difference in the medical supply situation of a military force sufficient to keep what used to be a small country pacified. You express your regrets at your inability to help directly. You offer to connect the general with Free Cities pharmaceutical resources that will probably be able to get him what his infirmaries need at a lower price. "Interesting," he says, considering the offer. "The usual providers at home will scream bloody murder when it gets out. But it's a good idea," he admits. "Though that does nothing for the prison camps." Part of his reluctance is probably due to an unspoken hesitation to do business with the Free Cities directly. But he's coming around.
-		<<set $peacekeepers.attitude += 5>>
+		You immediately wire General $peacekeepers.generalName ¤50000, not an impressive sum by Free Cities standards, but probably enough to turn the scales in his plans to keep his force together as it transitions from old world peacekeeping to autocratic nation building. Soon enough, he'll be able to support his men and women through armed extortion, the original form of taxation and, arguably, the only form of taxation.
+		<br><br>
+		"You have my thanks," he says formally. "We'll be in control here soon enough. The one thing we'll have an almost limitless supply of is people. I don't think anyone's likely to notice a few menial slaves transferred into the Free City. I'm sure a regular trade already exists; we'll just be adding a few undesirables to it." He ends the call, looking determined. Despite his confidence, he has his work cut out for him.
+		<<set $cash -= 100000, $peacekeepers.strength = 50, $peacekeepers.attitude += 5, $peacekeepers.undermining = 0>>
 	<</replace>>
-<</link>>
-<br><<link "Tell him his situation is untenable">>
+<</link>> //This will cost ¤100000//
+<<if $cash >= 100000>>
+	<<link "Deliver generous aid">>
+		<<replace "#result">>
+			You immediately wire General $peacekeepers.generalName ¤100000, enough to keep his force together through the critical period as it transitions from old world peacekeeping to autocratic nation building. Soon enough, he'll be able to support his men and women through armed extortion, the original form of taxation and, arguably, the only form of taxation.
+			<br><br>
+			"That's extremely generous of you," he says, with an undertone of relief. "This is going to go much more smoothly than I'd originally thought. And I see that we're going to have friends and allies out here, as we establish ourselves. We're going to have quite a few undesirables to rid ourselves of, here, and the menial slave trade between this area and the Free City seems like an opportune way to do that." He ends the call, looking confident.
+			<<set $cash -= 250000, $peacekeepers.strength = 50, $peacekeepers.attitude += 25, $peacekeepers.undermining = 0>>
+		<</replace>>
+	<</link>> //This will cost ¤250000//
+<</if>>
+<br><<link "Decline to support him">>
 	<<replace "#result">>
-		You decide to use this as an object lesson in the limits of old world power projection, and tell his situation is untenable and that he should withdraw. If he doesn't have the policial firepower necessary to get proper support and supply, he's better off cutting his losses. "That's not for you to say," he responds bitterly. "And that's not for me to say, either. I still go where I'm told and do what I'm told. Thank you for your time." He ends the call brusquely. Word of your verbal defense of the Free City's sphere of influence gets around, @@.green;greatly improving your reputation.@@
-		<<set $peacekeepers.attitude -= 10, $rep += 500>>
+		You inform General $peacekeepers.generalName that you will not be providing assistance. He does not falter, but he looks suddenly older, as thought he prospect of a decisive stroke was giving him the strength to carry on. He expresses his regrets dully, and then ends the call.
 	<</replace>>
 <</link>>
 </span>
