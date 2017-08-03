@@ -44,7 +44,7 @@ $possessiveCap face
 <<elseif $activeSlave.faceImplant > 1>>
 	has been totally reworked.
 <</if>>
-
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
 <<if $activeSlave.indentureRestrictions >= 2>>
 	//$possessiveCap indenture forbids elective surgery//
 <<elseif (($activeSlave.faceImplant < 2) || ($surgeryUpgrade == 1)) && ($activeSlave.face <= 95)>>
@@ -181,38 +181,44 @@ $pronounCap has
 <br>&nbsp;&nbsp;&nbsp;&nbsp;
 <<switch $activeSlave.teeth>>
 <<case "crooked">>
-	$pronounCap has crooked teeth.
+	$pronounCap has crooked teeth.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	[[Apply braces|Surgery Degradation][$activeSlave.teeth = "straightening braces",$cash -= $surgeryCost,$surgeryType = "braces"]]
 	<<if ($seeExtreme == 1) && ($activeSlave.indentureRestrictions < 1)>>
-	| [[Replace them with removable prosthetics|Surgery Degradation][$activeSlave.teeth = "removable",$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "teeth"]] | [[Replace them with sharp teeth|Surgery Degradation][$activeSlave.teeth = "pointy",$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "sharp"]]
+	| [[Replace them with removable prosthetics|Surgery Degradation][$activeSlave.teeth = "removable",$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "teeth"]]
+	| [[Replace them with sharp teeth|Surgery Degradation][$activeSlave.teeth = "pointy",$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "sharp"]]
 	<</if>>
 <<case "straightening braces">>
-	$possessiveCap crooked teeth are in braces.
+	$possessiveCap crooked teeth are in braces.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	[[Remove braces|Remote Surgery][$activeSlave.teeth = "crooked"]]
 	<<if ($seeExtreme == 1) && ($activeSlave.indentureRestrictions < 1)>>
-	| [[Replace them with removable prosthetics|Surgery Degradation][$activeSlave.teeth = "removable",$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "teeth"]] | [[Replace them with sharp teeth|Surgery Degradation][$activeSlave.teeth = "pointy",$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "sharp"]]
+	| [[Replace them with removable prosthetics|Surgery Degradation][$activeSlave.teeth = "removable",$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "teeth"]]
+	| [[Replace them with sharp teeth|Surgery Degradation][$activeSlave.teeth = "pointy",$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "sharp"]]
 	<</if>>
 <<case "cosmetic braces">>
-	$pronounCap has braces on $possessive straight teeth.
+	$pronounCap has braces on $possessive straight teeth.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	[[Remove braces|Remote Surgery][$activeSlave.teeth = "normal"]]
 	<<if ($seeExtreme == 1) && ($activeSlave.indentureRestrictions < 1)>>
-	| [[Replace them with removable prosthetics|Surgery Degradation][$activeSlave.teeth = "removable",$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "teeth"]] | [[Replace them with sharp teeth|Surgery Degradation][$activeSlave.teeth = "pointy",$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "sharp"]]
+	| [[Replace them with removable prosthetics|Surgery Degradation][$activeSlave.teeth = "removable",$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "teeth"]]
+	| [[Replace them with sharp teeth|Surgery Degradation][$activeSlave.teeth = "pointy",$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "sharp"]]
 	<</if>>
 <<case "removable">>
-	$pronounCap has prosthetic teeth that can be removed for extreme oral sex.
+	$pronounCap has prosthetic teeth that can be removed for extreme oral sex.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	<<if ($seeExtreme == 1) && ($activeSlave.indentureRestrictions < 1)>>
-	[[Replace them with sharp teeth|Surgery Degradation][$activeSlave.teeth = "pointy",$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "sharp"]] | [[Normal dental implants|Surgery Degradation][$activeSlave.teeth = 0,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "oral"]]
+	[[Replace them with sharp teeth|Surgery Degradation][$activeSlave.teeth = "pointy",$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "sharp"]]
+	| [[Normal dental implants|Surgery Degradation][$activeSlave.teeth = 0,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "oral"]]
 	<</if>>
 <<case "pointy">>
-	$possessiveCap teeth have been replaced with sturdy, realistic implants that mimic the dentition of a predator.
+	$possessiveCap teeth have been replaced with sturdy, realistic implants that mimic the dentition of a predator.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	<<if ($seeExtreme == 1) && ($activeSlave.indentureRestrictions < 1)>>
-	[[Replace them with removable prosthetics|Surgery Degradation][$activeSlave.teeth = "removable",$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "teeth"]]  | [[Normal dental implants|Surgery Degradation][$activeSlave.teeth = 0,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "oral"]]
+	[[Replace them with removable prosthetics|Surgery Degradation][$activeSlave.teeth = "removable",$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "teeth"]]
+	| [[Normal dental implants|Surgery Degradation][$activeSlave.teeth = 0,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "oral"]]
 	<</if>>
 <<default>>
-	$pronounCap has normal, healthy teeth.
+	$pronounCap has normal, healthy teeth.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	[[Unnecessary braces|Surgery Degradation][$activeSlave.teeth = "cosmetic braces",$cash -= $surgeryCost,$surgeryType = "braces"]]
 	<<if ($seeExtreme == 1) && ($activeSlave.indentureRestrictions < 1)>>
-	| [[Replace them with removable prosthetics|Surgery Degradation][$activeSlave.teeth = "removable",$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "teeth"]] | [[Replace them with sharp teeth|Surgery Degradation][$activeSlave.teeth = "pointy",$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "sharp"]]
+	| [[Replace them with removable prosthetics|Surgery Degradation][$activeSlave.teeth = "removable",$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "teeth"]]
+	| [[Replace them with sharp teeth|Surgery Degradation][$activeSlave.teeth = "pointy",$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "sharp"]]
 	<</if>>
 <</switch>>
 
