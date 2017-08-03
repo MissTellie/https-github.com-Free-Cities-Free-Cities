@@ -262,7 +262,7 @@ $pronounCap has
 
 <br><br>
 
-//<<BoobsDescription>>//
+//<<BoobsDescription>><<boobModDescription>>//
 <br>&nbsp;&nbsp;&nbsp;&nbsp;
 <<if $activeSlave.boobs > 10000>>
 	//$possessiveCap breasts are as large as $pronoun can physically support//
@@ -316,7 +316,7 @@ $pronounCap has
 <</if>>
 
 <<if ($activeSlave.boobsImplant == 0) && ($activeSlave.boobs > 250)>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	<br>
 	<<switch $activeSlave.boobShape>>
 	<<case "perky">>
 		They're perky, with nipples that point slightly upwards.
@@ -335,7 +335,11 @@ $pronounCap has
 		$possessiveCap indenture does not allow breast restructuring.
 	<<else>>
 		<<if ($activeSlave.boobShape == "saggy") || ($activeSlave.boobShape == "downward-facing")>>
-			[[Breast lift|Surgery Degradation][$activeSlave.boobShape = "normal", $activeSlave.health -= 20,$cash -= $surgeryCost, $surgeryType = "breastLift"]]<<if $activeSlave.preg > 20 || ($activeSlave.boobs >= 5000 && $activeSlave.boobs < 8000)>>//$possessiveCap current state may result in $possessive breasts becoming saggy again//<</if>>
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;
+			[[Breast lift|Surgery Degradation][$activeSlave.boobShape = "normal", $activeSlave.health -= 20,$cash -= $surgeryCost, $surgeryType = "breastLift"]]
+			<<if $activeSlave.preg > 20 || ($activeSlave.boobs >= 5000 && $activeSlave.boobs < 8000)>>
+				//$possessiveCap current state may result in $possessive breasts becoming saggy again//
+			<</if>>
 		<<else>>
 			<<if ($activeSlave.boobShape == "normal")>>
 				[[Reshape them to be perkier|Surgery Degradation][$activeSlave.boobShape = "perky",$cash -= $surgeryCost,$activeSlave.health -= 10,$surgeryType = "breastReconstruction"]]
@@ -349,24 +353,28 @@ $pronounCap has
 
 
 <<if $activeSlave.areolae > 1>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
 	<<if ($activeSlave.areolae > 1) && ($activeSlave.areolae < 4)>>
+		<br>//<<areolaeDescription>>//
 		<<if $activeSlave.indentureRestrictions < 2>>
-			$possessiveCap big areolae could be reshaped into a pattern.  Graft skin to make $possessive areolae:
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;
+			With grafting, they are large enough to reshape into a pattern:
 			[[Heart-shaped|Surgery Degradation][$activeSlave.areolae = 4,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "areolae"]]
 			 | [[Star-shaped|Surgery Degradation][$activeSlave.areolae = 5,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "areolae"]]
 		<</if>>
 	<</if>>
 	<<if $activeSlave.indentureRestrictions < 2>>
-		[[Reduce areolae to typical size|Surgery Degradation][$activeSlave.areolae = 1,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "areolae"]]
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;
+		Reduce areolae to:
+		[[typical size|Surgery Degradation][$activeSlave.areolae = 1,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "areolae"]]
 		<<if $activeSlave.areolae > 0>>
 			<<if $activeSlave.indentureRestrictions < 2>>
-				[[Reduce areolae to a tiny size|Surgery Degradation][$activeSlave.areolae = 0,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "areolae"]]
+				| [[tiny size|Surgery Degradation][$activeSlave.areolae = 0,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "areolae"]]
 			<</if>>
 		<</if>>
 	<</if>>
 <</if>>
 
+<br>//<<nipplesDescription>>//
 <br>&nbsp;&nbsp;&nbsp;&nbsp;
 <<if $activeSlave.lactation == 0>>
 	$pronounCap is not lactating.

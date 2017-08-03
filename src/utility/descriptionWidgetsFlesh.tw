@@ -724,6 +724,29 @@ $possessiveCap
 <</if>>
 <</if>>
 
+<</widget>>
+
+
+<<widget "boobModDescription">>
+
+<<if $showBodyMods == 1>>
+
+	<<nipplesPiercingDescription>>
+
+	<<boobsTatDescription>>
+
+	<<if $activeSlave.fuckdoll == 0>>
+		<<if ($activeSlave.brand != 0) && (($activeSlave.brandLocation == "left breast") || ($activeSlave.brandLocation == "right breast") || ($activeSlave.brandLocation == "breasts"))>>
+			<<brandDescription>>
+		<</if>>	
+	<</if>>
+<</if>>
+
+<</widget>>
+
+
+<<widget "nipplesDescription">>
+
 <<if ($activeSlave.skin == "tanned") || ($activeSlave.skin == "fair")>>
 	<<if ($activeSlave.preg > 10 || ($activeSlave.births > 0 && $activeSlave.lactation > 0))>>
 		<<set $seed = "dark brown">>
@@ -876,6 +899,11 @@ $possessiveCap
 	<</if>>
 <</if>>
 
+<</widget>>
+
+
+<<widget "areolaeDescription">>
+
 <<if $activeSlave.fuckdoll == 0>>
 	<<if $showBodyMods == 1>>
 		<<if $activeSlave.areolaePiercing == 0>>
@@ -914,18 +942,8 @@ $possessiveCap
 	<</if>>
 <</if>>
 
-<<if $showBodyMods == 1>>
-
-<<nipplesPiercingDescription>>
-<<boobsTatDescription>>
-<<if $activeSlave.fuckdoll == 0>>
-	<<if ($activeSlave.brand != 0) && (($activeSlave.brandLocation == "left breast") || ($activeSlave.brandLocation == "right breast") || ($activeSlave.brandLocation == "breasts"))>>
-		<<brandDescription>>
-	<</if>>	
-<</if>>
-<</if>>
-
 <</widget>>
+
 
 <<widget "ButtDescription">>
 
