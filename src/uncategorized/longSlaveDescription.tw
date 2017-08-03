@@ -1449,7 +1449,29 @@ $pronounCap is
 <</if>>
 <</if>>
 
-<<LipsDescription>>
+<<faceDescription>>
+<<mouthDescription>>
+
+<<if ($showClothing == 1) && ($saleDescription == 0)>>
+
+<<if $activeSlave.fuckdoll == 0>>
+	<<collarDescription>>
+	<<if ($activeSlave.relationship > 4)>>
+		<<if ($activeSlave.amp != 1)>>
+		$pronounCap has a simple gold band on the little finger of $possessive left hand.
+		<<else>>
+		$pronounCap has a simple gold band on a length of chain around $possessive neck.
+		<</if>>
+	<<elseif ($activeSlave.relationship == -3)>>
+		<<if ($activeSlave.amp != 1)>>
+		$pronounCap has a simple steel band on the little finger of $possessive left hand.
+		<<else>>
+		$pronounCap has a simple steel band on a length of cord around $possessive neck.
+		<</if>>
+	<</if>>
+<</if>>
+
+<</if>>
 
 <<if $activeSlave.fuckdoll == 0>>
 <<nailsDescription>>

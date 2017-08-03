@@ -34,32 +34,15 @@ The surgical equipment reads
 	<br><br>
 <</if>>
 
-//<<LipsDescription>>//
-<br>&nbsp;&nbsp;&nbsp;&nbsp;
+//<<faceDescription>>//
 
-$possessiveCap $activeSlave.faceShape face is
-<<if $activeSlave.face < -95>>
-	very ugly.
-<<elseif $activeSlave.face < -40>>
-	ugly.
-<<elseif $activeSlave.face < -10>>
-	unattractive.
-<<elseif ($activeSlave.face <= 10)>>
-	quite average.
-<<elseif ($activeSlave.face <= 40)>>
-	attractive.
-<<elseif ($activeSlave.face <= 95)>>
-	beautiful.
-<<elseif ($activeSlave.face > 95)>>
-	very beautiful.
-<</if>>
-
+$possessiveCap face
 <<if $activeSlave.faceImplant == 0>>
-	It is entirely natural.
+	is also entirely natural.
 <<elseif $activeSlave.faceImplant == 1>>
-	It has seen some work.
+	has seen some work.
 <<elseif $activeSlave.faceImplant > 1>>
-	It has been totally reworked.
+	has been totally reworked.
 <</if>>
 
 <<if $activeSlave.indentureRestrictions >= 2>>
@@ -96,16 +79,19 @@ $possessiveCap $activeSlave.faceShape face is
 	//The advanced surgery permits you to continue reworking $possessive face//
 <</if>>
 
-<br>&nbsp;&nbsp;&nbsp;&nbsp;
+
 <<if ($activeSlave.age >= 25) && ($activeSlave.ageImplant == 0)>>
-	$pronounCap's old enough that a face lift and other minor cosmetic procedures could make $possessive look younger.
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	$pronounCap's old enough at $activeSlave.age that a face lift and other minor cosmetic procedures could make $possessive look younger.
 <<elseif ($activeSlave.age >= 25)>>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
 	$pronounCap's had a face lift and other minor cosmetic procedures to make $possessive look younger.
 <</if>>
 
 <<if $activeSlave.indentureRestrictions >= 2>>
 	//$possessiveCap indenture forbids elective surgery//
 <<elseif ($activeSlave.ageImplant != 1) && ($activeSlave.age >= 25)>>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	[[Age lift|Surgery Degradation][$activeSlave.ageImplant = 1,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "age"]]
 <</if>>
 
@@ -148,6 +134,7 @@ $possessiveCap $activeSlave.faceShape face is
 	<</if>>
 <</if>>
 
+<br><br>//<<mouthDescription>>//
 <br>&nbsp;&nbsp;&nbsp;&nbsp;
 $pronounCap has
 <<if $activeSlave.lips <= 10>>

@@ -2958,7 +2958,7 @@ $pronounCap's got a
 <</widget>>
 
 
-<<widget "LipsDescription">>
+<<widget "faceDescription">>
 
 <<SlavePronouns $activeSlave>>
 
@@ -3090,6 +3090,18 @@ $possessiveCap @@.pink;face is
 	<</if>>
 <</if>>
 
+<<if $showBodyMods == 1>>
+	<<if $activeSlave.fuckdoll == 0>>
+		<<makeupDescription>>
+		<<lipsTatDescription>>
+	<</if>>
+<</if>>
+
+<</widget>>
+
+
+<<widget "mouthDescription">>
+
 $pronounCap has
 <<if $activeSlave.lips <= 10>>
 	thin, unattractive lips.
@@ -3162,37 +3174,12 @@ $pronounCap has
 <</if>>
 
 <<if $showBodyMods == 1>>
-	<<if $activeSlave.fuckdoll == 0>>
-		<<makeupDescription>>
-	<</if>>
 	<<lipsPiercingDescription>>
-	<<lipsTatDescription>>
 	<<tonguePiercingDescription>>
 <</if>>
 
-
-<<if ($showClothing == 1) && ($saleDescription == 0)>>
-
-<<if $activeSlave.fuckdoll == 0>>
-	<<collarDescription>>
-	<<if ($activeSlave.relationship > 4)>>
-		<<if ($activeSlave.amp != 1)>>
-		$pronounCap has a simple gold band on the little finger of $possessive left hand.
-		<<else>>
-		$pronounCap has a simple gold band on a length of chain around $possessive neck.
-		<</if>>
-	<<elseif ($activeSlave.relationship == -3)>>
-		<<if ($activeSlave.amp != 1)>>
-		$pronounCap has a simple steel band on the little finger of $possessive left hand.
-		<<else>>
-		$pronounCap has a simple steel band on a length of cord around $possessive neck.
-		<</if>>
-	<</if>>
-<</if>>
-
-<</if>>
-
 <</widget>>
+
 
 <<widget "BellyDescription">>
 
