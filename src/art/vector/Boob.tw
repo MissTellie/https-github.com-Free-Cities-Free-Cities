@@ -1,0 +1,45 @@
+:: Art_Vector_Boob_ [nobr]
+
+/* 
+Prepare SVG transform matrix for continous boob scaling.
+This transform affects boobs, areolae and piercings.
+From an artistic point of view, the function parameters are courtesy of Nov-X.
+From a programmers pont of view, prndev read discrete transform parameters with Inkscape and fit the cubic root function via gnuplot.
+*/
+<<set _art_scale_factor = 0.190308*Math.pow(_artSlave.boobs,(1.0/3.0))-0.205304 >>
+<<set _art_translation_x = -292.841*_art_scale_factor+292.349 >>
+<<set _art_translation_y = -216.438*_art_scale_factor+216.274 >>
+<<set _art_transform = "matrix(" + _art_scale_factor +",0,0," + _art_scale_factor + "," + _art_translation_x + "," + _art_translation_y + ")">>
+
+<<if _artSlave.boobs < 250 >>
+  /* boobs too small - draw areolae directly onto torso */
+  <<set _art_scale_factor = 1 >>
+  <<set _art_translation_x = 16 >> /* a little shift to the right due to perspective is needed */
+  <<set _art_translation_y = 0 >>
+  <<set _art_transform = "matrix(" + _art_scale_factor +",0,0," + _art_scale_factor + "," + _art_translation_x + "," + _art_translation_y + ")">>
+<<else>>
+  <<include Art_Vector_Boob>>
+<</if>>
+<<include Art_Vector_Boob_Areola>>
+
+<<set _showNipplePiercings = $showBodyMods == 1 && _artSlave.clothes != "restrictive latex" && _artSlave.clothes != "a latex catsuit" >>
+
+<<if _showNipplePiercings>>
+  <<if _artSlave.nipplesPiercing == 1>>
+    <<include Art_Vector_Boob_Piercing>>
+  <<elseif _artSlave.nipplesPiercing == 2>>
+    <<include Art_Vector_Boob_Piercing_Heavy>>
+  <</if>>
+  <<if _artSlave.areolaePiercing == 1>>
+    <<include Art_Vector_Boob_Areola_Piercing>>
+  <</if>>
+<</if>>
+
+<<if _artSlave.boobs >= 250 >>
+  <<if _artSlave.clothes == "uncomfortable straps" >>
+    <<include Art_Vector_Boob_Outfit_Straps>>
+  <</if>>
+<</if>>
+
+/* set _art_transform to empty string so stray SVG groups in other passages are not affected */
+<<set _art_transform = "">>
