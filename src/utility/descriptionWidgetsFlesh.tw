@@ -4255,3 +4255,19 @@ and
 
 <</widget>>
 
+<<widget "accentDescription">>
+
+<<if canTalk($activeSlave)>>
+  <<if $activeSlave.accent != 0>>
+	<<if $activeSlave.accent == 1>>
+	  <<set $seed = either("lovely", "distinctive", "rich", "beautiful")>>
+	  She speaks $language in a $seed $activeSlave.nationality accent<<if $activeSlave.speechRules == "accent elimination">>, which the rules encourage her to suppress<</if>>.
+	<<elseif $activeSlave.accent == 2>>
+	  She speaks $language in a thick $activeSlave.nationality accent that can be hard to understand<<if $activeSlave.speechRules == "accent elimination">>, and the rules encourage her to make an effort to suppress it<</if>>.
+	<<else>>
+	  She speaks little $language, but understands enough to be given orders.
+	<</if>>
+  <</if>>
+<</if>>
+
+<</widget>>
