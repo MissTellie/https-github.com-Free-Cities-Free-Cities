@@ -1482,22 +1482,8 @@ $pronounCap is
 <</if>>
 <</if>>
 
-<<if $activeSlave.fuckdoll > 0>>
-  The small areas of visible skin are <<print $activeSlave.skin>><<if $activeSlave.markings == "freckles">> and lightly freckled<<if (($activeSlave.skin == "pale") || ($activeSlave.skin == "fair")) && ($activeSlave.hColor != "red")>>, an attractive combination<</if>><<elseif $activeSlave.markings == "heavily freckled">> and heavily freckled<<if (($activeSlave.skin == "pale") || ($activeSlave.skin == "fair")) && ($activeSlave.hColor != "red")>>, an attractive combination<</if>><</if>>.
-<<elseif ($seeNationality == 1)>>
-  <<if $activeSlave.nationality == 0>>
-	Ethnically, she's
-  <<elseif $activeSlave.nationality == "slave">>
-	She's been chattel long enough that slavery is effectively her nationality; ethnically, she's
-  <<else>>
-	She's originally @@.tan;<<print $activeSlave.nationality>>@@; ethnically, she's
-  <</if>>
-  @@.tan;<<print $activeSlave.race>>@@, and her skin is <<print $activeSlave.skin>><<if $activeSlave.markings == "freckles">> and lightly freckled<<if (($activeSlave.skin == "pale") || ($activeSlave.skin == "fair")) && ($activeSlave.hColor != "red")>>, an attractive combination<</if>><<elseif $activeSlave.markings == "heavily freckled">> and heavily freckled<<if (($activeSlave.skin == "pale") || ($activeSlave.skin == "fair")) && ($activeSlave.hColor != "red")>>, an attractive combination<</if>><</if>>.
-<<elseif ($seeRace == 1)>>
-  Ethnically, she's @@.tan;<<print $activeSlave.race>>@@, and her skin is <<print $activeSlave.skin>><<if $activeSlave.markings == "freckles">> and lightly freckled<<if (($activeSlave.skin == "pale") || ($activeSlave.skin == "fair")) && ($activeSlave.hColor != "red")>>, an attractive combination<</if>><<elseif $activeSlave.markings == "heavily freckled">> and heavily freckled<<if (($activeSlave.skin == "pale") || ($activeSlave.skin == "fair")) && ($activeSlave.hColor != "red")>>, an attractive combination<</if>><</if>>.
-<<else>>
-  Her skin is <<print $activeSlave.skin>><<if $activeSlave.markings == "freckles">> and lightly freckled<<if (($activeSlave.skin == "pale") || ($activeSlave.skin == "fair")) && ($activeSlave.hColor != "red")>>, an attractive combination<</if>><<elseif $activeSlave.markings == "heavily freckled">> and heavily freckled<<if (($activeSlave.skin == "pale") || ($activeSlave.skin == "fair")) && ($activeSlave.hColor != "red")>>, an attractive combination<</if>><</if>>.
-<</if>>
+<<skinDescription>>
+
 
 <<if $saleDescription == 1>>
 <<if canTalk($activeSlave)>>
