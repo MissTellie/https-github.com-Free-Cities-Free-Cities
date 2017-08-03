@@ -709,6 +709,8 @@ Work on her structurally:
 	<<elseif ($activeSlave.shouldersImplant < 0)>>
 		$possessiveCap shoulders been restructured to narrow them.
 	<</if>>
+	//<<shouldersDescription>>//
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	<<if $activeSlave.shouldersImplant == 0>>
 	<<if $activeSlave.shoulders < 3>>
 	<<if $activeSlave.shoulders > -3>>
@@ -741,6 +743,8 @@ Work on her structurally:
 	<<elseif ($activeSlave.hipsImplant < 0)>>
 		$possessiveCap pelvis has been narrowed.
 	<</if>>
+	//<<hipsDescription>>//
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	<<if ($activeSlave.hipsImplant == 0)>>
 	<<if $activeSlave.hips < 3>>
 	<<if $activeSlave.hips > -3>>
@@ -766,6 +770,9 @@ Work on her structurally:
 <<elseif ($activeSlave.heightImplant < 0)>>
 	$possessiveCap femurs, humeri, and other major bones have been shortened.
 <</if>>
+
+//<<heightImplantDescription>>//
+
 <<if ($activeSlave.heightImplant == 0)>>
 	<<if $activeSlave.indentureRestrictions < 1>>
 	[[Lengthen major bones|Surgery Degradation][$activeSlave.heightImplant = 1,$activeSlave.height += 10,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "height"]] | [[Shorten major bones|Surgery Degradation][$activeSlave.heightImplant = -1,$activeSlave.height -= 10,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "height"]]
@@ -785,13 +792,13 @@ Work on her structurally:
 <</if>>
 <br>&nbsp;&nbsp;&nbsp;&nbsp;
 <<if ($activeSlave.heels == 0) && ($activeSlave.amp == 0)>>
-	$pronounCap has healthy calves.
+	$pronounCap has healthy calves, allowing her to walk without high heels.
 <<elseif ($activeSlave.heels == 1) && ($activeSlave.amp == 0)>>
-	$possessiveCap calves have been altered so that $pronoun cannot walk in anything but very high heels.
+	//<<heelDescription>>//
 <</if>>
 <<if ($activeSlave.heels == 0) && ($seeExtreme == 1)>>
 	<<if $activeSlave.indentureRestrictions < 1>>
-	[[Shorten tendons|Surgery Degradation][$activeSlave.heels = 1,$activeSlave.shoes = "heels",$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "heels"]] //Prevents $possessive from walking in anything but very high heels//
+	[[Shorten tendons|Surgery Degradation][$activeSlave.heels = 1,$activeSlave.shoes = "heels",$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "heels"]]
 	<</if>>
 <</if>>
 <<if ($activeSlave.heels == 1)>>
@@ -804,24 +811,7 @@ Work on her structurally:
 <<if ($activeSlave.amp == 0)>>
   $pronounCap has healthy limbs.
 <<else>>
-  $pronounCap is a quadruple amputee
-  <<if $activeSlave.PLimb == 1 && $activeSlave.amp == 1>>
-	and has been implanted with basic PLimb interface.
-  <<elseif $activeSlave.PLimb == 2 && $activeSlave.amp == 1>>
-	and has been implanted with advanced PLimb interface.
-  <<elseif $activeSlave.amp == -1>>
-	and has been equipped with modern prosthetics.
-  <<elseif $activeSlave.amp == -2>>
-	and has been equipped with advanced, sex-focused prosthetics.
-  <<elseif $activeSlave.amp == -3>>
-	and has been equipped with advanced, beauty-focused prosthetics.
-  <<elseif $activeSlave.amp == -4>>
-	and has been equipped with advanced, combat-focused prosthetics.
-  <<elseif $activeSlave.amp == -5>>
-	and has been equipped with highly advanced cybernetic prosthetics.
-  <<else>>
-	and has not been equipped with prosthetics.
-  <</if>>
+	<<amputeeDescription>>
 <</if>>
 
 <<if $cyberMod != 1>>

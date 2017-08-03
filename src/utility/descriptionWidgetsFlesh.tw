@@ -704,56 +704,7 @@ $possessiveCap
 <</if>>
 <</if>>
 
-<<if $activeSlave.fuckdoll == 0>>
-<<if $activeSlave.shoulders < -1>>
-	$possessiveCap shoulders and chest are very narrow and
-	<<if $activeSlave.boobs > 2000>>
-	feminine, forcing $possessive pressed-together tits to spread far beyond $possessive sides.
-	<<else>>
-	feminine.
-	<</if>>
-<<elseif $activeSlave.shoulders < 0>>
-	$possessiveCap shoulders and chest are quite
-	<<if $activeSlave.boobs > 1200>>
-	feminine, causing a lot of cleavage and pressing $possessive boobs outward beyond $possessive sides.
-	<<else>>
-	feminine.
-	<</if>>
-<<elseif $activeSlave.shoulders > 1>>
-	$possessiveCap shoulders and chest are very
-	<<if $activeSlave.boobs > 600>>
-	broad, making $possessive boobs look a lot smaller than they actually are.
-	<<else>>
-	broad.
-	<</if>>
-<<elseif $activeSlave.shoulders > 0>>
-	$possessiveCap shoulders and chest are fairly
-	<<if $activeSlave.boobs > 600>>
-	broad, making $possessive tits look smaller than they actually are.
-	<<else>>
-	broad.
-	<</if>>
-<<else>>
-	$possessiveCap shoulders and chest are
-	<<if $activeSlave.boobs > 800>>
-	feminine, flattering $possessive breasts.
-	<<else>>
-	feminine.
-	<</if>>
-<</if>>
-<<if $activeSlave.shoulders > $activeSlave.hips>>
-	They're wider than $possessive hips,
-	<<if $activeSlave.boobs > 2000*($activeSlave.shoulders- $activeSlave.hips)>>
-	but $possessive massive breasts make it hard to discern.
-	<<elseif $arcologies[0].FSGenderRadicalist != "unset">>
-	giving $object a somewhat mannish appearance.
-	<<elseif $arcologies[0].FSGenderFundamentalist != "unset">>
-	giving $object an @@.red;ugly, mannish appearance.@@
-	<<else>>
-	giving $object an @@.red;unattractive, somewhat mannish, appearance.@@
-	<</if>>
-<</if>>
-<</if>>
+<<shouldersDescription>>
 
 <<if $activeSlave.fuckdoll == 0>>
 <<if $activeSlave.markings == "heavily freckled">>
@@ -1331,41 +1282,7 @@ $pronounCap's got a
 <<else>>ridiculous ass. It's so big it jiggles as $pronoun walks.
 <</if>>
 
-<<if $activeSlave.hips < -1>>
-	<<if $activeSlave.butt > 2>>
-	$possessiveCap butt is @@.red;disproportionately large@@ for $possessive narrow hips<<if $arcologies[0].FSTransformationFetishist == "unset">>.<<else>>, but your transformation fetishist arcology considers this attractive.<</if>>
-	<<else>>
-	$possessiveCap hips are very narrow.
-	<</if>>
-<<elseif $activeSlave.hips < 0>>
-	<<if $activeSlave.butt > 4>>
-	$possessiveCap butt is @@.red;disproportionately large@@ for $possessive trim hips<<if $arcologies[0].FSTransformationFetishist == "unset">>.<<else>>, but your transformation fetishist arcology considers this attractive.<</if>>
-	<<else>>
-	$possessiveCap butt is complemented by $possessive trim hips.
-	<</if>>
-<<elseif $activeSlave.hips > 1>>
-	<<if $activeSlave.butt <= 3>>
-	$possessiveCap butt is @@.red;disproportionately small@@ for $possessive very wide hips.
-	<<else>>
-	$possessiveCap butt is flattered by $possessive very wide hips.
-	<</if>>
-<<elseif $activeSlave.hips > 0>>
-	<<if $activeSlave.butt > 8>>
-	$possessiveCap butt is @@.red;disproportionately large@@ for $possessive broad hips<<if $arcologies[0].FSTransformationFetishist == "unset">>.<<else>>, but your transformation fetishist arcology considers this attractive.<</if>>
-	<<elseif $activeSlave.butt <= 2>>
-	$possessiveCap butt is @@.red;disproportionately small@@ for $possessive broad hips.
-	<<else>>
-	$possessiveCap butt is complemented by $possessive broad hips.
-	<</if>>
-<<else>>
-	<<if $activeSlave.butt > 6>>
-	$possessiveCap butt is @@.red;disproportionately large@@ for $possessive womanly hips<<if $arcologies[0].FSTransformationFetishist == "unset">>.<<else>>, but your transformation fetishist arcology considers this attractive.<</if>>
-	<<elseif $activeSlave.butt <= 1>>
-	$possessiveCap butt is @@.red;disproportionately small@@ for $possessive ample hips.
-	<<else>>
-	$possessiveCap butt is complemented by $possessive ample hips.
-	<</if>>
-<</if>>
+<<hipsDescription>>
 
 <<if $showImplantEffects == 1>>
 <<if $activeSlave.fuckdoll > 0>>
@@ -4267,6 +4184,135 @@ and
 	<<else>>
 	  She speaks little $language, but understands enough to be given orders.
 	<</if>>
+  <</if>>
+<</if>>
+
+<</widget>>
+
+<<widget "shouldersDescription">>
+
+<<if $activeSlave.fuckdoll == 0>>
+<<if $activeSlave.shoulders < -1>>
+	$possessiveCap shoulders and chest are very narrow and
+	<<if $activeSlave.boobs > 2000>>
+	feminine, forcing $possessive pressed-together tits to spread far beyond $possessive sides.
+	<<else>>
+	feminine.
+	<</if>>
+<<elseif $activeSlave.shoulders < 0>>
+	$possessiveCap shoulders and chest are quite
+	<<if $activeSlave.boobs > 1200>>
+	feminine, causing a lot of cleavage and pressing $possessive boobs outward beyond $possessive sides.
+	<<else>>
+	feminine.
+	<</if>>
+<<elseif $activeSlave.shoulders > 1>>
+	$possessiveCap shoulders and chest are very
+	<<if $activeSlave.boobs > 600>>
+	broad, making $possessive boobs look a lot smaller than they actually are.
+	<<else>>
+	broad.
+	<</if>>
+<<elseif $activeSlave.shoulders > 0>>
+	$possessiveCap shoulders and chest are fairly
+	<<if $activeSlave.boobs > 600>>
+	broad, making $possessive tits look smaller than they actually are.
+	<<else>>
+	broad.
+	<</if>>
+<<else>>
+	$possessiveCap shoulders and chest are
+	<<if $activeSlave.boobs > 800>>
+	feminine, flattering $possessive breasts.
+	<<else>>
+	feminine.
+	<</if>>
+<</if>>
+<<if $activeSlave.shoulders > $activeSlave.hips>>
+	They're wider than $possessive hips,
+	<<if $activeSlave.boobs > 2000*($activeSlave.shoulders- $activeSlave.hips)>>
+	but $possessive massive breasts make it hard to discern.
+	<<elseif $arcologies[0].FSGenderRadicalist != "unset">>
+	giving $object a somewhat mannish appearance.
+	<<elseif $arcologies[0].FSGenderFundamentalist != "unset">>
+	giving $object an @@.red;ugly, mannish appearance.@@
+	<<else>>
+	giving $object an @@.red;unattractive, somewhat mannish, appearance.@@
+	<</if>>
+<</if>>
+<</if>>
+
+<</widget>>
+
+
+<<widget "hipsDescription">>
+
+<<if $activeSlave.hips < -1>>
+	<<if $activeSlave.butt > 2>>
+	$possessiveCap butt is @@.red;disproportionately large@@ for $possessive narrow hips<<if $arcologies[0].FSTransformationFetishist == "unset">>.<<else>>, but your transformation fetishist arcology considers this attractive.<</if>>
+	<<else>>
+	$possessiveCap hips are very narrow.
+	<</if>>
+<<elseif $activeSlave.hips < 0>>
+	<<if $activeSlave.butt > 4>>
+	$possessiveCap butt is @@.red;disproportionately large@@ for $possessive trim hips<<if $arcologies[0].FSTransformationFetishist == "unset">>.<<else>>, but your transformation fetishist arcology considers this attractive.<</if>>
+	<<else>>
+	$possessiveCap butt is complemented by $possessive trim hips.
+	<</if>>
+<<elseif $activeSlave.hips > 1>>
+	<<if $activeSlave.butt <= 3>>
+	$possessiveCap butt is @@.red;disproportionately small@@ for $possessive very wide hips.
+	<<else>>
+	$possessiveCap butt is flattered by $possessive very wide hips.
+	<</if>>
+<<elseif $activeSlave.hips > 0>>
+	<<if $activeSlave.butt > 8>>
+	$possessiveCap butt is @@.red;disproportionately large@@ for $possessive broad hips<<if $arcologies[0].FSTransformationFetishist == "unset">>.<<else>>, but your transformation fetishist arcology considers this attractive.<</if>>
+	<<elseif $activeSlave.butt <= 2>>
+	$possessiveCap butt is @@.red;disproportionately small@@ for $possessive broad hips.
+	<<else>>
+	$possessiveCap butt is complemented by $possessive broad hips.
+	<</if>>
+<<else>>
+	<<if $activeSlave.butt > 6>>
+	$possessiveCap butt is @@.red;disproportionately large@@ for $possessive womanly hips<<if $arcologies[0].FSTransformationFetishist == "unset">>.<<else>>, but your transformation fetishist arcology considers this attractive.<</if>>
+	<<elseif $activeSlave.butt <= 1>>
+	$possessiveCap butt is @@.red;disproportionately small@@ for $possessive ample hips.
+	<<else>>
+	$possessiveCap butt is complemented by $possessive ample hips.
+	<</if>>
+<</if>>
+
+<</widget>>
+
+<<widget "heightImplantDescription">>
+
+<<if $activeSlave.heightImplant > 0>>
+	The proportions of $possessive arms and legs are odd, as though they have been artificially lengthened.
+<<elseif $activeSlave.heightImplant < 0>>
+	The proportions of $possessive arms and legs are odd, as though they have been surgically shortened.
+<</if>>
+
+<</widget>>
+
+
+<<widget "amputeeDescription">>
+
+<<if $activeSlave.amp != 0>>
+  <<if $activeSlave.amp == -1>>
+	$activeSlave.slaveName is a @@.pink;quadruple amputee@@, but she's equipped with a set of modern prosthetic limbs that allow her a fairly normal life.
+  <<elseif $activeSlave.amp == -2>>
+	$activeSlave.slaveName is a @@.pink;quadruple amputee@@, but she's equipped with P-Limbs customized for sex. Her fingertips vibrate, her finger joints are masked to prevent pinching, and her hands can dispense lube.
+  <<elseif $activeSlave.amp == -3>>
+	$activeSlave.slaveName is a @@.pink;quadruple amputee@@, but she's equipped with P-Limbs customized to look natural. Their covering looks like living $activeSlave.skin skin, and their servos are noise damped.
+  <<elseif $activeSlave.amp == -4>>
+	$activeSlave.slaveName is a @@.pink;quadruple amputee@@, but she's equipped with P-Limbs customized for combat. They're hardened, strengthened, and more responsive, and they conceal taser knuckles and extensible forearm blades.
+   <<elseif $activeSlave.amp == -5>>
+	$activeSlave.slaveName is a @@.pink;quadruple amputee@@, but she's equipped with advanced cybernetic P-Limbs. The ultimate fusion of combat effectiveness and instruments of pleasure, they're capable of performing multiple functions. They can enhance sex through her vibrating hands and increase her combat skills with hardened, yet flexible artificial muscles. They have an advanced artificial skin that can send electrical impulses that can cause stimulation or extreme pain.
+  <<elseif $activeSlave.fuckdoll > 0>>
+	$activeSlave.slaveName is a @@.pink;quadruple amputee,@@ making her a convenient torso-only sex toy.
+  <<else>>
+	The most obvious thing about $activeSlave.slaveName is that she is a @@.pink;quadruple amputee@@: she has neither arms nor legs.
   <</if>>
 <</if>>
 

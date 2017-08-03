@@ -1240,21 +1240,7 @@ when a dick is pushed inside <<if $activeSlave.vagina >= -1>>either of its lower
 <br>&nbsp;&nbsp;&nbsp;&nbsp;
 
 <<if $activeSlave.amp != 0>>
-  <<if $activeSlave.amp == -1>>
-	$activeSlave.slaveName is a @@.pink;quadruple amputee@@, but she's equipped with a set of modern prosthetic limbs that allow her a fairly normal life.
-  <<elseif $activeSlave.amp == -2>>
-	$activeSlave.slaveName is a @@.pink;quadruple amputee@@, but she's equipped with P-Limbs customized for sex. Her fingertips vibrate, her finger joints are masked to prevent pinching, and her hands can dispense lube.
-  <<elseif $activeSlave.amp == -3>>
-	$activeSlave.slaveName is a @@.pink;quadruple amputee@@, but she's equipped with P-Limbs customized to look natural. Their covering looks like living $activeSlave.skin skin, and their servos are noise damped.
-  <<elseif $activeSlave.amp == -4>>
-	$activeSlave.slaveName is a @@.pink;quadruple amputee@@, but she's equipped with P-Limbs customized for combat. They're hardened, strengthened, and more responsive, and they conceal taser knuckles and extensible forearm blades.
-   <<elseif $activeSlave.amp == -5>>
-	$activeSlave.slaveName is a @@.pink;quadruple amputee@@, but she's equipped with advanced cybernetic P-Limbs. The ultimate fusion of combat effectiveness and instruments of pleasure, they're capable of performing multiple functions. They can enhance sex through her vibrating hands and increase her combat skills with hardened, yet flexible artificial muscles. They have an advanced artificial skin that can send electrical impulses that can cause stimulation or extreme pain.
-  <<elseif $activeSlave.fuckdoll > 0>>
-	$activeSlave.slaveName is a @@.pink;quadruple amputee,@@ making her a convenient torso-only sex toy.
-  <<else>>
-	The most obvious thing about $activeSlave.slaveName is that she is a @@.pink;quadruple amputee@@: she has neither arms nor legs.
-  <</if>>
+	<<amputeeDescription>>
 <</if>>
 
 <<ClothingDescription>>
@@ -1301,9 +1287,7 @@ and
 <</if>>
 
 <<if $activeSlave.heightImplant > 0>>
-	The proportions of $possessive arms and legs are odd, as though they have been artificially lengthened.
-<<elseif $activeSlave.heightImplant < 0>>
-	The proportions of $possessive arms and legs are odd, as though they have been surgically shortened.
+	<<heightImplantDescription>>
 <</if>>
 
 <<if $activeSlave.muscles > 5>>
