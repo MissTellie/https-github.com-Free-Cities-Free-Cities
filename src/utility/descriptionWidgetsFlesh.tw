@@ -4155,3 +4155,103 @@ $pronounCap has
 <</if>>
 
 <</widget>>
+
+<<widget "ageAndHealthDescription">>
+
+<<if $activeSlave.fuckdoll == 0>>
+<<if $activeSlave.health < -90>>
+	She is nearly unresponsive. She's obviously @@.red;dangerously sick,@@
+<<elseif $activeSlave.health < -50>>
+	She seems @@.red;very sick,@@
+<<elseif $activeSlave.health < -20>>
+	She seems @@.red;ill,@@
+<<elseif $activeSlave.health <= 20>>
+	She seems reasonably @@.yellow;healthy,@@
+<<elseif $activeSlave.health <= 50>>
+	She shines with @@.green;good health,@@
+<<else>>
+	She almost gleams; she's in the absolute @@.green;best of health,@@
+<</if>>
+and
+<<set $seed = $activeSlave.age + 1>>
+<<if $activeSlave.ageImplant == 1>>
+  she's
+  <<if ($activeSlave.birthWeek >= 52) && ($seeAge == 1)>>
+	going to turn <<print $activeSlave.age + 1>> this week,
+  <<elseif $showAgeDetail == 1>>
+	$activeSlave.age years old,
+  <<else>>
+	in her <<if $activeSlave.age < 30>>late twenties<<elseif $activeSlave.age < 36>>thirties<<elseif $activeSlave.age < 40>>late thirties<<else>>forties<</if>>,
+  <</if>>
+  but has had excellent cosmetic surgery that makes her look
+  <<if $activeSlave.age < 30>>barely into her early twenties<<elseif $activeSlave.age < 36>>like she's still in her twenties<<elseif $activeSlave.age < 40>>barely thirty<<else>>like she's still in her thirties<</if>>.
+<<else>>
+  she's
+  <<if ($activeSlave.birthWeek >= 52) && ($seeAge == 1)>>
+	going to turn $seed this week.
+  <<elseif $activeSlave.age < 19>>
+	<<if ($activeSlave.birthWeek == 0) && ($seeAge == 1)>>
+	  just turned 18 this week, which many citizens find especially appealing.
+	<<elseif ($activeSlave.birthWeek < 4) && ($seeAge == 1)>>
+	  only turned 18 this month.
+	<<else>>
+	  18 years old.
+	<</if>>
+  <<elseif $activeSlave.age < 20>>
+	in her final year as a teenager at age 19<<if ($showAgeDetail == 1) && ($seeAge == 1)>>; <<if $activeSlave.birthWeek == 51>>her birthday is next week<<else>>her birthday is in <<print 52-$activeSlave.birthWeek>> weeks<</if>><</if>>.
+  <<elseif $activeSlave.age < 26>>
+	a young woman,
+	<<if $showAgeDetail == 1>>
+	  $activeSlave.age years old<<if ($showAgeDetail == 1) && ($seeAge == 1)>>; <<if $activeSlave.birthWeek == 51>>her birthday is next week<<else>>her birthday is in <<print 52-$activeSlave.birthWeek>> weeks<</if>><</if>>.
+	<<else>>
+	  in her early twenties.
+	<</if>>
+  <<elseif $activeSlave.age < 30>>
+	a younger woman,
+	<<if $showAgeDetail == 1>>
+	  $activeSlave.age years old<<if ($showAgeDetail == 1) && ($seeAge == 1)>>; <<if $activeSlave.birthWeek == 51>>her birthday is next week<<else>>her birthday is in <<print 52-$activeSlave.birthWeek>> weeks<</if>><</if>>.
+	<<else>>
+	  in her late twenties.
+	<</if>>
+  <<elseif $activeSlave.age < 36>>
+	<<if $showAgeDetail == 1>>
+	  $activeSlave.age years old<<if ($showAgeDetail == 1) && ($seeAge == 1)>>; <<if $activeSlave.birthWeek == 51>>her birthday is next week<<else>>her birthday is in <<print 52-$activeSlave.birthWeek>> weeks<</if>><</if>>.
+	<<else>>
+	  in her early thirties.
+	<</if>>
+  <<elseif $activeSlave.age < 40>>
+	middle-aged for a slave,
+	<<if $showAgeDetail == 1>>
+	  at $activeSlave.age years old<<if ($showAgeDetail == 1) && ($seeAge == 1)>>; <<if $activeSlave.birthWeek == 51>>her birthday is next week<<else>>her birthday is in <<print 52-$activeSlave.birthWeek>> weeks<</if>><</if>>.
+	<<else>>
+	  in her late thirties.
+	<</if>>
+  <<else>>
+	mature for a slave,
+	<<if $showAgeDetail == 1>>
+	  at $activeSlave.age years old<<if ($showAgeDetail == 1) && ($seeAge == 1)>>; <<if $activeSlave.birthWeek == 51>>her birthday is next week<<else>>her birthday is in <<print 52-$activeSlave.birthWeek>> weeks<</if>><</if>>.
+	<<else>>
+	  in her forties.
+	<</if>>
+  <</if>>
+<</if>>
+<<else>>
+	The fuckdoll gives no external indication of its health or age, but upon query its systems reports that it is
+	<<if $activeSlave.health < -90>>
+		@@.red;dangerously sick@@
+	<<elseif $activeSlave.health < -50>>
+		@@.red;very sick@@
+	<<elseif $activeSlave.health < -20>>
+		@@.red;ill@@
+	<<elseif $activeSlave.health <= 20>>
+		@@.yellow;healthy@@
+	<<elseif $activeSlave.health <= 50>>
+		@@.green;very health@@
+	<<else>>
+		@@.green;extremely healthy@@
+	<</if>>
+	and $activeSlave.age years old.
+<</if>>
+
+<</widget>>
+
