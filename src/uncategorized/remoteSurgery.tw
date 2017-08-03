@@ -126,7 +126,7 @@ The surgical equipment reads
 	<</if>>
 <</if>>
 
-<br><br>//<<mouthDescription>>//
+<br><br>//<<mouthDescription>> ''Bold'' surgeries will set her back in this skill.//
 <br>&nbsp;&nbsp;&nbsp;&nbsp;
 $pronounCap has
 <<if $activeSlave.lips <= 10>>
@@ -154,17 +154,10 @@ $pronounCap has
 	//$possessiveCap indenture forbids elective surgery//
 <<elseif ($activeSlave.lips <= 75) || (($activeSlave.lips <= 95) && ($seeExtreme == 1))>>
 	<<if $activeSlave.lipsImplant > 0>>
-		[[Replace with the next size up|Surgery Degradation][$activeSlave.lipsImplant += 20,$activeSlave.lips += 20,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "lips"]] 
+		''[[Replace with the next size up|Surgery Degradation][$activeSlave.lipsImplant += 20,$activeSlave.lips += 20,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "lips"]]''
 	<<else>>
-		[[Lip implants|Surgery Degradation][$activeSlave.lipsImplant = 20,$activeSlave.lips += 20,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "lips"]] 
+		''[[Lip implants|Surgery Degradation][$activeSlave.lipsImplant = 20,$activeSlave.lips += 20,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "lips"]]''
 	<</if>>
-	//This will reduce $possessive 
-	<<if $activeSlave.oralSkill >= 100>>skills @@.aquamarine;as an oral sex master.@@
-	<<elseif $activeSlave.oralSkill > 60>>skills @@.aquamarine;as an expert at oral.@@
-	<<elseif $activeSlave.oralSkill > 30>>@@.aquamarine;oral skills.@@
-	<<elseif $activeSlave.oralSkill > 10>>@@.aquamarine;basic oral skills.@@
-	<</if>>
-	//
 <</if>>
 <<if $activeSlave.lipsImplant != 0>>
 	<<if $activeSlave.indentureRestrictions < 2>>
@@ -428,7 +421,7 @@ $pronounCap has
 
 <<if ($activeSlave.vagina > -1) || ($activeSlave.dick > 0)>>
 	<br><br>
-	//<<VaginaDescription>>//
+	//<<VaginaDescription>> ''Bold'' surgeries will set her back in this skill.//
 <</if>>
 
 
@@ -505,29 +498,17 @@ $pronounCap has
 <<if ($activeSlave.vagina > 3)>>
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
 	$possessiveCap vagina could benefit from surgical repair.
-	[[Repair pussy|Surgery Degradation][$activeSlave.vagina = 3,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "vagina"]]
-	//This will reduce $possessive
-	<<if $activeSlave.vaginalSkill >= 100>>skills as a @@.aquamarine;vanilla sex master@@.
-	<<elseif $activeSlave.vaginalSkill > 60>>skills as a @@.aquamarine;vanilla sex expert@@.
-	<<elseif $activeSlave.vaginalSkill > 30>>skills as a @@.aquamarine;skilled at vanilla sex@@.
-	<<elseif $activeSlave.vaginalSkill > 10>>already quite @@.aquamarine;basic@@ skill at vanilla sex.
-	<</if>>//
+	''[[Repair pussy|Surgery Degradation][$activeSlave.vagina = 3,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "vagina"]]''
 <<elseif ($surgeryUpgrade == 1) && ($activeSlave.indentureRestrictions < 2)>>
 	<<if ($activeSlave.vagina > 1)>>
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
 	$possessiveCap vaginal muscles could benefit from microsurgical rejuvenation.
-	[[Tighten pussy|Surgery Degradation][$activeSlave.vagina = 1,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "vagina"]]
+	''[[Tighten pussy|Surgery Degradation][$activeSlave.vagina = 1,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "vagina"]]''
 	<<elseif ($activeSlave.vagina > 0)>>
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
 	$possessiveCap pussy is as tight as a virgin's, and $possessive hymen could be restored.
-	[[Restore virginity|Surgery Degradation][$activeSlave.vagina = 0,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "vagina"]]
+	''[[Restore virginity|Surgery Degradation][$activeSlave.vagina = 0,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "vagina"]]''
 	<</if>>
-	//This will reduce $possessive
-	<<if $activeSlave.vaginalSkill >= 100>>skills as a @@.aquamarine;vanilla sex master@@.
-	<<elseif $activeSlave.vaginalSkill > 60>>skills as a @@.aquamarine;vanilla sex expert@@.
-	<<elseif $activeSlave.vaginalSkill > 30>>skills as a @@.aquamarine;skilled at vanilla sex@@.
-	<<elseif $activeSlave.vaginalSkill > 10>>already quite @@.aquamarine;basic@@ skill at vanilla sex.
-	<</if>>//
 <</if>>
 
 <<if ($activeSlave.vagina > -1) && ($activeSlave.dick > 0)>>
@@ -653,27 +634,15 @@ $pronounCap has
 
 
 <<if ($activeSlave.anus > 3)>>
-	<br><br>//<<AnusDescription>>//
-	[[Repair asshole|Surgery Degradation][$activeSlave.anus = 3,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "anus"]]
-	//This will reduce $possessive
-	<<if $activeSlave.analSkill >= 100>>skills as a @@.aquamarine;masterful anal slut@@.
-	<<elseif $activeSlave.analSkill > 60>>skills as a @@.aquamarine;expert anal slut@@.
-	<<elseif $activeSlave.analSkill > 30>>skills as a @@.aquamarine;skilled anal slut@@.
-	<<elseif $activeSlave.analSkill > 10>>@@.aquamarine;basic@@ skill at anal.
-	<</if>>//
+	<br><br>//<<AnusDescription>> ''Bold'' surgeries will set her back in this skill.//
+	''[[Repair asshole|Surgery Degradation][$activeSlave.anus = 3,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "anus"]]''
 <<elseif ($surgeryUpgrade == 1) && ($activeSlave.indentureRestrictions < 2)>>
 	<br><br>//<<AnusDescription>>//
 	<<if ($activeSlave.anus > 1)>>
-		[[Tighten asshole|Surgery Degradation][$activeSlave.anus = 1,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "anus"]]
+		''[[Tighten asshole|Surgery Degradation][$activeSlave.anus = 1,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "anus"]]''
 	<<elseif ($activeSlave.anus > 0)>>
-		[[Restore anal virginity|Surgery Degradation][$activeSlave.anus = 0,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "anus"]]
+		''[[Restore anal virginity|Surgery Degradation][$activeSlave.anus = 0,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "anus"]]''
 	<</if>>
-	//This will reduce $possessive
-	<<if $activeSlave.analSkill >= 100>>skills as a @@.aquamarine;masterful anal slut@@.
-	<<elseif $activeSlave.analSkill > 60>>skills as a @@.aquamarine;expert anal slut@@.
-	<<elseif $activeSlave.analSkill > 30>>skills as a @@.aquamarine;skilled anal slut@@.
-	<<elseif $activeSlave.analSkill > 10>>@@.aquamarine;basic@@ skill at anal.
-	<</if>>//
 <</if>>
 
 <br><br>
