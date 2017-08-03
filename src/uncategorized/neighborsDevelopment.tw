@@ -2181,7 +2181,7 @@ has an estimated GSP of @@.yellowgreen;¤<<print Math.trunc((0.1*$arcologies[$i]
 /* PEACEKEEPERS */
 
 <<if $plot>>
-<<if $peacekeepers != 0>>
+<<if (def $peacekeepers) and ($peacekeepers != 0) >>
 	<br><br>
 	<<if $peacekeepers.strength >= 50>>
 		<<set _prisoners = Math.trunc($peacekeepers.attitude/10)+random(0,10)>>
