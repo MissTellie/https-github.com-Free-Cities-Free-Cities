@@ -2,6 +2,7 @@
 
 
 <<set $activeSlave.oralCount++, $oralTotal++>>
+<<set $activeSlave.currentSummary = 0>>
 
 You tell $activeSlave.slaveName to
 <<if ($PC.dick != 0)>>
@@ -29,6 +30,13 @@ You tell $activeSlave.slaveName to
 <<case "dildo gag">>
 	<<if ($activeSlave.amp != 1)>>
 		She removes the dildo from her throat, leaving the ring gag in place.
+	<<else>>
+		As an amputee, she requires your assistance to get the dildo out of her throat.
+	<</if>>
+	Able to breathe through her mouth for the first time in a while, she gasps gratefully, knowing the respite will be brief.
+<<case "massive dildo gag">>
+	<<if ($activeSlave.amp != 1)>>
+		She struggles to remove the dildo from her throat, leaving her mouth agape.
 	<<else>>
 		As an amputee, she requires your assistance to get the dildo out of her throat.
 	<</if>>
@@ -91,6 +99,9 @@ You tell $activeSlave.slaveName to
 		<<if $activeSlave.collar == "dildo gag">>
 			She tries to back away, so you grab her; her <<if $seeRace == 1>>$activeSlave.race <</if>>mouth is already held invitingly open by her gag, and she's prevented from biting. You push her down to her knees with her head against the couch next to your desk so you can give her a good hard throat fuck. When you cum down her $activeSlave.skin throat she retches through her tears.
 			<<if $PC.vagina == 1>>She has a mere moment to get her breath back before you press your pussy against her unwilling mouth.<</if>>
+		<<elseif $activeSlave.collar == "massive dildo gag">>
+			She tries to back away, so you grab her; her <<if $seeRace == 1>>$activeSlave.race <</if>>mouth is left agape, unable to close after being forced so widely open for so long, so she is unlikely to bite. You push her down to her knees with her head against the couch next to your desk so you can give her a good hard throat fuck. When you cum down her $activeSlave.skin throat she retches through her tears.
+			<<if $PC.vagina == 1>>She has a mere moment to get her breath back before you press your pussy against her unwilling mouth.<</if>>
 		<<else>>
 			grab her and force a ring gag into her <<if $seeRace == 1>>$activeSlave.race <</if>>mouth. Once you have the straps secured behind her head, she's prevented from biting. You push her down to her knees with her head against the couch next to your desk so you can give her a good hard throat fuck. When you cum down her $activeSlave.skin throat she retches through her tears.
 			<<if $PC.vagina == 1>>She has a mere moment to get her breath back before you press your pussy against her unwilling mouth.<</if>>
@@ -126,8 +137,6 @@ You tell $activeSlave.slaveName to
 	<</if>>
 <</if>>
 
-<<if ($economy <= 1)>>
-
 <<if (random(1,100) > (100 + $activeSlave.devotion))>>
 	<<if ($activeSlave.fetish != "cumslut") && ($activeSlave.energy <= 95) && ($activeSlave.sexualFlaw != "hates oral")>>
 		Being facefucked by force has given her a @@.red;hatred of oral sex.@@
@@ -138,7 +147,6 @@ You tell $activeSlave.slaveName to
 		Consummating an enjoyable sexual encounter by drinking your cum has @@.lightcoral;encouraged her to focus on oral sex.@@
 		<<set $activeSlave.fetish = "cumslut", $activeSlave.fetishKnown = 1>>
 	<</if>>
-<</if>>
 <</if>>
 
 <<if passage() != "Slave Interact">>

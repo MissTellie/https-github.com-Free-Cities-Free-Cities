@@ -446,12 +446,14 @@ She
 <<if ($slaves[$i].devotion <= 20)>>
 	<<if $slaves[$i].voice == 0>>
 		Living as a mute @@.hotpink;molds her@@ to your will.
+		<<set $slaves[$i].devotion += 1>>
 	<<elseif $slaves[$i].lips > 95>>
 		Being unable to speak through her facepussy @@.hotpink;molds her@@ to your will.
+		<<set $slaves[$i].devotion += 1>>
 	<<elseif $slaves[$i].speechRules == "restrictive">>
 		Living under enforced silence @@.hotpink;molds her@@ to your will.
+		<<set $slaves[$i].devotion += 1>>
 	<</if>>
-	<<set $slaves[$i].devotion += 1>>
 <</if>>
 
 <<if $roomsPopulation > $rooms>>
@@ -541,25 +543,25 @@ She
 
 <<if ($universalRulesConsent == 0)>>
 	<<if ($slaves[$i].devotion <= 20)>>
-	<<if ($slaves[$i].trust > -10)>>
-		Under the rules, she finds herself constantly molested by other slaves, and lives her life constantly @@.gold;afraid.@@
-		<<set $slaves[$i].trust -= 2>>
-	<<else>>
-		Under the rules, she finds herself constantly molested by other slaves, but she's already in such constant terror it doesn't seriously affect her.
-	<</if>>
-	<<elseif ($slaves[$i].releaseRules != "restrictive")>>
-	<<if ($slaves[$i].energy > 95)>>
-		Under the rules, she's allowed to demand that other slaves to get her off, and she @@.hotpink;adores@@ you for providing plentiful outlets for her nymphomania.
-		<<set $slaves[$i].devotion += 1>>
-	<<elseif ($slaves[$i].fetishKnown == 1) && ($slaves[$i].fetishStrength > 60)>>
-		<<if ($slaves[$i].fetish == "sadist")>>
-		Under the rules, she's allowed to sexually abuse other slaves, and she @@.hotpink;adores@@ you for providing a whole penthouse of girls for her to rape.
-		<<set $slaves[$i].devotion += 1>>
-		<<elseif ($slaves[$i].fetish == "dom")>>
-		Under the rules, she's allowed to force other slaves to have sex with her, and she @@.hotpink;adores@@ you for providing a whole penthouse of girls for her to dominate.
-		<<set $slaves[$i].devotion += 1>>
+		<<if ($slaves[$i].trust > -10)>>
+			Under the rules, she finds herself constantly molested by other slaves, and lives her life constantly @@.gold;afraid.@@
+			<<set $slaves[$i].trust -= 2>>
+		<<else>>
+			Under the rules, she finds herself constantly molested by other slaves, but she's already in such constant terror it doesn't seriously affect her.
 		<</if>>
-	<</if>>
+	<<elseif ($slaves[$i].releaseRules != "restrictive")>>
+		<<if ($slaves[$i].energy > 95)>>
+			Under the rules, she's allowed to demand that other slaves to get her off, and she @@.hotpink;adores@@ you for providing plentiful outlets for her nymphomania.
+			<<set $slaves[$i].devotion += 1>>
+		<<elseif ($slaves[$i].fetishKnown == 1) && ($slaves[$i].fetishStrength > 60)>>
+			<<if ($slaves[$i].fetish == "sadist")>>
+				Under the rules, she's allowed to sexually abuse other slaves, and she @@.hotpink;adores@@ you for providing a whole penthouse of girls for her to rape.
+				<<set $slaves[$i].devotion += 1>>
+			<<elseif ($slaves[$i].fetish == "dom")>>
+				Under the rules, she's allowed to force other slaves to have sex with her, and she @@.hotpink;adores@@ you for providing a whole penthouse of girls for her to dominate.
+				<<set $slaves[$i].devotion += 1>>
+			<</if>>
+		<</if>>
 	<</if>>
 <<else>>
 	<<if ($slaves[$i].devotion <= 20) && ($slaves[$i].devotion >= -20)>>

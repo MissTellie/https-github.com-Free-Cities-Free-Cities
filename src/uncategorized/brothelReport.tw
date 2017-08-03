@@ -108,7 +108,27 @@
 		<<elseif $Madam.relationshipTarget == $slaves[$i].ID>>
 			She dotes over her <<if $Madam.relationship == 1>>friend<<elseif $Madam.relationship == 2>>best friend<<elseif $Madam.relationship == 3>>friend with benefits<<elseif $Madam.relationship == 4>>lover<<elseif $Madam.relationship == 5>>slave wife<</if>>, $slaves[$i].slaveName, making sure she is safe, but unfortunately driving potential costumers away from her.
 			<<set $slaves[$i].devotion++, $madamCashBonus -= 0.05>>
-		<<elseif $Madam.relationTarget == $slaves[$i].ID>>
+		<<elseif $familyTesting == 1 && totalRelatives($slaves[$i]) > 0>>
+			<<if $slaves[$i].mother == $Madam.ID || $slaves[$i].father == $Madam.ID>>
+				She pays special attention to her daughter, $slaves[$i].slaveName, making sure she is treated well and showing off her skills.
+				<<set $slaves[$i].trust++, $madamCashBonus += 0.05>>
+			<<elseif $slaves[$i].ID == $Madam.mother>>
+				She pays special attention to her mother, $slaves[$i].slaveName, making sure she is treated well and showing off her skills.
+				<<set $slaves[$i].trust++, $madamCashBonus += 0.05>>
+			<<elseif $slaves[$i].ID == $Madam.father>>
+				She pays special attention to her father, $slaves[$i].slaveName, making sure she is treated well and showing off her skills.
+				<<set $slaves[$i].trust++, $madamCashBonus += 0.05>>
+			<<elseif areSisters($slaves[$i], $Madam) == 1>>
+				She pays special attention to her twin sister, $slaves[$i].slaveName, making sure she is treated well and showing off her skills.
+				<<set $slaves[$i].trust++, $madamCashBonus += 0.05>>
+			<<elseif areSisters($slaves[$i], $Madam) == 2>>
+				She pays special attention to her sister, $slaves[$i].slaveName, making sure she is treated well and showing off her skills.
+				<<set $slaves[$i].trust++, $madamCashBonus += 0.05>>
+			<<elseif areSisters($slaves[$i], $Madam) == 3>>
+				She pays special attention to her half-sister, $slaves[$i].slaveName, making sure she is treated well and showing off her skills.
+				<<set $slaves[$i].trust++, $madamCashBonus += 0.05>>
+			<</if>>
+		<<elseif $Madam.relationTarget == $slaves[$i].ID && $familyTesting == 0>>
 			She pays special attention to her $slaves[$i].relation, $slaves[$i].slaveName, making sure she is treated well and showing off her skills.
 			<<set $slaves[$i].trust++, $madamCashBonus += 0.05>>
 		<</if>>

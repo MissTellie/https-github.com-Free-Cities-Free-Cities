@@ -115,7 +115,7 @@
 <<if ($activeSlave.ID == $Milkmaid.ID)>>
 	<<set $qualifiedNicknames.push("Milkmaid")>>
 <</if>>
-<<if ($activeSlave.ID == $Collectrix.ID)>>
+<<if ($activeSlave.ID == $Milkmaid.ID) && $activeSlave.dick > 5 && canPenetrate($activeSlave) && $cumSlaves > 3>>
 	<<set $qualifiedNicknames.push("Collectrix")>>
 <</if>>
 <<if ($activeSlave.ID == $Stewardess.ID)>>

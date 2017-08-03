@@ -1,10 +1,16 @@
-:: FBoobs
+:: FBoobs [nobr]
 
-<<nobr>>
 <<set $activeSlave.mammaryCount++, $mammaryTotal++>>
+<<set $activeSlave.currentSummary = 0>>
 
 You call her over so you can play with her
-<<if ($activeSlave.boobs >= 1000)>>
+<<if ($activeSlave.boobs >= 20000)>>
+	colossal
+<<elseif ($activeSlave.boobs >= 10000)>>
+	massive
+<<elseif ($activeSlave.boobs >= 5000)>>
+	monster
+<<elseif ($activeSlave.boobs >= 1000)>>
 	huge
 <<elseif ($activeSlave.boobsImplant > 250)>>
 	fake
@@ -159,4 +165,3 @@ tits.
 	<</if>>
 <</for>>
 <</if>>
-<</nobr>>

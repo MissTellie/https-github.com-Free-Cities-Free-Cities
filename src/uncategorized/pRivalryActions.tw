@@ -19,7 +19,7 @@
 Your inter-arcology war with the arcology owner behind the Daughters of Liberty has dragged on for $rivalryDuration week<<if $rivalryDuration > 1>>s<</if>>. The tone of your arcology is a bit more somber than usual. You have enhanced security in place, and the populace has caught the mood.
 
 <<if $hostageAnnounced == 1>>
-<<if $rivalryDuration >= 30>>The latest message from your rival is a live communication.<<else>>The latest message from your rival recently arrived, showing $hostage.slaveName<</if>>
+<<if $rivalryDuration >= 30>>The latest message from your rival is a live communication.<<else>>The latest message from your rival recently arrived, showing <<SlaveFullName $hostage>><</if>>
 <<if $rivalryDuration == 1>>
 	<<switch $rivalryFS>>
 	<<case "Racial Subjugationism">>
@@ -72,7 +72,7 @@ Your inter-arcology war with the arcology owner behind the Daughters of Liberty 
 		<<set $hostage.eyebrowPiercing = 0>>
 		<<set $hostage.navelPiercing = 0>>
 		<<set $hostage.corsetPiercing = 0>>
-		<<set $hostage.areoleaPiercing = 0>>
+		<<set $hostage.areolaePiercing = 0>>
 		<<set $hostage.tonguePiercing = 0>>
 		<<set $hostage.boobsTat = 0>>
 		<<set $hostage.buttTat = 0>>
@@ -235,7 +235,7 @@ Your inter-arcology war with the arcology owner behind the Daughters of Liberty 
 		<<set $hostage.eyebrowPiercing = 0>>
 		<<set $hostage.navelPiercing = 1>>
 		<<set $hostage.corsetPiercing = 0>>
-		<<set $hostage.areoleaPiercing = 0>>
+		<<set $hostage.areolaePiercing = 0>>
 		<<set $hostage.tonguePiercing = 1>>
 		<<set $hostage.boobsTat = "degradation">>
 		<<set $hostage.backTat = "degradation">>
@@ -414,7 +414,7 @@ Your inter-arcology war with the arcology owner behind the Daughters of Liberty 
 		<<set $hostage.eyebrowPiercing = 1>>
 		<<set $hostage.navelPiercing = 2>>
 		<<set $hostage.corsetPiercing = 0>>
-		<<set $hostage.areoleaPiercing = 1>>
+		<<set $hostage.areolaePiercing = 1>>
 		<<set $hostage.tonguePiercing = 1>>
 		<<set $hostage.buttTat = "degradation">>
 		<<set $hostage.vaginaTat = "degradation">>
@@ -617,7 +617,7 @@ Your inter-arcology war with the arcology owner behind the Daughters of Liberty 
 		<<set $hostage.eyebrowPiercing = 2>>
 		<<set $hostage.navelPiercing = 2>>
 		<<set $hostage.corsetPiercing = 1>>
-		<<set $hostage.areoleaPiercing = 1>>
+		<<set $hostage.areolaePiercing = 1>>
 		<<set $hostage.tonguePiercing = 2>>
 		<<set $hostage.lipsTat = "degradation">>
 		<<set $hostage.anusTat = "degradation">>
@@ -810,7 +810,7 @@ Your inter-arcology war with the arcology owner behind the Daughters of Liberty 
 		giving an interview. She gushes over how great it is to experience all manners of class and culture, both physically and spiritually.
 	<<case "Multiculturalism">>
 		<<set $hostage.vaginalCount += 1>>
-		giving a public sermon. She declares that if it would save the nonbelievers, she would gladly take every one of their dicks into her body; at once, if she wear able to.
+		giving a public sermon. She declares that if it would save the nonbelievers, she would gladly take every one of their dicks into her body; at once, if she were able to.
 	<<default>>
 		<<set $hostage.vaginalCount += 1>>
 		giving an interview. She gushes over how great it is to experience all manners of class and culture, both physically and spiritually.
@@ -819,39 +819,39 @@ Your inter-arcology war with the arcology owner behind the Daughters of Liberty 
 	<<set $hostageAnnounced = 0>>
 	<<switch $rivalryFS>>
 	<<case "Racial Subjugationism">>
-		Looking for $hostage.slaveName? Too bad, I couldn't bear to think of you ever getting your rotten little hands on her, so I sent her and her lovers someplace far away. Someplace you'll never find them. Bet tha-You end the call.
+		Looking for <<SlaveFullName $hostage>>? Too bad, I couldn't bear to think of you ever getting your rotten little hands on her, so I sent her and her lovers someplace far away. Someplace you'll never find them. Bet tha-You end the call.
 	<<case "Racial Supremacism">>
-		Looking for $hostage.slaveName? Too bad, the poor bitch died trying to give birth to her baby. We had lots of room in the clinic too, but slaves like her aren't worth the expenses, you know? I should find some more people you knew, keep our little game goi-You end the call.
+		Looking for <<SlaveFullName $hostage>>? Too bad, the poor bitch died trying to give birth to her baby. We had lots of room in the clinic too, but slaves like her aren't worth the expenses, you know? I should find some more people you knew, keep our little game goi-You end the call.
 	<<case "Gender Radicalism">>
-		Looking for $hostage.slaveName? Too bad, I couldn't bear to think of you ever getting your rotten little hands on her, so I sent her far away. I'll miss her, of course, but there is no way I'd let you have her. Bet that piss-You end the call.
+		Looking for <<SlaveFullName $hostage>>? Too bad, I couldn't bear to think of you ever getting your rotten little hands on her, so I sent her far away. I'll miss her, of course, but there is no way I'd let you have her. Bet that piss-You end the call.
 	<<case "Gender Fundamentalism">>
-		Looking for $hostage.slaveName? Too bad, she took a dick a little too big for her ass and ruined her sphincter. She's off, someplace far away, recovering. But I'll never tell you where, bet that piss-You end the call.
+		Looking for <<SlaveFullName $hostage>>? Too bad, she took a dick a little too big for her ass and ruined her sphincter. She's off, someplace far away, recovering. But I'll never tell you where, bet that piss-You end the call.
 	<<case "Paternalism">>
-		Looking for $hostage.slaveName? Too bad, she got kicked around just a little too much. We had lots of fun with her, before she broke of course... Say, do you have anyone else you love, or even were familiar with? I should acquire them, keep our little game goi-You end the call.
+		Looking for <<SlaveFullName $hostage>>? Too bad, she got kicked around just a little too much. We had lots of fun with her, before she broke of course... Say, do you have anyone else you love, or even were familiar with? I should acquire them, keep our little game goi-You end the call.
 	<<case "Degradationism">>
-		Looking for $hostage.slaveName? Too bad, I couldn't bear to think of you ever getting your rotten little hands on her, so I sent her far away. I'll miss her, of course, but there is no way I'd let you have her. I'll keep her saf-You end the call.
+		Looking for <<SlaveFullName $hostage>>? Too bad, I couldn't bear to think of you ever getting your rotten little hands on her, so I sent her far away. I'll miss her, of course, but there is no way I'd let you have her. I'll keep her saf-You end the call.
 	<<case "Body Purism">>
-		Looking for $hostage.slaveName? Too bad, apparently implants can be too big. Her breasts literally popped, couldn't save her though. Definitely going to miss playing with those balloons. I should hunt down more people you knew, keep our little game goi-You end the call.
+		Looking for <<SlaveFullName $hostage>>? Too bad, apparently implants can be too big. Her breasts literally popped, couldn't save her though. Definitely going to miss playing with those balloons. I should hunt down more people you knew, keep our little game goi-You end the call.
 	<<case "Transformation Fetishism">>
-		Looking for $hostage.slaveName? Too bad, I couldn't bear to think of you ever getting your rotten little hands on her, so I sent her far away. Someplace you'll never find her. Bet tha-You end the call.
+		Looking for <<SlaveFullName $hostage>>? Too bad, I couldn't bear to think of you ever getting your rotten little hands on her, so I sent her far away. Someplace you'll never find her. Bet tha-You end the call.
 	<<case "Youth Preferentialism">>
-		Looking for $hostage.slaveName? Too bad, I couldn't bear to think of you ever getting your rotten little hands on her, so I sent her and her lover someplace far away. Someplace you'll never find them. Bet tha-You end the call.
+		Looking for <<SlaveFullName $hostage>>? Too bad, I couldn't bear to think of you ever getting your rotten little hands on her, so I sent her and her lover someplace far away. Someplace you'll never find them. Bet tha-You end the call.
 	<<case "Maturity Preferentialism">>
-		Looking for $hostage.slaveName? Too bad, I couldn't bear to think of you ever getting your rotten little hands on her, so I sent her and her lover someplace far away. Someplace you'll never find them. Bet tha-You end the call.
+		Looking for <<SlaveFullName $hostage>>? Too bad, I couldn't bear to think of you ever getting your rotten little hands on her, so I sent her and her lover someplace far away. Someplace you'll never find them. Bet tha-You end the call.
 	<<case "Slimness Enthusiasm">>
-		Looking for $hostage.slaveName? Too bad, apparently those growth drugs have quite the side effects. Pretty much had cancer everywhere. Definitely going to miss playing with those milkbags, though. I should hunt down more people you knew, keep our little game goi-You end the call.
+		Looking for <<SlaveFullName $hostage>>? Too bad, apparently those growth drugs have quite the side effects. Pretty much had cancer everywhere. Definitely going to miss playing with those milkbags, though. I should hunt down more people you knew, keep our little game goi-You end the call.
 	<<case "Asset Expansionism">>
-		Looking for $hostage.slaveName? Too bad, I couldn't bear to think of you ever getting your rotten little hands on her, so I sent her far away. Someplace you'll never find her. Bet tha-You end the call.
+		Looking for <<SlaveFullName $hostage>>? Too bad, I couldn't bear to think of you ever getting your rotten little hands on her, so I sent her far away. Someplace you'll never find her. Bet tha-You end the call.
 	<<case "Pastoralism">>
-		Looking for $hostage.slaveName? Too bad, I couldn't bear to think of you ever getting your rotten little hands on her, so I sent her far away. I'll miss her, of course, but there is no way I'd let you have her. Bet that piss-You end the call.
+		Looking for <<SlaveFullName $hostage>>? Too bad, I couldn't bear to think of you ever getting your rotten little hands on her, so I sent her far away. I'll miss her, of course, but there is no way I'd let you have her. Bet that piss-You end the call.
 	<<case "Physical Idealism">>
-		Looking for $hostage.slaveName? Too bad, apparently being that fat isn't good for your heart, who knew? Definitely going to miss playing with those milkbags, though, her milk was really good too. I should hunt down more people you knew, keep our little game goi-You end the call.
+		Looking for <<SlaveFullName $hostage>>? Too bad, apparently being that fat isn't good for your heart, who knew? Definitely going to miss playing with those milkbags, though, her milk was really good too. I should hunt down more people you knew, keep our little game goi-You end the call.
 	<<case "Chattel Religionism">>
-		Looking for $hostage.slaveName? Too bad, I couldn't bear to think of you ever getting your rotten little hands on her, so I sent her far away. Someplace you'll never find her. Bet tha-You end the call.
+		Looking for <<SlaveFullName $hostage>>? Too bad, I couldn't bear to think of you ever getting your rotten little hands on her, so I sent her far away. Someplace you'll never find her. Bet tha-You end the call.
 	<<case "Multiculturalism">>
-		Looking for $hostage.slaveName? Too bad, she decided to martyr herself for your arcology's salvation. Got fucked till her body gave out. Of course I enjoyed her in her final moments, and don't worry, she died smiling. I should hunt down more people you knew, keep our little game goi-You end the call.
+		Looking for <<SlaveFullName $hostage>>? Too bad, she decided to martyr herself for your arcology's salvation. Got fucked till her body gave out. Of course I enjoyed her in her final moments, and don't worry, she died smiling. I should hunt down more people you knew, keep our little game goi-You end the call.
 	<<default>>
-		Looking for $hostage.slaveName? Too bad, I couldn't bear to think of you ever getting your rotten little hands on her, so I sent her far away. Someplace you'll never find her. Bet tha-You end the call.
+		Looking for <<SlaveFullName $hostage>>? Too bad, I couldn't bear to think of you ever getting your rotten little hands on her, so I sent her far away. Someplace you'll never find her. Bet tha-You end the call.
 	<</switch>>
 <<else>>
 <<set $seed = random(0,2)>>
@@ -2538,8 +2538,8 @@ You remind yourself that success in this conflict will not be defined by the tra
 	<<case "Asset Expansionism">>Epheb
 	<<case "Pastoralism">>Farmer
 	<<case "Physical Idealism">>Gym Rat
-	<<case "Chattel Religionism">>Prophet
-	<<case "Multiculturalism">>Cultural Marxist
+	<<case "Chattel Religionism">>Cultural Marxist
+	<<case "Multiculturalism">>Prophet
 	<<default>>Target One
 	<</switch>>
 	EKIA. Confirm, E. K. I. A. No other casualties, team exfiltrating."

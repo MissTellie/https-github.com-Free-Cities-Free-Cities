@@ -19,7 +19,7 @@
 <</if>>
 
 <br>
-The legalities completed, ''__@@.pink;$activeSlave.slaveName@@__'' <<if ($activeSlave.amp != 1)>>stands before your desk,<<else>>lies helplessly on your desk,<</if>>
+The legalities completed, ''__@@.pink;<<SlaveFullName $activeSlave>>@@__'' <<if ($activeSlave.amp != 1)>>stands before your desk,<<else>>lies helplessly on your desk,<</if>>
 <<if $activeSlave.devotion < -50>>
 	looking you in the eyes with defiance.
 <<elseif $activeSlave.devotion < -20>>
@@ -90,7 +90,7 @@ The legalities completed, ''__@@.pink;$activeSlave.slaveName@@__'' <<if ($active
 	<</if>>
 <</if>>
 
-<<if ($activeSlave.indenture < 0) && ($activeSlave.relation == 0)>>
+<<if $familyTesting == 0 && ($activeSlave.indenture < 0) && ($activeSlave.relation == 0)>>
 	<<if random(1,100) <= 5>>
 		<<set $activeSlave.recruiter = "twin">>
 	<<elseif ($activeSlave.age > 32) && ($activeSlave.vagina != 0) && (random(1,100) <= 41)>>
@@ -254,12 +254,14 @@ The legalities completed, ''__@@.pink;$activeSlave.slaveName@@__'' <<if ($active
 <</if>>
 
 <<if $arcologies[0].FSGenderRadicalist >= 50>>
-	<<if ($activeSlave.dick > 0) && ($activeSlave.anus > 0)>>
-		She realizes that your arcology accepts girls with dicks who take it up the ass, and since she qualifies, she @@.mediumaquamarine;hopes@@ to be well treated here.
-		<<set $activeSlave.trust += 2>>
-	<<else>>
-		She realizes that girls with dicks take it up the butt here, and @@.gold;fears@@ for her virgin anus.
-		<<set $activeSlave.trust -= 4>>
+	<<if $activeSlave.dick > 0>>
+		<<if $activeSlave.anus > 0>>
+			She realizes that your arcology accepts girls with dicks who take it up the ass, and since she qualifies, she @@.mediumaquamarine;hopes@@ to be well treated here.
+			<<set $activeSlave.trust += 2>>
+		<<else>>
+			She realizes that girls with dicks take it up the butt here, and @@.gold;fears@@ for her virgin anus.
+			<<set $activeSlave.trust -= 4>>
+		<</if>>
 	<</if>>
 <</if>>
 
@@ -708,14 +710,36 @@ The legalities completed, ''__@@.pink;$activeSlave.slaveName@@__'' <<if ($active
  <br>
 
 /*Written by DrPill, coded by Boney M*/
-<<case "She was recruited into your service by her younger sister." "She was recruited into your service by her twin sister." "She was recruited into your service by her older sister.">>
-	//and since she was recruited by her sister...//
+<<case "She was recruited into your service by her big sis." "She was recruited into your service by her older sister.">>
+	//and since she was recruited by her older sister...//
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	<<link "Use her sister as an example">>
-		<<set _sisterID = $activeSlave.ID - 1000>>
-		<<set $recruiterSister = $slaves.find(function(s) { return s.ID == _sisterID; })>>
+	<<link "Use her big sister as an example">>
 		<<replace "#introResult">>
-			Your new slave appears <<if $activeSlave.devotion < -10>>reluctant to assume her new duties.<<else>>unsure what her new duties are.<</if>> You gesture towards $recruiterSister.slaveName. She is <<if $recruiterSister.intelligence > 0>>bright enough<<elseif (($recruiterSister.vaginalSkill + $recruiterSister.analSkill + $recruiterSister.oralSkill) > 100)>>skilled enough<<else>>obedient enough<</if>> to understand you mean a demonstration is in order. $recruiterSister.slaveName starts things off with a <<if $recruiterSister.entertainSkill >= 100>>masterful<<elseif $recruiterSister.entertainSkill > 10>>skillful<<else>>passable<</if>> striptease, culminating in <<if ($recruiterSister.anus > 0) && ($recruiterSister.fetish != "cumslut")>>bending over<<else>>kneeling<</if>> in front of you. She eagerly moans as you enter her, begging for your seed<<if $recruiterSister.energy > 95>> like the slut she is.<<elseif $recruiterSister.whoreSkill > 30>> like the whore she is<<elseif ($recruiterSister.assignment == "serve in the master suite") || ($recruiterSister.assignment == "please you")>> like the fucktoy she is<</if>>. As you finish, she <<if $recruiterSister.fetish == "cumslut">>opens her mouth and savors your gift, thanking you once she's swallowed enough to be able to talk again.<<elseif ($recruiterSister.fetish == "buttslut") || ($recruiterSister.fetish == "submissive")>>collapses on the floor with her ass high in the air, thanking you for painting her hole white.<<else>>thanks you.<</if>> witnessing this display of servitude from her big sister @@.hotpink;eases $activeSlave.slaveName into her new life,@@ and @@.mediumaquamarine;gives her hope@@ she can find a place here.
+			Your new slave appears <<if $activeSlave.devotion < -10>>reluctant to assume her new duties.<<else>>unsure what her new duties are.<</if>> You gesture towards $eventSlave.slaveName. She is <<if $eventSlave.intelligence > 0>>bright enough<<elseif (($eventSlave.vaginalSkill + $eventSlave.analSkill + $eventSlave.oralSkill) > 100)>>skilled enough<<else>>obedient enough<</if>> to understand you mean a demonstration is in order. $eventSlave.slaveName starts things off with a <<if $eventSlave.entertainSkill >= 100>>masterful<<elseif $eventSlave.entertainSkill > 10>>skillful<<else>>passable<</if>> striptease, culminating in <<if ($eventSlave.anus > 0) && ($eventSlave.fetish != "cumslut")>>bending over<<else>>kneeling<</if>> in front of you. She eagerly moans as you enter her, begging for your seed<<if $eventSlave.energy > 95>> like the slut she is.<<elseif $eventSlave.whoreSkill > 30>> like the whore she is<<elseif ($eventSlave.assignment == "serve in the master suite") || ($eventSlave.assignment == "please you")>> like the fucktoy she is<</if>>. As you finish, she <<if $eventSlave.fetish == "cumslut">>opens her mouth and savors your gift, thanking you once she's swallowed enough to be able to talk again.<<elseif ($eventSlave.fetish == "buttslut") || ($eventSlave.fetish == "submissive")>>collapses on the floor with her ass high in the air, thanking you for painting her hole white.<<else>>thanks you.<</if>> witnessing this display of servitude from her big sister @@.hotpink;eases $activeSlave.slaveName into her new life,@@ and @@.mediumaquamarine;gives her hope@@ she can find a place here.
+		<</replace>>
+		<<set $activeSlave.devotion += 4>>
+		<<set $activeSlave.trust += 4>>
+	<</link>>
+ <br>
+ 
+<<case "She was recruited into your service by her little sis." "She was recruited into your service by her younger sister.">>
+	//and since she was recruited by her younger sister...//
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	<<link "Use her little sister as an example">>
+		<<replace "#introResult">>
+			Your new slave appears <<if $activeSlave.devotion < -10>>reluctant to assume her new duties.<<else>>unsure what her new duties are.<</if>> You gesture towards $eventSlave.slaveName. She is <<if $eventSlave.intelligence > 0>>bright enough<<elseif (($eventSlave.vaginalSkill + $eventSlave.analSkill + $eventSlave.oralSkill) > 100)>>skilled enough<<else>>obedient enough<</if>> to understand you mean a demonstration is in order. $eventSlave.slaveName starts things off with a <<if $eventSlave.entertainSkill >= 100>>masterful<<elseif $eventSlave.entertainSkill > 10>>skillful<<else>>passable<</if>> striptease, culminating in <<if ($eventSlave.anus > 0) && ($eventSlave.fetish != "cumslut")>>bending over<<else>>kneeling<</if>> in front of you. She eagerly moans as you enter her, begging for your seed<<if $eventSlave.energy > 95>> like the slut she is.<<elseif $eventSlave.whoreSkill > 30>> like the whore she is<<elseif ($eventSlave.assignment == "serve in the master suite") || ($eventSlave.assignment == "please you")>> like the fucktoy she is<</if>>. As you finish, she <<if $eventSlave.fetish == "cumslut">>opens her mouth and savors your gift, thanking you once she's swallowed enough to be able to talk again.<<elseif ($eventSlave.fetish == "buttslut") || ($eventSlave.fetish == "submissive")>>collapses on the floor with her ass high in the air, thanking you for painting her hole white.<<else>>thanks you.<</if>> witnessing this display of servitude from her little sister @@.hotpink;eases $activeSlave.slaveName into her new life,@@ and @@.mediumaquamarine;gives her hope@@ she can find a place here.
+		<</replace>>
+		<<set $activeSlave.devotion += 4>>
+		<<set $activeSlave.trust += 4>>
+	<</link>>
+ <br>
+
+<<case "She was recruited into your service by her twin sister.">>
+	//and since she was recruited by her twin...//
+	<br>&nbsp;&nbsp;&nbsp;&nbsp
+	<<link "Use her sister as an example">>
+		<<replace "#introResult">>
+			Your new slave appears <<if $activeSlave.devotion < -10>>reluctant to assume her new duties.<<else>>unsure what her new duties are.<</if>> You gesture towards $eventSlave.slaveName. She is <<if $eventSlave.intelligence > 0>>bright enough<<elseif (($eventSlave.vaginalSkill + $eventSlave.analSkill + $eventSlave.oralSkill) > 100)>>skilled enough<<else>>obedient enough<</if>> to understand you mean a demonstration is in order. $eventSlave.slaveName starts things off with a <<if $eventSlave.entertainSkill >= 100>>masterful<<elseif $eventSlave.entertainSkill > 10>>skillful<<else>>passable<</if>> striptease, culminating in <<if ($eventSlave.anus > 0) && ($eventSlave.fetish != "cumslut")>>bending over<<else>>kneeling<</if>> in front of you. She eagerly moans as you enter her, begging for your seed<<if $eventSlave.energy > 95>> like the slut she is.<<elseif $eventSlave.whoreSkill > 30>> like the whore she is<<elseif ($eventSlave.assignment == "serve in the master suite") || ($eventSlave.assignment == "please you")>> like the fucktoy she is<</if>>. As you finish, she <<if $eventSlave.fetish == "cumslut">>opens her mouth and savors your gift, thanking you once she's swallowed enough to be able to talk again.<<elseif ($eventSlave.fetish == "buttslut") || ($eventSlave.fetish == "submissive")>>collapses on the floor with her ass high in the air, thanking you for painting her hole white.<<else>>thanks you.<</if>> witnessing this display of servitude from her twin sister @@.hotpink;eases $activeSlave.slaveName into her new life,@@ and @@.mediumaquamarine;gives her hope@@ she can find a place here.
 		<</replace>>
 		<<set $activeSlave.devotion += 4>>
 		<<set $activeSlave.trust += 4>>
@@ -730,6 +754,30 @@ The legalities completed, ''__@@.pink;$activeSlave.slaveName@@__'' <<if ($active
 		<<set $recruiterMother = $slaves.find(function(s) { return s.ID == _motherID; })>>
 		<<replace "#introResult">>
 			You gesture towards $recruiterMother.slaveName. She is <<if $recruiterMother.intelligence > 0>>bright enough<<elseif (($recruiterMother.vaginalSkill + $recruiterMother.analSkill + $recruiterMother.oralSkill) > 100)>>skilled enough<<else>>obedient enough<</if>> to understand you mean a demonstration is in order. $recruiterMother.slaveName starts things off with a <<if $recruiterMother.entertainSkill >= 100>>masterful<<elseif $recruiterMother.entertainSkill > 10>>skillful<<else>>passable<</if>> striptease, culminating in <<if ($recruiterMother.anus > 0) && ($recruiterMother.fetish != "cumslut")>>bending over<<else>>kneeling<</if>> in front of you. She eagerly moans as you enter her, begging for your seed<<if $recruiterMother.energy > 95>> like the slut she is.<<elseif $recruiterMother.whoreSkill > 30>> like the whore she is<<elseif ($recruiterMother.assignment == "serve in the master suite") || ($recruiterMother.assignment == "please you")>> like the fucktoy she is<</if>>. As you finish, she <<if $recruiterMother.fetish == "cumslut">>opens her mouth and savors your gift, thanking you once she's swallowed enough to be able to talk again.<<elseif ($recruiterMother.fetish == "buttslut") || ($recruiterMother.fetish == "submissive")>>collapses on the floor with her ass high in the air, thanking you for painting her hole white.<<else>>thanks you.<</if>> witnessing this display of servitude from her mother @@.hotpink;eases $activeSlave.slaveName into her new life,@@ and @@.mediumaquamarine;gives her hope@@ she can find a place here.
+		<</replace>>
+		<<set $activeSlave.devotion += 4>>
+		<<set $activeSlave.trust += 4>>
+	<</link>>
+ <br>
+
+<<case "She was recruited into your service by her parent.">>
+	//and since she was recruited by her parent...//
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	<<link "Use her parent as an example">>
+		<<replace "#introResult">>
+			You gesture towards $eventSlave.slaveName. She is <<if $eventSlave.intelligence > 0>>bright enough<<elseif (($eventSlave.vaginalSkill + $eventSlave.analSkill + $eventSlave.oralSkill) > 100)>>skilled enough<<else>>obedient enough<</if>> to understand you mean a demonstration is in order. $eventSlave.slaveName starts things off with a <<if $eventSlave.entertainSkill >= 100>>masterful<<elseif $eventSlave.entertainSkill > 10>>skillful<<else>>passable<</if>> striptease, culminating in <<if ($eventSlave.anus > 0) && ($eventSlave.fetish != "cumslut")>>bending over<<else>>kneeling<</if>> in front of you. She eagerly moans as you enter her, begging for your seed<<if $eventSlave.energy > 95>> like the slut she is.<<elseif $eventSlave.whoreSkill > 30>> like the whore she is<<elseif ($eventSlave.assignment == "serve in the master suite") || ($eventSlave.assignment == "please you")>> like the fucktoy she is<</if>>. As you finish, she<<if $eventSlave.fetish == "cumslut">>opens her mouth and savors your gift, thanking you once she's swallowed enough to be able to talk again.<<elseif ($eventSlave.fetish == "buttslut") || ($eventSlave.fetish == "submissive")>>collapses on the floor with her ass high in the air, thanking you for painting her hole white.<<else>>thanks you.<</if>> witnessing this display of servitude from her <<if $activeSlave.mother == $eventSlave.ID>>mother<<else>>father<</if>> @@.hotpink;eases $activeSlave.slaveName into her new life,@@ and @@.mediumaquamarine;gives her hope@@ she can find a place here.
+		<</replace>>
+		<<set $activeSlave.devotion += 4>>
+		<<set $activeSlave.trust += 4>>
+	<</link>>
+ <br>
+
+<<case "She was recruited into your service by her daughter.">>
+	//and since she was recruited by her daughter...//
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	<<link "Use her daughter as an example">>
+		<<replace "#introResult">>
+			You gesture towards $eventSlave.slaveName. She is <<if $eventSlave.intelligence > 0>>bright enough<<elseif (($eventSlave.vaginalSkill + $eventSlave.analSkill + $eventSlave.oralSkill) > 100)>>skilled enough<<else>>obedient enough<</if>> to understand you mean a demonstration is in order. $eventSlave.slaveName starts things off with a <<if $eventSlave.entertainSkill >= 100>>masterful<<elseif $eventSlave.entertainSkill > 10>>skillful<<else>>passable<</if>> striptease, culminating in <<if ($eventSlave.anus > 0) && ($eventSlave.fetish != "cumslut")>>bending over<<else>>kneeling<</if>> in front of you. She eagerly moans as you enter her, begging for your seed<<if $eventSlave.energy > 95>> like the slut she is.<<elseif $eventSlave.whoreSkill > 30>> like the whore she is<<elseif ($eventSlave.assignment == "serve in the master suite") || ($eventSlave.assignment == "please you")>> like the fucktoy she is<</if>>. As you finish, she<<if $eventSlave.fetish == "cumslut">>opens her mouth and savors your gift, thanking you once she's swallowed enough to be able to talk again.<<elseif ($eventSlave.fetish == "buttslut") || ($eventSlave.fetish == "submissive")>>collapses on the floor with her ass high in the air, thanking you for painting her hole white.<<else>>thanks you.<</if>> witnessing this display of servitude from her <<if $eventSlave.genes == "XX">>daughter<<else>>son<</if>> @@.hotpink;eases $activeSlave.slaveName into her new life,@@ and @@.mediumaquamarine;gives her hope@@ she can find a place here.
 		<</replace>>
 		<<set $activeSlave.devotion += 4>>
 		<<set $activeSlave.trust += 4>>
@@ -863,7 +911,7 @@ The legalities completed, ''__@@.pink;$activeSlave.slaveName@@__'' <<if ($active
 <<if ($activeSlave.indentureRestrictions <= 0) && ($seeExtreme == 1)>>
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
 	<<if $activeSlave.balls > 0>>
-		<<link "Geld her">> | 
+		<<link "Geld her">>
 			<<replace "#introResult">>
 				You drag her to the remote surgery and strap her face down with her legs spread. She doesn't understand what's happening, since the anaesthetics totally deprive her of any sensation. She's so drugged and drowsy with @@.red;surgical recovery@@ that it takes a while for her to figure out what's happened. When she does, her poor mind scarcely processes the @@.gold;horror@@ of what's happened. She numbly carries on, terrified.
 				<<if $arcologies[0].FSGenderRadicalist != "unset">>
@@ -873,7 +921,7 @@ The legalities completed, ''__@@.pink;$activeSlave.slaveName@@__'' <<if ($active
 			<</replace>>
 			<<set $activeSlave.balls = 0, $activeSlave.scrotum = 0>>
 			<<set $activeSlave.health -= 10, $activeSlave.trust -= 50>>
-		<</link>>
+		<</link>> |
 	<</if>>
 	<<link "Remove her genitalia">>
 		<<replace "#introResult">>
@@ -971,8 +1019,10 @@ The legalities completed, ''__@@.pink;$activeSlave.slaveName@@__'' <<if ($active
 		<<set $activeSlave.devotion -= 5>>
 		<<set $activeSlave.trust -= 10>>
 		<<set $activeSlave.vagina = 1>>
+		<<set $vaginalTotal += 1>>
+		<<set $activeSlave.vagina = 1>>
 	<</link>>
-	<<elseif ($activeSlave.vagina == 0)>>
+<<elseif ($activeSlave.vagina == 0)>>
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
 	<<link "Tie her up and take her virginity">>
 		<<replace "#introResult">>
@@ -1077,16 +1127,7 @@ The legalities completed, ''__@@.pink;$activeSlave.slaveName@@__'' <<if ($active
 	<<link "Give her a chance to impress">>
 		<<replace "#introResult">>
 			<<set _num = random(1,100)>>
-			She seems reasonably obedient, so you give her a chance to impress. You remain seated and offer her your 
-			<<if $PC.dick == 1>>
-				half-erect cock
-				<<if $PC.vagina == 1>>
-					and ready pussy
-				<</if>>
-			<<else>>
-				pussy, wet with arousal at the prospect of breaking in a new slut
-			<</if>>. She comes over obediently and gets on her knees. She works hard and is clearly doing her absolute best to please, so you let her finish you with her mouth. 
-			<<if $PC.dick == 1>><<if _num > 20>>She looks up at you as she swallows<<elseif _num > 40>>She even swallows your cum without being told<<elseif _num > 60>>She smiles sloppily as your seed slowly dribbles from her mouth and down her chin<<elseif _num > 80>>She struggles to contain your seed and makes a mess all over her face as a result<<else>>She struggles to contain your seed with her mouth and it splatters over the floor as a result<</if>><<else>>She worked her tongue hard and did her best<</if>>. You spend the rest of the day with her kneeling on a cushion next to your chair. She learns obedience, but also learns that you are @@.mediumaquamarine;fair@@ and @@.hotpink;reasonable.@@
+			She seems reasonably obedient, so you give her a chance to impress. You remain seated and offer her your <<if $PC.dick == 1>>half-erect cock<<if $PC.vagina == 1>> and ready pussy<</if>><<else>>pussy, wet with arousal at the prospect of breaking in a new slut<</if>>. She comes over obediently and gets on her knees. She works hard and is clearly doing her absolute best to please, so you let her finish you with her mouth. <<if $PC.dick == 1>><<if _num > 20>>She looks up at you as she swallows<<elseif _num > 40>>She even swallows your cum without being told<<elseif _num > 60>>She smiles sloppily as your seed slowly dribbles from her mouth and down her chin<<elseif _num > 80>>She struggles to contain your seed and makes a mess all over her face as a result<<else>>She struggles to contain your seed with her mouth and it splatters over the floor as a result<</if>><<else>>She worked her tongue hard and did her best<</if>>. You spend the rest of the day with her kneeling on a cushion next to your chair. She learns obedience, but also learns that you are @@.mediumaquamarine;fair@@ and @@.hotpink;reasonable.@@
 		<</replace>>
 		<<set $activeSlave.devotion += 4>>
 		<<set $activeSlave.trust += 4>>
@@ -1100,19 +1141,7 @@ The legalities completed, ''__@@.pink;$activeSlave.slaveName@@__'' <<if ($active
 <br>&nbsp;&nbsp;&nbsp;&nbsp;
 <<link "Tease her nipples">>
 	<<replace "#introResult">>
-		You
-		<<if ($activeSlave.devotion > 20) || ($activeSlave.trust < -20)>>
-			instruct the obedient $desc
-		<<else>>
-			force the reluctant $desc
-		<</if>>
-		to lie atop your desk in front of you and go back to business. After a few minutes, you extend an idle hand and begin to fondle her
-		<<if $activeSlave.boobs > 2000>>massive tits<<elseif $activeSlave.boobs > 400>>healthy breasts<<else>>cute little boobs<</if>>, continuing your work with your other hand. You quickly focus your fiddling on her $activeSlave.nipples nipples, the stimulation bringing them
-		<<if ($activeSlave.devotion > 20)>>
-			quickly erect
-		<<else>>
-			slowly erect despite her feelings
-		<</if>>.	
+		You <<if ($activeSlave.devotion > 20) || ($activeSlave.trust < -20)>>instruct the obedient $desc<<else>>force the reluctant $desc<</if>> to lie atop your desk in front of you and go back to business. After a few minutes, you extend an idle hand and begin to fondle her <<if $activeSlave.boobs > 2000>>massive tits<<elseif $activeSlave.boobs > 400>>healthy breasts<<else>>cute little boobs<</if>>, continuing your work with your other hand. You quickly focus your fiddling on her $activeSlave.nipples nipples, the stimulation bringing them <<if ($activeSlave.devotion > 20)>>quickly erect<<else>>slowly erect despite her feelings<</if>>.
 		<<if $activeSlave.devotion > 20>>
 			<<if $activeSlave.fetish == "boobs">>
 				<<if $activeSlave.fetishKnown == 0>>
@@ -1212,7 +1241,8 @@ The legalities completed, ''__@@.pink;$activeSlave.slaveName@@__'' <<if ($active
 <</if>>
 
 
-<<if ($activeSlave.anus != 0) && ($activeSlave.vagina > 0)>>
+<<if ($activeSlave.anus != 0)>>
+<<if ($activeSlave.vagina > 0)>>
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
 	<<link "Use a machine on her holes">>
 		<<replace "#introResult">>
@@ -1240,6 +1270,7 @@ The legalities completed, ''__@@.pink;$activeSlave.slaveName@@__'' <<if ($active
 		<</replace>>
 	<</link>>
 <</if>>
+<</if>>
 
 
 <<if canTalk($activeSlave) && ($activeSlave.amp != 1)>>
@@ -1253,6 +1284,57 @@ The legalities completed, ''__@@.pink;$activeSlave.slaveName@@__'' <<if ($active
 	<</link>>
 <</if>>
 
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+<<link "Fill her with fluid">>
+	<<replace "#introResult">>
+		You securely restrain your new slave<<if $dairyRestraintsSetting > 1>> in a milking stall<</if>>.  A quick finger check of her holes allows you to choose wisely from a selection of hollow phalluses, which push into your helpless new slave's 
+		mouth,
+		<<set $activeSlave.oralCount += 1>>
+		<<set $oralTotal += 1>>		
+		<<if ($activeSlave.vagina > 0)>>
+			vagina,
+			<<set $activeSlave.vaginalCount += 1>>
+			<<set $vaginalTotal += 1>>
+		<</if>>		
+		<<if $activeSlave.anus > 0>>
+			and squeeze into her ass,
+			<<set $activeSlave.analCount += 1>>
+			<<set $analTotal += 1>>
+		<</if>>
+		with no room to spare.  
+		Your choices attach to long tubes, and with a fiendish smile you turn a valve.  The lines run white with a mixture of fluids from your slaves, and your slave begins to fill.<<if ($dairy > 0)>> The dairy has been very busy!<</if>> 
+		<<if $activeSlave.devotion > 20>>
+			<<if $activeSlave.fetish == "cumslut">>
+				<<if $activeSlave.fetishKnown == 0>>
+					She seems genuinely eager to hold as much of the fluid as she can. @@.green;She's a cum fetishist!@@
+					<<set $activeSlave.fetishKnown = 1>>
+				<<else>>
+					She groans with guilty pleasure, feeling her muscles ache and her torso swell.  Before long, she reaches a quivering orgasm.
+				<</if>>
+				As you release her she swings up with difficulty, but @@.hotpink;she seems very pleased@@ to stay plugged for now.
+				<<set $activeSlave.devotion += 5>>
+			<<else>>
+				Her eyes swell with shock, but she does not flinch or make a sound. When she seems full enough, you shut off the valve, deciding to leave her plugged for now.  She waddles off @@.hotpink;without apparent resentment@@ of this treatment.
+				<<set $activeSlave.devotion += 4>>
+			<</if>>
+		<<else>>
+			<<if $activeSlave.fetish == "cumslut">>
+				<<if $activeSlave.fetishKnown == 0>>
+					Her eyes swell with profound horror at the realization of what is happening, and begin to leak tears as she realizes that having her body swell with milk and semen is getting her horny. @@.green;She's a cum fetishist!@@
+					<<set $activeSlave.fetishKnown = 1>>
+				<<else>>
+					She groans with guilty pleasure, feeling her muscles ache and her torso swell.  She does not orgasm from her "meal," but feels much more pleasure than she's willing to admit.
+				<</if>>
+				When you let her up, she's sobbing, more from humiliation than discomfort. However, she @@.hotpink;submits@@ to an uncomfortable groping of her stomach, which is pleasingly taunt from the inflation.  You decide to leave her plugged for a few hours, impressing on her still more that her fate is out of her control.
+				<<set $activeSlave.devotion += 4>>
+			<<else>>
+				She gasps in horror, and starts to struggle frantically against her bonds.  However, as the fluid reaches her she seems to resign herself to her fate. Once she reaches a diameter you like you let her up, @@.gold;fearful@@ due to the humiliation rather than the swelling.  She limps off to her new duties as quickly as she can, before you can unplug her.  Oh well!
+				<<set $activeSlave.trust -= 4>>
+			<</if>>
+		<</if>>
+		Her first day promises to be a full one!
+	<</replace>>
+<</link>>
 
 <<if ($activeSlave.amp != 1)>>
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -1318,35 +1400,64 @@ The legalities completed, ''__@@.pink;$activeSlave.slaveName@@__'' <<if ($active
 			<<set $activeSlave.analCount += 10>>
 			<<set $analTotal += 10>>
 			<<replace "#introResult">>
-				Making use of
-				<<if ($activeSlave.trust < -20) || ($activeSlave.devotion > 20)>>
-					her obedience
-				<<else>>
-					the compliance systems
-				<</if>>, you restrain her on one of the chairs in your office in an approximation of the position she'll occupy in $dairyName. Then you put a mask on her, like the ones the machines there feature, and turn it on, watching the slave squirm against her restraints under the sudden bombardment of garish hardcore porn. Finally, you add a dildo gag, both to mimic the dildo that will feed her, and to keep your office reasonably quiet. Then, for the rest of the day, you use her vulnerable
-				<<if $activeSlave.vagina > -1>>
-					holes
-				<<else>>
-					asshole
-				<</if>>
-				as an outlet for your sexual energy. You are not gentle; in fact, the point of the whole exercise is to gape her. By the evening she's been fucked so hard that she's stopped jerking against the chair when you pound
-				<<if $PC.dick == 1>>
-					your huge cock
-				<<else>>
-					a huge strap-on
-				<</if>>
-				in and out of her, so you're obliged to get creative, sliding fingers in alongside
-				<<if $PC.dick == 1>>
-					yourself
-				<<else>>
-					it
-				<</if>>
-				to really blow her out. Once that gets too easy, you start adding dildos for double penetration. By nightfall she's properly prepared to take $dairyName's giant phalli, and you're bored, so you consign her to her fate. She might have some opinion on how she's spent her day, but it's unlikely she'll remember it by tomorrow, what with the forearm-sized dildos sliding in and out of her<<if $activeSlave.vagina > -1>> cunt,<</if>> throat, and asshole.
+				Making use of <<if ($activeSlave.trust < -20) || ($activeSlave.devotion > 20)>>her obedience<<else>>the compliance systems<</if>>, you restrain her on one of the chairs in your office in an approximation of the position she'll occupy in $dairyName. Then you put a mask on her, like the ones the machines there feature, and turn it on, watching the slave squirm against her restraints under the sudden bombardment of garish hardcore porn. Finally, you add a dildo gag, both to mimic the dildo that will feed her, and to keep your office reasonably quiet. Then, for the rest of the day, you use her vulnerable <<if $activeSlave.vagina > -1>>holes<<else>>asshole<</if>> as an outlet for your sexual energy. You are not gentle; in fact, the point of the whole exercise is to gape her. By the evening she's been fucked so hard that she's stopped jerking against the chair when you pound <<if $PC.dick == 1>>your huge cock<<else>>a huge strap-on<</if>> in and out of her, so you're obliged to get creative, sliding fingers in alongside <<if $PC.dick == 1>>yourself<<else>>it<</if>> to really blow her out. Once that gets too easy, you start adding dildos for double penetration. By the night she's properly prepared to take $dairyName's giant phalli, and you're bored, so you consign her to her fate. She might have some opinion on how she's spent her day, but it's unlikely she'll remember it by tomorrow, what with the forearm-sized dildos sliding in and out of her<<if $activeSlave.vagina > -1>> cunt,<</if>> throat, and asshole.
 			<</replace>>
 		<</link>>
 	<</if>>
-<</if>>
 
+
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	<<link "Reverse the dairy for her">>
+		<<replace "#introResult">>
+			You securely restrain your new slave in her new milking stall.  Safety is important when working with cattle, so you carefully don a pair of disposable gloves before squirting a cool gel on her body and begining to massage it in.  You focus mostly on her belly, but have fun with some of her more sensitive areas, and your new cow begins to relax a bit.  Unknown to her, the gel will protect her from infections as well as encourage her skin to be more elastic and slower to tear under stress.<<if $activeSlave.eyes == -2>> Blind as she is,<<else>> Since her eyes are contentedly closed,<</if>> she doesn't see you reach for a bundle of <<if $cockFeeder == 1>>heavy feeder phalluses.<<else>>hose ends.<</if>>  In a blink, you make sure she is ready to be "fed" in her mouth,
+			<<set $activeSlave.oralCount += 1>>
+			<<set $oralTotal += 1>>		
+			<<if ($activeSlave.vagina > 0)>>
+				vagina,
+				<<set $activeSlave.vaginalCount += 1>>
+				<<set $vaginalTotal += 1>>
+			<</if>>		
+			<<if $activeSlave.anus > 0>>
+				and ass,
+				<<set $activeSlave.analCount += 1>>
+				<<set $analTotal += 1>>
+			<</if>>
+			causing her entire body to tense up <<if $activeSlave.devotion < 20>>in panic <</if>>once more.  
+			<br><br>
+			You pause to examine the feeding console.  Probes monitor oxygen levels in a cow to ensure the denser ones don't asphyxiate on the less interactive phalluses.  You set the levels as low as they can safely go, and then turn the enormous chrome wheel at the top of the console.  A claxon begins to sound, and there is a metalic squealing sound overhead, followed by a loud gurgle.  Thick, white liquid rushes downward through the pipes toward the helpless slave.
+			<<if $activeSlave.devotion > 20>>
+				<<if $activeSlave.fetish == "cumslut">>
+					<<if $activeSlave.fetishKnown == 0>>
+						Stunningly, once she gets over the impact of the wave of milk (and "milk,") she seems genuinely eager to hold as much of the fluid as she can, stretching contendedly to an obscene size. @@.green;She's a cum fetishist!@@
+						<<set $activeSlave.fetishKnown = 1>>
+					<<else>>
+						 Her body swells in moments, from a few months of apparent pregnancy to "seemingly overdue for triplets" till you wonder if the triplets would be calves.  Your cow groans with the weight and quickly swelling pressure, but with guilt as well. Before long, she reaches a quivering orgasm.
+					<</if>>
+					You stroke her gel covered stomach slowly, before leaving your @@.hotpink;very pleased@@ cow plugged in and blown up to an obscene size.
+					<<set $activeSlave.devotion += 5>>
+				<<else>>
+					<<if $activeSlave.eyes == -2>>Her face swells with emotion and<<else>>Her eyes swell<</if>> with horror, but she does not flinch or make a sound. Her body also swells, from a few months of apparent pregnancy to "seemingly overdue for triplets" till you wonder if the triplets would be calves.  Satisfied, you shut off the valve, deciding to leave her distorted body plugged for now.  Time passes.  Her<<if $activeSlave.eyes == -2>> blind face is distant<<else>> eyes are glazed over<</if>> but she tolerates you slowly stroking her gel covered stomach @@.hotpink;without apparent resentment@@.
+					<<set $activeSlave.devotion += 4>>
+				<</if>>
+			<<else>>
+				<<if $activeSlave.fetish == "cumslut">>
+					<<if $activeSlave.fetishKnown == 0>>
+						<<if $activeSlave.eyes == -2>>Her face tenses<<else>>Her eyes swell<</if>> with profound horror at the realization of what is filling her with a constant irresistible pressure, and she begins to leak tears as she realizes that her enormously swelling body is getting her horny. @@.green;She's a cum fetishist!@@
+						<<set $activeSlave.fetishKnown = 1>>
+					<<else>>
+						Her body swells in moments, from a few months of apparent pregnancy to "seemingly overdue for triplets," till you wonder if the triplets would be calves.  Your cow groans with the weight and quickly swelling pressure, but with guilt as well.  She does not orgasm from her gluttonous "meal," but feels much more pleasure than she's willing to admit.
+					<</if>>
+					Time passes, marked only by the slowing growth of her waistline and the gurgling deep within her. However, she @@.hotpink;submits@@ to an uncomfortable groping of her gel covered stomach, which is pleasingly taunt from the "industrial-strength" milk meal.  You decide to leave her plugged for a few hours, impressing on her still more that her fate is out of her control.
+					<<set $activeSlave.devotion += 4>>
+				<<else>>
+					She gasps in horror, and starts to struggle frantically against her bonds, <<if $activeSlave.voice != 0>>almost mooing in panic.<<else>>her whole body begging to scream.<</if>>  However, as the fluid reaches her she seems to despair and resigns herself to her fate. As her diameter swells, you find yourself comparing her first to a water balloon, then some of the chubbier citizens you've seen, a large pregnancy, and finally an ancient zeppelin.  You stop the flow, and rest a gloved hand on her gel covered stomach.  Her @@.gold;terrified@@ breathing and distant expression are clearly due to the pain, not lust, but it's also now quite clear to her who is in charge in $dairyName.
+					<<set $activeSlave.trust -= 4>>
+				<</if>>
+			<</if>>
+			It won't be long before her own fluids are filling customers, and so filling your own pockets!
+		<</replace>>
+	<</link>>
+<</if>>
 
 <<if ($arcade > 0) && ($seeExtreme == 1)>>
 	<br>//...in the Arcade//	
@@ -1356,6 +1467,8 @@ The legalities completed, ''__@@.pink;$activeSlave.slaveName@@__'' <<if ($active
 		<<replace "#introResult">>
 			You tell her that it's in her interests to be a good girl. She does not react immediately, perhaps wondering if you think such a trite statement will have a real impact, but then you point at a wallscreen behind her. She turns, and beholds a live feed from $arcadeName. She gazes at the row of butts sticking out of the wall at dick height, not quite realizing what she's seeing. Then she notices that there are citizens pumping away in front of two of the butts, and she understands. As she watches, terrified, first one citizen and then the other finishes and steps away. The first arcade inmate's <<if $seeDicks != 100>>pussy<<else>>butt<</if>> is left looking sore until $arcadeName's systems cover her for a quick cleaning, and the second inmate's asshole <<if $seeDicks != 0>>has obviously seen severe use, since the poor girl doesn't have  a pussy to spread the load<<else>>is loose enough that the machines have to clean up the cum it drools onto the floor<</if>>. $activeSlave.slaveName lets out a huge sob and turns to you, @@.gold;fear suffusing her@@ as she promises to @@.hotpink;be a good girl.@@
 		<</replace>>
+		<<set $activeSlave.devotion += 10>>
+		<<set $activeSlave.trust -= 10>>
 	<</link>>
 	
 	<<if ($arcade > $arcadeSlaves) || ($arcadeUpgradeFuckdolls != 0)>>
@@ -1364,19 +1477,9 @@ The legalities completed, ''__@@.pink;$activeSlave.slaveName@@__'' <<if ($active
 			<<set $activeSlave.assignmentVisible = 0>>
 			<<set $activeSlave.choosesOwnAssignment = 0>>
 			<<replace "#introResult">>
-				You order
-				<<if $HeadGirl == 0>>
-					another slave
-				<<else>>
-					$HeadGirl.slaveName
-				<</if>>
-				to get $activeSlave.slaveName set up in $arcadeName. The new slave does not know what $arcadeName is, not really, and she doesn't know what being set up there means, either. She'll be confined inside a small space, not too different from the indignities she's suffered already. It's only when the restraints lock into place that she'll understand her doom. Her mouth will be forced open and presented at one wall of $arcadeName, and her ass will protrude from its other side, her holes available for public relief at both ends. She'll probably refuse to believe the truth, until the first cockhead enters her mouth<<if $activeSlave.vagina > -1>>, parts her pussylips,<</if>> or presses against her poor anus.
-				<<if ($arcade <= $arcadeSlaves)>>
-					Mere meters away, preparations to convert the least appealing Arcade slave into a Fuckdoll begin. As $activeSlave.slaveName is broken in by her first customers, she's blissfully unaware that she's $arcade new slaves away from the same fate.
-				<</if>>
+				You order <<if $HeadGirl == 0>>another slave<<else>>$HeadGirl.slaveName<</if>> to get $activeSlave.slaveName set up in $arcadeName. The new slave does not know what $arcadeName is, not really, and she doesn't know what being set up there means, either. She'll be confined inside a small space, not too different from the indignities she's suffered already. It's only when the restraints lock into place that she'll understand her doom. Her mouth will be forced open and presented at one wall of $arcadeName, and her ass will protrude from its other side, her holes available for public relief at both ends. She'll probably refuse to believe the truth, until the first cockhead enters her mouth<<if $activeSlave.vagina > -1>>, parts her pussylips,<</if>> or presses against her poor anus.
+				<<if ($arcade <= $arcadeSlaves)>>Mere meters away, preparations to convert the least appealing Arcade slave into a Fuckdoll begin. As $activeSlave.slaveName is broken in by her first customers, she's blissfully unaware that she's $arcade new slaves away from the same fate.<</if>>
 			<</replace>>
-			<<set $activeSlave.devotion += 10>>
-			<<set $activeSlave.trust -= 10>>
 		<</link>>
 	<</if>>
 <</if>>

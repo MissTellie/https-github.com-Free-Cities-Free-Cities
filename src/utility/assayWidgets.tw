@@ -535,18 +535,57 @@
 
 <<if $args[0].fuckdoll == 0>> /* NOT A FUCKDOLL */
 
-<<if $args[0].relation != 0>>
+<<if $familyTesting == 1>>
+	<<if totalRelatives($args[0]) > 0>>
 	<<for $j = 0; $j < $slaves.length; $j++>>
-	<<if $slaves[$j].ID == $args[0].relationTarget>>
-		<<if $slaves[$j].assignment == $args[0].assignment>>
-		<<set $FResult += 2>>
-		<<if $arcologies[0].FSEgyptianRevivalist > 20>>
-			<<set $FResult += 2>>
+		<<if $args[0].mother == $slaves[$j].ID>>
+			<<if $slaves[$j].assignment == $args[0].assignment>>
+			<<set $FResult += 1>>
+				<<if $arcologies[0].FSEgyptianRevivalist > 20>>
+					<<set $FResult += 1>>
+				<</if>>
+			<</if>>
 		<</if>>
+		<<if $args[0].father == $slaves[$j].ID>>
+			<<if $slaves[$j].assignment == $args[0].assignment>>
+			<<set $FResult += 1>>
+				<<if $arcologies[0].FSEgyptianRevivalist > 20>>
+					<<set $FResult += 1>>
+				<</if>>
+			<</if>>
 		<</if>>
-		<<break>>
-	<</if>>
+		<<if $slaves[$j].mother == $args[0].ID || $slaves[$j].father == $args[0].ID>>
+			<<if $slaves[$j].assignment == $args[0].assignment>>
+			<<set $FResult += 1>>
+				<<if $arcologies[0].FSEgyptianRevivalist > 20>>
+					<<set $FResult += 1>>
+				<</if>>
+			<</if>>
+		<</if>>
+		<<if areSisters($args[0], $slaves[$j]) > 0>>
+			<<if $slaves[$j].assignment == $args[0].assignment>>
+			<<set $FResult += 1>>
+				<<if $arcologies[0].FSEgyptianRevivalist > 20>>
+					<<set $FResult += 1>>
+				<</if>>
+			<</if>>
+		<</if>>
 	<</for>>
+	<</if>>
+<<else>>
+	<<if $args[0].relation != 0>>
+	<<for $j = 0; $j < $slaves.length; $j++>>
+		<<if $slaves[$j].ID == $args[0].relationTarget>>
+			<<if $slaves[$j].assignment == $args[0].assignment>>
+			<<set $FResult += 2>>
+				<<if $arcologies[0].FSEgyptianRevivalist > 20>>
+					<<set $FResult += 2>>
+				<</if>>
+			<</if>>
+			<<break>>
+		<</if>>
+	<</for>>
+	<</if>>
 <</if>>
 <<if $args[0].relationship > 0>>
 	<<for $j = 0; $j < $slaves.length; $j++>>

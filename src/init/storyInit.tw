@@ -13,8 +13,8 @@ You should have received a copy of the GNU General Public License along with thi
 */
 
 <<unset $releaseID>>
-<<set $ver = "0.10.3", $releaseID = COMMIT>>
-<<if ndef $releaseID>><<set $releaseID = 1017>><</if>>
+<<set $ver = "0.10.5", $releaseID = COMMIT>>
+<<if ndef $releaseID>><<set $releaseID = 1018>><</if>>
 
 /* This needs to be broken down into individual files that can be added to StoryInit instead. */
 
@@ -22,10 +22,23 @@ You should have received a copy of the GNU General Public License along with thi
 	<<set _SL = $slaves.length>>
 	<<for _i = 0; _i < _SL; _i++>>
 	<<if $slaves[_i].assignment == "be imported">>
-		<<set $slaves[_i].ID += 50000>>
+		<<set $slaves[_i].ID += 1200000>>
 		<<set $slaves[_i].assignment = "rest">>
 		<<set $slaves[_i].assignmentVisible = 1>>
 		<<set $slaves[_i].weekAcquired = 1>>
+		<<if $slaves[_i].mother > 0>>
+			<<set $slaves[_i].mother += 1200000>>
+		<<elseif $slaves[_i].mother <= -1>>
+			<<set $slaves[_i].mother -= 1200000>>
+		<</if>>
+		<<if $slaves[_i].father > 0>>
+			<<set $slaves[_i].father += 1200000>>
+		<<elseif $slaves[_i].father <= -1>>
+			<<set $slaves[_i].father -= 1200000>>
+		<</if>>
+		<<set $slaves[_i].daughters = 0>>
+		<<set $slaves[_i].sisters = 0>>
+		<<set $slaves[_i].canRecruit = 0>>
 		<<if $arcologies[0].FSRomanRevivalist > 90>>
 			<<set $slaves[_i].nationality = "Roman Revivalist">>
 		<<elseif $arcologies[0].FSAztecRevivalist > 90>>
@@ -40,15 +53,25 @@ You should have received a copy of the GNU General Public License along with thi
 			<<set $slaves[_i].nationality = "Ancient Chinese Revivalist">>
 		<</if>>
 		<<if $slaves[_i].relationTarget != 0>>
-		<<set $slaves[_i].relationTarget += 50000>>
+		<<set $slaves[_i].relationTarget += 1200000>>
 		<</if>>
 		<<if $slaves[_i].relationshipTarget != 0>>
-		<<set $slaves[_i].relationshipTarget += 50000>>
+		<<set $slaves[_i].relationshipTarget += 1200000>>
 		<</if>>
 		<<set $slaves[_i].rivalry = 0, $slaves[_i].rivalryTarget = 0, $slaves[_i].subTarget = 0>>
 	<<else>>
 		<<set _dump = $slaves.deleteAt(_i), _i--, _SL-->>
 	<</if>>
+	<</for>>
+	<<for _k = 0; _k < _SL; _k++>>
+		<<for _i = 0; _i < _SL; _i++>>
+			<<if $slaves[_k].mother == $slaves[_i].ID || $slaves[_k].father == $slaves[_i].ID>>
+				<<set $slaves[_i].daughters += 1>>
+			<</if>>
+			<<if areSisters($slaves[_k], $slaves[_i]) > 0>>
+				<<set $slaves[_i].sisters += 1>>
+			<</if>>
+		<</for>>
 	<</for>>
 	<<for _i = 0; _i < _SL; _i++>>
 	<<if $slaves[_i].relation != 0>>
@@ -81,6 +104,7 @@ You should have received a copy of the GNU General Public License along with thi
 	<</if>>
 	<</for>>
 	<<for _i = 0; _i < _SL; _i++>>
+	<<if $familyTesting == 0>>
 	<<if $slaves[_i].relation == 0>>
 		<<if random(1,100) <= 5>>
 		<<set $slaves[_i].recruiter = "twin">>
@@ -96,6 +120,7 @@ You should have received a copy of the GNU General Public License along with thi
 	<<else>>
 		<<set $slaves[_i].recruiter = 0>>
 	<</if>>
+	<</if>> /*closes family mode */
 	<<set $slaves[_i].milk = 0>>
 	<<set $slaves[_i].cum = 0>>
 	<<set $slaves[_i].births = 0>>
@@ -224,12 +249,14 @@ You should have received a copy of the GNU General Public License along with thi
 <<set $REReductionCheckinIDs = []>>
 <<set $activeSlave = 0>>
 
+<<set $boomerangSlave = 0, $boomerangWeeks = 0, $boomerangBuyer = 0>>
+
 <<set $bioreactorPerfectedID = []>>
 
 <<set $independenceDay = 0>>
 <<set $invasionVictory = 0>>
 <<set $daughtersVictory = 0>>
-<<set $startingGirlCopied = 0>>
+<<set $startingGirlCopied = 0, $startingGirlRelation = 0>>
 <<set $archetyped = 0>>
 
 <<set $slavesVisible = 0>>
@@ -371,7 +398,7 @@ You should have received a copy of the GNU General Public License along with thi
 <<set $boobAccessibility = 0>>
 <<set $servantMilkers = 0>>
 <<set $servantMilkersMultiplier = 1>>
-
+<<set $servantMilkersJobs = ["be a servant", "work as a servant", "take classes", "please you", "be a subordinate slave", "stay confined", "recruit girls", "rest"]>>
 <<set $foodCost = 25>>
 
 <<set $legendaryWhoreID = 0>>
@@ -439,13 +466,11 @@ You should have received a copy of the GNU General Public License along with thi
 <<set $shelterAbuse = 0>>
 
 /* master suite reporting and alternate descriptions */
-
+<<set $verboseDescriptions = 0>>
 /* Accordion 000-250-006 */
 <<set $useAccordion = 0>>
 
 <<set $useTabs = 0>>
-
-<<set $verboseDescriptions = 0>>
 
 /* alternate clothing access variables */
 <<set $clothesBoughtBunny = 0>>
@@ -461,9 +486,19 @@ You should have received a copy of the GNU General Public License along with thi
 <<set $clothesBoughtQipao = 0>>
 <<set $clothesBoughtEgypt = 0>>
 <<set $clothesBoughtBelly = 0>>
+<<set $toysBoughtDildos = 0>>
+<<set $toysBoughtGags = 0>>
+<<set $toysBoughtButtPlugs = 0>>
+<<set $toysBoughtButtPlugTails = 0>>
 /* assistant FS appearance variable */
 <<set $assistantFSAppearance = "default">>
 
+/*PM variables */
+<<set $familyTesting = 0>>
+<<set $children = 0>>
+<<set $children = []>>
+<<set $missingParentID = -10000>>
+<<set $startingSlaveRelative = 0>>
 <<set $schoolSuggestion = 0>>
 <<set $TSS = {schoolUpgrade: 0, schoolPresent: 0, schoolProsperity: 0, subsidize: 0, schoolAnnexed: 0, studentsBought: 0, schoolSale: 0}>>
 <<set $GRI = {schoolUpgrade: 0, schoolPresent: 0, schoolProsperity: 0, subsidize: 0, schoolAnnexed: 0, studentsBought: 0, schoolSale: 0}>>
@@ -664,6 +699,10 @@ You should have received a copy of the GNU General Public License along with thi
 <<set $slaveMarketLimit = 20>>
 <<set $slavesSeen = 0>>
 
+<<set $slaveOrphanageTotal = 0>>
+<<set $citizenOrphanageTotal = 0>>
+<<set $privateOrphanageTotal = 0>>
+
 <<set $alwaysSubsidizeRep = 0>>
 <<set $alwaysSubsidizeGrowth = 0>>
 <<set $ProImmigrationCash = 0>>
@@ -726,6 +765,7 @@ You should have received a copy of the GNU General Public License along with thi
 <<set $nicaeaInvolvement = -1>>
 <<set $nicaeaPower = 0>>
 <<set $nicaeaHeld = 0>>
+<<set $peacekeepers = 0>>
 
 <<set $oralUseWeight = 5>>
 <<set $vaginalUseWeight = 5>>

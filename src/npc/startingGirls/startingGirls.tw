@@ -21,28 +21,97 @@
 
 <<if $startingGirlCopied == 1>>
 	<<set _tempSlave = clone($activeSlave), $activeSlave = $slaveWithoutBonuses>>
-	<<if _tempSlave.relation != 0>>
-		<<if _tempSlave.relation == "sister">>
-			<<set $activeSlave.relation = "sister">>
-			<<set $activeSlave.age -= 5>>
-			<<set $activeSlave.age += random(0,10)>>
-		<<elseif _tempSlave.relation == "mother">>
-			<<set $activeSlave.relation = "daughter">>
-			<<set $activeSlave.age -= random(16,24)>>
-		<<elseif _tempSlave.relation == "daughter">>
-			<<set $activeSlave.relation = "mother">>
-			<<set $activeSlave.age += random(16,24)>>
-			<<if $activeSlave.vagina == 0>><<set $activeSlave.vagina++>><</if>>
-		<<elseif _tempSlave.relation == "twin">>
-			<<set $activeSlave.relation = "twin">>
+	<<set $activeSlave.ID = $IDNumber++>>
+	<<if $startingGirlRelation>>
+		<<if $familyTesting == 1>>
+			<<switch $startingGirlRelation>>
+			<<case "mother">>
+				<<set $activeSlave.mother = _tempSlave.ID, $activeSlave.age -= random(16,24)>>
+				<<set $activeSlave.father = 0>>
+			<<case "father">>
+				<<set $activeSlave.father = _tempSlave.ID, $activeSlave.age -= random(16,24)>>
+				<<set $activeSlave.mother = 0>>
+			<<case "daughter">>
+				<<set $activeSlave.age += random(16,24), $activeSlave.birthWeek = random(0,51)>>
+				<<if $activeSlave.vagina == 0>><<set $activeSlave.vagina++>><</if>>
+				<<if $activeSlave.ovaries == 0>><<set $activeSlave.vagina++>><</if>>
+				<<if $activeSlave.father < -2>> /% Find existing siblings. %/
+					<<for _i = 0; _i < $slaves.length; _i++>>
+						<<if $slaves[_i].father == $activeSlave.father>>
+							<<set $slaves[_i].mother = $activeSlave.ID>>
+						<</if>>
+					<</for>>
+				<</if>>
+				<<set $activeSlave.mother = 0, $activeSlave.father = 0>>
+			<<case "dickdaughter">>
+				<<set $activeSlave.age += random(16,24), $activeSlave.birthWeek = random(0,51)>>
+				<<set $activeSlave.dick = Math.clamp($activeSlave.dick,2,10)>>
+				<<set $activeSlave.balls = Math.clamp($activeSlave.balls,2,10)>>
+				<<set $activeSlave.scrotum = Math.clamp($activeSlave.scrotum,2,10)>>
+				<<set $activeSlave.father = 0>>
+				<<if $activeSlave.mother < -2>> /% Find existing siblings. %/
+					<<for _i = 0; _i < $slaves.length; _i++>>
+						<<if $slaves[_i].mother == $activeSlave.mother>>
+							<<set $slaves[_i].father = $activeSlave.ID>>
+						<</if>>
+					<</for>>
+				<</if>>
+				<<set $activeSlave.mother = 0, $activeSlave.father = 0>>
+			<<case "older sister">>
+				<<set $activeSlave.age += random(2,4)>>
+			<<case "younger sister">>
+				<<set $activeSlave.age -= random(2,4)>>
+			<</switch>>
+			<<if $startingGirlRelation == "older sister" || $startingGirlRelation == "younger sister" || $startingGirlRelation == "twin">> /% Sibling parentage. If the previous slave has defined parentage, that's already shared with the new sibling via the clone. If not, a shared missing parent is applied. %/
+				<<if $activeSlave.mother == 0>>
+					<<set $activeSlave.mother = $missingParentID>>
+					<<set $missingParentID-->>
+					<<for _i = 0; _i < $slaves.length; _i++>><<if $slaves[_i].ID == _tempSlave.ID>><<set $slaves[_i].mother = $activeSlave.mother>><<break>><</if>><</for>>
+				<</if>>
+				<<if $activeSlave.father == 0>>
+					<<set $activeSlave.father = $missingParentID>>
+					<<set $missingParentID-->>
+					<<for _i = 0; _i < $slaves.length; _i++>><<if $slaves[_i].ID == _tempSlave.ID>><<set $slaves[_i].father = $activeSlave.father>><<break>><</if>><</for>>
+				<</if>>
+			<</if>>
+			<<if $activeSlave.mother && $activeSlave.father>> /% Propogate missing family information across existing slaves. Assumes monogamous reproduction, e.g. all sets of siblings have a pair of exclusive parents. %/
+				<<for _i = 0; _i < $slaves.length; _i++>>
+					<<if $slaves[_i].mother == $activeSlave.mother>>
+					<<if $slaves[_i].father == 0>>
+						<<set $slaves[_i].father = $activeSlave.father>>
+					<</if>>
+					<</if>>
+					<<if $slaves[_i].father == $activeSlave.father>>
+					<<if $slaves[_i].mother == 0>>
+						<<set $slaves[_i].mother = $activeSlave.mother>>
+					<</if>>
+					<</if>>
+				<</for>>
+			<</if>>
+		<<else>>
+			<<switch $startingGirlRelation>>
+			<<case "mother">>
+				<<set $activeSlave.relation = "daughter", $activeSlave.age -= random(16,24))>>
+			<<case "daughter">>
+				<<set $activeSlave.relation = "mother", $activeSlave.age += random(16,24)>>
+				<<if $activeSlave.vagina == 0>><<set $activeSlave.vagina++>><</if>>
+			<<case "older sister">>
+				<<set $activeSlave.relation = "sister", $activeSlave.age += random(2,4)>>
+			<<case "younger sister">>
+				<<set $activeSlave.relation = "sister", $activeSlave.age -= random(2,4)>>
+			<<default>>
+				<<set $activeSlave.relation = "twin">>
+			<</switch>>
+			<<set $activeSlave.relationTarget = _tempSlave.ID>>
 		<</if>>
-		<<set $activeSlave.relationTarget = _tempSlave.ID>>
+		<<if $startingGirlRelation != "twin">><<set $activeSlave.birthWeek = random(0,51)>><</if>>
 	<</if>>
 	<<if $activeSlave.slaveSurname>><<set _familyName = $activeSlave.slaveSurname>><</if>>
+	<<set _familyBirthSurname = $activeSlave.birthSurname>>
 	<<NationalityToName $activeSlave>>
 	<<if _familyName>><<set $activeSlave.slaveSurname = _familyName>><</if>>
+	<<set $activeSlave.birthSurname = _familyBirthSurname>>
 	<<set $activeSlave.slaveName = $activeSlave.birthName>>
-	<<set $activeSlave.ID = $IDNumber++>>
 	<<if $activeSlave.attrKnown == 0>>
 		<<set $activeSlave.attrXX = random(0,100)>>
 		<<set $activeSlave.attrXY = random(0,100)>>
@@ -52,7 +121,7 @@
 		<<set $activeSlave.fetishStrength = random(0,90)>>
 		<<set $activeSlave.fetish = either("none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "submissive", "cumslut", "humiliation", "buttslut", "boobs", "pregnancy", "dom", "sadist", "masochist")>>
 	<</if>>
-	<<set $startingGirlCopied = 0>>
+	<<set $startingGirlCopied = 0, $startingGirlRelation = 0>>
 <<elseif $archetyped == 1>>
 	<<NationalityToName $activeSlave>>
 	<<set $activeSlave.slaveName = $activeSlave.birthName, $archetyped = 0>>
@@ -97,6 +166,7 @@ __You are customizing this slave:__
 <</if>>
 <<set $activeSlave.height = Math.clamp($activeSlave.height, 91, 274) || 140>>
 <<set $activeSlave.boobs = Math.clamp(Math.trunc($activeSlave.boobs/50)*50, 0, 25000) || 200>>
+<<set $activeSlave.canRecruit = 0>>
 
 <span id="slaveinfo">
 <<set $saleDescription = 1>>
@@ -1089,7 +1159,7 @@ Her nationality is $activeSlave.nationality.
 	<<set $archetyped = 1, $activeSlave.nationality = "American", $fixedNationality = "American">>
 	<<StartingGirlsWorkaround>>
 	<<StartingGirlsRefresh>>
-	<<set $activeSlave.eyeColor = "blue", $activeSlave.skin = "tanned", $activeSlave.hColor = "blonde", $activeSlave.pubicHColor = "blonde", $activeSlave.markings = "none", $activeSlave.height = 190, $activeSlave.face = 3, $activeSlave.muscles = 20, $activeSlave.weight = -20>>
+	<<set $activeSlave.eyeColor = "blue", $activeSlave.skin = "tanned", $activeSlave.hColor = "blonde", $activeSlave.pubicHColor = "blonde", $activeSlave.markings = "none", $activeSlave.height = 190, $activeSlave.face = 95, $activeSlave.muscles = 20, $activeSlave.weight = -20>>
 	<<SaleDescription>>
 	<<StartingGirlsCost>>
 <</link>>
@@ -1116,7 +1186,7 @@ Her nationality is $activeSlave.nationality.
 <<link "Wellspring">>
 	<<StartingGirlsWorkaround>>
 	<<StartingGirlsRefresh>>
-	<<set $activeSlave.analSkill = 0, $activeSlave.oralSkill = 0, $activeSlave.vaginalSkill = 0, $activeSlave.whoreSkill = 0, $activeSlave.entertainSkill = 0, $activeSlave.combatSkill = 0, $activeSlave.age = 18, $activeSlave.fetishKnown = 0, $activeSlave.attrKnown = 0, $activeSlave.health = 10, $activeSlave.intelligence = -3,  $activeSlave.intelligenceImplant = 0, $activeSlave.vagina = 3, $activeSlave.anus = 3, $activeSlave.ovaries = 1, $activeSlave.dick = 5, $activeSlave.balls = 5, $activeSlave.lactation = 2, $activeSlave.nipples = "huge", $activeSlave.boobs = 10000>>
+	<<set $activeSlave.analSkill = 0, $activeSlave.oralSkill = 0, $activeSlave.vaginalSkill = 0, $activeSlave.whoreSkill = 0, $activeSlave.entertainSkill = 0, $activeSlave.combatSkill = 0, $activeSlave.age = 18, $activeSlave.fetishKnown = 0, $activeSlave.attrKnown = 0, $activeSlave.health = 10, $activeSlave.intelligence = -3,  $activeSlave.intelligenceImplant = 0, $activeSlave.vagina = 3, $activeSlave.anus = 3, $activeSlave.ovaries = 1, $activeSlave.dick = 5, $activeSlave.balls = 5, $activeSlave.prostate = 1, $activeSlave.lactation = 2, $activeSlave.nipples = "huge", $activeSlave.boobs = 10000>>
 	<<SaleDescription>>
 	<<StartingGirlsCost>>
 <</link>>

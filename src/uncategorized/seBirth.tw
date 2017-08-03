@@ -58,8 +58,8 @@
 <<if $slaves[$i].curatives > 0>>
 		<<set $birthDamage -= 3>>
 <</if>>
-<<if setup.nurseCareers.includes($slaves[$i].career) and $slaves[$i].fetish != "mindbroken">>
-	<<set $birthDamage to 0>>
+<<if setup.nurseCareers.includes($slaves[$i].career) && $slaves[$i].fetish != "mindbroken">>
+	<<set $birthDamage = 0>>
 <</if>>
 
 /* early birth calcs */
@@ -258,33 +258,75 @@ $daddy's virile cock and balls,
 <</if>>
 entered the world.
 
-
-
 <br>
 <br>
 Since $possessive vagina was spared from childbirth, @@.lime;it retained its tightness.@@
 
 <<if $slaves[$i].fetish != "mindbroken">>
 <<if $slaves[$i].fuckdoll == 0>>
-<br>
-<<if ($slaves[$i].devotion) < 20 && (($week-$slaves[$i].weekAcquired) >= $slaves[$i].weekAcquired) && ($slaves[$i].pregSource == -1)>>
-<br>
-	She @@.mediumorchid;despises@@ you for using her body to bear your children.
-	<<set $slaves[$i].devotion -= 10>>
-<<elseif ($slaves[$i].devotion) > 50 && ($slaves[$i].pregSource == -1)>>
-<br>
-	She's @@.hotpink;so proud@@ to have successfully carried children for you.
-	<<set $slaves[$i].devotion += 3>>
-<</if>>
-<<if $slaves[$i].trust <= 20 && (($week-$slaves[$i].weekAcquired) <= $slaves[$i].weekAcquired)>>
-<br>
-	Even though she knew her child<<if $slaves[$i].pregType > 1>>ren<</if>> would be sent to an orphanage when she became your slave, she can't help but @@.gold;worry@@ for <<if $slaves[$i].pregType > 1>>their<<else>>its<</if>>  future.
-	<<set $slaves[$i].trust -= 5>>
-<<elseif $slaves[$i].trust <= 20>>
-<br>
-	She @@.gold;fears@@ for the future of her children.
-	<<set $slaves[$i].trust -= 10>>
-<</if>>
+	<br>
+	<<if $slaves[$i].pregSource == -1>>
+	<<if $slaves[$i].devotion < 20>>
+		<br>
+		She @@.mediumorchid;despises@@ you for using her body to bear your children.
+		<<set $slaves[$i].devotion -= 10>>
+	<<elseif $slaves[$i].devotion > 50>>
+		<br>
+		She's @@.hotpink;so proud@@ to have successfully carried children for you.
+		<<set $slaves[$i].devotion += 3>>
+	<</if>>
+	<</if>>
+	<br>
+	<span id = "babyDisposition">
+	<<set $slaveOrphanageTotal++>>
+	Unless you provide otherwise, the child<<if $slaves[$i].pregType > 1>>ren<</if>> will be remanded to one of $arcologies[0].name's slave orphanages. $slaves[$i].slaveName
+	<<if $slaves[$i].devotion > 95>>
+		worships you so completely that she will not resent this.
+	<<elseif $slaves[$i].devotion > 50>>
+		is devoted to you, but she will @@.mediumorchid;struggle to accept this.@@
+		<<set $slaves[$i].devotion -= 20>>
+	<<elseif $slaves[$i].devotion > 20>>
+		has accepted being a sex slave, but she will @@.mediumorchid;resent this intensely.@@
+		<<set $slaves[$i].devotion -= 30>>
+	<<else>>
+		will of course @@.mediumorchid;hate you for this.@@
+		<<set $slaves[$i].devotion -= 40>>
+	<</if>>
+	<<= "
+	<<link 'Send the child to a citizen school'>>
+		<<replace '#babyDisposition'>>
+			The child is sent to one of $arcologies[0].name's citizen schools, to be brought up coequal with the arcology's other young people. $slaves['" + $i + "'].slaveName
+			<<if $slaves['" + $i + "'].devotion > 95>>
+				loves you already, but she'll @@.hotpink;love you even more@@ for this.
+			<<elseif $slaves['" + $i + "'].devotion > 50>>
+				knows about these and will be @@.hotpink;overjoyed.@@ She will miss her child, but she expected that.
+			<<elseif $slaves['" + $i + "'].devotion > 20>>
+				will naturally miss her child, but will @@.hotpink;take comfort@@ in the hope that her offspring will have a better life.
+			<<else>>
+				will naturally retain some resentment over being separated from her child, but this should be balanced by hope that her offspring will have a better life.
+			<</if>>
+			<<set $slaves['" + $i + "'].devotion += 40, $citizenOrphanageTotal++, $slaveOrphanageTotal-->>
+		<</replace>>
+	<</link>> 
+	">>//Will cost ¤100 weekly//
+	<<= "
+	| <<link 'Have the child raised privately'>>
+		<<replace '#babyDisposition'>>
+			<<if $slaves['" + $i + "'].devotion > 95>>
+				will @@.hotpink;worship you utterly@@ for this.
+			<<elseif $slaves['" + $i + "'].devotion > 50>>
+				understands that this is the best possible outcome for the offspring of slave, and will be @@.hotpink;overjoyed.@@
+			<<elseif $slaves['" + $i + "'].devotion > 20>>
+				will miss her child, but will be @@.hotpink;very grateful,@@ since she'll understand this is the best possible outcome for a slave mother.
+			<<else>>
+				will resent being separated from her child, but @@.hotpink;should understand and be grateful@@ that this is the best possible outcome here.
+			<</if>>
+			The child will be raised privately, with expert care and tutoring, an expensive proposition.
+			<<set $slaves['" + $i + "'].devotion += 60, $privateOrphanageTotal++, $slaveOrphanageTotal-->>
+		<</replace>>
+	<</link>> 
+	">>//Will cost ¤500 weekly//
+	</span>
 <</if>>
 <</if>>
 
@@ -401,7 +443,7 @@ $daddy's virile cock and balls.
 <br>
 	$possessiveCap @@.green;wide hips@@ greatly aided childbirth.
 <</if>>
-<<if setup.nurseCareers.includes($slaves[$i].career)>>
+<<if setup.nurseCareers.includes($slaves[$i].career) && $slaves[$i].fetish != "mindbroken">>
 <br>
 	Thanks to $possessive @@.green;previous career@@, childbirth went smoothly.
 <</if>>
@@ -449,28 +491,70 @@ Childbirth stood no chance of stretching $possessive gaping vagina.
 Childbirth has @@.lime;stretched out $possessive vagina.@@
 <</if>>
 
-<<if $slaves[$i].fetish != "mindbroken">>
-<<if $slaves[$i].fuckdoll == 0>>
-<br>
-<<if ($slaves[$i].devotion) < 20 && (($week-$slaves[$i].weekAcquired) >= $slaves[$i].weekAcquired) && ($slaves[$i].pregSource == -1)>>
-<br>
-	She @@.mediumorchid;despises@@ you for using her body to bear your children.
-	<<set $slaves[$i].devotion -= 10>>
-<<elseif ($slaves[$i].devotion) > 50 && ($slaves[$i].pregSource == -1)>>
-<br>
-	She's @@.hotpink;so proud@@ to have successfully carried children for you.
-	<<set $slaves[$i].devotion += 3>>
-<</if>>
-<<if $slaves[$i].trust <= 20 && (($week-$slaves[$i].weekAcquired) <= $slaves[$i].weekAcquired)>>
-<br>
-	Even though she knew her child<<if $slaves[$i].pregType > 1>>ren<</if>> would be sent to an orphanage when she became your slave, she can't help but @@.gold;worry@@ for <<if $slaves[$i].pregType > 1>>their<<else>>its<</if>> future.
-	<<set $slaves[$i].trust -= 5>>
-<<elseif $slaves[$i].trust <= 20>>
-<br>
-	She @@.gold;fears@@ for the future of her children.
-	<<set $slaves[$i].trust -= 10>>
-<</if>>
-<</if>>
+<<if $slaves[$i].fetish != "mindbroken" && $slaves[$i].fuckdoll == 0>>
+	<br>
+	<<if $slaves[$i].pregSource == -1>>
+	<<if $slaves[$i].devotion < 20>>
+		<br>
+		She @@.mediumorchid;despises@@ you for using her body to bear your children.
+		<<set $slaves[$i].devotion -= 10>>
+	<<elseif $slaves[$i].devotion > 50>>
+		<br>
+		She's @@.hotpink;so proud@@ to have successfully carried children for you.
+		<<set $slaves[$i].devotion += 3>>
+	<</if>>
+	<</if>>
+	<br>
+	<span id = "babyDisposition">
+	<<set $slaveOrphanageTotal++>>
+	Unless you provide otherwise, the child<<if $slaves[$i].pregType > 1>>ren<</if>> will be remanded to one of $arcologies[0].name's slave orphanages. $slaves[$i].slaveName
+	<<if $slaves[$i].devotion > 95>>
+		worships you so completely that she will not resent this.
+	<<elseif $slaves[$i].devotion > 50>>
+		is devoted to you, but she will @@.mediumorchid;struggle to accept this.@@
+		<<set $slaves[$i].devotion -= 20>>
+	<<elseif $slaves[$i].devotion > 20>>
+		has accepted being a sex slave, but she will @@.mediumorchid;resent this intensely.@@
+		<<set $slaves[$i].devotion -= 30>>
+	<<else>>
+		will of course @@.mediumorchid;hate you for this.@@
+		<<set $slaves[$i].devotion -= 40>>
+	<</if>>
+	<<= "
+	<<link 'Send the child to a citizen school'>>
+		<<replace '#babyDisposition'>>
+			The child is sent to one of $arcologies[0].name's citizen schools, to be brought up coequal with the arcology's other young people. $slaves['" + $i + "'].slaveName
+			<<if $slaves['" + $i + "'].devotion > 95>>
+				loves you already, but she'll @@.hotpink;love you even more@@ for this.
+			<<elseif $slaves['" + $i + "'].devotion > 50>>
+				knows about these and will be @@.hotpink;overjoyed.@@ She will miss her child, but she expected that.
+			<<elseif $slaves['" + $i + "'].devotion > 20>>
+				will naturally miss her child, but will @@.hotpink;take comfort@@ in the hope that her offspring will have a better life.
+			<<else>>
+				will naturally retain some resentment over being separated from her child, but this should be balanced by hope that her offspring will have a better life.
+			<</if>>
+			<<set $slaves['" + $i + "'].devotion += 40, $citizenOrphanageTotal++, $slaveOrphanageTotal-->>
+		<</replace>>
+	<</link>> 
+	">>//Will cost ¤100 weekly//
+	<<= "
+	| <<link 'Have the child raised privately'>>
+		<<replace '#babyDisposition'>>
+			<<if $slaves['" + $i + "'].devotion > 95>>
+				will @@.hotpink;worship you utterly@@ for this.
+			<<elseif $slaves['" + $i + "'].devotion > 50>>
+				understands that this is the best possible outcome for the offspring of slave, and will be @@.hotpink;overjoyed.@@
+			<<elseif $slaves['" + $i + "'].devotion > 20>>
+				will miss her child, but will be @@.hotpink;very grateful,@@ since she'll understand this is the best possible outcome for a slave mother.
+			<<else>>
+				will resent being separated from her child, but @@.hotpink;should understand and be grateful@@ that this is the best possible outcome here.
+			<</if>>
+			The child will be raised privately, with expert care and tutoring, an expensive proposition.
+			<<set $slaves['" + $i + "'].devotion += 60, $privateOrphanageTotal++, $slaveOrphanageTotal-->>
+		<</replace>>
+	<</link>> 
+	">>//Will cost ¤500 weekly//
+	</span>
 <</if>>
 
 <<if lastPregRule($slaves[$i],$defaultRules)>><<set $slaves[$i].preg = -1>><<else>><<set $slaves[$i].preg = 0>><</if>>
@@ -502,7 +586,7 @@ Childbirth has @@.lime;stretched out $possessive vagina.@@
 <</if>>
 
 <<if $slaveDead != 1>>
-    <<set $slaves[$i].labor = 0>>
+	<<set $slaves[$i].labor = 0>>
 <<else>>
     <<set $slaveDead = 0>>
 <</if>>

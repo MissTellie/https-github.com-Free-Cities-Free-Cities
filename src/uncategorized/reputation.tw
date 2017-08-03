@@ -40,7 +40,7 @@ On formal occasions, you are announced as $PCTitle.
 			@@.green;approve@@ of the trust your slaves place in you.
 			<<FSChange "ChattelReligionist" 2>>
 		<<else>>
-			are not impressed by fear many of your slaves feel towards you.
+			are not impressed by the fear many of your slaves feel towards you.
 		<</if>>
 	<</if>>
 <</if>>
@@ -300,6 +300,28 @@ On formal occasions, you are announced as $PCTitle.
 		<<set $rep -= 50>>
 	<</if>>
 	your support for marriage between citizens and slaves.
+<</if>>
+
+<<if $citizenOrphanageTotal > 0>>
+	<<if $arcologies[0].FSPaternalist != "unset">>
+		The public @@.green;approves@@ of the way you're providing for $citizenOrphanageTotal of your slaves' children to be raised as citizens.
+		<<FSChange "Paternalist" $citizenOrphanageTotal>>
+		<<if $privateOrphanageTotal > 0>>
+			Raising $privateOrphanageTotal of your slaves' children privately is considered even more @@.green;impressive.@@
+			<<FSChange "Paternalist" $privateOrphanageTotal*2>>
+		<</if>>
+	<<elseif $arcologies[0].FSDegradationist != "unset">>
+		The public @@.red;disapproves@@ of the way you're providing for $citizenOrphanageTotal of your slaves' children to be raised as citizens.
+		<<FSChange "Degradationist" -$citizenOrphanageTotal>>
+		<<if $privateOrphanageTotal > 0>>Fortunately your raising slaves' children privately is not publicly known.<</if>>
+	<</if>>
+<<elseif $privateOrphanageTotal > 0>>
+	<<if $arcologies[0].FSPaternalist != "unset">>
+		Raising $privateOrphanageTotal of your slaves' children privately is considered extremely @@.green;impressive.@@
+		<<FSChange "Paternalist" $privateOrphanageTotal*2>>
+	<<elseif $arcologies[0].FSDegradationist != "unset">>
+		Fortunately your raising slaves' children privately is not publicly known.
+	<</if>>
 <</if>>
 
 <<if $arcologies[0].FSNull != "unset">>

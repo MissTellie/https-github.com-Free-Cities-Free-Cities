@@ -8,7 +8,8 @@
 <</if>>
 <</if>>
 
-<<if ($slaves[$i].diet == "restricted")>> /* Weight Loss */
+<<switch $slaves[$i].diet>>
+<<case "restricted">> /* Weight Loss */
 	<<set _weightLoss = 5>>
 	<<set _assetLoss = 5>>
 	<<if ($slaves[$i].behavioralFlaw == "anorexic")>>
@@ -41,7 +42,7 @@
 								<<set $slaves[$i].devotion -= 4>>
 							<<else>>
 								Despite her food being filled with large amounts of thick, human ejaculate, she manages to choke down enough that she doesn't get sick from malnourishment.
-								<<set _weightGain = 6>>
+								<<set _weightLoss = 6>>
 								<<set _assetLoss = 4>>
 								<<set $slaves[$i].devotion -= 2>>
 							<</if>>
@@ -127,7 +128,7 @@
 		She is now quite skinny, so her diet @@.yellow;has defaulted to maintenance of this weight.@@
 		<<set $slaves[$i].diet = "healthy">>
 	<</if>>
-<<elseif ($slaves[$i].diet == "fattening")>> /* Weight Gain */
+<<case "fattening">> /* Weight Gain */
 	<<set _weightGain = 5>>
 	<<set _assetGain = 5>>
 	<<if ($slaves[$i].behavioralFlaw == "anorexic")>>
@@ -291,7 +292,7 @@
 		<</if>>
 		<<if random(1,_assetGain) <= 1+$feeder>>
 			@@.lime;Her butt gets a little bigger.@@
-			<<set $slaves[$i].butt + 1>>
+			<<set $slaves[$i].butt += 1>>
 		<</if>>
 		<<if $slaves[$i].weight > 95>>
 			She is now quite fat, so her diet @@.yellow;has defaulted to maintenance of this weight.@@
@@ -300,7 +301,7 @@
 	<<else>>
 		She doesn't gain any weight this week.
 	<</if>>
-<<elseif ($slaves[$i].diet == "muscle building")>> /* Muscle Gain */
+<<case "muscle building">> /* Muscle Gain */
 	<<if $slaves[$i].muscles > 90>>
 		Her heavy workouts focus on lifting. She has plateaued at a state of @@.lime;goddess-like musculature.@@
 		<<set $slaves[$i].muscles = 100>>
@@ -348,7 +349,7 @@
 		Her workouts have also @@.orange;burned off some excess fat.@@
 		<<set $slaves[$i].weight -= 2>>
 	<</if>>
-<<elseif ($slaves[$i].diet == "slimming")>> /* Muscle Loss */
+<<case "slimming">> /* Muscle Loss */
 	<<if $slaves[$i].muscles <= 10>>
 		Her long workouts focus on cardio. She has finally @@.lime;lost all visible musculature.@@
 		<<set $slaves[$i].muscles = 0>>
@@ -396,7 +397,7 @@
 		Her workouts have also @@.orange;burned off some excess fat.@@
 		<<set $slaves[$i].weight -= 2>>
 	<</if>>
-<</if>>
+<</switch>>
 
 <<if ($slaves[$i].dietCum > 0)>>
 	<<if ($slaves[$i].devotion > 20)>> /* Diet effects for Devotion over 20 -- For ALL cum diets */
@@ -464,7 +465,7 @@
 								<</if>>
 							<<elseif $slaves[$i].dietCum == 1>>
 								<<if $slaves[$i].energy > 80>>
-									She has become so sex-driven that she appreciates the perversity of her cum diet, making her @@.lime;feel sexier@@ for eating it.
+									She has become so sex-driven that she appreciates the perversity of her cum diet, making her @@.lime;feel hot@@ just eating it.
 									<<set $slaves[$i].energy += 2>>
 								<<else>>
 									Her high sex drive helps her pretend her cum-supplemented diet is the <<if $slaves[$i].fetish == "masochist">>ejaculate of an abusive lover<<elseif $slaves[$i].fetish == "boobs">>fresh milk from a pretty dairy cow<<elseif $slaves[$i].fetish == "submissive">>ejaculate of a dominant partner<<elseif $slaves[$i].fetish == "pregnancy">>ejaculate of her future baby's father<<elseif $slaves[$i].fetish == "sadist">>ejaculate of a pain-slut she recently milked<<elseif $slaves[$i].fetish == "buttslut">>ejaculate of a cock that just came from her butt<<elseif $slaves[$i].fetish == "dom">>ejaculate of a weak-minded submissive<<elseif $slaves[$i].fetish == "humiliation">>ejaculate of a publicly used slut<<else>>ejaculate of a gentle lover<</if>>--helping her swallow her food without complaint.
@@ -536,7 +537,8 @@
 
 <<else>> /* FUCKDOLL DIETS */
 
-<<if ($slaves[$i].diet == "restricted")>> /* Weight Loss */
+<<switch $slaves[$i].diet>>
+<<case "restricted">> /* Weight Loss */
 	The ports in Fuckdoll suits allow total dietary control, and it's barely aware it's being @@.orange;slimmed down.@@
 	<<set $slaves[$i].weight -= 9>>
 	<<if random(1,2) <= 1>>
@@ -555,7 +557,7 @@
 		It is now quite skinny, so its diet @@.yellow;has defaulted to maintenance of this weight.@@
 		<<set $slaves[$i].diet = "healthy">>
 	<</if>>
-<<elseif ($slaves[$i].diet == "fattening")>> /* Weight Gain */
+<<case "fattening">> /* Weight Gain */
 	The ports in Fuckdoll suits allow total dietary control, and it's barely aware it's being @@.lime;fattened up.@@
 	<<set $slaves[$i].weight += 9>>
 	<<if random(1,2) <= 1>>
@@ -564,13 +566,13 @@
 	<</if>>
 	<<if random(1,5) <= 1>>
 		@@.lime;Its butt gets a little bigger.@@
-		<<set $slaves[$i].butt + 1>>
+		<<set $slaves[$i].butt += 1>>
 	<</if>>
 	<<if $slaves[$i].weight > 95>>
 		It is now quite fat, so its diet @@.yellow;has defaulted to maintenance of this weight.@@
 		<<set $slaves[$i].diet = "healthy">>
 	<</if>>
-<<elseif ($slaves[$i].diet == "muscle building")>> /* Muscle Gain */
+<<case "muscle building">> /* Muscle Gain */
 	Fuckdolls suits can force their inhabitants to lift weights until they drop.
 	<<if $slaves[$i].muscles > 90>>
 		It has plateaued at a state of @@.lime;perfect musculature.@@
@@ -594,7 +596,7 @@
 		<<set $slaves[$i].weight -= 2>>
 	<</if>>
 	The stress of forced exercise is trivial compared to everything else it experiences, and it's unaffected mentally.
-<<elseif ($slaves[$i].diet == "slimming")>> /* Muscle Loss */
+<<case "slimming">> /* Muscle Loss */
 	Fuckdoll suits can force their inhabitants to work out until they drop.
 	<<if $slaves[$i].muscles <= 10>>
 		It has finally @@.lime;lost all visible musculature.@@
@@ -618,6 +620,6 @@
 		<<set $slaves[$i].weight -= 2>>
 	<</if>>
 	The stress of forced exercise is trivial compared to everything else it experiences, and it's unaffected mentally.
-<</if>>
+<</switch>>
 
 <</if>> /* CLOSES FUCKDOLL CHECK */

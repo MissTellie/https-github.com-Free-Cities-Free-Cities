@@ -21,93 +21,87 @@
 
 /* SUB CHECKS */
 
-<<set $RERelationshipSlave = 0, $REShowerForceSub = 0, $RESadisticDescriptionSub = 0, $REIfYouEnjoyItSub = 0, $REBoobCollisionSub = 0, $RERepressedAnalVirginSub = 0>>
-<<set $REAnalCowgirlSubIDs = [], $RETasteTestSubIDs = [], $RESimpleAssaultIDs = []>>
+<<set $RERelationshipSlave = 0>>
+<<set $REAnalCowgirlSubIDs = [], $RETasteTestSubIDs = [], $RESimpleAssaultIDs = [], $REInterslaveBeggingIDs = [], $RECockmilkInterceptionIDs = [], $REShowerForceSubIDs = [], $RESadisticDescriptionSubIDs = [], $REIfYouEnjoyItSubIDs = [], $REBoobCollisionSubIDs = [], $RERepressedAnalVirginSubIDs = []>>
 
 <<for $i = 0; $i < $slaves.length; $i++>>
 <<if $slaves[$i].fetish != "mindbroken">>
-<<if canWalk($slaves[$i])>>
-<<if canTalk($slaves[$i])>>
-	<<if ($slaves[$i].assignment != "be confined in the cellblock")>>
-	<<if ($slaves[$i].assignment != "stay confined")>>
-	<<if (($slaves[$i].assignment != "work in the dairy") || ($dairyRestraintsSetting < 2))>>
-		<<if $slaves[$i].devotion <= 20>>
-			<<if ($slaves[$i].fetish != "buttslut") || ($slaves[$i].fetishKnown == 0)>>
-			<<if $slaves[$i].anus != 0>>
-				<<set $REShowerForceSub = $slaves[$i]>>
-				<<set $REIfYouEnjoyItSub = $slaves[$i]>>
+	<<if canWalk($slaves[$i])>>
+	<<if canTalk($slaves[$i])>>
+		<<if ($slaves[$i].assignment != "be confined in the cellblock")>>
+		<<if ($slaves[$i].assignment != "stay confined")>>
+		<<if (($slaves[$i].assignment != "work in the dairy") || ($dairyRestraintsSetting < 2))>>
+			<<if $slaves[$i].devotion <= 20>>
+				<<if ($slaves[$i].fetish != "buttslut") || ($slaves[$i].fetishKnown == 0)>>
+				<<if $slaves[$i].anus != 0>>
+					<<set $REShowerForceSubIDs.push($slaves[$i].ID)>>
+					<<set $REIfYouEnjoyItSubIDs.push($slaves[$i].ID)>>
+				<<else>>
+					<<set $RESadisticDescriptionSubIDs.push($slaves[$i].ID)>>
+				<</if>>
+				<</if>>
+				<<if $slaves[$i].anus != 0 && canDoAnal($slaves[$i])>>
+				<<if $slaves[$i].vagina != 0 && canDoVaginal($slaves[$i])>>
+				<<if $slaves[$i].combatSkill == 0>>
+				<<if $slaves[$i].muscles <= 30>>
+					<<set $RESimpleAssaultIDs.push($slaves[$i].ID)>>
+				<</if>>
+				<</if>>
+				<</if>>
+				<</if>>
 			<<else>>
-				<<set $RESadisticDescriptionSub = $slaves[$i]>>
+				<<if $slaves[$i].boobs > 3000>>
+					<<set $REBoobCollisionSubIDs.push($slaves[$i].ID)>>
+				<</if>>
+				<<if $slaves[$i].releaseRules != "restrictive">>
+				<<if $slaves[$i].energy > 40>>
+				<<if canDoVaginal($slaves[$i]) || canDoAnal($slaves[$i])>>
+					<<set $REInterslaveBeggingIDs.push($slaves[$i].ID)>>
+				<</if>>
+				<</if>>
+				<</if>>
+			<</if>>
+			<<if $slaves[$i].devotion >= -20>>
+			<<if $slaves[$i].devotion <= 60>>
+			<<if $slaves[$i].fetish != "buttslut">>
+			<<if $slaves[$i].anus != 0>>
+				<<set $REAnalCowgirlSubIDs.push($slaves[$i].ID)>>
 			<</if>>
 			<</if>>
-			<<if $slaves[$i].anus != 0 && canDoAnal($slaves[$i])>>
-			<<if $slaves[$i].vagina != 0 && canDoVaginal($slaves[$i])>>
-			<<if $slaves[$i].combatSkill == 0>>
-			<<if $slaves[$i].muscles <= 30>>
-				<<set $RESimpleAssaultIDs.push($slaves[$i].ID)>>
 			<</if>>
-			<</if>>
-			<</if>>
-			<</if>>
-		<<else>>
-			<<if $slaves[$i].boobs > 3000>>
-				<<set $REBoobCollisionSub = $slaves[$i]>>
 			<</if>>
 		<</if>>
+		<</if>>
+		<</if>>
+		<<if $slaves[$i].assignmentVisible == 1>>
+		<<if $slaves[$i].livingRules == "luxurious">>
 		<<if $slaves[$i].devotion >= -20>>
-		<<if $slaves[$i].devotion <= 60>>
-		<<if $slaves[$i].fetish != "buttslut">>
-		<<if $slaves[$i].anus != 0>>
-			<<set $REAnalCowgirlSubIDs.push($slaves[$i].ID)>>
+			<<if $slaves[$i].anus != 0>>
+				<<set $RETasteTestSubIDs.push($slaves[$i].ID)>>
+			<</if>>
 		<</if>>
 		<</if>>
 		<</if>>
-		<</if>>
-	<</if>>
-	<</if>>
-	<</if>>
-	<<if $slaves[$i].assignmentVisible == 1>>
-	<<if $slaves[$i].livingRules == "luxurious">>
-	<<if $slaves[$i].devotion >= -20>>
-		<<if $slaves[$i].anus != 0>>
-			<<set $RETasteTestSubIDs.push($slaves[$i].ID)>>
-		<</if>>
-	<</if>>
-	<</if>>
-	<</if>>
-	<<if $slaves[$i].anus > 0>>
-	<<if $slaves[$i].devotion > 50>>
-	<<if $slaves[$i].amp == 0>>
-		<<set $RERepressedAnalVirginSub = $slaves[$i]>>
-	<</if>>
-	<</if>>
-	<</if>>
-<</if>>
-<</if>>
-<</if>>
-<<if $RERepressedAnalVirginSub == 0>>
-	<<for $i = 0; $i < $slaves.length; $i++>>
 		<<if $slaves[$i].anus > 0>>
-		  <<set $RERepressedAnalVirginSub = $slaves[$i]>>
-		  <<break>>
+		<<if $slaves[$i].devotion > 50>>
+		<<if $slaves[$i].amp == 0>>
+			<<set $RERepressedAnalVirginSubIDs.push($slaves[$i].ID)>>
 		<</if>>
-	<</for>>
-<</if>>
-<<if ($REShowerForceSub != 0)>>
-<<if ($RESadisticDescriptionSub != 0)>>
-<<if ($REIfYouEnjoyItSub != 0)>>
-<<if $RERepressedAnalVirginSub != 0>>
-<<if ($REAnalCowgirlSubIDs.length > 1)>>
-<<if ($RETasteTestSubIDs.length > 1)>>
-	<<break>>
-<</if>>
-<</if>>
-<</if>>
-<</if>>
-<</if>>
+		<</if>>
+		<</if>>
+	<</if>>
+	<</if>>
+	<<if $slaves[$i].assignment == "work in the dairy" || $slaves[$i].assignment == "get milked">>
+	<<if $slaves[$i].balls>>
+	<<if $slaves[$i].dick>>
+	<<if canDoAnal($slaves[$i])>>
+		<<set $RECockmilkInterceptionIDs.push($slaves[$i].ID)>>
+	<</if>>
+	<</if>>
+	<</if>>
+	<</if>>
 <</if>>
 <</for>>
-
 
 <<if $eventSlave.relationship > 0>>
 <<for $i = 0; $i < $slaves.length; $i++>>
@@ -122,6 +116,54 @@
 <<if ($eventSlave.fetish != "mindbroken")>>
 <<if canWalk($eventSlave)>>
 <<if canTalk($eventSlave)>>
+
+<<if $RECockmilkInterceptionIDs.length > 1 || ($RECockmilkInterceptionIDs.length == 1 && $eventSlave.ID != $RECockmilkInterceptionIDs[0])>>
+<<if $eventSlave.devotion > 20>>
+<<if $eventSlave.dietCum > 0 || ($eventSlave.fetishKnown && $eventSlave.fetish == "cumslut")>>
+	<<set $RETSevent.push("cockmilk interception")>>
+<</if>>
+<</if>>
+<</if>>
+
+<<if $REInterslaveBeggingIDs.length > 1 || ($REInterslaveBeggingIDs.length == 1 && $eventSlave.ID != $REInterslaveBeggingIDs[0])>>
+<<if $universalRulesConsent == 1>>
+<<if $eventSlave.devotion > 20>>
+<<if $eventSlave.energy > 40>>
+<<if canAchieveErection($eventSlave)>>
+<<if $eventSlave.releaseRules != "restrictive">>
+	<<set $RETSevent.push("interslave begging")>>
+<</if>>
+<</if>>
+<</if>>
+<</if>>
+<</if>>
+<</if>>
+
+<<if $familyTesting == 0>>
+	<<if $eventSlave.devotion > 20>>
+	<<if $eventSlave.sexualQuirk == "perverted" || $eventSlave.energy > 80>>
+	<<if $eventSlave.relation == "mother">>
+	<<if $eventSlave.lactation>>
+	<<if $eventSlave.releaseRules != "restrictive">>
+		<<set $RETSevent.push("incestuous nursing")>>
+	<</if>>
+	<</if>>
+	<</if>>
+	<</if>>
+	<</if>>
+<<else>>
+	<<if $eventSlave.devotion > 20 && ($eventSlave.sexualQuirk == "perverted" || $eventSlave.energy > 80) && $eventSlave.lactation > 0 && $eventSlave.releaseRules != "restrictive" && $eventSlave.daughters > 0>>
+		<<set $RETSevent.push("incestuous nursing")>>
+	<</if>>
+<</if>>
+
+<<if ($eventSlave.intelligence > 1)>>
+<<if ($eventSlave.devotion > 50)>>
+<<if ($eventSlave.intelligenceImplant > 0)>>
+	<<set $RESSevent.push("devoted educated slave")>>
+<</if>>
+<</if>>
+<</if>>
 
 <<if ($eventSlave.intelligence > 1)>>
 <<if ($eventSlave.devotion > 50)>>
@@ -141,7 +183,7 @@
 <</if>>
 <</if>>
 
-<<if $RERepressedAnalVirginSub != 0>>
+<<if $RERepressedAnalVirginSubIDs.length > 0>>
 <<if ($eventSlave.anus == 0)>>
 <<if ($eventSlave.devotion >= -50)>>
 <<if ($eventSlave.trust >= -50)>>
@@ -314,7 +356,7 @@
 <</if>>
 <</if>>
 
-<<if $REAnalCowgirlSubIDs.length > 1>>
+<<if $REAnalCowgirlSubIDs.length > 1 || ($REAnalCowgirlSubIDs.length == 1 && $eventSlave.ID != $REAnalCowgirlSubIDs[0])>>
 <<if ($eventSlave.devotion > 20)>>
 <<if ($eventSlave.releaseRules != "restrictive")>>
 <<if ($eventSlave.fetish == "buttslut") || ($eventSlave.fetish == "sadist") || ($eventSlave.fetish == "dom")>>
@@ -326,14 +368,12 @@
 <</if>>
 <</if>>
 
-<<if $REBoobCollisionSub != 0>>
+<<if $REBoobCollisionSubIDs.length > 1>>
 <<if ($eventSlave.devotion > 20)>>
 <<if ($eventSlave.trust > 20)>>
 <<if ($eventSlave.boobs > 3000)>>
 <<if ($eventSlave.attrXX >= 50) || (($eventSlave.fetish == "boobs") && ($eventSlave.fetishStrength > 95))>>
-<<if $eventSlave.ID != $REBoobCollisionSub.ID>>
 	<<set $RETSevent.push("boob collision")>>
-<</if>>
 <</if>>
 <</if>>
 <</if>>
@@ -495,23 +535,23 @@
 <<if ($universalRulesConsent == 0)>>
 <<if ($eventSlave.devotion > 50)>>
 	<<if ($eventSlave.fetish == "sadist") || ($eventSlave.fetish == "dom") || ($eventSlave.energy > 95)>>
-	  <<if ($REShowerForceSub != 0)>>
+	  <<if ($REShowerForceSubIDs.length > 0)>>
 	  <<if ($eventSlave.trust <= 75)>>
 		  <<set $RETSevent.push("shower force")>>
 	  <</if>>
 	  <</if>>
 	  <<if ($eventSlave.anus > 0)>>
-	  <<if ($RESadisticDescriptionSub != 0)>>
+	  <<if ($RESadisticDescriptionSubIDs.length > 0)>>
 		<<set $RETSevent.push("sadistic description")>>
 	  <</if>>
 	  <</if>>
 	  <<if ($cockFeeder > 0)>>
 	  <<if ($eventSlave.dickAccessory != "chastity" && $eventSlave.dickAccessory != "combined chastity") || ($eventSlave.dick == 0)>>
-		  			<<set $RESSevent.push("kitchen molestation")>>
+		<<set $RESSevent.push("kitchen molestation")>>
 	  <</if>>
 	  <</if>>
 	<</if>>
-	<<if ($REIfYouEnjoyItSub != 0)>>
+	<<if ($REIfYouEnjoyItSubIDs.length > 0)>>
 	  <<set $RETSevent.push("if you enjoy it")>>
 	<</if>>
 	<<if $RESimpleAssaultIDs.length > 0>>
@@ -1170,7 +1210,7 @@
 <<if ($eventSlave.hormones < 1)>>
 <<if ($eventSlave.balls > 0)>>
 <<if ($eventSlave.dickAccessory != "chastity" && $eventSlave.dickAccessory != "combined chastity")>>
-<<if ($eventSlave.vaginalAccessory != "chastity belt") >>
+<<if ($eventSlave.vaginalAccessory != "chastity belt") && ($eventSlave.vaginalAccessory != "combined chastity")>>
 	<<set $RESSevent.push("slave dick on slave")>>
 <</if>>
 <</if>>
@@ -1251,7 +1291,7 @@
 <</if>>
 <</if>>
 
-<<if ($eventSlave.buttplug == "large plug")>>
+<<if ($eventSlave.buttplug == "large plug") || ($eventSlave.buttplug == "long, large plug")>>
 <<if ($eventSlave.assignment != "stay confined")>>
 <<if ($eventSlave.devotion <= 20)>>
 <<if ($eventSlave.trust >= -50)>>
@@ -1758,4 +1798,3 @@
 
 <</silently>>
 <</if>> /* CLOSES SLAVE SELECT */
-

@@ -161,7 +161,7 @@ her body.
 			The Madam uses her dick to reward her when she does well and needs some loving.
 			<</if>>
 		<</if>>
-		<<if ($slaves[$i].sexualFlaw != "none") && (random(1,100) > 90)>>
+		<<if !["none", "neglectful", "cum addict", "anal addict", "attention whore", "breast growth", "abusive", "malicious", "self hating", "breeder"].includes($slaves[$i].sexualFlaw) && (random(1,100) > 90)>>
 			$Madam.slaveName manages to @@.green;break@@ $slaves[$i].slaveName of her sexual flaws.
 			<<set $slaves[$i].sexualFlaw = "none">>
 		<<elseif ($slaves[$i].behavioralFlaw != "none") && (random(1,100) > 90)>>
@@ -406,19 +406,49 @@ Her appearance attracted $beauty customers (<<print Math.trunc($beauty/7)>> a da
 	She's a better whore because prostitution is her main sexual outlet.
 <</if>>
 
-<<if $slaves[$i].relation != 0>>
-	<<for $j = 0; $j < $slaves.length; $j++>>
-		<<if $slaves[$j].ID == $slaves[$i].relationTarget>>
-			<<if $slaves[$j].assignment == $slaves[$i].assignment>>
-				Since her $slaves[$j].relation $slaves[$j].slaveName is selling herself too, she earns extra ¤ by working with her.
-				<<if $arcologies[0].FSEgyptianRevivalist > 20>>
-					Customers are very enthusiastic about being able to participate in incestuous sex like the ancient Egyptians.
+<<if $familyTesting == 1>>
+	<<if totalRelatives($slaves[$i]) > 0>>
+		<<set _children = $slaves.filter(function(s) { return ($slaves[$i].ID == s.father || $slaves[$i].ID == s.mother || s.ID == $slaves[$i].father || s.ID == $slaves[$i].mother || areSisters($slaves[$i], s) > 0) && s.assignment == "whore"; })>>
+		<<if _children.length > 2>>
+			Since her relatives,
+			<<for _sw = 0; _sw < _children.length; $j++>>
+				<<if _sw < _children.length-1>>
+					_children[_sw].slaveName,
+				<<else>>
+					and _children[_sw].slaveName,
 				<</if>>
+			<</for>>
+			are selling themselves too, she earns extra ¤ by working with them.
+			<<if $arcologies[0].FSEgyptianRevivalist > 20>>
+				Customers are very enthusiastic about being able to participate in incestuous sex like the ancient Egyptians.
 			<</if>>
-			<<break>>
+		<<elseif _children.length > 1>>
+			Since her relatives, _children[0].slaveName and _children[1].slaveName, are selling themselves too, she earns extra ¤ by working with them.
+			<<if $arcologies[0].FSEgyptianRevivalist > 20>>
+				Customers are very enthusiastic about being able to participate in incestuous sex like the ancient Egyptians.
+			<</if>>
+		<<elseif _children.length > 0>>
+			Since her relative, _children[0].slaveName, is selling herself too, she earns extra ¤ by working with her.
+			<<if $arcologies[0].FSEgyptianRevivalist > 20>>
+				Customers are very enthusiastic about being able to participate in incestuous sex like the ancient Egyptians.
+			<</if>>
 		<</if>>
-	<</for>>
-<</if>>
+	<</if>>
+<<else>>
+	<<if $slaves[$i].relation != 0>>
+		<<for $j = 0; $j < $slaves.length; $j++>>
+			<<if $slaves[$j].ID == $slaves[$i].relationTarget>>
+				<<if $slaves[$j].assignment == $slaves[$i].assignment>>
+					Since her $slaves[$j].relation $slaves[$j].slaveName is selling herself too, she earns extra ¤ by working with her.
+					<<if $arcologies[0].FSEgyptianRevivalist > 20>>
+						Customers are very enthusiastic about being able to participate in incestuous sex like the ancient Egyptians.
+					<</if>>
+				<</if>>
+				<<break>>
+			<</if>>
+		<</for>>
+	<</if>>
+<</if>> /*closes extended family mode */
 <<if $slaves[$i].relationship > 0>>
 	<<for $j = 0; $j < $slaves.length; $j++>>
 		<<if $slaves[$j].ID == $slaves[$i].relationshipTarget>>
@@ -765,37 +795,37 @@ Her appearance attracted $beauty customers (<<print Math.trunc($beauty/7)>> a da
 <<switch $slaves[$i].behavioralFlaw>>
 <<case "arrogant">>
 	She receives less ¤ because she treats clients like they are beneath her dignity.
-<<case "bitchy")>>
+<<case "bitchy">>
 	She receives less ¤ because she makes cutting remarks to clients.
-<<case "odd")>>
+<<case "odd">>
 	She receives less ¤ because clients are annoyed by her odd behavior.
-<<case "hates men")>>
+<<case "hates men">>
 	She receives less ¤ because she can't conceal her distaste for the company of men.
-<<case "hates women")>>
+<<case "hates women">>
 	She receives less ¤ because she can't conceal her distaste for the company of women.
-<<case "devout")>>
+<<case "devout">>
 	She receives less ¤ because people are annoyed by her habit of praying for forgiveness during sex.
-<<case "liberated")>>
+<<case "liberated">>
 	She receives less ¤ because people are annoyed by her obvious belief that being forced to serve them is wrong.
 <</switch>>
 <<switch $slaves[$i].sexualFlaw>>
 <<case "hates oral">>
 	She receives less ¤ because she tries to avoid sucking cock.
-<<case "hates anal")>>
+<<case "hates anal">>
 	She receives less ¤ because she tries to avoid taking it up the ass.
-<<case "hates penetration")>>
+<<case "hates penetration">>
 	She receives less ¤ because she tries to avoid getting fucked.
-<<case "repressed")>>
+<<case "repressed">>
 	She receives less ¤ because customers who don't feel like forcing her sometimes have to cajole her past her repressed sexuality.
-<<case "idealistic")>>
+<<case "idealistic">>
 	She receives less ¤ because customers who don't feel like forcing her sometimes have to convince her to have sex with them.
-<<case "apathetic")>>
+<<case "apathetic">>
 	She receives less ¤ because she often just lies there taking dick.
-<<case "crude")>>
+<<case "crude">>
 	She receives less ¤ because she isn't exactly the most elegant sexual partner.
-<<case "judgemental")>>
+<<case "judgemental">>
 	She receives less ¤ because she openly disdains unattractive customers.
-<<case "shamefast")>>
+<<case "shamefast">>
 	She receives less ¤ because she sometimes hesitates to take her clothes off and get to work.
 <<case "cum addict">>
 	Her abject begging for cum annoys customers who aren't looking for oral, but this is more than outweighed by how much it delights those who are.

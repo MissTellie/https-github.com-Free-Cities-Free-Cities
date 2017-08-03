@@ -151,33 +151,13 @@ of the slave girls will have dicks.
 
 <br>
 
-<<if $verboseDescriptions == 1>>
-	Your master suite ''will'' detail slave changes.
-	[[Disable|Intro Summary][$verboseDescriptions = 0]]
+<<if $familyTesting == 1>>
+	Slaves ''can'' have extended families instead of just a single relative. //May cause lag.//
+	[[Disable extended families|Intro Summary][$familyTesting = 0]]
 <<else>>
-	Your master suite ''will not'' detail slave changes.
-	[[Enable|Intro Summary][$verboseDescriptions = 1]]
+	Slaves ''can not'' have extended families, just a single relative. //Vanilla Mode.//
+	[[Enable extended families|Intro Summary][$familyTesting = 1]]
 <</if>>
-
-/* Accordion 000-250-006 */
-<br />
-	Accordion effects on weekly reports are
-<<if $useAccordion == 0>>
-	@@.red;DISABLED@@. [[Enable|Intro Summary][$useAccordion = 1]]
-<<else>>
-	@@.cyan;ENABLED@@. [[Disable|Intro Summary][$useAccordion = 0]]
-<</if>>
-/* Accordion 000-250-006 */
-
-<br>
-
-Economic Tabs on weekly reports are
-<<if $useTabs == 0>>
-@@.red;DISABLED@@. [[Enable|Intro Summary][$useTabs = 1]]
-<<else>>
-@@.cyan;ENABLED@@. [[Disable|Intro Summary][$useTabs = 0]]
-<</if>>
-
 <br>
 
 <<if $plot == 1>>

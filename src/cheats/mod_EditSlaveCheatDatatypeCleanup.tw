@@ -5,8 +5,13 @@
 <<set $rep = Number($rep) || 0>>
 <<set $cash = Number($cash) || 0>>
 <<set $week = Number($week) || 1>>
-<<set $activeSlave.relationTarget = Number($activeSlave.relationTarget) || 0>>
-<<set $activeSlave.relationshipTarget = Number($activeSlave.relationshipTarget) || 0>>
+<<if $familyTesting == 1>>
+	<<set $activeSlave.mother = Number($activeSlave.mother) || 0>>
+	<<set $activeSlave.father = Number($activeSlave.father) || 0>>
+<<else>>
+	<<set $activeSlave.relationTarget = Number($activeSlave.relationTarget) || 0>>
+	<<set $activeSlave.relationshipTarget = Number($activeSlave.relationshipTarget) || 0>>
+<</if>>
 <<set $activeSlave.indenture = Number($activeSlave.indenture) || 0>>
 <<set $activeSlave.face = Number($activeSlave.face) || 0>>
 <<set $activeSlave.hLength = Number($activeSlave.hLength) || 0>>
