@@ -2962,7 +2962,15 @@ $pronounCap's got a
 
 <<SlavePronouns $activeSlave>>
 
-$possessiveCap @@.pink;face is
+$possessiveCap 
+<<if $activeSlave.faceImplant == 0>>
+	natural
+<<elseif $activeSlave.faceImplant == 1>>
+	surgically improved
+<<elseif $activeSlave.faceImplant > 1>>
+	totally reworked
+<</if>>
+@@.pink;face is
 <<switch $activeSlave.faceShape>>
 <<case "masculine">>
 	<<if $activeSlave.face < -95>>
