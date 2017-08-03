@@ -351,6 +351,7 @@ $pronounCap has
 	<</if>>
 <</if>>
 
+<br>
 
 <<if $activeSlave.areolae > 1>>
 	<<if ($activeSlave.areolae > 1) && ($activeSlave.areolae < 4)>>
@@ -365,31 +366,23 @@ $pronounCap has
 	<<if $activeSlave.indentureRestrictions < 2>>
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;
 		Reduce areolae to:
-		[[typical size|Surgery Degradation][$activeSlave.areolae = 1,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "areolae"]]
+		[[Typical size|Surgery Degradation][$activeSlave.areolae = 1,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "areolae"]]
 		<<if $activeSlave.areolae > 0>>
 			<<if $activeSlave.indentureRestrictions < 2>>
-				| [[tiny size|Surgery Degradation][$activeSlave.areolae = 0,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "areolae"]]
+				| [[Tiny size|Surgery Degradation][$activeSlave.areolae = 0,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "areolae"]]
 			<</if>>
 		<</if>>
 	<</if>>
 <</if>>
 
 <br>//<<nipplesDescription>>//
-<br>&nbsp;&nbsp;&nbsp;&nbsp;
-<<if $activeSlave.lactation == 0>>
-	$pronounCap is not lactating.
-<<elseif $activeSlave.lactation == 2>>
-	$pronounCap is implanted with slow-release pro-lactation drugs.
-<<else>>
-	$pronounCap is lactating naturally.
-<</if>>
 <<if $activeSlave.lactation < 2>>
 	<<if $activeSlave.indentureRestrictions < 2>>
 	[[Implant slow-release pro-lactation drugs|Surgery Degradation][$activeSlave.lactation = 2,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "lactation"]] //This may increase $possessive natural breast size//
 	<</if>>
 <</if>>
 <<if $activeSlave.lactation > 1>>
-	 | [[Remove lactation implant|Surgery Degradation][$activeSlave.lactation = 0,$cash -= $surgeryCost, $surgeryType = "endlac"]]
+	[[Remove lactation implant|Surgery Degradation][$activeSlave.lactation = 0,$cash -= $surgeryCost, $surgeryType = "endlac"]]
 <</if>>
 
 <br><br>
