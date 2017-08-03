@@ -4,9 +4,13 @@
 COMMIT=$(git rev-list HEAD --count)
 sed -i "s/COMMIT/$COMMIT/" ./src/init/storyInit.tw
 
+# run sanity check unless explicitly specified not to
+if [ "${1}" != "--insane" ]
+then
+  ./sanityCheck
+fi
 
 # Will add all *.tw files to StoryIncludes.
-./sanityCheck
 rm -f src/config/start.tw
 cp src/config/start.tw.proto start.tw.tmp
 find src -name '*.tw' -print >>start.tw.tmp
@@ -14,5 +18,5 @@ mv start.tw.tmp src/config/start.tw
 
 ./devTools/tweeGo/tweego_nix64 -o bin/FC.html src/config/start.tw
 
-# Revert ./src/init/storyInit.tw for next compilation
+# Revert current commit insertion in ./src/init/storyInit.tw for next compilation
 git checkout -- ./src/init/storyInit.tw
