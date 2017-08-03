@@ -389,34 +389,34 @@ Clothes: ''<span id="clothes">$activeSlave.clothes</span>.''
 <<if $activeSlave.amp != 1>>
 	<br>Shoes: ''<span id="shoes">$activeSlave.shoes</span>.''
 
-	<span id="shoeDescription"><br>//$pronounCap is wearing<<footwearDescription>>//</span>
+	<span id="shoeDescription"><br>//$pronounCap is wearing<<footwearDescription>><<heelDescription>>//</span>
 	
 	<br>
 		
 	<<link "Go barefoot">>
 		<<set $activeSlave.shoes = "none">>
 		<<replace "#shoes">>$activeSlave.shoes<</replace>>
-		<<replace "#shoeDescription">><br>//$pronounCap is wearing<<footwearDescription>>//<</replace>>
+		<<replace "#shoeDescription">><br>//$pronounCap is wearing<<footwearDescription>><<heelDescription>>//<</replace>>
 	<</link>>
 	| <<link "Flats">>
 		<<set $activeSlave.shoes = "flats">>
 		<<replace "#shoes">>$activeSlave.shoes<</replace>>
-		<<replace "#shoeDescription">><br>//$pronounCap is wearing<<footwearDescription>>//<</replace>>
+		<<replace "#shoeDescription">><br>//$pronounCap is wearing<<footwearDescription>><<heelDescription>>//<</replace>>
 	<</link>>
 	| <<link "Heels">>
 		<<set $activeSlave.shoes = "heels">>
 		<<replace "#shoes">>$activeSlave.shoes<</replace>>
-		<<replace "#shoeDescription">><br>//$pronounCap is wearing<<footwearDescription>>//<</replace>>
+		<<replace "#shoeDescription">><br>//$pronounCap is wearing<<footwearDescription>><<heelDescription>>//<</replace>>
 	<</link>>
 	| <<link "Thigh boots">>
 		<<set $activeSlave.shoes = "boots">>
 		<<replace "#shoes">>$activeSlave.shoes<</replace>>
-		<<replace "#shoeDescription">><br>//$pronounCap is wearing<<footwearDescription>>//<</replace>>
+		<<replace "#shoeDescription">><br>//$pronounCap is wearing<<footwearDescription>><<heelDescription>>//<</replace>>
 	<</link>>
 	| <<link "Painfully extreme heels">>
 		<<set $activeSlave.shoes = "extreme heels">>
 		<<replace "#shoes">>$activeSlave.shoes<</replace>>
-		<<replace "#shoeDescription">><br>//$pronounCap is wearing<<footwearDescription>>//<</replace>>
+		<<replace "#shoeDescription">><br>//$pronounCap is wearing<<footwearDescription>><<heelDescription>>//<</replace>>
 	<</link>>
 <</if>>
 
