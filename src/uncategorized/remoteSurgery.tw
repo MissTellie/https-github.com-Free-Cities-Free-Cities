@@ -343,8 +343,6 @@ $pronounCap has
 	<</if>>
 <</if>>
 
-<br>
-
 <<if $activeSlave.areolae > 1>>
 	<<if ($activeSlave.areolae > 1) && ($activeSlave.areolae < 4)>>
 		<br>//<<areolaeDescription>>//
@@ -378,6 +376,25 @@ $pronounCap has
 <</if>>
 
 <br><br>
+<<waistDescription>>
+<<if $activeSlave.waist >= -75>>
+	<<if $activeSlave.indentureRestrictions < 2>>
+	[[Liposuction|Surgery Degradation][$activeSlave.waist -= 20,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "lipo"]]
+	<</if>>
+<</if>>
+<<if ($activeSlave.waist >= -95) && ($activeSlave.waist < -75) && ($seeExtreme == 1)>>
+	<<if $activeSlave.indentureRestrictions < 1>>
+	[[Remove ribs to severely narrow her waist|Surgery Degradation][$activeSlave.waist = -100,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "ribs"]]
+	<</if>>
+<</if>>
+
+<<if ($activeSlave.cSec == 1)>>
+	<br>$pronounCap has an unsightly c-section scar.
+	[[Remove Caesarean scar|Surgery Degradation][$activeSlave.cSec = 0,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "bellyscar"]]
+	<br>
+<</if>>
+
+<br>
 
 //<<ButtDescription>>//
 <br>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -675,24 +692,6 @@ $pronounCap has
 	[[Remove hair|Surgery Degradation][$activeSlave.origHColor = "bald",$activeSlave.hStyle = "bald",$activeSlave.hLength = 0,$cash -= $surgeryCost,$surgeryType = "hair removal"]]
 <<elseif $activeSlave.origHColor == "bald" && $activeSlave.pubicHStyle != "bald">>
 	[[Remove pubic hair|Surgery Degradation][$activeSlave.pubicHStyle = "bald",$cash -= $surgeryCost,$surgeryType = "body hair removal"]]
-<</if>>
-<br>
-<<BellyDescription>>
-<<if $activeSlave.waist >= -75>>
-	<<if $activeSlave.indentureRestrictions < 2>>
-	[[Liposuction|Surgery Degradation][$activeSlave.waist -= 20,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "lipo"]]
-	<</if>>
-<</if>>
-<<if ($activeSlave.waist >= -95) && ($activeSlave.waist < -75) && ($seeExtreme == 1)>>
-	<<if $activeSlave.indentureRestrictions < 1>>
-	[[Remove ribs to severely narrow her waist|Surgery Degradation][$activeSlave.waist = -100,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "ribs"]]
-	<</if>>
-<</if>>
-
-<<if ($activeSlave.cSec == 1)>>
-	<br>$pronounCap has an unsightly c-section scar.
-	[[Remove Caesarean scar|Surgery Degradation][$activeSlave.cSec = 0,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "bellyscar"]]
-	<br>
 <</if>>
 <br>
 <<set $toSearch = $activeSlave.race>>
