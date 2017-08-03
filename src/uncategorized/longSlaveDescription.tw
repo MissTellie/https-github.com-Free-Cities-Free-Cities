@@ -1417,8 +1417,10 @@ $pronounCap is
 <</if>>
 
 <<if $activeSlave.fuckdoll == 0>>
-
-<<bodyguardAccessoryDescription>>
+<<if $activeSlave.ID == $Bodyguard.ID>>
+	She is your bodyguard, so she
+	<<bodyguardAccessoryDescription>>
+<</if>>
 
 <<if $activeSlave.combatSkill > 0>>
 	She is @@.aquamarine;skilled at combat@@: she is comfortable with the use of modern firearms and edged weapons, and her hands <<if $activeSlave.amp == -4>>would be deadly weapons even if they weren't full of  deadly weapons already<<elseif $activeSlave.amp > 0>>would be deadly weapons if she had any<<else>>are deadly weapons<</if>>.
