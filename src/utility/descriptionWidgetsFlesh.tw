@@ -4033,3 +4033,64 @@ $pronounCap has
 <</if>>
 
 <</widget>>
+
+
+<<widget "pregnancyDescription">>
+
+<<if ($activeSlave.preg == -2) && ($activeSlave.vagina < 0)>>
+<<elseif ($activeSlave.preg == -2) && ($activeSlave.vagina != -1)>>
+	$pronounCap is sterile.
+<<elseif $activeSlave.preg > 30>>
+  <<if $activeSlave.pregType > 4>>
+	$pronounCap is @@.pink;obscenely pregnant:@@ she's carrying quintuplets.
+  <<elseif $activeSlave.pregType > 2>>
+	$pronounCap is @@.pink;massively pregnant:@@ $pronoun's carrying
+	<<if $activeSlave.pregType == 4>>
+	  quadruplets.
+	<<else>>
+	  triplets.
+	<</if>>
+  <<else>>
+	$pronounCap is @@.pink;hugely pregnant:@@
+	<<if $activeSlave.pregType == 2>>
+	  $pronoun's carrying twins.
+	<<else>>
+	  $pronoun's almost ready to give birth.
+	<</if>>
+  <</if>>
+<<elseif $activeSlave.preg > 20>>
+  <<if $activeSlave.pregType > 4>>
+	$pronounCap is @@.pink;massively pregnant,@@ despite how early in $possessive pregnancy $pronoun is: $pronoun's carrying quintuplets.
+  <<elseif $activeSlave.pregType > 2>>
+	$pronounCap is @@.pink;hugely pregnant,@@ despite how early in $possessive pregnancy $pronoun is: $pronoun's carrying
+	<<if $activeSlave.pregType == 4>>
+	  quadruplets.
+	<<else>>
+	  triplets.
+	<</if>>
+  <<else>>
+	$pronounCap is @@.pink;very pregnant:@@
+	<<if $activeSlave.pregType == 2>>
+	  $pronoun's carrying twins.
+	<<else>>
+	  the baby inside $object is growing rapidly.
+	<</if>>
+  <</if>>
+<<elseif $activeSlave.preg > 10>>
+  <<if $activeSlave.pregType > 4>>
+	$pronounCap is @@.pink;hugely pregnant,@@ despite how early in $possessive pregnancy $pronoun is: $pronoun's carrying quintuplets.
+  <<elseif $activeSlave.pregType > 2>>
+	$pronounCap is @@.pink;very pregnant,@@ despite how early in $possessive pregnancy $pronoun is: $pronoun's carrying
+	<<if $activeSlave.pregType == 4>>
+	  quadruplets.
+	<<else>>
+	  triplets.
+	<</if>>
+  <<else>>
+	$pronounCap is @@.pink;visibly pregnant.@@
+  <</if>>
+<<elseif $activeSlave.preg > 0>>
+	$pronounCap is @@.pink;pregnant@@, though it isn't too visible yet.
+<</if>>
+
+<</widget>>

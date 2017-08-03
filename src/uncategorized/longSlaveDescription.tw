@@ -1105,7 +1105,13 @@ when a dick is pushed inside <<if $activeSlave.vagina >= -1>>either of its lower
 <<if $activeSlave.fuckdoll == 0>>
 <<if $showBodyMods == 1>>
   <<if ($activeSlave.brand != 0)>>
-	<<if ($activeSlave.brandLocation == "neck") || ($activeSlave.brandLocation == "left cheek") || ($activeSlave.brandLocation == "right cheek") || ($activeSlave.brandLocation == "cheeks") || ($activeSlave.brandLocation == "left ears") || ($activeSlave.brandLocation == "right ears") || ($activeSlave.brandLocation == "ears")>>
+	<<if ($activeSlave.brandLocation == "neck")
+	|| ($activeSlave.brandLocation == "left cheek")
+	|| ($activeSlave.brandLocation == "right cheek")
+	|| ($activeSlave.brandLocation == "cheeks")
+	|| ($activeSlave.brandLocation == "left ears")
+	|| ($activeSlave.brandLocation == "right ears")
+	|| ($activeSlave.brandLocation == "ears")>>
 	  <<brandDescription>>
 	<</if>>
   <</if>>
@@ -1451,61 +1457,7 @@ $pronounCap is
 	<<CorsetPiercingDescription>>
 <</if>>
 
-<<if ($activeSlave.preg == -2) && ($activeSlave.vagina < 0)>>
-<<elseif ($activeSlave.preg == -2) && ($activeSlave.vagina != -1)>>
-	$pronounCap is sterile.
-<<elseif $activeSlave.preg > 30>>
-  <<if $activeSlave.pregType > 4>>
-	$pronounCap is @@.pink;obscenely pregnant:@@ she's carrying quintuplets.
-  <<elseif $activeSlave.pregType > 2>>
-	$pronounCap is @@.pink;massively pregnant:@@ $pronoun's carrying
-	<<if $activeSlave.pregType == 4>>
-	  quadruplets.
-	<<else>>
-	  triplets.
-	<</if>>
-  <<else>>
-	$pronounCap is @@.pink;hugely pregnant:@@
-	<<if $activeSlave.pregType == 2>>
-	  $pronoun's carrying twins.
-	<<else>>
-	  $pronoun's almost ready to give birth.
-	<</if>>
-  <</if>>
-<<elseif $activeSlave.preg > 20>>
-  <<if $activeSlave.pregType > 4>>
-	$pronounCap is @@.pink;massively pregnant,@@ despite how early in $possessive pregnancy $pronoun is: $pronoun's carrying quintuplets.
-  <<elseif $activeSlave.pregType > 2>>
-	$pronounCap is @@.pink;hugely pregnant,@@ despite how early in $possessive pregnancy $pronoun is: $pronoun's carrying
-	<<if $activeSlave.pregType == 4>>
-	  quadruplets.
-	<<else>>
-	  triplets.
-	<</if>>
-  <<else>>
-	$pronounCap is @@.pink;very pregnant:@@
-	<<if $activeSlave.pregType == 2>>
-	  $pronoun's carrying twins.
-	<<else>>
-	  the baby inside $object is growing rapidly.
-	<</if>>
-  <</if>>
-<<elseif $activeSlave.preg > 10>>
-  <<if $activeSlave.pregType > 4>>
-	$pronounCap is @@.pink;hugely pregnant,@@ despite how early in $possessive pregnancy $pronoun is: $pronoun's carrying quintuplets.
-  <<elseif $activeSlave.pregType > 2>>
-	$pronounCap is @@.pink;very pregnant,@@ despite how early in $possessive pregnancy $pronoun is: $pronoun's carrying
-	<<if $activeSlave.pregType == 4>>
-	  quadruplets.
-	<<else>>
-	  triplets.
-	<</if>>
-  <<else>>
-	$pronounCap is @@.pink;visibly pregnant.@@
-  <</if>>
-<<elseif $activeSlave.preg > 0>>
-	$pronounCap is @@.pink;pregnant@@, though it isn't too visible yet.
-<</if>>
+<<pregnancyDescription>>
 
 <<if ($activeSlave.heels == 1)>>
 	$possessiveCap @@.pink;legs have been altered@@ so that $pronoun must wear heels in order to walk.
@@ -1523,7 +1475,33 @@ $pronounCap is
 <<if $activeSlave.fuckdoll == 0>>
 <<if $showBodyMods == 1>>
   <<if ($activeSlave.brand != 0)>>
-	<<if ($activeSlave.brandLocation == "back") || ($activeSlave.brandLocation == "chest") || ($activeSlave.brandLocation == "right shoulder") || ($activeSlave.brandLocation == "left shoulder") || ($activeSlave.brandLocation == "shoulders") || ($activeSlave.brandLocation == "right upper arm") || ($activeSlave.brandLocation == "left upper arm") || ($activeSlave.brandLocation == "upper arms") || ($activeSlave.brandLocation == "right lower arm") || ($activeSlave.brandLocation == "left lower arm") || ($activeSlave.brandLocation == "lower arms") || ($activeSlave.brandLocation == "right wrist") || ($activeSlave.brandLocation == "left wrist") || ($activeSlave.brandLocation == "wrists") || ($activeSlave.brandLocation == "right hand") || ($activeSlave.brandLocation == "left hand") || ($activeSlave.brandLocation == "hands") || ($activeSlave.brandLocation == "left ankle") || ($activeSlave.brandLocation == "right ankle") || ($activeSlave.brandLocation == "ankles") || ($activeSlave.brandLocation == "right calf") || ($activeSlave.brandLocation == "left calf") || ($activeSlave.brandLocation == "calves") || ($activeSlave.brandLocation == "right foot") || ($activeSlave.brandLocation == "left foot") || ($activeSlave.brandLocation == "feet")>>
+	/* Check it's not a facial brand: */
+	<<if ($activeSlave.brandLocation == "back")
+	|| ($activeSlave.brandLocation == "chest")
+	|| ($activeSlave.brandLocation == "right shoulder")
+	|| ($activeSlave.brandLocation == "left shoulder")
+	|| ($activeSlave.brandLocation == "shoulders")
+	|| ($activeSlave.brandLocation == "right upper arm")
+	|| ($activeSlave.brandLocation == "left upper arm")
+	|| ($activeSlave.brandLocation == "upper arms")
+	|| ($activeSlave.brandLocation == "right lower arm")
+	|| ($activeSlave.brandLocation == "left lower arm")
+	|| ($activeSlave.brandLocation == "lower arms")
+	|| ($activeSlave.brandLocation == "right wrist")
+	|| ($activeSlave.brandLocation == "left wrist")
+	|| ($activeSlave.brandLocation == "wrists")
+	|| ($activeSlave.brandLocation == "right hand")
+	|| ($activeSlave.brandLocation == "left hand")
+	|| ($activeSlave.brandLocation == "hands")
+	|| ($activeSlave.brandLocation == "left ankle")
+	|| ($activeSlave.brandLocation == "right ankle")
+	|| ($activeSlave.brandLocation == "ankles")
+	|| ($activeSlave.brandLocation == "right calf")
+	|| ($activeSlave.brandLocation == "left calf")
+	|| ($activeSlave.brandLocation == "calves")
+	|| ($activeSlave.brandLocation == "right foot")
+	|| ($activeSlave.brandLocation == "left foot")
+	|| ($activeSlave.brandLocation == "feet")>>
 	  <<brandDescription>>
 	<</if>>
   <</if>>
