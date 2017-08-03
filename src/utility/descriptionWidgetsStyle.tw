@@ -3471,3 +3471,20 @@ $possessiveCap
 	<</if>>
 	<</if>>
 <</widget>>
+
+<<widget "bodyguardAccessoryDescription">>
+
+<<if $activeSlave.ID == $Bodyguard.ID>>
+  She is your bodyguard.
+  <<if ($activeSlave.muscles+$activeSlave.height-100)/25 > 5>>
+	She has a long ceramic sword strapped to her back, and <<if ($activeSlave.nationality == "Ukrainian") || ($activeSlave.nationality == "Russian")>>, in keeping with her heritage, an RPD<<elseif $activeSlave.nationality == "American">>, in keeping with her heritage, a Stoner 63<<elseif $activeSlave.nationality == "British">>, in keeping with her heritage, a para FN MAG<<elseif $activeSlave.nationality == "Belgian">>, in keeping with her heritage, a para FN MAG<<else>> a light machine gun<</if>> slung crosswise on her chest.
+  <<elseif ($activeSlave.muscles+$activeSlave.height-100)/25 > 4>>
+	She has a ceramic sword strapped to her back and<<if ($activeSlave.nationality == "Ukrainian") || ($activeSlave.nationality == "Russian")>>, in keeping with her heritage, an SVD<<elseif $activeSlave.nationality == "American">>, in keeping with her heritage, a shortened M14<<elseif $activeSlave.nationality == "British">>, in keeping with her heritage, a para SLR<<elseif $activeSlave.nationality == "Belgian">>, in keeping with her heritage, a para FN FAL<<elseif $activeSlave.nationality == "Israeli">>, in keeping with her heritage, a Galil<<elseif $activeSlave.nationality == "German">>, in keeping with her heritage, a para G3<<else>> a cut down para battle rifle<</if>> slung across her chest.
+  <<elseif ($activeSlave.muscles+$activeSlave.height-100)/25 > 3>>
+	She has a straight ceramic sword strapped to her back and<<if ($activeSlave.nationality == "Ukrainian") || ($activeSlave.nationality == "Russian")>>, in keeping with her heritage, an AKSU<<elseif $activeSlave.nationality == "British">>, in keeping with her heritage, a Sterling SMG<<elseif $activeSlave.nationality == "Israeli">>, in keeping with her heritage, an Uzi<<elseif $activeSlave.nationality == "German">>, in keeping with her heritage, a UMP<<else>> a submachine gun<</if>> slung across her chest.
+  <<else>>
+	She has a short ceramic sword strapped to her back and a machine pistol at her hip.
+  <</if>>
+<</if>>
+
+<</widget>>
