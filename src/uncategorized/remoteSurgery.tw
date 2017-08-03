@@ -700,113 +700,95 @@ $pronounCap has
 
 <br><br>
 Work on her structurally:
+
 <br>&nbsp;&nbsp;&nbsp;&nbsp;
-<<if $activeSlave.indentureRestrictions < 1>>
-	<<if ($activeSlave.shouldersImplant == 0)>>
-		$pronounCap has a natural shoulder structure.
-	<<elseif ($activeSlave.shouldersImplant > 0)>>
-		$possessiveCap shoulders been restructured to broaden them.
-	<<elseif ($activeSlave.shouldersImplant < 0)>>
-		$possessiveCap shoulders been restructured to narrow them.
-	<</if>>
-	//<<shouldersDescription>>//
-	
-	<<if $activeSlave.shouldersImplant == 0>>
-	<<if $activeSlave.shoulders < 3>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	<<if $activeSlave.shoulders > -3>>
-		<<if $activeSlave.indentureRestrictions < 1>>
-		[[Restructure shoulders more broadly|Surgery Degradation][$activeSlave.shouldersImplant = 1,$activeSlave.shoulders += 1,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "shoulders"]] | [[Restructure shoulders more narrowly|Surgery Degradation][$activeSlave.shouldersImplant = -1,$activeSlave.shoulders -= 1,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "shoulders"]]
-		<</if>>
-	<<elseif ($activeSlave.shoulders < 2) && ($activeSlave.shoulders > -2) && ($surgeryUpgrade == 1)>>
-		<<if $activeSlave.indentureRestrictions < 1>>
-		[[Advanced shoulder broadening surgery|Surgery Degradation][$activeSlave.shouldersImplant = 1,$activeSlave.shoulders += 1,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "shoulders"]] | [[Advanced shoulder narrowing surgery|Surgery Degradation][$activeSlave.shouldersImplant = -1,$activeSlave.shoulders -= 1,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "shoulders"]]
-		<</if>>
-	<<elseif ($activeSlave.shoulders < 2) && ($surgeryUpgrade == 1)>>
-		<<if $activeSlave.indentureRestrictions < 1>>
-		[[Advanced shoulder broadening surgery|Surgery Degradation][$activeSlave.shouldersImplant = 1,$activeSlave.shoulders += 1,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "shoulders"]]
-		<</if>>
-	<<elseif ($activeSlave.shoulders > -2) && ($surgeryUpgrade == 1)>>
-		<<if $activeSlave.indentureRestrictions < 1>>
-		[[Advanced shoulder narrowing surgery|Surgery Degradation][$activeSlave.shouldersImplant = -1,$activeSlave.shoulders -= 1,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "shoulders"]]
-		<</if>>
-	<</if>>
-	<</if>>
-	<</if>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+<<if $activeSlave.indentureRestrictions < 1>> /* Begin Indenture check. */
+<<if ($activeSlave.shouldersImplant == 0)>>
+	$pronounCap has a natural shoulder structure.
+<<elseif ($activeSlave.shouldersImplant > 0)>>
+	$possessiveCap shoulders been restructured to broaden them.
+<<elseif ($activeSlave.shouldersImplant < 0)>>
+	$possessiveCap shoulders been restructured to narrow them.
+<</if>>
+//<<shouldersDescription>>//
+
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<<if ($activeSlave.shouldersImplant == 0) && ($activeSlave.shoulders < 3) && ($activeSlave.shoulders > -3)>>
+	[[Restructure shoulders more broadly|Surgery Degradation][$activeSlave.shouldersImplant = 1,$activeSlave.shoulders += 1,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "shoulders"]]
+	| [[Restructure shoulders more narrowly|Surgery Degradation][$activeSlave.shouldersImplant = -1,$activeSlave.shoulders -= 1,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "shoulders"]]
+<<elseif ($activeSlave.shoulders < 2) && ($activeSlave.shoulders > -2) && ($surgeryUpgrade == 1)>>
+	[[Advanced shoulder broadening surgery|Surgery Degradation][$activeSlave.shouldersImplant = 1,$activeSlave.shoulders += 1,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "shoulders"]]
+	| [[Advanced shoulder narrowing surgery|Surgery Degradation][$activeSlave.shouldersImplant = -1,$activeSlave.shoulders -= 1,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "shoulders"]]
+<<elseif ($activeSlave.shoulders < 2) && ($surgeryUpgrade == 1)>>
+	[[Advanced shoulder broadening surgery|Surgery Degradation][$activeSlave.shouldersImplant = 1,$activeSlave.shoulders += 1,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "shoulders"]]
+<<elseif ($activeSlave.shoulders > -2) && ($surgeryUpgrade == 1)>>
+	[[Advanced shoulder narrowing surgery|Surgery Degradation][$activeSlave.shouldersImplant = -1,$activeSlave.shoulders -= 1,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "shoulders"]]
 <</if>>
 
-<<if $activeSlave.indentureRestrictions < 1>>
-	<<if ($activeSlave.hipsImplant == 0)>>
-		$pronounCap has normal hips.
-	<<elseif ($activeSlave.hipsImplant > 0)>>
-		$possessiveCap pelvis has been broadened.
-	<<elseif ($activeSlave.hipsImplant < 0)>>
-		$possessiveCap pelvis has been narrowed.
-	<</if>>
-	//<<hipsDescription>>//
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	<<if ($activeSlave.hipsImplant == 0)>>
-	<<if $activeSlave.hips < 3>>
-	<<if $activeSlave.hips > -3>>
-		[[Broaden pelvis|Surgery Degradation][$activeSlave.hipsImplant = 1,$activeSlave.hips += 1,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "hips"]] | [[Narrow pelvis|Surgery Degradation][$activeSlave.hipsImplant = -1,$activeSlave.hips -= 1,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "hips"]]
-	<<elseif ($activeSlave.hips < 2) && ($activeSlave.hips > -2) && ($surgeryUpgrade == 1)>>
-		[[Advanced pelvis broadening|Surgery Degradation][$activeSlave.hipsImplant = 1,$activeSlave.hips += 1,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "hips"]] | [[Advanced pelvis narrowing|Surgery Degradation][$activeSlave.hipsImplant = -1,$activeSlave.hips -= 1,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "hips"]]
-	<<elseif ($activeSlave.hips < 2) && ($surgeryUpgrade == 1)>>
-		[[Advanced pelvis broadening|Surgery Degradation][$activeSlave.hipsImplant = 1,$activeSlave.hips += 1,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "hips"]]
-	<<elseif ($activeSlave.hips > -2) && ($surgeryUpgrade == 1)>>
-		[[Advanced pelvis narrowing|Surgery Degradation][$activeSlave.hipsImplant = -1,$activeSlave.hips -= 1,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "hips"]]
-	<</if>>
-	<</if>>
-	<</if>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+<<if ($activeSlave.hipsImplant == 0)>>
+	$pronounCap has normal hips.
+<<elseif ($activeSlave.hipsImplant > 0)>>
+	$possessiveCap pelvis has been broadened.
+<<elseif ($activeSlave.hipsImplant < 0)>>
+	$possessiveCap pelvis has been narrowed.
+<</if>>
+//<<hipsDescription>>//
+
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<<if ($activeSlave.hipsImplant == 0) && ($activeSlave.hips < 3) && ($activeSlave.hips > -3)>>
+	[[Broaden pelvis|Surgery Degradation][$activeSlave.hipsImplant = 1,$activeSlave.hips += 1,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "hips"]]
+	| [[Narrow pelvis|Surgery Degradation][$activeSlave.hipsImplant = -1,$activeSlave.hips -= 1,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "hips"]]
+<<elseif ($activeSlave.hips < 2) && ($activeSlave.hips > -2) && ($surgeryUpgrade == 1)>>
+	[[Advanced pelvis broadening|Surgery Degradation][$activeSlave.hipsImplant = 1,$activeSlave.hips += 1,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "hips"]]
+	| [[Advanced pelvis narrowing|Surgery Degradation][$activeSlave.hipsImplant = -1,$activeSlave.hips -= 1,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "hips"]]
+<<elseif ($activeSlave.hips < 2) && ($surgeryUpgrade == 1)>>
+	[[Advanced pelvis broadening|Surgery Degradation][$activeSlave.hipsImplant = 1,$activeSlave.hips += 1,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "hips"]]
+<<elseif ($activeSlave.hips > -2) && ($surgeryUpgrade == 1)>>
+	[[Advanced pelvis narrowing|Surgery Degradation][$activeSlave.hipsImplant = -1,$activeSlave.hips -= 1,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "hips"]]
 <</if>>
 
-
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
 <<if ($activeSlave.amp == 0)>>
-<<if ($activeSlave.heightImplant == 0)>>
-	$pronounCap has normal femurs and humeri.
-<<elseif ($activeSlave.heightImplant > 0)>>
-	$possessiveCap femurs, humeri, and other major bones have been lengthened.
-<<elseif ($activeSlave.heightImplant < 0)>>
-	$possessiveCap femurs, humeri, and other major bones have been shortened.
+	<<if ($activeSlave.heightImplant == 0)>>
+		$pronounCap has normal femurs and humeri.
+	<<else>>
+		//<<heightImplantDescription>>//
+	<</if>>
+
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<<if ($activeSlave.heightImplant == 0)>>	
+		[[Lengthen major bones|Surgery Degradation][$activeSlave.heightImplant = 1,$activeSlave.height += 10,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "height"]]
+		| [[Shorten major bones|Surgery Degradation][$activeSlave.heightImplant = -1,$activeSlave.height -= 10,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "height"]]	
+	<<elseif ($activeSlave.height < 185) && ($activeSlave.height >= 150) && ($surgeryUpgrade == 1)>>
+		[[Advanced height gain surgery|Surgery Degradation][$activeSlave.heightImplant = 1,$activeSlave.height += 10,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "height"]]
+		| [[Advanced height reduction surgery|Surgery Degradation][$activeSlave.heightImplant = -1,$activeSlave.height -= 10,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "height"]]
+	<<elseif ($activeSlave.height < 185) && ($surgeryUpgrade == 1)>>
+		[[Advanced height gain surgery|Surgery Degradation][$activeSlave.heightImplant = 1,$activeSlave.height += 10,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "height"]]
+	<<elseif ($activeSlave.height >= 150) && ($surgeryUpgrade == 1)>>
+		[[Advanced height reduction surgery|Surgery Degradation][$activeSlave.heightImplant = -1,$activeSlave.height -= 10,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "height"]]
+	<</if>>
 <</if>>
 
-//<<heightImplantDescription>>//
-
-<<if ($activeSlave.heightImplant == 0)>>
-	<<if $activeSlave.indentureRestrictions < 1>>
-	[[Lengthen major bones|Surgery Degradation][$activeSlave.heightImplant = 1,$activeSlave.height += 10,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "height"]] | [[Shorten major bones|Surgery Degradation][$activeSlave.heightImplant = -1,$activeSlave.height -= 10,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "height"]]
-	<</if>>
-<<elseif ($activeSlave.height < 185) && ($activeSlave.height >= 150) && ($surgeryUpgrade == 1)>>
-	<<if $activeSlave.indentureRestrictions < 1>>
-	[[Advanced height gain surgery|Surgery Degradation][$activeSlave.heightImplant = 1,$activeSlave.height += 10,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "height"]] | [[Advanced height reduction surgery|Surgery Degradation][$activeSlave.heightImplant = -1,$activeSlave.height -= 10,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "height"]]
-	<</if>>
-<<elseif ($activeSlave.height < 185) && ($surgeryUpgrade == 1)>>
-	<<if $activeSlave.indentureRestrictions < 1>>
-	[[Advanced height gain surgery|Surgery Degradation][$activeSlave.heightImplant = 1,$activeSlave.height += 10,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "height"]]
-	<</if>>
-<<elseif ($activeSlave.height >= 150) && ($surgeryUpgrade == 1)>>
-	<<if $activeSlave.indentureRestrictions < 1>>
-	[[Advanced height reduction surgery|Surgery Degradation][$activeSlave.heightImplant = -1,$activeSlave.height -= 10,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "height"]]
-	<</if>>
-<</if>>
 <br>&nbsp;&nbsp;&nbsp;&nbsp;
 <<if ($activeSlave.heels == 0) && ($activeSlave.amp == 0)>>
 	$pronounCap has healthy calves, allowing her to walk without high heels.
 <<elseif ($activeSlave.heels == 1) && ($activeSlave.amp == 0)>>
 	//<<heelDescription>>//
 <</if>>
+
 <<if ($activeSlave.heels == 0) && ($seeExtreme == 1)>>
 	<<if $activeSlave.indentureRestrictions < 1>>
 	[[Shorten tendons|Surgery Degradation][$activeSlave.heels = 1,$activeSlave.shoes = "heels",$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "heels"]]
 	<</if>>
 <</if>>
+
 <<if ($activeSlave.heels == 1)>>
 	[[Replace tendons|Surgery Degradation][$activeSlave.heels = 0,$activeSlave.shoes = "none",$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "heelsRestoration"]]
 <</if>>
+
 <br>&nbsp;&nbsp;&nbsp;&nbsp;
-<</if>>
+<</if>>  /* End Indenture check. */
 
 
 <<if ($activeSlave.amp == 0)>>
