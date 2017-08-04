@@ -45,7 +45,10 @@ if output_format == 'tw':
 
 # remove all content, including metadata
 # for twine output, style definitions are removed, too
+defs = None
 for e in root:
+  if (e.tag == etree.QName(ns['svg'], 'defs')):
+    defs = e
   if (e.tag == etree.QName(ns['svg'], 'g') or
       e.tag == etree.QName(ns['svg'], 'metadata') or
       e.tag == etree.QName(ns['svg'], 'defs') or
@@ -76,6 +79,14 @@ for layer in layers:
     canvas.append(e)
   # represent template as SVG (binary string)
   svg = etree.tostring(output, pretty_print=False)
+  # poor man's conditional defs insertion
+  # TODO: extract only referenced defs (filters, gradients, ...)
+  # TODO: detect necessity by traversing the elements. do not stupidly search in the string representation
+  if ("filter:" in svg.decode('utf-8')):
+    # it seems there is a filter referenced in the generated SVG, re-insert defs from main document
+    canvas.insert(0,defs)
+    # re-generate output
+    svg = etree.tostring(output, pretty_print=False)
   
   if (output_format == 'tw'):
     # remove unnecessary attributes

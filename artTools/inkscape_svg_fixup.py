@@ -41,13 +41,14 @@ styles = eval(pythonic_style_definitions)
 
 # go through all SVG elements
 for elem in tree.iter():
-  # compare inkscape label with group element ID
-  l = elem.get(etree.QName(ns['inkscape'], 'label'))
-  if l:
-    i = elem.get('id')
-    if (i != l):
-      print("Overwriting ID %s with Label %s..."%(i, l))
-      elem.set('id', l)
+  if (elem.tag == etree.QName(ns['svg'], 'g')):
+    # compare inkscape label with group element ID
+    l = elem.get(etree.QName(ns['inkscape'], 'label'))
+    if l:
+      i = elem.get('id')
+      if (i != l):
+        print("Overwriting ID %s with Label %s..."%(i, l))
+        elem.set('id', l)
   
   # remove all offending style attributes
   s = elem.get('style')

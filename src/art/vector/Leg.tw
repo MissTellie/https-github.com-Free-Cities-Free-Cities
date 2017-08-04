@@ -3,6 +3,7 @@
 /* Leg wideness switch courtesy of Nov-X */
 
 /* BEWARE: _legSize is also used in Art_Vector_Feet_ */
+/* BEWARE: _buttSize set by Art_Vector_Butt_ */
 
 <<if _artSlave.amp != 1>>
   <<if _artSlave.hips < 0>>
@@ -24,5 +25,13 @@
 <<else>>
   <<set _art = "Art_Vector_Stump_Wide" >>
 <</if>>
-
 <<include _art >>
+
+/* shiny clothings */
+/* this on is butt-related, but needs to be here as legs are partly drawn over the butt */
+<<if _artSlave.amp != 1>>
+  <<if _artSlave.fuckdoll != 0 || _artSlave.clothes == "restrictive latex" || _artSlave.clothes == "a latex catsuit">>
+    <<set _art = "Art_Vector_Butt_Outfit_Shine_"+_buttSize >>
+    <<include _art >>
+  <</if>>
+<</if>>
