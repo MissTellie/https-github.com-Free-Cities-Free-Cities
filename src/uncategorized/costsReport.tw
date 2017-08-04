@@ -22,10 +22,10 @@
 	<</if>>
 <</if>>
 
-<<if $peacekeepers != 0>>
-<<if $peacekeepers.undermining != 0>>
-	¤$peacekeepers.undermining to undermine political support for the nearby old world peacekeeping mission.
-<</if>>
+<<if (def $peacekeepers) and ($peacekeepers != 0) >>
+	<<if $peacekeepers.undermining != 0>>
+		¤$peacekeepers.undermining to undermine political support for the nearby old world peacekeeping mission.
+	<</if>>
 <</if>>
 
 <<if $mercenaries > 0>>
