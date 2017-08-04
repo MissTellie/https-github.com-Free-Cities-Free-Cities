@@ -34,6 +34,7 @@ The surgical equipment reads
 	<br><br>
 <</if>>
 
+''FACE''<br>
 //<<faceDescription>>//
 
 <br>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -252,7 +253,7 @@ $pronounCap has
 
 
 <br><br>
-
+''BOOBS''<br>
 //<<BoobsDescription>><<boobModDescription>>//
 <br>&nbsp;&nbsp;&nbsp;&nbsp;
 <<if $activeSlave.boobs > 10000>>
@@ -364,62 +365,13 @@ $pronounCap has
 	[[Remove lactation implant|Surgery Degradation][$activeSlave.lactation = 0,$cash -= $surgeryCost, $surgeryType = "endlac"]]
 <</if>>
 
+
 <br><br>
-<<waistDescription>>
-<<if $activeSlave.waist >= -75>>
-	<<if $activeSlave.indentureRestrictions < 2>>
-	[[Liposuction|Surgery Degradation][$activeSlave.waist -= 20,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "lipo"]]
-	<</if>>
-<</if>>
-<<if ($activeSlave.waist >= -95) && ($activeSlave.waist < -75) && ($seeExtreme == 1)>>
-	<<if $activeSlave.indentureRestrictions < 1>>
-	[[Remove ribs to severely narrow her waist|Surgery Degradation][$activeSlave.waist = -100,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "ribs"]]
-	<</if>>
-<</if>>
-
-<<if ($activeSlave.cSec == 1)>>
-	<br>$pronounCap has an unsightly c-section scar.
-	[[Remove Caesarean scar|Surgery Degradation][$activeSlave.cSec = 0,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "bellyscar"]]
-	<br>
-<</if>>
-
-<br>
-
-//<<ButtDescription>>//
-<br>&nbsp;&nbsp;&nbsp;&nbsp;
-<<if $activeSlave.butt > 7>>
-	$possessiveCap butt is as large as $pronoun can physically support
-<<elseif $activeSlave.indentureRestrictions >= 2>>
-	$possessiveCap indenture forbids elective surgery
-<<elseif $activeSlave.buttImplant == 0>>
-	[[Implants|Surgery Degradation][$activeSlave.buttImplant = 1,$activeSlave.butt += 1,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "butt"]]
-	| [[String implants|Surgery Degradation][$activeSlave.buttImplant = 1,$activeSlave.butt += 1,$activeSlave.buttImplantType = 1,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "butt"]]
-<<elseif $activeSlave.buttImplant == 1 && $activeSlave.buttImplantType != 1>>
-	[[Bigger implants|Surgery Degradation][$activeSlave.buttImplant = 2,$activeSlave.butt += 1,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "butt"]]
-<<elseif $activeSlave.buttImplant == 2 && $activeSlave.buttImplantType != 1>>
-	[[Fillable implants|Surgery Degradation][$activeSlave.buttImplant = 3,$activeSlave.butt += 1,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "butt"]]
-<<elseif $activeSlave.buttImplant > 2 && $activeSlave.buttImplantType != 1>>
-	[[Add inert filler|Surgery Degradation][$activeSlave.buttImplant += 1,$activeSlave.butt += 1,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "butt"]]
-<</if>>
-<<if $activeSlave.buttImplant != 0>>
-	<<if $activeSlave.indentureRestrictions < 2>>
-	<<if $activeSlave.buttImplantType == 1 && $activeSlave.buttImplant > 1>>
-	 | [[Drain implants|Surgery Degradation][$activeSlave.butt = ($activeSlave.butt-1),$activeSlave.buttImplant = ($activeSlave.buttImplant-1),$cash -= $surgeryCost, $surgeryType = "buttLoss"]]
-	<</if>>
-	 | [[Remove implants|Surgery Degradation][$activeSlave.butt = ($activeSlave.butt-$activeSlave.buttImplant),$activeSlave.buttImplant = 0,$activeSlave.buttImplantType = 0,$cash -= $surgeryCost, $surgeryType = "buttLoss"]]
-	<</if>>
-<</if>>
-<<if ($activeSlave.butt > 1) && ($activeSlave.buttImplant == 0)>>
-	<<if $activeSlave.indentureRestrictions < 2>>
-	 | [[Reduce ass|Surgery Degradation][$activeSlave.butt -= 1,$cash -= $surgeryCost, $surgeryType = "buttLoss"]]
-	<</if>>
-<</if>>
+''GENITALIA''<br>
 
 <<if ($activeSlave.vagina > -1) || ($activeSlave.dick > 0)>>
-	<br><br>
 	//<<VaginaDescription>> ''Bold'' surgeries will set her back in this skill.//
 <</if>>
-
 
 <<if $activeSlave.vagina > -1>>
 <br>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -590,7 +542,7 @@ $pronounCap has
 	<</if>>
 	<<if ($activeSlave.scrotum > 0)>>
 		located in $possessive scrotum.
-		<br>&nbsp;&nbsp;&nbsp;&nbsp;
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		<<if $activeSlave.indentureRestrictions < 1>>
 		[[Move them inside abdomen and remove scrotum|Surgery Degradation][$activeSlave.scrotum = 0,$cash -= $surgeryCost, $activeSlave.health -= 20, $surgeryType = "relocate"]]
 		<</if>>
@@ -615,13 +567,14 @@ $pronounCap has
 	$pronounCap has a <<if $activeSlave.prostate > 1>>hyperactive<<else>>normal<</if>> prostate.
 	<<if $activeSlave.prostate < 2>>
 		<<if $activeSlave.indentureRestrictions < 2>>
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			[[Implant slow-release productivity drugs|Surgery Degradation][$activeSlave.prostate=2,$cash-=$surgeryCost,$activeSlave.health-=10,$surgeryType="precum"]] //This may cause some leaking//
 		<</if>>
-	<</if>>
-	<<if $activeSlave.prostate > 1>>
+	<<elseif $activeSlave.prostate > 1>>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		 [[Remove drug implant|Surgery Degradation][$activeSlave.prostate=1,$cash-=$surgeryCost,$surgeryType="endprecum"]]
 	<</if>>
-		<<if ($seeExtreme == 1)>>
+	<<if ($seeExtreme == 1)>>
 		<<if $activeSlave.indentureRestrictions < 1>>
 			 | [[Remove prostate|Surgery Degradation][$activeSlave.prostate = 0,$cash -= $surgeryCost, $activeSlave.health -= 40, $surgeryType = "prostate"]]
 		<</if>>
@@ -633,7 +586,7 @@ $pronounCap has
 	<br><br>//<<AnusDescription>> ''Bold'' surgeries will set her back in this skill.//
 	''[[Repair asshole|Surgery Degradation][$activeSlave.anus = 3,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "anus"]]''
 <<elseif ($surgeryUpgrade == 1) && ($activeSlave.indentureRestrictions < 2)>>
-	<br><br>//<<AnusDescription>>//
+	<br><br>//<<AnusDescription>> ''Bold'' surgeries will set her back in this skill.//
 	<<if ($activeSlave.anus > 1)>>
 		''[[Tighten asshole|Surgery Degradation][$activeSlave.anus = 1,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "anus"]]''
 	<<elseif ($activeSlave.anus > 0)>>
@@ -642,7 +595,60 @@ $pronounCap has
 <</if>>
 
 <br><br>
+''THICKNESS''<br>
+<<waistDescription>>
+<<if $activeSlave.waist >= -75>>
+	<<if $activeSlave.indentureRestrictions < 2>>
+	[[Liposuction|Surgery Degradation][$activeSlave.waist -= 20,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "lipo"]]
+	<</if>>
+<</if>>
+<<if ($activeSlave.waist >= -95) && ($activeSlave.waist < -75) && ($seeExtreme == 1)>>
+	<<if $activeSlave.indentureRestrictions < 1>>
+	[[Remove ribs to severely narrow her waist|Surgery Degradation][$activeSlave.waist = -100,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "ribs"]]
+	<</if>>
+<</if>>
 
+<<if ($activeSlave.cSec == 1)>>
+	<br>$pronounCap has an unsightly c-section scar.
+	[[Remove Caesarean scar|Surgery Degradation][$activeSlave.cSec = 0,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "bellyscar"]]
+	<br>
+<</if>>
+
+<br>
+
+//<<ButtDescription>>//
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+<<if $activeSlave.butt > 7>>
+	$possessiveCap butt is as large as $pronoun can physically support
+<<elseif $activeSlave.indentureRestrictions >= 2>>
+	$possessiveCap indenture forbids elective surgery
+<<elseif $activeSlave.buttImplant == 0>>
+	[[Implants|Surgery Degradation][$activeSlave.buttImplant = 1,$activeSlave.butt += 1,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "butt"]]
+	| [[String implants|Surgery Degradation][$activeSlave.buttImplant = 1,$activeSlave.butt += 1,$activeSlave.buttImplantType = 1,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "butt"]]
+<<elseif $activeSlave.buttImplant == 1 && $activeSlave.buttImplantType != 1>>
+	[[Bigger implants|Surgery Degradation][$activeSlave.buttImplant = 2,$activeSlave.butt += 1,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "butt"]]
+<<elseif $activeSlave.buttImplant == 2 && $activeSlave.buttImplantType != 1>>
+	[[Fillable implants|Surgery Degradation][$activeSlave.buttImplant = 3,$activeSlave.butt += 1,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "butt"]]
+<<elseif $activeSlave.buttImplant > 2 && $activeSlave.buttImplantType != 1>>
+	[[Add inert filler|Surgery Degradation][$activeSlave.buttImplant += 1,$activeSlave.butt += 1,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "butt"]]
+<</if>>
+<<if $activeSlave.buttImplant != 0>>
+	<<if $activeSlave.indentureRestrictions < 2>>
+	<<if $activeSlave.buttImplantType == 1 && $activeSlave.buttImplant > 1>>
+	 | [[Drain implants|Surgery Degradation][$activeSlave.butt = ($activeSlave.butt-1),$activeSlave.buttImplant = ($activeSlave.buttImplant-1),$cash -= $surgeryCost, $surgeryType = "buttLoss"]]
+	<</if>>
+	 | [[Remove implants|Surgery Degradation][$activeSlave.butt = ($activeSlave.butt-$activeSlave.buttImplant),$activeSlave.buttImplant = 0,$activeSlave.buttImplantType = 0,$cash -= $surgeryCost, $surgeryType = "buttLoss"]]
+	<</if>>
+<</if>>
+<<if ($activeSlave.butt > 1) && ($activeSlave.buttImplant == 0)>>
+	<<if $activeSlave.indentureRestrictions < 2>>
+	 | [[Reduce ass|Surgery Degradation][$activeSlave.butt -= 1,$cash -= $surgeryCost, $surgeryType = "buttLoss"]]
+	<</if>>
+<</if>>
+
+
+<br><br>
+''EDGES''<br>
 <<HairDescription>>
 <<if $activeSlave.pubicHStyle != "bald">> 
 	The rest of her body hair still grows nautrally.
@@ -680,7 +686,7 @@ $pronounCap has
 <</if>>
 
 <br><br>
-
+''BONES''<br>
 //<<shouldersDescription>>//
 <br>&nbsp;&nbsp;&nbsp;&nbsp;
 <<if $activeSlave.indentureRestrictions < 1>> /* Begin Indenture check. */
@@ -819,6 +825,7 @@ $pronounCap has
 <<if $activeSlave.indentureRestrictions < 2>>
 
 <br><br>
+''CRAFTING''<br>
 <<set $activeOrgan = 0>>
 <<for $i = 0; $i < $organs.length; $i++>>
 	<<if $activeSlave.ID == $organs[$i].ID>>
@@ -1355,32 +1362,31 @@ The prosthesis facility has constructed $possessive prosthetic limbs.
 <</if>> /* CLOSES PROSTHESIS FACTORY */
 <</if>> /* CyberMod Toggle */
 
-<br>
+<br><br>
+
 <<if $seeExtreme == 1>>
+''EXTREME''<br>
 <<if $activeSlave.fuckdoll == 0>>
-	<br>$pronounCap is a normal sex slave, not a living sex toy.
+	$pronounCap is a normal sex slave, not a living sex toy.
 	<<if $activeSlave.indentureRestrictions < 1>>
 		[[Encase in a Fuckdoll suit|Surgery Degradation][$activeSlave.subTarget=0, $activeSlave.sentence=0, $activeSlave.training=0, $activeSlave.toyHole="all her holes", $activeSlave.pubicHStyle="waxed", $activeSlave.livingRules="spare", $activeSlave.speechRules="restrictive", $activeSlave.releaseRules="restrictive", $activeSlave.relationshipRules="restrictive", $activeSlave.fuckdoll=1, $activeSlave.choosesOwnClothes=0, $activeSlave.clothes="a Fuckdoll suit", $activeSlave.collar="none", $activeSlave.shoes="heels", $activeSlave.vaginalAccessory="none", $activeSlave.dickAccessory="none", $activeSlave.buttplug="none", $activeSlave.attrKnown=1, $activeSlave.fetishKnown=1, $surgeryType = "fuckdoll"]]
 		//This is permanent and will greatly restrict $possessive//
 	<</if>>
 <<else>>
-	<br>$pronounCap is encased in a Fuckdoll suit. [[Extract it|Surgery Degradation][$activeSlave.fuckdoll=0, $activeSlave.clothes="no clothing", $activeSlave.shoes="none", $surgeryType = "fuckdollExtraction"]]
-<</if>>
+	$pronounCap is encased in a Fuckdoll suit. [[Extract it|Surgery Degradation][$activeSlave.fuckdoll=0, $activeSlave.clothes="no clothing", $activeSlave.shoes="none", $surgeryType = "fuckdollExtraction"]]
 <</if>>
 
-
-<<if ($seeExtreme == 1)>>
-	<<if $activeSlave.fetish != "mindbroken">>
-		<br>$pronounCap is mentally competent.
-	<<elseif $activeSlave.fetish == "mindbroken">>
-		<br>$possessiveCap mind is gone; $pronoun has either been chemically lobotomized, or has lost $possessive mind due to extreme abuse.
-	<</if>>
-	<<if $activeSlave.indentureRestrictions < 1>>
+<<if $activeSlave.fetish != "mindbroken">>
+	<br>$pronounCap is mentally competent.
+<<elseif $activeSlave.fetish == "mindbroken">>
+	<br>$possessiveCap mind is gone; $pronoun has either been chemically lobotomized, or has lost $possessive mind due to extreme abuse.
+<</if>>
+<<if $activeSlave.indentureRestrictions < 1>>
 	<<if $activeSlave.fetish != "mindbroken">>
 		[[Chemically lobotomize|Surgery Degradation][$activeSlave.fetish = "mindbroken",$activeSlave.fetishKnown = 1,$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "mindbreak"]]
 		//Warning: this is permanent and irreversible. It will destroy $possessive will and $possessive ability to remember anything but the simplest skills.//
 	<</if>>
-	<</if>>
+<</if>>
 <</if>>
 
 <<if $seeImages == 1>>
