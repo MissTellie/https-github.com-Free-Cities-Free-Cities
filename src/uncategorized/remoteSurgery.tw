@@ -302,20 +302,9 @@ $pronounCap has
 
 <<if ($activeSlave.boobsImplant == 0) && ($activeSlave.boobs > 250)>>
 	<br>
-	<<switch $activeSlave.boobShape>>
-	<<case "perky">>
-		They're perky, with nipples that point slightly upwards.
-	<<case "downward-facing">>
-		They're not attractively shaped; $possessive nipples pointing downward.
-	<<case "torpedo-shaped">>
-		They're torpedo-shaped, projecting some way from $possessive chest.
-	<<case "wide-set">>
-		They're wide-set, with nipples pointing away from $possessive sternum.
-	<<case "saggy">>
-		They're not attractively shaped, with $possessive nipples pointing down.
-	<<default>>
-		They're nicely rounded and rest naturally.
-	<</switch>>
+	
+	//<<boobsShapeDescription>>//
+	
 	<<if $activeSlave.indentureRestrictions >= 2>>
 		$possessiveCap indenture does not allow breast restructuring.
 	<<else>>
