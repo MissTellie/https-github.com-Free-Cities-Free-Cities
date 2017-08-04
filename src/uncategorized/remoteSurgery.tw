@@ -320,6 +320,7 @@ $pronounCap has
 			<</if>>
 			[[Breast lift|Surgery Degradation][$activeSlave.boobShape = "normal", $activeSlave.health -= 20,$cash -= $surgeryCost, $surgeryType = "breastLift"]]
 		<<else>>
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;
 			<<if ($activeSlave.boobShape == "normal")>>
 				[[Reshape them to be perkier|Surgery Degradation][$activeSlave.boobShape = "perky",$cash -= $surgeryCost,$activeSlave.health -= 10,$surgeryType = "breastReconstruction"]]
 				| [[Make them torpedo-shaped|Surgery Degradation][$activeSlave.boobShape = "torpedo-shaped",$cash -= $surgeryCost,$activeSlave.health -= 10,$surgeryType = "breastReconstruction"]]
