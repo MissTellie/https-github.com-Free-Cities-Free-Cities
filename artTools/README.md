@@ -27,8 +27,7 @@ While editing, keep the Layers in mind.
 * All Layers should have an ID that is globally unique
   (not just within their subtree).
 
-* Please use anonymous groups only for the ease of editing.
-* Remove all "helper" groups before finally saving the file.
+* Please use anonymous groups only for the ease of editing. Remove all "helper" groups before finally saving the file.
 * Anonymous groups can be used for continous scaling (of e.g. boobs).
 
 * Every asset that should go into a separate file needs to be in a labelled group 
@@ -44,7 +43,11 @@ If you use Inkscape, close the document and run
 
     python3 inkscape_svg_fixup.py vector_source.svg
 
-before continuing.
+before continuing. Open the file in Inkscape and save it again. 
+You need to make a minor change, as Inkscape will not save a unchanged file 
+(move the notes back and forth or something). The fixup does not produce
+the same linebreaks as Inkscape or Illustrator and git will go mad because
+the whole seems to have changed.
 
 What it does:
 * Adobe Illustrator uses group IDs as layer labels. 
@@ -88,10 +91,10 @@ The code also generates the previously removed global style definitions on the f
 
 Use the provided compile script (Windows batch or shell) for compiling.
 
-Note: Once per update of SugarCube, the script SHOULD automatically modify SugarCube 
-(the currently used Twine target) so it supports Twine files with SVG in them.
-**This automatic modification is expected to fail as soon as SugarCube is drastically changed.**
-In this case, look out for the "Wikifier" implementation and fix it manually.
-Without the modifications, the Wikifier mistakes SVG tags as HTML tags and 
-either complains about tags not being closed or SVG tags are reinterpreted
-as HTML tags (they appear in the HTML source code but nothing is displayed).
+## 7. Advanced usage
+
+You can define multiple CSS classes to one element, e.g. "skin torso". When procedurally generating CSS, you can then set a global "skin" style, and a different one for "torso".
+
+You can put variable text into the image using single quotes, e.g. "'+_tattooText+'". The single quotes *break* the quoting in Twine so the content of the Twine variable `_tattooText` is shown upon display. You can even align text on paths.
+
+An anonymous group can be used for dynamic transformation. However, finding the correct parameters for the affine transformation matrix can be cumbersome. Use any method you see fit. See `src/art/vector/Boob.tw` for one example of the result.
