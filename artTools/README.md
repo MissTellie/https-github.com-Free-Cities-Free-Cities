@@ -54,7 +54,7 @@ What it does:
   Inkscape however uses layer labels and a separate, auto-generated group ID.
   inkscape_svg_fixup.py overwrites the group ID with the Inkscape layer label 
   so they are synchronised with Inkscape layer labels.
-* Inkscape copies the global style definition into the object EVERY TIME
+* Inkscape copies the global style definition into the object *every time*
   the object is edited. If an object references a CSS class AND at the same time 
   has a local style, the local style is removed 
   so global dynamic styling is possible later on.
@@ -69,13 +69,14 @@ Execute
 
 . This application reads all groups in `vector_source.svg`.  
 Each group is stored in a separate file in the target directory `/src/art/vector/layers/`.  
-The group ID sets the file name. Therefore, the group ID MUST NOT contain spaces or any other weird characters.
+The group ID sets the file name. Therefore, the group ID **must not** contain spaces or any other weird characters.
 
 Also consider:
 * A group with ID ending in _ is ignored. Use Layers ending in _ to keep overview.
 * A group with ID starting with "g" (Inkscape) or "XMLID" (Illustrator) is also ignored.
-* Existing files are overwritten WITHOUT enquiry.
+* Existing files are overwritten **without enquiry**.
 * The target directory is not emptied. If a file is no longer needed, you should remove it manually.
+* This procedure removes global definitions. This means, SVG filters are currently not supported.
 
 Available output formats are `svg` and `tw`.  
 `svg` output exists for debug reasons.  
