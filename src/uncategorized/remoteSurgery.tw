@@ -369,13 +369,144 @@ $pronounCap has
 <br><br>
 ''GENITALIA''<br>
 
-<<if ($activeSlave.vagina > -1) || ($activeSlave.dick > 0)>>
-	//<<VaginaDescription>>
-	<<if ($activeSlave.vagina > -1)>>
-		''Bold'' surgeries will set her back in this skill.
-	<</if>>//		
+//<<crotchDescription>>//
+
+/* MAJOR ADD/REMOVE */
+<<if ($activeSlave.dick == 0) && ($activeSlave.vagina == -1)>>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	$pronounCap is a null, possessing neither penis nor vagina.
+<<elseif ($seeCircumcision == 1) && ($activeSlave.indentureRestrictions < 2)>>
+	<<if ($activeSlave.dick != 0) && ($activeSlave.vagina == -1) && ($activeSlave.foreskin == 0)>>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	$pronounCap has a circumcised penis.
+	<<elseif ($activeSlave.dick != 0) && ($activeSlave.vagina == -1) && ($activeSlave.foreskin >= 1)>>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	$pronounCap has an uncircumcised penis.
+	<<elseif ($activeSlave.dick != 0) && ($activeSlave.ovaries != 0) && ($activeSlave.foreskin == 0)>>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	$pronounCap has a circumcised penis and a vagina.
+	<<elseif ($activeSlave.dick != 0) && ($activeSlave.ovaries != 0) && ($activeSlave.foreskin >= 1)>>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	$pronounCap has an uncircumcised penis and a vagina.
+	<<elseif ($activeSlave.dick != 0) && ($activeSlave.vagina != -1) && ($activeSlave.foreskin == 0)>>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	$pronounCap has a circumcised penis and an artificial vagina.
+	<<elseif ($activeSlave.dick != 0) && ($activeSlave.vagina != -1) && ($activeSlave.foreskin >= 1)>>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	$pronounCap has an uncircumcised penis and an artificial vagina.
+	<</if>>
+<<else>>
+	<<if ($activeSlave.dick != 0) && ($activeSlave.vagina == -1)>>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	$pronounCap has a penis.
+	<<elseif ($activeSlave.dick != 0) && ($activeSlave.ovaries != 0)>>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp
+	$pronounCap has a penis and a vagina.
+	<<elseif ($activeSlave.dick != 0) && ($activeSlave.vagina != -1)>>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	$pronounCap has a penis and an artificial vagina.
+	<</if>>
 <</if>>
 
+<<if $activeSlave.indentureRestrictions < 1>>
+	<<if ($activeSlave.vagina == -1) && ($activeSlave.dick != 0)>>
+		[[Convert genitalia to female|Surgery Degradation][$activeSlave.dick = 0,$activeSlave.dickAccessory = "none",$activeSlave.scrotum = 0,$activeSlave.balls = 0,$activeSlave.vagina = 0,$activeSlave.preg = -2,$activeSlave.vaginalSkill = 0,$cash -= $surgeryCost, $activeSlave.health -= 40, $surgeryType = "mtf"]]
+	<</if>>
+	
+	<<if ($activeSlave.vagina == -1) && ($activeSlave.dick == 0) && ($surgeryUpgrade == 1)>>	
+		[[Create a vagina|Surgery Degradation][$activeSlave.vagina = 0,$activeSlave.vaginalSkill = 0,$cash -= $surgeryCost, $activeSlave.health -= 40, $surgeryType = "mtf"]]
+	<</if>>
+	
+	<<if ($activeSlave.dick > 0) && ($seeExtreme == 1)>>
+		 | [[Remove penis|Surgery Degradation][$activeSlave.dick = 0,$activeSlave.dickAccessory = "none",$activeSlave.foreskin = 0,$activeSlave.vaginalSkill = 0,$cash -= $surgeryCost, $activeSlave.health -= 20, $surgeryType = "chop"]]
+	<</if>>
+	
+	<<if ($activeSlave.vagina > -1) && ($activeSlave.dick > 0)>>
+		| [[Remove pussy|Surgery Degradation][$activeSlave.vagina = -1,$activeSlave.ovaries = 0,$activeSlave.preg = -2,$activeSlave.pregSource = 0,$activeSlave.vaginalSkill = 0,$cash -= $surgeryCost,$activeSlave.health -= 20,$surgeryType = "vaginaRemoval"]] <<if $activeSlave.ovaries == 1>>//This will remove $possessive ovaries as well//<</if>>
+	<</if>>
+	
+<</if>>
+
+
+/* HERM */
+<<if ($activeSlave.dick != 0) && ($activeSlave.vagina == -1) && ($surgeryUpgrade == 1)>>
+	<<if $activeSlave.indentureRestrictions < 1>>
+		| [[Create surgical hermaphrodite|Surgery Degradation][$activeSlave.vagina = 0,$activeSlave.vaginalSkill = 0,$cash -= $surgeryCost, $activeSlave.health -= 40, $surgeryType = "herm"]]
+	<</if>>
+<</if>>
+
+<<if ($activeSlave.dick != 0) || ($activeSlave.balls > 0)>>
+<br><br>//<<dickDescription>>//
+
+<<if ($activeSlave.foreskin > 0)>>
+<<if $seeCircumcision == 1>>
+<<if $activeSlave.indentureRestrictions < 2>>
+<<if $activeSlave.dick != 0>>
+	[[Remove foreskin|Surgery Degradation][$activeSlave.foreskin = 0,$cash -= $surgeryCost, $activeSlave.health -= 10, $surgeryType = "circumcision"]]
+<</if>>
+<</if>>
+<</if>>
+<</if>>
+<</if>>
+
+/* BALLS */
+<<if ($activeSlave.balls > 0)>>
+	<<if ($activeSlave.balls == 1)>>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;
+		$possessiveCap testicles are vestigial, but $pronoun has balls. Technically. They are 
+	<<elseif ($activeSlave.balls > 1)>>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;
+		$pronounCap has testicles 
+	<</if>>
+	<<if ($activeSlave.scrotum > 0)>>
+		located in $possessive scrotum.
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<<if $activeSlave.indentureRestrictions < 1>>
+		[[Move them inside abdomen and remove scrotum|Surgery Degradation][$activeSlave.scrotum = 0,$cash -= $surgeryCost, $activeSlave.health -= 20, $surgeryType = "relocate"]]
+		<</if>>
+		//This will have a negative impact on cum production//
+			<<else>>
+		<<if ($activeSlave.genes == "XY")>>
+			relocated inside $possessive abdomen, and $possessive scrotum has been removed.
+		<<else>>
+			implanted inside $possessive abdomen.
+		<</if>>
+	<</if>>	
+	<<if ($seeExtreme == 1)>>
+		<<if ($activeSlave.scrotum > 0)>>
+			| 
+		<</if>>
+		[[Geld|Surgery Degradation][$activeSlave.balls = 0,$activeSlave.scrotum = 0,$cash -= $surgeryCost, $activeSlave.health -= 40, $surgeryType = "geld"]]
+	<</if>>	
+<</if>>
+
+
+/* PROSTATE */
+<<if $activeSlave.prostate>>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	$pronounCap has a <<if $activeSlave.prostate > 1>>hyperactive<<else>>normal<</if>> prostate.
+	<<if $activeSlave.prostate < 2>>
+		<<if $activeSlave.indentureRestrictions < 2>>
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			[[Implant slow-release productivity drugs|Surgery Degradation][$activeSlave.prostate=2,$cash-=$surgeryCost,$activeSlave.health-=10,$surgeryType="precum"]] //This may cause some leaking//
+		<</if>>
+	<<elseif $activeSlave.prostate > 1>>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		 [[Remove drug implant|Surgery Degradation][$activeSlave.prostate=1,$cash-=$surgeryCost,$surgeryType="endprecum"]]
+	<</if>>
+	<<if ($seeExtreme == 1)>>
+		<<if $activeSlave.indentureRestrictions < 1>>
+			 | [[Remove prostate|Surgery Degradation][$activeSlave.prostate = 0,$cash -= $surgeryCost, $activeSlave.health -= 40, $surgeryType = "prostate"]]
+		<</if>>
+	<</if>>
+<</if>>
+
+<<if ($activeSlave.vagina > -1)>>
+	<br><br>//<<vaginaDescription>>
+	''Bold'' surgeries will set her back in this skill.//
+<</if>>
+
+/* VAGINA */
 <<if $activeSlave.vagina > -1>>
 <br>&nbsp;&nbsp;&nbsp;&nbsp;
 <<if $activeSlave.labia == 0>>
@@ -421,7 +552,19 @@ $pronounCap has
 		 [[Increase clit|Surgery Degradation][$activeSlave.clit += 1,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "clitoral enlargement"]]
 		<</if>>
 	<</if>>
+	
+	<<if ($activeSlave.foreskin > 0)>>
+	<<if $seeCircumcision == 1>>
+	<<if $activeSlave.indentureRestrictions < 2>>
+	<<if ($activeSlave.vagina >= 0)>>
+		 | [[Remove clitoral hood|Surgery Degradation][$activeSlave.foreskin = 0,$cash -= $surgeryCost, $activeSlave.health -= 10, $surgeryType = "circumcision"]]
+	<</if>>
+	<</if>>
+	<</if>>
+	<</if>>
 <</if>>
+
+/* WOMB */
 <</if>>
 <<if ($activeSlave.preg > -2) && ($activeSlave.preg < 1) && ($activeSlave.vagina > -1) && ($activeSlave.ovaries != 0)>>
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -438,6 +581,7 @@ $pronounCap has
 	[[Restore fertility|Surgery Degradation][$activeSlave.preg = 0,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "fert"]]
 <</if>>
 
+/* OVARIES */
 <<if ($activeSlave.ovaries == 1) && ($activeSlave.preg < 1)>>
 	<<if $activeSlave.indentureRestrictions < 1>>
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -446,6 +590,7 @@ $pronounCap has
 	<</if>>
 <</if>>
 
+/* LABIA */
 <<if ($activeSlave.vagina > 3)>>
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
 	$possessiveCap vagina could benefit from surgical repair.
@@ -462,129 +607,7 @@ $pronounCap has
 	<</if>>
 <</if>>
 
-<<if ($activeSlave.vagina > -1) && ($activeSlave.dick > 0)>>
-	<<if $activeSlave.indentureRestrictions < 1>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	Since $pronoun has both a penis and a vagina, it's possible to remove $possessive pussy and leave $possessive sexually functional.
-	[[Remove pussy|Surgery Degradation][$activeSlave.vagina = -1,$activeSlave.ovaries = 0,$activeSlave.preg = -2,$activeSlave.pregSource = 0,$activeSlave.vaginalSkill = 0,$cash -= $surgeryCost,$activeSlave.health -= 20,$surgeryType = "vaginaRemoval"]] <<if $activeSlave.ovaries == 1>>//This will remove $possessive ovaries as well//<</if>>
-	<</if>>
-<</if>>
-
-<<if ($activeSlave.dick == 0) && ($activeSlave.vagina == -1)>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	$pronounCap is a null, possessing neither penis nor vagina.
-<<elseif ($seeCircumcision == 1) && ($activeSlave.indentureRestrictions < 2)>>
-	<<if ($activeSlave.dick != 0) && ($activeSlave.vagina == -1) && ($activeSlave.foreskin == 0)>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	$pronounCap has a circumcised penis.
-	<<elseif ($activeSlave.dick != 0) && ($activeSlave.vagina == -1) && ($activeSlave.foreskin >= 1)>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	$pronounCap has an uncircumcised penis.
-	<<elseif ($activeSlave.dick != 0) && ($activeSlave.ovaries != 0) && ($activeSlave.foreskin == 0)>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	$pronounCap has a circumcised penis and a vagina.
-	<<elseif ($activeSlave.dick != 0) && ($activeSlave.ovaries != 0) && ($activeSlave.foreskin >= 1)>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	$pronounCap has an uncircumcised penis and a vagina.
-	<<elseif ($activeSlave.dick != 0) && ($activeSlave.vagina != -1) && ($activeSlave.foreskin == 0)>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	$pronounCap has a circumcised penis and an artificial vagina.
-	<<elseif ($activeSlave.dick != 0) && ($activeSlave.vagina != -1) && ($activeSlave.foreskin >= 1)>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	$pronounCap has an uncircumcised penis and an artificial vagina.
-	<</if>>
-<<else>>
-	<<if ($activeSlave.dick != 0) && ($activeSlave.vagina == -1)>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	$pronounCap has a penis.
-	<<elseif ($activeSlave.dick != 0) && ($activeSlave.ovaries != 0)>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp
-	$pronounCap has a penis and a vagina.
-	<<elseif ($activeSlave.dick != 0) && ($activeSlave.vagina != -1)>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	$pronounCap has a penis and an artificial vagina.
-	<</if>>
-<</if>>
-
-<<if $activeSlave.indentureRestrictions < 1>>
-	<<if ($activeSlave.vagina == -1) && ($activeSlave.dick != 0)>>
-		[[Convert genitalia to female|Surgery Degradation][$activeSlave.dick = 0,$activeSlave.dickAccessory = "none",$activeSlave.scrotum = 0,$activeSlave.balls = 0,$activeSlave.vagina = 0,$activeSlave.preg = -2,$activeSlave.vaginalSkill = 0,$cash -= $surgeryCost, $activeSlave.health -= 40, $surgeryType = "mtf"]]
-	<</if>>
-	<<if ($activeSlave.vagina == -1) && ($activeSlave.dick == 0) && ($surgeryUpgrade == 1)>>	
-		[[Create a vagina|Surgery Degradation][$activeSlave.vagina = 0,$activeSlave.vaginalSkill = 0,$cash -= $surgeryCost, $activeSlave.health -= 40, $surgeryType = "mtf"]]
-	<</if>>
-	<<if ($activeSlave.dick > 0) && ($seeExtreme == 1)>>
-		 | [[Remove penis|Surgery Degradation][$activeSlave.dick = 0,$activeSlave.dickAccessory = "none",$activeSlave.foreskin = 0,$activeSlave.vaginalSkill = 0,$cash -= $surgeryCost, $activeSlave.health -= 20, $surgeryType = "chop"]]
-	<</if>>
-	<<if ($activeSlave.foreskin > 0)>>
-		<<if $seeCircumcision == 1>>
-			<<if $activeSlave.indentureRestrictions < 2>>
-			<<if $activeSlave.dick != 0>>
-				 | [[Remove foreskin|Surgery Degradation][$activeSlave.foreskin = 0,$cash -= $surgeryCost, $activeSlave.health -= 10, $surgeryType = "circumcision"]]
-			<<elseif ($activeSlave.vagina >= 0)>>
-				 | [[Remove clitoral hood|Surgery Degradation][$activeSlave.foreskin = 0,$cash -= $surgeryCost, $activeSlave.health -= 10, $surgeryType = "circumcision"]]
-			<</if>>
-			<</if>>
-		<</if>>
-	<</if>>
-<</if>>
-
-<<if ($activeSlave.dick != 0) && ($activeSlave.vagina == -1) && ($surgeryUpgrade == 1)>>
-	<<if $activeSlave.indentureRestrictions < 1>>
-		| [[Create surgical hermaphrodite|Surgery Degradation][$activeSlave.vagina = 0,$activeSlave.vaginalSkill = 0,$cash -= $surgeryCost, $activeSlave.health -= 40, $surgeryType = "herm"]]
-	<</if>>
-<</if>>
-
-<<if ($activeSlave.balls > 0)>>
-	<<if ($activeSlave.balls == 1)>>
-		<br>&nbsp;&nbsp;&nbsp;&nbsp;
-		$possessiveCap testicles are vestigial, but $pronoun has balls. Technically. They are 
-	<<elseif ($activeSlave.balls > 1)>>
-		<br>&nbsp;&nbsp;&nbsp;&nbsp;
-		$pronounCap has testicles 
-	<</if>>
-	<<if ($activeSlave.scrotum > 0)>>
-		located in $possessive scrotum.
-		<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<<if $activeSlave.indentureRestrictions < 1>>
-		[[Move them inside abdomen and remove scrotum|Surgery Degradation][$activeSlave.scrotum = 0,$cash -= $surgeryCost, $activeSlave.health -= 20, $surgeryType = "relocate"]]
-		<</if>>
-		//This will have a negative impact on cum production//
-			<<else>>
-		<<if ($activeSlave.genes == "XY")>>
-			relocated inside $possessive abdomen, and $possessive scrotum has been removed.
-		<<else>>
-			implanted inside $possessive abdomen.
-		<</if>>
-	<</if>>	
-	<<if ($seeExtreme == 1)>>
-		<<if ($activeSlave.scrotum > 0)>>
-			| 
-		<</if>>
-		[[Geld|Surgery Degradation][$activeSlave.balls = 0,$activeSlave.scrotum = 0,$cash -= $surgeryCost, $activeSlave.health -= 40, $surgeryType = "geld"]]
-	<</if>>	
-<</if>>
-
-<<if $activeSlave.prostate>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	$pronounCap has a <<if $activeSlave.prostate > 1>>hyperactive<<else>>normal<</if>> prostate.
-	<<if $activeSlave.prostate < 2>>
-		<<if $activeSlave.indentureRestrictions < 2>>
-			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			[[Implant slow-release productivity drugs|Surgery Degradation][$activeSlave.prostate=2,$cash-=$surgeryCost,$activeSlave.health-=10,$surgeryType="precum"]] //This may cause some leaking//
-		<</if>>
-	<<elseif $activeSlave.prostate > 1>>
-		<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		 [[Remove drug implant|Surgery Degradation][$activeSlave.prostate=1,$cash-=$surgeryCost,$surgeryType="endprecum"]]
-	<</if>>
-	<<if ($seeExtreme == 1)>>
-		<<if $activeSlave.indentureRestrictions < 1>>
-			 | [[Remove prostate|Surgery Degradation][$activeSlave.prostate = 0,$cash -= $surgeryCost, $activeSlave.health -= 40, $surgeryType = "prostate"]]
-		<</if>>
-	<</if>>
-<</if>>
-
-
+/* ASSHOLE */
 <<if ($activeSlave.anus > 3)>>
 	<br><br>//<<AnusDescription>> ''Bold'' surgeries will set her back in this skill.//
 	''[[Repair asshole|Surgery Degradation][$activeSlave.anus = 3,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "anus"]]''
@@ -598,13 +621,16 @@ $pronounCap has
 <</if>>
 
 <br><br>
-''THICKNESS''<br>
+''THICKNESS''<br>  
+
 <<waistDescription>>
+
 <<if $activeSlave.waist >= -75>>
 	<<if $activeSlave.indentureRestrictions < 2>>
 	[[Liposuction|Surgery Degradation][$activeSlave.waist -= 20,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "lipo"]]
 	<</if>>
 <</if>>
+
 <<if ($activeSlave.waist >= -95) && ($activeSlave.waist < -75) && ($seeExtreme == 1)>>
 	<<if $activeSlave.indentureRestrictions < 1>>
 	[[Remove ribs to severely narrow her waist|Surgery Degradation][$activeSlave.waist = -100,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "ribs"]]

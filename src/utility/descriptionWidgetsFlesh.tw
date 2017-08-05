@@ -1335,7 +1335,7 @@ $pronounCap's got a
 
 <</widget>>
 
-<<widget "VaginaDescription">>
+<<widget "crotchDescription">>
 
 <<SlavePronouns $activeSlave>>
 
@@ -1874,6 +1874,14 @@ $pronounCap's got a
 <</if>>
 
 <</if>>
+<</widget>>
+
+
+<<widget "dickDescription">>
+
+<<SlavePronouns $activeSlave>>
+
+<<if ($showClothing == 1) && ($saleDescription == 0)>>
 
 <<if $activeSlave.dick > 0>>
 
@@ -2236,7 +2244,9 @@ $pronounCap's got a
 	<</if>>
 <</if>>
 
+
 <</if>> /* CLOSES DETAILED DICK DESCRIPTION */
+
 
 <<if $activeSlave.prostate == 0>>
 <<if ($activeSlave.dick > 0) || ($activeSlave.balls > 0)>>
@@ -2254,6 +2264,15 @@ $pronounCap's got a
 	<<dickTatDescription>>
 <</if>>
 <</if>>
+<</if>>
+<</widget>>
+
+
+<<widget "vaginaDescription">>
+
+<<SlavePronouns $activeSlave>>
+
+<<if ($showClothing == 1) && ($saleDescription == 0)>>
 
 <<if $activeSlave.dick > 0>>
 <<if $activeSlave.vagina > -1>>
@@ -2713,6 +2732,7 @@ $pronounCap's got a
 	<<elseif ($activeSlave.dick != 0) && ($activeSlave.balls == 0)>>
 		The aphrodisiacs combined with the lack of balls that keeps $object flaccid have $object sexually frustrated; $pronoun's touching $possessive limp dick distractedly and unconsciously rubbing $possessive ass against whatever's next to $object.
 	<</if>>
+<</if>>
 <</if>>
 <</if>>
 <</if>>
@@ -3920,20 +3940,54 @@ $pronounCap has
 <<widget "waistDescription">>
 
 $pronounCap has
+
 <<if $activeSlave.waist > 95>>
-	a badly @@.red;masculine waist@@ that ruins her figure<<if $activeSlave.weight > 30>> and greatly exaggerates how fat $pronoun is<<elseif $activeSlave.weight < -30>> despite how thin $pronoun is<</if>>.
+	a badly @@.red;masculine waist@@ that ruins her figure
+	<<if $activeSlave.weight > 30>> and greatly exaggerates how fat $pronoun is
+	<<elseif $activeSlave.weight < -30>> despite how thin $pronoun is<</if>>.
 <<elseif $activeSlave.waist > 40>>
-	a broad, @@.red;ugly waist@@ that makes her look mannish<<if $activeSlave.weight > 30>> and exaggerates how fat $pronoun is<<elseif $activeSlave.weight < -30>> despite how thin $pronoun is<</if>>.
+	a broad, @@.red;ugly waist@@ that makes her look mannish
+	<<if $activeSlave.weight > 30>> and exaggerates how fat $pronoun is
+	<<elseif $activeSlave.weight < -30>> despite how thin $pronoun is<</if>>.
 <<elseif $activeSlave.waist > 10>>
-	an @@.red;unattractive waist@@ that conceals $possessive <<if $activeSlave.age > 25>>girlish<<else>>womanly<</if>> figure<<if $activeSlave.weight > 30>> and accentuates how fat $pronoun is<<elseif $activeSlave.weight < -30>> despite how thin $pronoun is<</if>>.
+	an @@.red;unattractive waist@@ that conceals $possessive 
+	<<if $activeSlave.age > 25>>
+	girlish
+	<<else>>
+		womanly
+	<</if>> 
+		figure
+	<<if $activeSlave.weight > 30>> and accentuates how fat $pronoun is
+	<<elseif $activeSlave.weight < -30>> despite how thin $pronoun is<</if>>.
 <<elseif $activeSlave.waist >= -10>>
-	an average waist for a <<if $activeSlave.age > 25>>girl<<else>>woman<</if>><<if $activeSlave.weight > 30>>, though it looks broader since $pronoun's fat<<elseif $activeSlave.weight < -30>>, though it looks narrower since $pronoun's thin<</if>>.
+	an average waist for a 
+	<<if $activeSlave.age > 25>>
+		girl
+	<<else>>
+		woman
+	<</if>>
+	<<if $activeSlave.weight > 30>>, though it looks broader since $pronoun's fat
+	<<elseif $activeSlave.weight < -30>>, though it looks narrower since $pronoun's thin<</if>>.
 <<elseif $activeSlave.waist >= -40>>
-	a nice @@.pink;feminine waist@@ that gives $object a <<if $activeSlave.age > 25>>girlish<<else>>womanly<</if>> figure<<if $activeSlave.weight > 30>> despite $possessive extra weight<<elseif $activeSlave.weight < -30>> and accentuates how thin $pronoun is<</if>>.
+	a nice @@.pink;feminine waist@@ that gives $object a 
+	<<if $activeSlave.age > 25>>
+		girlish
+	<<else>>
+		womanly
+	<</if>>
+	figure
+	<<if $activeSlave.weight > 30>> despite $possessive extra weight
+	<<elseif $activeSlave.weight < -30>> and accentuates how thin $pronoun is
+	<</if>>.
 <<elseif $activeSlave.waist >= -95>>
-	a hot @@.pink;wasp waist@@ that gives $possessive an hourglass figure<<if $activeSlave.weight > 30>> despite $possessive extra weight<<elseif $activeSlave.weight < -30>> further accentuated by how thin $pronoun is<</if>>.
+	a hot @@.pink;wasp waist@@ that gives $possessive an hourglass figure
+	<<if $activeSlave.weight > 30>> despite $possessive extra weight
+	<<elseif $activeSlave.weight < -30>> further accentuated by how thin $pronoun is
+	<</if>>.
 <<else>>
-	an @@.pink;absurdly narrow waist@@ that gives $possessive a cartoonishly hourglass figure<<if $activeSlave.weight > 30>> made even more ludicrous by $possessive extra weight<<elseif $activeSlave.weight < -30>> made even more ludicrous by how thin $pronoun is<</if>>.
+	an @@.pink;absurdly narrow waist@@ that gives $possessive a cartoonishly hourglass figure
+	<<if $activeSlave.weight > 30>> made even more ludicrous by $possessive extra weight
+	<<elseif $activeSlave.weight < -30>> made even more ludicrous by how thin $pronoun is<</if>>.
 <</if>>
 
 <</widget>>
