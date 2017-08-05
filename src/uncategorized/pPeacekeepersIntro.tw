@@ -2,15 +2,15 @@
 
 <<set $nextButton = "Continue", $nextLink = "Random Nonindividual Event">>
 
-<<set $peacekeepers = {generalName = setup.americanSlaveSurnames.random(), strength = 20, attitude = 0, independent = 0, undermining = 0, influenceAnnounced = 0, tastes = 0}>>
+<<set $peacekeepers = {generalName: setup.whiteAmericanSlaveSurnames.random(), strength: 20, attitude: 0, independent: 0, undermining: 0, influenceAnnounced: 0, tastes: 0}>>
 <<if $continent == "Africa">>
-	<<set $peacekeepersGeneralName = setup.frenchSlaveSurnames.random()>>
+	<<set $peacekeepers.GeneralName = setup.frenchSlaveSurnames.random()>>
 <</if>>
 <<if $continent == "Asia" || $continent == "Australia">>
-	<<set $peacekeepersGeneralName = setup.chineseSlaveSurnames.random()>>
+	<<set $peacekeepers.GeneralName = setup.chineseSlaveSurnames.random()>>
 <</if>>
 <<if $continent == "Europe">>
-	<<set $peacekeepersGeneralName = setup.russianSlaveSurnames.random()>>
+	<<set $peacekeepers.GeneralName = setup.russianSlaveSurnames.random()>>
 <</if>>
 
 The aftermath of the attack on the Free City by forces from the neighboring failed state grows grimmer by the day. Not that the situation isn't without its good points, from your perspective. For one thing, the supply of helpless refugees has never been better. The Free City's victory over the invaders was

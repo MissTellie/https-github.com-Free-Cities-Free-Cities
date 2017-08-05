@@ -24,13 +24,17 @@
 
 <<set $costs += ($girls*(250+($economy*500)))>>
 
+<<if def $citizenOrphanageTotal>>
 <<set $costs += $citizenOrphanageTotal*100>>
-<<set $costs += $privateOrphanageTotal*500>>
-
-<<if $peacekeepers != 0>>
-<<if $peacekeepers.undermining != 0>>
-	<<set $costs += $peacekeepers.undermining>>
 <</if>>
+<<if def $privateOrphanageTotal>>
+<<set $costs += $privateOrphanageTotal*500>>
+<</if>>
+
+<<if (def $peacekeepers) and ($peacekeepers != 0) >>
+	<<if $peacekeepers.undermining != 0>>
+		<<set $costs += $peacekeepers.undermining>>
+	<</if>>
 <</if>>
 
 <<if $mercenaries > 0>>

@@ -431,9 +431,9 @@ You throw the victor's strap-on down to _winner.slaveName.
 	<</if>>
 <<elseif _winner.father == _loser.ID>>
 	<<if _winner.devotion >= 20>>
-		She accepts having to abuse her father, _loser.slaveName, and plans to make it up to her later.
+		She accepts having to abuse her sire, _loser.slaveName, and plans to make it up to her later.
 	<<else>>
-		She @@.mediumorchid;hates@@ having to abuse her father, _loser.slaveName.
+		She @@.mediumorchid;hates@@ having to abuse her sire, _loser.slaveName.
 		<<set _winner.devotion -= 10>>
 	<</if>>
 <<elseif _loser.mother == _winner.ID || _loser.father == _winner.ID>>
@@ -509,10 +509,10 @@ You throw the victor's strap-on down to _winner.slaveName.
 	<</if>>
 <<elseif _loser.father == _winner.ID>>
 	<<if _loser.devotion >= 20>>
-		She accepts her father, _winner.slaveName, having to rape her, but she @@.gold;fears@@ that it will happen again.
+		She accepts her sire, _winner.slaveName, having to rape her, but she @@.gold;fears@@ that it will happen again.
 		<<set _loser.trust -= 10>>
 	<<else>>
-		She @@.mediumorchid;hates@@ having to accept rape from her own father, _winner.slaveName, and @@.gold;fears@@ that it will happen again.
+		She @@.mediumorchid;hates@@ having to accept rape from her own sire, _winner.slaveName, and @@.gold;fears@@ that it will happen again.
 		<<set _loser.devotion -= 10>>
 		<<set _loser.trust -= 10>>
 	<</if>>

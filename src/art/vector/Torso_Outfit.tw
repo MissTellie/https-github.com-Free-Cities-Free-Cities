@@ -1,0 +1,21 @@
+:: Art_Vector_Torso_Outfit_ [nobr]
+
+/* BEWARE: _torsoSize is set by Art_Vector_Torso_ */
+
+/* TODO: latex catsuit should cover vagina and its piercings, too */
+
+<<set _art = false >>
+
+<<switch _artSlave.clothes>>
+	<<case "restrictive latex" "a latex catsuit">>
+		<<set _art = "Art_Vector_Torso_Outfit_Latex_" >>
+	<<case "uncomfortable straps">>
+		<<set _art = "Art_Vector_Torso_Outfit_Straps_" >>
+	<<default>>
+		/* do nothing */
+<</switch>>
+
+<<if _art >>
+	<<set _art = _art+_torsoSize >>
+	<<include _art >>
+<</if>>

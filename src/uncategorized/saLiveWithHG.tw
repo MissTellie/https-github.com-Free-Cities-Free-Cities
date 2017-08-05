@@ -87,7 +87,7 @@
 			<<elseif $HeadGirl.mother == $slaves[$i].ID>>
 				mother.
 			<<elseif $HeadGirl.father == $slaves[$i].ID>>
-				father.
+				sire.
 			<<else>>
 				<<switch areSisters($HeadGirl, $slaves[$i])>>
 				<<case 1>>twin.
@@ -119,7 +119,7 @@
 			<<elseif $slaves[$i].mother == $HeadGirl.ID>>
 				mother.
 			<<elseif $slaves[$i].father == $HeadGirl.ID>>
-				father.
+				sire.
 			<<else>>
 				<<switch areSisters($HeadGirl, $slaves[$i])>>
 				<<case 1>>twin.

@@ -24,7 +24,7 @@ You own ''$arcologies[0].ownership%'' of $arcologies[0].name, <<if $arcologies[0
 
 <<if $plot>>
 <br>
-<<if $peacekeepers != 0>>
+<<if (def $peacekeepers) and ($peacekeepers != 0) >>
 	<<if $peacekeepers.strength >= 50>>
 		General $peacekeepers.generalName now governs an area near the Free City as a warlord, using the men and women of his former peacekeeping forces to rule.
 		<<if $peacekeepers.attitude >= 100>>

@@ -828,7 +828,7 @@
 					_SlaveI.slaveName is @@.gold;painfully conscious@@ that her mother $slaves[_j].slaveName is also your slave and might suffer if either of them displeases you, and @@.hotpink;tries to obey@@ as best she can.
 					<<set _SlaveI.trust -= 1, _SlaveI.devotion += 3>>
 				<<elseif _SlaveI.father == $slaves[_j].ID>>
-					_SlaveI.slaveName is @@.gold;painfully conscious@@ that her father $slaves[_j].slaveName is also your slave and might suffer if either of them displeases you, and @@.hotpink;tries to obey@@ as best she can.
+					_SlaveI.slaveName is @@.gold;painfully conscious@@ that her sire $slaves[_j].slaveName is also your slave and might suffer if either of them displeases you, and @@.hotpink;tries to obey@@ as best she can.
 					<<set _SlaveI.trust -= 1, _SlaveI.devotion += 3>>
 				<<else>>
 					<<switch areSisters(_SlaveI, $slaves[_j])>>
@@ -859,7 +859,7 @@
 						<<set _SlaveI.trust -= 1>>
 					<</if>>
 				<<elseif _SlaveI.father == $slaves[_j].ID>>
-					_SlaveI.slaveName knows that her father $slaves[_j].slaveName
+					_SlaveI.slaveName knows that her sire $slaves[_j].slaveName
 					<<if $slaves[_j].devotion > 50>>
 						loves being your sex slave, and is @@.hotpink;happy@@ for her.
 						<<set _SlaveI.devotion += 4>>
