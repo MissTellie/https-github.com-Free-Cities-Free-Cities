@@ -372,59 +372,23 @@ $pronounCap has
 //<<crotchDescription>>//
 
 /* MAJOR ADD/REMOVE */
-<<if ($activeSlave.dick == 0) && ($activeSlave.vagina == -1)>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	$pronounCap is a null, possessing neither penis nor vagina.
-<<elseif ($seeCircumcision == 1) && ($activeSlave.indentureRestrictions < 2)>>
-	<<if ($activeSlave.dick != 0) && ($activeSlave.vagina == -1) && ($activeSlave.foreskin == 0)>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	$pronounCap has a circumcised penis.
-	<<elseif ($activeSlave.dick != 0) && ($activeSlave.vagina == -1) && ($activeSlave.foreskin >= 1)>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	$pronounCap has an uncircumcised penis.
-	<<elseif ($activeSlave.dick != 0) && ($activeSlave.ovaries != 0) && ($activeSlave.foreskin == 0)>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	$pronounCap has a circumcised penis and a vagina.
-	<<elseif ($activeSlave.dick != 0) && ($activeSlave.ovaries != 0) && ($activeSlave.foreskin >= 1)>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	$pronounCap has an uncircumcised penis and a vagina.
-	<<elseif ($activeSlave.dick != 0) && ($activeSlave.vagina != -1) && ($activeSlave.foreskin == 0)>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	$pronounCap has a circumcised penis and an artificial vagina.
-	<<elseif ($activeSlave.dick != 0) && ($activeSlave.vagina != -1) && ($activeSlave.foreskin >= 1)>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	$pronounCap has an uncircumcised penis and an artificial vagina.
-	<</if>>
-<<else>>
-	<<if ($activeSlave.dick != 0) && ($activeSlave.vagina == -1)>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	$pronounCap has a penis.
-	<<elseif ($activeSlave.dick != 0) && ($activeSlave.ovaries != 0)>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp
-	$pronounCap has a penis and a vagina.
-	<<elseif ($activeSlave.dick != 0) && ($activeSlave.vagina != -1)>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	$pronounCap has a penis and an artificial vagina.
-	<</if>>
-<</if>>
-
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
 <<if $activeSlave.indentureRestrictions < 1>>
-	<<if ($activeSlave.vagina == -1) && ($activeSlave.dick != 0)>>
-		[[Convert genitalia to female|Surgery Degradation][$activeSlave.dick = 0,$activeSlave.dickAccessory = "none",$activeSlave.scrotum = 0,$activeSlave.balls = 0,$activeSlave.vagina = 0,$activeSlave.preg = -2,$activeSlave.vaginalSkill = 0,$cash -= $surgeryCost, $activeSlave.health -= 40, $surgeryType = "mtf"]]
-	<</if>>
-	
-	<<if ($activeSlave.vagina == -1) && ($activeSlave.dick == 0) && ($surgeryUpgrade == 1)>>	
-		[[Create a vagina|Surgery Degradation][$activeSlave.vagina = 0,$activeSlave.vaginalSkill = 0,$cash -= $surgeryCost, $activeSlave.health -= 40, $surgeryType = "mtf"]]
+	<<if ($activeSlave.vagina == -1)>>
+		<<if ($activeSlave.dick != 0)>>
+			[[Convert genitalia to female|Surgery Degradation][$activeSlave.dick = 0,$activeSlave.dickAccessory = "none",$activeSlave.scrotum = 0,$activeSlave.balls = 0,$activeSlave.vagina = 0,$activeSlave.preg = -2,$activeSlave.vaginalSkill = 0,$cash -= $surgeryCost, $activeSlave.health -= 40, $surgeryType = "mtf"]]
+		<<elseif ($activeSlave.dick == 0) && ($surgeryUpgrade == 1)>>	
+			[[Create a vagina|Surgery Degradation][$activeSlave.vagina = 0,$activeSlave.vaginalSkill = 0,$cash -= $surgeryCost, $activeSlave.health -= 40, $surgeryType = "mtf"]]
+		<</if>>
 	<</if>>
 	
 	<<if ($activeSlave.dick > 0) && ($seeExtreme == 1)>>
 		 | [[Remove penis|Surgery Degradation][$activeSlave.dick = 0,$activeSlave.dickAccessory = "none",$activeSlave.foreskin = 0,$activeSlave.vaginalSkill = 0,$cash -= $surgeryCost, $activeSlave.health -= 20, $surgeryType = "chop"]]
 	<</if>>
 	
-	<<if ($activeSlave.vagina > -1) && ($activeSlave.dick > 0)>>
+	<<if ($activeSlave.vagina > -1) && ($seeExtreme == 1)>>
 		| [[Remove pussy|Surgery Degradation][$activeSlave.vagina = -1,$activeSlave.ovaries = 0,$activeSlave.preg = -2,$activeSlave.pregSource = 0,$activeSlave.vaginalSkill = 0,$cash -= $surgeryCost,$activeSlave.health -= 20,$surgeryType = "vaginaRemoval"]] <<if $activeSlave.ovaries == 1>>//This will remove $possessive ovaries as well//<</if>>
 	<</if>>
-	
 <</if>>
 
 
