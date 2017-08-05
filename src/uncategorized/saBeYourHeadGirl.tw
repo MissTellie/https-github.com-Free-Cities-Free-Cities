@@ -22,7 +22,7 @@
 						Your Concubine is your Consort's mother-wife. Truly, $arcologies[0].name looks up to you @@.green;as children to a father.@@
 						<<set $rep += 250>>
 					<<elseif $slaves[$i].father == $Concubine.ID>>
-						Your Concubine is your Consort's father-wife. Truly, $arcologies[0].name looks up to you @@.green;as children to a father.@@
+						Your Concubine is your Consort's sire-wife. Truly, $arcologies[0].name looks up to you @@.green;as children to a father.@@
 						<<set $rep += 250>>
 					<<else>>
 						<<switch areSisters($slaves[$i], $Concubine)>>
@@ -55,7 +55,7 @@
 							Your Consort has a mother-wife. This is @@.green;as it should be.@@
 							<<set $rep += 100>>
 						<<elseif $slaves[$i].father == $slaves[_sbyhg].ID>>
-							Your Consort has a father-wife. This is @@.green;as it should be.@@
+							Your Consort has a sire-wife. This is @@.green;as it should be.@@
 							<<set $rep += 100>>
 						<<else>>
 							<<switch areSisters($slaves[$i], $slaves[_sbyhg])>>
