@@ -35,6 +35,13 @@ Image display
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
 	<<if $imageChoice == 1>>
 		@@.yellow;Vector art by NoX@@ is selected. [[Switch to rendered imagepack|Options][$imageChoice = 0]]
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;
+		Highlights on shiny clothing
+		<<if $seeVectorArtHighlights == 1>>
+			@@.cyan;ENABLED@@. [[Disable|Options][$seeVectorArtHighlights = 0]]
+		<<else>>
+			@@.red;DISABLED@@. [[Enable|Options][$seeVectorArtHighlights = 1]]
+		<</if>>
 	<<else>>
 		@@.yellow;Rendered imagepack by Shokushu@@ is selected. [[Switch to vector art|Options][$imageChoice = 1]]
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;

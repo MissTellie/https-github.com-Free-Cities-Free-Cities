@@ -67,6 +67,9 @@ $args[2]: icon UI Display for vector art, 1 for on.
 
 <<elseif $imageChoice == 1>> /* VECTOR ART BY NOX */
 
+<<if ndef $seeVectorArtHighlights>>
+	<<set $seeVectorArtHighlights = 1>>
+<</if>>
 <<set _artSlave to $args[0] >>
 <<silently>>
 /* prepare HTML colour codes for slave display */
