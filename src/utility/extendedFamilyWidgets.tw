@@ -10,7 +10,7 @@
 	$pronounCap's @@.lightgreen;your child;@@ you knocked $possessive mother up.
 <<elseif $activeSlave.father > 0>>
 	<<set _efw = $slaves.findIndex(function(s) { return s.ID == $activeSlave.father; })>>
-	$pronounCap was @@.lightgreen;fathered by $slaves[_efw].slaveName's@@ virile dick.
+	$pronounCap was @@.lightgreen;sired by $slaves[_efw].slaveName's@@ virile dick.
 <</if>>
 
 <<if $activeSlave.father != -1 && $activeSlave.mother == -1>>
@@ -22,7 +22,7 @@
 
 <<set _children = $slaves.filter(function(s) { return $activeSlave.ID == s.father; })>>
 <<if _children.length > 2>>
-	$pronounCap @@.lightgreen;fathered
+	$pronounCap @@.lightgreen;sired
 	<<for _efw = 0; _efw < _children.length; _efw++>>
 		<<if _efw < _children.length-1>>
 			_children[_efw].slaveName,
@@ -31,9 +31,9 @@
 		<</if>>
 	<</for>>
 <<elseif _children.length > 1>>
-	$pronounCap @@.lightgreen;fathered a pair of your slaves: _children[0].slaveName, and _children[1].slaveName.@@
+	$pronounCap @@.lightgreen;sired a pair of your slaves: _children[0].slaveName, and _children[1].slaveName.@@
 <<elseif _children.length > 0>>
-	$pronounCap @@.lightgreen;fathered a single slave of yours: _children[0].slaveName.@@
+	$pronounCap @@.lightgreen;sired a single slave of yours: _children[0].slaveName.@@
 <</if>>
 
 <<set _children = $slaves.filter(function(s) { return $activeSlave.ID == s.mother; })>>
