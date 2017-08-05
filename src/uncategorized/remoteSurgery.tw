@@ -370,7 +370,10 @@ $pronounCap has
 ''GENITALIA''<br>
 
 <<if ($activeSlave.vagina > -1) || ($activeSlave.dick > 0)>>
-	//<<VaginaDescription>> ''Bold'' surgeries will set her back in this skill.//
+	//<<VaginaDescription>>
+	<<if ($activeSlave.vagina > -1)>>
+		''Bold'' surgeries will set her back in this skill.
+	<</if>>//		
 <</if>>
 
 <<if $activeSlave.vagina > -1>>
