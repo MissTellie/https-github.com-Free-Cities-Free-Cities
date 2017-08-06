@@ -160,12 +160,12 @@ $pronounCap has
 <</if>>
 <<if $activeSlave.lipsImplant != 0>>
 	<<if $activeSlave.indentureRestrictions < 2>>
-	 | [[Remove lip implants|Surgery Degradation][$activeSlave.lips = ($activeSlave.lips-$activeSlave.lipsImplant),$activeSlave.lipsImplant = 0,$cash -= $surgeryCost, $surgeryType = "lips"]]
+	 ''| [[Remove lip implants|Surgery Degradation][$activeSlave.lips = ($activeSlave.lips-$activeSlave.lipsImplant),$activeSlave.lipsImplant = 0,$cash -= $surgeryCost, $surgeryType = "lips"]]''
 	<</if>>
 <</if>>
 <<if ($activeSlave.lips >= 10) && ($activeSlave.lipsImplant == 0)>>
 	<<if $activeSlave.indentureRestrictions < 2>>
-	 | [[Reduce lips|Surgery Degradation][$activeSlave.lips -= 10,$cash -= $surgeryCost, $surgeryType = "lips"]]
+	 ''| [[Reduce lips|Surgery Degradation][$activeSlave.lips -= 10,$cash -= $surgeryCost, $surgeryType = "lips"]]''
 	<</if>>
 <</if>>
 
@@ -373,6 +373,7 @@ $pronounCap has
 
 /* MAJOR ADD/REMOVE */
 <br>&nbsp;&nbsp;&nbsp;&nbsp;
+
 <<if $activeSlave.indentureRestrictions < 1>>
 	<<if ($activeSlave.vagina == -1)>>
 		<<if ($activeSlave.dick != 0)>>
