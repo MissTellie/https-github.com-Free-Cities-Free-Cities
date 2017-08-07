@@ -19,6 +19,12 @@ From a programmers pont of view, prndev read discrete transform parameters with 
   <<set _art_transform = "matrix(" + _art_scale_factor +",0,0," + _art_scale_factor + "," + _art_translation_x + "," + _art_translation_y + ")">>
 <<else>>
   <<include Art_Vector_Boob>>
+  /* shiny clothings */
+  <<if $seeVectorArtHighlights == 1>>
+    <<if _artSlave.fuckdoll != 0 || _artSlave.clothes == "a latex catsuit">>
+      <<include Art_Vector_Boob_Outfit_Shine>>
+    <</if>>
+  <</if>>
 <</if>>
 <<include Art_Vector_Boob_Areola>>
 
