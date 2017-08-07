@@ -1,6 +1,5 @@
-:: Rules Slave NoExclude Workaround
+:: Rules Slave NoExclude Workaround [nobr]
 
-<<nobr>>
 <<set $nextButton = "Continue", $nextLink = "Rules Slave Exclude">>
 
 <<if ruleSlaveExcluded($activeSlave, $currentRule)>>
@@ -8,5 +7,4 @@
 <</if>>
 
 <<goto "Rules Slave Exclude">>
-<</nobr>>
 

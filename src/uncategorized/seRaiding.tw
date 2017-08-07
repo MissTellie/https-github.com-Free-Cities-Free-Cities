@@ -1,6 +1,4 @@
-:: SE raiding
-
-<<nobr>>
+:: SE raiding [nobr]
 
 <<set $nextLink = "Scheduled Event">>
 <<set $returnTo = "Scheduled Event">>
@@ -452,12 +450,9 @@ Worthy of consideration is that although the $mercenariesTitle will enslave the 
 
 Your $mercenariesTitle look to you for guidance and will strike the target of your choosing. 
 
-<</nobr>>\
-
 <span id="result">
 <<link "The first">>
 <<replace "#result">>
-<<nobr>>
 <<set $activeSlave = $target1>>
 <<set $origin = $origin1>>
 <<set $targetEscape = $targetEscape1>>
@@ -678,12 +673,10 @@ You make your selection and direct your $mercenariesTitle to attack the target.
 <<if ($targetEscape >= $MercCapture) || (_raidescape == 1)>>
 	Your $mercenariesTitle return without their final prize, but remain in high spirits given their other successes out in the field.
 <</if>>
-<</nobr>>
 <</replace>>
 <</link>>
 <<link "The second">>
 <<replace "#result">>
-<<nobr>>
 <<set $activeSlave = $target2>>
 <<set $origin = $origin2>>
 <<set $targetEscape = $targetEscape2>>
@@ -904,12 +897,10 @@ You make your selection and direct your $mercenariesTitle to attack the target.
 <<if ($targetEscape >= $MercCapture) || (_raidescape == 1)>>
 	Your $mercenariesTitle return without their final prize, but remain in high spirits given their other successes out in the field.
 <</if>>
-<</nobr>>
 <</replace>>
 <</link>>
 <<link "The third">>
 <<replace "#result">>
-<<nobr>>
 <<set $activeSlave = $target3>>
 <<set $origin = $origin3>>
 <<set $targetEscape = $targetEscape3>>
@@ -1130,7 +1121,6 @@ You make your selection and direct your $mercenariesTitle to attack the target.
 <<if ($targetEscape >= $MercCapture) || (_raidescape == 1)>>
 	Your $mercenariesTitle return without their final prize, but remain in high spirits given their other successes out in the field.
 <</if>>
-<</nobr>>
 <</replace>>
 <</link>>
 </span>

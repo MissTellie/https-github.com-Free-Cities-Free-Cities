@@ -1,6 +1,5 @@
-:: FEmbrace
+:: FEmbrace [nobr]
 
-<<nobr>>
 You tell $activeSlave.slaveName to
 <<if ($activeSlave.amp != 1)>>
 	stand in front of you.
@@ -64,4 +63,3 @@ You walk around her and put your hands around her abdomen,<<if ($activeSlave.amp
 <<else>>
 	She reflexively tries to break free from your arms, but you keep her wrapped in them. Shuddering, she desperately leans away from you, but you tip forward with her and pin her against your desk, continuing your hold on her. She tries to wriggle out of your grasp desperately, but her struggles slowly subside as she realizes that you're not taking this any farther. When you bore of it and release her, she stares at you in utter incomprehension. <<if ($activeSlave.amp == 1) && (canTalk($activeSlave) == false)>>Her eyes demand an answer: is that it?<<elseif canTalk($activeSlave) == false>>She signs irritably, asking whether that's it.<<elseif SlaveStatsChecker.checkForLisp($activeSlave)>>She splutters, "Ith that it, <<Master>>!?"<<else>>She splutters, "Is that it, <<Master>>!?"<</if>> She shakes uncontrollably, apprehensive at what you are going to do next.
 <</if>>
-<</nobr>>

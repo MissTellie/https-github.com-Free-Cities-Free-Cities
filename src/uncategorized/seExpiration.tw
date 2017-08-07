@@ -1,6 +1,4 @@
-:: SE expiration
-
-<<nobr>>
+:: SE expiration [nobr]
 
 <<set $nextButton = "Continue", $nextLink = "Scheduled Event">>
 
@@ -41,9 +39,7 @@ Since she is mindbroken, there is precisely no chance that she will be able to l
 <<if $cash > 1000>>
 <<link "Plead necessity and reactivate her indenture">>
 	<<replace "#result">>
-	<<nobr>>
 	You plead necessity and place her under another indenture, paying the trivial fees left over once she has been charged for her own forecasted upkeep. Naturally, she offers no response at all to any of this.
-	<</nobr>>
 	<<set $cash -= 1000>>
 	<<set $ACitizens -= 1>>
 	<<set $expired = 0>><<set $expiree = 0>>
@@ -72,9 +68,7 @@ She has been trying desperately hard not to think about this trying situation, b
 <<if $cash > 1000>>
 <<link "Enslave her">>
 	<<replace "#result">>
-	<<nobr>>
 	She's beside herself with joy when you accept her plea and enslave her. She's given you the finest proof of loyalty a slave possibly can, having tasted a moment of freedom under the law, and thrown it away with utter contempt. Her $activeSlave.eyeColor eyes watch you with eager anticipation, radiating gladness that the prospect of separation from you has gone.
-	<</nobr>>
 	<<set $activeSlave.indenture = -1>>
 	<<set $activeSlave.indentureRestrictions = 0>>
 	<<set $cash -= 1000>>
@@ -109,9 +103,7 @@ at the moment of her scheduled emancipation, she seems to be struggling to expre
 <<if $cash > $slaveCost>>
 <<link "Offer her a one year supplementary indenture">>
 	<<replace "#result">>
-	<<nobr>>
 	She smiles almost shyly when you offer her a one year supplementary indenture. The price is reasonable, but definitely favorable to you. She accepts it anyway, and you transfer the money into an escrow account to be held for her until her new indenture is done. Your sex slave once again, she awaits your pleasure without a hint of fear.
-	<</nobr>>
 	<<set $cash -= $slaveCost>>
 	<<set $ACitizens -= 1>>
 	<<set $expired = 0>><<set $expiree = 0>>
@@ -136,9 +128,7 @@ at the moment of her scheduled emancipation, she seems willing to consider a sho
 <<if $cash > $slaveCost>>
 <<link "Offer her a one year supplementary indenture">>
 	<<replace "#result">>
-	<<nobr>>
 	She looks pensive when you offer her a one year supplementary indenture. The price reflects the market, and is a reasonable compensation for a year of sexual slavery. She accepts it after some consideration, and you transfer the money into an escrow account to be held for her until her new indenture is done. Your sex slave once again, she awaits orders with complacency.
-	<</nobr>>
 	<<set $cash -= $slaveCost>>
 	<<set $ACitizens -= 1>>
 	<<set $expired = 0>><<set $expiree = 0>>
@@ -153,5 +143,3 @@ at the moment of her scheduled emancipation, she seems willing to consider a sho
 She makes no effort at all to conceal her joy at being a free woman again. It seems very unlikely that she'll stay in the arcology; she'll probably take what remains of her indenture payment, held in escrow for this day, and be off to wherever it is that she came from in the first place.
 
 <</if>>
-
-<</nobr>>

@@ -1,14 +1,13 @@
-:: Custom Slave
+:: Custom Slave [nobr]
 
-<<set $nextButton = "Back">>\
-<<set $nextLink = "Buy Slaves">>\
-<<set $returnTo = "Buy Slaves">>\
-<<set $showEncyclopedia = 1>><<set $encyclopedia = "Kidnapped Slaves">>\
-<<if ($customSlave.dick == 0) && ($customSlave.vagina == -1)>><<set $customSlave.vagina = 0>><</if>>\
-\
+<<set $nextButton = "Back">>
+<<set $nextLink = "Buy Slaves">>
+<<set $returnTo = "Buy Slaves">>
+<<set $showEncyclopedia = 1>><<set $encyclopedia = "Kidnapped Slaves">>
+<<if ($customSlave.dick == 0) && ($customSlave.vagina == -1)>><<set $customSlave.vagina = 0>><</if>>
+
 <<if $customSlaveOrdered == 0>>You work up a new slave order for posting where slave merchants can work to fulfill it.<<else>>You review your posted slave order.<</if>> <<if $assistant == 1>>As you work, $assistantName makes lewd comments about what she looks forward to doing to this new slave. <</if>>Your order requests a slave with the following characteristics:
-
-<<nobr>>
+<br><br>
 <span id = "age">
 <<if $customSlave.age < 20>>18-19 years old.
 <<elseif $customSlave.age < 30>>20-29 years old.
@@ -35,8 +34,7 @@
 	<<set $customSlave.age = random(40,42)>>
 	<<CustomSlaveAge>>
 <</link>>
-<</nobr>>
-<<nobr>>
+
 <span id = "health">
 <<if $customSlave.health == 0>>Healthy.
 <<else>>Extremely healthy.
@@ -51,8 +49,7 @@
 	<<set $customSlave.health = 80>>
 	<<CustomSlaveHealth>>
 <</link>>
-<</nobr>>
-<<nobr>>
+
 <span id = "muscles">
 <<if $customSlave.muscles <= 5>>Normal musculature.
 <<elseif $customSlave.muscles <= 30>>Toned.
@@ -73,8 +70,7 @@
 	<<set $customSlave.muscles = 50>>
 	<<CustomSlaveMuscles>>
 <</link>>
-<</nobr>>
-<<nobr>>
+
 <span id = "lips">
 <<if $customSlave.lips == 15>>Normal lips.
 <<elseif $customSlave.lips == 35>>Plush lips.
@@ -89,8 +85,7 @@
 	<<set $customSlave.lips = 35>>
 	<<CustomSlaveLips>>
 <</link>>
-<</nobr>>
-<<nobr>>
+
 <span id = "height">
 <<if $customSlave.height < 150>>Petite.
 <<elseif $customSlave.height < 160>>Short.
@@ -123,8 +118,7 @@
 	<<set $customSlave.height = 190>>
 	<<CustomSlaveHeight>>
 <</link>>
-<</nobr>>
-<<nobr>>
+
 <span id = "face">
 <<if $customSlave.face < -40>>Very unattractive face.
 <<elseif $customSlave.face < -10>>Unattractive face.
@@ -157,8 +151,7 @@
 	<<set $customSlave.face = 55>>
 	<<CustomSlaveFace>>
 <</link>>
-<</nobr>>
-<<nobr>>
+
 <span id = "ethnicity">
 <<textbox "$customSlave.race" $customSlave.race "Custom Slave">>
 </span>
@@ -221,8 +214,7 @@
 	<<set $customSlave.race = "mixed race">>
 	<<CustomSlaveRace>>
 <</link>>
-<</nobr>>
-<<nobr>>
+
 <span id = "skin">
 <<textbox "$customSlave.skin" $customSlave.skin "Custom Slave">>
 </span>
@@ -280,8 +272,7 @@
 	<<set $customSlave.skin = "extremely pale">>
 	<<CustomSlaveSkin>>
 <</link>>
-<</nobr>>
-<<nobr>>
+
 <span id = "boobs">
 <<if $customSlave.boobs == 200>>Flat chest.
 <<elseif $customSlave.boobs <= 500>>Healthy breasts.
@@ -302,8 +293,7 @@
 	<<set $customSlave.boobs = 800>>
 	<<CustomSlaveBoobs>>
 <</link>>
-<</nobr>>
-<<nobr>>
+
 <span id = "butt">
 <<if $customSlave.butt == 1>>Flat buttocks.
 <<elseif $customSlave.butt < 4>>Healthy buttocks.
@@ -324,8 +314,7 @@
 	<<set $customSlave.butt = 5>>
 	<<CustomSlaveButt>>
 <</link>>
-<</nobr>>
-<<nobr>>
+
 <span id = "vagina">
 <<if $customSlave.vagina == -1>>No vagina.
 <<elseif $customSlave.vagina == 0>>Vaginal virgin.
@@ -349,8 +338,7 @@
 	<<set $customSlave.vagina = 1, $customSlave.preg = -1, $customSlave.ovaries = 1>>
 	<<CustomSlaveVagina>>
 <</link>>
-<</nobr>>
-<<nobr>>
+
 <span id = "dick">
 <<if $customSlave.dick == 0>>No penis.
 <<elseif $customSlave.dick == 2>>Small penis.
@@ -377,8 +365,7 @@
 	<<CustomSlaveClitBalls>>
 	<<CustomSlaveVagina>>
 <</link>>
-<</nobr>>
-<<nobr>>
+
 <span id = "clitballs">
 <<if $customSlave.dick > 0>>
 <<if $customSlave.balls == 0>>No testicles.<<elseif $customSlave.balls == 2>>Small testicles.<<else>>Large testicles.<</if>>
@@ -435,8 +422,7 @@
 <</link>>
 <</if>>
 </span>
-<</nobr>>
-<<nobr>>
+
 <span id = "anus">
 <<if $customSlave.anus == 0>>Anal virgin.
 <<else>>Normal anus.
@@ -451,8 +437,7 @@
 	<<set $customSlave.anus = 1>>
 	<<CustomSlaveAnus>>
 <</link>>
-<</nobr>>
-<<nobr>>
+
 <span id = "skills">
 <<if $customSlave.analSkill <= 10>>Sexually unskilled.
 <<elseif $customSlave.analSkill <= 10>>Basic sex skills.
@@ -473,8 +458,7 @@
 	<<set $customSlave.analSkill = 35,$customSlave.oralSkill = 35,$customSlave.vaginalSkill = 35>>
 	<<CustomSlaveSkills>>
 <</link>>
-<</nobr>>
-<<nobr>>
+
 <span id = "whoreskills">
 <<if $customSlave.whoreSkill <= 10>>Unskilled at prostitution and entertainment.
 <<elseif $customSlave.whoreSkill <= 10>>Basic skills at prostitution and entertainment.
@@ -495,8 +479,7 @@
 	<<set $customSlave.whoreSkill = 35,$customSlave.entertainSkill = 35>>
 	<<CustomSlaveWhoreSkills>>
 <</link>>
-<</nobr>>
-<<nobr>>
+
 <span id = "combatskills">
 <<if $customSlave.combatSkill == 0>>Unskilled at combat.
 <<else>>Skilled at combat.
@@ -511,8 +494,7 @@
 	<<set $customSlave.combatSkill = 1>>
 	<<CustomSlaveCombatSkills>>
 <</link>>
-<</nobr>>
-<<nobr>>
+
 <span id = "intelligence">
 <<if $customSlave.intelligence >= 3>>Brilliant.
 <<elseif $customSlave.intelligence == 2>>Very smart..
@@ -557,8 +539,7 @@
 	<<set $customSlave.intelligence = -3>>
 	<<CustomSlaveIntelligence>>
 <</link>>
-<</nobr>>
-<<nobr>>
+
 <span id = "education">
 <<if $customSlave.intelligenceImplant == 1>>Educated.
 <<else>>Uneducated.
@@ -573,8 +554,7 @@
 	<<set $customSlave.intelligenceImplant = 0>>
 	<<CustomSlaveEducation>>
 <</link>>
-<</nobr>>
-<<nobr>>
+
 <span id = "nationality">
 Nationality: $customSlave.nationality.
 </span>
@@ -591,12 +571,9 @@ Nationality: $customSlave.nationality.
 |
 <</if>>
 <</for>>
-<</nobr>>
 
-<<nobr>>
 <<if $customSlaveOrdered == 1>>
 [[Withdraw custom slave order|Main][$customSlaveOrdered = 0]]
 <<else>>
 [[Post custom slave order|Main][$customSlaveOrdered = 1]]
 <</if>>
-<</nobr>>

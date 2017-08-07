@@ -1,6 +1,5 @@
-:: MOD_Edit FS Cheat
+:: MOD_Edit FS Cheat [nobr]
 
-<<nobr>>
 	<<set $nextButton = "Continue">>
 	<<set $nextLink = "MOD_Edit FS Cheat Datatype Cleanup">>
 
@@ -37,9 +36,9 @@
 	<<radiobutton "$arcologies[0].FSSupremacistRace" semitic>> Semitic
 
 	<br>[[Apply and reset Racial Subjugationism|MOD_Edit FS Cheat][$arcologies[0].FSSubjugationist = "unset", $arcologies[0].FSSubjugationistRace = 0, $arcologies[0].FSSubjugationistDecoration = 20, $arcologies[0].FSSubjugationistLawME = 0]]
-<</nobr>>
-
-<<nobr>>
+	
+	<br>
+	
 	<<if $arcologies[0].FSSubjugationist != "unset" && $arcologies[0].FSSubjugationistRace != 0>>
 		<br>''You are pursuing'' $arcologies[0].FSSubjugationistRace Inferiority.
 	<<else>>
@@ -72,9 +71,9 @@
 	<<radiobutton "$arcologies[0].FSSubjugationistRace" semitic>> Semitic
 
 	<br>[[Apply and reset Racial Supremacy|MOD_Edit FS Cheat][$arcologies[0].FSSupremacist = "unset",$arcologies[0].FSSupremacistRace = 0, $arcologies[0].FSSupremacistDecoration = 20, $arcologies[0].FSSupremacistLawME = 0]]
-<</nobr>>
 
-<<nobr>>
+	<br>
+
 	<<if $arcologies[0].FSGenderRadicalist != "unset">>
 		<br>You are ''pursuing'' Gender Radicalism.
 	<<else>>
@@ -95,9 +94,9 @@
 	| <<radiobutton "$arcologies[0].FSGenderRadicalistLaw" 1>> 1 (Passed.)
 
 	<br>[[Apply and reset Gender Traditionalism|MOD_Edit FS Cheat][$arcologies[0].FSGenderFundamentalist = "unset",$arcologies[0].FSGenderFundamentalistDecoration = 20,$arcologies[0].FSGenderFundamentalistLaw = 0]]
-<</nobr>>
+	
+	<br>
 
-<<nobr>>
 	<<if $arcologies[0].FSGenderFundamentalist != "unset">>
 		<br>You are ''pursuing'' Gender Traditionalism.
 	<<else>>
@@ -118,9 +117,9 @@
 	| <<radiobutton "$arcologies[0].FSGenderFundamentalistSMR" 1>> 1 (Passed.)
 
 	<br>[[Apply and reset Gender Radicalism|MOD_Edit FS Cheat][$arcologies[0].FSGenderRadicalist = "unset",$arcologies[0].FSGenderRadicalistDecoration = 20,$arcologies[0].FSGenderRadicalistLaw = 0]]
-<</nobr>>
 
-<<nobr>>
+	<br>
+	
 	<<if $arcologies[0].FSPaternalist != "unset">>
 		<br>You are ''pursuing'' Paternalism.
 	<<else>>
@@ -141,9 +140,9 @@
 	| <<radiobutton "$arcologies[0].FSPaternalistLaw" 1>> 1 (Passed.)
 
 	<br>[[Apply and reset Degradationism|MOD_Edit FS Cheat][$arcologies[0].FSDegradationist = "unset",$arcologies[0].FSDegradationistDecoration = 20,$arcologies[0].FSDegradationistLaw = 0]]
-<</nobr>>
 
-<<nobr>>
+	<br>
+	
 	<<if $arcologies[0].FSDegradationist != "unset">>
 		<br>You are ''pursuing'' Degradationism.
 	<<else>>
@@ -164,9 +163,9 @@
 	| <<radiobutton "$arcologies[0].FSDegradationistLaw" 1>> 1 (Passed.)
 
 	<br>[[Apply and reset Paternalism|MOD_Edit FS Cheat][$arcologies[0].FSPaternalist = "unset",$arcologies[0].FSPaternalistDecoration = 20,$arcologies[0].FSPaternalistLaw = 0]]
-<</nobr>>
 
-<<nobr>>
+	<br>
+	
 	<<if $arcologies[0].FSBodyPurist != "unset">>
 		<br>You are ''pursuing'' Body Purism.
 	<<else>>
@@ -187,9 +186,9 @@
 	| <<radiobutton "$arcologies[0].FSBodyPuristLaw" 1>> 1 (Passed.)
 
 	<br>[[Apply and reset Body Transformationism|MOD_Edit FS Cheat][$arcologies[0].FSTransformationFetishist = "unset",$arcologies[0].FSTransformationFetishistDecoration = 20,$arcologies[0].FSTransformationFetishistLaw = 0]]
-<</nobr>>
 
-<<nobr>>
+	<br>
+	
 	<<if $arcologies[0].FSTransformationFetishist != "unset">>
 		<br>You are ''pursuing'' Body Transformationism.
 	<<else>>
@@ -210,9 +209,9 @@
 	| <<radiobutton "$arcologies[0].FSTransformationFetishistLaw" 1>> 1 (Passed.)
 
 	<br>[[Apply and reset Body Purism|MOD_Edit FS Cheat][$arcologies[0].FSBodyPurist = "unset",$arcologies[0].FSBodyPuristDecoration = 20,$arcologies[0].FSBodyPuristLaw = 0]]
-<</nobr>>
 
-<<nobr>>
+	<br>
+	
 	<<if $arcologies[0].FSYouthPreferentialist != "unset">>
 		<br>You are ''pursuing'' Youth Preferentialism.
 	<<else>>
@@ -234,9 +233,9 @@
 	| <<radiobutton "$arcologies[0].FSYouthPreferentialistLaw" 1>> 1 (Passed.)
 
 	<br>[[Apply and reset Maturity Preferentialism|MOD_Edit FS Cheat][$arcologies[0].FSMaturityPreferentialist = "unset",$arcologies[0].FSMaturityPreferentialistDecoration = 20,$arcologies[0].FSMaturityPreferentialistLaw = 0]]
-<</nobr>>
 
-<<nobr>>
+	<br>
+	
 	<<if $arcologies[0].FSMaturityPreferentialist != "unset">>
 		<br>You are ''pursuing'' Maturity Preferentialism.
 	<<else>>
@@ -258,9 +257,9 @@
 	| <<radiobutton "$arcologies[0].FSMaturityPreferentialistLaw" 1>> 1 (Passed.)
 
 	<br>[[Apply and reset Youth Preferentialism|MOD_Edit FS Cheat][$arcologies[0].FSYouthPreferentialist = "unset",$arcologies[0].FSYouthPreferentialistDecoration = 20,$arcologies[0].FSYouthPreferentialistLaw = 0]]
-<</nobr>>
 
-<<nobr>>
+	<br>
+	
 	<<if $arcologies[0].FSSlimnessEnthusiast != "unset">>
 		<br>You are ''supporting'' Slimness Enthusiasm.
 	<<else>>
@@ -281,9 +280,9 @@
 	| <<radiobutton "$arcologies[0].FSSlimnessEnthusiastSMR" 1>> 1 (Passed.)
 
 	<br>[[Apply and reset Asset Expansionism|MOD_Edit FS Cheat][$arcologies[0].FSAssetExpansionist = "unset",$arcologies[0].FSAssetExpansionistDecoration = 20,$arcologies[0].FSAssetExpansionistLaw = 0]]
-<</nobr>>
 
-<<nobr>>
+	<br>
+	
 	<<if $arcologies[0].FSAssetExpansionist != "unset">>
 		<br>You are ''pursuing'' Asset Expansionism.
 	<<else>>
@@ -305,9 +304,9 @@
 	| <<radiobutton "$arcologies[0].FSAssetExpansionistSMR" 1>> 1 (Passed.)
 
 	<br>[[Apply and reset Slimness Enthusiasm|MOD_Edit FS Cheat][$arcologies[0].FSSlimnessEnthusiast = "unset",$arcologies[0].FSSlimnessEnthusiastDecoration = 20,$arcologies[0].FSSlimnessEnthusiastLaw = 0]]
-<</nobr>>
 
-<<nobr>>
+	<br>
+	
 	<<if $arcologies[0].FSPastoralist != "unset">>
 		<br>You are ''pursuing'' Pastoralism.
 	<<else>>
@@ -328,9 +327,9 @@
 	| <<radiobutton "$arcologies[0].FSPastoralistLaw" 1>> 1 (Passed.)
 
 	<br>[[Apply|MOD_Edit FS Cheat]]
-<</nobr>>
-
-<<nobr>>
+	
+	<br>
+	
 	<<if $arcologies[0].FSPhysicalIdealist != "unset">>
 		<br>You are ''pursuing'' Physical Idealism.
 	<<else>>
@@ -351,10 +350,9 @@
 	| <<radiobutton "$arcologies[0].FSPhysicalIdealistSMR" 1>> 1 (Passed.)
 
 	<br>[[Apply|MOD_Edit FS Cheat]]
-<</nobr>>
 
-<<nobr>>
-
+	<br>
+	
 	<<if $arcologies[0].FSChattelReligionist != "unset">>
 		<br>You are ''pursuing'' Chattel Religionism.
 	<<else>>
@@ -375,10 +373,9 @@
 	| <<radiobutton "$arcologies[0].FSChattelReligionistLaw" 1>> 1 (Passed.)
 
 	<br>[[Apply|MOD_Edit FS Cheat]]
-<</nobr>>
 
-<<nobr>>
-
+	<br>
+	
 	<<if $arcologies[0].FSRomanRevivalist != "unset">>
 		<br>You are ''pursuing'' Roman Revivalism.
 	<<else>>
@@ -399,33 +396,32 @@
 	| <<radiobutton "$arcologies[0].FSRomanRevivalistLaw" 1>> 1 (Passed.)
 
 	<br>[[Apply and reset other Revivalisms|MOD_Edit FS Cheat][$arcologies[0].FSAztecRevivalist = "unset",$arcologies[0].FSAztecRevivalistDecoration = 20,$arcologies[0].FSAztecRevivalistLaw = 0,$arcologies[0].FSEgyptianRevivalist = "unset",$arcologies[0].FSEgyptianRevivalistDecoration = 20,$arcologies[0].FSEgyptianRevivalistLaw = 0,$arcologies[0].FSEdoRevivalistDecoration = 20,$arcologies[0].FSEdoRevivalistLaw = 0,$arcologies[0].FSArabianRevivalist = "unset",$arcologies[0].FSArabianRevivalistDecoration = 20,$arcologies[0].FSArabianRevivalistLaw = 0,$arcologies[0].FSChineseRevivalist = "unset",$arcologies[0].FSChineseRevivalistDecoration = 20,$arcologies[0].FSChineseRevivalistLaw = 0]]
-	<</nobr>>
-	+
-	+<<nobr>>
-	+
-	+	<<if $arcologies[0].FSAztecRevivalist != "unset">>
-	+		<br>You are ''pursuing'' Aztec Revivalism.
-	+	<<else>>
-	+		<br>You are ''not pursuing'' Aztec Revivalism.
-	+	<</if>>
-	+
-	+	<br>Aztec Revivalism (0-100 or unset): <<textbox "$arcologies[0].FSAztecRevivalist" $arcologies[0].FSAztecRevivalist>>
-	+	<br>Decoration: $arcologies[0].FSAztecRevivalistDecoration
-	+
-	+	<br><<radiobutton "$arcologies[0].FSAztecRevivalistDecoration" 20>> 20 (Minimum)
-	+	<br><<radiobutton "$arcologies[0].FSAztecRevivalistDecoration" 40>> 40 (Media support.)
-	+	<br><<radiobutton "$arcologies[0].FSAztecRevivalistDecoration" 60>> 60 (Decorated public spaces.)
-	+	<br><<radiobutton "$arcologies[0].FSAztecRevivalistDecoration" 80>> 80 (Slaves stationed in public spaces.)
-	+	<br><<radiobutton "$arcologies[0].FSAztecRevivalistDecoration" 100>> 100 (Remodeled exterior; Fully customized.)
-	+
-	+	<br>Law: $arcologies[0].FSAztecRevivalistLaw |
-	+	<<radiobutton "$arcologies[0].FSAztecRevivalistLaw" 0>> 0 (Not passed.)
-	+	| <<radiobutton "$arcologies[0].FSAztecRevivalistLaw" 1>> 1 (Passed.)
-	+
-	+	<br>[[Apply and reset other Revivalisms|MOD_Edit FS Cheat][$arcologies[0].FSRomanRevivalist = "unset",$arcologies[0].FSRomanRevivalistDecoration = 20,$arcologies[0].FSRomanRevivalistLaw = 0,$arcologies[0].FSEgyptianRevivalist = "unset",$arcologies[0].FSEgyptianRevivalistDecoration = 20,$arcologies[0].FSEgyptianRevivalistLaw = 0,$arcologies[0].FSEdoRevivalistDecoration = 20,$arcologies[0].FSEdoRevivalistLaw = 0,$arcologies[0].FSArabianRevivalist = "unset",$arcologies[0].FSArabianRevivalistDecoration = 20,$arcologies[0].FSArabianRevivalistLaw = 0,$arcologies[0].FSChineseRevivalist = "unset",$arcologies[0].FSChineseRevivalistDecoration = 20,$arcologies[0].FSChineseRevivalistLaw = 0]]
-<</nobr>>
+	
+	<br>
+	
+	<<if $arcologies[0].FSAztecRevivalist != "unset">>
+		<br>You are ''pursuing'' Aztec Revivalism.
+	<<else>>
+		<br>You are ''not pursuing'' Aztec Revivalism.
+	<</if>>
+	
+	<br>Aztec Revivalism (0-100 or unset): <<textbox "$arcologies[0].FSAztecRevivalist" $arcologies[0].FSAztecRevivalist>>
+	<br>Decoration: $arcologies[0].FSAztecRevivalistDecoration
+	
+	<br><<radiobutton "$arcologies[0].FSAztecRevivalistDecoration" 20>> 20 (Minimum)
+	<br><<radiobutton "$arcologies[0].FSAztecRevivalistDecoration" 40>> 40 (Media support.)
+	<br><<radiobutton "$arcologies[0].FSAztecRevivalistDecoration" 60>> 60 (Decorated public spaces.)
+	<br><<radiobutton "$arcologies[0].FSAztecRevivalistDecoration" 80>> 80 (Slaves stationed in public spaces.)
+	<br><<radiobutton "$arcologies[0].FSAztecRevivalistDecoration" 100>> 100 (Remodeled exterior; Fully customized.)
+	
+	<br>Law: $arcologies[0].FSAztecRevivalistLaw |
+	<<radiobutton "$arcologies[0].FSAztecRevivalistLaw" 0>> 0 (Not passed.)
+	| <<radiobutton "$arcologies[0].FSAztecRevivalistLaw" 1>> 1 (Passed.)
+	
+	<br>[[Apply and reset other Revivalisms|MOD_Edit FS Cheat][$arcologies[0].FSRomanRevivalist = "unset",$arcologies[0].FSRomanRevivalistDecoration = 20,$arcologies[0].FSRomanRevivalistLaw = 0,$arcologies[0].FSEgyptianRevivalist = "unset",$arcologies[0].FSEgyptianRevivalistDecoration = 20,$arcologies[0].FSEgyptianRevivalistLaw = 0,$arcologies[0].FSEdoRevivalistDecoration = 20,$arcologies[0].FSEdoRevivalistLaw = 0,$arcologies[0].FSArabianRevivalist = "unset",$arcologies[0].FSArabianRevivalistDecoration = 20,$arcologies[0].FSArabianRevivalistLaw = 0,$arcologies[0].FSChineseRevivalist = "unset",$arcologies[0].FSChineseRevivalistDecoration = 20,$arcologies[0].FSChineseRevivalistLaw = 0]]
 
-<<nobr>>
+	<br>
+	
 	<<if $arcologies[0].FSEgyptianRevivalist != "unset">>
 		<br>You are ''pursuing'' Egyptian Revivalism.
 	<<else>>
@@ -446,9 +442,9 @@
 	| <<radiobutton "$arcologies[0].FSEgyptianRevivalistLaw" 1>> 1 (Passed.)
 
 	<br>[[Apply and reset other Revivalisms|MOD_Edit FS Cheat][$arcologies[0].FSRomanRevivalist = "unset",$arcologies[0].FSRomanRevivalistDecoration = 20,$arcologies[0].FSRomanRevivalistLaw = 0,$arcologies[0].FSAztecRevivalist = "unset",$arcologies[0].FSAztecRevivalistDecoration = 20,$arcologies[0].FSAztecRevivalistLaw = 0,$arcologies[0].FSEdoRevivalistDecoration = 20,$arcologies[0].FSEdoRevivalistLaw = 0,$arcologies[0].FSArabianRevivalist = "unset",$arcologies[0].FSArabianRevivalistDecoration = 20,$arcologies[0].FSArabianRevivalistLaw = 0,$arcologies[0].FSChineseRevivalist = "unset",$arcologies[0].FSChineseRevivalistDecoration = 20,$arcologies[0].FSChineseRevivalistLaw = 0]]
-<</nobr>>
 
-<<nobr>>
+	<br>
+	
 	<<if $arcologies[0].FSEdoRevivalist != "unset">>
 		<br>You are ''pursuing'' Edo Revivalism.
 	<<else>>
@@ -469,9 +465,9 @@
 	| <<radiobutton "$arcologies[0].FSEdoRevivalistLaw" 1>> 1 (Passed.)
 
 	<br>[[Apply and reset other Revivalisms|MOD_Edit FS Cheat][$arcologies[0].FSRomanRevivalist = "unset",$arcologies[0].FSRomanRevivalistDecoration = 20,$arcologies[0].FSRomanRevivalistLaw = 0,$arcologies[0].FSAztecRevivalist = "unset",$arcologies[0].FSAztecRevivalistDecoration = 20,$arcologies[0].FSAztecRevivalistLaw = 0,$arcologies[0].FSEgyptianRevivalistDecoration = 20,$arcologies[0].FSEgyptianRevivalistLaw = 0,$arcologies[0].FSArabianRevivalist = "unset",$arcologies[0].FSArabianRevivalistDecoration = 20,$arcologies[0].FSArabianRevivalistLaw = 0,$arcologies[0].FSChineseRevivalist = "unset",$arcologies[0].FSChineseRevivalistDecoration = 20,$arcologies[0].FSChineseRevivalistLaw = 0]]
-<</nobr>>
-
-<<nobr>>
+	
+	<br>
+	
 	<<if $arcologies[0].FSArabianRevivalist != "unset">>
 		<br>You are ''pursuing'' Arabian Revivalism.
 	<<else>>
@@ -492,9 +488,9 @@
 	| <<radiobutton "$arcologies[0].FSArabianRevivalistLaw" 1>> 1 (Passed.)
 
 	<br>[[Apply and reset other Revivalisms|MOD_Edit FS Cheat][$arcologies[0].FSRomanRevivalist = "unset",$arcologies[0].FSRomanRevivalistDecoration = 20,$arcologies[0].FSRomanRevivalistLaw = 0,$arcologies[0].FSAztecRevivalist = "unset",$arcologies[0].FSAztecRevivalistDecoration = 20,$arcologies[0].FSAztecRevivalistLaw = 0,$arcologies[0].FSEgyptianRevivalistDecoration = 20,$arcologies[0].FSEgyptianRevivalistLaw = 0,$arcologies[0].FSEdoRevivalist = "unset",$arcologies[0].FSEdoRevivalistDecoration = 20,$arcologies[0].FSEdoRevivalistLaw = 0,$arcologies[0].FSChineseRevivalist = "unset",$arcologies[0].FSChineseRevivalistDecoration = 20,$arcologies[0].FSChineseRevivalistLaw = 0]]
-<</nobr>>
-
-<<nobr>>
+	
+	<br>
+	
 	<<if $arcologies[0].FSChineseRevivalist != "unset">>
 		<br>You are ''pursuing'' Chinese Revivalism.
 	<<else>>
@@ -515,4 +511,3 @@
 	| <<radiobutton "$arcologies[0].FSChineseRevivalistLaw" 1>> 1 (Passed.)
 
 	<br>[[Apply and reset other Revivalisms|MOD_Edit FS Cheat][$arcologies[0].FSRomanRevivalist = "unset",$arcologies[0].FSRomanRevivalistDecoration = 20,$arcologies[0].FSRomanRevivalistLaw = 0,$arcologies[0].FSAztecRevivalist = "unset",$arcologies[0].FSAztecRevivalistDecoration = 20,$arcologies[0].FSAztecRevivalistLaw = 0,$arcologies[0].FSEgyptianRevivalistDecoration = 20,$arcologies[0].FSEgyptianRevivalistLaw = 0,$arcologies[0].FSEdoRevivalist = "unset",$arcologies[0].FSEdoRevivalistDecoration = 20,$arcologies[0].FSEdoRevivalistLaw = 0,$arcologies[0].FSArabianRevivalist = "unset",$arcologies[0].FSArabianRevivalistDecoration = 20,$arcologies[0].FSArabianRevivalistLaw = 0]]
-<</nobr>>\

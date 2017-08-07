@@ -1,6 +1,5 @@
-:: Rules Slave Deselect Workaround
+:: Rules Slave Deselect Workaround [nobr]
 
-<<nobr>>
 <<set $nextButton = "Continue", $nextLink = "Rules Slave Select">>
 
 <<if ruleSlaveSelected($activeSlave, $currentRule)>>
@@ -8,5 +7,4 @@
 <</if>>
 
 <<goto "Rules Slave Select">>
-<</nobr>>
 

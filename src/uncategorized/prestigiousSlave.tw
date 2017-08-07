@@ -1,13 +1,12 @@
-:: Prestigious Slave
+:: Prestigious Slave [nobr]
 
-<<set $nextButton = "Back">>\
-<<set $nextLink = "Buy Slaves">>\
-<<set $returnTo = "Buy Slaves">>\
-<<set $showEncyclopedia = 1>><<set $encyclopedia = "Slave Schools">>\
-\
+<<set $nextButton = "Back">>
+<<set $nextLink = "Buy Slaves">>
+<<set $returnTo = "Buy Slaves">>
+<<set $showEncyclopedia = 1>><<set $encyclopedia = "Slave Schools">>
+
 You check to see if any especially prestigious slaves are on auction. <<if $prestigeAuctioned == 1>>There are none available right now, but there probably will be next week.<<else>>
 
-<<nobr>>
 <<set $prestigeAuctioned = 1>>
 <<if (random(0,99) < $seeDicks)>><<set $seed = random(100,170)>><<elseif $seeDicks > 0>><<set $seed = random(1,170)>><<else>><<set $seed = random(1,100)>><</if>>
 
@@ -755,18 +754,15 @@ You check to see if any especially prestigious slaves are on auction. <<if $pres
 <</if>>
 
 <<slaveCost $activeSlave>>
-<</nobr>>\
-\
+<br>
 It will take ¤<<print $slaveCost>> to win the auction.
-\
-<<nobr>>
+<br>
 <<if $cash >= $slaveCost>>
 	[[Place that bid|New Slave Intro][$cash -= $slaveCost,$nextButton = "Continue",$nextLink = "AS Dump",$returnTo = "Main"]]
 <<else>>
 	//You lack the necessary funds to place a winning bid.//
 <</if>>
-<</nobr>>
 
-<<set $saleDescription = 1, $applyLaw = 1>><<include "Long Slave Description">>\
+<<set $saleDescription = 1, $applyLaw = 1>><<include "Long Slave Description">>
 
 <</if>>

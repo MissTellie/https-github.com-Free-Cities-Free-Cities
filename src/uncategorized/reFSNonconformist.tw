@@ -104,7 +104,7 @@ The nonconformist is far too prominent and prosperous to make this an easy dilem
 <span id="result">
 <<link "Ignore the situation">>
 	<<set $rep -= 250>>
-	<<replace "#result">><<nobr>>
+	<<replace "#result">>
 	You communicate polite concern, but offer no specific plans. The prominent citizens go away muttering, @@.red;very disappointed@@ that you are not taking their concerns seriously. The nonconformist
 	<<if $FSNonconformist == "Pastoralist">>
 		publishes the exposee, @@.red;setting back adoption@@ of pastoralism.
@@ -170,7 +170,7 @@ The nonconformist is far too prominent and prosperous to make this an easy dilem
 		offers their Ancient Greek Revivalism alternative with great fanfare. It fizzles out within a week, mostly because its main backer is privately against all revivalism, but during that time it serves as a focal point for many citizens who are privately impatient with Roman revivalism. This imbroglio @@.red;sets back acceptance@@ of your revivalist project.
 		<<set $arcologies[0].FSEgyptianRevivalist -= 10>>
 	<</if>>
-	<</nobr>><</replace>>
+	<</replace>>
 <</link>>
 <br><<link "Throw the nonconformist out of the arcology">>
 	<<set $arcologies[0].prosperity -= 10>>
@@ -181,7 +181,7 @@ The nonconformist is far too prominent and prosperous to make this an easy dilem
 <<if $cash > 10000>>
 <br><<link "Quickly manage a nuanced response">>
 	<<set $cash -= 10000>>
-	<<replace "#result">><<nobr>>
+	<<replace "#result">>
 	You promise to deal with the situation. The prominent citizens trust you enough to leave the problem in your hands, and they are not disappointed. The nonconformist
 	<<if $FSNonconformist == "Pastoralist">>
 		publishes the exposee, but finds it effectively defused by a nuanced pro-dairy campaign leveraging your dominance of the arcology's media.
@@ -227,7 +227,7 @@ The nonconformist is far too prominent and prosperous to make this an easy dilem
 		offers their Ancient Greek Revivalism alternative with fanfare, but fanfare is something that the Egyptians could certainly manage. The nasty little attempt is barely noticed over the perfume and noise of a long and beautiful festival.
 	<</if>>
 	The oligarchy is pleased by how you managed to defuse the situation without causing a spectacle. They're disappointed that you permitted their nonconforming peer to remain in the arcology's upper echelons for the time being, but they accept your solution to the problem.
-	<</nobr>><</replace>>
+	<</replace>>
 <</link>> //This will cost ¤10000//
 <<else>>
 //You lack the necessary ready cash to manage a nuanced solution//

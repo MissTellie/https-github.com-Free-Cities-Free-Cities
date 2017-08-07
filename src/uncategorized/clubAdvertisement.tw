@@ -1,6 +1,4 @@
-:: Club Advertisement
-
-<<nobr>>
+:: Club Advertisement [nobr]
 
 <<switch $clubDecoration>>
 <<case "Roman Revivalist">>
@@ -102,9 +100,7 @@
 	$arcologies[0].name has a robust internal media that could be used to bring patrons into the club.
 <</if>>
 
-<</nobr>>
-
-<<nobr>>
+<br>
 
 You are spending ¤$clubAdsSpending each week to advertise $clubName.
 
@@ -119,10 +115,8 @@ You are spending ¤$clubAdsSpending each week to advertise $clubName.
 	Increase
 <</if>>
 
-<</nobr>>
-
+<br>
 __Design Club Ad Campaign__ //Will replace relevant variety bonuses//
-<<nobr>>
 
 Asset size:
 <<if $clubAdsStacked != 1>><<link "Stacked">><<set $clubAdsStacked = 1>><<goto "Club Advertisement">><</link>> | <<else>>Stacked | <</if>>
@@ -155,5 +149,3 @@ Age:
 	<<if $clubAdsXX != 0>><<link "Variety">><<set $clubAdsXX = 0>><<goto "Club Advertisement">><</link>> <<else>>Variety<</if>>
 	<br>
 <</if>>
-
-<</nobr>>

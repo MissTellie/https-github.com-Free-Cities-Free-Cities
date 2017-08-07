@@ -1,16 +1,12 @@
-:: RE busy dairy
-
-<<nobr>>
+:: RE busy dairy [nobr]
 
 <<set $nextButton = "Continue">>
 <<set $nextLink = "RIE Eligibility Check">>
 
-<</nobr>>\
-\
 $dairyNameCaps is working away steadily. Its high-quality product @@.green;reflects well on you,@@<<set $rep += 100>> you muse one day as you inspect the premises. The gentle pneumatic sounds of the milkers and the whimpers of the cows being milked are a pleasant background for the thought.
-
+<br><br>
 Even with high doses of modern drugs, human cows simply do not produce a very high volume of milk. This isn't much of a business problem, since it just means that the product can be sold at a high price. However, some of the more grandiose ideas about how to use milk have had to wait until you have enough cows producing enough milk to make them possible.
-\
+<br><br>
 <span id="result">
 <<link "Share a milk bath with the cows">>
 	<<replace "#result">>
@@ -32,7 +28,8 @@ Even with high doses of modern drugs, human cows simply do not produce a very hi
 	<<set $cash -= 1000>>
 	<</replace>>
 <</link>> //This will cost ¤1000//
-<<if $club != 0>>\
+<br>
+<<if $club != 0>>
 <<link "Add fresh milk to the club for a day to advertise">>
 	<<replace "#result">>
 	Sexual sights and sounds are all over the arcology. Nevertheless, passersby on the club are surprised to find one morning that a previously normal screen advertising your brand of milk has a luscious pair of breasts protruding through it at head height. The advertisement encourages anyone to try a free sample. The slaves constantly rotate, pressing fresh tits through the gap for public suckling. It is @@.green;generally agreed that your product is of the finest quality@@ and you even have enquiries about how it might be exported outside the arcology, should you manage to increase production.
@@ -40,7 +37,8 @@ Even with high doses of modern drugs, human cows simply do not produce a very hi
 	<<set $rep += 500>>
 	<</replace>>
 <</link>> //This will cost ¤2000//
-<</if>>\
+<br>
+<</if>>
 <<if ($cumSlaves >= 5) && ($activeSlave.fetish != "cumslut")>>
 	<<link "Cum in, milk out">>
 		<<replace "#result">>

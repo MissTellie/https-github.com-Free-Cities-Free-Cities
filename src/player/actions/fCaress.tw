@@ -1,6 +1,4 @@
-:: FCaress
-
-<<nobr>>
+:: FCaress [nobr]
 
 You tell $activeSlave.slaveName to
 <<if ($activeSlave.amp != 1)>>
@@ -59,4 +57,3 @@ Then, you gently tilt her <<if $activeSlave.face > 95>>overwhelmingly stunning<<
 <<else>>
 	She reflexively turns away from you, but you catch her head with one hand and slowly but gently move your other hand along her face. Spluttering, she leans backwards, but you tip forward with her and pin her against your desk, not stopping your gentle touch on her head. She tries to wriggle out of your grasp desperately, but her struggles slowly subside as she realizes that you're not taking this any farther. When you bore of it and move your hand away, she stares at you in utter incomprehension. <<if (($activeSlave.amp == 1) && (canTalk($activeSlave) == false))>>Her eyes demand an answer: is that it?<<elseif canTalk($activeSlave) == false>>She signs irritably, asking whether that's it.<<elseif SlaveStatsChecker.checkForLisp($activeSlave)>>She splutters, "Ith that it, <<Master>>!?"<<else>>She splutters, "Is that it, <<Master>>!?"<</if>>
 <</if>>
-<</nobr>>
