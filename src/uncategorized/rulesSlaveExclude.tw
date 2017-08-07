@@ -1,5 +1,6 @@
-:: Rules Slave Exclude [nobr]
+:: Rules Slave Exclude
 
+<<nobr>>
 <<set $nextButton = "Continue", $nextLink = "Rules Assistant">>
 
 <<if ndef $currentRule.excludedSlaves>>
@@ -19,3 +20,4 @@
 	<<set $Flag = 0>>
 	<<include "Slave Summary">>
 <</if>>
+<</nobr>>
