@@ -172,7 +172,178 @@ __''MAIN MENU''__&nbsp;&nbsp;&nbsp;&nbsp;//[[Summary Options]]//
 <<if $positionMainLinks >= 0>>
 	<<MainLinks>>
 <</if>>
-<<include "Slave Summary">>
+
+<<if $useTabs == 0>>
+	<<include "Slave Summary">>
+<<else>>
+	<head>
+	<style>
+
+	div.tab {
+		overflow: hidden;
+		border: 1px solid #ccc;
+		background-color: transparent;
+	}
+
+	div.tab button {
+		background-color: inherit;
+		float: left;
+		border: none;
+		outline: none;
+		cursor: pointer;
+		padding: 14px 16px;
+		transition: 0.3s;
+		font-size: 19px;
+	}
+
+	div.tab button:hover {
+		background-color: #444;
+	}
+
+	div.tab button.active {
+		background-color: #777;
+	}
+
+	.tabcontent {
+		display: none;
+		padding: 6px 12px;
+		-webkit-animation: fadeEffect 1s;
+		animation: fadeEffect 1s;
+	}
+
+	@-webkit-keyframes fadeEffect {
+		from {opacity: 0;}
+		to {opacity: 1;}
+	}
+
+	@keyframes fadeEffect {
+		from {opacity: 0;}
+		to {opacity: 1;}
+	}
+	</style>
+	</head>
+	<body>
+
+	<div class="tab">
+		<button class="tablinks" onclick="opentab(event, 'Special')" id="specialButton">Special</button>
+		<button class="tablinks" onclick="opentab(event, 'Resting')">Resting</button>
+		<button class="tablinks" onclick="opentab(event, 'stay confined')">Confined</button>
+		<button class="tablinks" onclick="opentab(event, 'take classes')">Students</button>
+		<button class="tablinks" onclick="opentab(event, 'please you')">Fucktoys</button>
+		<button class="tablinks" onclick="opentab(event, 'whore')">Whores</button>
+		<button class="tablinks" onclick="opentab(event, 'serve the public')">Public Servants</button>
+		<button class="tablinks" onclick="opentab(event, 'be a servant')">Servants</button>
+		<button class="tablinks" onclick="opentab(event, 'get milked')">Cows</button>
+		<button class="tablinks" onclick="opentab(event, 'work a glory hole')">Gloryhole</button>
+		<button class="tablinks" onclick="opentab(event, 'be a subordinate slave')">Subordinate slaves</button>
+		<button class="tablinks" onclick="opentab(event, 'All')">All</button>	  
+	</div>
+
+	<div id="Special" class="tabcontent">
+	  <div class="content">
+		  <<set $slaveAssignmentTab = "special">>
+		  <<include "Slave Summary">>
+	</div>
+	</div>
+
+	<div id="Resting" class="tabcontent">
+		<div class="content">
+			<<set $slaveAssignmentTab = "resting">>
+			<<include "Slave Summary">>
+		</div>
+	</div>
+	
+	<div id="stay confined" class="tabcontent">
+		<div class="content">
+			<<set $slaveAssignmentTab = "stay confined">>
+			<<include "Slave Summary">>
+		</div>
+	</div>
+
+	<div id="take classes" class="tabcontent">
+		<div class="content">
+			<<set $slaveAssignmentTab = "take classes">>
+			<<include "Slave Summary">>
+		</div>
+	</div>
+	
+	<div id="please you" class="tabcontent">
+		<div class="content">
+			<<set $slaveAssignmentTab = "please you">>
+			<<include "Slave Summary">>
+		</div>
+	</div>
+	
+	<div id="whore" class="tabcontent">
+		<div class="content">
+			<<set $slaveAssignmentTab = "whore">>
+			<<include "Slave Summary">>
+		</div>
+	</div>
+	
+	<div id="serve the public" class="tabcontent">
+		<div class="content">
+			<<set $slaveAssignmentTab = "serve the public">>
+			<<include "Slave Summary">>
+		</div>
+	</div>
+	
+	<div id="be a servant" class="tabcontent">
+		<div class="content">
+			<<set $slaveAssignmentTab = "be a servant">>
+			<<include "Slave Summary">>
+		</div>
+	</div>
+	
+	<div id="get milked" class="tabcontent">
+		<div class="content">
+			<<set $slaveAssignmentTab = "get milked">>
+			<<include "Slave Summary">>
+		</div>
+	</div>
+	
+	<div id="work a glory hole" class="tabcontent">
+		<div class="content">
+			<<set $slaveAssignmentTab = "work a glory hole">>
+			<<include "Slave Summary">>
+		</div>
+	</div>
+	
+	<div id="be a subordinate slave" class="tabcontent">
+		<div class="content">
+			<<set $slaveAssignmentTab = "be a subordinate slave">>
+			<<include "Slave Summary">>
+		</div>
+	</div>
+	
+	<div id="All" class="tabcontent">
+		<div class="content">
+			<<set $slaveAssignmentTab = "all">>
+			<<include "Slave Summary">>
+		</div>
+	</div>
+
+	<script>
+	function opentab(evt, tabName) {
+		var i, tabcontent, tablinks;
+		tabcontent = document.getElementsByClassName("tabcontent");
+		for (i = 0; i < tabcontent.length; i++) {
+			tabcontent[i].style.display = "none";
+		}
+		tablinks = document.getElementsByClassName("tablinks");
+		for (i = 0; i < tablinks.length; i++) {
+			tablinks[i].className = tablinks[i].className.replace(" active", "");
+		}
+		document.getElementById(tabName).style.display = "block";
+		evt.currentTarget.className += " active";
+	}
+
+	document.getElementById("specialButton").click();
+	</script>
+
+	</body>
+<</if>>
+	
 <<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>>
 <<if $positionMainLinks <= 0>>
 	<br><<MainLinks>>
