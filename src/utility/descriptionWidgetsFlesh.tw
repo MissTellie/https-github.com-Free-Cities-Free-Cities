@@ -2849,14 +2849,7 @@ $pronounCap's got a
 
 <<SlavePronouns $activeSlave>>
 
-$possessiveCap 
-<<if $activeSlave.faceImplant == 0>>
-	natural
-<<elseif $activeSlave.faceImplant == 1>>
-	surgically improved
-<<elseif $activeSlave.faceImplant > 1>>
-	totally reworked
-<</if>>
+$possessiveCap
 @@.pink;face is
 <<switch $activeSlave.faceShape>>
 <<case "masculine">>
@@ -2981,6 +2974,34 @@ $possessiveCap
 		$pronounCap has a beauty mark that adds to $possessive distinctiveness.
 		<<else>>
 		$pronounCap has a beauty mark that makes $possessive really memorable.
+		<</if>>
+	<</if>>
+<</if>>
+<<if $activeSlave.faceImplant > 5>>
+	$pronounCap's
+	<<if $activeSlave.faceImplant > 95>>
+		had so much cosmetic surgery that her face is located at the bottom of the uncanny valley<<if $activeSlave.face < -10>>in addition to its ugliness<<elseif $activeSlave.face <= 10>>the only thing really distinctive about it<<else>>its attractiveness notwithstanding<</if>>.
+	<<elseif $activeSlave.faceImplant > 60>>
+		obviously gotten a lot of facial cosmetic surgery.
+	<<elseif $activeSlave.faceImplant > 30>>
+		noticeably recieved facial cosmetic surgery.
+	<<else>>
+		had some facial cosmetic surgery, though it's subtle.
+		<<if $PC.medicine >= 100>>Someone without your knowledge might miss it entirely.<</if>>
+	<</if>>
+	<<if $arcologies[0].FSBodyPurist != "unset">>
+		<<if $activeSlave.faceImplant > 30>>
+			This is considered extremely tragic by a society that values bodily purity.
+		<<else>>
+			Since society values bodily purity, even this subtlety affects her attractiveness when it's noticed.
+		<</if>>
+	<<elseif $arcologies[0].FSTransformationFetishist != "unset">>
+		<<if $activeSlave.faceImplant > 30>>
+			Your transformationist society doesn't think this <<if $activeSlave.face >= -10>>reduces her attractiveness<<else>>makes her uglier<</if>>.
+		<</if>>
+	<<else>>
+		<<if $activeSlave.faceImplant > 30>>
+			The effect is enough to reduce her attractiveness.
 		<</if>>
 	<</if>>
 <</if>>
@@ -4052,22 +4073,21 @@ $pronounCap has
 	She almost gleams; she's in the absolute @@.green;best of health,@@
 <</if>>
 and
-<<set $seed = $activeSlave.age + 1>>
-<<if $activeSlave.ageImplant == 1>>
-  she's
-  <<if ($activeSlave.birthWeek >= 52) && ($seeAge == 1)>>
-	going to turn <<print $activeSlave.age + 1>> this week,
-  <<elseif $showAgeDetail == 1>>
-	$activeSlave.age years old,
-  <<else>>
-	in her <<if $activeSlave.age < 30>>late twenties<<elseif $activeSlave.age < 36>>thirties<<elseif $activeSlave.age < 40>>late thirties<<else>>forties<</if>>,
-  <</if>>
-  but has had excellent cosmetic surgery that makes her look
-  <<if $activeSlave.age < 30>>barely into her early twenties<<elseif $activeSlave.age < 36>>like she's still in her twenties<<elseif $activeSlave.age < 40>>barely thirty<<else>>like she's still in her thirties<</if>>.
+<<if $activeSlave.ageImplant>>
+	she's
+	<<if ($activeSlave.birthWeek >= 52) && ($seeAge == 1)>>
+		going to turn <<print $activeSlave.age + 1>> this week,
+	<<elseif $showAgeDetail == 1>>
+		$activeSlave.age years old,
+	<<else>>
+		in her <<if $activeSlave.age < 30>>late twenties<<elseif $activeSlave.age < 36>>thirties<<elseif $activeSlave.age < 40>>late thirties<<else>>forties<</if>>,
+	<</if>>
+	but has had excellent cosmetic surgery that makes her look
+	<<if $activeSlave.age < 30>>barely into her early twenties<<elseif $activeSlave.age < 36>>like she's still in her twenties<<elseif $activeSlave.age < 40>>barely thirty<<else>>like she's still in her thirties<</if>><<if $arcologies[0].FSYouthPreferentialist != "unset">>, which is especially important in a society that values youth<<elseif $arcologies[0].FSMaturityPreferentialist != "unset">>, though this is less important in a society that appreciates maturity<</if>>.
 <<else>>
   she's
   <<if ($activeSlave.birthWeek >= 52) && ($seeAge == 1)>>
-	going to turn $seed this week.
+	going to turn <<print $activeSlave.age+1>> this week.
   <<elseif $activeSlave.age < 19>>
 	<<if ($activeSlave.birthWeek == 0) && ($seeAge == 1)>>
 	  just turned 18 this week, which many citizens find especially appealing.
