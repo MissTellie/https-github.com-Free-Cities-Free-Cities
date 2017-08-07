@@ -1335,7 +1335,7 @@ $pronounCap's got a
 
 <</widget>>
 
-<<widget "VaginaDescription">>
+<<widget "crotchDescription">>
 
 <<SlavePronouns $activeSlave>>
 
@@ -1874,6 +1874,14 @@ $pronounCap's got a
 <</if>>
 
 <</if>>
+<</widget>>
+
+
+<<widget "dickDescription">>
+
+<<SlavePronouns $activeSlave>>
+
+<<if ($showClothing == 1) && ($saleDescription == 0)>>
 
 <<if $activeSlave.dick > 0>>
 
@@ -2236,7 +2244,9 @@ $pronounCap's got a
 	<</if>>
 <</if>>
 
+
 <</if>> /* CLOSES DETAILED DICK DESCRIPTION */
+
 
 <<if $activeSlave.prostate == 0>>
 <<if ($activeSlave.dick > 0) || ($activeSlave.balls > 0)>>
@@ -2254,6 +2264,15 @@ $pronounCap's got a
 	<<dickTatDescription>>
 <</if>>
 <</if>>
+<</if>>
+<</widget>>
+
+
+<<widget "vaginaDescription">>
+
+<<SlavePronouns $activeSlave>>
+
+<<if ($showClothing == 1) && ($saleDescription == 0)>>
 
 <<if $activeSlave.dick > 0>>
 <<if $activeSlave.vagina > -1>>
@@ -2468,28 +2487,6 @@ $pronounCap's got a
 <</if>>
 <</if>>
 
-<<if $activeSlave.fuckdoll > 0>>
-	<<if $activeSlave.vagina > 0>>
-		$possessiveCap front hole
-		<<if $activeSlave.fuckdoll <= 45>>
-			is mostly useful when it's restrained for rape.
-		<<else>>
-			will massage <<if $PC.dick == 1>>cocks<<else>>anything<</if>> placed inside it on command.
-			<<if $activeSlave.fuckdoll <= 85>>
-				$pronounCap is even capable of riding <<if $PC.dick == 1>>dick<<else>>a strap-on<</if>>.
-			<</if>>
-		<</if>>
-	<</if>>
-<<else>>
-	<<if $activeSlave.vagina == -1>>
-		<<if $seeDicks >= 100>><<elseif $activeSlave.anus == 0>><<else>>Since $pronoun lacks a vagina, $pronoun takes it up <<if $seeRace == 1>>$possessive $activeSlave.race<<else>>the<</if>> ass instead.<</if>>
-	<<elseif $activeSlave.vaginalSkill >= 100>>$pronounCap is a @@.aquamarine;vanilla sex master@@.
-	<<elseif $activeSlave.vaginalSkill > 60>>$pronounCap is a @@.aquamarine;vanilla sex expert@@.
-	<<elseif $activeSlave.vaginalSkill > 30>>$pronounCap is @@.aquamarine;skilled at vanilla sex@@.
-	<<elseif $activeSlave.vaginalSkill > 10>>$pronounCap has @@.aquamarine;basic knowledge about vanilla sex@@.
-	<<else>>$pronounCap is unskilled at vaginal sex.
-	<</if>>
-<</if>>
 
 <<if ($activeSlave.dick == 0)>>
 	<<if ($activeSlave.clit > 0)>>
@@ -2717,6 +2714,32 @@ $pronounCap's got a
 <</if>>
 <</if>>
 <</if>>
+
+<<if $activeSlave.fuckdoll > 0>>
+	<<if $activeSlave.vagina > 0>>
+		$possessiveCap front hole
+		<<if $activeSlave.fuckdoll <= 45>>
+			is mostly useful when it's restrained for rape.
+		<<else>>
+			will massage <<if $PC.dick == 1>>cocks<<else>>anything<</if>> placed inside it on command.
+			<<if $activeSlave.fuckdoll <= 85>>
+				$pronounCap is even capable of riding <<if $PC.dick == 1>>dick<<else>>a strap-on<</if>>.
+			<</if>>
+		<</if>>
+	<</if>>
+<<else>>
+	<<if $activeSlave.vagina == -1>>
+		<<if $seeDicks >= 100>><<elseif $activeSlave.anus == 0>><<else>>Since $pronoun lacks a vagina, $pronoun takes it up <<if $seeRace == 1>>$possessive $activeSlave.race<<else>>the<</if>> ass instead.<</if>>
+		<<elseif $activeSlave.vaginalSkill >= 100>>$pronounCap is a @@.aquamarine;vanilla sex master@@.
+		<<elseif $activeSlave.vaginalSkill > 60>>$pronounCap is a @@.aquamarine;vanilla sex expert@@.
+		<<elseif $activeSlave.vaginalSkill > 30>>$pronounCap is @@.aquamarine;skilled at vanilla sex@@.
+		<<elseif $activeSlave.vaginalSkill > 10>>$pronounCap has @@.aquamarine;basic knowledge about vanilla sex@@.
+		<<else>>$pronounCap is unskilled at vaginal sex.
+	<</if>>
+<</if>>
+
+<</if>>
+
 <</widget>>
 
 
@@ -3028,6 +3051,12 @@ $pronounCap has
 	<</if>>
 <</if>>
 
+<<if $showBodyMods == 1>>
+	<<lipsPiercingDescription>>
+	<<tonguePiercingDescription>>
+<</if>>
+
+
 <<if $activeSlave.fuckdoll > 0>>
 	<<if $PC.dick == 1>>Sticking a dick<<else>>Sliding a dildo<</if>> into $possessive <<if $activeSlave.lips > 95>>facepussy<<else>>mouth insert<</if>>
 	<<if $activeSlave.fuckdoll <= 45>>
@@ -3045,10 +3074,6 @@ $pronounCap has
 	<</if>>
 <</if>>
 
-<<if $showBodyMods == 1>>
-	<<lipsPiercingDescription>>
-	<<tonguePiercingDescription>>
-<</if>>
 
 <</widget>>
 
@@ -3918,20 +3943,54 @@ $pronounCap has
 <<widget "waistDescription">>
 
 $pronounCap has
+
 <<if $activeSlave.waist > 95>>
-	a badly @@.red;masculine waist@@ that ruins her figure<<if $activeSlave.weight > 30>> and greatly exaggerates how fat $pronoun is<<elseif $activeSlave.weight < -30>> despite how thin $pronoun is<</if>>.
+	a badly @@.red;masculine waist@@ that ruins her figure
+	<<if $activeSlave.weight > 30>> and greatly exaggerates how fat $pronoun is
+	<<elseif $activeSlave.weight < -30>> despite how thin $pronoun is<</if>>.
 <<elseif $activeSlave.waist > 40>>
-	a broad, @@.red;ugly waist@@ that makes her look mannish<<if $activeSlave.weight > 30>> and exaggerates how fat $pronoun is<<elseif $activeSlave.weight < -30>> despite how thin $pronoun is<</if>>.
+	a broad, @@.red;ugly waist@@ that makes her look mannish
+	<<if $activeSlave.weight > 30>> and exaggerates how fat $pronoun is
+	<<elseif $activeSlave.weight < -30>> despite how thin $pronoun is<</if>>.
 <<elseif $activeSlave.waist > 10>>
-	an @@.red;unattractive waist@@ that conceals $possessive <<if $activeSlave.age > 25>>girlish<<else>>womanly<</if>> figure<<if $activeSlave.weight > 30>> and accentuates how fat $pronoun is<<elseif $activeSlave.weight < -30>> despite how thin $pronoun is<</if>>.
+	an @@.red;unattractive waist@@ that conceals $possessive 
+	<<if $activeSlave.age > 25>>
+	girlish
+	<<else>>
+		womanly
+	<</if>> 
+		figure
+	<<if $activeSlave.weight > 30>> and accentuates how fat $pronoun is
+	<<elseif $activeSlave.weight < -30>> despite how thin $pronoun is<</if>>.
 <<elseif $activeSlave.waist >= -10>>
-	an average waist for a <<if $activeSlave.age > 25>>girl<<else>>woman<</if>><<if $activeSlave.weight > 30>>, though it looks broader since $pronoun's fat<<elseif $activeSlave.weight < -30>>, though it looks narrower since $pronoun's thin<</if>>.
+	an average waist for a 
+	<<if $activeSlave.age > 25>>
+		girl
+	<<else>>
+		woman
+	<</if>>
+	<<if $activeSlave.weight > 30>>, though it looks broader since $pronoun's fat
+	<<elseif $activeSlave.weight < -30>>, though it looks narrower since $pronoun's thin<</if>>.
 <<elseif $activeSlave.waist >= -40>>
-	a nice @@.pink;feminine waist@@ that gives $object a <<if $activeSlave.age > 25>>girlish<<else>>womanly<</if>> figure<<if $activeSlave.weight > 30>> despite $possessive extra weight<<elseif $activeSlave.weight < -30>> and accentuates how thin $pronoun is<</if>>.
+	a nice @@.pink;feminine waist@@ that gives $object a 
+	<<if $activeSlave.age > 25>>
+		girlish
+	<<else>>
+		womanly
+	<</if>>
+	figure
+	<<if $activeSlave.weight > 30>> despite $possessive extra weight
+	<<elseif $activeSlave.weight < -30>> and accentuates how thin $pronoun is
+	<</if>>.
 <<elseif $activeSlave.waist >= -95>>
-	a hot @@.pink;wasp waist@@ that gives $possessive an hourglass figure<<if $activeSlave.weight > 30>> despite $possessive extra weight<<elseif $activeSlave.weight < -30>> further accentuated by how thin $pronoun is<</if>>.
+	a hot @@.pink;wasp waist@@ that gives $possessive an hourglass figure
+	<<if $activeSlave.weight > 30>> despite $possessive extra weight
+	<<elseif $activeSlave.weight < -30>> further accentuated by how thin $pronoun is
+	<</if>>.
 <<else>>
-	an @@.pink;absurdly narrow waist@@ that gives $possessive a cartoonishly hourglass figure<<if $activeSlave.weight > 30>> made even more ludicrous by $possessive extra weight<<elseif $activeSlave.weight < -30>> made even more ludicrous by how thin $pronoun is<</if>>.
+	an @@.pink;absurdly narrow waist@@ that gives $possessive a cartoonishly hourglass figure
+	<<if $activeSlave.weight > 30>> made even more ludicrous by $possessive extra weight
+	<<elseif $activeSlave.weight < -30>> made even more ludicrous by how thin $pronoun is<</if>>.
 <</if>>
 
 <</widget>>
@@ -4077,17 +4136,15 @@ and
 
 <<widget "accentDescription">>
 
-<<if canTalk($activeSlave)>>
-  <<if $activeSlave.accent != 0>>
+<<if $activeSlave.accent != 0>>
 	<<if $activeSlave.accent == 1>>
-	  <<set $seed = either("lovely", "distinctive", "rich", "beautiful")>>
-	  She speaks $language in a $seed $activeSlave.nationality accent<<if $activeSlave.speechRules == "accent elimination">>, which the rules encourage her to suppress<</if>>.
+		<<set $seed = either("lovely", "distinctive", "rich", "beautiful")>>
+		She speaks $language in a $seed $activeSlave.nationality accent<<if $activeSlave.speechRules == "accent elimination">>, which the rules encourage her to suppress<</if>>.
 	<<elseif $activeSlave.accent == 2>>
-	  She speaks $language in a thick $activeSlave.nationality accent that can be hard to understand<<if $activeSlave.speechRules == "accent elimination">>, and the rules encourage her to make an effort to suppress it<</if>>.
+		She speaks $language in a thick $activeSlave.nationality accent that can be hard to understand<<if $activeSlave.speechRules == "accent elimination">>, and the rules encourage her to make an effort to suppress it<</if>>.
 	<<else>>
-	  She speaks little $language, but understands enough to be given orders.
+		She speaks little $language, but understands enough to be given orders.
 	<</if>>
-  <</if>>
 <</if>>
 
 <</widget>>
