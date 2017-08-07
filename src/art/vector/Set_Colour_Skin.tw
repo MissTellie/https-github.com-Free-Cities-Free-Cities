@@ -30,6 +30,7 @@
 /* set skin colour of specific body parts to match the main colour */
 <<set _headSkinColour to _skinColour>>
 <<set _torsoSkinColour to _skinColour>>
+<<set _boobSkinColour to _skinColour>>
 <<set _penisSkinColour to _skinColour>>
 <<set _scrotumSkinColour to _skinColour>>
 
@@ -45,13 +46,17 @@
   <<set _scrotumSkinColour to _skinColour>>
 <</if>>
 
-<<if _artSlave.clothes == "restrictive latex" || _artSlave.clothes == "a latex catsuit">>
-  /* slave wears latex - display most skin as if it was black rubber */
+/* slave wears latex - display most skin as if it was black rubber */
+<<if _artSlave.clothes == "restrictive latex">>
   <<set _skinColour to "#515351">>
-  <<set _areolaColour to "#313331">>
+  /* restrictive latex coveres head */
+  <<set _headSkinColour to _skinColour>>
 <</if>>
 <<if _artSlave.clothes == "a latex catsuit">>
-  /* catsuit covers privates, too */
+  <<set _skinColour to "#515351">>
+  /* catsuit covers areolae and privates, too */
+  <<set _areolaColour to "#313331">>
+  <<set _boobSkinColour to _skinColour>>
   <<set _penisSkinColour to _skinColour>>
   <<set _scrotumSkinColour to _skinColour>>
 <</if>>

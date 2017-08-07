@@ -25,3 +25,17 @@
   <</switch>>
 <</if>>
 
+/* shiny clothings */
+<<if $seeVectorArtHighlights == 1>>
+  /* this one is leg and partly butt-related, but needs to be here as shoes are drawn over legs and butt */
+  <<if _artSlave.fuckdoll != 0 || _artSlave.clothes == "restrictive latex" || _artSlave.clothes == "a latex catsuit">>
+    <<if _artSlave.amp != 1>>
+      <<set _art = "Art_Vector_Butt_Outfit_Shine_"+_buttSize >>
+      <<include _art >>
+      <<set _art = "Art_Vector_Leg_Outfit_Shine_"+_legSize >>
+    <<else>>
+      <<set _art = "Art_Vector_Leg_Outfit_Shine_Stump" >>
+    <</if>>
+    <<include _art >>
+  <</if>>
+<</if>>

@@ -23,7 +23,7 @@
 
 <<if $args[0].fuckdoll == 0>> /* NOT A FUCKDOLL */
 
-<<set $beauty += 150 - ($args[0].age*3) + (5*$args[0].ageImplant) + (Math.min($args[0].health,100)/5) - ($args[0].waist/20) - ($args[0].muscles/30) +($args[0].lips/10) + ($args[0].face/5) +(1.5*$args[0].butt) - (3*$args[0].dick) - (2*$args[0].balls) + ($args[0].clit) + (($args[0].height-160)/10) + ($args[0].voice) + (3*$args[0].intelligence) + ($args[0].entertainSkill/10) + ($args[0].whoreSkill/10) + (2*$args[0].hips)>>
+<<set $beauty += 150 - ($args[0].age*3) + (Math.min($args[0].health,100)/5) - ($args[0].waist/20) - ($args[0].muscles/30) +($args[0].lips/10) + ($args[0].face/5) +(1.5*$args[0].butt) - (3*$args[0].dick) - (2*$args[0].balls) + ($args[0].clit) + (($args[0].height-160)/10) + ($args[0].voice) + (3*$args[0].intelligence) + ($args[0].entertainSkill/10) + ($args[0].whoreSkill/10) + (2*$args[0].hips)>>
 
 <<if $arcologies[0].FSDegradationist != "unset">>
 	<<set $beauty -= ($arcologies[0].FSDegradationist/10)*$args[0].intelligence>>
@@ -131,18 +131,22 @@
 	<<set $beauty += 2>>
 <</if>>
 
-<<if $args[0].age >= 30>>
-	<<if $arcologies[0].FSYouthPreferentialist != "unset">>
+<<if $arcologies[0].FSYouthPreferentialist != "unset">>
+	<<if $args[0].age >= 30>>
 		<<set $beauty -= ($arcologies[0].FSYouthPreferentialist/30)+$arcologies[0].FSYouthPreferentialistLaw>>
-	<<elseif $arcologies[0].FSMaturityPreferentialist != "unset">>
-		<<set $beauty += ($arcologies[0].FSMaturityPreferentialist/20)+$arcologies[0].FSMaturityPreferentialistLaw>>
-	<</if>>
-<<else>>
-	<<if $arcologies[0].FSMaturityPreferentialist != "unset">>
-		<<set $beauty -= ($arcologies[0].FSMaturityPreferentialist/30)-$arcologies[0].FSMaturityPreferentialistLaw>>
-	<<elseif $arcologies[0].FSYouthPreferentialist != "unset">>
+	<<else>>
 		<<set $beauty += ($arcologies[0].FSYouthPreferentialist/20)-$arcologies[0].FSYouthPreferentialistLaw>>
 	<</if>>
+	<<if $args[0].ageImplant>><<set $beauty += ($args[0].age-25)/3>><</if>>
+<<elseif $arcologies[0].FSMaturityPreferentialist != "unset">>
+	<<if $args[0].age >= 30>>
+		<<set $beauty += ($arcologies[0].FSMaturityPreferentialist/20)+$arcologies[0].FSMaturityPreferentialistLaw>>
+	<<else>>
+		<<set $beauty -= ($arcologies[0].FSMaturityPreferentialist/30)-$arcologies[0].FSMaturityPreferentialistLaw>>
+	<</if>>
+	<<if $args[0].ageImplant>><<set $beauty += ($args[0].age-25)/5>><</if>>
+<<else>>
+	<<if $args[0].ageImplant>><<set $beauty += ($args[0].age-25)/4>><</if>>
 <</if>>
 
 <<if ($args[0].markings != "none")>>
@@ -441,7 +445,7 @@
 	<</if>>
 <</if>>
 
-<<if ($args[0].boobsImplant == 0) && ($args[0].buttImplant == 0) && ($args[0].waist >= -95) && ($args[0].lipsImplant == 0) && ($args[0].faceImplant < 2)>>
+<<if $args[0].boobsImplant == 0 && $args[0].buttImplant == 0 && $args[0].waist >= -95 && $args[0].lipsImplant == 0 && $args[0].faceImplant <= 30>>
 	<<set $pure += 1>>
 	<<if $arcologies[0].FSBodyPurist != "unset">>
 	<<set $beauty += ($arcologies[0].FSBodyPurist/20)>>
@@ -453,6 +457,16 @@
 	<<set $implanted += 1>>
 	<<if $arcologies[0].FSTransformationFetishist != "unset">>
 	<<set $beauty += ($arcologies[0].FSTransformationFetishist/40)>>
+	<</if>>
+<</if>>
+
+<<if $arcologies[0].FSBodyPurist != "unset">>
+	<<if $args[0].faceImplant > 5>>
+		<<set $beauty -= ($arcologies[0].FSBodyPurist/100)*($args[0].faceImplant/10)>>
+	<</if>>
+<<elseif $arcologies[0].FSTransformationFetishist == "unset">>
+	<<if $args[0].faceImplant > 30>>
+		<<set $beauty -= ($args[0].faceImplant-30)/10>>
 	<</if>>
 <</if>>
 

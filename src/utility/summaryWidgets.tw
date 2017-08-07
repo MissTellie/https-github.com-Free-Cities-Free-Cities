@@ -1498,7 +1498,7 @@ will
 
 <<if ($args[0].boobsImplant != 0) || ($args[0].buttImplant != 0) || ($args[0].lipsImplant != 0)>>
 	<<set $args[0].summary += "Implants. ">>
-<<elseif ($args[0].faceImplant >= 2) || ($args[0].waist < -95)>>
+<<elseif $args[0].faceImplant >= 30 || $args[0].waist < -95>>
 	<<set $args[0].summary += "Surgery enhanced. ">>
 <<else>>
 	<<set $args[0].summary += "All natural. ">>

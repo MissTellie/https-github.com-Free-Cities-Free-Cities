@@ -27,4 +27,20 @@
 	<<set _art = "Art_Vector_Arm_Left_"+_leftArmType >>
 	<<include _art>>
 	
+	/* shiny clothings */
+	<<if $seeVectorArtHighlights == 1>>
+		<<if _artSlave.fuckdoll != 0 || _artSlave.clothes == "restrictive latex" || _artSlave.clothes == "a latex catsuit">>
+			/* only some arm positions have art (feel free to add more) */
+			<<switch _leftArmType>>
+			<<case "High">>
+				<<include Art_Vector_Arm_Outfit_Shine_Left_High>>
+			<<case "Mid">>
+			<<include Art_Vector_Arm_Outfit_Shine_Left_Mid>>
+			<<case "Low">>
+				<<include Art_Vector_Arm_Outfit_Shine_Left_Low>>
+			<<default>>
+				/* no art for this arm position */
+			<</switch>>
+		<</if>>
+	<</if>>
 <</if>>
