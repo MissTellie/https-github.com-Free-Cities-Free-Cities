@@ -91,9 +91,9 @@
 /*testtest brother - determines how many brothers a slave has*/
 <<if _brothers.length > 0>>
 	<<if _brothers.length > 1>>
-		@@.lightgreen;<<print _brothers.reduce(function(res, ch, i, arr) { return (res.slaveName || res) + (i == arr.length - 1 ? ' and ' : ', ') + ch.slaveName; })>> are $possessive brothers.@@
+		@@.lightgreen;<<print _brothers.reduce(function(res, ch, i, arr) { return (res.slaveName || res) + (i == arr.length - 1 ? ' and ' : ', ') + ch.slaveName; })>> are $possessive dickgirl sisters.@@
 	<<else>>
-		@@.lightgreen;_brothers[0].slaveName is $possessive brother.@@
+		@@.lightgreen;_brothers[0].slaveName is $possessive dickgirl sisters.@@
 	<</if>>
 <</if>>
 
@@ -126,11 +126,11 @@
 			and _children[_efw].slaveName
 		<</if>>
 	<</for>>
-	are half-brothers to $object.@@
+	are dickgirl half-sisters to $object.@@
 <<elseif _children.length > 1>>
-	@@.lightgreen;_children[0].slaveName and _children[1].slaveName are half-brothers to $object.@@
+	@@.lightgreen;_children[0].slaveName and _children[1].slaveName are dickgirl half-sisters to $object.@@
 <<elseif _children.length > 0>>
-	@@.lightgreen;_children[0].slaveName is a half-brother to $object.@@
+	@@.lightgreen;_children[0].slaveName is a dickgirl half-sisters to $object.@@
 <</if>>
 
 <<if $cheatMode == 1>>
