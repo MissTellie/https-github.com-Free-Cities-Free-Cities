@@ -2,9 +2,11 @@
 
 /* 000-250-006 */
 <<if $seeImages && $seeReportImages>>
-    <div class="imageRef medImg">
-    <<SlaveArt $slaves[$i] 2 0>>
-    </div>
+<<if $imageChoice == 1>>
+    <div class="imageRef medVector"><<SlaveArt $slaves[$i] 2 0>></div>
+<<else>>
+    <div class="imageRef medRender"><<SlaveArt $slaves[$i] 2 0>></div>
+<</if>>
 <</if>>
 /* 000-250-006 */
 

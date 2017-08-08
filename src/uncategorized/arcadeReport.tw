@@ -66,11 +66,7 @@
 	<<if $showEWD != 0>>
 		<br><br>
 		/* 000-250-006 */
-		<<if $seeImages == 1 && $imageChoice == 0>>
-		<div class="imageRef tinyImg">
-			<<SlaveArt $slaves[$i] 0 0>>
-		</div>
-		<</if>>
+		<<if $seeImages == 1 && $imageChoice == 0>><<if $imageChoice == 1>><div class="imageRef tinyVector"><<SlaveArt $slaves[$i] 0 0>></div><<else>><div class="imageRef tinyRender"><<SlaveArt $slaves[$i] 0 0>></div><</if>><</if>>
 		/* 000-250-006 */
 		''__@@.pink;<<SlaveFullName $slaves[$i]>>@@__''
 		<<if $slaves[$i].choosesOwnAssignment == 2>>
