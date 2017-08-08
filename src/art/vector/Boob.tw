@@ -1,5 +1,8 @@
 :: Art_Vector_Boob_ [nobr]
 
+/* BEWARE: _art_have_boobs and _art_scale_factor interfere  with Art_Vector_Penis_ */
+<<set _art_have_boobs to true>>
+
 /* 
 Prepare SVG transform matrix for continous boob scaling.
 This transform affects boobs, areolae and piercings.
@@ -14,7 +17,7 @@ From a programmers pont of view, prndev read discrete transform parameters with 
 <<if _artSlave.boobs < 250 >>
   /* boobs too small - draw areolae directly onto torso */
   <<set _art_scale_factor = 1 >>
-  <<set _art_translation_x = 16 >> /* a little shift to the right due to perspective is needed */
+  <<set _art_translation_x = 16 >> /* a little shift to the right is needed due to perspective */
   <<set _art_translation_y = 0 >>
   <<set _art_transform = "matrix(" + _art_scale_factor +",0,0," + _art_scale_factor + "," + _art_translation_x + "," + _art_translation_y + ")">>
 <<else>>
