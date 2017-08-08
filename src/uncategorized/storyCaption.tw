@@ -1,34 +1,35 @@
-:: StoryCaption [nobr]
-
-<<set _Pass = passage()>>
-<<if _Pass == "Encyclopedia">>
+:: StoryCaption
+\
+<<set _Pass = passage()>>\
+<<if _Pass == "Encyclopedia">>\
 <span id="nextButton"><strong><<link [[($nextButton)|($nextLink)]]>><</link>> to Free Cities</strong></span>
-<br>/* Intro, new players, PC/Gameplay focused */
-<br>[[Playing Free Cities|Encyclopedia][$encyclopedia = "Playing Free Cities"]]
-<br>[[Design your master|Encyclopedia][$encyclopedia = "PC Customization"]]
-<br>[[Being in charge|Encyclopedia][$encyclopedia = "Being in charge"]]
+/* Intro, new players, PC/Gameplay focused */
+[[Playing Free Cities|Encyclopedia][$encyclopedia = "Playing Free Cities"]]
+[[Design your master|Encyclopedia][$encyclopedia = "PC Customization"]]
+[[Being in charge|Encyclopedia][$encyclopedia = "Being in charge"]]
 /* Section for slaves */
-<br>[[Slaves|Encyclopedia][$encyclopedia = "Slaves"]]
-<br>[[Obtaining Slaves|Encyclopedia][$encyclopedia = "Obtaining Slaves"]]
-<br>[[Slave Assignments|Encyclopedia][$encyclopedia = "Slave Assignments"]]
-<br>[[Slave Body|Encyclopedia][$encyclopedia = "Body"]] / [[ Skills|Encyclopedia][$encyclopedia = "Skills"]]
-<br>[[Slave Fetishes|Encyclopedia][$encyclopedia = "Fetishes"]] / [[ Quirks|Encyclopedia][$encyclopedia = "Quirks"]] / [[ Flaws|Encyclopedia][$encyclopedia = "Flaws"]]
-<br>[[Slave Relationships|Encyclopedia][$encyclopedia = "Relationships"]]
+[[Slaves|Encyclopedia][$encyclopedia = "Slaves"]]
+[[Obtaining Slaves|Encyclopedia][$encyclopedia = "Obtaining Slaves"]]
+[[Slave Assignments|Encyclopedia][$encyclopedia = "Slave Assignments"]]
+[[Slave Body|Encyclopedia][$encyclopedia = "Body"]] / [[ Skills|Encyclopedia][$encyclopedia = "Skills"]]
+[[Slave Fetishes|Encyclopedia][$encyclopedia = "Fetishes"]] / [[ Quirks|Encyclopedia][$encyclopedia = "Quirks"]] / [[ Flaws|Encyclopedia][$encyclopedia = "Flaws"]]
+[[Slave Relationships|Encyclopedia][$encyclopedia = "Relationships"]]
 /* Section for arcology and Lore */
-<br>[[The X-Series Arcology|Encyclopedia][$encyclopedia = "What the Upgrades Do"]]
-<br>[[Arcology Facilities|Encyclopedia][$encyclopedia = "Facilities"]]
-<br>[[Terrain Types|Encyclopedia][$encyclopedia = "Terrain Types"]]
-<br>[[Future Societies|Encyclopedia][$encyclopedia = "Future Societies"]]
-<br>[[Lore|Encyclopedia][$encyclopedia = "Lore"]]
+[[The X-Series Arcology|Encyclopedia][$encyclopedia = "What the Upgrades Do"]]
+[[Arcology Facilities|Encyclopedia][$encyclopedia = "Facilities"]]
+[[Terrain Types|Encyclopedia][$encyclopedia = "Terrain Types"]]
+[[Future Societies|Encyclopedia][$encyclopedia = "Future Societies"]]
+[[Lore|Encyclopedia][$encyclopedia = "Lore"]]
 /* Mods and extras */
-<br>[[Game Mods|Encyclopedia][$encyclopedia = "Game Mods"]]
-<br>[[Credits|Encyclopedia][$encyclopedia = "Credits"]]
-<<elseif _Pass == "Starting Girls">>
+[[Game Mods|Encyclopedia][$encyclopedia = "Game Mods"]]
+[[Credits|Encyclopedia][$encyclopedia = "Credits"]]
+<<elseif _Pass == "Starting Girls">>\
 <span id="cost"><<SlaveCostDescription>></span>
 
-<<elseif $ui == "disclaimer">>
+<<elseif $ui == "disclaimer">>\
 <span id="nextButton"><strong><<link [[($nextButton)|($nextLink)]]>><</link>></strong></span>
-<<elseif $ui != "start">>
+<<elseif $ui != "start">>\
+<<nobr>>
 
 <<set _SL = $slaves.length>>
 <<if $cheatMode>>_Pass<br><</if>>
@@ -387,8 +388,9 @@
 <<else>>
 	<br><br><br><br><br><br><br><br>
 <</if>>
-<</if>>
-<br>
+<</nobr>>
+<</if>>\
+<<nobr>>
 <<if (_Pass == "Encyclopedia") || ($showEncyclopedia == 0) || ($encyclopedia == " ")>>
 	<br>
 <<else>>
@@ -402,3 +404,4 @@
 	<br>
 	<<link "Bug Report">><<bugreport>><</link>>
 <</if>>
+<</nobr>>

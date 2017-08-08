@@ -9,18 +9,26 @@
 
 /* 000-250-006 */
 <<if $seeImages == 1>>
-    <div class="imageRef medImg">
-        <<SlaveArt $slaves[_i] 2 0>>
-    </div>
-    <div class="imageRef medImg">
-        <<SlaveArt $slaves[_j] 2 0>>
-    </div>
-    <div class="imageRef medImg">
-        <<SlaveArt $slaves[_k] 2 0>>
-    </div>
-    <div class="imageRef medImg">
-        <<SlaveArt $slaves[_l] 2 0>>
-    </div>
+<<if $imageChoice == 1>>
+    <div class="imageRef medVector"><<SlaveArt $slaves[_i] 2 0>></div>
+<<else>>
+    <div class="imageRef medRender"><<SlaveArt $slaves[_i] 2 0>></div>
+<</if>>
+<<if $imageChoice == 1>>
+    <div class="imageRef medVector"><<SlaveArt $slaves[_j] 2 0>></div>
+<<else>>
+    <div class="imageRef medRender"><<SlaveArt $slaves[_j] 2 0>></div>
+<</if>>
+<<if $imageChoice == 1>>
+    <div class="imageRef medVector"><<SlaveArt $slaves[_k] 2 0>></div>
+<<else>>
+    <div class="imageRef medRender"><<SlaveArt $slaves[_k] 2 0>></div>
+<</if>>
+<<if $imageChoice == 1>>
+    <div class="imageRef medVector"><<SlaveArt $slaves[_l] 2 0>></div>
+<<else>>
+    <div class="imageRef medRender"><<SlaveArt $slaves[_l] 2 0>></div>
+<</if>>
 <</if>>
 /* 000-250-006 */
 

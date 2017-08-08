@@ -1,4 +1,6 @@
-:: SE nonlethal pit [nobr]
+:: SE nonlethal pit
+
+<<nobr>>
 
 <<set $nextButton = "Continue">>
 <<set $nextLink = "Scheduled Event">>
@@ -40,6 +42,9 @@
 	<<goto "Nonrandom Event">>
 <</if>>
 
+<</nobr>>\
+\
+<<nobr>>
 
 This week's pit fight is between $fighterOne.slaveName and $fighterTwo.slaveName. <<if $pitAudience == "none">>You are alone above $pitName, left to watch them square off in private.<<elseif $pitAudience == "free">>Your guests line the rim of $pitName, joking and betting.<<else>>The attendees line the rim of $pitName, betting and arguing.<</if>>
 
@@ -50,6 +55,10 @@ This week's pit fight is between $fighterOne.slaveName and $fighterTwo.slaveName
 <</if>>
 
 You review the rules - the combatants are wearing light gloves, and the fight will be nonlethal, with you as the judge. The winner will have the right to do anything she wishes to the loser, and earn two complete days of rest. You take a moment to look over your girls before giving the word.
+
+<</nobr>>
+
+<<nobr>>
 
 <<Deadliness $fighterOne>>
 <<set $fighterOneDeadliness = $deadliness>>
@@ -119,6 +128,10 @@ You review the rules - the combatants are wearing light gloves, and the fight wi
 <</if>>
 <</if>>
 
+<</nobr>>
+
+<<nobr>>
+
 <<Deadliness $fighterTwo>>
 <<set $fighterTwoDeadliness = $deadliness>>
 
@@ -186,6 +199,10 @@ You review the rules - the combatants are wearing light gloves, and the fight wi
 	She is unwilling to fight, but she knows the punishment for refusing to do so will be even worse.
 <</if>>
 <</if>>
+
+<</nobr>>
+
+<<nobr>>
 
 <<if $fighterTwoDeadliness > $fighterOneDeadliness>>
 	<<set _winner = $fighterTwo>>
@@ -348,6 +365,10 @@ You review the rules - the combatants are wearing light gloves, and the fight wi
 		<<set $rep += 25>>
 	<</if>>
 <</if>>
+
+<</nobr>>
+
+<<nobr>>
 
 You throw the victor's strap-on down to _winner.slaveName.
 
@@ -593,3 +614,5 @@ You throw the victor's strap-on down to _winner.slaveName.
 <<set $slaves[$i] = _loser>>
 <</if>>
 <</for>>
+
+<</nobr>>\
