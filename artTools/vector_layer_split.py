@@ -10,6 +10,8 @@ Usage Example:
 python3 vector_layer_split.py vector_source.svg tw ../src/art/vector/layers/
 '''
 
+# TODO: this should automatically invoke fixup first (as a module, after loading input)
+
 import lxml.etree as etree
 import sys
 import os
