@@ -40,6 +40,7 @@
 
 <<set $nextButton = "Continue", $nextLink = "AS Dump", $returnTo = "Next Week">>
 
+<<span id-"artFrame">>
 /* 000-250-006 */
 <<if $seeImages == 1>>
 <<if $imageChoice == 1>>
@@ -49,6 +50,7 @@
 <</if>>
 <</if>>
 /* 000-250-006 */
+<</span>>
 
 <<SlaveTitle $activeSlave>>
 <<Enunciate $activeSlave>>
@@ -4199,6 +4201,17 @@ You tell her kindly that you understand, and that she'll be trained to address t
 	<<set $activeSlave.trust -= 4>>
 	<<set $activeSlave.devotion += 4>>
 	<<AnalVCheck>>
+	<</replace>>
+	<<replace "#artFrame">>
+		/* 000-250-006 */
+		<<if $seeImages == 1>>
+		<<if $imageChoice == 1>>
+			<div class="imageRef lrgVector"><<SlaveArt $activeSlave 2 0>></div>
+		<<else>>
+			<div class="imageRef lrgRender"><<SlaveArt $activeSlave 2 0>></div>
+		<</if>>
+		<</if>>
+		/* 000-250-006 */
 	<</replace>>
 <</link>><<if ($activeSlave.anus == 0)>> //This option will take anal virginity//<</if>>
 <br><<link "Use her cage to torture her">>
