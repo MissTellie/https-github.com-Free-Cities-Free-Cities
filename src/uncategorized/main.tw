@@ -176,6 +176,9 @@ __''MAIN MENU''__&nbsp;&nbsp;&nbsp;&nbsp;//[[Summary Options]]//
 <<if $useTabs == 0>>
 	<<include "Slave Summary">>
 <<else>>
+	<<set $Flag = 0>>
+		<<include "Slave Summary">>
+	<<set $Flag = 1>>
 	<head>
 	<style>
 
@@ -225,7 +228,6 @@ __''MAIN MENU''__&nbsp;&nbsp;&nbsp;&nbsp;//[[Summary Options]]//
 	<body>
 
 	<div class="tab">
-		<button class="tablinks" onclick="opentab(event, 'Special')">Special</button>
 		<button class="tablinks" onclick="opentab(event, 'Resting')" id="defaultButton">Resting</button>
 		<button class="tablinks" onclick="opentab(event, 'stay confined')">Confined</button>
 		<button class="tablinks" onclick="opentab(event, 'take classes')">Students</button>
@@ -237,13 +239,6 @@ __''MAIN MENU''__&nbsp;&nbsp;&nbsp;&nbsp;//[[Summary Options]]//
 		<button class="tablinks" onclick="opentab(event, 'work a glory hole')">Gloryhole</button>
 		<button class="tablinks" onclick="opentab(event, 'be a subordinate slave')">Subordinate slaves</button>
 		<button class="tablinks" onclick="opentab(event, 'All')">All</button>	  
-	</div>
-
-	<div id="Special" class="tabcontent">
-	  <div class="content">
-		  <<set $slaveAssignmentTab = "special">>
-		  <<include "Slave Summary">>
-	</div>
 	</div>
 
 	<div id="Resting" class="tabcontent">
