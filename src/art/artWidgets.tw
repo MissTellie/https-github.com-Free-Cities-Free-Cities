@@ -97,9 +97,20 @@ passages ending in underscore contain further logic (selecting sizes or includin
 <<include Art_Vector_Chastity_Belt_>>
 <<include Art_Vector_Torso_Outfit_>> /* note: clothing covers chastity belts */
 <<include Art_Vector_Belly_>> /* includes navel piercing and belly-related clothing options */
+<<set _needBoobs = 1>>
+<<if $args[0].dick > 0>>
+<<if canAchieveErection($args[0])>>
+<<if $args[0].boobs < 12000>>	
+	<<include Art_Vector_Boob_>> /* includes areolae and piercings */
+	<<set _needBoobs = 0>>
+<</if>>
+<</if>>
+<</if>>
 <<include Art_Vector_Balls_>>
 <<include Art_Vector_Penis_>> /* includes penile chastity */
-<<include Art_Vector_Boob_>> /* includes areolae and piercings */
+<<if _needBoobs>>
+	<<include Art_Vector_Boob_>> /* includes areolae and piercings */
+<</if>>
 <<include Art_Vector_Clavicle>>
 <<include Art_Vector_Collar_>>
 <<include Art_Vector_Head_>> /* includes glasses */
