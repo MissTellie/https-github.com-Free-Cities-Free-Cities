@@ -204,12 +204,16 @@
 
 /* 000-250-006 */
 <<if $seeImages == 1>>
-    <div class="imageRef medImg">
-        <<SlaveArt $subSlave 2 0>>
-    </div>
-    <div class="imageRef medImg">
-        <<SlaveArt $activeSlave 2 0>>
-    </div>
+<<if $imageChoice == 1>>
+    <div class="imageRef medVector"><<SlaveArt $subSlave 2 0>></div>
+<<else>>
+    <div class="imageRef medRender"><<SlaveArt $subSlave 2 0>></div>
+<</if>>
+<<if $imageChoice == 1>>
+    <div class="imageRef medVector"><<SlaveArt $activeSlave 2 0>></div>
+<<else>>
+    <div class="imageRef medRender"><<SlaveArt $activeSlave 2 0>></div>
+<</if>>
 <</if>>
 /* 000-250-006 */
 
