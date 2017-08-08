@@ -46,7 +46,7 @@
 <<set _slaveName = $args[0].slaveName>>
 <<if $args[0].slaveSurname>><<set _slaveName += " " + $args[0].slaveSurname>><</if>>
 
-<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if ($seeImages == 1) && ($seeSummaryImages == 1)>><<if $imageChoice == 1>><div class="imageRef smlVector"><<SlaveArt $args[0] 1>></div><<else>><div class="imageRef smlRender"><<SlaveArt $args[0] 1>></div><</if>><</if>>
+<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if ($seeImages == 1) && ($seeSummaryImages == 1)>><div class="imageRef smlImg"><<SlaveArt $args[0] 1>></div><</if>>
 		<<print "[[_slaveName|Slave Interact][$activeSlave = $args[0] ]]">>
 /**/
 will
