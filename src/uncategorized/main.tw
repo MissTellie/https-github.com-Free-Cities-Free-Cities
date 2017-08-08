@@ -225,8 +225,8 @@ __''MAIN MENU''__&nbsp;&nbsp;&nbsp;&nbsp;//[[Summary Options]]//
 	<body>
 
 	<div class="tab">
-		<button class="tablinks" onclick="opentab(event, 'Special')" id="specialButton">Special</button>
-		<button class="tablinks" onclick="opentab(event, 'Resting')">Resting</button>
+		<button class="tablinks" onclick="opentab(event, 'Special')">Special</button>
+		<button class="tablinks" onclick="opentab(event, 'Resting')" id="defaultButton">Resting</button>
 		<button class="tablinks" onclick="opentab(event, 'stay confined')">Confined</button>
 		<button class="tablinks" onclick="opentab(event, 'take classes')">Students</button>
 		<button class="tablinks" onclick="opentab(event, 'please you')">Fucktoys</button>
@@ -338,7 +338,7 @@ __''MAIN MENU''__&nbsp;&nbsp;&nbsp;&nbsp;//[[Summary Options]]//
 		evt.currentTarget.className += " active";
 	}
 
-	document.getElementById("specialButton").click();
+	document.getElementById("defaultButton").click();
 	</script>
 
 	</body>
