@@ -15,7 +15,7 @@
 <<elseif (_effectiveWeek == 11)>>
 	<<set $Event = "assistant">>
 	<<goto "Assistant Events">>
-<<elseif (_effectiveWeek == 14)>>
+<<elseif (_effectiveWeek == 14)>>rivalry peacekeepers
 	<<set $Event = "bad curatives">>
 	<<goto "Generic Plot Events">>
 <<elseif (_effectiveWeek == 17)>>
@@ -44,6 +44,8 @@
 		<<goto "P mercenary romeo">>
 <<elseif (_effectiveWeek == 46) && ($mercenaries > 0)>>
 		<<goto "P raid invitation">>
+<<elseif _effectiveWeek == 54 && def $peacekeepers && $peacekeepers.attitude >= 0>>
+	<<goto "P peacekeepers deficit">>
 <<elseif (_effectiveWeek == 56)>>
 	<<set $collaboration = 0>>
 	<<set $traitor = 0>>
@@ -78,8 +80,6 @@
 	<<goto "Assistant Events">>
 <<elseif _effectiveWeek > 48 && $invasionVictory > 0 && $peacekeepers == 0>>
 	<<goto "P peacekeepers intro">>
-<<elseif _effectiveWeek > 54 && def $peacekeepers && $peacekeepers.attitude >= 0>>
-	<<goto "P peacekeepers deficit">>
 <<elseif ($arcologies[0].prosperity > 80) && ($TSS.schoolPresent+$GRI.schoolPresent+$SCP.schoolPresent+$LDE.schoolPresent+$TGA.schoolPresent+$TFS.schoolPresent == 0) && ($schoolSuggestion == 0)>>
 	<<goto "P school suggestion">>
 <<elseif ($assistantFSOptions == 0) && ($assistant > 0) && ($assistantAppearance != "normal") && ($arcologies[0].FSGenderRadicalistDecoration > 20 || $arcologies[0].FSGenderFundamentalistDecoration > 20 || $arcologies[0].FSPaternalistDecoration > 20 || $arcologies[0].FSDegradationistDecoration > 20 || $arcologies[0].FSBodyPuristDecoration > 20 || $arcologies[0].FSTransformationFetishistDecoration > 20 || $arcologies[0].FSYouthPreferentialistDecoration > 20 || $arcologies[0].FSMaturityPreferentialistDecoration > 20 || $arcologies[0].FSSlimnessEnthusiastDecoration > 20 || $arcologies[0].FSAssetExpansionistDecoration > 20 || $arcologies[0].FSPastoralistDecoration > 20 || $arcologies[0].FSPhysicalIdealistDecoration > 20 || $arcologies[0].FSChattelReligionistDecoration > 20 || $arcologies[0].FSRomanRevivalistDecoration > 20 || $arcologies[0].FSAztecRevivalistDecoration > 20 || $arcologies[0].FSEgyptianRevivalistDecoration > 20 || $arcologies[0].FSEdoRevivalistDecoration > 20 || $arcologies[0].FSArabianRevivalistDecoration > 20 || $arcologies[0].FSChineseRevivalistDecoration > 20)>>
@@ -93,7 +93,7 @@
 	<<goto "Assistant Events">>
 <<elseif (_effectiveWeek > 70) && ($corpIncorporated > 0) && ($rivalOwnerEnslaved > 0) && ($mercenaries >= 3) && ($mercenariesHelpCorp == 0)>>
 	<<goto "P Mercs Help Corp">>
-<<elseif _effectiveWeek > 75 && def $peacekeepers && $peacekeepers.strength < 50>>
+<<elseif _effectiveWeek > 75 && def $peacekeepers && $peacekeepers.strength < 50 && $rivalOwner == 0>>
 	<<goto "P peacekeepers independence">>
 <<elseif  def $peacekeepers && $peacekeepers.strength >= 50 && $peacekeepers.influenceAnnounced == 0>>
 	<<goto "P peacekeepers influence">>

@@ -242,7 +242,11 @@
 	<<if $showEWD != 0>>
 		<br><br>
 		/* 000-250-006 */
-		<<if $seeImages == 1 && $imageChoice == 0>><<if $imageChoice == 1>><div class="imageRef tinyVector"><<SlaveArt $slaves[$i] 0 0>></div><<else>><div class="imageRef tinyRender"><<SlaveArt $slaves[$i] 0 0>></div><</if>><</if>>
+		<<if $seeImages == 1 && $imageChoice == 0>>
+		<div class="imageRef smlImg">
+			<<SlaveArt $slaves[_FLs] 0 0>>
+		</div>
+		<</if>>
 		/* 000-250-006 */
 		''__@@.pink;$slaves[$i].slaveName@@__'' is serving as the Attendant in $spaName.
 		<br>&nbsp;&nbsp;&nbsp;
@@ -289,7 +293,11 @@
 	<<if $showEWD != 0>>
 		<br><br>
 		/* 000-250-006 */
-		<<if $seeImages == 1 && $imageChoice == 0>><<if $imageChoice == 1>><div class="imageRef tinyVector"><<SlaveArt $slaves[$i] 0 0>></div><<else>><div class="imageRef tinyRender"><<SlaveArt $slaves[$i] 0 0>></div><</if>><</if>>
+		<<if $seeImages == 1 && $imageChoice == 0>>
+		<div class="imageRef smlImg">
+			<<SlaveArt $slaves[$i] 0 0>>
+		</div>
+		<</if>>
 		/* 000-250-006 */
 		''__@@.pink;$slaves[$i].slaveName@@__''
 		<<if $slaves[$i].choosesOwnAssignment == 2>>
