@@ -2597,35 +2597,40 @@ will
 			<</if>>
 		<</if>>
 	<<elseif $args[0].sisters > 1>>
-		<<set $args[0].summary += "multiple sisters">>
+		<<set $args[0].summary += "Multiple sisters">>
 	<</if>>
-	<<if $args[0].relationship > 0 && _relationshipHandled != 1>>
-		<<set _ssj = $slaves.findIndex(function(s) { return s.ID == $args[0].relationshipTarget; })>>
-		<<if _ssj != -1>>
-			<<set $args[0].summary += $slaves[_ssj].slaveName>>
-			<<if $slaves[_ssj].slaveSurname>>
-				<<set $args[0].summary += " "+$slaves[_ssj].slaveSurname>>
+	<<if _relationshipHandled != 1>>
+	<<if $args[0].relationship>>
+		<<set $args[0].summary += "&nbsp;&nbsp;&nbsp;&nbsp;">>
+		<<if $args[0].relationship > 0>>
+			<<set _ssj = $slaves.findIndex(function(s) { return s.ID == $args[0].relationshipTarget; })>>
+			<<if _ssj != -1>>
+				<<set $args[0].summary += $slaves[_ssj].slaveName>>
+				<<if $slaves[_ssj].slaveSurname>>
+					<<set $args[0].summary += " "+$slaves[_ssj].slaveSurname>>
+				<</if>>
+				<<set $args[0].summary += "'s">>
+				<<switch $args[0].relationship>>
+				<<case 1>>
+					<<set $args[0].summary += " friend">>
+				<<case 2>>
+					<<set $args[0].summary += " BFF">>
+				<<case 3>>
+					<<set $args[0].summary += " FWB">>
+				<<case 4>>
+					<<set $args[0].summary += " lover">>
+				<<case 5>>
+					<<set $args[0].summary += " wife">>
+				<</switch>>
 			<</if>>
-			<<set $args[0].summary += "'s">>
-			<<switch $args[0].relationship>>
-			<<case 1>>
-				<<set $args[0].summary += " friend">>
-			<<case 2>>
-				<<set $args[0].summary += " BFF">>
-			<<case 3>>
-				<<set $args[0].summary += " FWB">>
-			<<case 4>>
-				<<set $args[0].summary += " lover">>
-			<<case 5>>
-				<<set $args[0].summary += " wife">>
-			<</switch>>
+		<<elseif $args[0].relationship == -3>>
+			<<set $args[0].summary += "Your wife">>
+		<<elseif $args[0].relationship == -2>>
+			<<set $args[0].summary += "E Bonded">>
+		<<elseif $args[0].relationship == -1>>
+			<<set $args[0].summary += "E Slut">>
 		<</if>>
-	<<elseif $args[0].relationship == -3>>
-		<<set $args[0].summary += "Your wife">>
-	<<elseif $args[0].relationship == -2>>
-		<<set $args[0].summary += "E Bonded">>
-	<<elseif $args[0].relationship == -1>>
-		<<set $args[0].summary += "E Slut">>
+	<</if>>
 	<</if>>
 	<<set $args[0].summary += "&nbsp;&nbsp;&nbsp;&nbsp;">>
 

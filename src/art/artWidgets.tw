@@ -50,8 +50,7 @@ $args[2]: icon UI Display for vector art, 1 for on.
 %/
 <<widget "SlaveArt">>
 
-<<if ndef $args[0].customImage>><<set $args[0].customImage = 0>><</if>>
-<<if $args[0].customImage != 0>>
+<<if $args[0].customImage>>
 
 <<set _fileName = "'resources/" + $args[0].customImage + ".png' ">>
 

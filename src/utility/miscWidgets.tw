@@ -2246,6 +2246,17 @@ This experience
 <</widget>>
 
 /*
+ Call as <<EventNameDelink>>
+ $args[0]: Slave.
+*/
+<<widget "EventNameDelink">>
+	<<replace "#name">>
+		$args[0].slaveName
+		<<if $args[0].slaveSurname>>$args[0].slaveSurname<</if>>
+	<</replace>>
+<</widget>>
+
+/*
  Call as <<DegradingName $slave>> where $slave is any slave object
   $args[0]: Slave
  */
