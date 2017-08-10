@@ -88,7 +88,7 @@ Image display
 <</if>>
 
 <br><br>
-''MAIN SCREEN OPTIONS''
+''MAIN ARCOLOGY SCREEN OPTIONS''
 <br>
 <<if $newModelUI != 0>>
 New Model UI @@.cyan;ENABLED@@. [[Disable|Options][$newModelUI = 0]]
@@ -149,15 +149,6 @@ End week report descriptive details are
 
 <br>
 
-&nbsp;&nbsp;&nbsp;&nbsp;Economic report neighbor details such as trade impacts on culture are
-<<if ($showNeighborDetails != 0)>>
-	@@.cyan;ENABLED@@. [[Disable|Options][$showNeighborDetails = 0]]
-<<else>>
-	@@.red;DISABLED@@. [[Enable|Options][$showNeighborDetails = 1]]
-<</if>>
-
-<br>
-
 End week report performance modifier descriptions are
 <<if ($showEWM == 0)>>
 	@@.red;DISABLED@@. [[Enable|Options][$showEWM = 1]]
@@ -167,14 +158,23 @@ End week report performance modifier descriptions are
 
 <br>
 
-<<if ($verboseDescriptions == 1)>>
-	Your master suite report ''will'' detail slave changes.
-	[[Disable|Options][$verboseDescriptions = 0]]
+Economic report neighbor details such as trade impacts on culture are
+<<if ($showNeighborDetails != 0)>>
+	@@.cyan;ENABLED@@. [[Disable|Options][$showNeighborDetails = 0]]
 <<else>>
-	Your master suite report ''will not'' detail slave changes.
-	[[Enable|Options][$verboseDescriptions = 1]]
+	@@.red;DISABLED@@. [[Enable|Options][$showNeighborDetails = 1]]
 <</if>>
 
+<br>
+
+Master Suite report details such as slave changes are
+<<if ($verboseDescriptions == 1)>>
+	@@.cyan;ENABLED@@. [[Disable|Options][$verboseDescriptions = 0]]
+<<else>>
+	@@.red;DISABLED@@. [[Enable|Options][$verboseDescriptions = 1]]
+<</if>>
+
+<br>
 
 /* Accordion 000-250-006 */
 <br />
