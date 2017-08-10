@@ -161,19 +161,6 @@
 	<</if>>
 	| //<<link "Re-apply Rules Assistant now (this will only check slaves in the Penthouse)">><<for _i = 0;_i < _SL;_i++>><<if $slaves[_i].assignmentVisible == 1 && $slaves[_i].useRulesAssistant == 1>><<set $slaves[_i].currentSummary = 0>><<CheckAutoRulesActivate $slaves[_i]>><<DefaultRules $slaves[_i]>><</if>><</for>><<goto "Main">><</link>>//
 <</if>>
-//<<if $sortSlavesMain != 0>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	Sort by:
-	<<if $sortSlavesBy != "devotion">>[[Devotion|Main][$sortSlavesBy = "devotion"]]<<else>>Devotion<</if>> |
-	<<if $sortSlavesBy != "name">>[[Name|Main][$sortSlavesBy = "name"]]<<else>>Name<</if>> |
-	<<if $sortSlavesBy != "assignment">>[[Assignment|Main][$sortSlavesBy = "assignment"]]<<else>>Assignment<</if>> |
-	<<if $sortSlavesBy != "seniority">>[[Seniority purchased|Main][$sortSlavesBy = "seniority"]]<<else>>Seniority<</if>> |
-	<<if $sortSlavesBy != "age">>[[Age|Main][$sortSlavesBy = "age"]]<<else>>Age<</if>>
-	&nbsp;&nbsp;&nbsp;&nbsp;
-	Sort: <<if $sortSlavesOrder != "descending">>[[Descending|Main][$sortSlavesOrder = "descending"]]<<else>>Descending<</if>> |
-	<<if $sortSlavesOrder != "ascending">>[[Ascending|Main][$sortSlavesOrder = "ascending"]]<<else>>Ascending<</if>>
-<</if>>//
-
 
 
 <<if $useTabs == 0>>
@@ -303,6 +290,7 @@
 	
 	<div id="Resting" class="tabcontent">
 		<div class="content">
+			//<<OptionsSortAsAppearsOnMain>>//
 			<<set $slaveAssignmentTab = "resting">>
 			<<include "Slave Summary">>
 		</div>
@@ -310,6 +298,7 @@
 	
 	<div id="stay confined" class="tabcontent">
 		<div class="content">
+			//<<OptionsSortAsAppearsOnMain>>//
 			<<set $slaveAssignmentTab = "stay confined">>
 			<<include "Slave Summary">>
 		</div>
@@ -317,6 +306,7 @@
 
 	<div id="take classes" class="tabcontent">
 		<div class="content">
+			//<<OptionsSortAsAppearsOnMain>>//
 			<<set $slaveAssignmentTab = "take classes">>
 			<<include "Slave Summary">>
 		</div>
@@ -369,6 +359,7 @@
 			<br>
 			/* End Italic event text */
 		
+			//<<OptionsSortAsAppearsOnMain>>//
 			<<set $slaveAssignmentTab = "please you">>
 			<<include "Slave Summary">>
 		</div>
@@ -376,6 +367,7 @@
 	
 	<div id="whore" class="tabcontent">
 		<div class="content">
+			//<<OptionsSortAsAppearsOnMain>>//
 			<<set $slaveAssignmentTab = "whore">>
 			<<include "Slave Summary">>
 		</div>
@@ -383,6 +375,7 @@
 	
 	<div id="serve the public" class="tabcontent">
 		<div class="content">
+			//<<OptionsSortAsAppearsOnMain>>//
 			<<set $slaveAssignmentTab = "serve the public">>
 			<<include "Slave Summary">>
 		</div>
@@ -390,6 +383,7 @@
 	
 	<div id="be a servant" class="tabcontent">
 		<div class="content">
+			//<<OptionsSortAsAppearsOnMain>>//
 			<<set $slaveAssignmentTab = "be a servant">>
 			<<include "Slave Summary">>
 		</div>
@@ -397,6 +391,7 @@
 	
 	<div id="get milked" class="tabcontent">
 		<div class="content">
+			//<<OptionsSortAsAppearsOnMain>>//
 			<<set $slaveAssignmentTab = "get milked">>
 			<<include "Slave Summary">>
 		</div>
@@ -404,6 +399,7 @@
 	
 	<div id="work a glory hole" class="tabcontent">
 		<div class="content">
+			//<<OptionsSortAsAppearsOnMain>>//
 			<<set $slaveAssignmentTab = "work a glory hole">>
 			<<include "Slave Summary">>
 		</div>
@@ -411,6 +407,7 @@
 	
 	<div id="be a subordinate slave" class="tabcontent">
 		<div class="content">
+			//<<OptionsSortAsAppearsOnMain>>//
 			<<set $slaveAssignmentTab = "be a subordinate slave">>
 			<<include "Slave Summary">>
 		</div>
@@ -418,6 +415,7 @@
 	
 	<div id="All" class="tabcontent">
 		<div class="content">
+			//<<OptionsSortAsAppearsOnMain>>//
 			<<set $slaveAssignmentTab = "all">>
 			<<include "Slave Summary">>
 		</div>
