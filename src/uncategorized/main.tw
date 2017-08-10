@@ -176,9 +176,9 @@ __''MAIN MENU''__&nbsp;&nbsp;&nbsp;&nbsp;//[[Summary Options]]//
 <<if $useTabs == 0>>
 	<<include "Slave Summary">>
 <<else>>
-	<<set $Flag = 0>>
+	/*<<set $Flag = 0>>
 		<<include "Slave Summary">>
-	<<set $Flag = 1>>
+	<<set $Flag = 1>>*/
 	<head>
 	<style>
 
@@ -228,7 +228,8 @@ __''MAIN MENU''__&nbsp;&nbsp;&nbsp;&nbsp;//[[Summary Options]]//
 	<body>
 
 	<div class="tab">
-		<button class="tablinks" onclick="opentab(event, 'Resting')" id="defaultButton">Resting</button>
+		<button class="tablinks" onclick="opentab(event, 'overview')" id="defaultButton">Overview</button>
+		<button class="tablinks" onclick="opentab(event, 'Resting')">Resting</button>
 		<button class="tablinks" onclick="opentab(event, 'stay confined')">Confined</button>
 		<button class="tablinks" onclick="opentab(event, 'take classes')">Students</button>
 		<button class="tablinks" onclick="opentab(event, 'please you')">Fucktoys</button>
@@ -241,6 +242,42 @@ __''MAIN MENU''__&nbsp;&nbsp;&nbsp;&nbsp;//[[Summary Options]]//
 		<button class="tablinks" onclick="opentab(event, 'All')">All</button>	  
 	</div>
 
+	<div id="overview" class="tabcontent">
+		<div class="content">
+			<<set $slaveAssignmentTab = "overview">>			
+			<<if _HG > -1>>
+				''__@@.pink;<<SlaveFullName $HeadGirl>>@@__'' is <<if ndef $headGirlFocus>>serving as your head girl<<if $arcologies[0].FSEgyptianRevivalistLaw == 1>> and Consort<</if>>.<<else>>your head girl<<if $arcologies[0].FSEgyptianRevivalistLaw == 1>> and Consort,<</if>> and is focusing on your slaves' $headGirlFocus.<</if>>
+				<span id="manageHG"><strong><<link "Manage Head Girl">><<goto "HG Select">><</link>></strong></span> @@.cyan;[H]@@
+				<<set $showOneSlave = "Head Girl">>
+				<<include "Slave Summary">>
+			<<elseif (_HG == -1) && ($slaves.length > 1)>>
+				You have not selected a Head Girl<<if $arcologies[0].FSEgyptianRevivalistLaw == 1>> and Consort<</if>>. <span id="manageHG"><strong><<link "Select one">><<goto "HG Select">><</link>></strong></span> @@.cyan;[H]@@
+			<<elseif (_HG == -1)>>
+				//You do not have enough slaves to keep a Head Girl//
+			<</if>>
+			<br><br>
+			<<if _RC > -1>>
+				''__@@.pink;<<SlaveFullName $Recruiter>>@@__'' is working to recruit girls.
+				<span id="manageRecruiter"><strong><<link "Manage Recruiter">><<goto "Recruiter Select">><</link>></strong></span> @@.cyan;[U]@@
+				<<set $showOneSlave = "recruit girls">>
+				<<include "Slave Summary">>
+			<<else>>
+				You have not selected a Recruiter.
+				<span id="manageRecruiter"><strong><<link "Select one">><<goto "Recruiter Select">><</link>></strong></span> @@.cyan;[U]@@
+			<</if>>
+			<<if ($dojo != 0)>>
+				<br><br>
+				<<if _BG > -1>>
+					''__@@.pink;<<SlaveFullName $Bodyguard>>@@__'' is serving as your bodyguard. <span id="manageBG"><strong><<link "Manage Bodyguard">><<goto "BG Select">><</link>></strong></span> @@.cyan;[B]@@
+					<<set $showOneSlave = "guard you">>
+					<<include "Slave Summary">>
+				<<else>>
+					You have not selected a Bodyguard. <span id="manageBG"><strong><<link "Select one">><<goto "BG Select">><</link>></strong></span> @@.cyan;[B]@@
+				<</if>>
+			<</if>>
+		</div>
+	</div>
+	
 	<div id="Resting" class="tabcontent">
 		<div class="content">
 			<<set $slaveAssignmentTab = "resting">>

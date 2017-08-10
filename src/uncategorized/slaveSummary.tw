@@ -13,10 +13,15 @@
 
 <<switch _Pass>>
 <<case "Main">>
-	<<if $Flag == 0>>
-		<<if (_Slave.assignment != "be your Head Girl")
-		&& (_Slave.assignment != "recruit girls")
-		&& (_Slave.assignment != "guard you")>><<continue>><</if>>
+	<<if $slaveAssignmentTab == "overview">>
+		<<if $showOneSlave == "Head Girl">>
+			<<if (_Slave.assignment != "be your Head Girl")>><<continue>><</if>>
+		<<elseif $showOneSlave == "recruit girls">>
+			<<if (_Slave.assignment != "recruit girls")>><<continue>><</if>>
+		<<elseif $showOneSlave == "guard you">>
+			<<if (_Slave.assignment != "guard you")>><<continue>><</if>>
+		<</if>>
+		
 	<<elseif $slaveAssignmentTab == "resting">>
 		<<if _Slave.assignment != "rest">><<continue>><</if>>
 	<<elseif $slaveAssignmentTab == "stay confined">>
