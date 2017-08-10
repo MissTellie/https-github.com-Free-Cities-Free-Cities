@@ -146,9 +146,14 @@
 <<if $seeFCNN == 1>><center>FCNN: <<print $fcnn.random()>> [[Hide|Main][$seeFCNN = 0]]</center><</if>>
 <<if ($seeDesk == 1) && ($seeFCNN == 0)>><br><</if>>
 
-__''MAIN MENU''__&nbsp;&nbsp;&nbsp;&nbsp;//[[Summary Options]]//
+<br>
+
+<<if $positionMainLinks >= 0>>
+	<<MainLinks>>
+<</if>>
+<br>
 <<if $rulesAssistantMain != 0>>
-	| //<span id="RAButton"><<link "Rules Assistant Options">><<goto "Rules Assistant">><</link>></span>// @@.cyan;[R]@@
+	//<span id="RAButton"><<link "Rules Assistant Options">><<goto "Rules Assistant">><</link>></span>// @@.cyan;[R]@@
 	<<if $rulesAssistantAuto != 1>>
 		| //<<link "Apply Rules Assistant at week end">><<set $rulesAssistantAuto = 1>><<goto "Main">><</link>>//
 	<<else>>
@@ -169,9 +174,7 @@ __''MAIN MENU''__&nbsp;&nbsp;&nbsp;&nbsp;//[[Summary Options]]//
 	<<if $sortSlavesOrder != "ascending">>[[Ascending|Main][$sortSlavesOrder = "ascending"]]<<else>>Ascending<</if>>
 <</if>>//
 
-<<if $positionMainLinks >= 0>>
-	<<MainLinks>>
-<</if>>
+
 
 <<if $useTabs == 0>>
 	<<include "Slave Summary">>
