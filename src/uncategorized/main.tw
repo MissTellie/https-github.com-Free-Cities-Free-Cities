@@ -274,6 +274,26 @@ __''MAIN MENU''__&nbsp;&nbsp;&nbsp;&nbsp;//[[Summary Options]]//
 				<<else>>
 					You have not selected a Bodyguard. <span id="manageBG"><strong><<link "Select one">><<goto "BG Select">><</link>></strong></span> @@.cyan;[B]@@
 				<</if>>
+					
+				/* Start Italic event text */
+				<<if (_BG > -1) && ($slaves[_BG].assignment == "guard you")>>
+					<<set $i = _BG>>
+					<br><<include "Use Guard">>
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;<<print "[[Use her mouth|FLips][$activeSlave = $slaves["+_BG+"], $nextButton = _j, $nextLink = _k, $returnTo = _l]]">>
+					| <<print "[[Play with her tits|FBoobs][$activeSlave = $slaves["+_BG+"], $nextButton = _j, $nextLink = _k, $returnTo = _l]]">>
+					<<if canDoVaginal($slaves[_BG])>>
+						| <<print "[[Fuck her|FVagina][$activeSlave = $slaves["+_BG+"], $nextButton = _j, $nextLink = _k, $returnTo = _l]]">>
+						<<if canDoAnal($slaves[_BG])>>
+						| <<print "[[Use her holes|FButt][$activeSlave = $slaves["+_BG+"],$nextButton = _j, $nextLink = _k, $returnTo = _l]]">>
+						<</if>>
+					<</if>>
+					<<if canDoAnal($slaves[_BG])>>
+					| <<print "[[Fuck her ass|FAnus][$activeSlave = $slaves["+_BG+"], $nextButton = _j, $nextLink = _k, $returnTo = _l]]">>
+					<</if>>
+					| <<print "[[Abuse her|FAbuse][$activeSlave = $slaves["+_BG+"], $nextButton = _j, $nextLink = _k, $returnTo = _l]]">>
+				<</if>>
+				/* End Italic event text */
+				
 			<</if>>
 		</div>
 	</div>
@@ -301,6 +321,51 @@ __''MAIN MENU''__&nbsp;&nbsp;&nbsp;&nbsp;//[[Summary Options]]//
 	
 	<div id="please you" class="tabcontent">
 		<div class="content">
+			/* Start Italic event text */
+			<<set _j = "Back", _k = "AS Dump", _l = "Main">>
+			<<for $i = 0; $i < _SL; $i++>>
+			<<if ($slaves[$i].assignment == "please you")>>
+				<br><<include "Toychest">> //In the coming week you plan to concentrate on
+				<<if $slaves[$i].fuckdoll == 0>>
+					<<if $slaves[$i].toyHole != "all her holes">>
+						her $slaves[$i].toyHole, but for now://
+						<br>&nbsp;&nbsp;&nbsp;&nbsp;<<print "[[Use her mouth|FLips][$activeSlave = $slaves["+$i+"], $nextButton = _j, $nextLink = _k, $returnTo = _l]]">> | <<print "[[Play with her tits|FBoobs][$activeSlave = $slaves["+$i+"], $nextButton = _j, $nextLink = _k, $returnTo = _l]]">>
+						<<if canDoVaginal($slaves[$i])>>
+							| <<print "[[Fuck her|FVagina][$activeSlave = $slaves["+$i+"], $nextButton = _j, $nextLink = _k, $returnTo = _l]]">>
+							<<if canDoAnal($slaves[$i])>>
+							| <<print "[[Use her holes|FButt][$activeSlave = $slaves["+$i+"], $nextButton = _j, $nextLink = _k, $returnTo = _l]]">>
+							<</if>>
+						<</if>>
+						<<if canDoAnal($slaves[$i])>>
+						| <<print "[[Fuck her ass|FAnus][$activeSlave = $slaves["+$i+"], $nextButton = _j, $nextLink = _k, $returnTo = _l]]">>
+						<</if>>
+						| <<print "[[Abuse her|FAbuse][$activeSlave = $slaves["+$i+"], $nextButton = _j, $nextLink = _k, $returnTo = _l]]">>
+					<<else>>
+						all of her holes equally, but for now://
+						<br>&nbsp;&nbsp;&nbsp;&nbsp;<<print "[[Use her mouth|FLips][$activeSlave = $slaves["+$i+"], $nextButton = _j, $nextLink = _k, $returnTo = _l]]">> | <<print "[[Play with her tits|FBoobs][$activeSlave = $slaves["+$i+"], $nextButton = _j, $nextLink = _k, $returnTo = _l]]">>
+						<<if canDoVaginal($slaves[$i])>>
+							| <<print "[[Fuck her|FVagina][$activeSlave = $slaves["+$i+"], $nextButton = _j, $nextLink = _k, $returnTo = _l]]">>
+							<<if canDoAnal($slaves[$i])>>
+							| <<print "[[Use her holes|FButt][$activeSlave = $slaves["+$i+"], $nextButton = _j, $nextLink = _k, $returnTo = _l]]">>
+							<</if>>
+						<</if>>
+						<<if canDoAnal($slaves[$i])>>
+						| <<print "[[Fuck her ass|FAnus][$activeSlave = $slaves["+$i+"], $nextButton = _j, $nextLink = _k, $returnTo = _l]]">>
+						<</if>>
+						| <<print "[[Abuse her|FAbuse][$activeSlave = $slaves["+$i+"], $nextButton = _j, $nextLink = _k, $returnTo = _l]]">>
+					<</if>>
+				<<else>>
+					<<if $slaves[$i].toyHole != "all her holes">>
+						its $slaves[$i].toyHole.
+					<<else>>
+						all of its holes.
+					<</if>>
+				<</if>>
+			<</if>>
+			<</for>>
+			<br>
+			/* End Italic event text */
+		
 			<<set $slaveAssignmentTab = "please you">>
 			<<include "Slave Summary">>
 		</div>
@@ -379,65 +444,6 @@ __''MAIN MENU''__&nbsp;&nbsp;&nbsp;&nbsp;//[[Summary Options]]//
 <<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>>
 <<if $positionMainLinks <= 0>>
 	<br><<MainLinks>>
-<</if>>
-
-<<set _j = "Back", _k = "AS Dump", _l = "Main">>
-<<for $i = 0; $i < _SL; $i++>>
-<<if ($slaves[$i].assignment == "please you")>>
-	<br><<include "Toychest">> //In the coming week you plan to concentrate on
-	<<if $slaves[$i].fuckdoll == 0>>
-		<<if $slaves[$i].toyHole != "all her holes">>
-			her $slaves[$i].toyHole, but for now://
-			<br>&nbsp;&nbsp;&nbsp;&nbsp;<<print "[[Use her mouth|FLips][$activeSlave = $slaves["+$i+"], $nextButton = _j, $nextLink = _k, $returnTo = _l]]">> | <<print "[[Play with her tits|FBoobs][$activeSlave = $slaves["+$i+"], $nextButton = _j, $nextLink = _k, $returnTo = _l]]">>
-			<<if canDoVaginal($slaves[$i])>>
-				| <<print "[[Fuck her|FVagina][$activeSlave = $slaves["+$i+"], $nextButton = _j, $nextLink = _k, $returnTo = _l]]">>
-				<<if canDoAnal($slaves[$i])>>
-				| <<print "[[Use her holes|FButt][$activeSlave = $slaves["+$i+"], $nextButton = _j, $nextLink = _k, $returnTo = _l]]">>
-				<</if>>
-			<</if>>
-			<<if canDoAnal($slaves[$i])>>
-			| <<print "[[Fuck her ass|FAnus][$activeSlave = $slaves["+$i+"], $nextButton = _j, $nextLink = _k, $returnTo = _l]]">>
-			<</if>>
-			| <<print "[[Abuse her|FAbuse][$activeSlave = $slaves["+$i+"], $nextButton = _j, $nextLink = _k, $returnTo = _l]]">>
-		<<else>>
-			all of her holes equally, but for now://
-			<br>&nbsp;&nbsp;&nbsp;&nbsp;<<print "[[Use her mouth|FLips][$activeSlave = $slaves["+$i+"], $nextButton = _j, $nextLink = _k, $returnTo = _l]]">> | <<print "[[Play with her tits|FBoobs][$activeSlave = $slaves["+$i+"], $nextButton = _j, $nextLink = _k, $returnTo = _l]]">>
-			<<if canDoVaginal($slaves[$i])>>
-				| <<print "[[Fuck her|FVagina][$activeSlave = $slaves["+$i+"], $nextButton = _j, $nextLink = _k, $returnTo = _l]]">>
-				<<if canDoAnal($slaves[$i])>>
-				| <<print "[[Use her holes|FButt][$activeSlave = $slaves["+$i+"], $nextButton = _j, $nextLink = _k, $returnTo = _l]]">>
-				<</if>>
-			<</if>>
-			<<if canDoAnal($slaves[$i])>>
-			| <<print "[[Fuck her ass|FAnus][$activeSlave = $slaves["+$i+"], $nextButton = _j, $nextLink = _k, $returnTo = _l]]">>
-			<</if>>
-			| <<print "[[Abuse her|FAbuse][$activeSlave = $slaves["+$i+"], $nextButton = _j, $nextLink = _k, $returnTo = _l]]">>
-		<</if>>
-	<<else>>
-		<<if $slaves[$i].toyHole != "all her holes">>
-			its $slaves[$i].toyHole.
-		<<else>>
-			all of its holes.
-		<</if>>
-	<</if>>
-<</if>>
-<</for>>
-
-<<if (_BG > -1) && ($slaves[_BG].assignment == "guard you")>>
-	<<set $i = _BG>>
-	<br><<include "Use Guard">>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;<<print "[[Use her mouth|FLips][$activeSlave = $slaves["+_BG+"], $nextButton = _j, $nextLink = _k, $returnTo = _l]]">>
-	| <<print "[[Play with her tits|FBoobs][$activeSlave = $slaves["+_BG+"], $nextButton = _j, $nextLink = _k, $returnTo = _l]]">>
-	<<if canDoVaginal($slaves[_BG])>>
-		| <<print "[[Fuck her|FVagina][$activeSlave = $slaves["+_BG+"], $nextButton = _j, $nextLink = _k, $returnTo = _l]]">>
-		<<if canDoAnal($slaves[_BG])>>
-		| <<print "[[Use her holes|FButt][$activeSlave = $slaves["+_BG+"],$nextButton = _j, $nextLink = _k, $returnTo = _l]]">>
-		<</if>>
-	<</if>>
-	<<if canDoAnal($slaves[_BG])>>
-	| <<print "[[Fuck her ass|FAnus][$activeSlave = $slaves["+_BG+"], $nextButton = _j, $nextLink = _k, $returnTo = _l]]">>
-	<</if>>
-	| <<print "[[Abuse her|FAbuse][$activeSlave = $slaves["+_BG+"], $nextButton = _j, $nextLink = _k, $returnTo = _l]]">>
 <</if>>
 
 <<set $activeSlave = Array.random($slaves)>>
