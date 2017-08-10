@@ -34,7 +34,7 @@ Image display
 	@@.cyan;ENABLED@@. [[Disable|Options][$seeImages = 0]]
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
 	<<if $imageChoice == 1>>
-		@@.yellow;Vector art by NoX@@ is selected. [[Switch to rendered imagepack|Options][$imageChoice = 0]]
+		@@.yellow;Vector art by NoX@@ is selected. [[Switch to rendered imagepack (requires image resources)|Options][$imageChoice = 0]]
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;
 		Highlights on shiny clothing
 		<<if $seeVectorArtHighlights == 1>>
@@ -43,7 +43,7 @@ Image display
 			@@.red;DISABLED@@. [[Enable|Options][$seeVectorArtHighlights = 1]]
 		<</if>>
 	<<else>>
-		@@.yellow;Rendered imagepack by Shokushu@@ is selected. [[Switch to vector art|Options][$imageChoice = 1]]
+		@@.yellow;Rendered imagepack by Shokushu@@ is selected. //Requires image resources.// [[Switch to vector art|Options][$imageChoice = 1]]
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;
 		Slave summary fetish images
 		<<if $seeMainFetishes == 1>>
@@ -67,7 +67,7 @@ Image display
 		@@.red;DISABLED@@. [[Enable|Options][$seeReportImages = 1]]
 	<</if>>
 <<else>>
-	@@.red;DISABLED@@. [[Enable|Options][$seeImages = 1]] //Requires image resources.//
+	@@.red;DISABLED@@. [[Enable|Options][$seeImages = 1]]
 <</if>>
 
 <br><br>
