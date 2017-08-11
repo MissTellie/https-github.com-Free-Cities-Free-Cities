@@ -241,7 +241,7 @@
 				<<set $showOneSlave = "Head Girl">>
 				<<include "Slave Summary">>
 			<<elseif (_HG == -1) && ($slaves.length > 1)>>
-				You have not selected a Head Girl<<if $arcologies[0].FSEgyptianRevivalistLaw == 1>> and Consort<</if>>. <span id="manageHG"><strong><<link "Select one">><<goto "HG Select">><</link>></strong></span> @@.cyan;[H]@@
+				You have @@.red;not@@ selected a Head Girl<<if $arcologies[0].FSEgyptianRevivalistLaw == 1>> and Consort<</if>>. <span id="manageHG"><strong><<link "Select one">><<goto "HG Select">><</link>></strong></span> @@.cyan;[H]@@
 			<<elseif (_HG == -1)>>
 				//You do not have enough slaves to keep a Head Girl//
 			<</if>>
@@ -252,7 +252,7 @@
 				<<set $showOneSlave = "recruit girls">>
 				<<include "Slave Summary">>
 			<<else>>
-				You have not selected a Recruiter.
+				You have @@.red;not@@ selected a Recruiter.
 				<span id="manageRecruiter"><strong><<link "Select one">><<goto "Recruiter Select">><</link>></strong></span> @@.cyan;[U]@@
 			<</if>>
 			<<if ($dojo != 0)>>
@@ -262,7 +262,7 @@
 					<<set $showOneSlave = "guard you">>
 					<<include "Slave Summary">>
 				<<else>>
-					You have not selected a Bodyguard. <span id="manageBG"><strong><<link "Select one">><<goto "BG Select">><</link>></strong></span> @@.cyan;[B]@@
+					You have @@.red;not@@ selected a Bodyguard. <span id="manageBG"><strong><<link "Select one">><<goto "BG Select">><</link>></strong></span> @@.cyan;[B]@@
 				<</if>>
 					
 				/* Start Italic event text */
