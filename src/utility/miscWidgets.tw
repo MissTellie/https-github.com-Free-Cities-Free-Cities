@@ -1454,7 +1454,9 @@ This experience
 		<</if>>
 	<</switch>>
 <<else>>
-	<<set $args[0] = $args[0].sort(function(a, b){return a.Index-b.Index})>>
+	<<set $slaveIndices = {}>>
+	<<set $slaves.forEach(function(s, i) { $slaveIndices[s.ID] = i; })>>
+	<<set $args[0] = $args[0].filter(function(s) { return $slaveIndices[s] !== undefined; }).sort(function(a, b) { return $slaveIndices[a] - $slaveIndices[b]; })>>
 <</if>>
 <</widget>>
 
