@@ -161,13 +161,8 @@ $brothelNameCaps
 	<<link "''Send a slave to $brothelName''">>
 		<<set $leaveBrothel = 0>>
 		<<replace #brothelComingGoing>>
-			<<if $leaveBrothel == 0>>
-				<<set $Flag to 0>>
-				<<include "Slave Summary">>
-			<<else>>
-				<<set $Flag = 1>>
-				<<include "Slave Summary">>
-			<</if>>
+			<<set $Flag = 0>>
+			<<include "Slave Summary">>
 		<</replace>>
 	<</link>>
 <</if>>
@@ -176,13 +171,8 @@ $brothelNameCaps
 	| <<link "''Bring a slave out of $brothelName''">>
 		<<set $leaveBrothel = 1>>
 		<<replace #brothelComingGoing>>
-			<<if $leaveBrothel == 0>>
-				<<set $Flag to 0>>
-				<<include "Slave Summary">>
-			<<else>>
-				<<set $Flag = 1>>
-				<<include "Slave Summary">>
-			<</if>>
+			<<set $Flag = 1>>
+			<<include "Slave Summary">>
 		<</replace>>
 	<</link>>
 <<else>>
@@ -191,7 +181,7 @@ $brothelNameCaps
 
 <span id="brothelComingGoing">
 <<if $leaveBrothel == 0>>
-	<<set $Flag to 0>>
+	<<set $Flag = 0>>
 	<<include "Slave Summary">>
 <<else>>
 	<<set $Flag = 1>>

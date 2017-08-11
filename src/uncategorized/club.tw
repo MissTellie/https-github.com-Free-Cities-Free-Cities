@@ -208,13 +208,8 @@ $clubNameCaps
 	<<link "''Send a slave to slut around $clubName''">>
 		<<set $leaveClub = 0>>
 		<<replace #clubComingGoing>>
-			<<if $leaveClub == 0>>
-				<<set $Flag to 0>>
-				<<include "Slave Summary">>
-			<<else>>
-				<<set $Flag = 1>>
-				<<include "Slave Summary">>
-			<</if>>
+			<<set $Flag = 0>>
+			<<include "Slave Summary">>
 		<</replace>>
 	<</link>>
 <</if>>
@@ -223,13 +218,8 @@ $clubNameCaps
 	| <<link "''Bring a slave out of $clubName''">>
 		<<set $leaveClub = 1>>
 		<<replace #clubComingGoing>>
-			<<if $leaveClub == 0>>
-				<<set $Flag to 0>>
-				<<include "Slave Summary">>
-			<<else>>
-				<<set $Flag = 1>>
-				<<include "Slave Summary">>
-			<</if>>
+			<<set $Flag = 1>>
+			<<include "Slave Summary">>
 		<</replace>>
 	<</link>>
 <<else>>
@@ -238,7 +228,7 @@ $clubNameCaps
 
 <span id="clubComingGoing">
 <<if $leaveClub == 0>>
-	<<set $Flag to 0>>
+	<<set $Flag = 0>>
 	<<include "Slave Summary">>
 <<else>>
 	<<set $Flag = 1>>

@@ -327,13 +327,8 @@ $masterSuiteNameCaps is furnished
 	<<link "''Send a slave to serve in $masterSuiteName''">>
 		<<set $leaveMasterSuite = 0>>
 		<<replace #masterSuiteComingGoing>>
-			<<if $leaveMasterSuite == 0>>
-				<<set $Flag to 0>>
-				<<include "Slave Summary">>
-			<<else>>
-				<<set $Flag = 1>>
-				<<include "Slave Summary">>
-			<</if>>
+			<<set $Flag = 0>>
+			<<include "Slave Summary">>
 		<</replace>>
 	<</link>>
 <</if>>
@@ -342,13 +337,8 @@ $masterSuiteNameCaps is furnished
 	| <<link "''Bring a slave out of the master suite''">>
 		<<set $leaveMasterSuite = 1>>
 		<<replace #masterSuiteComingGoing>>
-			<<if $leaveMasterSuite == 0>>
-				<<set $Flag to 0>>
-				<<include "Slave Summary">>
-			<<else>>
-				<<set $Flag = 1>>
-				<<include "Slave Summary">>
-			<</if>>
+			<<set $Flag = 1>>
+			<<include "Slave Summary">>
 		<</replace>>
 	<</link>>
 <<else>>
@@ -357,7 +347,7 @@ $masterSuiteNameCaps is furnished
 
 <span id="masterSuiteComingGoing">
 <<if $leaveMasterSuite == 0>>
-	<<set $Flag to 0>>
+	<<set $Flag = 0>>
 	<<include "Slave Summary">>
 <<else>>
 	<<set $Flag = 1>>

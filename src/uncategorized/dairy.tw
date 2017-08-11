@@ -445,13 +445,8 @@ $dairyNameCaps
 	<<link "''Send a slave to $dairyName''">>
 		<<set $leaveDairy = 0>>
 		<<replace #dairyComingGoing>>
-			<<if $leaveDairy == 0>>
-				<<set $Flag to 0>>
-				<<include "Slave Summary">>
-			<<else>>
-				<<set $Flag = 1>>
-				<<include "Slave Summary">>
-			<</if>>
+			<<set $Flag = 0>>
+			<<include "Slave Summary">>
 		<</replace>>
 	<</link>>
 <</if>>
@@ -460,13 +455,8 @@ $dairyNameCaps
 	| <<link "''Bring a slave out of $dairyName''">>
 		<<set $leaveDairy = 1>>
 		<<replace #dairyComingGoing>>
-			<<if $leaveDairy == 0>>
-				<<set $Flag to 0>>
-				<<include "Slave Summary">>
-			<<else>>
-				<<set $Flag = 1>>
-				<<include "Slave Summary">>
-			<</if>>
+			<<set $Flag = 1>>
+			<<include "Slave Summary">>
 		<</replace>>
 	<</link>>
 <<else>>
@@ -482,7 +472,7 @@ $dairyNameCaps
 
 <span id="dairyComingGoing">
 <<if $leaveDairy == 0>>
-	<<set $Flag to 0>>
+	<<set $Flag = 0>>
 	<<include "Slave Summary">>
 <<else>>
 	<<set $Flag = 1>>
