@@ -298,6 +298,7 @@
 	
 	<div id="stay confined" class="tabcontent">
 		<div class="content">
+			//Confinement is an assignment which accelerates breaking for disobedient slaves. If a slave isn't obedient enough to work and isn't unhealthy enough to need rest, this will make her useful sooner. Associated facility: <<if $cellblock>>[[Cellblock]]<<else>>Cellblock<</if>>//
 			//<<OptionsSortAsAppearsOnMain>>//
 			<<set $slaveAssignmentTab = "stay confined">>
 			<<include "Slave Summary">>
@@ -306,6 +307,7 @@
 
 	<div id="take classes" class="tabcontent">
 		<div class="content">
+			//Attending classes is an assignment which educates the slave, raising intelligence if possible. Being educated raises value and is useful for some jobs and leadership positions. Associated facility: <<if $schoolroom>>[[Schoolroom]]<<else>>Schoolroom<</if>>//
 			//<<OptionsSortAsAppearsOnMain>>//
 			<<set $slaveAssignmentTab = "take classes">>
 			<<include "Slave Summary">>
@@ -314,6 +316,8 @@
 	
 	<div id="please you" class="tabcontent">
 		<div class="content">
+			//Fucktoy service is an assignment which keeps the slave close under the player's eye; mostly just for fun, but fucktoys do improve reputation based on their beauty, and the player character's attention can be targeted to areas of the slave's body with possible fetish effects on happy slaves. Associated facility: <<if $masterSuite>>[[Master Suite]]<<else>>Master Suite<</if>> //
+			<br>
 			/* Start Italic event text */
 			<<set _j = "Back", _k = "AS Dump", _l = "Main">>
 			<<for $i = 0; $i < _SL; $i++>>
@@ -354,11 +358,10 @@
 						all of its holes.
 					<</if>>
 				<</if>>
-			<</if>>
+				<</if>>
 			<</for>>
-			<br>
 			/* End Italic event text */
-		
+			<br>
 			//<<OptionsSortAsAppearsOnMain>>//
 			<<set $slaveAssignmentTab = "please you">>
 			<<include "Slave Summary">>
@@ -367,6 +370,7 @@
 	
 	<div id="whore" class="tabcontent">
 		<div class="content">
+			//Whoring is an assignment which makes money based on a slave's beauty, sexual appeal, and skills. Good whores take a long time to train and beautify but become very profitable. Associated facility: <<if $brothel>>[[Brothel]]<<else>>Brothel<</if>>//
 			//<<OptionsSortAsAppearsOnMain>>//
 			<<set $slaveAssignmentTab = "whore">>
 			<<include "Slave Summary">>
@@ -375,6 +379,7 @@
 	
 	<div id="serve the public" class="tabcontent">
 		<div class="content">
+			//Public Service is an assignment which increases reputation based on a slave's beauty, sexual appeal, and skills. Very similar to whoring, but for reputation rather than money. Associated facility: <<if $club>>[[Club]]<<else>>Club<</if>> //
 			//<<OptionsSortAsAppearsOnMain>>//
 			<<set $slaveAssignmentTab = "serve the public">>
 			<<include "Slave Summary">>
@@ -383,6 +388,7 @@
 	
 	<div id="be a servant" class="tabcontent">
 		<div class="content">
+			//Servitude is an assignment which reduces your upkeep based on the slave's devotion. Available at lower obedience than other jobs, is insensitive to the quality of a slave's body, and doesn't require skills; a good transitional assignment. Unusually, low sex drive is advantageous as a servant, since it reduces distraction. Lactating slaves are slightly better at this job, since they can contribute to their fellow slaves' nutrition. Associated facility: <<if $servantsQuarters>>[[Servants' Quarters]]<<else>>Servant's Quarters<</if>>//
 			//<<OptionsSortAsAppearsOnMain>>//
 			<<set $slaveAssignmentTab = "be a servant">>
 			<<include "Slave Summary">>
@@ -391,6 +397,7 @@
 	
 	<div id="get milked" class="tabcontent">
 		<div class="content">
+			//Getting milked is an assignment which makes money from lactation based on a slave's breasts, health, and hormonal status. Cows with balls will also give semen. Creates profit quickly from slaves with big tits or balls. Associated facility: <<if $dairy>>[[Dairy]]<<else>>Dairy<</if>>//
 			//<<OptionsSortAsAppearsOnMain>>//
 			<<set $slaveAssignmentTab = "get milked">>
 			<<include "Slave Summary">>
@@ -399,6 +406,7 @@
 	
 	<div id="work a glory hole" class="tabcontent">
 		<div class="content">
+			//Occupying a glory hole is an assignment which makes money off slaves regardless of their beauty, skills, or feelings; not fun or Healthy. Very powerful for extracting ¤ out of otherwise useless slaves.  Associated facility: <<if $arcade>>[[Arcade]]<<else>>Arcade<</if>>//
 			//<<OptionsSortAsAppearsOnMain>>//
 			<<set $slaveAssignmentTab = "work a glory hole">>
 			<<include "Slave Summary">>
@@ -407,6 +415,7 @@
 	
 	<div id="be a subordinate slave" class="tabcontent">
 		<div class="content">
+			//Sexual servitude is an assignment which pleases other slaves by forcing the slave to service them sexually. Useful for driving the targeted slave's devotion up quickly. //
 			//<<OptionsSortAsAppearsOnMain>>//
 			<<set $slaveAssignmentTab = "be a subordinate slave">>
 			<<include "Slave Summary">>
