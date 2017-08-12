@@ -290,10 +290,12 @@
 	
 	<div id="Resting" class="tabcontent">
 		<div class="content">
-			//<<encyclopediaEntryRest>>
-			Associated facilities:
-			<<if $spa>>[[Spa]],<<else>>Spa,<</if>>
-			<<if $clinic>>[[Clinic]]<<else>>Clinic<</if>>//
+			<<if $showTipsFromEncy != 0>>
+				//<<encyclopediaEntryRest>>
+				Associated facilities:
+				<<if $spa>>[[Spa]],<<else>>Spa,<</if>>
+				<<if $clinic>>[[Clinic]]<<else>>Clinic<</if>>//
+			<</if>>
 			//<<OptionsSortAsAppearsOnMain>>//
 			<<set $slaveAssignmentTab = "resting">>
 			<<include "Slave Summary">>
@@ -302,8 +304,10 @@
 	
 	<div id="stay confined" class="tabcontent">
 		<div class="content">
-			//<<encyclopediaEntryConfinement>>
-			Associated facility: <<if $cellblock>>[[Cellblock]]<<else>>Cellblock<</if>>//
+			<<if $showTipsFromEncy != 0>>
+				//<<encyclopediaEntryConfinement>>
+				Associated facility: <<if $cellblock>>[[Cellblock]]<<else>>Cellblock<</if>>//
+			<</if>>
 			//<<OptionsSortAsAppearsOnMain>>//
 			<<set $slaveAssignmentTab = "stay confined">>
 			<<include "Slave Summary">>
@@ -312,8 +316,10 @@
 
 	<div id="take classes" class="tabcontent">
 		<div class="content">
-			//<<encyclopediaEntryAttendingClasses>>
-			Associated facility: <<if $schoolroom>>[[Schoolroom]]<<else>>Schoolroom<</if>>//
+			<<if $showTipsFromEncy != 0>>
+				//<<encyclopediaEntryAttendingClasses>>
+				Associated facility: <<if $schoolroom>>[[Schoolroom]]<<else>>Schoolroom<</if>>//
+			<</if>>
 			//<<OptionsSortAsAppearsOnMain>>//
 			<<set $slaveAssignmentTab = "take classes">>
 			<<include "Slave Summary">>
@@ -322,8 +328,10 @@
 	
 	<div id="please you" class="tabcontent">
 		<div class="content">
-			//<<encyclopediaEntryFucktoy>>
-			Associated facility: <<if $masterSuite>>[[Master Suite]]<<else>>Master Suite<</if>> //
+			<<if $showTipsFromEncy != 0>>
+				//<<encyclopediaEntryFucktoy>>
+				Associated facility: <<if $masterSuite>>[[Master Suite]]<<else>>Master Suite<</if>> //
+			<</if>>
 			<br>
 			/* Start Italic event text */
 			<<set _j = "Back", _k = "AS Dump", _l = "Main">>
@@ -377,8 +385,10 @@
 	
 	<div id="whore" class="tabcontent">
 		<div class="content">
-			//<<encyclopediaEntryWhoring>>
-			Associated facility: <<if $brothel>>[[Brothel]]<<else>>Brothel<</if>>//
+			<<if $showTipsFromEncy != 0>>
+				//<<encyclopediaEntryWhoring>>
+				Associated facility: <<if $brothel>>[[Brothel]]<<else>>Brothel<</if>>//
+			<</if>>
 			//<<OptionsSortAsAppearsOnMain>>//
 			<<set $slaveAssignmentTab = "whore">>
 			<<include "Slave Summary">>
@@ -387,8 +397,10 @@
 	
 	<div id="serve the public" class="tabcontent">
 		<div class="content">
-			//<<encyclopediaEntryPublicService>>
-			Associated facility: <<if $club>>[[Club]]<<else>>Club<</if>> //
+			<<if $showTipsFromEncy != 0>>
+				//<<encyclopediaEntryPublicService>>
+				Associated facility: <<if $club>>[[Club]]<<else>>Club<</if>> //
+			<</if>>
 			//<<OptionsSortAsAppearsOnMain>>//
 			<<set $slaveAssignmentTab = "serve the public">>
 			<<include "Slave Summary">>
@@ -397,8 +409,10 @@
 	
 	<div id="be a servant" class="tabcontent">
 		<div class="content">
-			//<<encyclopediaEntryServitude>>
-			Associated facility: <<if $servantsQuarters>>[[Servants' Quarters]]<<else>>Servant's Quarters<</if>>//
+			<<if $showTipsFromEncy != 0>>
+				//<<encyclopediaEntryServitude>>
+				Associated facility: <<if $servantsQuarters>>[[Servants' Quarters]]<<else>>Servant's Quarters<</if>>//
+			<</if>>
 			//<<OptionsSortAsAppearsOnMain>>//
 			<<set $slaveAssignmentTab = "be a servant">>
 			<<include "Slave Summary">>
@@ -407,7 +421,9 @@
 	
 	<div id="get milked" class="tabcontent">
 		<div class="content">
-			//<<encyclopediaEntryMilking>> Associated facility: <<if $dairy>>[[Dairy]]<<else>>Dairy<</if>>//
+			<<if $showTipsFromEncy != 0>>
+				//<<encyclopediaEntryMilking>> Associated facility: <<if $dairy>>[[Dairy]]<<else>>Dairy<</if>>//
+			<</if>>
 			//<<OptionsSortAsAppearsOnMain>>//
 			<<set $slaveAssignmentTab = "get milked">>
 			<<include "Slave Summary">>
@@ -416,8 +432,10 @@
 	
 	<div id="work a glory hole" class="tabcontent">
 		<div class="content">
-			//<<encyclopediaEntryGloryHole>>
-			Associated facility: <<if $arcade>>[[Arcade]]<<else>>Arcade<</if>>//
+			<<if $showTipsFromEncy != 0>>
+				//<<encyclopediaEntryGloryHole>>
+				Associated facility: <<if $arcade>>[[Arcade]]<<else>>Arcade<</if>>//
+			<</if>>
 			//<<OptionsSortAsAppearsOnMain>>//
 			<<set $slaveAssignmentTab = "work a glory hole">>
 			<<include "Slave Summary">>
@@ -426,7 +444,9 @@
 	
 	<div id="be a subordinate slave" class="tabcontent">
 		<div class="content">
-			//<<encyclopediaEntrySexualServitude>>//
+			<<if $showTipsFromEncy != 0>>
+				//<<encyclopediaEntrySexualServitude>>//
+			<</if>>
 			//<<OptionsSortAsAppearsOnMain>>//
 			<<set $slaveAssignmentTab = "be a subordinate slave">>
 			<<include "Slave Summary">>
