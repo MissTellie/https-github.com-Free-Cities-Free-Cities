@@ -63,6 +63,80 @@
 	<<if $personalAttention == _Slave.ID>>''@@.lightcoral;PA@@''<</if>>
 	[[_slaveName|Slave Interact][$activeSlave = $slaves[_ssi]]]
 
+	<<if ($displayAssignments == 1) && (_Slave.ID != $HeadGirl.ID) && (_Slave.ID != $Recruiter.ID) && (_Slave.ID != $Bodyguard.ID)>>
+		<span style="float:right">
+		//Improve://
+
+		<<if _Slave.assignment != "rest">>
+			[[Rest|Rest Workaround][$i = _ssi]]
+		<<else>>
+			Rest
+		<</if>>
+
+		<<if _Slave.fuckdoll == 0>>
+			<<if (_Slave.assignment != "stay confined")>>
+				| [[Confinement|Confinement Workaround][$i = _ssi]]
+			<<else>>
+				| Confinement
+			<</if>>
+			<<if (!_Slave.intelligenceImplant && _Slave.fetish != "mindbroken" && (_Slave.devotion >= -20 || _Slave.trust < -50 || (_Slave.trust < -20 && _Slave.devotion >= -50)))>>
+				<<if (_Slave.assignment != "take classes")>>
+					| [[Classes|Classes Workaround][$i = _ssi]]
+				<<else>>
+					| Classes
+				<</if>>
+			<</if>>
+		<</if>>
+
+		&nbsp;&nbsp;&nbsp;&nbsp;
+		//Work://
+
+		<<if _Slave.assignment != "please you">>
+			[[Fucktoy|Fucktoy Workaround][$i = _ssi]]
+		<<else>>
+			Fucktoy
+		<</if>>
+
+		<<if !_Slave.fuckdoll>>
+			<<if _Slave.assignment != "whore">>
+				| [[Whore|Whore Workaround][$i = _ssi]]
+			<<else>>
+				| Whore
+			<</if>>
+
+			<<if (_Slave.assignment != "serve the public")>>
+				| [[Public Servant|Public Servant Workaround][$i = _ssi]]
+			<<else>>
+				| Public Servant
+			<</if>>
+
+			<<if (canWalk(_Slave) && canSee(_Slave) && (_Slave.devotion >= -20 || _Slave.trust < -50 || (_Slave.trust < -20 && _Slave.devotion >= -50)))>>
+				<<if _Slave.assignment != "be a servant">>
+					| [[House Servant|Servant Workaround][$i = _ssi]]
+				<<else>>
+					| House Servant
+				<</if>>
+			<</if>>
+
+			<<if (_Slave.lactation > 0 || _Slave.balls > 0)>>
+				<<if (_Slave.assignment != "get milked")>>
+					| [[Milked|Milking Workaround][$i = _ssi]]
+				<<else>>
+					| Milked
+				<</if>>
+			<</if>>
+		<</if>>
+
+		<<if _Slave.indentureRestrictions <= 0>>
+			<<if _Slave.assignment != "work a glory hole">>
+				| [[Gloryhole|Hole Workaround][$i = _ssi]]
+			<<else>>
+				| Gloryhole
+			<</if>>
+		<</if>>
+		</span>
+	<</if>>
+
 <<case "Personal Attention Select">>
 	<<if (_Slave.assignmentVisible != 1) || (_Slave.fuckdoll > 0)>><<continue>><</if>>
 	<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if ($seeImages == 1) && ($seeSummaryImages == 1)>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>>
