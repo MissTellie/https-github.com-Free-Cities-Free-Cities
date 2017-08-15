@@ -3,14 +3,11 @@
 <<if ndef $HGSeverity>>
 	<<set $HGSeverity = 0>>
 <</if>>
-<<set $activeSlave.tired = 1>>
-<<set $HGEnergy -= 1>>
 <<set _effectiveness = 15+$HeadGirl.age+($HeadGirl.intelligence*10)-($HeadGirl.accent*5)+($HGSeverity*10)+($activeSlave.intelligence*10)-($activeSlave.accent*5)>>
-<<if $HeadGirl.sexualFlaw == "abusive">>
-<<if $HGSeverity >= 0>>
+<<if $HeadGirl.sexualFlaw == "abusive" && $HGSeverity >= 0>>
 	<<set _effectiveness += 10>>
 <</if>>
-<</if>>
+<<set $activeSlave.tired = 1>>
 
 &nbsp;&nbsp;&nbsp;&nbsp;''Your head girl __@@.pink;$HeadGirl.slaveName@@__'' notices that ''__@@.pink;$activeSlave.slaveName@@__''
 <<if $HGtraining == "health">>
