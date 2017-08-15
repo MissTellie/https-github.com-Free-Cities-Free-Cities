@@ -287,7 +287,7 @@ will
 	<<else>>
 		<<set $args[0].summary += "'' ">>
 	<</if>>
-	
+
 <<elseif $abbreviateDiet == 2>>
 	<<set _color = 0>>
 	<<if $args[0].weight < -95>>
@@ -325,7 +325,7 @@ will
 	<<else>>
 		<<set $args[0].summary += " ">>
 	<</if>>
-	
+
 <</if>>
 
 <<if $abbreviateDiet == 1>>
@@ -956,7 +956,7 @@ will
 	<<if $args[0].anus == 0>>
 		<<set $args[0].summary += "@@ @@.lime;Anal virgin.@@ @@.pink;">>
 	<</if>>
-	
+
 	<<if ($args[0].vagina > 3) && ($args[0].anus > 3)>>
 		<<set $args[0].summary += "Blown out holes.">>
 	<<elseif ($args[0].vagina > 2) && ($args[0].anus > 2)>>
@@ -970,7 +970,7 @@ will
 	<<elseif $args[0].anus > 2>>
 		<<set $args[0].summary += "Gaping anus.">>
 	<</if>>
-	
+
 <</if>>
 /**/
 <<if $abbreviatePhysicals == 1>>
@@ -1696,94 +1696,53 @@ will
 <</if>>
 
 <<if $abbreviateMental == 1>>
-	<<if $args[0].fetish != "mindbroken">>
-	<<if $args[0].fetishKnown == 1>>
-	<<set $args[0].summary += "@@.lightcoral;">>
-	<<switch $args[0].fetish>>
-	<<case "submissive">>
-	<<if $args[0].fetishStrength > 95>>
-		<<set $args[0].summary += "Sub++">>
-	<<elseif $args[0].fetishStrength > 60>>
-		<<set $args[0].summary += "Sub+">>
-	<<else>>
-		<<set $args[0].summary += "Sub">>
+	<<if ($args[0].fetishKnown && $args[0].fetish != "mindbroken")>>
+		<<set $args[0].summary += "@@.lightcoral;">>
+		<<switch $args[0].fetish>>
+		<<case "submissive">>
+			<<set $args[0].summary += "Sub">>
+		<<case "cumslut">>
+			<<set $args[0].summary += "Oral">>
+		<<case "humiliation">>
+			<<set $args[0].summary += "Humil">>
+		<<case "buttslut">>
+			<<set $args[0].summary += "Anal">>
+		<<case "boobs">>
+			<<set $args[0].summary += "Boobs">>
+		<<case "sadist">>
+			<<set $args[0].summary += "Sadist">>
+		<<case "masochist">>
+			<<set $args[0].summary += "Pain">>
+		<<case "dom">>
+			<<set $args[0].summary += "Dom">>
+		<<case "pregnancy">>
+			<<set $args[0].summary += "Preg">>
+		<<default>>
+			<<set $args[0].summary += "Vanilla">>
+		<</switch>>
+		<<if ($args[0].fetishStrength > 95)>>
+			<<set $args[0].summary += "++">>
+		<<elseif ($args[0].fetishStrength > 60)>>
+			<<set $args[0].summary += "+">>
+		<</if>>
+
+		<<if $summaryStats>>
+			<<set $args[0].summary += "["+$args[0].fetishStrength+"]">>
+		<</if>>
+		<<set $args[0].summary += "@@ ">>
 	<</if>>
-	<<case "cumslut">>
-	<<if $args[0].fetishStrength > 95>>
-		<<set $args[0].summary += "Oral++">>
-	<<elseif $args[0].fetishStrength > 60>>
-		<<set $args[0].summary += "Oral+">>
-	<<else>>
-		<<set $args[0].summary += "Oral">>
-	<</if>>
-	<<case "humiliation">>
-	<<if $args[0].fetishStrength > 95>>
-		<<set $args[0].summary += "Humil++">>
-	<<elseif $args[0].fetishStrength > 60>>
-		<<set $args[0].summary += "Humil+">>
-	<<else>>
-		<<set $args[0].summary += "Humil">>
-	<</if>>
-	<<case "buttslut">>
-	<<if $args[0].fetishStrength > 95>>
-		<<set $args[0].summary += "Anal++">>
-	<<elseif $args[0].fetishStrength > 60>>
-		<<set $args[0].summary += "Anal+">>
-	<<else>>
-		<<set $args[0].summary += "Anal">>
-	<</if>>
-	<<case "boobs">>
-	<<if $args[0].fetishStrength > 95>>
-		<<set $args[0].summary += "Boobs++">>
-	<<elseif $args[0].fetishStrength > 60>>
-		<<set $args[0].summary += "Boobs+">>
-	<<else>>
-		<<set $args[0].summary += "Boobs">>
-	<</if>>
-	<<case "sadist">>
-	<<if $args[0].fetishStrength > 95>>
-		<<set $args[0].summary += "Sadist++">>
-	<<elseif $args[0].fetishStrength > 60>>
-		<<set $args[0].summary += "Sadist+">>
-	<<else>>
-		<<set $args[0].summary += "Sadist">>
-	<</if>>
-	<<case "masochist">>
-	<<if $args[0].fetishStrength > 95>>
-		<<set $args[0].summary += "Pain++">>
-	<<elseif $args[0].fetishStrength > 60>>
-		<<set $args[0].summary += "Pain+">>
-	<<else>>
-		<<set $args[0].summary += "Pain">>
-	<</if>>
-	<<case "dom">>
-	<<if $args[0].fetishStrength > 95>>
-		<<set $args[0].summary += "Dom++">>
-	<<elseif $args[0].fetishStrength > 60>>
-		<<set $args[0].summary += "Dom+">>
-	<<else>>
-		<<set $args[0].summary += "Dom">>
-	<</if>>
-	<<case "pregnancy">>
-	<<if $args[0].fetishStrength > 95>>
-		<<set $args[0].summary += "Preg++">>
-	<<elseif $args[0].fetishStrength > 60>>
-		<<set $args[0].summary += "Preg+">>
-	<<else>>
-		<<set $args[0].summary += "Preg">>
-	<</if>>
-	<<default>>
-		<<set $args[0].summary += "Vanilla">>
-	<</switch>>
-	
-	<<if $summaryStats>>
-		<<set $args[0].summary += "["+$args[0].fetishStrength+"] ">>
-	<</if>>
-	<<set $args[0].summary += "@@ ">>
-	<</if>>
-	
-	<<if $args[0].attrKnown == 1>>
-		<<set _stats = $summaryStats, _comma = 1, _drive = 1>>
+
+	<<if $args[0].attrKnown>>
+		<<set _omnisexual = ($args[0].attrXY > 95 && $args[0].attrXX > 95)>>
+		<<set _nymphomaniac = ($args[0].energy > 95)>>
+		<<if _omnisexual>>
+			<<if _nymphomaniac>>
+				<<set $args[0].summary += "@@.green;Omni+Nympho!!@@ ">>
+			<<else>>
+				<<set $args[0].summary += "@@.green;Omni!@@ ">>
+			<</if>>
+		<</if>>
+
 		<<if $args[0].attrXY <= 5>>
 			<<set $args[0].summary += "@@.red;XY---">>
 		<<elseif $args[0].attrXY <= 15>>
@@ -1796,23 +1755,17 @@ will
 			<<set $args[0].summary += "@@.green;XY+">>
 		<<elseif $args[0].attrXY <= 95>>
 			<<set $args[0].summary += "@@.green;XY++">>
-		<<elseif $args[0].attrXX > 95>>
-			<<set _stats = 0, _comma = 0>>
-			<<if $args[0].energy <= 95>>
-				<<set $args[0].summary += "@@.green;Omni!">>
-			<<else>>
-				<<set _drive = 0>>
-				<<set $args[0].summary += "@@.green;Omni+Nympho!!">>
-			<</if>>
-		<<else>>
+		<<elseif !_omnisexual>>
 			<<set $args[0].summary += "@@.green;XY+++">>
 		<</if>>
-		<<if _stats == 1>>
-			<<set $args[0].summary += "["+$args[0].attrXY+"]@@ ">>
-		<<else>>
+
+		<<if !_omnisexual>>
+			<<if $summaryStats>>
+				<<set $args[0].summary += "["+$args[0].attrXY+"]">>
+			<</if>>
 			<<set $args[0].summary += "@@ ">>
 		<</if>>
-	
+
 		<<if $args[0].attrXX <= 5>>
 			<<set $args[0].summary += "@@.red;XX---">>
 		<<elseif $args[0].attrXX <= 15>>
@@ -1825,43 +1778,39 @@ will
 			<<set $args[0].summary += "@@.green;XX+">>
 		<<elseif $args[0].attrXX <= 95>>
 			<<set $args[0].summary += "@@.green;XX++">>
-		<<elseif $args[0].attrXY <= 95>>
+		<<elseif !_omnisexual>>
 			<<set $args[0].summary += "@@.green;XX+++">>
-		<<else>>
-			<<set _stats = 0, _comma = 0>>
 		<</if>>
-		<<if _stats == 1>>
-			<<set $args[0].summary += "["+$args[0].attrXX+"]">>
-		<</if>>
-		<<if _comma == 1>>
+
+		<<if !_omnisexual>>
+			<<if $summaryStats>>
+				<<set $args[0].summary += "["+$args[0].attrXX+"]">>
+			<</if>>
 			<<set $args[0].summary += "@@ ">>
 		<</if>>
-	
-		<<if _drive == 1>>
-			<<set _stats = $summaryStats>>
-			<<if $args[0].energy > 95>>
-				<<set _stats = 0>>
-				<<if ($args[0].attrXY <= 95) || ($args[0].attrXX <= 95)>>
-					<<set $args[0].summary += "@@.green;Nympho!">>
-				<</if>>
-			<<elseif $args[0].energy > 80>>
-				<<set $args[0].summary += "@@.green;SD++">>
-			<<elseif $args[0].energy > 60>>
-				<<set $args[0].summary += "@@.green;SD+">>
-			<<elseif $args[0].energy > 40>>
-				<<set $args[0].summary += "@@.yellow;SD ">>
-			<<elseif $args[0].energy > 20>>
-				<<set $args[0].summary += "@@.red;SD-">>
-			<<else>>
-				<<set $args[0].summary += "@@.red;SD--">>
-			<</if>>
-			<<if _stats == 1>>
+
+		<<if $args[0].energy <= 20>>
+			<<set $args[0].summary += "@@.red;SD--">>
+		<<elseif $args[0].energy <= 40>>
+			<<set $args[0].summary += "@@.red;SD-">>
+		<<elseif $args[0].energy <= 60>>
+			<<set $args[0].summary += "@@.yellow;SD ">>
+		<<elseif $args[0].energy <= 80>>
+			<<set $args[0].summary += "@@.green;SD+">>
+		<<elseif $args[0].energy <= 95>>
+			<<set $args[0].summary += "@@.green;SD++">>
+		<<elseif !_omnisexual>>
+			<<set $args[0].summary += "@@.green;Nympho!@@ ">>
+		<</if>>
+
+		<<if !_nymphomaniac>>
+			<<if $summaryStats>>
 				<<set $args[0].summary += "["+$args[0].energy+"]">>
 			<</if>>
 			<<set $args[0].summary += "@@ ">>
 		<</if>>
 	<</if>>
-	<</if>>
+
 	<<if $args[0].clitPiercing == 3>>
 	<<if $args[0].fetishKnown == 1>>
 	<<if $args[0].clitSetting == "off">>
@@ -1923,7 +1872,7 @@ will
 		<<set $args[0].summary += "SP:none ">>
 	<</switch>>
 	<</if>>
-	
+
 	<<if $args[0].attrKnown == 1>>
 		<<if $args[0].clitSetting == "women">>
 			<<if $args[0].attrXX < 95>><<set $args[0].summary += "SP:women ">><</if>>
@@ -2056,10 +2005,9 @@ will
 		<<set $args[0].sexualQuirk = "none">>
 	<</switch>>
 	<<set $args[0].summary += "@@ ">>
-	
+
 <<elseif $abbreviateMental == 2>>
-	<<if $args[0].fetish != "mindbroken">>
-	<<if $args[0].fetishKnown == 1>>
+	<<if ($args[0].fetishKnown && $args[0].fetish != "mindbroken")>>
 		<<set $args[0].summary += "@@.lightcoral;">>
 		<<switch $args[0].fetish>>
 		<<case "submissive">>
@@ -2137,17 +2085,25 @@ will
 		<<default>>
 			<<set $args[0].summary += "Sexually vanilla">>
 		<</switch>>
-		
+
 		<<if $summaryStats>>
-			<<set $args[0].summary += " ["+$args[0].fetishStrength+"].@@ ">>
-		<<else>>
-			<<set $args[0].summary += ".@@ ">>
+			<<set $args[0].summary += " ["+$args[0].fetishStrength+"]">>
 		<</if>>
+		<<set $args[0].summary += ".@@ ">>
 
 	<</if>>
-	<</if>>
+
 	<<if $args[0].attrKnown == 1>>
-		<<set _stats = $summaryStats, _comma = 1, _drive = 1>>
+		<<set _omnisexual = ($args[0].attrXY > 95 && $args[0].attrXX > 95)>>
+		<<set _nymphomaniac = ($args[0].energy > 95)>>
+		<<if _omnisexual>>
+			<<if _nymphomaniac>>
+				<<set $args[0].summary += "@@.green;Omnisexual nymphomaniac!@@ ">>
+			<<else>>
+				<<set $args[0].summary += "@@.green;Omnisexual!@@ ">>
+			<</if>>
+		<</if>>
+
 		<<if $args[0].attrXY <= 5>>
 			<<set $args[0].summary += "@@.red;Disgusted by men">>
 		<<elseif $args[0].attrXY <= 15>>
@@ -2160,26 +2116,17 @@ will
 			<<set $args[0].summary += "@@.green;Attracted to men">>
 		<<elseif $args[0].attrXY <= 95>>
 			<<set $args[0].summary += "@@.green;Aroused by men">>
-		<<elseif $args[0].attrXX > 95>>
-			<<set _stats = 0, _comma = 0>>
-			<<if $args[0].energy <= 95>>
-				<<set $args[0].summary += "@@.green;Omnisexual!">>
-			<<else>>
-				<<set _drive = 0>>
-				<<set $args[0].summary += "@@.green;Omnisexual nymphomaniac!">>
-			<</if>>
-		<<else>>
+		<<elseif !_omnisexual>>
 			<<set $args[0].summary += "@@.green;Passionate about men">>
 		<</if>>
-		<<if _stats == 1>>
-			<<set $args[0].summary += " ["+$args[0].attrXY+"]">>
-		<</if>>
-		<<if _comma == 1>>
+
+		<<if !_omnisexual>>
+			<<if $summaryStats>>
+				<<set $args[0].summary += " ["+$args[0].attrXY+"]">>
+			<</if>>
 			<<set $args[0].summary += ",@@ ">>
-		<<else>>
-			<<set $args[0].summary += "@@ ">>
 		<</if>>
-		
+
 		<<if $args[0].attrXX <= 5>>
 			<<set $args[0].summary += "@@.red;disgusted by women">>
 		<<elseif $args[0].attrXX <= 15>>
@@ -2192,43 +2139,39 @@ will
 			<<set $args[0].summary += "@@.green;attracted to women">>
 		<<elseif $args[0].attrXX <= 95>>
 			<<set $args[0].summary += "@@.green;aroused by women">>
-		<<elseif $args[0].attrXY <= 95>>
+		<<elseif !_omnisexual>>
 			<<set $args[0].summary += "@@.green;passionate about women">>
-		<<else>>
-			<<set _comma = 0>>
 		<</if>>
-		<<if _stats == 1>>
-			<<set $args[0].summary += " ["+$args[0].attrXX+"]">>
-		<</if>>
-		<<if _comma == 1>>
+
+		<<if !_omnisexual>>
+			<<if $summaryStats>>
+				<<set $args[0].summary += " ["+$args[0].attrXX+"]">>
+			<</if>>
 			<<set $args[0].summary += ".@@ ">>
 		<</if>>
-		
-		<<if _drive == 1>>
-			<<set _stats = $summaryStats>>
-			<<if $args[0].energy > 95>>
-				<<if ($args[0].attrXY <= 95) || ($args[0].attrXX <= 95)>>
-					<<set _stats = 0>>
-					<<set $args[0].summary += "@@.green;Nymphomaniac!">>
-				<</if>>
-			<<elseif $args[0].energy > 80>>
-				<<set $args[0].summary += "@@.green;Powerful sex drive">>
-			<<elseif $args[0].energy > 60>>
-				<<set $args[0].summary += "@@.green;Good sex drive">>
-			<<elseif $args[0].energy > 40>>
-				<<set $args[0].summary += "@@.yellow;Average sex drive">>
-			<<elseif $args[0].energy > 20>>
-				<<set $args[0].summary += "@@.red;Poor sex drive">>
-			<<else>>
-				<<set $args[0].summary += "@@.red;No sex drive">>
+
+		<<if $args[0].energy <= 20>>
+			<<set $args[0].summary += "@@.red;No sex drive">>
+		<<elseif $args[0].energy <= 40>>
+			<<set $args[0].summary += "@@.red;Poor sex drive">>
+		<<elseif $args[0].energy <= 60>>
+			<<set $args[0].summary += "@@.yellow;Average sex drive">>
+		<<elseif $args[0].energy <= 80>>
+			<<set $args[0].summary += "@@.green;Good sex drive">>
+		<<elseif $args[0].energy <= 95>>
+			<<set $args[0].summary += "@@.green;Powerful sex drive">>
+		<<elseif !_omnisexual>>
+			<<set $args[0].summary += "@@.green;Nymphomaniac!@@ ">>
+		<</if>>
+
+		<<if !_nymphomaniac>>
+			<<if $summaryStats>>
+				<<set $args[0].summary += " ["+$args[0].energy+"]">>
 			<</if>>
-			<<if _stats == 1>>
-				<<set $args[0].summary += " ["+$args[0].energy+"].">>
-			<</if>>
-			<<set $args[0].summary += "@@ ">>
+			<<set $args[0].summary += ".@@ ">>
 		<</if>>
 	<</if>>
-	
+
 	<<if $args[0].clitPiercing == 3>>
 		<<if $args[0].fetishKnown == 1>>
 			<<if $args[0].clitSetting == "off">>
