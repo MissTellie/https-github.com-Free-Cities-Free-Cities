@@ -189,6 +189,8 @@
 	<<set $args[0].race = either("white", "latina", "latina")>>
 <<case "Monégasque">>
 	<<set $args[0].race = either("southern european")>>
+<<case "Montenegrin">>
+	<<set $args[0].race = either("white")>>
 <<default>>
 	<<set $args[0].race = either("white")>>
 <</switch>>
@@ -401,6 +403,8 @@
 	<<set $args[0].birthName = setup.uruguayanSlaveNames.random(), $args[0].birthSurname = setup.uruguayanSlaveSurnames.random()>>
 <<case "Monégasque">>
 	<<set $args[0].birthName = setup.monegasqueSlaveNames.random(), $args[0].birthSurname = setup.monegasqueSlaveSurnames.random()>>
+<<case "Montenegrin">>
+	<<set $args[0].birthName = setup.montenegrinSlaveNames.random(), $args[0].birthSurname = setup.montenegrinSlaveSurnames.random()>>
 <<default>>
 	<<set $args[0].birthName = setup.whiteAmericanSlaveNames.random(), $args[0].birthSurname = setup.whiteAmericanSlaveSurnames.random()>>
 <</switch>>
@@ -849,6 +853,8 @@
 	<<else>>
 	<<set $args[0].accent = _naturalAccent>>
 	<</if>>
+<<elseif ($activeSlave.nationality == "Montenegrin")>>
+	<<set $activeSlave.accent = $seed>>
 <<case "Roman Revivalist">>
 	<<if $language == "Latin">>
 	<<set $args[0].accent = 0>>
