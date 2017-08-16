@@ -367,7 +367,7 @@
 		<br>
 		<br><span id="policyButton"><<link [[Policies]]>><</link>></span> @@.cyan;[Y]@@
 		<<if $FSAnnounced>>
-			<span id="FSButton"><<link [[Future Societies|Future Society]]>><</link>></span> @@.cyan;[F]@@
+			<br><span id="FSButton"><<link [[Future Societies|Future Society]]>><</link>></span> @@.cyan;[F]@@
 		<</if>>
 		<br><span id="URButton"><<link [[Universal Rules]]>><</link>></span> @@.cyan;[V]@@
 	<</if>>
@@ -388,7 +388,7 @@
 	<br>
 	<br><span id="policyButton"><<link [[Policies]]>><</link>></span> @@.cyan;[Y]@@
 	<<if $FSAnnounced>>
-		<span id="FSButton"><<link [[Future Societies|Future Society]]>><</link>></span> @@.cyan;[F]@@
+		<br><span id="FSButton"><<link [[Future Societies|Future Society]]>><</link>></span> @@.cyan;[F]@@
 	<</if>>
 	<br><span id="URButton"><<link [[Universal Rules]]>><</link>></span> @@.cyan;[V]@@
 	<br>
@@ -399,6 +399,11 @@
 	<br><<link [[Wardrobe]]>><</link>>
 	<br><<if $dispensary>>[[Pharmaceutical Fabricator|Dispensary]]<</if>>
 	<br><br><br><br><br>
+<<elseif _Pass == "Options">>
+	<br>
+	<br>[[Summary Options]]
+	<br>[[Description Options]]
+	<br>
 <<else>>
 	<br><br><br><br><br><br><br><br>
 <</if>>

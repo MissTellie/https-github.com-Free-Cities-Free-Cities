@@ -2233,7 +2233,7 @@ This experience
 
 <<widget "SlaveFullName">>$args[0].slaveName<<if $args[0].slaveSurname>> $args[0].slaveSurname<</if>><</widget>>
 
-<<widget "PoliteRudeTitle">><<if $args[0].intelligence < -2>><<Master>><<elseif $args[0].trust > 0>>$PC.name<<else>>$PC.surname<</if>><</widget>>
+<<widget "PoliteRudeTitle">><<if $args[0].intelligence < -2>><<Master>><<elseif $args[0].intelligence > 1>><<if $PC.title > 0>>Ma<<s>>ther<<else>>Mi<<s>>tre<<ss>><</if>><<elseif $args[0].trust > 0>>$PC.name<<else>><<if $PC.surname>>$PC.surname<<else>>$PC.name<</if>><</if>><</widget>>
 
 /*
  Call as <<EventNameLink>>
@@ -2251,8 +2251,7 @@ This experience
 */
 <<widget "EventNameDelink">>
 	<<replace "#name">>
-		$args[0].slaveName
-		<<if $args[0].slaveSurname>>$args[0].slaveSurname<</if>>
+		<<SlaveFullName $args[0]>>
 	<</replace>>
 <</widget>>
 
