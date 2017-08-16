@@ -392,6 +392,12 @@
 	<<else>>
 	<<set $activeSlave.accent = $seed>>
 	<</if>>
+<<elseif ($activeSlave.nationality == "Sammarinese")>>
+	<<if $language == "Italian">>
+	<<set $activeSlave.accent = 0>>
+	<<else>>
+	<<set $activeSlave.accent = $seed>>
+	<</if>>
 <<elseif $activeSlave.nationality == "Roman Revivalist">>
 	<<if $language == "Latin">>
 	<<set $activeSlave.accent = 0>>
