@@ -185,6 +185,8 @@
 	<<set $args[0].race = either("semitic", "middle eastern")>>
 <<case "Bermudian">>
 	<<set $args[0].race = either("black", "black", "black", "white")>>
+<<case "Uruguayan">>
+	<<set $args[0].race = either("white", "latina", "latina")>>
 <<default>>
 	<<set $args[0].race = either("white")>>
 <</switch>>
@@ -393,6 +395,8 @@
 	<<set $args[0].birthName = setup.syrianSlaveNames.random(), $args[0].birthSurname = setup.syrianSlaveSurnames.random()>>
 <<case "Bermudian">>
 	<<set $args[0].birthName = setup.bermudianSlaveNames.random(), $args[0].birthSurname = setup.bermudianSlaveSurnames.random()>>
+<<case "Uruguayan">>
+	<<set $args[0].birthName = setup.uruguayanSlaveNames.random(), $args[0].birthSurname = setup.uruguayanSlaveSurnames.random()>>
 <<default>>
 	<<set $args[0].birthName = setup.whiteAmericanSlaveNames.random(), $args[0].birthSurname = setup.whiteAmericanSlaveSurnames.random()>>
 <</switch>>
@@ -825,6 +829,12 @@
 	<</if>>
 <<case "Bermudian">>
 	<<if $language == "English">>
+	<<set $args[0].accent = 1>>
+	<<else>>
+	<<set $args[0].accent = _naturalAccent>>
+	<</if>>
+<<case "Uruguayan">>
+	<<if $language == "Spanish">>
 	<<set $args[0].accent = 1>>
 	<<else>>
 	<<set $args[0].accent = _naturalAccent>>
