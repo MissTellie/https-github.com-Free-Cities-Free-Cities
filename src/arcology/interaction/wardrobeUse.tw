@@ -285,7 +285,7 @@ Clothes: ''<span id="clothes">$activeSlave.clothes</span>.''
 		<<set _clothingBaseColor = _outfitBaseColour>>
 	<</if>>
 	<<if def $activeSlave.clothingBaseColor>>
-		/* regard last user selection */
+		/* regard current user selection */
 		<<set _clothingBaseColor = $activeSlave.clothingBaseColor>>
 	<</if>>
 	/* Display an HTML5 color picker */
@@ -446,6 +446,27 @@ Clothes: ''<span id="clothes">$activeSlave.clothes</span>.''
 		<<replace "#shoes">>$activeSlave.shoes<</replace>>
 		<<replace "#shoeDescription">><br>//$pronounCap is wearing<<footwearDescription>><<heelDescription>>//<</replace>>
 	<</link>>
+<</if>>
+
+<br>&nbsp;&nbsp;&nbsp;&nbsp;//Color://
+
+<<if ($seeImages == 1) && ($imageChoice == 1)>>
+	/* prepare display of currently selected color. */
+	/* _shoeColour is always set by display (Art_Vector_Set_Colour_Shoe_) */
+	/* TODO: update currently selected color upon shoe select */
+	<<if def $activeSlave.clothingBaseColor>>
+		/* regard current user selection */
+		<<set _shoeColour = $activeSlave.clothingBaseColor>>
+	<</if>>
+	/* Display an HTML5 color picker */
+	/* This is hackish due to direct accessment of SugarCube internal data structure. Improvements are welcome. */
+	<<print '<input type="color" value="'+_shoeColour+'" onInput="SugarCube.State.variables.activeSlave.shoeColor = event.target.value;">'>>
+	<<link "use default color">>
+		<<run delete $activeSlave.shoeColor >>
+		/* reload passage to display everything correctly */
+		<<goto "Wardrobe Use">>
+	<</link>>
+	<br>
 <</if>>
 
 <br>
