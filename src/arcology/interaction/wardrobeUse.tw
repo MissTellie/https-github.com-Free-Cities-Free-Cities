@@ -277,7 +277,7 @@ Clothes: ''<span id="clothes">$activeSlave.clothes</span>.''
 
 <<if ($seeImages == 1) && ($imageChoice == 1)>>
 	/* prepare display of currently selected color. */
-	/* TODO: update currently selected color upon outfit select and "use default" click */
+	/* TODO: update currently selected color upon outfit select */
 	/* use _skinColour as default/fallback. */
 	<<set _clothingBaseColor = _skinColour >>
 	<<if def _outfitBaseColour>>
@@ -293,9 +293,11 @@ Clothes: ''<span id="clothes">$activeSlave.clothes</span>.''
 	<<print '<input type="color" value="'+_clothingBaseColor+'" onInput="SugarCube.State.variables.activeSlave.clothingBaseColor = event.target.value;">'>>
 	<<link "use default color">>
 		<<run delete $activeSlave.clothingBaseColor >>
+		/* reload passage to display everything correctly */
+		<<goto "Wardrobe Use">>
 	<</link>>
 	<br>
-	//Note: Only latex outfit supports a color.//
+	//Note: Only latex outfits support a custom color.//
 	<<unset _clothingBaseColor>> /* clean up temporary variable */
 <</if>>
 
