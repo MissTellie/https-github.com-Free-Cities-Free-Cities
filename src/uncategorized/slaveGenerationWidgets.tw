@@ -232,7 +232,10 @@
 <<case "Spanish">>
 	<<set $args[0].birthName = setup.spanishSlaveNames.random(), $args[0].birthSurname = setup.spanishSlaveSurnames.random()>>
 <<case "British">>
-	<<set $args[0].birthName = setup.britishSlaveNames.random(), $args[0].birthSurname = setup.britishSlaveSurnames.random()>>
+	<<if $args[0].race == "indo-aryan">>
+		<<set $args[0].birthName = setup.indianSlaveNames.random(), $args[0].birthSurname = setup.indianSlaveSurnames.random()>>
+	<<else>>
+		<<set $args[0].birthName = setup.britishSlaveNames.random(), $args[0].birthSurname = setup.britishSlaveSurnames.random()>>
 <<case "French">>
 	<<set $args[0].birthName = setup.frenchSlaveNames.random(), $args[0].birthSurname = setup.frenchSlaveSurnames.random()>>
 <<case "German">>
@@ -374,7 +377,10 @@
 <<case "Indian">>
 	<<set $args[0].birthName = setup.indianSlaveNames.random(), $args[0].birthSurname = setup.indianSlaveSurnames.random()>>
 <<case "Australian">>
-	<<set $args[0].birthName = setup.australianSlaveNames.random(), $args[0].birthSurname = setup.australianSlaveSurnames.random()>>
+	<<if $args[0].race == "asian">>
+		<<set $args[0].birthName = setup.asianAmericanSlaveNames.random(), $args[0].birthSurname = setup.asianAmericanSlaveSurnames.random()>>
+	<<else>>
+		<<set $args[0].birthName = setup.australianSlaveNames.random(), $args[0].birthSurname = setup.australianSlaveSurnames.random()>>
 <<case "a New Zealander">>
 	<<set $args[0].birthName = setup.newZealanderSlaveNames.random(), $args[0].birthSurname = setup.newZealanderSlaveSurnames.random()>>
 <<default>>
