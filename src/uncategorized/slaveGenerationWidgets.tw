@@ -197,6 +197,14 @@
 	<<set $args[0].race = either("black")>>
 <<case "Gabonese">>
 	<<set $args[0].race = either("black")>>
+<<case "Djiboutian">>
+	<<set $args[0].race = either("black", "black", "black", "black", "black", "black", "black", "black", "black", "middle eastern")>>
+<<case "Greenlandic">>
+	<<set $args[0].race = either("amerindian", "amerindian", "amerindian", "amerindian", "amerindian", "amerindian", "amerindian", "amerindian", "amerindian", "white")>>
+<<case "Tuvaluan">>
+	<<set $args[0].race = either("pacific islander")>>
+<<case "Zambian">>
+	<<set $args[0].race = either("black")>>
 <<default>>
 	<<set $args[0].race = either("white")>>
 <</switch>>
@@ -417,6 +425,14 @@
 	<<set $args[0].birthName = setup.cameroonianSlaveNames.random(), $args[0].birthSurname = setup.cameroonianSlaveSurnames.random()>>
 <<case "Gabonese">>
 	<<set $args[0].birthName = setup.gaboneseSlaveNames.random(), $args[0].birthSurname = setup.gaboneseSlaveSurnames.random()>>
+<<case "Djiboutian">>
+	<<set $args[0].birthName = setup.djiboutianSlaveNames.random(), $args[0].birthSurname = setup.djiboutianSlaveSurnames.random()>>
+<<case "Greenlandic">>
+	<<set $args[0].birthName = setup.greenlandicSlaveNames.random(), $args[0].birthSurname = setup.greenlandicSlaveSurnames.random()>>
+<<case "Tuvaluan">>
+	<<set $args[0].birthName = setup.tuvaluanSlaveNames.random(), $args[0].birthSurname = setup.tuvaluanSlaveSurnames.random()>>
+<<case "Zambian">>
+	<<set $args[0].birthName = setup.zambianSlaveNames.random(), $args[0].birthSurname = setup.zambianSlaveSurnames.random()>>
 <<default>>
 	<<set $args[0].birthName = setup.whiteAmericanSlaveNames.random(), $args[0].birthSurname = setup.whiteAmericanSlaveSurnames.random()>>
 <</switch>>
@@ -865,9 +881,9 @@
 	<<else>>
 	<<set $args[0].accent = _naturalAccent>>
 	<</if>>
-<<elseif ($activeSlave.nationality == "Montenegrin")>>
+<<case "Montenegrin")>>
 	<<set $activeSlave.accent = $seed>>
-<<elseif ($activeSlave.nationality == "Cambodian")>>
+<<case "Cambodian")>>
 	<<set $activeSlave.accent = $seed>>
 <<case "Cameroonian">>
 	<<if $language == "French">>
@@ -877,6 +893,22 @@
 	<</if>>
 <<case "Gabonese">>
 	<<if $language == "French">>
+	<<set $args[0].accent = 1>>
+	<<else>>
+	<<set $args[0].accent = _naturalAccent>>
+	<</if>>
+<<case "Djiboutian">>
+	<<if $language == "French">>
+	<<set $args[0].accent = 1>>
+	<<else>>
+	<<set $args[0].accent = _naturalAccent>>
+	<</if>>
+<<case "Greenlandic")>>
+	<<set $activeSlave.accent = $seed>>
+<<case "Tuvaluan")>>
+	<<set $activeSlave.accent = $seed>>
+<<case "Zambian">>
+	<<if $language == "English">>
 	<<set $args[0].accent = 1>>
 	<<else>>
 	<<set $args[0].accent = _naturalAccent>>
