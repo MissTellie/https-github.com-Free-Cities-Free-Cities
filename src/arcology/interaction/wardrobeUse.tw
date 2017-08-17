@@ -278,7 +278,8 @@ Clothes: ''<span id="clothes">$activeSlave.clothes</span>.''
 <<if ($seeImages == 1) && ($imageChoice == 1)>>
 	/* prepare display of currently selected color. */
 	/* TODO: update currently selected color upon outfit select */
-	/* use _skinColour as default/fallback. */
+	/* _clothingBaseColor is set by display (Art_Vector_Set_Colour_Shoe_), but not all outfits define a color. */
+	/* _skinColour is used as fallback default (set by Art_Vector_Set_Colour_Skin_). */
 	<<set _clothingBaseColor = _skinColour >>
 	<<if def _outfitBaseColour>>
 		/* set default color predefined by choice of outfit */
