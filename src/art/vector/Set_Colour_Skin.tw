@@ -1,5 +1,7 @@
 :: Art_Vector_Set_Colour_Skin_
 
+/* BEWARE: _outfitBaseColour is set by Art_Vector_Set_Colour_Outfit_ */
+
 <<set _areolaStyle to "fill:#d76b93;" >> /* this is the default and can be customized later */
 <<set _labiaStyle to _areolaStyle >> /* this is the default and can be customized later */
 /* todo: introduce one "flesh" CSS class */
@@ -38,12 +40,12 @@
 
 <<if _artSlave.fuckdoll != 0>>
   /* slave is a fuckdoll - display all skin as if it was black rubber */
-  <<set _skinColour to "#515351">>
+  <<set _skinColour to _outfitBaseColour>>
   <<set _areolaStyle to "fill:rgba(0,0,0,0.3);">>
   <<set _labiaStyle to _areolaStyle >>
 <</if>>
 
-/* slave wears restrictive latex - display most skin as if it was black rubber */
+/* slave wears restrictive latex - display most skin as if it was rubber */
 <<if _artSlave.clothes == "restrictive latex">>
   /* nice latex does not cover any privates. */
   <<set _torsoSkinStyle to "fill:"+_skinColour+";">>
@@ -51,13 +53,13 @@
   <<set _penisSkinStyle to _torsoSkinStyle>>
   <<set _scrotumSkinStyle to _torsoSkinStyle>>
   /* rest of body is covered in latex */
-  <<set _skinColour to "#515351">>
+  <<set _skinColour to _outfitBaseColour>>
 <</if>>
 <<if _artSlave.clothes == "a latex catsuit">>
   /* nice latex does not cover head. */
   <<set _headSkinStyle to "fill:"+_skinColour+";">>
   /* rest of body is covered in latex */
-  <<set _skinColour to "#515351">>
+  <<set _skinColour to _outfitBaseColour>>
   /* catsuit covers areolae and crotch, too */
   <<set _areolaStyle to "fill:rgba(0,0,0,0.3);">> /* areolae are represented by a darker area */ 
   /* todo: gain control over piercings to to the same with them ^^ */

@@ -273,6 +273,31 @@ Clothes: ''<span id="clothes">$activeSlave.clothes</span>.''
 	<<replace "#clothingDescription">><br>//<<ClothingDescription>>//<</replace>>
 <</link>>
 
+<br>&nbsp;&nbsp;&nbsp;&nbsp;//Color://
+
+<<if ($seeImages == 1) && ($imageChoice == 1)>>
+	/* prepare display of currently selected color. */
+	/* TODO: update currently selected color upon outfit select and "use default" click */
+	/* use _skinColour as default/fallback. */
+	<<set _clothingBaseColor = _skinColour >>
+	<<if def _outfitBaseColour>>
+		/* set default color predefined by choice of outfit */
+		<<set _clothingBaseColor = _outfitBaseColour>>
+	<</if>>
+	<<if def $activeSlave.clothingBaseColor>>
+		/* regard last user selection */
+		<<set _clothingBaseColor = $activeSlave.clothingBaseColor>>
+	<</if>>
+	/* Display an HTML5 color picker */
+	/* This is hackish due to direct accessment of SugarCube internal data structure. Improvements are welcome. */
+	<<print '<input type="color" value="'+_clothingBaseColor+'" onInput="SugarCube.State.variables.activeSlave.clothingBaseColor = event.target.value;">'>>
+	<<link "use default color">>
+		<<run delete $activeSlave.clothingBaseColor >>
+	<</link>>
+	<br>
+	//Note: Only latex outfit supports a color.//
+	<<unset _clothingBaseColor>> /* clean up temporary variable */
+<</if>>
 
 <br>
 
