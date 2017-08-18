@@ -10,30 +10,28 @@
 <<set $activeSlave.tired = 1>>
 
 &nbsp;&nbsp;&nbsp;&nbsp;''Your head girl __@@.pink;$HeadGirl.slaveName@@__'' notices that ''__@@.pink;$activeSlave.slaveName@@__''
-<<if $HGtraining == "health">>
+<<switch $HGtraining>>
+<<case "health">>
 	is unwell.
-<<elseif $HGtraining == "obedience">>
+<<case "obedience">>
 	is disobedient.
-<<elseif $HGtraining == "flaw">>
-	has
-	<<if ["cum addict", "anal addict", "attention whore", "breast growth", "abusive", "malicious", "self hating", "neglectful", "breeder"].includes($activeSlave.sexualFlaw)>>
-		a paraphilia.
-	<<else>>
-		an unpleasant flaw worth fixing.
-	<</if>>
-<<elseif $HGtraining == "soften">>
+<<case "paraphilia">>
+	has a paraphilia.
+<<case "flaw">>
+	has an unpleasant flaw worth fixing.
+<<case "soften">>
 	has an unpleasant flaw that she can try to soften into a unique quirk.
-<<elseif $HGtraining == "oral skill">>
+<<case "oral skill">>
 	isn't as orally skilled as she is.
-<<elseif $HGtraining == "anal skill">>
+<<case "anal skill">>
 	isn't as skilled at taking anal as she is.
-<<elseif $HGtraining == "fuck skill">>
+<<case "fuck skill">>
 	isn't as skilled at vaginal intercourse as she is.
-<<elseif $HGtraining == "whore skill">>
+<<case "whore skill">>
 	isn't as skilled at the fine art of sex for money as she is.
-<<elseif $HGtraining == "entertain skill">>
+<<case "entertain skill">>
 	isn't as skilled at entertainment as she is.
-<</if>>
+<</switch>>
 
 <<if $HGtraining == "health">>
 
@@ -165,36 +163,34 @@ She helps $activeSlave.slaveName however she can. The tender care has @@.green;i
 	She acts as another pair of eyes watching $activeSlave.slaveName and metes out punishments, @@.gold;improving $activeSlave.slaveName's servitude.@@
 <</if>>
 
+<<elseif $HGtraining == "paraphilia">>
+
+<<set _effectiveness -= $activeSlave.intelligence*15>>
+<<set $activeSlave.training += _effectiveness>>
+    $HeadGirl.slaveName does her best to get $activeSlave.slaveName past it with punishments and rewards,
+<<if $activeSlave.training > 100>>
+	and @@.green;resolves $activeSlave.slaveName's paraphilia.@@
+	<<set $activeSlave.training = 0>>
+	<<set $activeSlave.sexualFlaw = "none">>
+<<else>>
+		and makes partial progress.
+<</if>>
+
 <<elseif $HGtraining == "flaw">>
 
 <<set _effectiveness -= $activeSlave.intelligence*15>>
 <<set $activeSlave.training += _effectiveness>>
-<<if ["cum addict", "anal addict", "attention whore", "breast growth", "abusive", "malicious", "self hating", "neglectful", "breeder"].includes($activeSlave.sexualFlaw)>>
-	$HeadGirl.slaveName does her best to get $activeSlave.slaveName past it with punishments and rewards,
-	<<if $activeSlave.training > 100>>
-		<<set $activeSlave.training = 0>>
-		and @@.green;resolves $activeSlave.slaveName's paraphilia.@@
-		<<if $activeSlave.behavioralFlaw != "none">>
+$HeadGirl.slaveName punishes $activeSlave.slaveName whenever she catches her indulging in her bad habits,
+<<if $activeSlave.training > 100>>
+	and @@.green;fixes $activeSlave.slaveName's flaw.@@
+	<<set $activeSlave.training = 0>>
+	<<if $activeSlave.behavioralFlaw != "none">>
 		<<set $activeSlave.behavioralFlaw = "none">>
-		<<elseif $activeSlave.sexualFlaw != "none">>
+	<<elseif $activeSlave.sexualFlaw != "none">>
 		<<set $activeSlave.sexualFlaw = "none">>
-		<</if>>
-	<<else>>
-		and makes partial progress.
 	<</if>>
 <<else>>
-	$HeadGirl.slaveName punishes $activeSlave.slaveName whenever she catches her indulging in her bad habits,
-	<<if $activeSlave.training > 100>>
-		<<set $activeSlave.training = 0>>
-		and @@.green;fixes $activeSlave.slaveName's flaw.@@
-		<<if $activeSlave.behavioralFlaw != "none">>
-		<<set $activeSlave.behavioralFlaw = "none">>
-		<<elseif $activeSlave.sexualFlaw != "none">>
-		<<set $activeSlave.sexualFlaw = "none">>
-		<</if>>
-	<<else>>
 		and makes partial progress.
-	<</if>>
 <</if>>
 
 <<elseif $HGtraining == "soften">>
