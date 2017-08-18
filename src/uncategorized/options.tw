@@ -137,6 +137,15 @@ Main menu leadership controls displayed
 	[[Below|Options][$positionMainLinks = -1]]
 <</if>>
 
+<br>
+
+Tips from the Encyclopedia are
+<<if ($showTipsFromEncy == 0)>>
+	@@.red;DISABLED@@. [[Enable|Options][$showTipsFromEncy = 1]]
+<<else>>
+	@@.cyan;ENABLED@@. [[Disable|Options][$showTipsFromEncy = 0]]
+<</if>>
+
 <br><br>
 ''REPORTS''
 <br>
@@ -223,6 +232,7 @@ Assignment performance vignettes on the end week report are
 <<else>>
 	@@.cyan;ENABLED@@. [[Disable|Options][$showVignettes = 0]]
 <</if>>
+
 
 <br><br>
 ''CONTENT''
