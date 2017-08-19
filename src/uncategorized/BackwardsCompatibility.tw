@@ -773,6 +773,9 @@ Setting missing global variables:
 <<if ndef $BrothiIDs>>
 	<<set $BrothiIDs = []>>
 <</if>>
+<<if $BrothiIDs.length > 0 && typeof $BrothiIDs[0] === 'object'>>
+	<<set $BrothiIDs = $BrothiIDs.map(function(a) { return a.ID; })>>
+<</if>>
 <<if ndef $brothelName>>
 	<<set $brothelName = "the Brothel">>
 <</if>>
@@ -785,6 +788,9 @@ Setting missing global variables:
 
 <<if ndef $DairyiIDs>>
 	<<set $DairyiIDs = []>>
+<</if>>
+<<if $DairyiIDs.length > 0 && typeof $DairyiIDs[0] === 'object'>>
+	<<set $DairyiIDs = $DairyiIDs.map(function(a) { return a.ID; })>>
 <</if>>
 <<if ndef $dairyName>>
 	<<set $dairyName = "the Dairy">>
@@ -827,6 +833,9 @@ Setting missing global variables:
 <<if ndef $ClubiIDs>>
 	<<set $ClubiIDs = []>>
 <</if>>
+<<if $ClubiIDs.length > 0 && typeof $ClubiIDs[0] === 'object'>>
+	<<set $ClubiIDs = $ClubiIDs.map(function(a) { return a.ID; })>>
+<</if>>
 <<if ndef $clubName>>
 	<<set $clubName = "the Club">>
 <</if>>
@@ -840,6 +849,9 @@ Setting missing global variables:
 <<if ndef $ServQiIDs>>
 	<<set $ServQiIDs = []>>
 <</if>>
+<<if $ServQiIDs.length > 0 && typeof $ServQiIDs[0] === 'object'>>
+	<<set $ServQiIDs = $ServQiIDs.map(function(a) { return a.ID; })>>
+<</if>>
 <<if ndef $servantsQuartersName>>
 	<<set $servantsQuartersName = "the Servants' Quarters">>
 <</if>>
@@ -852,6 +864,9 @@ Setting missing global variables:
 
 <<if ndef $SchlRiIDs>>
 	<<set $SchlRiIDs = []>>
+<</if>>
+<<if $SchlRiIDs.length > 0 && typeof $SchlRiIDs[0] === 'object'>>
+	<<set $SchlRiIDs = $SchlRiIDs.map(function(a) { return a.ID; })>>
 <</if>>
 <<if ndef $schoolroomName>>
 	<<set $schoolroomName = "the Schoolroom">>
@@ -872,6 +887,9 @@ Setting missing global variables:
 <<if ndef $SpaiIDs>>
 	<<set $SpaiIDs = []>>
 <</if>>
+<<if $SpaiIDs.length > 0 && typeof $SpaiIDs[0] === 'object'>>
+	<<set $SpaiIDs = $SpaiIDs.map(function(a) { return a.ID; })>>
+<</if>>
 <<if ndef $spaName>>
 	<<set $spaName = "the Spa">>
 <</if>>
@@ -884,6 +902,9 @@ Setting missing global variables:
 
 <<if ndef $CliniciIDs>>
 	<<set $CliniciIDs = []>>
+<</if>>
+<<if $CliniciIDs.length > 0 && typeof $CliniciIDs[0] === 'object'>>
+	<<set $CliniciIDs = $CliniciIDs.map(function(a) { return a.ID; })>>
 <</if>>
 <<if ndef $clinicName>>
 	<<set $clinicName = "the Clinic">>
@@ -910,6 +931,9 @@ Setting missing global variables:
 <<if ndef $ArcadeiIDs>>
 	<<set $ArcadeiIDs = []>>
 <</if>>
+<<if $ArcadeiIDs.length > 0 && typeof $ArcadeiIDs[0] === 'object'>>
+	<<set $ArcadeiIDs = $ArcadeiIDs.map(function(a) { return a.ID; })>>
+<</if>>
 <<if ndef $arcadeName>>
 	<<set $arcadeName = "the Arcade">>
 <</if>>
@@ -923,6 +947,9 @@ Setting missing global variables:
 <<if ndef $CellBiIDs>>
 	<<set $CellBiIDs = []>>
 <</if>>
+<<if $CellBiIDs.length > 0 && typeof $CellBiIDs[0] === 'object'>>
+	<<set $CellBiIDs = $CellBiIDs.map(function(a) { return a.ID; })>>
+<</if>>
 <<if ndef $cellblockName>>
 	<<set $cellblockName = "the Cellblock">>
 <</if>>
@@ -935,6 +962,9 @@ Setting missing global variables:
 
 <<if ndef $MastSiIDs>>
 	<<set $MastSiIDs = []>>
+<</if>>
+<<if $MastSiIDs.length > 0 && typeof $MastSiIDs[0] === 'object'>>
+	<<set $MastSiIDs = $MastSiIDs.map(function(a) { return a.ID; })>>
 <</if>>
 <<if ndef $masterSuiteName>>
 	<<set $masterSuiteName = "the Master Suite">>
@@ -961,6 +991,12 @@ Setting missing global variables:
 	<<set $masterSuiteDecoration = "standard">>
 <</if>>
 
+<<if ndef $HGSuiteiIDs>>
+	<<set $HGSuiteiIDs = []>>
+<</if>>
+<<if $HGSuiteiIDs.length > 0 && typeof $HGSuiteiIDs[0] === 'object'>>
+	<<set $HGSuiteiIDs = $HGSuiteiIDs.map(function(a) { return a.ID; })>>
+<</if>>
 <<if ndef $HGSuiteName>>
 	<<set $HGSuiteName = "the Head Girl Suite">>
 <</if>>

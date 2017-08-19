@@ -1329,7 +1329,7 @@
 	<<case "liberated">>
 		<<set $args[0].behavioralQuirk = "advocate">>
 	<</switch>>
-	<<set $activeSlave.behavioralFlaw = "none">>
+	<<set $args[0].behavioralFlaw = "none">>
 <</widget>>
 
 /%
@@ -1454,7 +1454,10 @@ This experience
 		<</if>>
 	<</switch>>
 <<else>>
-	<<set $args[0] = $args[0].sort(function(a, b){return a.Index-b.Index})>>
+	<<set $slaveIndices = {}>>
+	<<set $slaves.forEach(function(s, i) { $slaveIndices[s.ID] = i; })>>
+	<<set filterInPlace($args[0], function(s) { return $slaveIndices[s] !== undefined; })>>
+	<<set $args[0].sort(function(a, b) { return $slaveIndices[a] - $slaveIndices[b]; })>>
 <</if>>
 <</widget>>
 
