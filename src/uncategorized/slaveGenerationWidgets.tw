@@ -217,6 +217,12 @@
 	<<set $args[0].race = either("white", "black", "latina", "latina", "latina", "latina", "latina", "latina")>>
 <<case "Scottish">>
 	<<set $args[0].race = either("white")>>
+<<case "Laotian">>
+	<<set $args[0].race = either("asian")>>
+<<case "Mongolian">>
+	<<set $args[0].race = either("asian")>>
+<<case "Taiwanese">>
+	<<set $args[0].race = either("asian")>>
 <<default>>
 	<<set $args[0].race = either("white")>>
 <</switch>>
@@ -457,6 +463,12 @@
 	<<set $args[0].birthName = setup.dominicanSlaveNames.random(), $args[0].birthSurname = setup.dominicanSlaveSurnames.random()>>
 <<case "Scottish">>
 	<<set $args[0].birthName = setup.scottishSlaveNames.random(), $args[0].birthSurname = setup.scottishSlaveSurnames.random()>>
+<<case "Laotian">>
+	<<set $args[0].birthName = setup.laotianSlaveNames.random(), $args[0].birthSurname = setup.laotianSlaveSurnames.random()>>
+<<case "Mongolian">>
+	<<set $args[0].birthName = setup.mongolianSlaveNames.random(), $args[0].birthSurname = setup.mongolianSlaveSurnames.random()>>
+<<case "Taiwanese">>
+	<<set $args[0].birthName = setup.taiwaneseSlaveNames.random(), $args[0].birthSurname = setup.taiwaneseSlaveSurnames.random()>>
 <<default>>
 	<<set $args[0].birthName = setup.whiteAmericanSlaveNames.random(), $args[0].birthSurname = setup.whiteAmericanSlaveSurnames.random()>>
 <</switch>>
@@ -958,6 +970,16 @@
 <<case "Scottish">>
 	<<if $language == "English">>
 	<<set $args[0].accent = 2>>
+	<<else>>
+	<<set $args[0].accent = _naturalAccent>>
+	<</if>>
+<<case "Laotian">>
+	<<set $args[0].accent = _naturalAccent>>
+<<case "Mongolian">>
+	<<set $args[0].accent = _naturalAccent>>
+<<case "Taiwanese">>
+	<<if $language == "Chinese">>
+	<<set $args[0].accent = 0>>
 	<<else>>
 	<<set $args[0].accent = _naturalAccent>>
 	<</if>>
