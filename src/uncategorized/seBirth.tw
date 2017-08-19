@@ -293,6 +293,7 @@ Since $possessive vagina was spared from childbirth, @@.lime;it retained its tig
 		<<set $slaves[$i].devotion -= 40>>
 	<</if>>
 	<<= "
+	<br>
 	<<link 'Send the child to a citizen school'>>
 		<<replace '#babyDisposition'>>
 			The child is sent to one of $arcologies[0].name's citizen schools, to be brought up coequal with the arcology's other young people. $slaves['" + $i + "'].slaveName
@@ -307,9 +308,10 @@ Since $possessive vagina was spared from childbirth, @@.lime;it retained its tig
 			<</if>>
 			<<set $slaves['" + $i + "'].devotion += 40, $citizenOrphanageTotal++, $slaveOrphanageTotal-->>
 		<</replace>>
-	<</link>> 
+	<</link>>
 	">>//Will cost ¤100 weekly//
 	<<= "
+	<br>
 	| <<link 'Have the child raised privately'>>
 		<<replace '#babyDisposition'>>
 			<<if $slaves['" + $i + "'].devotion > 95>>
@@ -324,7 +326,7 @@ Since $possessive vagina was spared from childbirth, @@.lime;it retained its tig
 			The child will be raised privately, with expert care and tutoring, an expensive proposition.
 			<<set $slaves['" + $i + "'].devotion += 60, $privateOrphanageTotal++, $slaveOrphanageTotal-->>
 		<</replace>>
-	<</link>> 
+	<</link>>
 	">>//Will cost ¤500 weekly//
 	</span>
 <</if>>
@@ -521,6 +523,7 @@ Childbirth has @@.lime;stretched out $possessive vagina.@@
 		<<set $slaves[$i].devotion -= 40>>
 	<</if>>
 	<<= "
+	<br>
 	<<link 'Send the child to a citizen school'>>
 		<<replace '#babyDisposition'>>
 			The child is sent to one of $arcologies[0].name's citizen schools, to be brought up coequal with the arcology's other young people. $slaves['" + $i + "'].slaveName
@@ -535,9 +538,10 @@ Childbirth has @@.lime;stretched out $possessive vagina.@@
 			<</if>>
 			<<set $slaves['" + $i + "'].devotion += 40, $citizenOrphanageTotal++, $slaveOrphanageTotal-->>
 		<</replace>>
-	<</link>> 
+	<</link>>
 	">>//Will cost ¤100 weekly//
 	<<= "
+	<br>
 	| <<link 'Have the child raised privately'>>
 		<<replace '#babyDisposition'>>
 			<<if $slaves['" + $i + "'].devotion > 95>>
@@ -552,7 +556,7 @@ Childbirth has @@.lime;stretched out $possessive vagina.@@
 			The child will be raised privately, with expert care and tutoring, an expensive proposition.
 			<<set $slaves['" + $i + "'].devotion += 60, $privateOrphanageTotal++, $slaveOrphanageTotal-->>
 		<</replace>>
-	<</link>> 
+	<</link>>
 	">>//Will cost ¤500 weekly//
 	</span>
 <</if>>
