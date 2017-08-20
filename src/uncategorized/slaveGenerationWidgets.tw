@@ -225,6 +225,14 @@
 	<<set $args[0].race = either("asian")>>
 <<case "Belizean">>
 	<<set $args[0].race = either("latina", "latina", "latina", "latina", "black", "black", "amerindian", "white")>>
+<<case "Grenadian">>
+	<<set $args[0].race = either("black", "black", "black", "black", "black", "black", "black", "black", "black", "mixed race")>>
+<<case "I-Kiribati">>
+	<<set $args[0].race = either("pacific islander")>>
+<<case "Malagasy">>
+	<<set $args[0].race = either("black", "indo-aryan")>>
+<<case "Maldivian">>
+	<<set $args[0].race = either("indo-aryan")>>
 <<default>>
 	<<set $args[0].race = either("white")>>
 <</switch>>
@@ -492,6 +500,14 @@
 	<<else>>
 		<<set $args[0].birthName = setup.belizeanSlaveNames.random(), $args[0].birthSurname = setup.belizeanSlaveSurnames.random()>>
 	<</if>>
+<<case "Grenadian">>
+	<<set $args[0].birthName = setup.grenadianSlaveNames.random(), $args[0].birthSurname = setup.grenadianSlaveSurnames.random()>>
+<<case "I-Kiribati">>
+	<<set $args[0].birthName = setup.ikiribatiSlaveNames.random(), $args[0].birthSurname = setup.ikiribatiSlaveSurnames.random()>>
+<<case "Malagasy">>
+	<<set $args[0].birthName = setup.malagasySlaveNames.random(), $args[0].birthSurname = setup.malagasySlaveSurnames.random()>>
+<<case "Maldivian">>
+	<<set $args[0].birthName = setup.maldivianSlaveNames.random(), $args[0].birthSurname = setup.maldivianSlaveSurnames.random()>>
 <<default>>
 	<<set $args[0].birthName = setup.whiteAmericanSlaveNames.random(), $args[0].birthSurname = setup.whiteAmericanSlaveSurnames.random()>>
 <</switch>>
@@ -1012,6 +1028,18 @@
 	<<else>>
 	<<set $args[0].accent = _naturalAccent>>
 	<</if>>
+<<case "Grenadian">>
+	<<if $language == "English">>
+	<<set $args[0].accent = 2>>
+	<<else>>
+	<<set $args[0].accent = _naturalAccent>>
+	<</if>>
+<<case "I-Kiribati">>
+	<<set $args[0].accent = _naturalAccent>>
+<<case "Malagasy">>
+	<<set $args[0].accent = _naturalAccent>>
+<<case "Maldivian">>
+	<<set $args[0].accent = _naturalAccent>>
 <<case "Roman Revivalist">>
 	<<if $language == "Latin">>
 	<<set $args[0].accent = 0>>
