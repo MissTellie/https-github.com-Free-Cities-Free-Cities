@@ -559,31 +559,36 @@ During a routine inspection of <<EventNameLink $activeSlave>>, you notice that s
 
 <<case "a gift">>
 
+<<set _napkin = []>>
+<<set _napkin.push("a beautiful flower")>>
 <<if $arcologies[0].FSGenderRadicalist != "unset">>
-	<<set _napkin = "a lily with a prominent stamen">>
+	<<set _napkin.push("a lily with a prominent stamen")>>
 <<elseif $arcologies[0].FSGenderFundamentalist != "unset">>
-	<<set _napkin = "a beautiful, feminine lily">>
-<<elseif $arcologies[0].FSDegradationist != "unset">>
-	<<set _napkin = "a spiky abstract design">>
-<<elseif $arcologies[0].FSPastoralist != "unset">>
-	<<set _napkin = "a sheaf of corn">>
-<<elseif $arcologies[0].FSChattelReligionist != "unset">>
-	<<set _napkin = "a piece of religious iconography">>
-<<elseif $arcologies[0].FSRomanRevivalist != "unset">>
-	<<set _napkin = "a laurel wreath">>
-<<elseif $arcologies[0].FSAztecRevivalist != "unset">>
-	<<set _napkin = "a small statuette">>
-<<elseif $arcologies[0].FSEgyptianRevivalist != "unset">>
-	<<set _napkin = "a perfect pyramid">>
-<<elseif $arcologies[0].FSEdoRevivalist != "unset">>
-	<<set _napkin = "a Shinto arch">>
-<<elseif $arcologies[0].FSArabianRevivalist != "unset">>
-	<<set _napkin = "a complex minaret">>
-<<elseif $arcologies[0].FSChineseRevivalist != "unset">>
-	<<set _napkin = "an imperial pagoda">>
-<<else>>
-	<<set _napkin = "a beautiful flower">>
+	<<set _napkin.push("a beautiful, feminine lily")>>
 <</if>>
+<<if $arcologies[0].FSDegradationist != "unset">>
+	<<set _napkin.push("a spiky abstract design")>>
+<</if>>
+<<if $arcologies[0].FSPastoralist != "unset">>
+	<<set _napkin.push("a sheaf of corn")>>
+<</if>>
+<<if $arcologies[0].FSChattelReligionist != "unset">>
+	<<set _napkin.push("a piece of religious iconography")>>
+<</if>>
+<<if $arcologies[0].FSRomanRevivalist != "unset">>
+	<<set _napkin.push("a laurel wreath")>>
+<<elseif $arcologies[0].FSAztecRevivalist != "unset">>
+	<<set _napkin.push("a small statuette")>>
+<<elseif $arcologies[0].FSEgyptianRevivalist != "unset">>
+	<<set _napkin.push("a perfect pyramid")>>
+<<elseif $arcologies[0].FSEdoRevivalist != "unset">>
+	<<set _napkin.push("a Shinto arch")>>
+<<elseif $arcologies[0].FSArabianRevivalist != "unset">>
+	<<set _napkin.push("a complex minaret")>>
+<<elseif $arcologies[0].FSChineseRevivalist != "unset">>
+	<<set _napkin.push("an imperial pagoda")>>
+<</if>>
+<<set _napkin = _napkin.random()>>
 
 You're working at your desk when <<EventNameLink $activeSlave>> walks by your office. She checks to see whether you're in while trying very hard to look like she's minding her own business, and turns to go once she <<if canSee($activeSlave)>>sees<<else>>hears<</if>> that you're present. You <<if canSee($activeSlave)>>crook a finger at her<<else>>clear your throat at her, signaling you want her before you<</if>>. She's a good girl and not likely to be plotting anything nefarious, but letting nonsense like that slide would be stupid. She hurries in, blushing furiously, with her hands behind her back. Deciding to deal with the obvious thing first, you ask her what she's got. She blushes even harder, and brings her hands around to reveal one of the large cloth napkins used for entertaining, carefully folded into the shape of _napkin. It's very well done.
 <br><br>
