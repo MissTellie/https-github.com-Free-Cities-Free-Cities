@@ -118,13 +118,8 @@ $arcadeNameCaps
 	<<link "''Confine a slave in $arcadeName''">>
 		<<set $leaveArcade = 0>>
 		<<replace #arcadeComingGoing>>
-			<<if $leaveArcade == 0>>
-				<<set $Flag to 0>>
-				<<include "Slave Summary">>
-			<<else>>
-				<<set $Flag = 1>>
-				<<include "Slave Summary">>
-			<</if>>
+			<<set $Flag = 0>>
+			<<include "Slave Summary">>
 		<</replace>>
 	<</link>>
 <</if>>
@@ -133,13 +128,8 @@ $arcadeNameCaps
 	| <<link "''Bring a slave out of $arcadeName''">>
 		<<set $leaveArcade = 1>>
 		<<replace #arcadeComingGoing>>
-			<<if $leaveArcade == 0>>
-				<<set $Flag to 0>>
-				<<include "Slave Summary">>
-			<<else>>
-				<<set $Flag = 1>>
-				<<include "Slave Summary">>
-			<</if>>
+			<<set $Flag = 1>>
+			<<include "Slave Summary">>
 		<</replace>>
 	<</link>>
 <<else>>
@@ -148,7 +138,7 @@ $arcadeNameCaps
 
 <span id="arcadeComingGoing">
 <<if $leaveArcade == 0>>
-	<<set $Flag to 0>>
+	<<set $Flag = 0>>
 	<<include "Slave Summary">>
 <<else>>
 	<<set $Flag = 1>>

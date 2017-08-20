@@ -134,6 +134,18 @@ window.removeFromArray = function(arr, val) {
 	return null;
 };
 
+window.filterInPlace = function(arr, callback, thisArg) {
+	var j = 0;
+
+	arr.forEach(function(e, i) {
+		if (callback.call(thisArg, e, i, arr))
+			arr[j++] = e;
+	});
+
+	arr.length = j;
+	return arr;
+};
+
 window.canGetPregnant = function(slave) {
 	if (!slave) {
 		return null;

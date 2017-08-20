@@ -102,13 +102,8 @@ $clinicNameCaps
 	<<link "''Send a slave to get treatment in $clinicName''">>
 		<<set $leaveClinic = 0>>
 		<<replace #clinicComingGoing>>
-			<<if $leaveClinic == 0>>
-				<<set $Flag to 0>>
-				<<include "Slave Summary">>
-			<<else>>
-				<<set $Flag = 1>>
-				<<include "Slave Summary">>
-			<</if>>
+			<<set $Flag = 0>>
+			<<include "Slave Summary">>
 		<</replace>>
 	<</link>>
 <</if>>
@@ -116,13 +111,8 @@ $clinicNameCaps
 	| <<link "''Take a slave out of the clinic''">>
 		<<set $leaveClinic = 1>>
 		<<replace #clinicComingGoing>>
-			<<if $leaveClinic == 0>>
-				<<set $Flag to 0>>
-				<<include "Slave Summary">>
-			<<else>>
-				<<set $Flag = 1>>
-				<<include "Slave Summary">>
-			<</if>>
+			<<set $Flag = 1>>
+			<<include "Slave Summary">>
 		<</replace>>
 	<</link>>
 <<else>>
@@ -131,7 +121,7 @@ $clinicNameCaps
 
 <span id="clinicComingGoing">
 <<if $leaveClinic == 0>>
-	<<set $Flag to 0>>
+	<<set $Flag = 0>>
 	<<include "Slave Summary">>
 <<else>>
 	<<set $Flag = 1>>
