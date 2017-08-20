@@ -233,6 +233,14 @@
 	<<set $args[0].race = either("black", "indo-aryan")>>
 <<case "Maldivian">>
 	<<set $args[0].race = either("indo-aryan")>>
+<<case "Bosnian">>
+	<<set $args[0].race = either("white")>>
+<<case "Croatian">>
+	<<set $args[0].race = either("white")>>
+<<case "Kosovan">>
+	<<set $args[0].race = either("white")>>
+<<case "Macedonian">>
+	<<set $args[0].race = either("white")>>
 <<default>>
 	<<set $args[0].race = either("white")>>
 <</switch>>
@@ -508,6 +516,14 @@
 	<<set $args[0].birthName = setup.malagasySlaveNames.random(), $args[0].birthSurname = setup.malagasySlaveSurnames.random()>>
 <<case "Maldivian">>
 	<<set $args[0].birthName = setup.maldivianSlaveNames.random(), $args[0].birthSurname = setup.maldivianSlaveSurnames.random()>>
+<<case "Bosnian">>
+	<<set $args[0].birthName = setup.bosnianSlaveNames.random(), $args[0].birthSurname = setup.bosnianSlaveSurnames.random()>>
+<<case "Croatian">>
+	<<set $args[0].birthName = setup.croatianSlaveNames.random(), $args[0].birthSurname = setup.croatianSlaveSurnames.random()>>
+<<case "Kosovan">>
+	<<set $args[0].birthName = setup.kosovanSlaveNames.random(), $args[0].birthSurname = setup.kosovanSlaveSurnames.random()>>
+<<case "Macedonian">>
+	<<set $args[0].birthName = setup.macedonianSlaveNames.random(), $args[0].birthSurname = setup.macedonianSlaveSurnames.random()>>
 <<default>>
 	<<set $args[0].birthName = setup.whiteAmericanSlaveNames.random(), $args[0].birthSurname = setup.whiteAmericanSlaveSurnames.random()>>
 <</switch>>
@@ -1039,6 +1055,14 @@
 <<case "Malagasy">>
 	<<set $args[0].accent = _naturalAccent>>
 <<case "Maldivian">>
+	<<set $args[0].accent = _naturalAccent>>
+<<case "Bosnian">>
+	<<set $args[0].accent = _naturalAccent>>
+<<case "Croatian">>
+	<<set $args[0].accent = _naturalAccent>>
+<<case "Kosovan">>
+	<<set $args[0].accent = _naturalAccent>>
+<<case "Macedonian">>
 	<<set $args[0].accent = _naturalAccent>>
 <<case "Roman Revivalist">>
 	<<if $language == "Latin">>
