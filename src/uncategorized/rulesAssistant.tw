@@ -165,64 +165,56 @@ __Rule $r Automatic Activation__
 	<<unset _customCondition>>
 	<<set $currentRule.condition = {id: "false"}>>
 	<<RAChangeActivation>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Always">>
 	<<unset _customCondition>>
 	<<set $currentRule.condition = {id: "true"}>>
 	<<RAChangeActivation>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Devotion">>
 	<<unset _customCondition>>
 	<<set $currentRule.condition = changeVariable($currentRule.condition, "devotion")>>
 	<<RAChangeActivation>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Trust">>
 	<<unset _customCondition>>
 	<<set $currentRule.condition = changeVariable($currentRule.condition, "trust")>>
 	<<RAChangeActivation>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Health">>
 	<<unset _customCondition>>
 	<<set $currentRule.condition = changeVariable($currentRule.condition, "health")>>
 	<<RAChangeActivation>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Sex drive">>
 	<<unset _customCondition>>
 	<<set $currentRule.condition = changeVariable($currentRule.condition, "energy")>>
 	<<RAChangeActivation>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Weight">>
 	<<unset _customCondition>>
 	<<set $currentRule.condition = changeVariable($currentRule.condition, "weight")>>
 	<<RAChangeActivation>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Age">>
 	<<unset _customCondition>>
 	<<set $currentRule.condition = changeVariable($currentRule.condition, "age")>>
 	<<RAChangeActivation>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Custom">>
@@ -235,12 +227,10 @@ __Rule $r Automatic Activation__
 		(custom): <br>
 		<<textinput "_customCondition" _customCondition>>
 			<<set _customConditionOld = _customCondition>>
-			<<RAChangeSave>>
-			<<RAChangeApply>>
+			<<RARuleModified>>
 		<</textinput>>
 	<</replace>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 
 <<else>>
@@ -255,8 +245,7 @@ __Rule $r Automatic Activation__
 		//Sir, I'm afraid the condition you have given me is too complex to display in the usual interface.//
 		<<textinput "_customCondition" _customCondition>>
 			<<set _customConditionOld = _customCondition>>
-			<<RAChangeSave>>
-			<<RAChangeApply>>
+			<<RARuleModified>>
 		<</textinput>>
 	<</replace>>
 	<</timed>>
@@ -348,8 +337,7 @@ Clothes:
 <<link "Select her own outfit">>
 	<<set $currentRule.clothes = "choosing her own clothes">>
 	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 
 <br>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -357,183 +345,157 @@ Clothes:
 <<link "No default clothes setting">>
 	<<set $currentRule.clothes = "no default setting">>
 	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Bangles">>
 	<<set $currentRule.clothes = "slutty jewelry">>
 	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Bodysuit">>
 	<<set $currentRule.clothes = "a comfortable bodysuit">>
 	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Cheerleader outfit">>
 	<<set $currentRule.clothes = "a cheerleader outfit">>
 	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Clubslut netting">>
 	<<set $currentRule.clothes = "clubslut netting">>
 	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Cutoffs and a t-shirt">>
 	<<set $currentRule.clothes = "cutoffs and a t-shirt">>
 	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Fallen nun">>
 	<<set $currentRule.clothes = "a fallen nuns habit">>
 	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Halter top">>
 	<<set $currentRule.clothes = "a halter top dress">>
 	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Hijab and abaya">>
 	<<set $currentRule.clothes = "a hijab and abaya">>
 	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Latex catsuit">>
 	<<set $currentRule.clothes = "a latex catsuit">>
 	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Leotard">>
 	<<set $currentRule.clothes = "a leotard">>
 	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Maid (nice)">>
 	<<set $currentRule.clothes = "a nice maid outfit">>
 	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Maid (slutty)">>
 	<<set $currentRule.clothes = "a slutty maid outfit">>
 	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Military uniform">>
 	<<set $currentRule.clothes = "a military uniform">>
 	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Mini dress">>
 	<<set $currentRule.clothes = "a mini dress">>
 	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Nice lingerie">>
 	<<set $currentRule.clothes = "attractive lingerie">>
 	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Nurse (nice)">>
 	<<set $currentRule.clothes = "a nice nurse outfit">>
 	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Nurse (slutty)">>
 	<<set $currentRule.clothes = "a slutty nurse outfit">>
 	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Schoolgirl">>
 	<<set $currentRule.clothes = "a schoolgirl outfit">>
 	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Silken ballgown">>
 	<<set $currentRule.clothes = "a ball gown">>
 	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Skimpy battledress">>
 	<<set $currentRule.clothes = "battledress">>
 	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Slave gown">>
 	<<set $currentRule.clothes = "a slave gown">>
 	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "String bikini">>
 	<<set $currentRule.clothes = "a string bikini">>
 	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Succubus costume">>
 	<<set $currentRule.clothes = "a succubus outfit">>
 	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Suit (nice)">>
 	<<set $currentRule.clothes = "nice business attire">>
 	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Suit (slutty)">>
 	<<set $currentRule.clothes = "slutty business attire">>
 	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<if ($arcologies[0].FSPhysicalIdealist != "unset") || ($cheatMode == 1) || ($clothesBoughtOil == 1)>>
@@ -541,8 +503,7 @@ Clothes:
 <<link "Body oil">>
 	<<set $currentRule.clothes = "body oil">>
 	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>> |
 <</if>>
 <<if ($arcologies[0].FSGenderFundamentalist != "unset") || ($cheatMode == 1) || ($clothesBoughtBunny == 1)>>
@@ -550,8 +511,7 @@ Clothes:
 <<link "Bunny outfit">>
 	<<set $currentRule.clothes = "a bunny outfit">>
 	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>> |
 <</if>>
 <<if ($arcologies[0].FSDegradationist != "unset") || ($cheatMode == 1) || ($clothesBoughtChains == 1)>>
@@ -559,8 +519,7 @@ Clothes:
 <<link "Chains">>
 	<<set $currentRule.clothes = "chains">>
 	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>> |
 <</if>>
 <<if ($arcologies[0].FSChattelReligionist != "unset") || ($cheatMode == 1) || ($clothesBoughtHabit == 1)>>
@@ -568,8 +527,7 @@ Clothes:
 <<link "Chattel habit">>
 	<<set $currentRule.clothes = "a chattel habit">>
 	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>> |
 <</if>>
 <<if ($arcologies[0].FSPaternalist != "unset") || ($cheatMode == 1) || ($clothesBoughtConservative == 1)>>
@@ -577,8 +535,7 @@ Clothes:
 <<link "Conservative clothing">>
 	<<set $currentRule.clothes = "conservative clothing">>
 	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>> |
 <</if>>
 <<if ($arcologies[0].FSArabianRevivalist != "unset") || ($cheatMode == 1) || ($clothesBoughtHarem == 1)>>
@@ -586,8 +543,7 @@ Clothes:
 <<link "Harem gauze">>
 	<<set $currentRule.clothes = "harem gauze">>
 	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>> |
 <</if>>
 <<if ($arcologies[0].FSAztecRevivalist != "unset") || ($cheatMode == 1) || ($clothesBoughtHuipil == 1)>>
@@ -595,8 +551,7 @@ Clothes:
 <<link "Huipil">>
 	<<set $currentRule.clothes = "a huipil", $currentRule.choosesOwnClothes = 0>>
 	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>> |
 <</if>>
 <<if ($arcologies[0].FSEdoRevivalist != "unset") || ($cheatMode == 1) || ($clothesBoughtKimono == 1)>>
@@ -604,8 +559,7 @@ Clothes:
 <<link "Kimono">>
 	<<set $currentRule.clothes = "a kimono">>
 	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>> |
 <</if>>
 <<if ($arcologies[0].FSChineseRevivalist != "unset") || ($cheatMode == 1) || ($clothesBoughtQipao == 1)>>
@@ -613,8 +567,7 @@ Clothes:
 <<link "Slutty qipao">>
 	<<set $currentRule.clothes = "a slutty qipao">>
 	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>> |
 <</if>>
 <<if ($arcologies[0].FSRomanRevivalist != "unset") || ($cheatMode == 1) || ($clothesBoughtToga == 1)>>
@@ -622,8 +575,7 @@ Clothes:
 <<link "Toga">>
 	<<set $currentRule.clothes = "a toga">>
 	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>> |
 <</if>>
 <<if ($arcologies[0].FSPastoralist != "unset") || ($cheatMode == 1) || ($clothesBoughtWestern == 1)>>
@@ -631,8 +583,7 @@ Clothes:
 <<link "Western clothing">>
 	<<set $currentRule.clothes = "Western clothing">>
 	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 <</if>>
 
@@ -641,36 +592,31 @@ Clothes:
 <<link "Nude">>
 	<<set $currentRule.clothes = "no clothing">>
 	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Penitent nun">>
 	<<set $currentRule.clothes = "a penitent nuns habit">>
 	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Restrictive latex">>
 	<<set $currentRule.clothes = "restrictive latex">>
 	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Shibari ropes">>
 	<<set $currentRule.clothes = "shibari ropes">>
 	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Uncomfortable straps">>
 	<<set $currentRule.clothes = "uncomfortable straps">>
 	<<RAChangeClothes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 
 
@@ -681,15 +627,13 @@ Collar: ''$currentRule.collar.''
 <<link "No default collar setting">>
 	<<set $currentRule.collar = "no default setting">>
 	<<RAChangeCollar>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "No collar">>
 	<<set $currentRule.collar = "none">>
 	<<RAChangeCollar>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 
 <br>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -697,15 +641,13 @@ Collar: ''$currentRule.collar.''
 <<link "Stylish leather">>
 	<<set $currentRule.collar = "stylish leather">>
 	<<RAChangeCollar>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Satin choker">>
 	<<set $currentRule.collar = "satin choker">>
 	<<RAChangeCollar>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Heavy Gold">>
@@ -716,32 +658,28 @@ Collar: ''$currentRule.collar.''
 <<link "Pretty jewelry">>
 	<<set $currentRule.collar = "pretty jewelry">>
 	<<RAChangeCollar>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<if $seeAge != 0>>
 <<link "Nice retirement counter">>
 	<<set $currentRule.collar = "nice retirement counter">>
 	<<RAChangeCollar>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <</if>>
 <<link "Cowbell">>
 	<<set $currentRule.collar = "leather with cowbell">>
 	<<RAChangeCollar>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 <<if ($arcologies[0].FSGenderFundamentalist != "unset") || ($cheatMode == 1) || ($clothesBoughtBunny == 1)>>
    | //FS//
 <<link "Bowtie collar">>
 	<<set $currentRule.collar = "bowtie">>
 	<<RAChangeCollar>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 <</if>>
 <<if ($arcologies[0].FSEgyptianRevivalist != "unset") || ($cheatMode == 1) || ($clothesBoughtEgypt == 1)>>
@@ -749,8 +687,7 @@ Collar: ''$currentRule.collar.''
 <<link "Ancient Egyptian">>
 	<<set $currentRule.collar = "ancient Egyptian">>
 	<<RAChangeCollar>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 <</if>>
 
@@ -759,59 +696,51 @@ Collar: ''$currentRule.collar.''
 <<link "Tight steel">>
 	<<set $currentRule.collar = "tight steel">>
 	<<RAChangeCollar>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<if $seeAge != 0>>
 <<link "Cruel retirement counter">>
 	<<set $currentRule.collar = "cruel retirement counter">>
 	<<RAChangeCollar>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <</if>>
 <<link "Uncomfortable leather">>
 	<<set $currentRule.collar = "uncomfortable leather">>
 	<<RAChangeCollar>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Shock punishment">>
 	<<set $currentRule.collar = "shock punishment">>
 	<<RAChangeCollar>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Dildo gag">>
 	<<set $currentRule.collar = "dildo gag">>
 	<<RAChangeCollar>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Ball gag">>
 	<<set $currentRule.collar = "ball gag">>
 	<<RAChangeCollar>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Bit gag">>
 	<<set $currentRule.collar = "bit gag">>
 	<<RAChangeCollar>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Neck corset">>
 	<<set $currentRule.collar = "neck corset">>
 	<<RAChangeCollar>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 
 
@@ -822,43 +751,37 @@ Shoes: ''$currentRule.shoes.''
 <<link "No default footwear setting">>
 	<<set $currentRule.shoes = "no default setting">>
 	<<RAChangeShoes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Barefoot">>
 	<<set $currentRule.shoes = "none">>
 	<<RAChangeShoes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Flats">>
 	<<set $currentRule.shoes = "flats">>
 	<<RAChangeShoes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Heels">>
 	<<set $currentRule.shoes = "heels">>
 	<<RAChangeShoes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Thigh boots">>
 	<<set $currentRule.shoes = "boots">>
 	<<RAChangeShoes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Painfully extreme heels">>
 	<<set $currentRule.shoes = "extreme heels">>
 	<<RAChangeShoes>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 
 <br>
@@ -868,29 +791,25 @@ Torso accessory: ''$currentRule.bellyAccessory.''
 <<link "No default setting">>
 	<<set $currentRule.bellyAccessory = "no default setting">>
 	<<RAChangeBelly>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "None">>
 	<<set $currentRule.bellyAccessory = "none">>
 	<<RAChangeBelly>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Tight corset">>
 	<<set $currentRule.bellyAccessory = "a corset">>
 	<<RAChangeBelly>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Extreme corset">>
 	<<set $currentRule.bellyAccessory = "an extreme corset">>
 	<<RAChangeBelly>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 
 <br>
@@ -902,58 +821,50 @@ Vaginal accessories for virgins: ''$currentRule.virginAccessory.''
 <<link "No default setting">>
 	<<set $currentRule.virginAccessory = "no default setting">>
 	<<RAChangeVAccessory 0>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "None">>
 	<<set $currentRule.virginAccessory = "none">>
 	<<RAChangeVAccessory 0>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Dildo">>
 	<<set $currentRule.virginAccessory = "dildo">>
 	<<RAChangeVAccessory 0>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Large dildo">>
 	<<set $currentRule.virginAccessory = "large dildo">>
 	<<RAChangeVAccessory 0>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Huge dildo">>
 	<<set $currentRule.virginAccessory = "huge dildo">>
 	<<RAChangeVAccessory 0>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 //Will permanently gape pussies//
 |
 <<link "Chastity belt">>
 	<<set $currentRule.virginAccessory = "chastity belt">>
 	<<RAChangeVAccessory 0>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Anal chastity belt">>
 	<<set $currentRule.virginAccessory = "anal chastity">>
 	<<RAChangeVAccessory 0>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Combined chastity belt">>
 	<<set $currentRule.virginAccessory = "combined chastity">>
 	<<RAChangeVAccessory 0>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 
 <br>
@@ -965,58 +876,50 @@ Vaginal accessories for anal virgins: ''$currentRule.aVirginAccessory.''
 <<link "No default setting">>
 	<<set $currentRule.aVirginAccessory = "no default setting">>
 	<<RAChangeVAccessory 1>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "None">>
 	<<set $currentRule.aVirginAccessory = "none">>
 	<<RAChangeVAccessory 1>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Dildo">>
 	<<set $currentRule.aVirginAccessory = "dildo">>
 	<<RAChangeVAccessory 1>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Large dildo">>
 	<<set $currentRule.aVirginAccessory = "large dildo">>
 	<<RAChangeVAccessory 1>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Huge dildo">>
 	<<set $currentRule.aVirginAccessory = "huge dildo">>
 	<<RAChangeVAccessory 1>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 //Will permanently gape pussies//
 |
 <<link "Chastity belt">>
 	<<set $currentRule.aVirginAccessory = "chastity belt">>
 	<<RAChangeVAccessory 1>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Anal chastity belt">>
 	<<set $currentRule.aVirginAccessory = "anal chastity">>
 	<<RAChangeVAccessory 1>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Combined chastity belt">>
 	<<set $currentRule.aVirginAccessory = "combined chastity">>
 	<<RAChangeVAccessory 1>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 
 <br>
@@ -1028,58 +931,50 @@ Vaginal accessories for other slaves: ''$currentRule.vaginalAccessory.''
 <<link "No default setting">>
 	<<set $currentRule.vaginalAccessory = "no default setting">>
 	<<RAChangeVAccessory 2>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "None">>
 	<<set $currentRule.vaginalAccessory = "none">>
 	<<RAChangeVAccessory 2>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Dildo">>
 	<<set $currentRule.vaginalAccessory = "dildo">>
 	<<RAChangeVAccessory 2>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Large dildo">>
 	<<set $currentRule.vaginalAccessory = "large dildo">>
 	<<RAChangeVAccessory 2>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Huge dildo">>
 	<<set $currentRule.vaginalAccessory = "huge dildo">>
 	<<RAChangeVAccessory 2>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 //Will permanently gape pussies//
 |
 <<link "Chastity belt">>
 	<<set $currentRule.vaginalAccessory = "chastity belt">>
 	<<RAChangeVAccessory 2>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Anal chastity belt">>
 	<<set $currentRule.vaginalAccessory = "anal chastity">>
 	<<RAChangeVAccessory 2>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Combined chastity belt">>
 	<<set $currentRule.vaginalAccessory = "combined chastity">>
 	<<RAChangeVAccessory 2>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 
 <<if $seeDicks != 0>>
@@ -1090,36 +985,31 @@ Dick accessories for anal virgins: ''$currentRule.aVirginDickAccessory.''
 <<link "No default setting">>
 	<<set $currentRule.aVirginDickAccessory = "no default setting">>
 	<<RAChangeDAccessory 0>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "None">>
 	<<set $currentRule.aVirginDickAccessory = "none">>
 	<<RAChangeDAccessory 0>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Chastity cage">>
 	<<set $currentRule.aVirginDickAccessory = "chastity">>
 	<<RAChangeDAccessory 0>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Anal chastity belt">>
 	<<set $currentRule.aVirginDickAccessory = "anal chastity">>
 	<<RAChangeDAccessory 0>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Combined chastity belt">>
 	<<set $currentRule.aVirginDickAccessory = "combined chastity">>
 	<<RAChangeDAccessory 0>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 
 <br>
@@ -1130,36 +1020,31 @@ Dick accessories for other slaves: ''$currentRule.dickAccessory.''
 <<link "No default setting">>
 	<<set $currentRule.dickAccessory = "no default setting">>
 	<<RAChangeDAccessory 1>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "None">>
 	<<set $currentRule.dickAccessory = "none">>
 	<<RAChangeDAccessory 1>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Chastity cage">>
 	<<set $currentRule.dickAccessory = "chastity">>
 	<<RAChangeDAccessory 1>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Anal chastity belt">>
 	<<set $currentRule.dickAccessory = "anal chastity">>
 	<<RAChangeDAccessory 1>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Combined chastity belt">>
 	<<set $currentRule.dickAccessory = "combined chastity">>
 	<<RAChangeDAccessory 1>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 <</if>>
 
@@ -1172,58 +1057,50 @@ Buttplugs for anal virgins: ''$currentRule.aVirginButtplug.''
 <<link "No default setting">>
 	<<set $currentRule.aVirginButtplug = "no default setting">>
 	<<RAChangeBAccessory 0>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "None">>
 	<<set $currentRule.aVirginButtplug = "none">>
 	<<RAChangeBAccessory 0>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Standard plug">>
 	<<set $currentRule.aVirginButtplug = "plug">>
 	<<RAChangeBAccessory 0>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Large plug">>
 	<<set $currentRule.aVirginButtplug = "large plug">>
 	<<RAChangeBAccessory 0>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Huge plug">>
 	<<set $currentRule.aVirginButtplug = "huge plug">>
 	<<RAChangeBAccessory 0>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 //Will permanently gape assholes//
 |
 <<link "Standard tailed plug">>
 	<<set $currentRule.aVirginButtplug = "tailed plug">>
 	<<RAChangeBAccessory 0>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Large tailed plug">>
 	<<set $currentRule.aVirginButtplug = "large tailed plug">>
 	<<RAChangeBAccessory 0>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Huge tailed plug">>
 	<<set $currentRule.aVirginButtplug = "huge tailed plug">>
 	<<RAChangeBAccessory 0>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 //Will permanently gape assholes//
 
@@ -1236,36 +1113,31 @@ Buttplugs for other slaves: ''$currentRule.buttplug.''
 <<link "No default setting">>
 	<<set $currentRule.buttplug = "no default setting">>
 	<<RAChangeBAccessory 1>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "None">>
 	<<set $currentRule.buttplug = "none">>
 	<<RAChangeBAccessory 1>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Standard plug">>
 	<<set $currentRule.buttplug = "plug">>
 	<<RAChangeBAccessory 1>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Large plug">>
 	<<set $currentRule.buttplug = "large plug">>
 	<<RAChangeBAccessory 1>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Huge plug">>
 	<<set $currentRule.buttplug = "huge plug">>
 	<<RAChangeBAccessory 1>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 //Will permanently gape assholes//
 |
@@ -1355,29 +1227,25 @@ Health drugs:
 <<link "No default setting">>
 	<<set $currentRule.curatives = "no default setting">>
 	<<RAChangeCuratives>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "None">>
 	<<set $currentRule.curatives = 0>>
 	<<RAChangeCuratives>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Preventatives">>
 	<<set $currentRule.curatives = 1>>
 	<<RAChangeCuratives>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Curatives">>
 	<<set $currentRule.curatives = 2>>
 	<<RAChangeCuratives>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 
 <br>
@@ -1401,29 +1269,25 @@ Aphrodisiacs:
 <<link "No default setting">>
 	<<set $currentRule.aphrodisiacs = "no default setting">>
 	<<RAChangeAphrodisiacs>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "None">>
 	<<set $currentRule.aphrodisiacs = 0>>
 	<<RAChangeAphrodisiacs>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Standard">>
 	<<set $currentRule.aphrodisiacs = 1>>
 	<<RAChangeAphrodisiacs>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Extreme">>
 	<<set $currentRule.aphrodisiacs = 2>>
 	<<RAChangeAphrodisiacs>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 
 <br>
@@ -1447,36 +1311,31 @@ Contraceptives for fertile slaves:
 <<link "No default setting">>
 	<<set $currentRule.preg = "no default setting">>
 	<<RAChangePreg>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Fertile">>
 	<<set $currentRule.preg = 0>>
 	<<RAChangePreg>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Very fertile">>
 	<<set $currentRule.preg = 1>>
 	<<RAChangePreg>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Extremely fertile">>
 	<<set $currentRule.preg = 2>>
 	<<RAChangePreg>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Contraceptives">>
 	<<set $currentRule.preg = -1>>
 	<<RAChangePreg>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 
 <br>
@@ -1502,43 +1361,37 @@ Hormones for female slaves:
 <<link "No default setting">>
 	<<set $currentRule.XX = "no default setting">>
 	<<RAChangeXXHormones>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Intensive Female">>
 	<<set $currentRule.XX = 2>>
 	<<RAChangeXXHormones>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Female">>
 	<<set $currentRule.XX = 1>>
 	<<RAChangeXXHormones>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "None">>
 	<<set $currentRule.XX = 0>>
 	<<RAChangeXXHormones>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Male">>
 	<<set $currentRule.XX = -1>>
 	<<RAChangeXXHormones>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Intensive Male">>
 	<<set $currentRule.XX = -2>>
 	<<RAChangeXXHormones>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 
 <br>
@@ -1564,43 +1417,37 @@ Hormones for shemales:
 <<link "No default setting">>
 	<<set $currentRule.XY = "no default setting">>
 	<<RAChangeXYHormones>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Intensive Female">>
 	<<set $currentRule.XY = 2>>
 	<<RAChangeXYHormones>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Female">>
 	<<set $currentRule.XY = 1>>
 	<<RAChangeXYHormones>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "None">>
 	<<set $currentRule.XY = 0>>
 	<<RAChangeXYHormones>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Male">>
 	<<set $currentRule.XY = -1>>
 	<<RAChangeXYHormones>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Intensive Male">>
 	<<set $currentRule.XY = -2>>
 	<<RAChangeXYHormones>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 
 <br>
@@ -1626,43 +1473,37 @@ Hormones for geldings:
 <<link "No default setting">>
 	<<set $currentRule.gelding = "no default setting">>
 	<<RAChangeGeldHormones>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Intensive Female">>
 	<<set $currentRule.gelding = 2>>
 	<<RAChangeGeldHormones>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Female">>
 	<<set $currentRule.gelding = 1>>
 	<<RAChangeGeldHormones>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "None">>
 	<<set $currentRule.gelding = 0>>
 	<<RAChangeGeldHormones>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Male">>
 	<<set $currentRule.gelding = -1>>
 	<<RAChangeGeldHormones>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Intensive Male">>
 	<<set $currentRule.gelding = -2>>
 	<<RAChangeGeldHormones>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 
 <br>
@@ -1686,36 +1527,31 @@ Slave diets:
 <<link "No default diet setting">>
 	<<set $currentRule.diet = "no default setting">>
 	<<RAChangeDiet>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Fix fat and skinny slaves">>
 	<<set $currentRule.diet = "attractive">>
 	<<RAChangeDiet>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Curvy">>
 	<<set $currentRule.diet = 30>>
 	<<RAChangeDiet>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Average">>
 	<<set $currentRule.diet = 0>>
 	<<RAChangeDiet>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Thin">>
 	<<set $currentRule.diet = -30>>
 	<<RAChangeDiet>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 
 <span id = "dietsupport">
@@ -1732,15 +1568,13 @@ Diet support for growth drugs:
 <<link "On">>
 	<<set $currentRule.dietGrowthSupport = 1>>
 	<<RAChangeDiet>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Off">>
 	<<set $currentRule.dietGrowthSupport = 0>>
 	<<RAChangeDiet>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 <</if>>
 </span>
@@ -1770,56 +1604,49 @@ Diet base:
 <<link "no default setting">>
 	<<set $currentRule.dietCum = "no default setting">>
 	<<RAChangeDiet>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Normal Diet">>
 	<<set $currentRule.dietCum = 0>>
 	<<set $currentRule.dietMilk = 0>>
 	<<RAChangeDiet>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Cum Added">>
 	<<set $currentRule.dietCum = 1>>
 	<<set $currentRule.dietMilk = 0>>
 	<<RAChangeDiet>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Milk Added">>
 	<<set $currentRule.dietCum = 0>>
 	<<set $currentRule.dietMilk = 1>>
 	<<RAChangeDiet>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Cum & Milk Added">>
 	<<set $currentRule.dietCum = 1>>
 	<<set $currentRule.dietMilk = 1>>
 	<<RAChangeDiet>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Cum-Based">>
 	<<set $currentRule.dietCum = 2>>
 	<<set $currentRule.dietMilk = 0>>
 	<<RAChangeDiet>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Milk Based">>
 	<<set $currentRule.dietCum = 0>>
 	<<set $currentRule.dietMilk = 2>>
 	<<RAChangeDiet>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 
 <br>
@@ -1843,36 +1670,31 @@ Muscles:
 <<link "No default diet setting">>
 	<<set $currentRule.muscles = "no default setting">>
 	<<RAChangeMuscles>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "None">>
 	<<set $currentRule.muscles = 0>>
 	<<RAChangeMuscles>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Toned">>
 	<<set $currentRule.muscles = 20>>
 	<<RAChangeMuscles>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Ripped">>
 	<<set $currentRule.muscles = 50>>
 	<<RAChangeMuscles>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Massive">>
 	<<set $currentRule.muscles = 100>>
 	<<RAChangeMuscles>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 
 <br>
@@ -1894,29 +1716,25 @@ Braces:
 <<link "No default braces setting">>
 	<<set $currentRule.teeth = "no default setting">>
 	<<RAChangeBraces>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "None">>
 	<<set $currentRule.teeth = "none">>
 	<<RAChangeBraces>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Straighten">>
 	<<set $currentRule.teeth = "straighten">>
 	<<RAChangeBraces>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Universal">>
 	<<set $currentRule.teeth = "universal">>
 	<<RAChangeBraces>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 
 <br>
@@ -1929,16 +1747,14 @@ Assistant-applied implants:
 	<<link "Off">>
 		<<set $currentRule.autoSurgery = 0>>
 		<<RAChangeAssistantImplants>>
-		<<RAChangeSave>>
-		<<RAChangeApply>>
+		<<RARuleModified>>
 	<</link>>
 <<else>>
 	''off.''
 	<<link "Activate">>
 		<<set $currentRule.autoSurgery = 1>>
 		<<RAChangeAssistantImplants>>
-		<<RAChangeSave>>
-		<<RAChangeApply>>
+		<<RARuleModified>>
 	<</link>>
 <</if>>
 </span>
@@ -1955,29 +1771,25 @@ Living standard: ''$currentRule.livingRules.''
 <<link "No default setting">>
 	<<set $currentRule.livingRules = "no default setting">>
 	<<RAChangeLiving>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Luxurious">>
 	<<set $currentRule.livingRules = "luxurious">>
 	<<RAChangeLiving>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Normal">>
 	<<set $currentRule.livingRules = "normal">>
 	<<RAChangeLiving>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Spare">>
 	<<set $currentRule.livingRules = "spare">>
 	<<RAChangeLiving>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 
 <br>
@@ -1993,36 +1805,31 @@ Typical punishment: ''$currentRule.standardPunishment.''
 <<link "No default setting">>
 	<<set $currentRule.standardPunishment = "no default setting">>
 	<<RAChangePunish>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Confinement">>
 	<<set $currentRule.standardPunishment = "confinement">>
 	<<RAChangePunish>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Whipping">>
 	<<set $currentRule.standardPunishment = "whipping">>
 	<<RAChangePunish>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Chastity">>
 	<<set $currentRule.standardPunishment = "chastity">>
 	<<RAChangePunish>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Situational">>
 	<<set $currentRule.standardPunishment = "situational">>
 	<<RAChangePunish>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 
 <br>
@@ -2038,36 +1845,31 @@ Typical reward: ''$currentRule.standardReward.''
 <<link "No default setting">>
 	<<set $currentRule.standardReward = "no default setting">>
 	<<RAChangeReward>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Relaxation">>
 	<<set $currentRule.standardReward = "relaxation">>
 	<<RAChangeReward>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Drugs">>
 	<<set $currentRule.standardReward = "drugs">>
 	<<RAChangeReward>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Orgasm">>
 	<<set $currentRule.standardReward = "orgasm">>
 	<<RAChangeReward>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Situational">>
 	<<set $currentRule.standardReward = "situational">>
 	<<RAChangeReward>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 
 <br>
@@ -2079,29 +1881,25 @@ Release rules: ''$currentRule.releaseRules.''
 <<link "No default setting">>
 	<<set $currentRule.releaseRules = "no default setting">>
 	<<RAChangeMast>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Permissive">>
 	<<set $currentRule.releaseRules = "permissive">>
 	<<RAChangeMast>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Sapphic">>
 	<<set $currentRule.releaseRules = "sapphic">>
 	<<RAChangeMast>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Restrictive">>
 	<<set $currentRule.releaseRules = "restrictive">>
 	<<RAChangeMast>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 
 <br>
@@ -2112,78 +1910,67 @@ Smart piercing fetish target: <span id = "spf">''$currentRule.clitSetting.''</sp
 <<link "No default setting">>
 	<<set $currentRule.clitSetting = "no default setting">>
 	<<RAChangeSPF>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Vanilla">>
     <<set $currentRule.clitSetting = "vanilla">>
     <<RAChangeSPF>>
-	<<RAChangeSave>>
-    <<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Oral">>
     <<set $currentRule.clitSetting = "oral">>
     <<RAChangeSPF>>
-	<<RAChangeSave>>
-    <<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Anal">>
     <<set $currentRule.clitSetting = "anal">>
     <<RAChangeSPF>>
-	<<RAChangeSave>>
-    <<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Boobs">>
     <<set $currentRule.clitSetting = "boobs">>
     <<RAChangeSPF>>
-	<<RAChangeSave>>
-    <<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Sub">>
     <<set $currentRule.clitSetting = "submissive">>
     <<RAChangeSPF>>
-	<<RAChangeSave>>
-    <<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Dom">>
     <<set $currentRule.clitSetting = "dom">>
     <<RAChangeSPF>>
-	<<RAChangeSave>>
-    <<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Humiliation">>
     <<set $currentRule.clitSetting = "humiliation">>
     <<RAChangeSPF>>
-	<<RAChangeSave>>
-    <<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Preg">>
     <<set $currentRule.clitSetting = "pregnancy">>
     <<RAChangeSPF>>
-	<<RAChangeSave>>
-    <<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Pain">>
     <<set $currentRule.clitSetting = "masochist">>
     <<RAChangeSPF>>
-	<<RAChangeSave>>
-    <<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Sadism">>
     <<set $currentRule.clitSetting = "sadist">>
     <<RAChangeSPF>>
-	<<RAChangeSave>>
-    <<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 
 <br>
@@ -2194,36 +1981,31 @@ Smart piercing XY attraction target: <span id = "spxy"><<RAInitSPXY>></span>
 <<link "No default setting">>
 	<<set $currentRule.clitSettingXY = "no default setting">>
 	<<RAChangeSPXY>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Passionate">>
 	<<set $currentRule.clitSettingXY = 100>>
 	<<RAChangeSPXY>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Attracted">>
 	<<set $currentRule.clitSettingXY = 75>>
 	<<RAChangeSPXY>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Indifferent">>
 	<<set $currentRule.clitSettingXY = 45>>
 	<<RAChangeSPXY>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "None">>
 	<<set $currentRule.clitSettingXY = 0>>
 	<<RAChangeSPXY>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 
 <br>
@@ -2234,36 +2016,31 @@ Smart piercing XX attraction target: <span id = "spxx"><<RAInitSPXX>></span>
 <<link "No default setting">>
 	<<set $currentRule.clitSettingXX = "no default setting">>
 	<<RAChangeSPXX>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Passionate">>
 	<<set $currentRule.clitSettingXX = 100>>
 	<<RAChangeSPXX>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Attracted">>
 	<<set $currentRule.clitSettingXX = 75>>
 	<<RAChangeSPXX>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Indifferent">>
 	<<set $currentRule.clitSettingXX = 45>>
 	<<RAChangeSPXX>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "None">>
 	<<set $currentRule.clitSettingXX = 0>>
 	<<RAChangeSPXX>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 
 <br>
@@ -2274,50 +2051,43 @@ Smart piercing sex drive target: <span id = "spe"><<RAInitSPE>></span>
 <<link "No default setting">>
 	<<set $currentRule.clitSettingEnergy = "no default setting">>
 	<<RAChangeSPE>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Nympho">>
 	<<set $currentRule.clitSettingEnergy = 100>>
 	<<RAChangeSPE>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Sex Addict">>
 	<<set $currentRule.clitSettingEnergy = 85>>
 	<<RAChangeSPE>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Powerful">>
 	<<set $currentRule.clitSettingEnergy = 65>>
 	<<RAChangeSPE>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Healthy">>
 	<<set $currentRule.clitSettingEnergy = 45>>
 	<<RAChangeSPE>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Weak">>
 	<<set $currentRule.clitSettingEnergy = 25>>
 	<<RAChangeSPE>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Frigid">>
 	<<set $currentRule.clitSettingEnergy = 0>>
 	<<RAChangeSPE>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 
 <br>
@@ -2329,29 +2099,25 @@ Speech rules: ''$currentRule.speechRules.''
 <<link "No default setting">>
 	<<set $currentRule.speechRules = "no default setting">>
 	<<RAChangeSpeech>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Permissive">>
 	<<set $currentRule.speechRules = "permissive">>
 	<<RAChangeSpeech>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Suppress accents">>
 	<<set $currentRule.speechRules = "accent elimination">>
 	<<RAChangeSpeech>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Restrictive">>
 	<<set $currentRule.speechRules = "restrictive">>
 	<<RAChangeSpeech>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 
 <br>
@@ -2363,29 +2129,25 @@ Relationship rules: ''$currentRule.relationshipRules.''
 <<link "No default setting">>
 	<<set $currentRule.relationshipRules = "no default setting">>
 	<<RAChangeRelationship>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Permissive">>
 	<<set $currentRule.relationshipRules = "permissive">>
 	<<RAChangeRelationship>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Just friends">>
 	<<set $currentRule.relationshipRules = "just friends">>
 	<<RAChangeRelationship>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "Restrictive">>
 	<<set $currentRule.relationshipRules = "restrictive">>
 	<<RAChangeRelationship>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 
 <<if $studio == 1>>
@@ -2396,8 +2158,7 @@ Relationship rules: ''$currentRule.relationshipRules.''
 <<link "Enable">>
 	<<set $currentRule.pornFameSpending = 0>>
 	<<RAChangeFameSpending>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 <<else>>
   Weekly porn publicity subsidy: ''¤$currentRule.pornFameSpending.''
@@ -2407,57 +2168,49 @@ Relationship rules: ''$currentRule.relationshipRules.''
 <<link "No default setting">>
 	<<set $currentRule.pornFameSpending = "no default setting">>
 	<<RAChangeFameSpending>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "No subsidy">>
 	<<set $currentRule.pornFameSpending = 0>>
 	<<RAChangeFameSpending>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "1000">>
 	<<set $currentRule.pornFameSpending = 1000>>
 	<<RAChangeFameSpending>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "2000">>
 	<<set $currentRule.pornFameSpending = 2000>>
 	<<RAChangeFameSpending>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "3000">>
 	<<set $currentRule.pornFameSpending = 3000>>
 	<<RAChangeFameSpending>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "4000">>
 	<<set $currentRule.pornFameSpending = 4000>>
 	<<RAChangeFameSpending>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "5000">>
 	<<set $currentRule.pornFameSpending = 5000>>
 	<<RAChangeFameSpending>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 |
 <<link "No broadcasting">>
 	<<set $currentRule.pornFameSpending = -1>>
 	<<RAChangeFameSpending>>
-	<<RAChangeSave>>
-	<<RAChangeApply>>
+	<<RARuleModified>>
 <</link>>
 
 <</if>>
