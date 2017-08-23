@@ -531,47 +531,26 @@ window.mergeRules = function(rules) {
     var combinedRule = {};
 
     for (var i = 0; i < rules.length; i++) {
-        for (var attr in rules[i]) {
+        for (var prop in rules[i]) {
+            // we don't manage setAssignment here, we do it in <<DefaultRules>>
+            if (prop === "setAssignment")
+                continue;
 
             // A rule overrides any preceding ones if,
             //   * there are no preceding ones,
             //   * or it sets autoBrand,
-            //   * or it sets setAssignment to something other that "none",
-            //   * or it sets assignFacility to something other that "none",
-            //   * or it sets none of the above and is not "no default setting"
+            //   * or it does not set autoBrand and is not "no default setting"
             var applies = (
-                combinedRule[attr] === undefined
-                || (attr === "autoBrand" && rules[i][attr])
-                || (attr === "setAssignment" && rules[i][attr] !== "none")
-                || (attr === "assignFacility" && rules[i][attr] !== "none")
-                || (
-                    attr !== "autoBrand"
-                    && attr !== "setAssignment"
-                    && attr !== "assignFacility"
-                    && rules[i][attr] !== "no default setting"
-                )
+                combinedRule[prop] === undefined
+                || (prop === "autoBrand" && rules[i][prop])
+                || (prop !== "autoBrand" && rules[i][prop] !== "no default setting")
             );
 
-            if (applies) {
-                if (attr == "setAssignment" && combinedRule.assignFacility !== "none") {
-                    // If the rules so far have set assignFacility, unset it,
-                    // since the assignment overrides it.  We assume that a
-                    // given rule won't set both assignFacility and
-                    // setAssignment.  If that happens, which one will prevail
-                    // is down to the enumeration order of "for ... in".
-                    combinedRule.assignFacility = "none";
-                    combinedRule.facilityRemove = false;
-                }
-                if (attr == "assignFacility" && combinedRule.setAssignment !== "none")
-                    // Similarly, if setAssignment is set, unset it.
-                    combinedRule.setAssignment = "none";
-
-                combinedRule[attr] = rules[i][attr];
-            }
+            if (applies)
+                combinedRule[prop] = rules[i][prop];
         }
     }
 
     return combinedRule;
 }
-
 

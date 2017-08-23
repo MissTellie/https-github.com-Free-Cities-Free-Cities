@@ -267,6 +267,10 @@
 		<</if>>
 	<</if>>
 
+	<<if $defaultRules[_bci].setAssignment == "none">>
+		<<set $defaultRules[_bci].setAssignment = "no default setting">>
+	<</if>>
+
 	<<if $defaultRules[_bci].assignFacility>>
 		<<switch $defaultRules[_bci].assignFacility>>
 		<<case "spa">>          <<set $defaultRules[_bci].setAssignment = "rest in the spa">>

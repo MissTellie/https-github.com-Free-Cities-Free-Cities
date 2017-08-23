@@ -2807,64 +2807,57 @@ Your brand design is ''$brandDesign.''
 
 	<<set _combinedRule = mergeRules([_combinedRule, _currentRule])>>
 
-	<<if _currentRule.setAssignment == "no default setting" || _currentRule.setAssignment == $args[0].assignment>>
+	/% We merge assignments here %/
+	<<if _currentRule.setAssignment == "no default setting">>
 		<<continue>>
 	<</if>>
 
-	/% apply assignment changes for each rule (_currentRule) we process; _combinedRule will be used later %/
 	<<switch _currentRule.setAssignment>>
 	<<case "live with your Head Girl">>
 		<<if ($HGSuiteSlaves < 1 && $args[0].indentureRestrictions <= 0)>>
-			<br>$args[0].slaveName has been automatically assigned to live in your Head Girl's private suite.
-			<<assignJob $args[0] _currentRule.setAssignment>>
+			<<set _combinedRule.setAssignment = _currentRule.setAssignment>>
 		<<else>>
 			<<RAFacilityRemove $args[0] _currentRule>>
 		<</if>>
 
 	<<case "be confined in the arcade">>
-		<<if ($arcadeSlaves > $arcade && $args[0].indentureRestrictions <= 0)>>
-			<br>$args[0].slaveName has been automatically assigned to be confined in $arcadeName.
-			<<assignJob $args[0] _currentRule.setAssignment>>
+		<<if ($arcadeSlaves < $arcade && $args[0].indentureRestrictions <= 0)>>
+			<<set _combinedRule.setAssignment = _currentRule.setAssignment>>
 		<<else>>
 			<<RAFacilityRemove $args[0] _currentRule>>
 		<</if>>
 
 	<<case "serve in the master suite">>
-		<<if ($masterSuiteSlaves > $masterSuite && ($args[0].devotion > 20 || $args[0].trust < -50 || ($args[0].devotion >= -50 && $args[0].trust < -20)))>>
-			<br>$args[0].slaveName has been automatically assigned to $masterSuiteName.
-			<<assignJob $args[0] _currentRule.setAssignment>>
+		<<if ($masterSuiteSlaves < $masterSuite && ($args[0].devotion > 20 || $args[0].trust < -50 || ($args[0].devotion >= -50 && $args[0].trust < -20)))>>
+			<<set _combinedRule.setAssignment = _currentRule.setAssignment>>
 		<<else>>
 			<<RAFacilityRemove $args[0] _currentRule>>
 		<</if>>
 
 	<<case "get treatment in the clinic">>
-		<<if ($clinicSlaves > $clinic && ($args[0].health < 20 || ($args[0].chem > 15 && $Nurse != 0 && $clinicUpgradeFilters == 1)))>>
-			<br>$args[0].slaveName has been automatically assigned to get treatment in $clinicName.
-			<<assignJob $args[0] _currentRule.setAssignment>>
+		<<if ($clinicSlaves < $clinic && ($args[0].health < 20 || ($args[0].chem > 15 && $Nurse != 0 && $clinicUpgradeFilters == 1)))>>
+			<<set _combinedRule.setAssignment = _currentRule.setAssignment>>
 		<<else>>
 			<<RAFacilityRemove $args[0] _currentRule>>
 		<</if>>
 
 	<<case "rest in the spa">>
-		<<if ($spa > $spaSlaves) && ($args[0].health < 20) || ($args[0].trust < 60) || ($args[0].devotion <= 60) || ($args[0].fetish == "mindbroken") && ($args[0].devotion >= -20)>>
-			<br>$args[0].slaveName has been automatically assigned to rest in $spaName.
-			<<assignJob $args[0] _currentRule.setAssignment>>
+		<<if ($spaSlaves < $spa) && ($args[0].health < 20) || ($args[0].trust < 60) || ($args[0].devotion <= 60) || ($args[0].fetish == "mindbroken") && ($args[0].devotion >= -20)>>
+			<<set _combinedRule.setAssignment = _currentRule.setAssignment>>
 		<<else>>
 			<<RAFacilityRemove $args[0] _currentRule>>
 		<</if>>
 
 	<<case "work in the brothel">>
 		<<if ($brothelSlaves < $brothel && ($args[0].devotion > 50 || $args[0].trust > 50 || $args[0].trust < -50 || ($args[0].devotion >= -50 && $args[0].trust < -20)))>>
-			<br>$args[0].slaveName has been automatically assigned to work in $brothelName.
-			<<assignJob $args[0] _currentRule.setAssignment>>
+			<<set _combinedRule.setAssignment = _currentRule.setAssignment>>
 		<<else>>
 			<<RAFacilityRemove $args[0] _currentRule>>
 		<</if>>
 
 	<<case "serve in the club">>
 		<<if ($clubSlaves < $club && ($args[0].devotion > 50 || $args[0].trust > 50 || $args[0].trust < -50 || ($args[0].devotion >= -50 && $args[0].trust < -20)))>>
-			<br>$args[0].slaveName has been automatically assigned to serve in $clubName.
-			<<assignJob $args[0] _currentRule.setAssignment>>
+			<<set _combinedRule.setAssignment = _currentRule.setAssignment>>
 		<<else>>
 			<<RAFacilityRemove $args[0] _currentRule>>
 		<</if>>
@@ -2878,8 +2871,7 @@ Your brand design is ''$brandDesign.''
 					<<if ($args[0].devotion > 20) || (($args[0].devotion >= -50) && ($args[0].trust < -20)) || ($args[0].trust < -50) || ($args[0].amp == 1) || ($dairyRestraintsUpgrade == 1)>>
 						<<if ($dairyStimulatorsSetting < 2) || ($args[0].anus > 2) || ($dairyPrepUpgrade == 1)>>
 							<<if ($dairyPregSetting < 2) || ($args[0].vagina > 2) || ($args[0].ovaries == 0) || ($dairyPrepUpgrade == 1)>>
-								<br>$args[0].slaveName has been automatically assigned to be milked in $dairyName.
-								<<assignJob $args[0] _currentRule.setAssignment>>
+								<<set _combinedRule.setAssignment = _currentRule.setAssignment>>
 							<<else>>
 								<<RAFacilityRemove $args[0] _currentRule>>
 							<</if>>
@@ -2897,8 +2889,7 @@ Your brand design is ''$brandDesign.''
 
 	<<case "work as a servant">>
 		<<if ($servantsQuartersSlaves < $servantsQuarters && canSee($args[0]) && canWalk($args[0]) && ($args[0].devotion >= -20 || $args[0].trust < -20 || ($args[0].devotion >= -50 && $args[0].trust <= 20)))>>
-			<br>$args[0].slaveName has been automatically assigned to work in $servantsQuartersName.
-			<<assignJob $args[0] _currentRule.setAssignment>>
+			<<set _combinedRule.setAssignment = _currentRule.setAssignment>>
 		<<else>>
 			<<RAFacilityRemove $args[0] _currentRule>>
 		<</if>>
@@ -2906,8 +2897,7 @@ Your brand design is ''$brandDesign.''
 	<<case "learn in the schoolroom">>
 		<<if ($schoolroomSlaves < $schoolroom && $args[0].fetish != "mindbroken" && ($args[0].devotion >= -20 || $args[0].trust < -50 || ($args[0].devotion >= -50 && $args[0].trust < -20)))>>
 			<<if ($args[0].intelligenceImplant < 1) || ($args[0].voice != 0 && $args[0].accent+$schoolroomUpgradeLanguage > 2) || ($args[0].oralSkill <= 10+$schoolroomUpgradeSkills*20) || ($args[0].whoreSkill <= 10+$schoolroomUpgradeSkills*20) || ($args[0].entertainSkill <= 10+$schoolroomUpgradeSkills*20) || ($args[0].analSkill < 10+$schoolroomUpgradeSkills*20) || (($args[0].vagina >= 0) && ($args[0].vaginalSkill < 10+$schoolroomUpgradeSkills*20))>>
-				<br>$args[0].slaveName has been automatically assigned to study in $schoolroomName.
-				<<assignJob $args[0] _currentRule.setAssignment>>
+				<<set _combinedRule.setAssignment = _currentRule.setAssignment>>
 			<<else>>
 				<<RAFacilityRemove $args[0] _currentRule>>
 			<</if>>
@@ -2917,37 +2907,88 @@ Your brand design is ''$brandDesign.''
 
 	<<case "be confined in the cellblock">>
 		<<if ($cellblockSlaves < $cellblock && (($args[0].devotion < -20 && $args[0].trust >= -20) || ($args[0].devotion < -50 && $args[0].trust >= -50))>>
-			<br>$args[0].slaveName has been automatically assigned to be confined in $cellblockName.
-			<<assignJob $args[0] _currentRule.setAssignment>>
+			<<set _combinedRule.setAssignment = _currentRule.setAssignment>>
 		<<else>>
 			<<RAFacilityRemove $args[0] _currentRule>>
 		<</if>>
 
+	<<case "take classes">>
+		<<if (!$args[0].intelligenceImplant && $args[0].fetish != "mindbroken" && ($args[0].devotion >= -20 || $args[0].trust < -50 || ($args[0].trust < -20 && $args[0].devotion >= -50)))>>
+			<<set _combinedRule.setAssignment = _currentRule.setAssignment>>
+		<</if>>
+
 	<<case "choose her own job">>
-		<<if ($args[0].choosesOwnAssignment == 0) && ($args[0].fetish != "mindbroken")>>
-			<br>$args[0].slaveName is now allowed to select her own assignments.
-			<<assignJob $args[0] _currentRule.setAssignment>>
+		<<if ($args[0].fetish != "mindbroken")>>
+			<<set _combinedRule.setAssignment = _currentRule.setAssignment>>
 		<</if>>
 
 	<<case "get milked">>
 		<<if ($args[0].lactation > 0 || $args[0].balls > 0)>>
-			/% TODO: someone write text please %/
-			<<assignJob $args[0] _currentRule.setAssignment>>
+			<<set _combinedRule.setAssignment = _currentRule.setAssignment>>
+		<</if>>
+
+	<<case "be a servant">>
+		<<if (canWalk($args[0]) && canSee($args[0]) && ($args[0].devotion >= -20 || $args[0].trust < -50 || ($args[0].trust < -20 && $args[0].devotion >= -50)))>>
+			<<set _combinedRule.setAssignment = _currentRule.setAssignment>>
+		<</if>>
+
+	<<case "work a glory hole">>
+		<<if $args[0].indentureRestrictions <= 0>>
+			<<set _combinedRule.setAssignment = _currentRule.setAssignment>>
+		<</if>>
+
+	<<case "whore" "serve the public" "stay confined">>
+		<<if ($args[0].fuckdoll == 0)>>
+			<<set _combinedRule.setAssignment = _currentRule.setAssignment>>
 		<</if>>
 
 	<<default>>
-		<br>$args[0].slaveName has been automatically assigned to _currentRule.setAssignment.
-		<<assignJob $args[0] _currentRule.setAssignment>>
+		<<set _combinedRule.setAssignment = _currentRule.setAssignment>>
 	<</switch>>
 
 <</for>> /* done merging rules; from here onwards, we should only use _combinedRule */
 
-/% In case a slave has no rules applying to them, _combinedRule would (should)
-be an empty object, and that would wreck havoc to the rest of the code. So, we
-check if a rule attribute, any one, is defined and otherwise skip everything.
-%/
+/% If a slave has no rules applying to them, _combinedRule would (should) be an
+ % empty object, and that would wreak havoc on the rest of the code. So we
+ % check if a rule property, any one, is defined and otherwise skip everything.
+ %/
+<<if (def _combinedRule.clothes)>>
 
-<<if (def _combinedRule.clothes)>> /* we have at least one non-default rule setting */
+<<if (def _combinedRule.setAssignment && _combinedRule.setAssignment != "no default setting")>>
+<<if ((_combinedRule.setAssignment == "choose her own job" && !$args[0].choosesOwnAssignment) || _combinedRule.setAssignment != $args[0].assignment)>>
+	<<switch _combinedRule.setAssignment>>
+	<<case "live with your Head Girl">>
+		<br>$args[0].slaveName has been automatically assigned to live in your Head Girl's private suite.
+	<<case "be confined in the arcade">>
+		<br>$args[0].slaveName has been automatically assigned to be confined in $arcadeName.
+	<<case "serve in the master suite">>
+		<br>$args[0].slaveName has been automatically assigned to $masterSuiteName.
+	<<case "get treatment in the clinic">>
+		<br>$args[0].slaveName has been automatically assigned to get treatment in $clinicName.
+	<<case "rest in the spa">>
+		<br>$args[0].slaveName has been automatically assigned to rest in $spaName.
+	<<case "work in the brothel">>
+		<br>$args[0].slaveName has been automatically assigned to work in $brothelName.
+	<<case "serve in the club">>
+		<br>$args[0].slaveName has been automatically assigned to serve in $clubName.
+	<<case "work in the dairy">>
+		<br>$args[0].slaveName has been automatically assigned to be milked in $dairyName.
+	<<case "work as a servant">>
+		<br>$args[0].slaveName has been automatically assigned to work in $servantsQuartersName.
+	<<case "work as a servant">>
+		<br>$args[0].slaveName has been automatically assigned to work in $servantsQuartersName.
+	<<case "learn in the schoolroom">>
+		<br>$args[0].slaveName has been automatically assigned to study in $schoolroomName.
+	<<case "be confined in the cellblock">>
+		<br>$args[0].slaveName has been automatically assigned to be confined in $cellblockName.
+	<<case "choose her own job">>
+		<br>$args[0].slaveName is now allowed to select her own assignments.
+	<<default>>
+		<br>$args[0].slaveName has been automatically assigned to _combinedRule.setAssignment.
+	<</switch>>
+	<<assignJob $args[0] _combinedRule.setAssignment>>
+<</if>>
+<</if>>
 
 <<if $args[0].fuckdoll == 0>>
 
