@@ -135,11 +135,42 @@
 <</widget>>
 
 /%
+ % Call as <<RACommonAssignmentVariables>>
+ %/
+<<widget "RACommonAssignmentVariables">>
+	<<set _assignments = [
+		"rest",
+		"whore",
+		"please you",
+		"get milked",
+		"be a servant",
+		"take classes",
+		"stay confined",
+		"serve the public",
+		"work a glory hore",
+		"be a subordinate slave",
+	]>>
+
+	<<set _facilityAssignments = [
+		"rest in the spa",
+		"serve in the club",
+		"work as a servant",
+		"work in the dairy",
+		"work in the brothel",
+		"learn in the schoolroom",
+		"live with your Head Girl",
+		"be confined in the arcade",
+		"serve in the master suite",
+		"get treatment in the clinic",
+		"be confined in the cellblock",
+	]>>
+<</widget>>
+
+/%
  % Call as <<RANormalizeAssignments>>
  %/
 <<widget "RANormalizeAssignments">>
-<<set _assignments = ["rest", "please you", "be a servant", "stay confined", "whore", "serve the public", "get milked", "be a subordinate slave", "work a glory hore", "take classes"]>>
-<<set _facilityAssignments = ["hgsuite", "brothel", "club", "arcade", "dairy", "servantsquarters", "mastersuite", "schoolroom", "spa", "clinic", "cellblock"]>>
+<<RACommonAssignmentVariables>>
 
 <<switch $args[0]>>
 <<case "assignment">>
@@ -598,165 +629,165 @@
 <</if>>
 <<if ($HGSuite > 0)>>
 |
-<<if !ruleFacility($currentRule.facility,"hgsuite")>>
+<<if !$currentRule.facility.includes("live with your Head Girl")>>
 	<<link $HGSuiteNameCaps>>
-		<<set $currentRule.facility.push("hgsuite")>>
+		<<set $currentRule.facility.push("live with your Head Girl")>>
 		<<RANormalizeAssignments "facility">>
 	<</link>>
 <<else>>
 	''$HGSuiteNameCaps''
 	<<link Stop>>
-		<<set $currentRule.facility.delete("hgsuite")>>
+		<<set $currentRule.facility.delete("live with your Head Girl")>>
 		<<RANormalizeAssignments "facility">>
 	<</link>>
 <</if>>
 <</if>>
 <<if ($brothel > 0)>>
 |
-<<if !ruleFacility($currentRule.facility,"brothel")>>
+<<if !$currentRule.facility.includes("work in the brothel")>>
 	<<link $brothelNameCaps>>
-		<<set $currentRule.facility.push("brothel")>>
+		<<set $currentRule.facility.push("work in the brothel")>>
 		<<RANormalizeAssignments "facility">>
 	<</link>>
 <<else>>
 	''$brothelNameCaps''
 	<<link Stop>>
-		<<set $currentRule.facility.delete("brothel")>>
+		<<set $currentRule.facility.delete("work in the brothel")>>
 		<<RANormalizeAssignments "facility">>
 	<</link>>
 <</if>>
 <</if>>
 <<if ($club > 0)>>
 |
-<<if !ruleFacility($currentRule.facility,"club")>>
+<<if !$currentRule.facility.includes("serve in the club")>>
 	<<link $clubNameCaps>>
-		<<set $currentRule.facility.push("club")>>
+		<<set $currentRule.facility.push("serve in the club")>>
 		<<RANormalizeAssignments "facility">>
 	<</link>>
 <<else>>
 	''$clubNameCaps''
 	<<link Stop>>
-		<<set $currentRule.facility.delete("club")>>
+		<<set $currentRule.facility.delete("serve in the club")>>
 		<<RANormalizeAssignments "facility">>
 	<</link>>
 <</if>>
 <</if>>
 <<if ($arcade > 0)>>
 |
-<<if !ruleFacility($currentRule.facility,"arcade")>>
+<<if !$currentRule.facility.includes("be confined in the arcade")>>
 	<<link $arcadeNameCaps>>
-		<<set $currentRule.facility.push("arcade")>>
+		<<set $currentRule.facility.push("be confined in the arcade")>>
 		<<RANormalizeAssignments "facility">>
 	<</link>>
 <<else>>
 	''$arcadeNameCaps''
 	<<link Stop>>
-		<<set $currentRule.facility.delete("arcade")>>
+		<<set $currentRule.facility.delete("be confined in the arcade")>>
 		<<RANormalizeAssignments "facility">>
 	<</link>>
 <</if>>
 <</if>>
 <<if ($dairy > 0)>>
 |
-<<if !ruleFacility($currentRule.facility,"dairy")>>
+<<if !$currentRule.facility.includes("work in the dairy")>>
 	<<link $dairyNameCaps>>
-		<<set $currentRule.facility.push("dairy")>>
+		<<set $currentRule.facility.push("work in the dairy")>>
 		<<RANormalizeAssignments "facility">>
 	<</link>>
 <<else>>
 	''$dairyNameCaps''
 	<<link Stop>>
-		<<set $currentRule.facility.delete("dairy")>>
+		<<set $currentRule.facility.delete("work in the dairy")>>
 		<<RANormalizeAssignments "facility">>
 	<</link>>
 <</if>>
 <</if>>
 <<if ($servantsQuarters > 0)>>
 |
-<<if !ruleFacility($currentRule.facility,"servantsquarters")>>
+<<if !$currentRule.facility.includes("work as a servant")>>
 	<<link $servantsQuartersNameCaps>>
-		<<set $currentRule.facility.push("servantsquarters")>>
+		<<set $currentRule.facility.push("work as a servant")>>
 		<<RANormalizeAssignments "facility">>
 	<</link>>
 <<else>>
 	''$servantsQuartersNameCaps''
 	<<link Stop>>
-		<<set $currentRule.facility.delete("servantsquarters")>>
+		<<set $currentRule.facility.delete("work as a servant")>>
 		<<RANormalizeAssignments "facility">>
 	<</link>>
 <</if>>
 <</if>>
 <<if ($masterSuite > 0)>>
 |
-<<if !ruleFacility($currentRule.facility,"mastersuite")>>
+<<if !$currentRule.facility.includes("serve in the master suite")>>
 	<<link $masterSuiteNameCaps>>
-		<<set $currentRule.facility.push("mastersuite")>>
+		<<set $currentRule.facility.push("serve in the master suite")>>
 		<<RANormalizeAssignments "facility">>
 	<</link>>
 <<else>>
 	''$masterSuiteNameCaps''
 	<<link Stop>>
-		<<set $currentRule.facility.delete("mastersuite")>>
+		<<set $currentRule.facility.delete("serve in the master suite")>>
 		<<RANormalizeAssignments "facility">>
 	<</link>>
 <</if>>
 <</if>>
 <<if ($schoolroom > 0)>>
 |
-<<if !ruleFacility($currentRule.facility,"schoolroom")>>
+<<if !$currentRule.facility.includes("learn in the schoolroom")>>
 	<<link $schoolroomNameCaps>>
-		<<set $currentRule.facility.push("schoolroom")>>
+		<<set $currentRule.facility.push("learn in the schoolroom")>>
 		<<RANormalizeAssignments "facility">>
 	<</link>>
 <<else>>
 	''$schoolroomNameCaps''
 	<<link Stop>>
-		<<set $currentRule.facility.delete("schoolroom")>>
+		<<set $currentRule.facility.delete("learn in the schoolroom")>>
 		<<RANormalizeAssignments "facility">>
 	<</link>>
 <</if>>
 <</if>>
 <<if ($spa > 0)>>
 |
-<<if !ruleFacility($currentRule.facility,"spa")>>
+<<if !$currentRule.facility.includes("rest in the spa")>>
 	<<link $spaNameCaps>>
-		<<set $currentRule.facility.push("spa")>>
+		<<set $currentRule.facility.push("rest in the spa")>>
 		<<RANormalizeAssignments "facility">>
 	<</link>>
 <<else>>
 	''$spaNameCaps''
 	<<link Stop>>
-		<<set $currentRule.facility.delete("spa")>>
+		<<set $currentRule.facility.delete("rest in the spa")>>
 		<<RANormalizeAssignments "facility">>
 	<</link>>
 <</if>>
 <</if>>
 <<if ($clinic > 0)>>
 |
-<<if !ruleFacility($currentRule.facility,"clinic")>>
+<<if !$currentRule.facility.includes("get treatment in the clinic")>>
 	<<link $clinicNameCaps>>
-		<<set $currentRule.facility.push("clinic")>>
+		<<set $currentRule.facility.push("get treatment in the clinic")>>
 		<<RANormalizeAssignments "facility">>
 	<</link>>
 <<else>>
-''$clinicNameCaps''
+	''$clinicNameCaps''
 	<<link Stop>>
-		<<set $currentRule.facility.delete("clinic")>>
+		<<set $currentRule.facility.delete("get treatment in the clinic")>>
 		<<RANormalizeAssignments "facility">>
 	<</link>>
 <</if>>
 <</if>>
 <<if ($cellblock > 0)>>
 |
-<<if !ruleFacility($currentRule.facility,"cellblock")>>
+<<if !$currentRule.facility.includes("be confined in the cellblock")>>
 	<<link $cellblockNameCaps>>
-		<<set $currentRule.facility.push("cellblock")>>
+		<<set $currentRule.facility.push("be confined in the cellblock")>>
 		<<RANormalizeAssignments "facility">>
 	<</link>>
 <<else>>
 	''$cellblockNameCaps''
 	<<link Stop>>
-		<<set $currentRule.facility.delete("cellblock")>>
+		<<set $currentRule.facility.delete("be confined in the cellblock")>>
 		<<RANormalizeAssignments "facility">>
 	<</link>>
 <</if>>
@@ -788,165 +819,165 @@
 <</if>>
 <<if ($HGSuite > 0)>>
 |
-<<if !ruleFacility($currentRule.excludeFacility,"hgsuite")>>
+<<if !$currentRule.excludeFacility.includes("live with your Head Girl")>>
 	<<link $HGSuiteNameCaps>>
-		<<set $currentRule.excludeFacility.push("hgsuite")>>
+		<<set $currentRule.excludeFacility.push("live with your Head Girl")>>
 		<<RANormalizeAssignments "excludeFacility">>
 	<</link>>
 <<else>>
 	''$HGSuiteNameCaps''
 	<<link Stop>>
-		<<set $currentRule.excludeFacility.delete("hgsuite")>>
+		<<set $currentRule.excludeFacility.delete("live with your Head Girl")>>
 		<<RANormalizeAssignments "excludeFacility">>
 	<</link>>
 <</if>>
 <</if>>
 <<if ($brothel > 0)>>
 |
-<<if !ruleFacility($currentRule.excludeFacility,"brothel")>>
+<<if !$currentRule.excludeFacility.includes("work in the brothel")>>
 	<<link $brothelNameCaps>>
-		<<set $currentRule.excludeFacility.push("brothel")>>
+		<<set $currentRule.excludeFacility.push("work in the brothel")>>
 		<<RANormalizeAssignments "excludeFacility">>
 	<</link>>
 <<else>>
 	''$brothelNameCaps''
 	<<link Stop>>
-		<<set $currentRule.excludeFacility.delete("brothel")>>
+		<<set $currentRule.excludeFacility.delete("work in the brothel")>>
 		<<RANormalizeAssignments "excludeFacility">>
 	<</link>>
 <</if>>
 <</if>>
 <<if ($club > 0)>>
 |
-<<if !ruleFacility($currentRule.excludeFacility,"club")>>
+<<if !$currentRule.excludeFacility.includes("serve in the club")>>
 	<<link $clubNameCaps>>
-		<<set $currentRule.excludeFacility.push("club")>>
+		<<set $currentRule.excludeFacility.push("serve in the club")>>
 		<<RANormalizeAssignments "excludeFacility">>
 	<</link>>
 <<else>>
 	''$clubNameCaps''
 	<<link Stop>>
-		<<set $currentRule.excludeFacility.delete("club")>>
+		<<set $currentRule.excludeFacility.delete("serve in the club")>>
 		<<RANormalizeAssignments "excludeFacility">>
 	<</link>>
 <</if>>
 <</if>>
 <<if ($arcade > 0)>>
 |
-<<if !ruleFacility($currentRule.excludeFacility,"arcade")>>
+<<if !$currentRule.excludeFacility.includes("be confined in the arcade")>>
 	<<link $arcadeNameCaps>>
-		<<set $currentRule.excludeFacility.push("arcade")>>
+		<<set $currentRule.excludeFacility.push("be confined in the arcade")>>
 		<<RANormalizeAssignments "excludeFacility">>
 	<</link>>
 <<else>>
 	''$arcadeNameCaps''
 	<<link Stop>>
-		<<set $currentRule.excludeFacility.delete("arcade")>>
+		<<set $currentRule.excludeFacility.delete("be confined in the arcade")>>
 		<<RANormalizeAssignments "excludeFacility">>
 	<</link>>
 <</if>>
 <</if>>
 <<if ($dairy > 0)>>
 |
-<<if !ruleFacility($currentRule.excludeFacility,"dairy")>>
+<<if !$currentRule.excludeFacility.includes("work in the dairy")>>
 	<<link $dairyNameCaps>>
-		<<set $currentRule.excludeFacility.push("dairy")>>
+		<<set $currentRule.excludeFacility.push("work in the dairy")>>
 		<<RANormalizeAssignments "excludeFacility">>
 	<</link>>
 <<else>>
 	''$dairyNameCaps''
 	<<link Stop>>
-		<<set $currentRule.excludeFacility.delete("dairy")>>
+		<<set $currentRule.excludeFacility.delete("work in the dairy")>>
 		<<RANormalizeAssignments "excludeFacility">>
 	<</link>>
 <</if>>
 <</if>>
 <<if ($servantsQuarters > 0)>>
 |
-<<if !ruleFacility($currentRule.excludeFacility,"servantsquarters")>>
+<<if !$currentRule.excludeFacility.includes("work as a servant")>>
 	<<link $servantsQuartersNameCaps>>
-		<<set $currentRule.excludeFacility.push("servantsquarters")>>
+		<<set $currentRule.excludeFacility.push("work as a servant")>>
 		<<RANormalizeAssignments "excludeFacility">>
 	<</link>>
 <<else>>
 	''$servantsQuartersNameCaps''
 	<<link Stop>>
-		<<set $currentRule.excludeFacility.delete("servantsquarters")>>
+		<<set $currentRule.excludeFacility.delete("work as a servant")>>
 		<<RANormalizeAssignments "excludeFacility">>
 	<</link>>
 <</if>>
 <</if>>
 <<if ($masterSuite > 0)>>
 |
-<<if !ruleFacility($currentRule.excludeFacility,"mastersuite")>>
+<<if !$currentRule.excludeFacility.includes("serve in the master suite")>>
 	<<link $masterSuiteNameCaps>>
-		<<set $currentRule.excludeFacility.push("mastersuite")>>
+		<<set $currentRule.excludeFacility.push("serve in the master suite")>>
 		<<RANormalizeAssignments "excludeFacility">>
 	<</link>>
 <<else>>
 	''$masterSuiteNameCaps''
 	<<link Stop>>
-		<<set $currentRule.excludeFacility.delete("mastersuite")>>
+		<<set $currentRule.excludeFacility.delete("serve in the master suite")>>
 		<<RANormalizeAssignments "excludeFacility">>
 	<</link>>
 <</if>>
 <</if>>
 <<if ($schoolroom > 0)>>
 |
-<<if !ruleFacility($currentRule.excludeFacility,"schoolroom")>>
+<<if !$currentRule.excludeFacility.includes("learn in the schoolroom")>>
 	<<link $schoolroomNameCaps>>
-		<<set $currentRule.excludeFacility.push("schoolroom")>>
+		<<set $currentRule.excludeFacility.push("learn in the schoolroom")>>
 		<<RANormalizeAssignments "excludeFacility">>
 	<</link>>
 <<else>>
 	''$schoolroomNameCaps''
 	<<link Stop>>
-		<<set $currentRule.excludeFacility.delete("schoolroom")>>
+		<<set $currentRule.excludeFacility.delete("learn in the schoolroom")>>
 		<<RANormalizeAssignments "excludeFacility">>
 	<</link>>
 <</if>>
 <</if>>
 <<if ($spa > 0)>>
 |
-<<if !ruleFacility($currentRule.excludeFacility,"spa")>>
+<<if !$currentRule.excludeFacility.includes("rest in the spa")>>
 	<<link $spaNameCaps>>
-		<<set $currentRule.excludeFacility.push("spa")>>
+		<<set $currentRule.excludeFacility.push("rest in the spa")>>
 		<<RANormalizeAssignments "excludeFacility">>
 	<</link>>
 <<else>>
 	''$spaNameCaps''
 	<<link Stop>>
-		<<set $currentRule.excludeFacility.delete("spa")>>
+		<<set $currentRule.excludeFacility.delete("rest in the spa")>>
 		<<RANormalizeAssignments "excludeFacility">>
 	<</link>>
 <</if>>
 <</if>>
 <<if ($clinic > 0)>>
 |
-<<if !ruleFacility($currentRule.excludeFacility,"clinic")>>
+<<if !$currentRule.excludeFacility.includes("get treatment in the clinic")>>
 	<<link $clinicNameCaps>>
-		<<set $currentRule.excludeFacility.push("clinic")>>
+		<<set $currentRule.excludeFacility.push("get treatment in the clinic")>>
 		<<RANormalizeAssignments "excludeFacility">>
 	<</link>>
 <<else>>
-''$clinicNameCaps''
+	''$clinicNameCaps''
 	<<link Stop>>
-		<<set $currentRule.excludeFacility.delete("clinic")>>
+		<<set $currentRule.excludeFacility.delete("get treatment in the clinic")>>
 		<<RANormalizeAssignments "excludeFacility">>
 	<</link>>
 <</if>>
 <</if>>
 <<if ($cellblock > 0)>>
 |
-<<if !ruleFacility($currentRule.excludeFacility,"cellblock")>>
+<<if !$currentRule.excludeFacility.includes("be confined in the cellblock")>>
 	<<link $cellblockNameCaps>>
-		<<set $currentRule.excludeFacility.push("cellblock")>>
+		<<set $currentRule.excludeFacility.push("be confined in the cellblock")>>
 		<<RANormalizeAssignments "excludeFacility">>
 	<</link>>
 <<else>>
 	''$cellblockNameCaps''
 	<<link Stop>>
-		<<set $currentRule.excludeFacility.delete("cellblock")>>
+		<<set $currentRule.excludeFacility.delete("be confined in the cellblock")>>
 		<<RANormalizeAssignments "excludeFacility">>
 	<</link>>
 <</if>>
@@ -959,7 +990,7 @@
  % Call as <<RAChangeSetAssignment>>
  %/
 <<widget "RAChangeSetAssignment">>
-<<set _assignments = ["rest", "please you", "be a servant", "stay confined", "whore", "serve the public", "get milked", "be a subordinate slave", "work a glory hore", "take classes"]>>
+<<RACommonAssignmentVariables>>
 
 <<if (ndef $currentRule.assignment)>><<set $currentRule.assignment = []>><</if>>
 <<if (ndef $currentRule.excludeAssignment)>><<set $currentRule.excludeAssignment = []>><</if>>
@@ -1072,7 +1103,7 @@
  % Call as <<RAChangeAssignFacility>>
  %/
 <<widget "RAChangeAssignFacility">>
-<<set _facilityAssignments = ["hgsuite", "brothel", "club", "arcade", "dairy", "servantsquarters", "mastersuite", "schoolroom", "spa", "clinic", "cellblock"]>>
+<<RACommonAssignmentVariables>>
 
 <<if (ndef $currentRule.facility)>><<set $currentRule.facility = []>><</if>>
 <<if (ndef $currentRule.excludeFacility)>><<set $currentRule.excludeFacility = []>><</if>>
@@ -1091,9 +1122,9 @@
 <</if>>
 <<if ($HGSuite > 0)>>
 |
-<<if ($currentRule.setAssignment != "hgsuite")>>
+<<if ($currentRule.setAssignment != "live with your Head Girl")>>
 	<<link $HGSuiteNameCaps>>
-		<<set $currentRule.setAssignment = "hgsuite">>
+		<<set $currentRule.setAssignment = "live with your Head Girl">>
 		<<RANormalizeAssignments "setAssignment">>
 	<</link>>
 <<else>>
@@ -1102,9 +1133,9 @@
 <</if>>
 <<if ($brothel > 0)>>
 |
-<<if ($currentRule.setAssignment != "brothel")>>
+<<if ($currentRule.setAssignment != "work in the brothel")>>
 	<<link $brothelNameCaps>>
-		<<set $currentRule.setAssignment = "brothel">>
+		<<set $currentRule.setAssignment = "work in the brothel">>
 		<<RANormalizeAssignments "setAssignment">>
 	<</link>>
 <<else>>
@@ -1113,9 +1144,9 @@
 <</if>>
 <<if ($club > 0)>>
 |
-<<if ($currentRule.setAssignment != "club")>>
+<<if ($currentRule.setAssignment != "serve in the club")>>
 	<<link $clubNameCaps>>
-		<<set $currentRule.setAssignment = "club">>
+		<<set $currentRule.setAssignment = "serve in the club">>
 		<<RANormalizeAssignments "setAssignment">>
 	<</link>>
 <<else>>
@@ -1124,9 +1155,9 @@
 <</if>>
 <<if ($arcade > 0)>>
 |
-<<if ($currentRule.setAssignment != "arcade")>>
+<<if ($currentRule.setAssignment != "be confined in the arcade")>>
 	<<link $arcadeNameCaps>>
-		<<set $currentRule.setAssignment = "arcade">>
+		<<set $currentRule.setAssignment = "be confined in the arcade">>
 		<<RANormalizeAssignments "setAssignment">>
 	<</link>>
 <<else>>
@@ -1135,9 +1166,9 @@
 <</if>>
 <<if ($dairy > 0)>>
 |
-<<if ($currentRule.setAssignment != "dairy")>>
+<<if ($currentRule.setAssignment != "work in the dairy")>>
 	<<link $dairyNameCaps>>
-		<<set $currentRule.setAssignment = "dairy">>
+		<<set $currentRule.setAssignment = "work in the dairy">>
 		<<RANormalizeAssignments "setAssignment">>
 	<</link>>
 <<else>>
@@ -1146,9 +1177,9 @@
 <</if>>
 <<if ($servantsQuarters > 0)>>
 |
-<<if ($currentRule.setAssignment != "servantsquarters")>>
+<<if ($currentRule.setAssignment != "work as a servant")>>
 	<<link $servantsQuartersNameCaps>>
-		<<set $currentRule.setAssignment = "servantsquarters">>
+		<<set $currentRule.setAssignment = "work as a servant">>
 		<<RANormalizeAssignments "setAssignment">>
 	<</link>>
 <<else>>
@@ -1157,9 +1188,9 @@
 <</if>>
 <<if ($masterSuite > 0)>>
 |
-<<if ($currentRule.setAssignment != "mastersuite")>>
+<<if ($currentRule.setAssignment != "serve in the master suite")>>
 	<<link $masterSuiteNameCaps>>
-		<<set $currentRule.setAssignment = "mastersuite">>
+		<<set $currentRule.setAssignment = "serve in the master suite">>
 		<<RANormalizeAssignments "setAssignment">>
 	<</link>>
 <<else>>
@@ -1168,9 +1199,9 @@
 <</if>>
 <<if ($schoolroom > 0)>>
 |
-<<if ($currentRule.setAssignment != "schoolroom")>>
+<<if ($currentRule.setAssignment != "learn in the schoolroom")>>
 	<<link $schoolroomNameCaps>>
-		<<set $currentRule.setAssignment = "schoolroom">>
+		<<set $currentRule.setAssignment = "learn in the schoolroom">>
 		<<RANormalizeAssignments "setAssignment">>
 	<</link>>
 <<else>>
@@ -1179,9 +1210,9 @@
 <</if>>
 <<if ($spa > 0)>>
 |
-<<if ($currentRule.setAssignment != "spa")>>
+<<if ($currentRule.setAssignment != "rest in the spa")>>
 	<<link $spaNameCaps>>
-		<<set $currentRule.setAssignment = "spa">>
+		<<set $currentRule.setAssignment = "rest in the spa">>
 		<<RANormalizeAssignments "setAssignment">>
 	<</link>>
 <<else>>
@@ -1190,9 +1221,9 @@
 <</if>>
 <<if ($clinic > 0)>>
 |
-<<if ($currentRule.setAssignment != "clinic")>>
+<<if ($currentRule.setAssignment != "get treatment in the clinic")>>
 	<<link $clinicNameCaps>>
-		<<set $currentRule.setAssignment = "clinic">>
+		<<set $currentRule.setAssignment = "get treatment in the clinic">>
 		<<RANormalizeAssignments "setAssignment">>
 	<</link>>
 <<else>>
@@ -1201,9 +1232,9 @@
 <</if>>
 <<if ($cellblock > 0)>>
 |
-<<if ($currentRule.setAssignment != "cellblock")>>
+<<if ($currentRule.setAssignment != "be confined in the cellblock")>>
 	<<link $cellblockNameCaps>>
-		<<set $currentRule.setAssignment = "cellblock">>
+		<<set $currentRule.setAssignment = "be confined in the cellblock">>
 		<<RANormalizeAssignments "setAssignment">>
 	<</link>>
 <<else>>
@@ -1346,7 +1377,7 @@ Shoes: ''$currentRule.shoes.''
 %/
 <<widget "RAChangeBelly">>
 <<replace #baccessory>>
-Corsetage: ''$currentRule.bellyAccessory.
+Corsetage: ''$currentRule.bellyAccessory.''
 <</replace>>
 <</widget>>
 
@@ -2656,13 +2687,13 @@ Your brand design is ''$brandDesign.''
 <<widget "RAFacilityRemove">>
 <<if $args[1].facilityRemove>>
     <<switch $args[1].setAssignment>>
-    <<case "arcade">>
+    <<case "be confined in the arcade">>
         <<if $args[0].assignment == "be confined in the arcade">>
             <br>$args[0].slaveName has been removed from $arcadeName and has been assigned to $args[1].removalAssignment.
             <<assignJob $args[0] $args[1].removalAssignment>>
         <</if>>
 
-    <<case "brothel">>
+    <<case "work in the brothel">>
         <<if $args[0].assignment == "work in the brothel">>
             <<if ($Madam == 0) || ($Madam.ID != $args[0].ID)>>
                 <br>$args[0].slaveName has been removed from $brothelName and has been assigned to $args[1].removalAssignment.
@@ -2670,7 +2701,7 @@ Your brand design is ''$brandDesign.''
             <</if>>
         <</if>>
 
-    <<case "club">>
+    <<case "serve in the club">>
         <<if $args[0].assignment == "serve in the club">>
             <<if ($DJ == 0) || ($DJ.ID != $args[0].ID)>>
                 <br>$args[0].slaveName has been removed from $clubName and has been assigned to $args[1].removalAssignment.
@@ -2678,7 +2709,7 @@ Your brand design is ''$brandDesign.''
             <</if>>
         <</if>>
 
-    <<case "dairy">>
+    <<case "work in the dairy">>
         <<if $args[0].assignment == "work in the dairy">>
             <<if ($Milkmaid == 0) || ($Milkmaid.ID != $args[0].ID)>>
                 <br>$args[0].slaveName has been removed from $dairyName and has been assigned to $args[1].removalAssignment.
@@ -2686,7 +2717,7 @@ Your brand design is ''$brandDesign.''
             <</if>>
         <</if>>
 
-    <<case "spa">>
+    <<case "rest in the spa">>
         <<if $args[0].assignment == "rest in the spa">>
             <<if ($Attendant == 0) || ($Attendant.ID != $args[0].ID)>>
                 <br>$args[0].slaveName has been removed from $spaName and has been assigned to $args[1].removalAssignment.
@@ -2694,7 +2725,7 @@ Your brand design is ''$brandDesign.''
             <</if>>
         <</if>>
 
-    <<case "clinic">>
+    <<case "get treatment in the clinic">>
         <<if $args[0].assignment == "get treatment in the clinic">>
             <<if ($Nurse == 0) || ($Nurse.ID != $args[0].ID)>>
                 <br>$args[0].slaveName has been removed from $clinicName and has been assigned to $args[1].removalAssignment.
@@ -2702,7 +2733,7 @@ Your brand design is ''$brandDesign.''
             <</if>>
         <</if>>
 
-    <<case "mastersuite">>
+    <<case "serve in the master suite">>
         <<if $args[0].assignment == "serve in the master suite">>
             <<if ($Concubine == 0) || ($Concubine.ID != $args[0].ID)>>
                 <br>$args[0].slaveName has been removed from $masterSuiteName and has been assigned to $args[1].removalAssignment.
@@ -2710,7 +2741,7 @@ Your brand design is ''$brandDesign.''
             <</if>>
         <</if>>
 
-    <<case "hgsuite">>
+    <<case "live with your Head Girl">>
         <<if $args[0].assignment == "live with your Head Girl">>
             <<if ($HeadGirl == 0) || ($HeadGirl.ID != $args[0].ID)>>
                 <br>$args[0].slaveName has been removed from $HGSuiteName and has been assigned to $args[1].removalAssignment.
@@ -2718,7 +2749,7 @@ Your brand design is ''$brandDesign.''
             <</if>>
         <</if>>
 
-    <<case "servantsquarters">>
+    <<case "work as a servant">>
         <<if $args[0].assignment == "work as a servant">>
             <<if ($Stewardess == 0) || ($Stewardess.ID != $args[0].ID)>>
                 <br>$args[0].slaveName has been removed from $servantsQuartersName and has been assigned to $args[1].removalAssignment.
@@ -2726,7 +2757,7 @@ Your brand design is ''$brandDesign.''
             <</if>>
         <</if>>
 
-    <<case "schoolroom">>
+    <<case "learn in the schoolroom">>
         <<if $args[0].assignment == "learn in the schoolroom">>
             <<if ($Schoolteacher == 0) || ($Schoolteacher.ID != $args[0].ID)>>
                 <br>$args[0].slaveName has been removed from $schoolroomName and has been assigned to $args[1].removalAssignment.
@@ -2734,7 +2765,7 @@ Your brand design is ''$brandDesign.''
             <</if>>
         <</if>>
 
-    <<case "cellblock">>
+    <<case "be confined in the cellblock">>
         <<if $args[0].assignment == "be confined in the cellblock">>
             <<if ($Wardeness == 0) || ($Wardeness.ID != $args[0].ID)>>
                 <br>$args[0].slaveName has been removed from $cellblockName and has been assigned to $args[1].removalAssignment.
@@ -2776,83 +2807,69 @@ Your brand design is ''$brandDesign.''
 
 	<<set _combinedRule = mergeRules([_combinedRule, _currentRule])>>
 
-	<<if _currentRule.setAssignment == "no default setting">>
+	<<if _currentRule.setAssignment == "no default setting" || _currentRule.setAssignment == $args[0].assignment>>
 		<<continue>>
 	<</if>>
 
 	/% apply assignment changes for each rule (_currentRule) we process; _combinedRule will be used later %/
 	<<switch _currentRule.setAssignment>>
-	<<case "hgsuite">>
+	<<case "live with your Head Girl">>
 		<<if ($HGSuiteSlaves < 1 && $args[0].indentureRestrictions <= 0)>>
-			<<if ($args[0].assignment != "live with your Head Girl")>>
-				<br>$args[0].slaveName has been automatically assigned to live in your Head Girl's private suite.
-				<<assignJob $args[0] _currentRule.setAssignment>>
-			<</if>>
+			<br>$args[0].slaveName has been automatically assigned to live in your Head Girl's private suite.
+			<<assignJob $args[0] _currentRule.setAssignment>>
 		<<else>>
 			<<RAFacilityRemove $args[0] _currentRule>>
 		<</if>>
 
-	<<case "arcade">>
+	<<case "be confined in the arcade">>
 		<<if ($arcadeSlaves > $arcade && $args[0].indentureRestrictions <= 0)>>
-			<<if ($args[0].assignment != "be confined in the arcade")>>
-				<br>$args[0].slaveName has been automatically assigned to be confined in $arcadeName.
-				<<assignJob $args[0] _currentRule.setAssignment>>
-			<</if>>
+			<br>$args[0].slaveName has been automatically assigned to be confined in $arcadeName.
+			<<assignJob $args[0] _currentRule.setAssignment>>
 		<<else>>
 			<<RAFacilityRemove $args[0] _currentRule>>
 		<</if>>
 
-	<<case "mastersuite">>
+	<<case "serve in the master suite">>
 		<<if ($masterSuiteSlaves > $masterSuite && ($args[0].devotion > 20 || $args[0].trust < -50 || ($args[0].devotion >= -50 && $args[0].trust < -20)))>>
-			<<if ($args[0].assignment != "serve in the master suite")>>
-				<br>$args[0].slaveName has been automatically assigned to $masterSuiteName.
-				<<assignJob $args[0] _currentRule.setAssignment>>
-			<</if>>
+			<br>$args[0].slaveName has been automatically assigned to $masterSuiteName.
+			<<assignJob $args[0] _currentRule.setAssignment>>
 		<<else>>
 			<<RAFacilityRemove $args[0] _currentRule>>
 		<</if>>
 
-	<<case "clinic">>
+	<<case "get treatment in the clinic">>
 		<<if ($clinicSlaves > $clinic && ($args[0].health < 20 || ($args[0].chem > 15 && $Nurse != 0 && $clinicUpgradeFilters == 1)))>>
-			<<if ($args[0].assignment != "get treatment in the clinic")>>
-				<br>$args[0].slaveName has been automatically assigned to get treatment in $clinicName.
-				<<assignJob $args[0] _currentRule.setAssignment>>
-			<</if>>
+			<br>$args[0].slaveName has been automatically assigned to get treatment in $clinicName.
+			<<assignJob $args[0] _currentRule.setAssignment>>
 		<<else>>
 			<<RAFacilityRemove $args[0] _currentRule>>
 		<</if>>
 
-	<<case "spa">>
+	<<case "rest in the spa">>
 		<<if ($spa > $spaSlaves) && ($args[0].health < 20) || ($args[0].trust < 60) || ($args[0].devotion <= 60) || ($args[0].fetish == "mindbroken") && ($args[0].devotion >= -20)>>
-			<<if ($args[0].assignment != "rest in the spa")>>
-				<br>$args[0].slaveName has been automatically assigned to rest in $spaName.
-				<<assignJob $args[0] _currentRule.setAssignment>>
-			<</if>>
+			<br>$args[0].slaveName has been automatically assigned to rest in $spaName.
+			<<assignJob $args[0] _currentRule.setAssignment>>
 		<<else>>
 			<<RAFacilityRemove $args[0] _currentRule>>
 		<</if>>
 
-	<<case "brothel">>
+	<<case "work in the brothel">>
 		<<if ($brothelSlaves < $brothel && ($args[0].devotion > 50 || $args[0].trust > 50 || $args[0].trust < -50 || ($args[0].devotion >= -50 && $args[0].trust < -20)))>>
-			<<if ($args[0].assignment != "work in the brothel")>>
-				<br>$args[0].slaveName has been automatically assigned to work in $brothelName.
-				<<assignJob $args[0] _currentRule.setAssignment>>
-			<</if>>
+			<br>$args[0].slaveName has been automatically assigned to work in $brothelName.
+			<<assignJob $args[0] _currentRule.setAssignment>>
 		<<else>>
 			<<RAFacilityRemove $args[0] _currentRule>>
 		<</if>>
 
-	<<case "club">>
+	<<case "serve in the club">>
 		<<if ($clubSlaves < $club && ($args[0].devotion > 50 || $args[0].trust > 50 || $args[0].trust < -50 || ($args[0].devotion >= -50 && $args[0].trust < -20)))>>
-			<<if ($args[0].assignment != "serve in the club")>>
-				<br>$args[0].slaveName has been automatically assigned to serve in $clubName.
-				<<assignJob $args[0] _currentRule.setAssignment>>
-			<</if>>
+			<br>$args[0].slaveName has been automatically assigned to serve in $clubName.
+			<<assignJob $args[0] _currentRule.setAssignment>>
 		<<else>>
 			<<RAFacilityRemove $args[0] _currentRule>>
 		<</if>>
 
-	<<case "dairy">>
+	<<case "work in the dairy">>
 		<<if ($dairy > $dairySlaves+$bioreactorsXY+$bioreactorsXX+$bioreactorsHerm+$bioreactorsBarren)>>
 			<<if ($args[0].indentureRestrictions > 0) && ($dairyRestraintsSetting > 1)>>
 			<<elseif (($args[0].indentureRestrictions > 1) && ($dairyRestraintsSetting > 0))>>
@@ -2861,10 +2878,8 @@ Your brand design is ''$brandDesign.''
 					<<if ($args[0].devotion > 20) || (($args[0].devotion >= -50) && ($args[0].trust < -20)) || ($args[0].trust < -50) || ($args[0].amp == 1) || ($dairyRestraintsUpgrade == 1)>>
 						<<if ($dairyStimulatorsSetting < 2) || ($args[0].anus > 2) || ($dairyPrepUpgrade == 1)>>
 							<<if ($dairyPregSetting < 2) || ($args[0].vagina > 2) || ($args[0].ovaries == 0) || ($dairyPrepUpgrade == 1)>>
-								<<if ($args[0].assignment != "work in the dairy")>>
-									<br>$args[0].slaveName has been automatically assigned to be milked in $dairyName.
-									<<assignJob $args[0] _currentRule.setAssignment>>
-								<</if>>
+								<br>$args[0].slaveName has been automatically assigned to be milked in $dairyName.
+								<<assignJob $args[0] _currentRule.setAssignment>>
 							<<else>>
 								<<RAFacilityRemove $args[0] _currentRule>>
 							<</if>>
@@ -2880,23 +2895,19 @@ Your brand design is ''$brandDesign.''
 			<</if>>
 		<</if>>
 
-	<<case "servantsquarters">>
+	<<case "work as a servant">>
 		<<if ($servantsQuartersSlaves < $servantsQuarters && canSee($args[0]) && canWalk($args[0]) && ($args[0].devotion >= -20 || $args[0].trust < -20 || ($args[0].devotion >= -50 && $args[0].trust <= 20)))>>
-			<<if ($args[0].assignment != "work as a servant")>>
-				<br>$args[0].slaveName has been automatically assigned to work in $servantsQuartersName.
-				<<assignJob $args[0] _currentRule.setAssignment>>
-			<</if>>
+			<br>$args[0].slaveName has been automatically assigned to work in $servantsQuartersName.
+			<<assignJob $args[0] _currentRule.setAssignment>>
 		<<else>>
 			<<RAFacilityRemove $args[0] _currentRule>>
 		<</if>>
 
-	<<case "schoolroom">>
+	<<case "learn in the schoolroom">>
 		<<if ($schoolroomSlaves < $schoolroom && $args[0].fetish != "mindbroken" && ($args[0].devotion >= -20 || $args[0].trust < -50 || ($args[0].devotion >= -50 && $args[0].trust < -20)))>>
 			<<if ($args[0].intelligenceImplant < 1) || ($args[0].voice != 0 && $args[0].accent+$schoolroomUpgradeLanguage > 2) || ($args[0].oralSkill <= 10+$schoolroomUpgradeSkills*20) || ($args[0].whoreSkill <= 10+$schoolroomUpgradeSkills*20) || ($args[0].entertainSkill <= 10+$schoolroomUpgradeSkills*20) || ($args[0].analSkill < 10+$schoolroomUpgradeSkills*20) || (($args[0].vagina >= 0) && ($args[0].vaginalSkill < 10+$schoolroomUpgradeSkills*20))>>
-				<<if ($args[0].assignment != "learn in the schoolroom")>>
-					<br>$args[0].slaveName has been automatically assigned to study in $schoolroomName.
-					<<assignJob $args[0] _currentRule.setAssignment>>
-				<</if>>
+				<br>$args[0].slaveName has been automatically assigned to study in $schoolroomName.
+				<<assignJob $args[0] _currentRule.setAssignment>>
 			<<else>>
 				<<RAFacilityRemove $args[0] _currentRule>>
 			<</if>>
@@ -2904,12 +2915,10 @@ Your brand design is ''$brandDesign.''
 			<<RAFacilityRemove $args[0] _currentRule>>
 		<</if>>
 
-	<<case "cellblock">>
+	<<case "be confined in the cellblock">>
 		<<if ($cellblockSlaves < $cellblock && (($args[0].devotion < -20 && $args[0].trust >= -20) || ($args[0].devotion < -50 && $args[0].trust >= -50))>>
-			<<if ($args[0].assignment != "be confined in the cellblock")>>
-				<br>$args[0].slaveName has been automatically assigned to be confined in $cellblockName.
-				<<assignJob $args[0] _currentRule.setAssignment>>
-			<</if>>
+			<br>$args[0].slaveName has been automatically assigned to be confined in $cellblockName.
+			<<assignJob $args[0] _currentRule.setAssignment>>
 		<<else>>
 			<<RAFacilityRemove $args[0] _currentRule>>
 		<</if>>
@@ -2922,16 +2931,13 @@ Your brand design is ''$brandDesign.''
 
 	<<case "get milked">>
 		<<if ($args[0].lactation > 0 || $args[0].balls > 0)>>
-			<<if (_currentRule.setAssignment != $args[0].assignment)>>
-				<<assignJob $args[0] _currentRule.setAssignment>>
-			<</if>>
+			/% TODO: someone write text please %/
+			<<assignJob $args[0] _currentRule.setAssignment>>
 		<</if>>
 
 	<<default>>
-		<<if (_currentRule.setAssignment != $args[0].assignment)>>
-			<br>$args[0].slaveName has been automatically assigned to _currentRule.setAssignment.
-			<<assignJob $args[0] _currentRule.setAssignment>>
-		<</if>>
+		<br>$args[0].slaveName has been automatically assigned to _currentRule.setAssignment.
+		<<assignJob $args[0] _currentRule.setAssignment>>
 	<</switch>>
 
 <</for>> /* done merging rules; from here onwards, we should only use _combinedRule */
@@ -4166,7 +4172,7 @@ is now _combinedRule.hLength cm long.
 
 		<<set _ruleAppliesToThisSlave = evalExpr(_currentRule.condition, $args[0])>>
 
-		<<if _ruleAppliesToThisSlave == true && _currentRule.excludeSpecialSlaves>> /* passed activation conditions - check inclusion/exclusion rules */
+		<<if _ruleAppliesToThisSlave && _currentRule.excludeSpecialSlaves>>
 			<<for _L = 0; _L < _leaders.length; _L++>>
 				<<if (def _leaders[_L].ID) && (_leaders[_L].ID == $args[0].ID)>>
 					<<set _ruleAppliesToThisSlave = false>>
@@ -4175,36 +4181,57 @@ is now _combinedRule.hLength cm long.
 			<</for>>
 		<</if>>
 
-		<<if _ruleAppliesToThisSlave == true>> /* check more inclusion/exclusion rules */
-			<<if   (def _currentRule.excludedSlaves && _currentRule.excludedSlaves.length > 0 && ruleSlaveExcluded($args[0], _currentRule))
-				|| (def _currentRule.selectedSlaves && _currentRule.selectedSlaves.length > 0 && !ruleSlaveSelected($args[0], _currentRule))>>
-					<<set _ruleAppliesToThisSlave = false>>
-			<<elseif $args[0].assignmentVisible == 0>> /* assignment is not visible, so check facilities assignments */
-				<<if   (def _currentRule.excludeFacility && _currentRule.excludeFacility.length > 0 && ruleExcludeSlaveFacility(_currentRule, $args[0]))
-					|| (def _currentRule.facility        && _currentRule.facility.length > 0        && !ruleAppliedToSlaveFacility(_currentRule, $args[0]))>>
-						<<set _ruleAppliesToThisSlave = false>>
-				<</if>>
-			<<else>> /* assignment is visible, so check non-facilities assignments */
-				<<if   (def _currentRule.excludeAssignment && _currentRule.excludeAssignment.length > 0 && ruleAssignment(_currentRule.excludeAssignment, $args[0].assignment))
-					|| (def _currentRule.assignment        && _currentRule.assignment.length > 0        && !ruleAssignment(_currentRule.assignment, $args[0].assignment))>>
-						<<set _ruleAppliesToThisSlave = false>>
-				<</if>>
-			<</if>>
-		<</if>> /* done with all checks for this rule */
+		/% facility and excludeFacility only include some of the
+		 % assignments we're searching for; namely, they don't include
+		 % the leader roles, so we fill these out temporarily
+		 %/
+		<<if (def _currentRule.facility)>>
+			<<set _facility = expandFacilityAssignments(_currentRule.facility)>>
+		<</if>>
+		<<if (def _currentRule.excludeFacility)>>
+			<<set _excludeFacility = expandFacilityAssignments(_currentRule.excludeFacility)>>
+		<</if>>
 
-		<<if _ruleAppliesToThisSlave == true>>
+		/% check exclusion/inclusion %/
+		<<if _ruleAppliesToThisSlave>>
+			/% first we check if a slave is in a facility she shouldn't be in %/
+			<<if (_facility.length > 0)>>
+				<<set _ruleAppliesToThisSlave = _facility.includes($args[0].assignment)>>
+			<<elseif (_excludeFacility.length > 0)>>
+				<<set _ruleAppliesToThisSlave = !_excludeFacility.includes($args[0].assignment)>>
+			<</if>>
+
+			/% and same thing with the assignments; since actual
+			 % assignments and facility assignments are different
+			 % either the previous if was executed or this one will
+			 % be but not both
+			 %/
+			<<if (def _currentRule.assignment && _currentRule.assignment.length > 0)>>
+				<<set _ruleAppliesToThisSlave = _currentRule.assignment.includes($args[0].assignment)>>
+			<<elseif (def _currentRule.excludeAssignment && _currentRule.excludeAssignment.length > 0)>>
+				<<set _ruleAppliesToThisSlave = !_currentRule.excludeAssignment.includes($args[0].assignment)>>
+			<</if>>
+
+			/% last but not least, we make sure the slave herself is not excluded %/
+			<<if (def _currentRule.selectedSlaves && _currentRule.selectedSlaves.length > 0)>>
+				<<set _ruleAppliesToThisSlave = ruleSlaveSelected($args[0], _currentRule)>>
+			<<elseif (def _currentRule.excludedSlaves && _currentRule.excludedSlaves.length > 0)>>
+				<<set _ruleAppliesToThisSlave = !ruleSlaveExcluded($args[0], _currentRule)>>
+			<</if>>
+		<</if>>
+
+		<<if _ruleAppliesToThisSlave>>
 			<<if !ruleApplied($args[0], _currentRule.ID)>> /* rule applies now, but did not apply before */
 				<<set $args[0].currentRules.push(_currentRule.ID)>>
 				<br>//@@.tan;Rule _rule (_currentRule.name) now applies to $args[0].slaveName, who is assigned to $args[0].assignment.@@//
 			<</if>>
-			/* this rule has been applied to this slave now (or was already), so we are done with this rule */
 		<<elseif ruleApplied($args[0], _currentRule.ID)>> /* rule does not apply now, but did before */
 			<<RARemoveRule $args[0]>> /* RARemoveRule prints message and includes Rules Facilities Remove check, so we are done with this rule */
 		<</if>>
-	<</for>> /* done with this rule - continue looping through all the rules defined in the rules assistant */
+	<</for>>
 
 	/* done checking/applying/removing rules - sort this slave's updated applied rules to match the current priority order in the rules assistant */
-	<<set $args[0].currentRules = $args[0].currentRules.sort(function(a, b) { return a-b; });>> /* sort this slave's applied rules to match the current priority order in the rules assistant */
+	<<set $args[0].currentRules = $args[0].currentRules.sort(function(a, b) { return a-b; });>>
 
 <</widget>>
 
