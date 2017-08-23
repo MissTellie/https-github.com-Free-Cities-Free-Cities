@@ -181,6 +181,8 @@
 	<<set $args[0].race = either("latina", "latina", "latina", "latina", "latina", "latina", "white", "white", "black")>>
 <<case "Nigerian">>
 	<<set $args[0].race = either("black")>>
+<<case "Nigerien">>
+	<<set $args[0].race = either("black")>>
 <<case "Norwegian">>
 	<<set $args[0].race = either("white")>>
 <<case "Omani">>
@@ -477,6 +479,8 @@
 	<<set $args[0].birthName = setup.nicaraguanSlaveNames.random(), $args[0].birthSurname = setup.nicaraguanSlaveSurnames.random()>>
 <<case "Nigerian">>
 	<<set $args[0].birthName = setup.nigerianSlaveNames.random(), $args[0].birthSurname = setup.nigerianSlaveSurnames.random()>>
+<<case "Nigerien">>
+	<<set $args[0].birthName = setup.nigerienSlaveNames.random(), $args[0].birthSurname = setup.nigerienSlaveSurnames.random()>>
 <<case "Norwegian">>
 	<<set $args[0].birthName = setup.norwegianSlaveNames.random(), $args[0].birthSurname = setup.norwegianSlaveSurnames.random()>>
 <<case "Omani">>
@@ -1134,6 +1138,12 @@
 <<case "Panamanian">>
 	<<if $language == "Spanish">>
 	<<set $args[0].accent = 1>>
+	<<else>>
+	<<set $args[0].accent = _naturalAccent>>
+	<</if>>
+<<case "Nigerien">>
+	<<if $language == "French">>
+	<<set $args[0].accent = either(0,1,2,3)>>
 	<<else>>
 	<<set $args[0].accent = _naturalAccent>>
 	<</if>>
