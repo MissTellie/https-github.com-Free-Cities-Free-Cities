@@ -21,8 +21,12 @@
 	<<set $args[0].race = either("white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "black", "asian", "asian", "asian")>>
 <<case "Austrian">>
 	<<set $args[0].race = either("white")>>
+<<case "Bahamian">>
+	<<set $args[0].race = either("black", "black", "black", "black", "black", "black", "black", "black", "black", "white")>>
 <<case "Bangladeshi">>
 	<<set $args[0].race = either("indo-aryan")>>
+<<case "Barbadian">>
+	<<set $args[0].race = either("black", "black", "black", "black", "black", "black", "black", "black", "black", "mixed race")>>
 <<case "Belarusian">>
 	<<set $args[0].race = either("white")>>
 <<case "Belgian">>
@@ -73,6 +77,8 @@
 	<<set $args[0].race = either("black", "black", "black", "black", "black", "black", "black", "black", "black", "middle eastern")>>
 <<case "Dominican">>
 	<<set $args[0].race = either("white", "black", "latina", "latina", "latina", "latina", "latina", "latina")>>
+<<case "Dominiquais">>
+	<<set $args[0].race = either("black", "black", "black", "black", "black", "black", "black", "black", "black", "mixed race")>>
 <<case "Dutch">>
 	<<set $args[0].race = either("white")>>
 <<case "Egyptian">>
@@ -243,6 +249,8 @@
 	<<set $args[0].race = either("black", "black", "black", "semitic")>>
 <<case "Thai">>
 	<<set $args[0].race = either("asian", "asian", "malay")>>
+<<case "Trinidadian">>
+	<<set $args[0].race = either("black", "black", "indo-aryan", "indo-aryan", "white", "mixed race")>>
 <<case "Tunisian">>
 	<<set $args[0].race = either("middle eastern")>>
 <<case "Turkish">>
@@ -311,8 +319,12 @@
 	<</if>>
 <<case "Austrian">>
 	<<set $args[0].birthName = setup.austrianSlaveNames.random(), $args[0].birthSurname = setup.austrianSlaveSurnames.random()>>
+<<case "Bahamian">>
+	<<set $args[0].birthName = setup.bahamianSlaveNames.random(), $args[0].birthSurname = setup.bahamianSlaveSurnames.random()>>
 <<case "Bangladeshi">>
 	<<set $args[0].birthName = setup.bangladeshiSlaveNames.random(), $args[0].birthSurname = setup.bangladeshiSlaveSurnames.random()>>
+<<case "Barbadian">>
+	<<set $args[0].birthName = setup.barbadianSlaveNames.random(), $args[0].birthSurname = setup.barbadianSlaveSurnames.random()>>
 <<case "Belarusian">>
 	<<set $args[0].birthName = setup.belarusianSlaveNames.random(), $args[0].birthSurname = setup.belarusianSlaveSurnames.random()>>
 <<case "Belgian">>
@@ -375,6 +387,8 @@
 	<<set $args[0].birthName = setup.djiboutianSlaveNames.random(), $args[0].birthSurname = setup.djiboutianSlaveSurnames.random()>>
 <<case "Dominican">>
 	<<set $args[0].birthName = setup.dominicanSlaveNames.random(), $args[0].birthSurname = setup.dominicanSlaveSurnames.random()>>
+<<case "Dominiquais">>
+	<<set $args[0].birthName = setup.dominiquaisSlaveNames.random(), $args[0].birthSurname = setup.dominiquaisSlaveSurnames.random()>>
 <<case "Dutch">>
 	<<set $args[0].birthName = setup.dutchSlaveNames.random(), $args[0].birthSurname = setup.dutchSlaveSurnames.random()>>
 <<case "Egyptian">>
@@ -553,6 +567,8 @@
 	<<set $args[0].birthName = setup.tanzanianSlaveNames.random(), $args[0].birthSurname = setup.tanzanianSlaveSurnames.random()>>
 <<case "Thai">>
 	<<set $args[0].birthName = setup.thaiSlaveNames.random(), $args[0].birthSurname = setup.thaiSlaveSurnames.random()>>
+<<case "Trinidadian">>
+	<<set $args[0].birthName = setup.trinidadianSlaveNames.random(), $args[0].birthSurname = setup.trinidadianSlaveSurnames.random()>>
 <<case "Tunisian">>
 	<<set $args[0].birthName = setup.tunisianSlaveNames.random(), $args[0].birthSurname = setup.tunisianSlaveSurnames.random()>>
 <<case "Turkish">>
@@ -1170,6 +1186,14 @@
 <<case "Luxembourgian">>
 	<<set $args[0].accent = _naturalAccent>>
 <<case "Moldovan">>
+	<<set $args[0].accent = _naturalAccent>>
+<<case "Bahamian">>
+	<<set $args[0].accent = _naturalAccent>>
+<<case "Barbadian">>
+	<<set $args[0].accent = _naturalAccent>>
+<<case "Dominiquais">>
+	<<set $args[0].accent = _naturalAccent>>
+<<case "Trinidadian">>
 	<<set $args[0].accent = _naturalAccent>>
 <<case "Roman Revivalist">>
 	<<if $language == "Latin">>
