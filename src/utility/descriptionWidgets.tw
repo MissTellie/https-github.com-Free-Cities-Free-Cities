@@ -16,6 +16,9 @@
 		You plan to train ''__@@.pink;<<SlaveFullName $slaves[_PA]>>@@__'' to $trainingRegimen this week.
 	<</if>>
 <</switch>>
+
+<span id="managePA"><strong><<link "Change plans">><<goto "Personal Attention Select">><</link>></strong></span> @@.cyan;[A]@@
+
 <<if $useTabs == 0>>
 		<br>
 		<<if _HG > -1>>
@@ -43,10 +46,9 @@
 				<<set $showOneSlave = "guard you">>
 			<<else>>
 				You have @@.red;not@@ selected a Bodyguard. <span id="manageBG"><strong><<link "Select one">><<goto "BG Select">><</link>></strong></span> @@.cyan;[B]@@
-			<</if>>		
+			<</if>>
 		<</if>>
 	<</if>>
-<span id="managePA"><strong><<link "Change plans">><<goto "Personal Attention Select">><</link>></strong></span> @@.cyan;[A]@@
 
 <<if $organsCompleted > 0>>
 <<for _dwj = 0; _dwj < $organs.length; _dwj++>>
