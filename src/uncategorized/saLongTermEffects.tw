@@ -1893,6 +1893,9 @@
 		Her paraphilia is satisfied by her work as a cow; she can feel her udders swelling with milk.
 	<<elseif $slaves[$i].health < 0>>
 		Her paraphilia is ameliorated by her poor health; she knows she can't take expansion right now.
+	<<elseif $slaves[$i].drugs == "intensive breast injections">>
+		Her paraphilia makes her feel @@.mediumaquamarine;fulfilled to be a sex slave@@ if it means breast expansion like this.
+		<<set $slaves[$i].trust += 2>>
 	<<elseif $slaves[$i].drugs == "breast injections">>
 		Her paraphilia makes breast injections very satisfying for her.
 	<<else>>
@@ -2417,9 +2420,9 @@
 <</if>>
 <</if>>
 
-<<if ($slaves[$i].drugs == "testicle enhancement")>>
-<<if ($slaves[$i].balls > 0)>>
 <<if ($slaves[$i].releaseRules == "permissive")>>
+<<if ($slaves[$i].balls > 0)>>
+<<if $slaves[$i].drugs == "testicle enhancement" || $slaves[$i].drugs == "intensive testicle enhancement">>
 	<<if ($slaves[$i].fetishStrength <= 95)>>
 	<<if $fetishChangeChance > random(0,100)>>
 		<<if $slaves[$i].fetish != "cumslut">>
@@ -2532,7 +2535,7 @@
 	<</if>>
 <<case "boobs">>
 	<<if $slaves[$i].sexualFlaw != "breast growth">>
-		<<if $slaves[$i].drugs == "breast injections">>
+		<<if $slaves[$i].drugs == "breast injections" || $slaves[$i].drugs == "intensive breast injections">>
 			She loves her tits, and feeling them respond to drug injections starts to hold more fascination for her than mere sex. @@.yellow;Her sexual identity is now dominated by her swelling boobs.@@
 			<<set $slaves[$i].sexualFlaw = "breast growth">>
 			<<set $slaves[$i].fetishStrength = 100>>
@@ -4338,7 +4341,7 @@
 	<</if>>
 	<<if ($slaves[$i].boobs > 10000+($slaves[$i].muscles*100))>>
 		<<if ($slaves[$i].assignment != "work in the dairy") || ($dairyRestraintsSetting < 2)>>
-		<<if ($slaves[$i].drugs != "breast injections")>>
+		<<if $slaves[$i].drugs != "breast injections" && $slaves[$i].drugs != "intensive breast injections">>
 		<<if ($slaves[$i].boobs > 10000+($slaves[$i].muscles*100))>>
 			Her breasts are larger than her body can possibly sustain without industrial intervention, and they @@.orange;naturally lose mass.@@
 			<<set $slaves[$i].boobs = Math.clamp($slaves[$i].boobs-25, 10000+($slaves[$i].muscles*100), 25000)>>

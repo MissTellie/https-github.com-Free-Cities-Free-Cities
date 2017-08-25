@@ -3815,8 +3815,10 @@ check if a rule attribute, any one, is defined and otherwise skip everything.
 	<<if _combinedRule.growth.boobs != "no default setting">>
 		<<if $args[0].boobs < _combinedRule.growth.boobs>>
 			<<if $args[0].drugs != "breast injections">>
+			<<if $args[0].drugs != "intensive breast injections">>
 				<<set $args[0].drugs = "breast injections">>
 				<br>$args[0].slaveName has been put on $args[0].drugs.
+			<</if>>
 			<</if>>
 			<<break>>
 		<</if>>
@@ -3824,8 +3826,10 @@ check if a rule attribute, any one, is defined and otherwise skip everything.
 	<<if _combinedRule.growth.butt != "no default setting">>
 		<<if $args[0].butt < _combinedRule.growth.butt>>
 			<<if $args[0].drugs != "butt injections">>
+			<<if $args[0].drugs != "intensive butt injections">>
 				<<set $args[0].drugs = "butt injections">>
 				<br>$args[0].slaveName has been put on $args[0].drugs.
+			<</if>>
 			<</if>>
 			<<break>>
 		<</if>>
@@ -3843,8 +3847,10 @@ check if a rule attribute, any one, is defined and otherwise skip everything.
 		<<if $args[0].dick>>
 		<<if $args[0].dick < _combinedRule.growth.dick>>
 			<<if $args[0].drugs != "penis enhancement">>
+			<<if $args[0].drugs != "intensive penis enhancement">>
 				<<set $args[0].drugs = "penis enhancement">>
 				<br>$args[0].slaveName has been put on $args[0].drugs.
+			<</if>>
 			<</if>>
 			<<break>>
 		<</if>>
@@ -3854,8 +3860,10 @@ check if a rule attribute, any one, is defined and otherwise skip everything.
 		<<if $args[0].balls>>
 		<<if $args[0].balls < _combinedRule.growth.balls>>
 			<<if $args[0].drugs != "testicle enhancement">>
+			<<if $args[0].drugs != "intensive testicle enhancement">>
 				<<set $args[0].drugs = "penis enhancement">>
 				<br>$args[0].slaveName has been put on $args[0].drugs.
+			<</if>>
 			<</if>>
 			<<break>>
 		<</if>>
@@ -4056,7 +4064,7 @@ check if a rule attribute, any one, is defined and otherwise skip everything.
 	<<elseif ($args[0].boobs >= 1600) && ($args[0].muscles > 5) && ($args[0].diet == "muscle building") && ((_combinedRule.muscles == "no default setting") || (_combinedRule.muscles == 0))>>
 		<<set $args[0].diet = "healthy">>
 		<br>$args[0].slaveName has huge boobs, but she already has the back muscles to bear them, so she's been assigned to stop working out so hard.
-	<<elseif (_combinedRule.dietGrowthSupport == 1) && (($args[0].drugs == "breast injections") || ($args[0].drugs == "butt injections")) && ($args[0].weight <= 95)>>
+	<<elseif (_combinedRule.dietGrowthSupport == 1) && ($args[0].drugs == "breast injections" || $args[0].drugs == "intensive breast injections" || $args[0].drugs == "butt injections" || $args[0].drugs == "intensive butt injections") && ($args[0].weight <= 95)>>
 		<<if $args[0].diet !== "fattening">>
 			<<set $args[0].diet = "fattening">>
 			<br>$args[0].slaveName is on drugs designed to expand major body parts, so she's been put on a fattening diet to provide her body as much fuel for growth as possible.

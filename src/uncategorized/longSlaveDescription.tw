@@ -1505,14 +1505,14 @@ $pronounCap is
 <<AnusDescription>>
 
 <<if $activeSlave.fuckdoll == 0>>
-	<<if $activeSlave.drugs == "no drugs">>
-	<<elseif $activeSlave.drugs == "breast injections">>
+	<<switch $activeSlave.drugs>>
+	<<case "intensive breast injections">>
 		She massages her tits uncomfortably. The A-HGH must be having an effect, painfully stretching her breasts as the mammary and adipose tissue underneath grows explosively.
-	<<elseif $activeSlave.drugs == "butt injections">>
+	<<case "intensive butt injections">>
 		She massages her butt uncomfortably. The A-HGH must be having an effect, painfully stretching her buttocks as the muscular and adipose tissue underneath grows explosively.
-	<<elseif $activeSlave.drugs == "penis enhancement">>
+	<<case "intensive penis enhancement">>
 		She massages her <<if ($activeSlave.dick > 0)>>dick<<else>>clit<</if>> uncomfortably. The A-HGH must be having an effect, painfully lengthening and thickening her <<if ($activeSlave.dick > 0)>>dick<<else>>clit<</if>>.
-	<</if>>
+	<</switch>>
 	<<if $activeSlave.aphrodisiacs > 0>>
 	<<if $activeSlave.aphrodisiacs > 1>>
 		She's swimming in
