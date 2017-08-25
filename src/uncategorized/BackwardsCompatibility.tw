@@ -287,29 +287,37 @@
 		<</switch>>
 	<</if>>
 
-	<<set $defaultRules[_bci].facility.replace("spa", "rest in the spa")>>
-	<<set $defaultRules[_bci].facility.replace("club", "serve in the club")>>
-	<<set $defaultRules[_bci].facility.replace("dairy", "work in the dairy")>>
-	<<set $defaultRules[_bci].facility.replace("clinic", "get treatment in the clinic")>>
-	<<set $defaultRules[_bci].facility.replace("arcade", "be confined in the arcade")>>
-	<<set $defaultRules[_bci].facility.replace("hgsuite", "live with your Head Girl")>>
-	<<set $defaultRules[_bci].facility.replace("brothel", "work in the brothel")>>
-	<<set $defaultRules[_bci].facility.replace("cellblock", "be confined in the cellblock")>>
-	<<set $defaultRules[_bci].facility.replace("schoolroom", "learn in the schoolroom")>>
-	<<set $defaultRules[_bci].facility.replace("mastersuite", "serve in the master suite")>>
-	<<set $defaultRules[_bci].facility.replace("servantsquarters", "work as a servant")>>
+	<<set $defaultRules[_bci].facility = $defaultRules[_bci].facility.map(function(x) {
+		switch (x) {
+		case "spa": return "rest in the spa";
+		case "club": return "serve in the club";
+		case "dairy": return "work in the dairy";
+		case "clinic": return "get treatment in the clinic";
+		case "arcade": return "be confined in the arcade";
+		case "hgsuite": return "live with your Head Girl";
+		case "brothel": return "work in the brothel";
+		case "cellblock": return "be confined in the cellblock";
+		case "schoolroom": return "learn in the schoolroom";
+		case "mastersuite": return "serve in the master suite";
+		case "servantsquarters": return "work as a servant";
+		}
+	})>>
 
-	<<set $defaultRules[_bci].excludeFacility.replace("spa", "rest in the spa")>>
-	<<set $defaultRules[_bci].excludeFacility.replace("club", "serve in the club")>>
-	<<set $defaultRules[_bci].excludeFacility.replace("dairy", "work in the dairy")>>
-	<<set $defaultRules[_bci].excludeFacility.replace("clinic", "get treatment in the clinic")>>
-	<<set $defaultRules[_bci].excludeFacility.replace("arcade", "be confined in the arcade")>>
-	<<set $defaultRules[_bci].excludeFacility.replace("hgsuite", "live with your Head Girl")>>
-	<<set $defaultRules[_bci].excludeFacility.replace("brothel", "work in the brothel")>>
-	<<set $defaultRules[_bci].excludeFacility.replace("cellblock", "be confined in the cellblock")>>
-	<<set $defaultRules[_bci].excludeFacility.replace("schoolroom", "learn in the schoolroom")>>
-	<<set $defaultRules[_bci].excludeFacility.replace("mastersuite", "serve in the master suite")>>
-	<<set $defaultRules[_bci].excludeFacility.replace("servantsquarters", "work as a servant")>>
+	<<set $defaultRules[_bci].excludeFacility = $defaultRules[_bci].excludeFacility.map(function(x) {
+		switch (x) {
+		case "spa": return "rest in the spa";
+		case "club": return "serve in the club";
+		case "dairy": return "work in the dairy";
+		case "clinic": return "get treatment in the clinic";
+		case "arcade": return "be confined in the arcade";
+		case "hgsuite": return "live with your Head Girl";
+		case "brothel": return "work in the brothel";
+		case "cellblock": return "be confined in the cellblock";
+		case "schoolroom": return "learn in the schoolroom";
+		case "mastersuite": return "serve in the master suite";
+		case "servantsquarters": return "work as a servant";
+		}
+	})>>
 
 	<<if ndef $defaultRules[_bci].aphrodisiacs>>
 		<<set $defaultRules[_bci].aphrodisiacs = 0>>
