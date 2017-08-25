@@ -162,9 +162,9 @@
 	| //<<link "Re-apply Rules Assistant now (this will only check slaves in the Penthouse)">><<for _i = 0;_i < _SL;_i++>><<if $slaves[_i].assignmentVisible == 1 && $slaves[_i].useRulesAssistant == 1>><<set $slaves[_i].currentSummary = 0>><<CheckAutoRulesActivate $slaves[_i]>><<DefaultRules $slaves[_i]>><</if>><</for>><<goto "Main">><</link>>//
 <</if>>
 
-//<<OptionsSortAsAppearsOnMain>>//
 
 <<if $useTabs == 0>>
+//<<OptionsSortAsAppearsOnMain>>//
 	<<include "Slave Summary">>
 
 	<<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>>
