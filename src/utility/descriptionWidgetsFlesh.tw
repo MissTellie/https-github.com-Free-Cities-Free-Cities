@@ -3712,7 +3712,7 @@ $pronounCap has
 	<</if>>
 <<case "a comfortable bodysuit">>
 	<<if ($activeSlave.preg > 30 || $activeSlave.bellyAccessory == "a huge empathy belly" || $activeSlave.bellyAccessory == "a large empathy belly")>>
-		$activeSlave.slaveName's bodysuit tightly clings to $possessive huge pregnant belly, displaying $possessive popped navel<<if !["a huge empathy belly", "a large empathy belly"].includes $activeSlave.bellyAccessory>> and any movement $possessive babies make<</if>>.
+		$activeSlave.slaveName's bodysuit tightly clings to $possessive huge pregnant belly, displaying $possessive popped navel<<if !["a huge empathy belly", "a large empathy belly"].includes($activeSlave.bellyAccessory)>> and any movement $possessive babies make<</if>>.
 	<<elseif ($activeSlave.preg > 20 || $activeSlave.bellyAccessory == "a medium empathy belly")>>
 		$activeSlave.slaveName's bodysuit tightly clings to $possessive pregnant belly, displaying $possessive popped navel<<if $activeSlave.bellyAccessory != "a medium empathy belly">> and any movement $possessive babies make<</if>>.
 	<<elseif $activeSlave.weight > 95>>
@@ -3820,7 +3820,7 @@ $pronounCap has
 	<</if>>
 <<case "a leotard">>
 	<<if ($activeSlave.preg > 30 || $activeSlave.bellyAccessory == "a huge empathy belly" || $activeSlave.bellyAccessory == "a large empathy belly")>>
-		$activeSlave.slaveName's tight leotard shows off <<if !["a huge empathy belly", "a large empathy belly"].includes $activeSlave.bellyAccessory>>every kick and movement within<<else>>the curvature of<</if>> $possessive huge pregnant belly. The material tightly clings to $possessive popped navel.
+		$activeSlave.slaveName's tight leotard shows off <<if !["a huge empathy belly", "a large empathy belly"].includes($activeSlave.bellyAccessory)>>every kick and movement within<<else>>the curvature of<</if>> $possessive huge pregnant belly. The material tightly clings to $possessive popped navel.
 	<<elseif ($activeSlave.preg > 20 || $activeSlave.bellyAccessory == "a medium empathy belly")>>
 		$activeSlave.slaveName's tight leotard shows off every kick and movement within $possessive pregnant belly. The material tightly clings to $possessive popped navel.
 	<<elseif $activeSlave.weight > 95>>
