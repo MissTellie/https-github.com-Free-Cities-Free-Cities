@@ -150,7 +150,7 @@
 <</for>>
 
 <<set _twins = _relatedSlaves.filter(function(s) { return s.sisters > 0 && s.anus > 0 && s.devotion > 50 && canWalk(s); })>>
-<<for _twins.length > 0)>>
+<<for _twins.length > 0>>
 	<<set $alphaTwin = _twins.pluck()>>
 	<<set $betaTwin = randomTwinSister($alphaTwin)>>
 	<<if (def $betaTwin) && ($betaTwin.anus > 0) && ($betaTwin.devotion > 50) && canWalk($betaTwin)>>
