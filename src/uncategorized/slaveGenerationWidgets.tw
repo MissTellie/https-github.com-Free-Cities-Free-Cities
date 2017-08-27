@@ -167,6 +167,8 @@
 	<<set $args[0].race = either("middle eastern", "semitic")>>
 <<case "Libyan">>
 	<<set $args[0].race = either("middle eastern")>>
+<<case "a Liechtensteiner">>
+	<<set $args[0].race = either("asian")>>
 <<case "Lithuanian">>
 	<<set $args[0].race = either("white")>>
 <<case "Luxembourgian">>
@@ -289,6 +291,8 @@
 	<<set $args[0].race = either("white", "latina", "latina")>>
 <<case "Uzbek">>
 	<<set $args[0].race = either("asian")>>
+<<case "Vatican">>
+	<<set $args[0].race = either("southern european", "white")>>
 <<case "Venezuelan">>
 	<<set $args[0].race = either("latina")>>
 <<case "Vietnamese">>
@@ -501,6 +505,8 @@
 	<<set $args[0].birthName = setup.lebaneseSlaveNames.random(), $args[0].birthSurname = setup.lebaneseSlaveSurnames.random()>>
 <<case "Libyan">>
 	<<set $args[0].birthName = setup.libyanSlaveNames.random(), $args[0].birthSurname = setup.libyanSlaveSurnames.random()>>
+<<case "a Liechtensteiner">>
+	<<set $args[0].birthName = setup.liechtensteinerSlaveNames.random(), $args[0].birthSurname = setup.liechtensteinerSlaveSurnames.random()>>
 <<case "Lithuanian">>
 	<<set $args[0].birthName = setup.lithuanianSlaveNames.random(), $args[0].birthSurname = setup.lithuanianSlaveSurnames.random()>>
 <<case "Luxembourgian">>
@@ -631,6 +637,8 @@
 	<<set $args[0].birthName = setup.uruguayanSlaveNames.random(), $args[0].birthSurname = setup.uruguayanSlaveSurnames.random()>>
 <<case "Uzbek">>
 	<<set $args[0].birthName = setup.uzbekSlaveNames.random(), $args[0].birthSurname = setup.uzbekSlaveSurnames.random()>>
+<<case "Vatican">>
+	<<set $args[0].birthName = setup.vaticanSlaveNames.random(), $args[0].birthSurname = setup.vaticanSlaveSurnames.random()>>
 <<case "Venezuelan">>
 	<<set $args[0].birthName = setup.venezuelanSlaveNames.random(), $args[0].birthSurname = setup.venezuelanSlaveSurnames.random()>>
 <<case "Vietnamese">>
@@ -1139,12 +1147,6 @@
 	<<else>>
 	<<set $args[0].accent = _naturalAccent>>
 	<</if>>
-<<case "Scottish">>
-	<<if $language == "English">>
-	<<set $args[0].accent = 2>>
-	<<else>>
-	<<set $args[0].accent = _naturalAccent>>
-	<</if>>
 <<case "Laotian">>
 	<<set $args[0].accent = _naturalAccent>>
 <<case "Mongolian">>
@@ -1275,6 +1277,24 @@
 	<<set $args[0].accent = _naturalAccent>>
 <<case "Sri Lankan">>
 	<<set $args[0].accent = _naturalAccent>>
+<<case "a Liechtensteiner">>
+	<<if $language == "German">>
+	<<set $args[0].accent = 1>>
+	<<else>>
+	<<set $args[0].accent = _naturalAccent>>
+	<</if>>
+<<case "Scottish">>
+	<<if $language == "English">>
+	<<set $args[0].accent = 2>>
+	<<else>>
+	<<set $args[0].accent = _naturalAccent>>
+	<</if>>
+<<case "Vatican">>
+	<<if $language == "Italian">>
+	<<set $args[0].accent = 0>>
+	<<else>>
+	<<set $args[0].accent = _naturalAccent>>
+	<</if>>
 <<case "Roman Revivalist">>
 	<<if $language == "Latin">>
 	<<set $args[0].accent = 0>>
