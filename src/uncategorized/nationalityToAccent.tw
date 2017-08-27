@@ -474,12 +474,6 @@
 	<<else>>
 	<<set $activeSlave.accent = $seed>>
 	<</if>>
-<<elseif ($activeSlave.nationality == "Scottish")>>
-	<<if $language == "English">>
-	<<set $activeSlave.accent = 2>>
-	<<else>>
-	<<set $activeSlave.accent = $seed>>
-	<</if>>
 <<elseif ($activeSlave.nationality == "Laotian")>>
 	<<set $activeSlave.accent = $seed>>
 <<elseif ($activeSlave.nationality == "Mongolian")>>
@@ -610,6 +604,24 @@
 	<<set $activeSlave.accent = $seed>>
 <<elseif ($activeSlave.nationality == "Sri Lankan")>>
 	<<set $activeSlave.accent = $seed>>
+<<elseif ($activeSlave.nationality == "a Liechtensteiner")>>
+	<<if $language == "German">>
+	<<set $activeSlave.accent = 1>>
+	<<else>>
+	<<set $activeSlave.accent = $seed>>
+	<</if>>
+<<elseif ($activeSlave.nationality == "Scottish")>>
+	<<if $language == "English">>
+	<<set $activeSlave.accent = 2>>
+	<<else>>
+	<<set $activeSlave.accent = $seed>>
+	<</if>>
+<<elseif ($activeSlave.nationality == "Vatican")>>
+	<<if $language == "Italian">>
+	<<set $activeSlave.accent = 0>>
+	<<else>>
+	<<set $activeSlave.accent = $seed>>
+	<</if>>
 <<elseif ($activeSlave.nationality == "Roman Revivalist")>>
 	<<if $language == "Latin">>
 	<<set $activeSlave.accent = 0>>
