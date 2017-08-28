@@ -463,7 +463,6 @@
 <</for>>
 
 <<replace #excludeassignment>>
-<br>
 <<if _rest || _fucktoy || _servant || _confined || _whore || _public || _milked || _subordinate || _gloryhole || _classes>>
 	Include all assignments except:
 	<<link "None">>
@@ -1320,7 +1319,6 @@ Assignment on removal: ''$currentRule.removalAssignment''
 %/
 <<widget "RASpecialSlaves">>
 <<replace #specialslaves>>
-<br><br>
 <<if $currentRule.excludeSpecialSlaves>>
 	Excluding special slaves:
 	''True'' |
@@ -1359,7 +1357,7 @@ Assignment on removal: ''$currentRule.removalAssignment''
 %/
 <<widget "RAChangeCollar">>
 <<replace #collar>>
-Collar: ''$currentRule.collar.''
+	''$currentRule.collar.''
 <</replace>>
 <</widget>>
 
@@ -1368,7 +1366,7 @@ Collar: ''$currentRule.collar.''
 %/
 <<widget "RAChangeShoes">>
 <<replace #shoes>>
-Shoes: ''$currentRule.shoes.''
+	''$currentRule.shoes.''
 <</replace>>
 <</widget>>
 
@@ -1377,7 +1375,7 @@ Shoes: ''$currentRule.shoes.''
 %/
 <<widget "RAChangeBelly">>
 <<replace #baccessory>>
-Corsetage: ''$currentRule.bellyAccessory.''
+	''$currentRule.bellyAccessory.''
 <</replace>>
 <</widget>>
 
@@ -1388,15 +1386,15 @@ Corsetage: ''$currentRule.bellyAccessory.''
 <<widget "RAChangeVAccessory">>
 <<if $args[0] == 0>>
 	<<replace #vaccessory>>
-		Vaginal accessories for virgins: ''$currentRule.virginAccessory.''
+		''$currentRule.virginAccessory.''
 	<</replace>>
 <<elseif $args[0] == 1>>
 	<<replace #avaccessory>>
-		Vaginal accessories for anal virgins: ''$currentRule.aVirginAccessory.''
+		''$currentRule.aVirginAccessory.''
 	<</replace>>
 <<else>>
 	<<replace #voaccessory>>
-		Vaginal accessories for other slaves: ''$currentRule.vaginalAccessory.''
+		''$currentRule.vaginalAccessory.''
 	<</replace>>
 <</if>>
 <</widget>>
@@ -1408,11 +1406,11 @@ Corsetage: ''$currentRule.bellyAccessory.''
 <<widget "RAChangeDAccessory">>
 <<if $args[0] == 0>>
 	<<replace #avdaccessory>>
-		Dick accessories for anal virgins: ''$currentRule.aVirginDickAccessory.''
+		''$currentRule.aVirginDickAccessory.''
 	<</replace>>
 <<else>>
 	<<replace #daccessory>>
-		Dick accessories for other slaves: ''$currentRule.dickAccessory.''
+		''$currentRule.dickAccessory.''
 	<</replace>>
 <</if>>
 <</widget>>
@@ -1424,11 +1422,11 @@ Corsetage: ''$currentRule.bellyAccessory.''
 <<widget "RAChangeBAccessory">>
 <<if $args[0] == 0>>
 	<<replace #avbuaccessory>>
-		Buttplugs for anal virgins: ''$currentRule.aVirginButtplug.''
+		''$currentRule.aVirginButtplug.''
 	<</replace>>
 <<else>>
 	<<replace #buaccessory>>
-		Buttplugs for other slaves: ''$currentRule.buttplug.''
+		''$currentRule.buttplug.''
 	<</replace>>
 <</if>>
 <</widget>>
@@ -1453,35 +1451,10 @@ Corsetage: ''$currentRule.bellyAccessory.''
 <</widget>>
 
 /%
- Call as <<RAChangeGrowth>>
-%/
-<<widget "RAChangeGrowth">>
-<<replace #growth>>
-Growth hormones for healthy slaves:
-
-<<if $currentRule.growth == "girlish">>
-	''up to a girlish figure.''
-<<elseif $currentRule.growth == "stacked">>
-	''up to a stacked figure.''
-<<elseif $currentRule.growth == "functional">>
-	''as large as will allow a normal life.''
-<<elseif $currentRule.growth == "unlimited">>
-	''no limits.''
-<<elseif $currentRule.growth == "none">>
-	''none.''
-<<else>>
-	''no default setting.''
-<</if>>
-<</replace>>
-<</widget>>
-
-/%
  Call as <<RAChangeAphrodisiacs>>
 %/
 <<widget "RAChangeAphrodisiacs">>
 <<replace #aphrodisiacs>>
-Aphrodisiacs:
-
 <<if $currentRule.aphrodisiacs == "no default setting">>
 	''no default setting.''
 <<elseif $currentRule.aphrodisiacs > 0>>
@@ -1501,8 +1474,6 @@ Aphrodisiacs:
 %/
 <<widget "RAChangePreg">>
 <<replace #preg>>
-Contraceptives for fertile slaves: // Will override hormones and drugs if applicable.//
-
 <<if $currentRule.preg == 0>>
 	''fertile.''
 <<elseif $currentRule.preg == 1>>
@@ -1522,8 +1493,6 @@ Contraceptives for fertile slaves: // Will override hormones and drugs if applic
 %/
 <<widget "RAChangeXXHormones">>
 <<replace #xxhormones>>
-Hormones for female slaves:
-
 <<if $currentRule.XX == 0>>
 	''no hormones.''
 <<elseif $currentRule.XX == 1>>
@@ -1545,8 +1514,6 @@ Hormones for female slaves:
 %/
 <<widget "RAChangeXYHormones">>
 <<replace #xyhormones>>
-Hormones for shemales:
-
 <<if $currentRule.XY == 0>>
 	''no hormones.''
 <<elseif $currentRule.XY == 1>>
@@ -1568,8 +1535,6 @@ Hormones for shemales:
 %/
 <<widget "RAChangeGeldHormones">>
 <<replace #geldhormones>>
-Hormones for geldings:
-
 <<if $currentRule.gelding == 0>>
 	''no hormones.''
 <<elseif $currentRule.gelding == 1>>
@@ -1591,8 +1556,6 @@ Hormones for geldings:
 %/
 <<widget "RAChangeDiet">>
 <<replace #diet>>
-Slave diets:
-
 <<if $currentRule.diet == 30>>
 	''designed to keep slaves plush.''
 <<elseif $currentRule.diet == 0>>
@@ -1605,6 +1568,7 @@ Slave diets:
 	''no default setting.''
 <</if>>
 <</replace>>
+
 <<replace #dietsupport>>
 <<if $currentRule.diet !== "no default setting">>
 <br>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -1626,9 +1590,13 @@ Diet support for growth drugs:
 <</link>>
 <</if>>
 <</replace>>
-<<replace #dietBase>>
-Diet Base:
+<</widget>>
 
+/%
+ % Call as <<RAChangeDietBase>>
+ %/
+<<widget "RAChangeDietBase">>
+<<replace #dietBase>>
 <<if $currentRule.dietCum == 2>>
 	''Cum-Based.''
 <<elseif (($currentRule.dietCum == 1) && ($currentRule.dietMilk == 0))>>
@@ -1652,8 +1620,6 @@ Diet Base:
 %/
 <<widget "RAChangeMuscles">>
 <<replace #muscles>>
-Muscles:
-
 <<if $currentRule.muscles > 95>>
 	''massive.''
 <<elseif $currentRule.muscles > 30>>
@@ -1673,8 +1639,6 @@ Muscles:
 %/
 <<widget "RAChangeBraces">>
 <<replace #braces>>
-Braces:
-
 <<if $currentRule.teeth == "straighten">>
 	''straighten'' teeth, then remove.
 <<elseif $currentRule.teeth == "universal">>
@@ -1692,19 +1656,19 @@ Braces:
 %/
 <<widget "RAChangeAssistantImplants">>
 <<replace #assistantimplants>>
-Assistant-applied implants:
-
 <<if $currentRule.autoSurgery == 1>>
 	''ACTIVE, STAND CLEAR.''
 	<<link "Off">>
 		<<set $currentRule.autoSurgery = 0>>
 		<<RAChangeAssistantImplants>>
+		<<RARuleModified>>
 	<</link>>
 <<else>>
 	''off.''
 	<<link "Activate">>
 		<<set $currentRule.autoSurgery = 1>>
 		<<RAChangeAssistantImplants>>
+		<<RARuleModified>>
 	<</link>>
 <</if>>
 <</replace>>
@@ -1715,7 +1679,7 @@ Assistant-applied implants:
 %/
 <<widget "RAChangeLiving">>
 <<replace #living>>
-Living standard: ''$currentRule.livingRules.''
+	''$currentRule.livingRules.''
 <</replace>>
 <</widget>>
 
@@ -1724,7 +1688,7 @@ Living standard: ''$currentRule.livingRules.''
 %/
 <<widget "RAChangePunish">>
 <<replace #punish>>
-Typical punishment: ''$currentRule.standardPunishment.''
+	''$currentRule.standardPunishment.''
 <</replace>>
 <</widget>>
 
@@ -1733,7 +1697,7 @@ Typical punishment: ''$currentRule.standardPunishment.''
 %/
 <<widget "RAChangeReward">>
 <<replace #reward>>
-Typical reward: ''$currentRule.standardReward.''
+	''$currentRule.standardReward.''
 <</replace>>
 <</widget>>
 
@@ -1742,7 +1706,7 @@ Typical reward: ''$currentRule.standardReward.''
 %/
 <<widget "RAChangeMast">>
 <<replace #mast>>
-Masturbation rules: ''$currentRule.releaseRules.''
+	''$currentRule.releaseRules.''
 <</replace>>
 <</widget>>
 
@@ -1834,7 +1798,7 @@ Masturbation rules: ''$currentRule.releaseRules.''
 %/
 <<widget "RAChangeSpeech">>
 <<replace #speech>>
-Speech rules: ''$currentRule.speechRules.''
+	''$currentRule.speechRules.''
 <</replace>>
 <</widget>>
 
@@ -1843,7 +1807,7 @@ Speech rules: ''$currentRule.speechRules.''
 %/
 <<widget "RAChangeRelationship">>
 <<replace #relation>>
-Relationship rules: ''$currentRule.relationshipRules.''
+	''$currentRule.relationshipRules.''
 <</replace>>
 <</widget>>
 
@@ -1853,43 +1817,39 @@ Relationship rules: ''$currentRule.relationshipRules.''
 <<widget "RAChangeFameSpending">>
 <<replace #pornfame>>
 <<if $currentRule.pornFameSpending == -1>>
-  Release of feeds showing excellent slaves' sex lives: ''off.''
-<<link "Enable">>
-	<<set $currentRule.pornFameSpending = 0>>
-	<<RAChangeFameSpending>>
-<</link>>
+	Release of feeds showing excellent slaves' sex lives: ''off.''
 <<else>>
-  Weekly porn publicity subsidy for excellent slaves: ''¤$currentRule.pornFameSpending.''
+	Weekly porn publicity subsidy: ''¤$currentRule.pornFameSpending.''
 <</if>>
 <</replace>>
 <</widget>>
 
 /%
- % Call as <<RASaveRule ruleID>>
+ % Call as <<RASaveRule>>
  %/
 <<widget "RASaveRule">>
 <<replace #saveresult>>
-    <br><br>
-    <<for _t = 0; _t < $defaultRules.length; _t++>>
-        <<if ($args[0] == $defaultRules[_t].ID)>>
-            <<if (def _customCondition)>>
-                <<set _parsedCondition = parseCondition(_customCondition)>>
-                <<if (_parsedCondition.error)>>
-                    //There seems to be something wrong with the condition that you have given me sir,
-                    <br> <<print printError(_customCondition, _parsedCondition.error)>>
-                    <br> _parsedCondition.error.message//
-                    <br>
-                    <<break>>
-                <<else>>
-                    <<set $currentRule.condition = optimizeExpr(_parsedCondition.expr)>>
-                <</if>>
-            <</if>>
+<<for _t = 0; _t < $defaultRules.length; _t++>>
+	<<if ($currentRule.ID != $defaultRules[_t].ID)>>
+		<<continue>>
+	<</if>>
 
-            <<set $defaultRules[_t] = $currentRule>>
-            //Rule $r saved//
-            <<break>>
-        <</if>>
-    <</for>>
+	<<if (def _customCondition)>>
+		<<set _parsedCondition = parseCondition(_customCondition)>>
+		<<if (_parsedCondition.error)>>
+			//There seems to be something wrong with the condition that you have given me sir,
+			<br> <<print printError(_customCondition, _parsedCondition.error)>>
+			<br> _parsedCondition.error.message//
+			<br>
+			<<break>>
+		<</if>>
+		<<set $currentRule.condition = optimizeExpr(_parsedCondition.expr)>>
+	<</if>>
+
+	<<set $defaultRules[_t] = $currentRule>>
+	//Rule $r saved//
+	<<break>>
+<</for>>
 <</replace>>
 <</widget>>
 
@@ -1899,10 +1859,9 @@ Relationship rules: ''$currentRule.relationshipRules.''
  %/
 <<widget "RAChangeSave">>
 <<replace #saveresult>>
-    <br><br>
-    <<link _text>>
-        <<RASaveRule $currentRule.ID>>
-    <</link>>
+<<link "Save Rule $r">>
+	<<RASaveRule>>
+<</link>>
 <</replace>>
 <</widget>>
 
@@ -1910,28 +1869,27 @@ Relationship rules: ''$currentRule.relationshipRules.''
  % Call as <<RAChangeApply>>
  %/
 <<widget "RAChangeApply">>
-<<replace "#apply">>
-    <span id="applyresult">
-    <<link "Apply rules">>
-        <<RASaveRule $currentRule.ID>>
-        <<replace "#applied">>
-            <<for _rai = 0; _rai < $slaves.length; _rai++>>
-                <<if (!$slaves[_rai].useRulesAssistant)>> /* skip RA-exempt slaves */
-                    <<continue>>
-                <</if>>
+<<replace #applied>>
+	/% empty %/
+<</replace>>
 
-                <<set $slaves[_rai].currentSummary = 0>>
-		<<CheckAutoRulesActivate $slaves[_rai]>> /* does not use or modify $currentRule */
-                <<DefaultRules $slaves[_rai]>>           /* does not use or modify $currentRule */
-            <</for>>
-        <</replace>>
+<<replace #applyresult>>
+<<link "Apply rules">>
+	<<RASaveRule>>
+	<<replace "#applied">>
+		<<for _rai = 0; _rai < $slaves.length; _rai++>>
+			<<if ($slaves[_rai].useRulesAssistant)>>
+				<<set $slaves[_rai].currentSummary = 0>>
+				<<CheckAutoRulesActivate $slaves[_rai]>> /* does not use or modify $currentRule */
+				<<DefaultRules $slaves[_rai]>>           /* does not use or modify $currentRule */
+			<</if>>
+		<</for>>
+	<</replace>>
 
-        <<replace "#applyresult">>
-            //Rules applied.//<br>
-        <</replace>>
-    <</link>>
-    </span>
-    <span id="applied"></span>
+	<<replace "#applyresult">>
+		//Rules applied.//<br>
+	<</replace>>
+<</link>>
 <</replace>>
 <</widget>>
 
