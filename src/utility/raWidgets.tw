@@ -2125,17 +2125,17 @@ Pubic hair style: ''$currentRule.pubicHStyle.''
 <<widget "RAChangeBranding">>
 <<replace #branding>>
 <<if $currentRule.autoBrand == 1>>
-  ''on.''
-  <<link "Deactivate">>
-<<set $currentRule.autoBrand = 0>>
-<<RAChangeBranding>>
-<</link>>
+	''on.''
+	<<link "Deactivate">>
+		<<set $currentRule.autoBrand = 0>>
+		<<RAChangeBranding>>
+	<</link>>
 <<else>>
-  ''off.''
-  <<link "Activate">>
-<<set $currentRule.autoBrand = 1>>
-<<RAChangeBranding>>
-<</link>>
+	''off.''
+	<<link "Activate">>
+		<<set $currentRule.autoBrand = 1>>
+		<<RAChangeBranding>>
+	<</link>>
 <</if>>
 <</replace>>
 <</widget>>
@@ -2644,110 +2644,88 @@ Your brand design is ''$brandDesign.''
  %/
 <<widget "RAFacilityRemove">>
 <<if $args[1].facilityRemove>>
-    <<switch $args[1].setAssignment>>
-    <<case "be confined in the arcade">>
-        <<if $args[0].assignment == "be confined in the arcade">>
-            <br>$args[0].slaveName has been removed from $arcadeName and has been assigned to $args[1].removalAssignment.
-            <<assignJob $args[0] $args[1].removalAssignment>>
-        <</if>>
+	<<switch $args[1].setAssignment>>
+	<<case "be confined in the arcade">>
+		<<if $args[0].assignment == "be confined in the arcade">>
+			<br>$args[0].slaveName has been removed from $arcadeName and has been assigned to $args[1].removalAssignment.
+			<<assignJob $args[0] $args[1].removalAssignment>>
+		<</if>>
 
-    <<case "work in the brothel">>
-        <<if $args[0].assignment == "work in the brothel">>
-            <<if ($Madam == 0) || ($Madam.ID != $args[0].ID)>>
-                <br>$args[0].slaveName has been removed from $brothelName and has been assigned to $args[1].removalAssignment.
-                <<assignJob $args[0] $args[1].removalAssignment>>
-            <</if>>
-        <</if>>
+	<<case "work in the brothel">>
+		<<if $args[0].assignment == "work in the brothel">>
+			<br>$args[0].slaveName has been removed from $brothelName and has been assigned to $args[1].removalAssignment.
+			<<assignJob $args[0] $args[1].removalAssignment>>
+		<</if>>
 
-    <<case "serve in the club">>
-        <<if $args[0].assignment == "serve in the club">>
-            <<if ($DJ == 0) || ($DJ.ID != $args[0].ID)>>
-                <br>$args[0].slaveName has been removed from $clubName and has been assigned to $args[1].removalAssignment.
-                <<assignJob $args[0] $args[1].removalAssignment>>
-            <</if>>
-        <</if>>
+	<<case "serve in the club">>
+		<<if $args[0].assignment == "serve in the club">>
+			<br>$args[0].slaveName has been removed from $clubName and has been assigned to $args[1].removalAssignment.
+			<<assignJob $args[0] $args[1].removalAssignment>>
+		<</if>>
 
-    <<case "work in the dairy">>
-        <<if $args[0].assignment == "work in the dairy">>
-            <<if ($Milkmaid == 0) || ($Milkmaid.ID != $args[0].ID)>>
-                <br>$args[0].slaveName has been removed from $dairyName and has been assigned to $args[1].removalAssignment.
-                <<assignJob $args[0] $args[1].removalAssignment>>
-            <</if>>
-        <</if>>
+	<<case "work in the dairy">>
+		<<if $args[0].assignment == "work in the dairy">>
+			<br>$args[0].slaveName has been removed from $dairyName and has been assigned to $args[1].removalAssignment.
+			<<assignJob $args[0] $args[1].removalAssignment>>
+		<</if>>
 
-    <<case "rest in the spa">>
-        <<if $args[0].assignment == "rest in the spa">>
-            <<if ($Attendant == 0) || ($Attendant.ID != $args[0].ID)>>
-                <br>$args[0].slaveName has been removed from $spaName and has been assigned to $args[1].removalAssignment.
-                <<assignJob $args[0] $args[1].removalAssignment>>
-            <</if>>
-        <</if>>
+	<<case "rest in the spa">>
+		<<if $args[0].assignment == "rest in the spa">>
+			<br>$args[0].slaveName has been removed from $spaName and has been assigned to $args[1].removalAssignment.
+			<<assignJob $args[0] $args[1].removalAssignment>>
+		<</if>>
 
-    <<case "get treatment in the clinic">>
-        <<if $args[0].assignment == "get treatment in the clinic">>
-            <<if ($Nurse == 0) || ($Nurse.ID != $args[0].ID)>>
-                <br>$args[0].slaveName has been removed from $clinicName and has been assigned to $args[1].removalAssignment.
-                <<assignJob $args[0] $args[1].removalAssignment>>
-            <</if>>
-        <</if>>
+	<<case "get treatment in the clinic">>
+		<<if $args[0].assignment == "get treatment in the clinic">>
+			<br>$args[0].slaveName has been removed from $clinicName and has been assigned to $args[1].removalAssignment.
+			<<assignJob $args[0] $args[1].removalAssignment>>
+		<</if>>
 
-    <<case "serve in the master suite">>
-        <<if $args[0].assignment == "serve in the master suite">>
-            <<if ($Concubine == 0) || ($Concubine.ID != $args[0].ID)>>
-                <br>$args[0].slaveName has been removed from $masterSuiteName and has been assigned to $args[1].removalAssignment.
-                <<assignJob $args[0] $args[1].removalAssignment>>
-            <</if>>
-        <</if>>
+	<<case "serve in the master suite">>
+		<<if $args[0].assignment == "serve in the master suite">>
+			<br>$args[0].slaveName has been removed from $masterSuiteName and has been assigned to $args[1].removalAssignment.
+			<<assignJob $args[0] $args[1].removalAssignment>>
+		<</if>>
 
-    <<case "live with your Head Girl">>
-        <<if $args[0].assignment == "live with your Head Girl">>
-            <<if ($HeadGirl == 0) || ($HeadGirl.ID != $args[0].ID)>>
-                <br>$args[0].slaveName has been removed from $HGSuiteName and has been assigned to $args[1].removalAssignment.
-                <<assignJob $args[0] $args[1].removalAssignment>>
-            <</if>>
-        <</if>>
+	<<case "live with your Head Girl">>
+		<<if $args[0].assignment == "live with your Head Girl">>
+			<br>$args[0].slaveName has been removed from $HGSuiteName and has been assigned to $args[1].removalAssignment.
+			<<assignJob $args[0] $args[1].removalAssignment>>
+		<</if>>
 
-    <<case "work as a servant">>
-        <<if $args[0].assignment == "work as a servant">>
-            <<if ($Stewardess == 0) || ($Stewardess.ID != $args[0].ID)>>
-                <br>$args[0].slaveName has been removed from $servantsQuartersName and has been assigned to $args[1].removalAssignment.
-                <<assignJob $args[0] $args[1].removalAssignment>>
-            <</if>>
-        <</if>>
+	<<case "work as a servant">>
+		<<if $args[0].assignment == "work as a servant">>
+			<br>$args[0].slaveName has been removed from $servantsQuartersName and has been assigned to $args[1].removalAssignment.
+			<<assignJob $args[0] $args[1].removalAssignment>>
+		<</if>>
 
-    <<case "learn in the schoolroom">>
-        <<if $args[0].assignment == "learn in the schoolroom">>
-            <<if ($Schoolteacher == 0) || ($Schoolteacher.ID != $args[0].ID)>>
-                <br>$args[0].slaveName has been removed from $schoolroomName and has been assigned to $args[1].removalAssignment.
-                <<assignJob $args[0] $args[1].removalAssignment>>
-            <</if>>
-        <</if>>
+	<<case "learn in the schoolroom">>
+		<<if $args[0].assignment == "learn in the schoolroom">>
+			<br>$args[0].slaveName has been removed from $schoolroomName and has been assigned to $args[1].removalAssignment.
+			<<assignJob $args[0] $args[1].removalAssignment>>
+		<</if>>
 
-    <<case "be confined in the cellblock">>
-        <<if $args[0].assignment == "be confined in the cellblock">>
-            <<if ($Wardeness == 0) || ($Wardeness.ID != $args[0].ID)>>
-                <br>$args[0].slaveName has been removed from $cellblockName and has been assigned to $args[1].removalAssignment.
-                <<assignJob $args[0] $args[1].removalAssignment>>
-            <</if>>
-        <</if>>
-    <</switch>>
+	<<case "be confined in the cellblock">>
+		<<if $args[0].assignment == "be confined in the cellblock">>
+			<br>$args[0].slaveName has been removed from $cellblockName and has been assigned to $args[1].removalAssignment.
+			<<assignJob $args[0] $args[1].removalAssignment>>
+		<</if>>
+	<</switch>>
 <</if>>
 <</widget>>
 
 /%
- Call as <<RARemoveRule SlaveObject>>
-%/
+ % Call as <<RARemoveRule SlaveObject RuleObject>>
+ %/
 <<widget "RARemoveRule">>
-	<<for _s = 0; _s < $args[0].currentRules.length; _s++>>
-		<<if _currentRule.ID == $args[0].currentRules[_s]>>
-			<<set _dump = $args[0].currentRules.deleteAt(_s)>>
-			<br>//@@.tan;Rule _rule (_currentRule.name) no longer applies to $args[0].slaveName, who is assigned to $args[0].assignment.@@//
-			<<if $args[0].assignmentVisible == 0>>
-				<<RAFacilityRemove $args[0] _currentRule>>
-			<</if>>
-			<<break>>
-		<</if>>
-	<</for>>
+<<for _s = 0; _s < $args[0].currentRules.length; _s++>>
+	<<if $args[1].ID == $args[0].currentRules[_s]>>
+		<<set $args[0].currentRules.deleteAt(_s)>>
+		<br>//@@.tan;Rule _rule ($args[1].name) no longer applies to $args[0].slaveName, who is assigned to $args[0].assignment.@@//
+		<<RAFacilityRemove $args[0] $args[1]>>
+		<<break>>
+	<</if>>
+<</for>>
 <</widget>>
 
 /%
@@ -4233,7 +4211,7 @@ is now _combinedRule.hLength cm long.
 				<br>//@@.tan;Rule _rule (_currentRule.name) now applies to $args[0].slaveName, who is assigned to $args[0].assignment.@@//
 			<</if>>
 		<<elseif ruleApplied($args[0], _currentRule.ID)>> /* rule does not apply now, but did before */
-			<<RARemoveRule $args[0]>> /* RARemoveRule prints message and includes Rules Facilities Remove check, so we are done with this rule */
+			<<RARemoveRule $args[0] _currentRule>>    /* prints message and calls RAFacilityRemove */
 		<</if>>
 	<</for>>
 
