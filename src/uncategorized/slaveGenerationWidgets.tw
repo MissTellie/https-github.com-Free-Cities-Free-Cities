@@ -13,6 +13,8 @@
 	<<set $args[0].race = either("black", "middle eastern", "white", "white", "white", "latina", "latina", "asian", "amerindian", "mixed race")>>
 <<case "Andorran">>
 	<<set $args[0].race = either("southern european", "southern european", "southern european", "white")>>
+<<case "Antiguan">>
+	<<set $args[0].race = either("black", "black", "black", "black", "black", "black", "black", "black", "white", "mixed race")>>
 <<case "Argentinian">>
 	<<set $args[0].race = either("white", "latina", "latina")>>
 <<case "Armenian">>
@@ -243,6 +245,8 @@
 	<<set $args[0].race = either("semitic", "white", "white", "white", "white", "indo-aryan")>>
 <<case "Russian">>
 	<<set $args[0].race = either("white")>>
+<<case "Saint Lucian">>
+	<<set $args[0].race = either("black", "black", "black", "black", "mixed race")>>
 <<case "Salvadoran">>
 	<<set $args[0].race = either("latina", "latina", "latina", "latina", "latina", "white")>>
 <<case "Sammarinese">>
@@ -331,6 +335,8 @@
 	<<set $args[0].birthName = setup.algerianSlaveNames.random(), $args[0].birthSurname = setup.algerianSlaveSurnames.random()>>
 <<case "Andorran">>
 	<<set $args[0].birthName = setup.andorranSlaveNames.random(), $args[0].birthSurname = setup.andorranSlaveSurnames.random()>>
+<<case "Antiguan">>
+	<<set $args[0].birthName = setup.antiguanSlaveNames.random(), $args[0].birthSurname = setup.antiguanSlaveSurnames.random()>>
 <<case "American">>
 	<<if $args[0].race == "black">>
 		<<set $args[0].birthName = setup.africanAmericanSlaveNames.random(), $args[0].birthSurname = setup.africanAmericanSlaveSurnames.random()>>
@@ -593,6 +599,8 @@
 	<<set $args[0].birthName = setup.romanianSlaveNames.random(), $args[0].birthSurname = setup.romanianSlaveSurnames.random()>>
 <<case "Russian">>
 	<<set $args[0].birthName = setup.russianSlaveNames.random(), $args[0].birthSurname = setup.russianSlaveSurnames.random()>>
+<<case "Saint Lucian">>
+	<<set $args[0].birthName = setup.saintLucianSlaveNames.random(), $args[0].birthSurname = setup.saintLucianSlaveSurnames.random()>>
 <<case "Salvadoran">>
 	<<set $args[0].birthName = setup.salvadoranSlaveNames.random(), $args[0].birthSurname = setup.salvadoranSlaveSurnames.random()>>
 <<case "Sammarinese">>
@@ -1155,12 +1163,6 @@
 	<<else>>
 	<<set $args[0].accent = _naturalAccent>>
 	<</if>>
-<<case "Dominican">>
-	<<if $language == "Spanish">>
-	<<set $args[0].accent = 0>>
-	<<else>>
-	<<set $args[0].accent = _naturalAccent>>
-	<</if>>
 <<case "Laotian">>
 	<<set $args[0].accent = _naturalAccent>>
 <<case "Mongolian">>
@@ -1319,6 +1321,24 @@
 	<<set $args[0].accent = _naturalAccent>>
 <<case "Slovene">>
 	<<set $args[0].accent = _naturalAccent>>
+<<case "Antiguan">>
+	<<if $language == "English">>
+	<<set $args[0].accent = 1>>
+	<<else>>
+	<<set $args[0].accent = _naturalAccent>>
+	<</if>>
+<<case "Dominican">>
+	<<if $language == "Spanish">>
+	<<set $args[0].accent = 1>>
+	<<else>>
+	<<set $args[0].accent = _naturalAccent>>
+	<</if>>
+<<case "Saint Lucian">>
+	<<if $language == "English">>
+	<<set $args[0].accent = 1>>
+	<<else>>
+	<<set $args[0].accent = _naturalAccent>>
+	<</if>>
 <<case "Roman Revivalist">>
 	<<if $language == "Latin">>
 	<<set $args[0].accent = 0>>
