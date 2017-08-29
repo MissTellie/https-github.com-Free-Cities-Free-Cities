@@ -75,6 +75,8 @@
 	<<set $args[0].race = either("latina")>>
 <<case "Congolese">>
 	<<set $args[0].race = either("black")>>
+<<case "a Cook Islander">>
+	<<set $args[0].race = either("pacific islander")>>
 <<case "Costa Rican">>
 	<<set $args[0].race = either("latina", "latina", "latina", "latina", "white")>>
 <<case "Croatian">>
@@ -107,6 +109,8 @@
 	<<set $args[0].race = either("white")>>
 <<case "Ethiopian">>
 	<<set $args[0].race = either("black", "black", "black", "middle eastern", "semitic")>>
+<<case "Fijian">>
+	<<set $args[0].race = either("pacific islander", "pacific islander", "pacific islander", "indo-aryan", "indo-aryan")>>
 <<case "Filipina">>
 	<<set $args[0].race = either("asian", "malay", "malay", "pacific islander")>>
 <<case "Finnish">>
@@ -225,12 +229,16 @@
 	<<set $args[0].race = either("asian", "asian", "indo-aryan")>>
 <<case "a New Zealander">>
 	<<set $args[0].race = either("white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "white", "pacific islander", "pacific islander", "pacific islander", "asian", "asian")>>
+<<case "Ni-Vanuatu">>
+	<<set $args[0].race = either("pacific islander")>>
 <<case "Nicaraguan">>
 	<<set $args[0].race = either("latina", "latina", "latina", "latina", "latina", "latina", "white", "white", "black")>>
 <<case "Nigerian">>
 	<<set $args[0].race = either("black")>>
 <<case "Nigerien">>
 	<<set $args[0].race = either("black")>>
+<<case "Niuean">>
+	<<set $args[0].race = either("pacific islander", "pacific islander", "pacific islander", "pacific islander", "pacific islander", "pacific islander", "pacific islander", "pacific islander", "asian", "white")>>
 <<case "Norwegian">>
 	<<set $args[0].race = either("white")>>
 <<case "Omani">>
@@ -239,6 +247,8 @@
 	<<set $args[0].race = either("indo-aryan", "indo-aryan", "indo-aryan", "semitic")>>
 <<case "Palauan">>
 	<<set $args[0].race = either("pacific islander", "pacific islander", "pacific islander", "asian")>>
+<<case "Palestinian">>
+	<<set $args[0].race = either("middle eastern", "middle eastern", "middle eastern", "middle eastern", "semitic")>>
 <<case "Panamanian">>
 	<<set $args[0].race = either("latina", "latina", "latina", "latina", "latina", "latina", "white", "black", "amerindian", "mixed race")>>
 <<case "Papua New Guinean">>
@@ -265,6 +275,8 @@
 	<<set $args[0].race = either("latina", "latina", "latina", "latina", "latina", "white")>>
 <<case "Sammarinese">>
 	<<set $args[0].race = either("southern european")>>
+<<case "Samoan">>
+	<<set $args[0].race = either("pacific islander")>>
 <<case "Saudi">>
 	<<set $args[0].race = either("black", "asian", "middle eastern", "middle eastern")>>
 <<case "Scottish">>
@@ -279,6 +291,8 @@
 	<<set $args[0].race = either("white", "white", "white", "white", "indo-aryan")>>
 <<case "Slovene">>
 	<<set $args[0].race = either("white")>>
+<<case "a Solomon Islander">>
+	<<set $args[0].race = either("pacific islander")>>
 <<case "South African">>
 	<<set $args[0].race = either("black", "black", "black", "white")>>
 <<case "Spanish">>
@@ -303,6 +317,8 @@
 	<<set $args[0].race = either("black", "black", "black", "semitic")>>
 <<case "Thai">>
 	<<set $args[0].race = either("asian", "asian", "malay")>>
+<<case "Tongan">>
+	<<set $args[0].race = either("pacific islander")>>
 <<case "Trinidadian">>
 	<<set $args[0].race = either("black", "black", "indo-aryan", "indo-aryan", "white", "mixed race")>>
 <<case "Tunisian">>
@@ -445,6 +461,8 @@
 	<<set $args[0].birthName = setup.colombianSlaveNames.random(), $args[0].birthSurname = setup.colombianSlaveSurnames.random()>>
 <<case "Congolese">>
 	<<set $args[0].birthName = setup.congoleseSlaveNames.random(), $args[0].birthSurname = setup.congoleseSlaveSurnames.random()>>
+<<case "a Cook Islander">>
+	<<set $args[0].birthName = setup.cookIslanderSlaveNames.random(), $args[0].birthSurname = setup.cookIslanderSlaveSurnames.random()>>
 <<case "Costa Rican">>
 	<<set $args[0].birthName = setup.costaRicanSlaveNames.random(), $args[0].birthSurname = setup.costaRicanSlaveSurnames.random()>>
 <<case "Croatian">>
@@ -477,6 +495,8 @@
 	<<set $args[0].birthName = setup.estonianSlaveNames.random(), $args[0].birthSurname = setup.estonianSlaveSurnames.random()>>
 <<case "Ethiopian">>
 	<<set $args[0].birthName = setup.ethiopianSlaveNames.random(), $args[0].birthSurname = setup.ethiopianSlaveSurnames.random()>>
+<<case "Fijian">>
+	<<set $args[0].birthName = setup.fijianSlaveNames.random(), $args[0].birthSurname = setup.fijianSlaveSurnames.random()>>
 <<case "Filipina">>
 	<<set $args[0].birthName = setup.filipinaSlaveNames.random(), $args[0].birthSurname = setup.filipinaSlaveSurnames.random()>>
 <<case "Finnish">>
@@ -510,7 +530,7 @@
 <<case "Hungarian">>
 	<<set $args[0].birthName = setup.hungarianSlaveNames.random(), $args[0].birthSurname = setup.hungarianSlaveSurnames.random()>>
 <<case "I-Kiribati">>
-	<<set $args[0].birthName = setup.ikiribatiSlaveNames.random(), $args[0].birthSurname = setup.ikiribatiSlaveSurnames.random()>>
+	<<set $args[0].birthName = setup.iKiribatiSlaveNames.random(), $args[0].birthSurname = setup.iKiribatiSlaveSurnames.random()>>
 <<case "Icelandic">>
 	<<set $args[0].birthName = setup.icelandicSlaveNames.random(), $args[0].birthSurname = setup.icelandicSlaveSurnames.random()>>
 <<case "Indian">>
@@ -599,12 +619,16 @@
 	<<else>>
 		<<set $args[0].birthName = setup.newZealanderSlaveNames.random(), $args[0].birthSurname = setup.newZealanderSlaveSurnames.random()>>
 	<</if>>
+<<case "Ni-Vanuatu">>
+	<<set $args[0].birthName = setup.niVanuatuSlaveNames.random(), $args[0].birthSurname = setup.niVanuatuSlaveSurnames.random()>>
 <<case "Nicaraguan">>
 	<<set $args[0].birthName = setup.nicaraguanSlaveNames.random(), $args[0].birthSurname = setup.nicaraguanSlaveSurnames.random()>>
 <<case "Nigerian">>
 	<<set $args[0].birthName = setup.nigerianSlaveNames.random(), $args[0].birthSurname = setup.nigerianSlaveSurnames.random()>>
 <<case "Nigerien">>
 	<<set $args[0].birthName = setup.nigerienSlaveNames.random(), $args[0].birthSurname = setup.nigerienSlaveSurnames.random()>>
+<<case "Niuean">>
+	<<set $args[0].birthName = setup.niueanSlaveNames.random(), $args[0].birthSurname = setup.niueanSlaveSurnames.random()>>
 <<case "Norwegian">>
 	<<set $args[0].birthName = setup.norwegianSlaveNames.random(), $args[0].birthSurname = setup.norwegianSlaveSurnames.random()>>
 <<case "Omani">>
@@ -613,6 +637,8 @@
 	<<set $args[0].birthName = setup.pakistaniSlaveNames.random(), $args[0].birthSurname = setup.pakistaniSlaveSurnames.random()>>
 <<case "Palauan">>
 	<<set $args[0].birthName = setup.palauanSlaveNames.random(), $args[0].birthSurname = setup.palauanSlaveSurnames.random()>>
+<<case "Palestinian">>
+	<<set $args[0].birthName = setup.palestinianSlaveNames.random(), $args[0].birthSurname = setup.palestinianSlaveSurnames.random()>>
 <<case "Panamanian">>
 	<<set $args[0].birthName = setup.panamanianSlaveNames.random(), $args[0].birthSurname = setup.panamanianSlaveSurnames.random()>>
 <<case "Papua New Guinean">>
@@ -639,6 +665,8 @@
 	<<set $args[0].birthName = setup.salvadoranSlaveNames.random(), $args[0].birthSurname = setup.salvadoranSlaveSurnames.random()>>
 <<case "Sammarinese">>
 	<<set $args[0].birthName = setup.sammarineseSlaveNames.random(), $args[0].birthSurname = setup.sammarineseSlaveSurnames.random()>>
+<<case "Samoan">>
+	<<set $args[0].birthName = setup.samoanSlaveNames.random(), $args[0].birthSurname = setup.samoanSlaveSurnames.random()>>
 <<case "Saudi">>
 	<<set $args[0].birthName = setup.saudiSlaveNames.random(), $args[0].birthSurname = setup.saudiSlaveSurnames.random()>>
 <<case "Scottish">>
@@ -653,6 +681,8 @@
 	<<set $args[0].birthName = setup.slovakSlaveNames.random(), $args[0].birthSurname = setup.slovakSlaveSurnames.random()>>
 <<case "Slovene">>
 	<<set $args[0].birthName = setup.sloveneSlaveNames.random(), $args[0].birthSurname = setup.sloveneSlaveSurnames.random()>>
+<<case "a Solomon Islander">>
+	<<set $args[0].birthName = setup.solomonIslanderSlaveNames.random(), $args[0].birthSurname = setup.solomonIslanderSlaveSurnames.random()>>
 <<case "South African">>
 	<<if $args[0].race == "black">>
 		<<set $args[0].birthName = setup.blackSouthAfricanSlaveNames.random(), $args[0].birthSurname = setup.blackSouthAfricanSlaveSurnames.random()>>
@@ -681,6 +711,8 @@
 	<<set $args[0].birthName = setup.tanzanianSlaveNames.random(), $args[0].birthSurname = setup.tanzanianSlaveSurnames.random()>>
 <<case "Thai">>
 	<<set $args[0].birthName = setup.thaiSlaveNames.random(), $args[0].birthSurname = setup.thaiSlaveSurnames.random()>>
+<<case "Tongan">>
+	<<set $args[0].birthName = setup.tonganSlaveNames.random(), $args[0].birthSurname = setup.tonganSlaveSurnames.random()>>
 <<case "Trinidadian">>
 	<<set $args[0].birthName = setup.trinidadianSlaveNames.random(), $args[0].birthSurname = setup.trinidadianSlaveSurnames.random()>>
 <<case "Tunisian">>
@@ -1415,6 +1447,30 @@
 	<<else>>
 	<<set $args[0].accent = _naturalAccent>>
 	<</if>>
+<<case "a Cook Islander">>
+	<<set $args[0].accent = _naturalAccent>>
+<<case "Fijian">>
+	<<set $args[0].accent = _naturalAccent>>
+<<case "Ni-Vanuatu">>
+	<<set $args[0].accent = _naturalAccent>>
+<<case "Niuean">>
+	<<set $args[0].accent = _naturalAccent>>
+<<case "Palestinian">>
+	<<if $language == "Arabic">>
+	<<set $args[0].accent = 1>>
+	<<else>>
+	<<set $args[0].accent = _naturalAccent>>
+	<</if>>
+<<case "Samoan">>
+	<<set $args[0].accent = _naturalAccent>>
+<<case "a Solomon Islander">>
+	<<if $language == "English">>
+	<<set $args[0].accent = 1>>
+	<<else>>
+	<<set $args[0].accent = _naturalAccent>>
+	<</if>>
+<<case "Tongan">>
+	<<set $args[0].accent = _naturalAccent>>
 <<case "Roman Revivalist">>
 	<<if $language == "Latin">>
 	<<set $args[0].accent = 0>>
