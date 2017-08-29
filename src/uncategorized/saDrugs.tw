@@ -466,9 +466,9 @@
 /* DRUG EXPIRY */
 <<switch $slaves[$i].drugs>>
 <<case "breast injections" "intensive breast injections">>
-	<<if ($slaves[$i].boobs >= 25000)>>
+	<<if $slaves[$i].boobs >= 50000>>
 		$possessiveCap udders are now so huge that further A-HGH treatment will not increase their size. @@.yellow;$possessiveCap drug regimen has been ended.@@
-		<<set $slaves[$i].boobs = Math.clamp($slaves[$i].butt,0,25000), $slaves[$i].drugs = "no drugs">>
+		<<set $slaves[$i].boobs = Math.clamp($slaves[$i].boobs,0,50000), $slaves[$i].drugs = "no drugs">>
 	<</if>>
 <<case "butt injections" "intensive butt injections">>
 	<<if ($slaves[$i].butt >= 10)>>
@@ -489,9 +489,9 @@
 		<<set $slaves[$i].clit = Math.clamp($slaves[$i].dick,0,5), $slaves[$i].drugs = "no drugs">>
 	<</if>>
 <<case "testicle enhancement" "intensive testicle enhancement">>
-	<<if ($slaves[$i].balls >= 6)>>
+	<<if ($slaves[$i].balls >= 10)>>
 		$possessiveCap balls are now so huge that further drug enhancement will not increase their size. @@.yellow;$possessiveCap drug regimen has been ended.@@
-		<<set $slaves[$i].balls = Math.clamp($slaves[$i].balls,0,6), $slaves[$i].drugs = "no drugs">>
+		<<set $slaves[$i].balls = Math.clamp($slaves[$i].balls,0,10), $slaves[$i].drugs = "no drugs">>
 	<<elseif ($slaves[$i].balls >= 2) && ($slaves[$i].scrotum == 0)>>
 		$possessiveCap balls are now functionally sized, and cannot sustainably grow larger hidden within $possessive abdomen. @@.yellow;$possessiveCap drug regimen has been ended.@@
 		<<set $slaves[$i].balls = Math.clamp($slaves[$i].balls,0,2), $slaves[$i].drugs = "no drugs">>
