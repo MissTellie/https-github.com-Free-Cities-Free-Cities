@@ -234,7 +234,7 @@ window.canWalk = function(slave) {
 		return null;
 	} else if (slave.amp == 1)  {
 		return false;
-	} else if (slave.boobs > 10000+(slave.muscles*100)) {
+	} else if (slave.boobs > 30000+(slave.muscles*100)) {
 		return false;
 	} else if (slave.heels == 0) {
 		return true;
@@ -454,7 +454,9 @@ window.milkAmount = function(slave) {
 		return null;
 	} else {
 		calcs = slave.boobs-slave.boobsImplant
-		if (calcs > 10000) {
+		if (calcs > 25000) {
+			milk = (128+((calcs-10000)/500))
+		} else if (calcs > 10000) {
 			milk = (78+((calcs-10000)/300))
 		} else if (calcs > 5000) {
 			milk = (53+((calcs-5000)/200))
