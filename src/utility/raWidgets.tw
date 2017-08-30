@@ -3224,13 +3224,27 @@ Your brand design is ''$brandDesign.''
 		<<set _priorities = _priorities.sort(function(a, b){if(a.weight > b.weight) return -1; if(a.weight < b.weight) return 1; return 0;})>>
 		<<if $args[0].drugs != _priorities[0].drug>>
 			<<set $args[0].drugs = _priorities[0].drug>>
-			<br>$args[0].slaveName has been put on _priorities[0].drug, since that part of her body is <<print Math.trunc(_priorities[0].weight*100)>>% below the targeted size.
+			<br>$args[0].slaveName has been put on
+			<<if _combinedRule.growth.intensity && $args[0].drugs != "lip injections" && $args[0].health > 0>>
+				<<set $args[0].drugs = "intensive " + $args[0].drugs>>
+				$args[0].drugs, since she's healthy enough to take them, and
+			<<else>>
+				$args[0].drugs, since
+			<</if>>
+			that part of her body is <<print Math.trunc(_priorities[0].weight*100)>>% below the targeted size.
 		<</if>>
 		<<break>>
 	<<elseif _priorities.length > 0>>
 		<<if $args[0].drugs != _priorities[0].drug>>
 			<<set $args[0].drugs = _priorities[0].drug>>
-			<br>$args[0].slaveName has been put on _priorities[0].drug, since that is the only part of her body that does not meet the targeted size.
+			<br>$args[0].slaveName has been put on
+			<<if _combinedRule.growth.intensity && $args[0].drugs != "lip injections" && $args[0].health > 0>>
+				<<set $args[0].drugs = "intensive " + $args[0].drugs>>
+				$args[0].drugs, since she's healthy enough to take them, and
+			<<else>>
+				$args[0].drugs, since
+			<</if>>
+			that is the only part of her body that does not meet the targeted size.
 		<</if>>
 		<<break>>
 	<<elseif $args[0].drugs != "no drugs">>
@@ -3241,22 +3255,32 @@ Your brand design is ''$brandDesign.''
 <<else>>
 	<<if _combinedRule.growth.boobs != "no default setting">>
 		<<if $args[0].boobs < _combinedRule.growth.boobs>>
-			<<if $args[0].drugs != "breast injections">>
-			<<if $args[0].drugs != "intensive breast injections">>
-				<<set $args[0].drugs = "breast injections">>
-				<br>$args[0].slaveName has been put on $args[0].drugs.
-			<</if>>
+			<<if _combinedRule.growth.intensity && $args[0].health > 0>>
+				<<if $args[0].drugs != "intensive breast injections">>
+					<<set $args[0].drugs = "intensive breast injections">>
+					<br>$args[0].slaveName has been put on $args[0].drugs, since she's healthy enough to tolerate them.
+				<</if>>
+			<<else>>
+				<<if $args[0].drugs != "breast injections">>
+					<<set $args[0].drugs = "breast injections">>
+					<br>$args[0].slaveName has been put on $args[0].drugs.
+				<</if>>
 			<</if>>
 			<<break>>
 		<</if>>
 	<</if>>
 	<<if _combinedRule.growth.butt != "no default setting">>
 		<<if $args[0].butt < _combinedRule.growth.butt>>
-			<<if $args[0].drugs != "butt injections">>
-			<<if $args[0].drugs != "intensive butt injections">>
-				<<set $args[0].drugs = "butt injections">>
-				<br>$args[0].slaveName has been put on $args[0].drugs.
-			<</if>>
+			<<if _combinedRule.growth.intensity && $args[0].health > 0>>
+				<<if $args[0].drugs != "intensive butt injections">>
+					<<set $args[0].drugs = "intensive butt injections">>
+					<br>$args[0].slaveName has been put on $args[0].drugs, since she's healthy enough to tolerate them.
+				<</if>>
+			<<else>>
+				<<if $args[0].drugs != "butt injections">>
+					<<set $args[0].drugs = "butt injections">>
+					<br>$args[0].slaveName has been put on $args[0].drugs.
+				<</if>>
 			<</if>>
 			<<break>>
 		<</if>>
@@ -3273,11 +3297,16 @@ Your brand design is ''$brandDesign.''
 	<<if _combinedRule.growth.dick != "no default setting">>
 		<<if $args[0].dick>>
 		<<if $args[0].dick < _combinedRule.growth.dick>>
-			<<if $args[0].drugs != "penis enhancement">>
-			<<if $args[0].drugs != "intensive penis enhancement">>
-				<<set $args[0].drugs = "penis enhancement">>
-				<br>$args[0].slaveName has been put on $args[0].drugs.
-			<</if>>
+			<<if _combinedRule.growth.intensity && $args[0].health > 0>>
+				<<if $args[0].drugs != "intensive penis injections">>
+					<<set $args[0].drugs = "intensive penis injections">>
+					<br>$args[0].slaveName has been put on $args[0].drugs, since she's healthy enough to tolerate them.
+				<</if>>
+			<<else>>
+				<<if $args[0].drugs != "penis injections">>
+					<<set $args[0].drugs = "penis injections">>
+					<br>$args[0].slaveName has been put on $args[0].drugs.
+				<</if>>
 			<</if>>
 			<<break>>
 		<</if>>
@@ -3286,11 +3315,16 @@ Your brand design is ''$brandDesign.''
 	<<if _combinedRule.growth.balls != "no default setting">>
 		<<if $args[0].balls>>
 		<<if $args[0].balls < _combinedRule.growth.balls>>
-			<<if $args[0].drugs != "testicle enhancement">>
-			<<if $args[0].drugs != "intensive testicle enhancement">>
-				<<set $args[0].drugs = "penis enhancement">>
-				<br>$args[0].slaveName has been put on $args[0].drugs.
-			<</if>>
+			<<if _combinedRule.growth.intensity && $args[0].health > 0>>
+				<<if $args[0].drugs != "intensive testicle injections">>
+					<<set $args[0].drugs = "intensive testicle injections">>
+					<br>$args[0].slaveName has been put on $args[0].drugs, since she's healthy enough to tolerate them.
+				<</if>>
+			<<else>>
+				<<if $args[0].drugs != "testicle injections">>
+					<<set $args[0].drugs = "testicle injections">>
+					<br>$args[0].slaveName has been put on $args[0].drugs.
+				<</if>>
 			<</if>>
 			<<break>>
 		<</if>>

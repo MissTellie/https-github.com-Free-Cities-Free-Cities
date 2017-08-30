@@ -2808,39 +2808,38 @@
 
 <<if ($slaves[$i].boobsImplantType == 1)>>
 	$possessiveCap string implants absorb fluid @@.lime;slowly swelling $possessive breasts@@.
-	<<set $slaves[$i].boobsImplant += 50, $slaves[$i].boobs += 50>>
-	<<set $seed to random(1,10)>>
-	<<if ($slaves[$i].boobs > 25000)>>
-	Since they are as large as $possessive body can handle, some serum is drained from them.
-	<<set $slaves[$i].boobs -= 100, $slaves[$i].boobsImplant -= 100>>
-	<</if>>
-	<<if ($slaves[$i].boobsImplant > 9000) && ($seed >= 2)>>
-	As they grow they @@.red;greatly irritate@@ the tissue of $possessive breasts.
-	<<set $slaves[$i].health -= 20>>
-	<<elseif ($slaves[$i].boobsImplant > 8000) && ($seed >= 3)>>
-	As they grow they @@.red;irritate@@ the tissue of $possessive breasts.
-	<<set $slaves[$i].health -= 10>>
-	<<elseif ($slaves[$i].boobsImplant > 7000) && ($seed >= 4)>>
-	As they grow they @@.red;irritate@@ the tissue of $possessive breasts.
-	<<set $slaves[$i].health -= 10>>
-	<<elseif ($slaves[$i].boobsImplant > 6000) && ($seed >= 5)>>
-	As they grow they @@.red;irritate@@ the tissue of $possessive breasts.
-	<<set $slaves[$i].health -= 10>>
-	<<elseif ($slaves[$i].boobsImplant > 5000) && ($seed >= 6)>>
-	As they grow they @@.red;irritate@@ the tissue of $possessive breasts.
-	<<set $slaves[$i].health -= 10>>
-	<<elseif ($slaves[$i].boobsImplant > 4000) && ($seed >= 7)>>
-	As they grow they @@.red;irritate@@ the tissue of $possessive breasts.
-	<<set $slaves[$i].health -= 10>>
-	<<elseif ($slaves[$i].boobsImplant > 3000) && ($seed >= 8)>>
-	As they grow they @@.red;irritate@@ the tissue of $possessive breasts.
-	<<set $slaves[$i].health -= 10>>
-	<<elseif ($slaves[$i].boobsImplant > 2000) && ($seed >= 9)>>
-	As they grow they @@.red;irritate@@ the tissue of $possessive breasts.
-	<<set $slaves[$i].health -= 10>>
-	<<elseif ($slaves[$i].boobsImplant > 1000) && ($seed > 9)>>
-	As they grow they @@.red;irritate@@ the tissue of $possessive breasts.
-	<<set $slaves[$i].health -= 10>>
+	<<set $slaves[$i].boobsImplant += 100, $slaves[$i].boobs += 100>>
+	<<set _effect = random(1,10)>>
+	<<if ($slaves[$i].boobs > 50000)>>
+		Since they are as large as $possessive body can handle, some serum is drained from them.
+		<<set $slaves[$i].boobs -= 100, $slaves[$i].boobsImplant -= 100>>
+	<<elseif ($slaves[$i].boobsImplant > 9000) && (_effect >= 2)>>
+		As they grow they @@.red;greatly irritate@@ the tissue of $possessive breasts.
+		<<set $slaves[$i].health -= 20>>
+	<<elseif ($slaves[$i].boobsImplant > 8000) && (_effect >= 3)>>
+		As they grow they @@.red;irritate@@ the tissue of $possessive breasts.
+		<<set $slaves[$i].health -= 10>>
+	<<elseif ($slaves[$i].boobsImplant > 7000) && (_effect >= 4)>>
+		As they grow they @@.red;irritate@@ the tissue of $possessive breasts.
+		<<set $slaves[$i].health -= 10>>
+	<<elseif ($slaves[$i].boobsImplant > 6000) && (_effect >= 5)>>
+		As they grow they @@.red;irritate@@ the tissue of $possessive breasts.
+		<<set $slaves[$i].health -= 10>>
+	<<elseif ($slaves[$i].boobsImplant > 5000) && (_effect >= 6)>>
+		As they grow they @@.red;irritate@@ the tissue of $possessive breasts.
+		<<set $slaves[$i].health -= 10>>
+	<<elseif ($slaves[$i].boobsImplant > 4000) && (_effect >= 7)>>
+		As they grow they @@.red;irritate@@ the tissue of $possessive breasts.
+		<<set $slaves[$i].health -= 10>>
+	<<elseif ($slaves[$i].boobsImplant > 3000) && (_effect >= 8)>>
+		As they grow they @@.red;irritate@@ the tissue of $possessive breasts.
+		<<set $slaves[$i].health -= 10>>
+	<<elseif ($slaves[$i].boobsImplant > 2000) && (_effect >= 9)>>
+		As they grow they @@.red;irritate@@ the tissue of $possessive breasts.
+		<<set $slaves[$i].health -= 10>>
+	<<elseif ($slaves[$i].boobsImplant > 1000) && (_effect > 9)>>
+		As they grow they @@.red;irritate@@ the tissue of $possessive breasts.
+		<<set $slaves[$i].health -= 10>>
 	<</if>>
 <</if>>
 
@@ -2874,30 +2873,31 @@
 	Since it as large as $possessive body can handle, some serum is drained from them.
 	<<set $slaves[$i].butt -= 1, $slaves[$i].buttImplant -= 1>>
 	<</if>>
-	<<set $seed to random(1,8)>>
-	<<if ($slaves[$i].buttImplant > 7) && ($seed >= 2)>>
-	As they grow they @@.red;greatly irritate@@ the tissue of $possessive cheeks.
-	<<set $slaves[$i].health -= 20>>
-	<<elseif ($slaves[$i].buttImplant > 6) && ($seed >= 2)>>
-	As they grow they @@.red;greatly irritate@@ the tissue of $possessive cheeks.
-	<<set $slaves[$i].health -= 20>>
-	<<elseif ($slaves[$i].buttImplant > 5) && ($seed >= 3)>>
-	As they grow they @@.red;irritate@@ the tissue of $possessive cheeks.
-	<<set $slaves[$i].health -= 10>>
-	<<elseif ($slaves[$i].buttImplant > 4) && ($seed >= 4)>>
-	As they grow they @@.red;irritate@@ the tissue of $possessive cheeks.
-	<<set $slaves[$i].health -= 10>>
-	<<elseif ($slaves[$i].buttImplant > 3) && ($seed >= 5)>>
-	As they grow they @@.red;irritate@@ the tissue of $possessive cheeks.
-	<<set $slaves[$i].health -= 10>>
-	<<elseif ($slaves[$i].buttImplant > 2) && ($seed >= 6)>>
-	As they grow they @@.red;irritate@@ the tissue of $possessive cheeks.
-	<<set $slaves[$i].health -= 10>>
-	<<elseif ($slaves[$i].buttImplant > 1) && ($seed >= 7)>>
-	As they grow they @@.red;irritate@@ the tissue of $possessive cheeks.
-	<<set $slaves[$i].health -= 10>>
-	<<elseif ($slaves[$i].buttImplant > 0) && ($seed > 7)>>
-	As they grow they @@.red;irritate@@ the tissue of $possessive cheeks.
+	<<set _effect to random(1,8)>>
+	<<if ($slaves[$i].buttImplant > 7) && (_effect >= 2)>>
+		As they grow they @@.red;greatly irritate@@ the tissue of $possessive cheeks.
+		<<set $slaves[$i].health -= 20>>
+	<<elseif ($slaves[$i].buttImplant > 6) && (_effect >= 2)>>
+		As they grow they @@.red;greatly irritate@@ the tissue of $possessive cheeks.
+		<<set $slaves[$i].health -= 20>>
+	<<elseif ($slaves[$i].buttImplant > 5) && (_effect >= 3)>>
+		As they grow they @@.red;irritate@@ the tissue of $possessive cheeks.
+		<<set $slaves[$i].health -= 10>>
+	<<elseif ($slaves[$i].buttImplant > 4) && (_effect >= 4)>>
+		As they grow they @@.red;irritate@@ the tissue of $possessive cheeks.
+		<<set $slaves[$i].health -= 10>>
+	<<elseif ($slaves[$i].buttImplant > 3) && (_effect >= 5)>>
+		As they grow they @@.red;irritate@@ the tissue of $possessive cheeks.
+		<<set $slaves[$i].health -= 10>>
+	<<elseif ($slaves[$i].buttImplant > 2) && (_effect >= 6)>>
+		As they grow they @@.red;irritate@@ the tissue of $possessive cheeks.
+		<<set $slaves[$i].health -= 10>>
+	<<elseif ($slaves[$i].buttImplant > 1) && (_effect >= 7)>>
+		As they grow they @@.red;irritate@@ the tissue of $possessive cheeks.
+		<<set $slaves[$i].health -= 10>>
+	<<elseif ($slaves[$i].buttImplant > 0) && (_effect > 7)>>
+		As they grow they @@.red;irritate@@ the tissue of $possessive cheeks.
+		<<set $slaves[$i].health -= 10>>
 	<</if>>
 <</if>>
 
@@ -3435,15 +3435,15 @@
 		<<if ($slaves[$i].trust < -20)>>
 		<<if ($slaves[$i].devotion <= 50)>>
 		<<if (random(1,100) > 100+$slaves[$i].trust)>>
-			<<set $seed to random(1,4)>>
+			<<set _effect to random(1,4)>>
 			Being so afraid so constantly drives her to find solace in
-			<<if $seed == 1>>
+			<<if _effect == 1>>
 			self-denial. @@.red;She has developed anorexia.@@
 			<<set $slaves[$i].behavioralFlaw = "anorexic">>
-			<<elseif $seed is 2>>
+			<<elseif _effect is 2>>
 			stress eating. @@.red;She's now a nervous glutton.@@
 			<<set $slaves[$i].behavioralFlaw = "gluttonous">>
-			<<elseif $seed is 3>>
+			<<elseif _effect is 3>>
 			the scraps of prayer and superstition she can remember from her life before she was a slave. @@.red;She's now religious.@@
 			<<set $slaves[$i].behavioralFlaw = "devout">>
 			<<else>>
@@ -3457,21 +3457,21 @@
 		<<if ($slaves[$i].sexualFlaw == "none")>>
 		<<if ($slaves[$i].devotion < -20)>>
 		<<if (random(1,500) > 500+$slaves[$i].devotion)>>
-			<<set $seed to random(1,6)>>
+			<<set _effect to random(1,6)>>
 			Being so angry at her life as a sex slave has
-			<<if $seed == 1>>
+			<<if _effect == 1>>
 			driven her into @@.red;sexual apathy.@@
 			<<set $slaves[$i].sexualFlaw = "apathetic">>
-			<<elseif $seed is 2>>
+			<<elseif _effect is 2>>
 			convinced her that the conservative parts of her upbringing were right: sex is evil. @@.red;She's now repressed.@@
 			<<set $slaves[$i].sexualFlaw = "repressed">>
-			<<elseif $seed is 3>>
+			<<elseif _effect is 3>>
 			given her a dread of being nude. @@.red;She's now shamefast.@@
 			<<set $slaves[$i].sexualFlaw = "shamefast">>
-			<<elseif $seed is 4>>
+			<<elseif _effect is 4>>
 			deprived her of any motivation to keep sex appealing or even clean. @@.red;She's now crude.@@
 			<<set $slaves[$i].sexualFlaw = "crude">>
-			<<elseif $seed is 5>>
+			<<elseif _effect is 5>>
 			driven her to find refuge in high standards. @@.red;She's now judgemental.@@
 			<<set $slaves[$i].sexualFlaw = "judgemental">>
 			<<else>>
@@ -3811,7 +3811,7 @@
 	<<if ($rep < 20000)>>Society @@.green;approves@@ of $possessive enormous penis; $possessive cock furthers the fashion for dangling dicks on slaves.<</if>>
 		<<FSChangePorn "AssetExpansionist" 1>>
 	<</if>>
-	<<if ($slaves[$i].balls > 4)>>
+	<<if ($slaves[$i].balls > 6)>>
 		<<if ($rep < 20000)>>Society @@.green;approves@@ of $possessive swinging balls; $possessive nuts further the fashion for tremendous testicles on slaves.<</if>>
 		<<FSChangePorn "AssetExpansionist" 1>>
 	<</if>>
@@ -4115,37 +4115,36 @@
 <</if>>
 <<if $slaves[$i].balls > 0>>
 <<if $slaves[$i].scrotum > 0>>
-	<<if $slaves[$i].scrotum - $slaves[$i].balls < -1>>
-	$possessiveCap nuts have grown so large that they are much too big for $possessive ballsack, giving $possessive constant discomfort. $possessiveCap @@.red;appetite for sex is reduced@@ by how much $possessive junk hurts.
-	<<set $slaves[$i].energy -= 2>>
-	<<if random(0,2) == 0>>
-		$possessiveCap scrotum @@.lime;stretches out naturally@@ as $possessive balls force it to accept their size, giving $possessive relief at last.
-		<<set $slaves[$i].scrotum += 1>>
-	<</if>>
-	<<elseif $slaves[$i].scrotum - $slaves[$i].balls is -1>>
-	<<if random(0,4) == 0>>
-		$possessiveCap scrotum @@.lime;stretches out naturally@@ as it adapts to $possessive newly enhanced balls.
-		<<set $slaves[$i].scrotum += 1>>
-	<</if>>
-	<<elseif $slaves[$i].balls > 5>>
-	<<if ($slaves[$i].scrotum < 7)>>
-		<<if random(0,4) == 0>>
-		$possessiveCap huge, heavy balls tug $possessive scrotum downward, and it @@.lime;stretches out naturally@@ under their weight.
-		<<set $slaves[$i].scrotum += 1>>
-		<</if>>
-	<</if>>
-	<<elseif $slaves[$i].scrotum - $slaves[$i].balls > 1>>
-	<<if ($slaves[$i].hormones > 0)>>
+	<<set _extraScrotum = $slaves[$i].scrotum - $slaves[$i].balls>>
+	<<if _extraScrotum < -1>>
+		$possessiveCap nuts are much too big for $possessive ballsack, giving $possessive constant discomfort. $possessiveCap @@.red;appetite for sex is reduced@@ by how much $possessive junk hurts.
+		<<set $slaves[$i].energy -= 2>>
 		<<if random(0,2) == 0>>
-		@@.orange;$possessiveCap ballsack atrophies,@@ which is not surprising, since she's on female hormones and $possessive girly balls have gotten so small.
-		<<set $slaves[$i].scrotum -= 1>>
+			$possessiveCap scrotum @@.lime;stretches out naturally@@ as $possessive balls force it to accept their size.
+			<<set $slaves[$i].scrotum += 1>>
 		<</if>>
-	<</if>>
+	<<elseif  _extraScrotum < 0 && $slaves[$i].balls > 5>>
+		<<if random(0,4) == 0>>
+			$possessiveCap heavy balls tug $possessive scrotum downward, and it @@.lime;stretches out naturally@@ under their weight.
+			<<set $slaves[$i].scrotum += 1>>
+		<</if>>
+	<<elseif  _extraScrotum == -1>>
+		<<if random(0,5) == 0>>
+			$possessiveCap scrotum @@.lime;stretches out naturally@@ as it adapts to $possessive newly expanded balls.
+			<<set $slaves[$i].scrotum += 1>>
+		<</if>>
+	<<elseif _extraScrotum > 1>>
+		<<if $slaves[$i].hormones > 0>>
+			<<if random(0,2) == 0>>
+				@@.orange;$possessiveCap ballsack atrophies,@@ which is not surprising, since she's on female hormones and $possessive girly balls have gotten so small.
+				<<set $slaves[$i].scrotum -= 1>>
+			<</if>>
+		<</if>>
 	<</if>>
 <<else>>
 	<<if $slaves[$i].balls > 2>>
-	$possessiveCap balls have been relocated to $possessive abdomen, and while they still work there, it's not where they're designed to be. Routine scans show that @@.orange;they've atrophied,@@ <<if $slaves[$i].balls > 3>>and will probably continue to do so until they stabilise at a below-average size<<else>>but are not likely to get any smaller<</if>>.
-	<<set $slaves[$i].balls -= 1>>
+		$possessiveCap balls have been relocated to $possessive abdomen, and while they still work there, it's not where they're designed to be. Routine scans show that @@.orange;they've atrophied,@@ <<if $slaves[$i].balls > 3>>and will probably continue to do so until they stabilise at a below-average size<<else>>but are not likely to get any smaller<</if>>.
+		<<set $slaves[$i].balls -= 1>>
 	<</if>>
 <</if>>
 <</if>>
@@ -4339,15 +4338,15 @@
 			<</if>>
 		<</if>>
 	<</if>>
-	<<if ($slaves[$i].boobs > 10000+($slaves[$i].muscles*100))>>
+	<<if ($slaves[$i].boobs > 30000+($slaves[$i].muscles*100))>>
 		<<if ($slaves[$i].assignment != "work in the dairy") || ($dairyRestraintsSetting < 2)>>
 		<<if $slaves[$i].drugs != "breast injections" && $slaves[$i].drugs != "intensive breast injections">>
-		<<if ($slaves[$i].boobs > 10000+($slaves[$i].muscles*100))>>
+		<<if ($slaves[$i].boobs > 30000+($slaves[$i].muscles*100))>>
 			Her breasts are larger than her body can possibly sustain without industrial intervention, and they @@.orange;naturally lose mass.@@
-			<<set $slaves[$i].boobs = Math.clamp($slaves[$i].boobs-25, 10000+($slaves[$i].muscles*100), 25000)>>
+			<<set $slaves[$i].boobs = Math.clamp($slaves[$i].boobs-25, 30000+($slaves[$i].muscles*100), 50000)>>
 		<<else>>
 			Her breasts are far, far beyond what her body can sustain without industrial intervention, and they @@.orange;naturally lose mass.@@
-			<<set $slaves[$i].boobs = Math.clamp($slaves[$i].boobs-50, 10000+($slaves[$i].muscles*100), 25000)>>
+			<<set $slaves[$i].boobs = Math.clamp($slaves[$i].boobs-50, 30000+($slaves[$i].muscles*100), 50000)>>
 		<</if>>
 		<</if>>
 		<</if>>
@@ -4383,7 +4382,7 @@
 
 <<if $slaves[$i].fuckdoll == 0>>
 <<if $slaves[$i].fetish != "mindbroken">>
-<<if ($slaves[$i].boobs > 7500)>>
+<<if ($slaves[$i].boobs > 20000)>>
 	<<if $boobAccessibility == 1>>
 	<<if ($slaves[$i].devotion > 20)>>
 		She's @@.mediumaquamarine;thankful@@ to you for providing living spaces adapted to life with gigantic boobs.
@@ -4437,9 +4436,9 @@
 <<if ($curativeSideEffects != 0)>>
 <<if ($slaves[$i].chem > 10)>>
 <<if random(1,200) < $slaves[$i].chem + $slaves[$i].age - $slaves[$i].health - (5*$slaves[$i].curatives)>>
-	<<set $seed to random(1,10)>>
+	<<set _effect to random(1,10)>>
 	<<set $slaves[$i].health -= 10>>
-	<<switch $seed>>
+	<<switch _effect>>
 	<<case 1>>
 		A routine medical scan detects a small, benign growth in one of $possessive breasts. The autosurgery removes it with only @@.red;minor health consequences,@@
 	<<case 2>>
@@ -4520,7 +4519,7 @@
 
 <<if $studio == 1>>
 <<if $slaves[$i].pornFameSpending > 0>>
-	<<set $seed to $slaves[$i].pornFame>>
+	<<set _oldFame to $slaves[$i].pornFame>>
 	<<if ($slaves[$i].pornFame < 35) && ($slaves[$i].prestige > 1)>>
 	Interest in porn of $object is very high, since $pronoun's already quite prestigious.
 	<<set $slaves[$i].pornFame += 1>>
@@ -4529,7 +4528,7 @@
 	<<set $slaves[$i].pornFame += 1>>
 	<</if>>
 	<<set $slaves[$i].pornFame += ($slaves[$i].pornFameSpending/1000)>>
-	<<if ($slaves[$i].prestige < 3) && ($slaves[$i].pornFame >= 100) && ($seed < 100)>>
+	<<if ($slaves[$i].prestige < 3) && ($slaves[$i].pornFame >= 100) && (_oldFame < 100)>>
 		<<set $slaves[$i].prestige to 3>>
 		@@.green;$pronounCap has become world famous for $possessive career in slave pornography!@@ Millions are now intimately familiar with
 		<<if $slaves[$i].fuckdoll > 0>>
@@ -4583,7 +4582,7 @@
 		<</if>>
 		<<set $trinkets.push($desc)>>
 		so it is now extremely prestigious to own $object.
-	<<elseif ($slaves[$i].prestige < 2) && ($slaves[$i].pornFame >= 35) && ($seed < 35)>>
+	<<elseif ($slaves[$i].prestige < 2) && ($slaves[$i].pornFame >= 35) && (_oldFame < 35)>>
 	<<set $slaves[$i].prestige to 2>>
 	@@.green;$pronounCap has become famous for $possessive recurring role in slave pornography!@@ Her many fans relish
 	<<if $slaves[$i].fuckdoll > 0>>
@@ -4624,7 +4623,7 @@
 		the sight of her being fucked,
 	<</if>>
 	so it is now very prestigious to own $object.
-	<<elseif ($slaves[$i].prestige < 1) && ($slaves[$i].pornFame >= 10) && ($seed < 10)>>
+	<<elseif ($slaves[$i].prestige < 1) && ($slaves[$i].pornFame >= 10) && (_oldFame < 10)>>
 	<<set $slaves[$i].prestige = 1>>
 	@@.green;$pronounCap has become well known from slave pornography!@@ Thousands have enjoyed
 	<<if $slaves[$i].fuckdoll > 0>>
