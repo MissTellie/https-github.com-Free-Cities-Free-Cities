@@ -4,11 +4,11 @@
 	<<if $releaseID >= 1019>>
 	<<else>>
 		''@@.red;INCOMPATIBLE SAVE WARNING:@@'' your saved game was created using version $ver build $releaseID. Please select New Game Plus from the Options menu or start a new game.
-		<br><br>
+		<br>
 	<</if>>
 <<else>>
 	''@@.red;INCOMPATIBLE SAVE WARNING:@@'' your saved game was created using version $ver and you are using later version which New Game Plus cannot reconcile. Please start a new game.
-	<br><br>
+	<br>
 <</if>>
 
 <<if ndef $defaultRules>>
