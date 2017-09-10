@@ -340,6 +340,20 @@ window.expandFacilityAssignments = function(facilityAssignments) {
 	return fullList.flatten();
 };
 
+window.ruleAssignmentSelected = function(slave, rule) {
+	if (!slave || !rule || (!rule.assignment && !rule.facility))
+		return false;
+	var assignment = rule.assignment.concat(expandFacilityAssignments(rule.facility));
+	return assignment.includes(slave.assignment);
+}
+
+window.ruleAssignmentExcluded = function(slave, rule) {
+	if (!slave || !rule || (!rule.excludeAssignment && !rule.excludeFacility))
+		return false;
+	var excludeAssignment = rule.excludeAssignment.concat(expandFacilityAssignments(rule.excludeFacility));
+	return excludeAssignment.includes(slave.assignment);
+}
+
 window.ruleSlaveSelected = function(slave, rule) {
 	if (!slave || !rule || !rule.selectedSlaves)
 		return false;
