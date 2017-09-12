@@ -1400,6 +1400,14 @@ Setting missing slave variables:
 <<for _bci = 0; _bci < $slaves.length; _bci++>>
 <<set _Slave = $slaves[_bci]>>
 
+<<if ndef _Slave.publicCount>>
+	<<set _Slave.publicCount = 0>>
+<</if>>
+
+<<if ndef _Slave.need>>
+	<<set _Slave.need = 0>>
+<</if>>
+
 <<if ndef _Slave.mother>>
 	<<set _Slave.mother = 0>>
 <</if>>
