@@ -24,31 +24,31 @@ Mousetrap.bind("p", function () {
 });
 Mousetrap.bind("left", function () {
 	$("#prevSlave a.macro-link").trigger("click");
-	$("#prevRule a.macro-link").trigger("click");
+	$("#prevRule a").trigger("click");
 });
 Mousetrap.bind("q", function () {
 	$("#prevSlave a.macro-link").trigger("click");
-	$("#prevRule a.macro-link").trigger("click");
+	$("#prevRule a").trigger("click");
 });
 Mousetrap.bind("shift+left", function () {
-	$("#firstRule a.macro-link").trigger("click");
+	$("#firstRule a").trigger("click");
 });
 Mousetrap.bind("shift+q", function () {
-	$("#firstRule a.macro-link").trigger("click");
+	$("#firstRule a").trigger("click");
 });
 Mousetrap.bind("right", function () {
 	$("#nextSlave a.macro-link").trigger("click");
-	$("#nextRule a.macro-link").trigger("click");
+	$("#nextRule a").trigger("click");
 });
 Mousetrap.bind("shift+right", function () {
-	$("#lastRule a.macro-link").trigger("click");
+	$("#lastRule a").trigger("click");
 });
 Mousetrap.bind("e", function () {
 	$("#nextSlave a.macro-link").trigger("click");
-	$("#nextRule a.macro-link").trigger("click");
+	$("#nextRule a").trigger("click");
 });
 Mousetrap.bind("shift+e", function () {
-	$("#lastRule a.macro-link").trigger("click");
+	$("#lastRule a").trigger("click");
 });
 Mousetrap.bind("f", function () {
 	$("#walkpast a.macro-link").trigger("click");
@@ -132,6 +132,18 @@ window.removeFromArray = function(arr, val) {
 			return arr.splice(i,1);
 	}
 	return null;
+};
+
+window.filterInPlace = function(arr, callback, thisArg) {
+	var j = 0;
+
+	arr.forEach(function(e, i) {
+		if (callback.call(thisArg, e, i, arr))
+			arr[j++] = e;
+	});
+
+	arr.length = j;
+	return arr;
 };
 
 window.canGetPregnant = function(slave) {
@@ -222,7 +234,7 @@ window.canWalk = function(slave) {
 		return null;
 	} else if (slave.amp == 1)  {
 		return false;
-	} else if (slave.boobs > 10000+(slave.muscles*100)) {
+	} else if (slave.boobs > 30000+(slave.muscles*100)) {
 		return false;
 	} else if (slave.heels == 0) {
 		return true;
@@ -247,6 +259,8 @@ window.canTalk = function(slave) {
 	} else if (slave.lips > 95) {
 		return false;
 	} else if (slave.collar == "dildo gag") {
+		return false;
+	} else if (slave.collar == "massive dildo gag") {
 		return false;
 	} else if (slave.collar == "ball gag") {
 		return false;
@@ -302,222 +316,53 @@ window.ruleApplied = function(slave, ID) {
 	return slave.currentRules.includes(ID);
 };
 
-window.ruleAssignment = function(applyAssignment, assignment) {
-	if (!applyAssignment)
-		return false;
-	return applyAssignment.includes(assignment);
+window.expandFacilityAssignments = function(facilityAssignments) {
+	var assignmentPairs = {
+		"serve in the club": "be the DJ",
+		"rest in the spa": "be the Attendant",
+		"work in the brothel": "be the Madam",
+		"work in the dairy": "be the Milkmaid",
+		"work as a servant": "be the Stewardess",
+		"get treatment in the clinic": "be the Nurse",
+		"live with your Head Girl": "be your Head Girl",
+		"serve in the master suite": "be your Concubine",
+		"learn in the schoolroom": "be the Schoolteacher",
+		"be confined in the cellblock": "be the Wardeness",
+	};
+
+	if (!facilityAssignments || !facilityAssignments.length)
+		return [];
+	var fullList = facilityAssignments.map(function(a) {
+		if (a in assignmentPairs)
+			return [a, assignmentPairs[a]];
+		return a;
+	});
+	return fullList.flatten();
 };
 
-window.ruleFacility = function(applyFacility, facility) {
-	if (!applyFacility)
+window.ruleAssignmentSelected = function(slave, rule) {
+	if (!slave || !rule || (!rule.assignment && !rule.facility))
 		return false;
-	return applyFacility.includes(facility);
-};
+	var assignment = rule.assignment.concat(expandFacilityAssignments(rule.facility));
+	return assignment.includes(slave.assignment);
+}
 
-window.ruleExcludeSlaveFacility = function(rule, slave) {
-	if (!slave || !rule || !rule.excludeFacility) {
-		return null;
-	} else {
-		for(var d=0; d < rule.excludeFacility.length; ++d){
-			if(rule.excludeFacility[d] == "hgsuite"){
-				if(slave.assignment == "live with your Head Girl" ){
-					return true;
-				}
-				else if(slave.assignment == "be your Head Girl"){
-					return true;
-				}
-			}
-			else if(rule.excludeFacility[d] == "arcade"){
-				if (slave.assignment == "be confined in the arcade" ){
-					return true;
-				}
-			}
-			else if(rule.excludeFacility[d] == "mastersuite"){
-				if(slave.assignment == "serve in the master suite" ){
-					return true;
-				}
-				else if(slave.assignment == "be your Concubine"){
-					return true;
-				}
-			}
-			else if(rule.excludeFacility[d] == "clinic"){
-				if(slave.assignment == "get treatment in the clinic" ){
-					return true;
-				}
-				else if(slave.assignment == "be the Nurse"){
-					return true;
-				}
-			}
-			else if(rule.excludeFacility[d] == "spa"){
-				if(slave.assignment == "rest in the spa" ){
-					return true;
-				}
-				else if(slave.assignment == "be the Attendant"){
-					return true;
-				}
-			}
-			else if(rule.excludeFacility[d] == "brothel"){
-				if(slave.assignment == "work in the brothel" ){
-					return true;
-				}
-				else if(slave.assignment == "be the Madam"){
-					return true;
-				}
-			}
-			else if(rule.excludeFacility[d] == "club"){
-				if(slave.assignment == "serve in the club" ){
-					return true;
-				}
-				else if(slave.assignment == "be the DJ"){
-					return true;
-				}
-			}
-			else if(rule.excludeFacility[d] == "dairy"){
-				if (slave.assignment == "work in the dairy"){
-					return true;
-				}
-				else if(slave.assignment == "be the Milkmaid"){
-					return true;
-				}
-			}
-			else if(rule.excludeFacility[d] == "servantsquarters"){
-				if(slave.assignment == "work as a servant"){
-					return true;
-				}
-				else if(slave.assignment == "be the Stewardess"){
-					return true;
-				}
-			}
-			else if(rule.excludeFacility[d] == "schoolroom"){
-				if(slave.assignment == "learn in the schoolroom" ){
-					return true;
-				}
-				else if(slave.assignment == "be the Schoolteacher"){
-					return true;
-				}
-			}
-			else if(rule.excludeFacility[d] == "cellblock"){
-				if(slave.assignment == "be confined in the cellblock" ){
-					return true;
-				}
-				else if(slave.assignment == "be the Wardeness"){
-					return true;
-				}
-			}
-		}
+window.ruleAssignmentExcluded = function(slave, rule) {
+	if (!slave || !rule || (!rule.excludeAssignment && !rule.excludeFacility))
 		return false;
-	}
-};
-
-window.ruleAppliedToSlaveFacility = function(rule, slave) {
-	if (!slave || !rule || !rule.facility) {
-		return null;
-	} else {
-		for(var d=0; d < rule.facility.length; ++d){
-			if(rule.facility[d] == "hgsuite"){
-				if(slave.assignment == "live with your Head Girl" ){
-					return true;
-				}
-				else if((rule.excludeSpecialSlaves != true) && (slave.assignment == "be your Head Girl")){
-					return true;
-				}
-			}
-			else if(rule.facility[d] == "arcade"){
-				if(slave.assignment == "be confined in the arcade" ){
-					return true;
-				}
-			}
-			else if(rule.facility[d] == "mastersuite"){
-				if(slave.assignment == "serve in the master suite" ){
-					return true;
-				}
-				else if((rule.excludeSpecialSlaves != true) && (slave.assignment == "be your Concubine")){
-					return true;
-				}
-			}
-			else if(rule.facility[d] == "clinic"){
-				if(slave.assignment == "get treatment in the clinic" ){
-					return true;
-				}
-				else if((rule.excludeSpecialSlaves != true) && (slave.assignment == "be the Nurse")){
-					return true;
-				}
-			}
-			else if(rule.facility[d] == "spa"){
-				if(slave.assignment == "rest in the spa" ){
-					return true;
-				}
-				else if((rule.excludeSpecialSlaves != true) && (slave.assignment == "be the Attendant")){
-					return true;
-				}
-			}
-			else if(rule.facility[d] == "brothel"){
-				if(slave.assignment == "work in the brothel" ){
-					return true;
-				}
-				else if((rule.excludeSpecialSlaves != true) && (slave.assignment == "be the Madam")){
-					return true;
-				}
-			}
-			else if(rule.facility[d] == "club"){
-				if(slave.assignment == "serve in the club" ){
-					return true;
-				}
-				else if((rule.excludeSpecialSlaves != true) && (slave.assignment == "be the DJ")){
-					return true;
-				}
-			}
-			else if(rule.facility[d] == "dairy"){
-				if (slave.assignment == "work in the dairy"){
-					return true;
-				}
-				else if((rule.excludeSpecialSlaves != true) && (slave.assignment == "be the Milkmaid")){
-					return true;
-				}
-			}
-			else if(rule.facility[d] == "servantsquarters"){
-				if(slave.assignment == "work as a servant" ){
-					return true;
-				}
-				else if((rule.excludeSpecialSlaves != true) && (slave.assignment == "be the Stewardess")){
-					return true;
-				}
-			}
-			else if(rule.facility[d] == "schoolroom"){
-				if(slave.assignment == "learn in the schoolroom" ){
-					return true;
-				}
-				else if((rule.excludeSpecialSlaves != true) && (slave.assignment == "be the Schoolteacher")){
-					return true;
-				}
-			}
-			else if(rule.facility[d] == "cellblock"){
-				if(slave.assignment == "be confined in the cellblock" ){
-					return true;
-				}
-				else if((rule.excludeSpecialSlaves != true) && (slave.assignment == "be the Wardeness")){
-					return true;
-				}
-			}
-		}return false;
-	}
-};
+	var excludeAssignment = rule.excludeAssignment.concat(expandFacilityAssignments(rule.excludeFacility));
+	return excludeAssignment.includes(slave.assignment);
+}
 
 window.ruleSlaveSelected = function(slave, rule) {
-	if (!slave || !rule) {
-		return null;
-	} else if (!rule.selectedSlaves) {
+	if (!slave || !rule || !rule.selectedSlaves)
 		return false;
-	}
 	return rule.selectedSlaves.includes(slave.ID);
 };
 
 window.ruleSlaveExcluded = function(slave, rule) {
-	if (!slave || !rule) {
-		return null;
-	} else if (!rule.excludedSlaves) {
+	if (!slave || !rule || !rule.excludedSlaves)
 		return false;
-	}
 	return rule.excludedSlaves.includes(slave.ID);
 };
 
@@ -623,7 +468,9 @@ window.milkAmount = function(slave) {
 		return null;
 	} else {
 		calcs = slave.boobs-slave.boobsImplant
-		if (calcs > 10000) {
+		if (calcs > 25000) {
+			milk = (128+((calcs-10000)/500))
+		} else if (calcs > 10000) {
 			milk = (78+((calcs-10000)/300))
 		} else if (calcs > 5000) {
 			milk = (53+((calcs-5000)/200))
@@ -700,47 +547,26 @@ window.mergeRules = function(rules) {
     var combinedRule = {};
 
     for (var i = 0; i < rules.length; i++) {
-        for (var attr in rules[i]) {
+        for (var prop in rules[i]) {
+            // we don't manage setAssignment here, we do it in <<DefaultRules>>
+            if (prop === "setAssignment")
+                continue;
 
             // A rule overrides any preceding ones if,
             //   * there are no preceding ones,
             //   * or it sets autoBrand,
-            //   * or it sets setAssignment to something other that "none",
-            //   * or it sets assignFacility to something other that "none",
-            //   * or it sets none of the above and is not "no default setting"
+            //   * or it does not set autoBrand and is not "no default setting"
             var applies = (
-                combinedRule[attr] === undefined
-                || (attr === "autoBrand" && rules[i][attr])
-                || (attr === "setAssignment" && rules[i][attr] !== "none")
-                || (attr === "assignFacility" && rules[i][attr] !== "none")
-                || (
-                    attr !== "autoBrand"
-                    && attr !== "setAssignment"
-                    && attr !== "assignFacility"
-                    && rules[i][attr] !== "no default setting"
-                )
+                combinedRule[prop] === undefined
+                || (prop === "autoBrand" && rules[i][prop])
+                || (prop !== "autoBrand" && rules[i][prop] !== "no default setting")
             );
 
-            if (applies) {
-                if (attr == "setAssignment" && combinedRule.assignFacility !== "none") {
-                    // If the rules so far have set assignFacility, unset it,
-                    // since the assignment overrides it.  We assume that a
-                    // given rule won't set both assignFacility and
-                    // setAssignment.  If that happens, which one will prevail
-                    // is down to the enumeration order of "for ... in".
-                    combinedRule.assignFacility = "none";
-                    combinedRule.facilityRemove = false;
-                }
-                if (attr == "assignFacility" && combinedRule.setAssignment !== "none")
-                    // Similarly, if setAssignment is set, unset it.
-                    combinedRule.setAssignment = "none";
-
-                combinedRule[attr] = rules[i][attr];
-            }
+            if (applies)
+                combinedRule[prop] = rules[i][prop];
         }
     }
 
     return combinedRule;
 }
-
 

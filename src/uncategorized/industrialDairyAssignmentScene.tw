@@ -36,7 +36,7 @@ Then she falls silent and stares at the machine. Though she hates herself and lo
 	Another slave helps her strip and lays her in the machine,
 <</if>>
 her tears pattering onto the uncaring metal. When she's in place, her shoulders slump as she gives up completely.
-<<if canTalk($activeSlave) == false>>
+<<if !canTalk($activeSlave)>>
 	She mouths 'Goodbye.'
 <<elseif SlaveStatsChecker.checkForLisp($activeSlave)>>
 	"'bye," she lisps.

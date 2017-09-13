@@ -69,6 +69,52 @@ As the remote surgery's long recovery cycle completes,
 
 <<switch $surgeryType>>
 <<case "fuckdoll">>
+
+	<<if $familyTesting == 1>>
+		<<for $j = 0; $j < $slaves.length; $j++>>
+			<<if $activeSlave.mother == $slaves[$j].ID>>
+				$slaves[$j].slaveName will be @@.mediumorchid;horrified@@ and @@.gold;afraid@@ when she finds out that her daughter is now a Fuckdoll.
+				<<set $slaves[$j].devotion -= 40, $slaves[$j].trust -= 40>>
+			<</if>>
+			<<if $activeSlave.father == $slaves[$j].ID>>
+				$slaves[$j].slaveName will be @@.mediumorchid;horrified@@ and @@.gold;afraid@@ when she finds out that her daughter is now a Fuckdoll.
+				<<set $slaves[$j].devotion -= 40, $slaves[$j].trust -= 40>>
+			<</if>>
+			<<if $activeSlave.ID == $slaves[$j].father>>
+				$slaves[$j].slaveName will be @@.mediumorchid;horrified@@ and @@.gold;afraid@@ when she finds out that her sire is now a Fuckdoll.
+				<<set $slaves[$j].devotion -= 40, $slaves[$j].trust -= 40>>
+			<</if>>
+			<<if $activeSlave.ID == $slaves[$j].mother>>
+				$slaves[$j].slaveName will be @@.mediumorchid;horrified@@ and @@.gold;afraid@@ when she finds out that her mother is now a Fuckdoll.
+				<<set $slaves[$j].devotion -= 40, $slaves[$j].trust -= 40>>
+			<</if>>
+			<<switch areSisters($activeSlave, $slaves[$j])>>
+			<<case 1>>
+				$slaves[$j].slaveName will be @@.mediumorchid;horrified@@ and @@.gold;afraid@@ when she finds out that her twin is now a Fuckdoll. Is she next?
+				<<set $slaves[$j].devotion -= 50, $slaves[$j].trust -= 50>>
+			<<case 2>>
+				$slaves[$j].slaveName will be @@.mediumorchid;horrified@@ and @@.gold;afraid@@ when she finds out that her sister is now a Fuckdoll.
+				<<set $slaves[$j].devotion -= 40, $slaves[$j].trust -= 40>>
+			<<case 3>>
+				$slaves[$j].slaveName will be @@.mediumorchid;horrified@@ and @@.gold;afraid@@ when she finds out that her half-sister is now a Fuckdoll.
+				<<set $slaves[$j].devotion -= 30, $slaves[$j].trust -= 30>>
+			<</switch>>
+		<</for>>
+		<<if $activeSlave.relationship > 0>>
+			<<for $j = 0; $j < $slaves.length; $j++>>
+				<<if $slaves[$j].ID == $activeSlave.relationshipTarget>>
+					$slaves[$j].slaveName will be @@.mediumorchid;horrified@@ and @@.gold;afraid@@ when she finds out that her <<if $activeSlave.relationship > 4>>wife<<elseif $activeSlave.relationship > 3>>lover<<elseif $activeSlave.relationship > 2>>intimate friend<<elseif $activeSlave.relationship > 1>>best friend<<else>>friend<</if>> is now a Fuckdoll.
+					<<set $slaves[$j].devotion -= $activeSlave.relationship*10>>
+					<<set $slaves[$j].trust -= $activeSlave.relationship*10>>
+					<<set $slaves[$j].relationship = 0>>
+					<<set $slaves[$j].relationshipTarget = 0>>
+					<<break>>
+				<</if>>
+			<</for>>
+		<<elseif $activeSlave.relationship < 0>>
+			Its @@.lightsalmon;slave relationship to you is effectively over,@@ since everyone in the world outside its suit is created equal to her. She'll probably forget to distinguish your <<if $PC.dick == 1>>dick if it's pushed inside her<<else>>pussy if it's pressed against her face hole<</if>> soon enough.
+		<</if>>
+	<<else>>
 	<<if $activeSlave.relation != 0>>
 		<<for $j = 0; $j < $slaves.length; $j++>>
 			<<if $activeSlave.relationshipTarget != $activeSlave.relationTarget>>
@@ -81,20 +127,21 @@ As the remote surgery's long recovery cycle completes,
 			<</if>>
 		<</for>>
 	<</if>>
-	<<if $activeSlave.relationship > 0>>
-		<<for $j = 0; $j < $slaves.length; $j++>>
-			<<if $slaves[$j].ID == $activeSlave.relationshipTarget>>
-				$slaves[$j].slaveName will be @@.mediumorchid;horrified@@ and @@.gold;afraid@@ when she finds out that her <<if $activeSlave.relationshipTarget == $activeSlave.relationTarget>>$activeSlave.relation and<</if>> <<if $activeSlave.relationship > 4>>wife<<elseif $activeSlave.relationship > 3>>lover<<elseif $activeSlave.relationship > 2>>intimate friend<<elseif $activeSlave.relationship > 1>>best friend<<else>>friend<</if>> is now a Fuckdoll.
-				<<set $slaves[$j].devotion -= $activeSlave.relationship*10>>
-				<<set $slaves[$j].trust -= $activeSlave.relationship*10>>
-				<<set $slaves[$j].relationship = 0>>
-				<<set $slaves[$j].relationshipTarget = 0>>
-				<<break>>
-			<</if>>
-		<</for>>
-	<<elseif $activeSlave.relationship < 0>>
-		Its @@.lightsalmon;slave relationship to you is effectively over,@@ since everyone in the world outside its suit is created equal to her. She'll probably forget to distinguish your <<if $PC.dick == 1>>dick if it's pushed inside her<<else>>pussy if it's pressed against her face hole<</if>> soon enough.
-	<</if>>
+		<<if $activeSlave.relationship > 0>>
+			<<for $j = 0; $j < $slaves.length; $j++>>
+				<<if $slaves[$j].ID == $activeSlave.relationshipTarget>>
+					$slaves[$j].slaveName will be @@.mediumorchid;horrified@@ and @@.gold;afraid@@ when she finds out that her <<if $activeSlave.relationshipTarget == $activeSlave.relationTarget>>$activeSlave.relation and<</if>> <<if $activeSlave.relationship > 4>>wife<<elseif $activeSlave.relationship > 3>>lover<<elseif $activeSlave.relationship > 2>>intimate friend<<elseif $activeSlave.relationship > 1>>best friend<<else>>friend<</if>> is now a Fuckdoll.
+					<<set $slaves[$j].devotion -= $activeSlave.relationship*10>>
+					<<set $slaves[$j].trust -= $activeSlave.relationship*10>>
+					<<set $slaves[$j].relationship = 0>>
+					<<set $slaves[$j].relationshipTarget = 0>>
+					<<break>>
+				<</if>>
+			<</for>>
+		<<elseif $activeSlave.relationship < 0>>
+			Its @@.lightsalmon;slave relationship to you is effectively over,@@ since everyone in the world outside its suit is created equal to her. She'll probably forget to distinguish your <<if $PC.dick == 1>>dick if it's pushed inside her<<else>>pussy if it's pressed against her face hole<</if>> soon enough.
+		<</if>>
+	<</if>> /*closes extended family mode */
 	<<if $activeSlave.rivalry != 0>>
 		<<for $j = 0; $j < $slaves.length; $j++>>
 			<<if $slaves[$j].ID == $activeSlave.rivalryTarget>>
@@ -891,7 +938,6 @@ As the remote surgery's long recovery cycle completes,
 			<<set $activeSlave.devotion -= 5>>
 		<</if>>
 	<<else>>
-		<<set $activeSlave.health += 5>>
 		<<if ($activeSlave.devotion > 50)>>
 			She exits the surgery gingerly, since she can feel that her crotch was operated on. She examines it carefully <<if canSee($activeSlave)>>in the mirror<<else>>by feeling alone<</if>>. Realizing that she's been circumcised, @@.hotpink;she's very happy you'd take an interest in her sex,@@ and looks forward to having a slightly easier time keeping herself clean through her life as a sex slave. @@.red;Her health has been slightly affected.@@
 			<<set $activeSlave.devotion += 4>>
@@ -1280,6 +1326,9 @@ As the remote surgery's long recovery cycle completes,
 	<<elseif ($activeSlave.devotion >= -20)>>
 		She leaves the surgery with a terribly sore rear end. She knows she'll have to endure the pain of being fucked in a tight asshole again soon enough, but trepidation is nothing new for her. If she had much in the way of anal skills, @@.red;they've likely suffered.@@ As with all surgery @@.red;her health has been slightly affected.@@ She is @@.gold;sensibly fearful@@ of your total power over her body.
 		<<set $activeSlave.trust -= 5>>
+		<<if $activeSlave.analSkill > 10>>
+			<<set $activeSlave.analSkill -= 10>>
+		<</if>>
 	<<else>>
 		She leaves the surgery with a terribly sore rear end. She's @@.mediumorchid;horrified@@ at surgical alteration of her rear end, and knows that this means that she'll have to take the pain of sodomy in a tight ass all over again. If she had much in the way of anal skills, @@.red;they've likely suffered.@@ As with all surgery @@.red;her health has been slightly affected.@@ She is @@.gold;terribly afraid@@ of your total power over her most intimate parts.
 		<<set $activeSlave.trust -= 10>>

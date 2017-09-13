@@ -183,7 +183,7 @@
 <</if>>
 
 <<if $RaidingMercenaries == 1>>
-	<br>''Raiding Mercenaries:'' you are allowing your mercenaries to occasionally raid to your direct benefit.
+	<br>''Raiding Mercenaries:'' you are allowing your mercenaries to occasionally raid for your direct benefit.
 	[[Repeal|Policies][$RaidingMercenaries = 0]]
 <</if>>
 
@@ -597,15 +597,21 @@
 <br>__Sexual Trendsetting__
 
 <<if $OralEncouragement+$VaginalEncouragement+$AnalEncouragement == 0>>
-	<br>''Oral Sex Encouragement:'' you will use your personal influence to make blowjobs the most fashionable sex act in the arcology.
-	[[Implement|Policies][$OralEncouragement = 1, $cash -=5000, $rep -= 1000]]
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;//Will increase the weight on slaves' oral skills//
-	<br>''Vaginal Sex Encouragement:'' you will use your personal influence to keep pussies the most fashionable holes in the arcology.
-	[[Implement|Policies][$VaginalEncouragement = 1, $cash -=5000, $rep -= 1000]]
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;//Will increase the weight on slaves' vaginal skills//
-	<br>''Anal Sex Encouragement:'' you will use your personal influence to make anuses the most fashionable holes in the arcology.
-	[[Implement|Policies][$AnalEncouragement = 1, $cash -=5000, $rep -= 1000]]
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;//Will increase the weight on slaves' anal skills//
+	<<if $OralDiscouragement == 0>>
+		<br>''Oral Sex Encouragement:'' you will use your personal influence to make blowjobs the most fashionable sex act in the arcology.
+		[[Implement|Policies][$OralEncouragement = 1, $cash -=5000, $rep -= 1000]]
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;//Will increase the weight on slaves' oral skills//
+	<</if>>
+	<<if $VaginalDiscouragement == 0>>
+		<br>''Vaginal Sex Encouragement:'' you will use your personal influence to keep pussies the most fashionable holes in the arcology.
+		[[Implement|Policies][$VaginalEncouragement = 1, $cash -=5000, $rep -= 1000]]
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;//Will increase the weight on slaves' vaginal skills//
+	<</if>>
+	<<if $AnalDiscouragement == 0>>
+		<br>''Anal Sex Encouragement:'' you will use your personal influence to make anuses the most fashionable holes in the arcology.
+		[[Implement|Policies][$AnalEncouragement = 1, $cash -=5000, $rep -= 1000]]
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;//Will increase the weight on slaves' anal skills//
+	<</if>>
 <</if>>
 
 <<if $OralDiscouragement == 0>>
@@ -1119,7 +1125,7 @@
 <</if>>
 <<if $nicaeaHeld == 1>>
 <<if $arcologies[0].FSChattelReligionistCreed == 0>>
-	<br>''@@.lime;Chattel Religionist Creed:@@'' Chattel Religionism in your arcology will subscribe to the creed established by the $nicaeaName, which honors <<if $nicaeaFocus == "slaves">>slaves<<else>>slaveowners<</if>>, enhances <<if $nicaeaAssignment == "whore">>prostitution<<elseif $nicaeaAssignment == "serve the public">>public service<<else>>fucktoy duty<</if>>, and respects <<if $nicaeaAchievement == "slaves">>owning many sex slaves<<elseif $nicaeaFocus == "devotion">>worshipful slaves<<else>>trusting slaves<</if>>. The creed is <<if $nicaeaPower > 1>>strong<<else>>somewhat weak<</if>>.
+	<br>''@@.lime;Chattel Religionist Creed:@@'' Chattel Religionism in your arcology will subscribe to the creed established by the $nicaeaName, which honors <<if $nicaeaFocus == "slaves">>slaves<<else>>slaveowners<</if>>, enhances <<if $nicaeaAssignment == "whore">>prostitution<<elseif $nicaeaAssignment == "serve the public">>public service<<else>>fucktoy duty<</if>>, and respects <<if $nicaeaAchievement == "slaves">>owning many sex slaves<<elseif $nicaeaAchievement == "devotion">>worshipful slaves<<else>>trusting slaves<</if>>. The creed is <<if $nicaeaPower > 1>>strong<<else>>somewhat weak<</if>>.
 	[[Implement|Policies][$arcologies[0].FSChattelReligionistCreed = 1, $cash -=5000, $rep -= 1000]]
 	//Repealing this policy costs twice as much as implementing it.//
 <</if>>

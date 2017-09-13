@@ -70,6 +70,9 @@
 <</if>>
 
 /* Relationship Events */
+
+<<if $familyTesting == 0>>
+
 <<set _relatedSlaves = $slaves.filter(function(s) { return s.relation != 0; })>>
 
 <<set _devMothers = _relatedSlaves.filter(function(s) { return s.relation == "mother" && s.devotion > 50 && s.anus != 0 && s.relationshipTarget != s.relationTarget && canWalk(s); })>>
@@ -78,6 +81,7 @@
 	<<set $devDaughter = _relatedSlaves.find(function(s) { return s.ID == $devMother.relationTarget && s.devotion > 50 && s.anus != 0 && canWalk(s); })>>
 	<<if (def $devDaughter)>>
 		<<set $events.push("RE devoted mother daughter")>>
+		<<break>>
 	<</if>>
 <</for>>
 
@@ -87,6 +91,7 @@
 	<<set $daughter = _relatedSlaves.find(function(s) { return s.ID == $mother.relationTarget && s.devotion < 10 && s.anus != 0 && canWalk(s); })>>
 	<<if (def $daughter)>>
 		<<set $events.push("RE resistant mother daughter")>>
+		<<break>>
 	<</if>>
 <</for>>
 
@@ -96,6 +101,7 @@
 	<<set $olderSister = _relatedSlaves.find(function(s) { return s.ID == $youngerSister.relationTarget && s.anus == 0 && $youngerSister.devotion > (s.devotion+20); })>>
 	<<if (def $olderSister)>>
 		<<set $events.push("RE sibling revenge")>>
+		<<break>>
 	<</if>>
 <</for>>
 
@@ -105,8 +111,55 @@
 	<<set $betaTwin = _relatedSlaves.find(function(s) { return s.ID == $alphaTwin.relationTarget && s.anus > 0 && s.devotion > 50 && canWalk(s); })>>
 	<<if (def $betaTwin)>>
 		<<set $events.push("RE devoted twins")>>
+		<<break>>
 	<</if>>
 <</for>>
+
+<<else>> /* $familyTesting == 1 */
+
+<<set _relatedSlaves = $slaves.filter(function(s) { return s.daughters > 0 || s.sisters > 0; })>>
+
+<<set _devMothers = _relatedSlaves.filter(function(s) { return s.daughters > 0 && s.devotion > 50 && s.anus != 0 && canWalk(s); })>>
+<<for _devMothers.length > 0>>
+	<<set $devMother = _devMothers.pluck()>>
+	<<set $devDaughter = randomDaughter($devMother)>>
+	<<if (def $devDaughter) && ($devDaughter.devotion > 50) && ($devDaughter.anus != 0) && canWalk($devDaughter)>>
+		<<set $events.push("RE devoted mother daughter")>>
+		<<break>>
+	<</if>>
+<</for>>
+
+<<set _resMothers = _relatedSlaves.filter(function(s) { return s.daughters > 0 && s.devotion < 10 && s.anus != 0 && canWalk(s); })>>
+<<for _resMothers.length > 0>>
+	<<set $mother = _resMothers.pluck()>>
+	<<set $daughter = randomDaughter($mother)>>
+	<<if (def $daughter) && ($daughter.devotion < 10) && ($daughter.anus != 0) && canWalk($daughter)>>
+		<<set $events.push("RE resistant mother daughter")>>
+		<<break>>
+	<</if>>
+<</for>>
+
+<<set _youngerSisters = _relatedSlaves.filter(function(s) { return s.sisters > 0 && canPenetrate(s); })>>
+<<for _youngerSisters.length > 0>>
+	<<set $youngerSister = _youngerSisters.pluck()>>
+	<<set $olderSister = randomSister($youngerSister)>>
+	<<if (def $olderSister) && ($olderSister.anus == 0) && $youngerSister.devotion > ($olderSister.devotion+20)>>
+		<<set $events.push("RE sibling revenge")>>
+		<<break>>
+	<</if>>
+<</for>>
+
+<<set _twins = _relatedSlaves.filter(function(s) { return s.sisters > 0 && s.anus > 0 && s.devotion > 50 && canWalk(s); })>>
+<<for _twins.length > 0>>
+	<<set $alphaTwin = _twins.pluck()>>
+	<<set $betaTwin = randomTwinSister($alphaTwin)>>
+	<<if (def $betaTwin) && ($betaTwin.anus > 0) && ($betaTwin.devotion > 50) && canWalk($betaTwin)>>
+		<<set $events.push("RE devoted twins")>>
+		<<break>>
+	<</if>>
+<</for>>
+
+<</if>>  /* closes extended family mode */
 
 /* Fetish Interest Events */
 
@@ -493,6 +546,12 @@
 	<<if ($rep/250) > random(1,100)>>
 		<<set $RecETSevent.push("matched pair")>>
 	<</if>>
+	<<if ($rep/250) > random(1,100)>>
+		<<set $RecETSevent.push("incest mother son")>>
+	<</if>>
+	<<if ($rep/250) > random(1,100)>>
+		<<set $RecETSevent.push("incest father daughter")>>
+	<</if>>
 <</if>>
 
 <<else>> /*XX ACQUISITIONS*/
@@ -531,19 +590,39 @@
 	<</if>>
 <</if>>
 
-<<set _recruiterSlaves = $slaves.filter(function(s) { return s.recruiter != 0 && s.fuckdoll == 0 && s.devotion > 50 && s.relation == 0 && canWalk(s); }), $j = -1>>
-<<if def _recruiterSlaves[0]>>
-	<<for _recruiterSlaves.length > 0 && $j == -1>>
-		<<set $recruiterSlave = _recruiterSlaves.pluck()>>
-		<<set $j = $slavesOriginal.findIndex(function(o) { return o.ID == $recruiterSlave.ID; })>>
+<<if $familyTesting == 1>>
+
+<<set _recruiterSlaves = $slaves.filter(function(s) { return s.fuckdoll == 0 && s.canRecruit == 1 && s.devotion > 50 && canWalk(s); })>>
+<<for _recruiterSlaves.length > 0>>
+	<<set $recruiterSlave = _recruiterSlaves.pluck()>>
+	<<if random(1,100) > 90+(totalRelatives($recruiterSlave)*2)>>
+		<<set $j = $slavesOriginal.findIndex(function(o) { return o.ID == $slaves[$i].ID; })>>
 		<<if $j != -1>>
 			<<set $events.push("RE relative recruiter")>>
-		<<else>> /* no matching slave object in the slavesOriginal array -- bug? */
+			<<break>>
+		<<else>> /* no matching slave object in the slavesOriginal array */
 			<<set $i = $slaves.findIndex(function(o) { return o.ID == $recruiterSlave.ID; })>>
-			<<set $slaves[$i].recruiter = 0>>
+			<<set $slaves[$i].canRecruit = 0>>
 		<</if>>
-	<</for>>
-<</if>>
+	<</if>>
+<</for>>
+
+<<else>> /* extended family mode == 0 */
+
+<<set _recruiterSlaves = $slaves.filter(function(s) { return s.recruiter != 0 && s.fuckdoll == 0 && s.devotion > 50 && s.relation == 0 && canWalk(s); })>>
+<<for _recruiterSlaves.length > 0>>
+	<<set $recruiterSlave = _recruiterSlaves.pluck()>>
+	<<set $j = $slavesOriginal.findIndex(function(o) { return o.ID == $recruiterSlave.ID; })>>
+	<<if $j != -1>>
+		<<set $events.push("RE relative recruiter")>>
+		<<break>>
+	<<else>> /* no matching slave object in the slavesOriginal array -- bug? */
+		<<set $i = $slaves.findIndex(function(o) { return o.ID == $recruiterSlave.ID; })>>
+		<<set $slaves[$i].recruiter = 0>>
+	<</if>>
+<</for>>
+
+<</if>> /* closes extended family mode */
 
 <<if $FSAnnounced == 1>>
 	<<set $FSAcquisitionEvents = []>>
@@ -605,6 +684,62 @@
 	<</if>>
 	<<if $arcologies[0].FSChattelReligionist > random(1,100)>>
 		<<set $FSAcquisitionEvents.push("Chattel Religionist")>>
+		<<set $events.push("RE FS acquisition")>>
+	<</if>>
+	<<if $arcologies[0].FSSupremacist > random(1,100)>>
+		<<set $FSAcquisitionEvents.push("Supremacist Two")>>
+		<<set $events.push("RE FS acquisition")>>
+	<</if>>
+	<<if $arcologies[0].FSSubjugationist > random(1,100)>>
+		<<set $FSAcquisitionEvents.push("Subjugationist Two")>>
+		<<set $events.push("RE FS acquisition")>>
+	<</if>>
+	<<if $arcologies[0].FSGenderRadicalist > random(1,100)>>
+		<<set $FSAcquisitionEvents.push("Gender Radicalist Two")>>
+		<<set $events.push("RE FS acquisition")>>
+	<</if>>
+	<<if $arcologies[0].FSGenderFundamentalist > random(1,100)>>
+		<<set $FSAcquisitionEvents.push("Gender Fundamentalist Two")>>
+		<<set $events.push("RE FS acquisition")>>
+	<</if>>
+	<<if $arcologies[0].FSPaternalist > random(1,100)>>
+		<<set $FSAcquisitionEvents.push("Paternalist Two")>>
+		<<set $events.push("RE FS acquisition")>>
+	<</if>>
+	<<if $arcologies[0].FSDegradationist > random(1,100)>>
+		<<set $FSAcquisitionEvents.push("Degradationist Two")>>
+		<<set $events.push("RE FS acquisition")>>
+	<</if>>
+	<<if $arcologies[0].FSBodyPurist > random(1,100)>>
+		<<set $FSAcquisitionEvents.push("Body Purist Two")>>
+		<<set $events.push("RE FS acquisition")>>
+	<</if>>
+	<<if $arcologies[0].FSTransformationFetishist > random(1,100)>>
+		<<set $FSAcquisitionEvents.push("Transformation Fetishist Two")>>
+		<<set $events.push("RE FS acquisition")>>
+	<</if>>
+	<<if $arcologies[0].FSYouthPreferentialist > random(1,100)>>
+		<<set $FSAcquisitionEvents.push("Youth Preferentialist Two")>>
+		<<set $events.push("RE FS acquisition")>>
+	<</if>>
+	<<if $arcologies[0].FSMaturityPreferentialist > random(1,100)>>
+		<<set $FSAcquisitionEvents.push("Maturity Preferentialist Two")>>
+		<<set $events.push("RE FS acquisition")>>
+	<</if>>
+	<<if $arcologies[0].FSSlimnessEnthusiast > random(1,100)>>
+		<<set $FSAcquisitionEvents.push("Slimness Enthusiast Two")>>
+		<<set $events.push("RE FS acquisition")>>
+	<</if>>
+	<<if $arcologies[0].FSAssetExpansionist > random(1,100)>>
+		<<set $FSAcquisitionEvents.push("Asset Expansionist Two")>>
+		<<set $events.push("RE FS acquisition")>>
+	<</if>>
+	<<if $arcologies[0].FSPastoralist > random(1,100)>>
+		<<set $FSAcquisitionEvents.push("Pastoralist Two")>>
+		<<set $events.push("RE FS acquisition")>>
+	<</if>>
+	<<if $arcologies[0].FSPhysicalIdealist > random(1,100)>>
+		<<set $FSAcquisitionEvents.push("Physical Idealist Two")>>
 		<<set $events.push("RE FS acquisition")>>
 	<</if>>
 	<<if $arcologies[0].FSRomanRevivalist > random(1,100)>>
@@ -847,7 +982,7 @@
 <<set $RESSale = []>>
 <<if $cash > 10000>>
 <<if $rep > 6000>>
-	<<if $seeDicks != 2>>
+	<<if $seeDicks != 100>>
 		<<if $TSS.studentsBought == 0>>
 			<<set $events.push("RES Sale")>>
 			<<set $RESSale.push("TSS")>>

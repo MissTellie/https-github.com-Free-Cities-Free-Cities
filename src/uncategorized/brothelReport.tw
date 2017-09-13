@@ -1,19 +1,7 @@
 :: Brothel Report [nobr]
 
-<<set _DL = $BrothiIDs.length, $brothelSlaves = _DL, _SL = $slaves.length, $implanted = 0, $legendaryWhoreID = 0, $madamCashBonus = 0, $modded = 0, $old = 0, $pure = 0, $slim = 0, $stacked = 0, $unmodded = 0, $XX = 0, $XY = 0, $young = 0, _FLsFetish = 0, _profits = 0>>
-
-<<for _dI = 0; _dI < _DL; _dI++>>
-	<<set $i = $BrothiIDs[_dI].Index, _ID = $BrothiIDs[_dI].ID>>
-	<<if $i >= _SL || _ID != $slaves[$i].ID>>
-		/% IDs don't match-up so let's find her %/
-		<<set $i = $slaves.findIndex(function(s) { return s.ID == _ID; }), $BrothiIDs[_dI].Index = $i>>
-	<</if>>
-	<<if $i == -1 || $slaves[$i].assignment != "work in the brothel">>
-		<<set $BrothiIDs.deleteAt(_dI), _dI--, _DL--, $brothelSlaves-->>
-		<<continue>>
-	<</if>>
-<</for>>
 <<SlaveSort $BrothiIDs>>
+<<set _DL = $BrothiIDs.length, $brothelSlaves = _DL, _SL = $slaves.length, $implanted = 0, $legendaryWhoreID = 0, $madamCashBonus = 0, $modded = 0, $old = 0, $pure = 0, $slim = 0, $stacked = 0, $unmodded = 0, $XX = 0, $XY = 0, $young = 0, _FLsFetish = 0, _profits = 0>>
 
 <<if ($Madam != 0)>>
 	<<set _FLs = $slaves.findIndex(function(s) { return s.ID == $Madam.ID; })>>
@@ -88,7 +76,7 @@
 		<<set $madamCashBonus += 0.05>>
 	<</if>>
 	<<for _dI = 0; _dI < _DL; _dI++>>
-		<<set $i = $BrothiIDs[_dI].Index>>
+		<<set $i = $slaveIndices[$BrothiIDs[_dI]]>>
 		<<if $Madam.rivalryTarget == $slaves[$i].ID>>
 			She forces her <<if $Madam.rivalry == 1>>growing rival<<elseif $Madam.rivalry == 2>>rival<<elseif $Madam.rivalry == 3>>bitter rival<</if>>, to service all the men in the brothel.
 			<<set $slaves[$i].devotion -= 2, $slaves[$i].trust -= 2>>
@@ -108,7 +96,27 @@
 		<<elseif $Madam.relationshipTarget == $slaves[$i].ID>>
 			She dotes over her <<if $Madam.relationship == 1>>friend<<elseif $Madam.relationship == 2>>best friend<<elseif $Madam.relationship == 3>>friend with benefits<<elseif $Madam.relationship == 4>>lover<<elseif $Madam.relationship == 5>>slave wife<</if>>, $slaves[$i].slaveName, making sure she is safe, but unfortunately driving potential costumers away from her.
 			<<set $slaves[$i].devotion++, $madamCashBonus -= 0.05>>
-		<<elseif $Madam.relationTarget == $slaves[$i].ID>>
+		<<elseif $familyTesting == 1 && totalRelatives($slaves[$i]) > 0>>
+			<<if $slaves[$i].mother == $Madam.ID || $slaves[$i].father == $Madam.ID>>
+				She pays special attention to her daughter, $slaves[$i].slaveName, making sure she is treated well and showing off her skills.
+				<<set $slaves[$i].trust++, $madamCashBonus += 0.05>>
+			<<elseif $slaves[$i].ID == $Madam.mother>>
+				She pays special attention to her mother, $slaves[$i].slaveName, making sure she is treated well and showing off her skills.
+				<<set $slaves[$i].trust++, $madamCashBonus += 0.05>>
+			<<elseif $slaves[$i].ID == $Madam.father>>
+				She pays special attention to her sire, $slaves[$i].slaveName, making sure she is treated well and showing off her skills.
+				<<set $slaves[$i].trust++, $madamCashBonus += 0.05>>
+			<<elseif areSisters($slaves[$i], $Madam) == 1>>
+				She pays special attention to her twin sister, $slaves[$i].slaveName, making sure she is treated well and showing off her skills.
+				<<set $slaves[$i].trust++, $madamCashBonus += 0.05>>
+			<<elseif areSisters($slaves[$i], $Madam) == 2>>
+				She pays special attention to her sister, $slaves[$i].slaveName, making sure she is treated well and showing off her skills.
+				<<set $slaves[$i].trust++, $madamCashBonus += 0.05>>
+			<<elseif areSisters($slaves[$i], $Madam) == 3>>
+				She pays special attention to her half-sister, $slaves[$i].slaveName, making sure she is treated well and showing off her skills.
+				<<set $slaves[$i].trust++, $madamCashBonus += 0.05>>
+			<</if>>
+		<<elseif $Madam.relationTarget == $slaves[$i].ID && $familyTesting == 0>>
 			She pays special attention to her $slaves[$i].relation, $slaves[$i].slaveName, making sure she is treated well and showing off her skills.
 			<<set $slaves[$i].trust++, $madamCashBonus += 0.05>>
 		<</if>>
@@ -222,7 +230,7 @@
 	<</if>>
 	<<set _oldCash = $cash>>
 	<<for _dI = 0; _dI < _DL; _dI++>>
-		<<set $i = $BrothiIDs[_dI].Index>>
+		<<set $i = $slaveIndices[$BrothiIDs[_dI]]>>
 		<<if ($legendaryWhoreID == 0) && ($slaves[$i].whoreSkill >= 100) && ($slaves[$i].devotion > 50) && ($slaves[$i].prestige == 0)>>
 			<<set $legendaryWhoreID = $slaves[$i].ID>>
 		<</if>>
@@ -297,7 +305,7 @@
 					<<set _seed++>>
 				<</if>>
 			<<elseif $brothelAdsImplanted == -1>>
-				<<if ($slaves[$i].boobsImplant == 0) && ($slaves[$i].buttImplant == 0) && ($slaves[$i].waist < 2) && ($slaves[$i].lipsImplant == 0) && ($slaves[$i].faceImplant < 2)>>
+				<<if $slaves[$i].boobsImplant == 0 && $slaves[$i].buttImplant == 0 && $slaves[$i].waist < 2 && $slaves[$i].lipsImplant == 0 && $slaves[$i].faceImplant < 30>>
 					<<set _seed++>>
 				<</if>>
 			<</if>>

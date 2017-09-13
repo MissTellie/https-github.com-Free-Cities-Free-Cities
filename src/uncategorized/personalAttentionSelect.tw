@@ -8,12 +8,12 @@
 <</if>>
 <br>[[Have as much sex with your slaves as possible|Main][$personalAttention = "sex", $personalAttentionChanged = 1]]<br><br>
 
-<<if $PC.trading >= 100>>
+<<if $PC.career == "capitalist">>
 	//You are a master trader.//
-<<else>>
-	<<if $PC.trading > 60>>
+	<<elseif $PC.trading > 60>>
 		//You are an expert trader.//
-	<<elseif $PC.trading > 30>>
+<<else>>
+	<<if $PC.trading > 30>>
 		//You have some skill as a trader.//
 	<<elseif $PC.trading > 10>>
 		//You have basic knowledge as a trader.//
@@ -24,12 +24,12 @@
 		[[Hire a merchant to train you in commerce|Main][$personalAttention = "trading", $personalAttentionChanged = 1]]
 	<</if>>
 <</if>><br>
-<<if $PC.warfare >= 100>>
+<<if $PC.career == "mercenary">>
 	//You are a master tactician.//
-<<else>>
-	<<if $PC.warfare > 60>>
+	<<elseif $PC.warfare > 60>>
 		//You are an expert tactician.//
-	<<elseif $PC.warfare > 30>>
+<<else>>
+	<<if $PC.warfare > 30>>
 		//You have some skill as a tactician.//
 	<<elseif $PC.warfare > 10>>
 		//You have basic knowledge as a tactician.//
@@ -40,12 +40,12 @@
 		[[Hire a mercenary to train you in warfare|Main][$personalAttention = "warfare", $personalAttentionChanged = 1]]
 	<</if>>
 <</if>><br>
-<<if $PC.slaving >= 100>>
+<<if $PC.career == "slaver">>
 	//You are a master slaver.//
-<<else>>
-	<<if $PC.slaving > 60>>
+	<<elseif $PC.slaving > 60>>
 		//You are an expert slaver.//
-	<<elseif $PC.slaving > 30>>
+<<else>>
+	<<if $PC.slaving > 30>>
 		//You have some skill as a slaver.//
 	<<elseif $PC.slaving > 10>>
 		//You have basic knowledge as a slaver.//
@@ -56,14 +56,14 @@
 		[[Hire a slaver to train you in slaving|Main][$personalAttention = "slaving", $personalAttentionChanged = 1]]
 	<</if>>
 <</if>><br>
-<<if $PC.engineering >= 100>>
+<<if $PC.career == "engineer">>
 	//You are a master arcology engineer.//
-<<else>>
-	<<if $PC.slaving > 60>>
+	<<elseif $PC.engineering > 60>>
 		//You are an expert arcology engineer.//
-	<<elseif $PC.slaving > 30>>
+<<else>>
+	<<if $PC.engineering > 30>>
 		//You have some skill as an arcology engineer.//
-	<<elseif $PC.slaving > 10>>
+	<<elseif $PC.engineering > 10>>
 		//You have basic knowledge as an arcology engineer.//
 	<</if>>
 	<<if $personalAttention == "engineering">>
@@ -72,12 +72,12 @@
 		[[Hire an engineer to train you in engineering|Main][$personalAttention = "engineering", $personalAttentionChanged = 1]]
 	<</if>>
 <</if>><br>
-<<if $PC.medicine >= 100>>
+<<if $PC.career == "medicine">>
 	//You are a master surgeon.//
-<<else>>
-	<<if $PC.medicine > 60>>
+	<<elseif $PC.medicine > 60>>
 		//You are an expert surgeon.//
-	<<elseif $PC.medicine > 30>>
+<<else>>
+	<<if $PC.medicine > 30>>
 		//You have some skill as a surgeon.//
 	<<elseif $PC.medicine > 10>>
 		//You have basic knowledge as a surgeon.//

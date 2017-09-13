@@ -13,8 +13,8 @@ You should have received a copy of the GNU General Public License along with thi
 */
 
 <<unset $releaseID>>
-<<set $ver = "0.10.5", $releaseID = COMMIT>>
-<<if ndef $releaseID>><<set $releaseID = 1018>><</if>>
+<<set $ver = "0.10.6", $releaseID = COMMIT>>
+<<if ndef $releaseID>><<set $releaseID = 1019>><</if>>
 
 /* This needs to be broken down into individual files that can be added to StoryInit instead. */
 
@@ -22,10 +22,23 @@ You should have received a copy of the GNU General Public License along with thi
 	<<set _SL = $slaves.length>>
 	<<for _i = 0; _i < _SL; _i++>>
 	<<if $slaves[_i].assignment == "be imported">>
-		<<set $slaves[_i].ID += 50000>>
+		<<set $slaves[_i].ID += 1200000>>
 		<<set $slaves[_i].assignment = "rest">>
 		<<set $slaves[_i].assignmentVisible = 1>>
 		<<set $slaves[_i].weekAcquired = 1>>
+		<<if $slaves[_i].mother > 0>>
+			<<set $slaves[_i].mother += 1200000>>
+		<<elseif $slaves[_i].mother <= -1>>
+			<<set $slaves[_i].mother -= 1200000>>
+		<</if>>
+		<<if $slaves[_i].father > 0>>
+			<<set $slaves[_i].father += 1200000>>
+		<<elseif $slaves[_i].father <= -1>>
+			<<set $slaves[_i].father -= 1200000>>
+		<</if>>
+		<<set $slaves[_i].daughters = 0>>
+		<<set $slaves[_i].sisters = 0>>
+		<<set $slaves[_i].canRecruit = 0>>
 		<<if $arcologies[0].FSRomanRevivalist > 90>>
 			<<set $slaves[_i].nationality = "Roman Revivalist">>
 		<<elseif $arcologies[0].FSAztecRevivalist > 90>>
@@ -40,15 +53,25 @@ You should have received a copy of the GNU General Public License along with thi
 			<<set $slaves[_i].nationality = "Ancient Chinese Revivalist">>
 		<</if>>
 		<<if $slaves[_i].relationTarget != 0>>
-		<<set $slaves[_i].relationTarget += 50000>>
+		<<set $slaves[_i].relationTarget += 1200000>>
 		<</if>>
 		<<if $slaves[_i].relationshipTarget != 0>>
-		<<set $slaves[_i].relationshipTarget += 50000>>
+		<<set $slaves[_i].relationshipTarget += 1200000>>
 		<</if>>
 		<<set $slaves[_i].rivalry = 0, $slaves[_i].rivalryTarget = 0, $slaves[_i].subTarget = 0>>
 	<<else>>
 		<<set _dump = $slaves.deleteAt(_i), _i--, _SL-->>
 	<</if>>
+	<</for>>
+	<<for _k = 0; _k < _SL; _k++>>
+		<<for _i = 0; _i < _SL; _i++>>
+			<<if $slaves[_k].mother == $slaves[_i].ID || $slaves[_k].father == $slaves[_i].ID>>
+				<<set $slaves[_i].daughters += 1>>
+			<</if>>
+			<<if areSisters($slaves[_k], $slaves[_i]) > 0>>
+				<<set $slaves[_i].sisters += 1>>
+			<</if>>
+		<</for>>
 	<</for>>
 	<<for _i = 0; _i < _SL; _i++>>
 	<<if $slaves[_i].relation != 0>>
@@ -81,6 +104,7 @@ You should have received a copy of the GNU General Public License along with thi
 	<</if>>
 	<</for>>
 	<<for _i = 0; _i < _SL; _i++>>
+	<<if $familyTesting == 0>>
 	<<if $slaves[_i].relation == 0>>
 		<<if random(1,100) <= 5>>
 		<<set $slaves[_i].recruiter = "twin">>
@@ -96,6 +120,7 @@ You should have received a copy of the GNU General Public License along with thi
 	<<else>>
 		<<set $slaves[_i].recruiter = 0>>
 	<</if>>
+	<</if>> /*closes family mode */
 	<<set $slaves[_i].milk = 0>>
 	<<set $slaves[_i].cum = 0>>
 	<<set $slaves[_i].births = 0>>
@@ -138,6 +163,7 @@ You should have received a copy of the GNU General Public License along with thi
 <<set $seeNationality = 1>>
 <<set $seeImages = 0>>
 <<set $imageChoice = 0>>
+<<set $seeVectorArtHighlights = 1>>
 <<set $seeMainFetishes = 0>>
 <<set $seeSummaryImages = 1>>
 <<set $seeReportImages = 1>>
@@ -157,6 +183,7 @@ You should have received a copy of the GNU General Public License along with thi
 <<set $showVignettes = 1>>
 <<set $showAppraisal = 1>>
 <<set $positionMainLinks = -1>>
+<<set $showTipsFromEncy = 1>>
 <<set $displayAssignments = 1>>
 <<set $sortSlavesBy = "devotion">>
 <<set $sortSlavesOrder = "descending">>
@@ -201,6 +228,7 @@ You should have received a copy of the GNU General Public License along with thi
 <<set $headGirlTrainsHealth = 1>>
 <<set $headGirlTrainsObedience = 1>>
 <<set $headGirlTrainsFlaws = 1>>
+<<set $headGirlSoftensFlaws = 1>>
 <<set $headGirlTrainsParaphilias = 1>>
 
 <<include "Init Rules">>
@@ -231,7 +259,7 @@ You should have received a copy of the GNU General Public License along with thi
 <<set $independenceDay = 0>>
 <<set $invasionVictory = 0>>
 <<set $daughtersVictory = 0>>
-<<set $startingGirlCopied = 0>>
+<<set $startingGirlCopied = 0, $startingGirlRelation = 0>>
 <<set $archetyped = 0>>
 
 <<set $slavesVisible = 0>>
@@ -373,7 +401,7 @@ You should have received a copy of the GNU General Public License along with thi
 <<set $boobAccessibility = 0>>
 <<set $servantMilkers = 0>>
 <<set $servantMilkersMultiplier = 1>>
-
+<<set $servantMilkersJobs = ["be a servant", "work as a servant", "take classes", "please you", "be a subordinate slave", "stay confined", "recruit girls", "rest"]>>
 <<set $foodCost = 25>>
 
 <<set $legendaryWhoreID = 0>>
@@ -441,13 +469,11 @@ You should have received a copy of the GNU General Public License along with thi
 <<set $shelterAbuse = 0>>
 
 /* master suite reporting and alternate descriptions */
-
+<<set $verboseDescriptions = 0>>
 /* Accordion 000-250-006 */
 <<set $useAccordion = 0>>
 
 <<set $useTabs = 0>>
-
-<<set $verboseDescriptions = 0>>
 
 /* alternate clothing access variables */
 <<set $clothesBoughtBunny = 0>>
@@ -463,9 +489,19 @@ You should have received a copy of the GNU General Public License along with thi
 <<set $clothesBoughtQipao = 0>>
 <<set $clothesBoughtEgypt = 0>>
 <<set $clothesBoughtBelly = 0>>
+<<set $toysBoughtDildos = 0>>
+<<set $toysBoughtGags = 0>>
+<<set $toysBoughtButtPlugs = 0>>
+<<set $toysBoughtButtPlugTails = 0>>
 /* assistant FS appearance variable */
 <<set $assistantFSAppearance = "default">>
 
+/*PM variables */
+<<set $familyTesting = 0>>
+<<set $children = 0>>
+<<set $children = []>>
+<<set $missingParentID = -10000>>
+<<set $startingSlaveRelative = 0>>
 <<set $schoolSuggestion = 0>>
 <<set $TSS = {schoolUpgrade: 0, schoolPresent: 0, schoolProsperity: 0, subsidize: 0, schoolAnnexed: 0, studentsBought: 0, schoolSale: 0}>>
 <<set $GRI = {schoolUpgrade: 0, schoolPresent: 0, schoolProsperity: 0, subsidize: 0, schoolAnnexed: 0, studentsBought: 0, schoolSale: 0}>>
@@ -487,7 +523,6 @@ You should have received a copy of the GNU General Public License along with thi
 <<set $personalAttention = "business">>
 <<set $trainingRegimen = "break her will">>
 <<set $HeadGirl = 0>>
-<<set $HGRelease = 0>>
 <<set $HGTimeInGrade = 0>>
 <<set $HGEnergy = 0>>
 <<set $HGCum = 0>>
@@ -619,37 +654,39 @@ You should have received a copy of the GNU General Public License along with thi
 <<set $ACitizens = 4000>>
 <<set $ASlaves = 1000>>
 
-<<set $sectors = []>>
-<<set $AS = {type: "Penthouse", ownership: 1}>><<set $sectors.push($AS)>>
-<<set $AS = {type: "Empty", ownership: 0}>><<set $sectors.push($AS)>>
-<<set $AS = {type: "Empty", ownership: 0}>><<set $sectors.push($AS)>>
-<<set $AS = {type: "Empty", ownership: 0}>><<set $sectors.push($AS)>>
-<<set $AS = {type: "Empty", ownership: 0}>><<set $sectors.push($AS)>>
-<<set $AS = {type: "Shops", ownership: 1}>><<set $sectors.push($AS)>>
-<<set $AS = {type: "Shops", ownership: 1}>><<set $sectors.push($AS)>>
-<<set $AS = {type: "Shops", ownership: 1}>><<set $sectors.push($AS)>>
-<<set $AS = {type: "Apartments", ownership: 1}>><<set $sectors.push($AS)>>
-<<set $AS = {type: "Apartments", ownership: 1}>><<set $sectors.push($AS)>>
-<<set $AS = {type: "Apartments", ownership: 1}>><<set $sectors.push($AS)>>
-<<set $AS = {type: "Apartments", ownership: 1}>><<set $sectors.push($AS)>>
-<<set $AS = {type: "Apartments", ownership: 1}>><<set $sectors.push($AS)>>
-<<set $AS = {type: "Apartments", ownership: 1}>><<set $sectors.push($AS)>>
-<<set $AS = {type: "Apartments", ownership: 1}>><<set $sectors.push($AS)>>
-<<set $AS = {type: "Apartments", ownership: 1}>><<set $sectors.push($AS)>>
-<<set $AS = {type: "Apartments", ownership: 1}>><<set $sectors.push($AS)>>
-<<set $AS = {type: "Apartments", ownership: 1}>><<set $sectors.push($AS)>>
-<<set $AS = {type: "Apartments", ownership: 1}>><<set $sectors.push($AS)>>
-<<set $AS = {type: "Apartments", ownership: 1}>><<set $sectors.push($AS)>>
-<<set $AS = {type: "Markets", ownership: 1}>><<set $sectors.push($AS)>>
-<<set $AS = {type: "Markets", ownership: 1}>><<set $sectors.push($AS)>>
-<<set $AS = {type: "Markets", ownership: 1}>><<set $sectors.push($AS)>>
-<<set $AS = {type: "Markets", ownership: 1}>><<set $sectors.push($AS)>>
-<<set $AS = {type: "Markets", ownership: 1}>><<set $sectors.push($AS)>>
-<<set $AS = {type: "Manufacturing", ownership: 1}>><<set $sectors.push($AS)>>
-<<set $AS = {type: "Manufacturing", ownership: 1}>><<set $sectors.push($AS)>>
-<<set $AS = {type: "Manufacturing", ownership: 1}>><<set $sectors.push($AS)>>
-<<set $AS = {type: "Manufacturing", ownership: 1}>><<set $sectors.push($AS)>>
-<<set $AS = {type: "Manufacturing", ownership: 1}>><<set $sectors.push($AS)>>
+<<set $sectors = [
+	{type: "Penthouse", ownership: 1},
+	{type: "Empty", ownership: 0},
+	{type: "Empty", ownership: 0},
+	{type: "Empty", ownership: 0},
+	{type: "Empty", ownership: 0},
+	{type: "Shops", ownership: 1},
+	{type: "Shops", ownership: 1},
+	{type: "Shops", ownership: 1},
+	{type: "Apartments", ownership: 1},
+	{type: "Apartments", ownership: 1},
+	{type: "Apartments", ownership: 1},
+	{type: "Apartments", ownership: 1},
+	{type: "Apartments", ownership: 1},
+	{type: "Apartments", ownership: 1},
+	{type: "Apartments", ownership: 1},
+	{type: "Apartments", ownership: 1},
+	{type: "Apartments", ownership: 1},
+	{type: "Apartments", ownership: 1},
+	{type: "Apartments", ownership: 1},
+	{type: "Apartments", ownership: 1},
+	{type: "Markets", ownership: 1},
+	{type: "Markets", ownership: 1},
+	{type: "Markets", ownership: 1},
+	{type: "Markets", ownership: 1},
+	{type: "Markets", ownership: 1},
+	{type: "Manufacturing", ownership: 1},
+	{type: "Manufacturing", ownership: 1},
+	{type: "Manufacturing", ownership: 1},
+	{type: "Manufacturing", ownership: 1},
+	{type: "Manufacturing", ownership: 1}
+]>>
+
 <<for _i = 0; _i < 12; _i++>>
 	<<set _j = random(5,28)>>
 	<<if $sectors[_j].ownership == 1>>
@@ -732,80 +769,54 @@ You should have received a copy of the GNU General Public License along with thi
 <<set $nicaeaInvolvement = -1>>
 <<set $nicaeaPower = 0>>
 <<set $nicaeaHeld = 0>>
+<<set $peacekeepers = 0>>
 
 <<set $oralUseWeight = 5>>
 <<set $vaginalUseWeight = 5>>
 <<set $analUseWeight = 5>>
 
-<<set $niceWeather = []>>
-<<set $weatherToday = {name: "Sunny", severity: 1}>>
-<<set $niceWeather.push($weatherToday)>>
-<<set $weatherToday = {name: "Cloudy", severity: 1}>>
-<<set $niceWeather.push($weatherToday)>>
-<<set $weatherToday = {name: "Partly Cloudy", severity: 1}>>
-<<set $niceWeather.push($weatherToday)>>
-<<set $weatherToday = {name: "Overcast", severity: 1}>>
-<<set $niceWeather.push($weatherToday)>>
-<<set $weatherToday = {name: "Light Wind", severity: 1}>>
-<<set $niceWeather.push($weatherToday)>>
-<<set $weatherToday = {name: "Clear and Calm", severity: 1}>>
-<<set $niceWeather.push($weatherToday)>>
-<<set $weatherToday = {name: "Light Rain", severity: 1}>>
-<<set $niceWeather.push($weatherToday)>>
-<<set $weatherToday = {name: "Heavy Rain", severity: 1}>>
-<<set $niceWeather.push($weatherToday)>>
-<<set $weatherToday = {name: "Smoke warning", severity: 1}>>
-<<set $niceWeather.push($weatherToday)>>
+<<set $niceWeather = [
+	{name: "Sunny", severity: 1},
+	{name: "Cloudy", severity: 1},
+	{name: "Partly Cloudy", severity: 1},
+	{name: "Overcast", severity: 1},
+	{name: "Light Wind", severity: 1},
+	{name: "Clear and Calm", severity: 1},
+	{name: "Light Rain", severity: 1},
+	{name: "Heavy Rain", severity: 1},
+	{name: "Smoke warning", severity: 1},
+]>>
 
-<<set $lightWeather = []>>
-<<set $weatherToday = {name: "High Winds", severity: 2}>>
-<<set $lightWeather.push($weatherToday)>>
-<<set $weatherToday = {name: "Acid Rain", severity: 2}>>
-<<set $lightWeather.push($weatherToday)>>
-<<set $weatherToday = {name: "T-Storm Warning", severity: 2}>>
-<<set $lightWeather.push($weatherToday)>>
-<<set $weatherToday = {name: "Flood Warning", severity: 2}>>
-<<set $lightWeather.push($weatherToday)>>
-<<set $weatherToday = {name: "Tornado Warning", severity: 2}>>
-<<set $lightWeather.push($weatherToday)>>
-<<set $weatherToday = {name: "Light Sandstorm", severity: 2}>>
-<<set $lightWeather.push($weatherToday)>>
-<<set $weatherToday = {name: "High Heat", severity: 2}>>
-<<set $lightWeather.push($weatherToday)>>
-<<set $weatherToday = {name: "Smoky", severity: 2}>>
-<<set $lightWeather.push($weatherToday)>>
+<<set $lightWeather = [
+	{name: "High Winds", severity: 2},
+	{name: "Acid Rain", severity: 2},
+	{name: "T-Storm Warning", severity: 2},
+	{name: "Flood Warning", severity: 2},
+	{name: "Tornado Warning", severity: 2},
+	{name: "Light Sandstorm", severity: 2},
+	{name: "High Heat", severity: 2},
+	{name: "Smoky", severity: 2},
+]>>
 
-<<set $heavyWeather = []>>
-<<set $weatherToday = {name: "Extreme Winds", severity: 3}>>
-<<set $heavyWeather.push($weatherToday)>>
-<<set $weatherToday = {name: "Heavy Acid Rain", severity: 3}>>
-<<set $heavyWeather.push($weatherToday)>>
-<<set $weatherToday = {name: "Extreme T-storm", severity: 3}>>
-<<set $heavyWeather.push($weatherToday)>>
-<<set $weatherToday = {name: "Flooding", severity: 3}>>
-<<set $heavyWeather.push($weatherToday)>>
-<<set $weatherToday = {name: "Tornadoes", severity: 3}>>
-<<set $heavyWeather.push($weatherToday)>>
-<<set $weatherToday = {name: "Sandstorm", severity: 3}>>
-<<set $heavyWeather.push($weatherToday)>>
-<<set $weatherToday = {name: "Extreme Heat", severity: 3}>>
-<<set $heavyWeather.push($weatherToday)>>
-<<set $weatherToday = {name: "Dense Smoke", severity: 3}>>
-<<set $heavyWeather.push($weatherToday)>>
+<<set $heavyWeather = [
+	{name: "Extreme Winds", severity: 3},
+	{name: "Heavy Acid Rain", severity: 3},
+	{name: "Extreme T-storm", severity: 3},
+	{name: "Flooding", severity: 3},
+	{name: "Tornadoes", severity: 3},
+	{name: "Sandstorm", severity: 3},
+	{name: "Extreme Heat", severity: 3},
+	{name: "Dense Smoke", severity: 3},
+]>>
 
-<<set $extremeWeather = []>>
-<<set $weatherToday = {name: "Solar Flare", severity: 4}>>
-<<set $extremeWeather.push($weatherToday)>>
-<<set $weatherToday = {name: "Ion Storm", severity: 4}>>
-<<set $extremeWeather.push($weatherToday)>>
-<<set $weatherToday = {name: "Cataclysmic Rains", severity: 4}>>
-<<set $extremeWeather.push($weatherToday)>>
-<<set $weatherToday = {name: "Cat 6 Hurricane", severity: 4}>>
-<<set $extremeWeather.push($weatherToday)>>
-<<set $weatherToday = {name: "Abrasive Sandstorm", severity: 4}>>
-<<set $extremeWeather.push($weatherToday)>>
-<<set $weatherToday = {name: "Radiological Warning", severity: 4}>>
-<<set $extremeWeather.push($weatherToday)>>
+<<set $extremeWeather = [
+	{name: "Solar Flare", severity: 4},
+	{name: "Ion Storm", severity: 4},
+	{name: "Cataclysmic Rains", severity: 4},
+	{name: "Cat 6 Hurricane", severity: 4},
+	{name: "Abrasive Sandstorm", severity: 4},
+	{name: "Radiological Warning", severity: 4},
+]>>
 
 <<set $weatherToday = $niceWeather.random()>>
 

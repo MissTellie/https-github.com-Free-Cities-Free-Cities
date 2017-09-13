@@ -149,7 +149,6 @@
 	Your arcology's culture is capable of starting to exert cultural sway over other arcologies. It can project $desc[0].
 <</if>>
 
-<br>
 <<for $i = 0; $i < $arcologies.length; $i++>>
   <<if $arcologies[$i].direction == $activeArcology.direction>>
 	<<include "Neighbor Description">>
@@ -202,6 +201,8 @@ A 1% interest in $activeArcology.name is worth ¤$seed and will require a transa
 			Her sexually dominant fetish helps her fill a leadership role.
 		<<elseif ($leaders[$j].fetish == "submissive") || ($leaders[$j].fetish == "masochist")>>
 			Unfortunately, she has an inappropriate fetish for a leader.
+		<<else>>
+			Her sexual fetishes will influence how she leads the arcology.
 		<</if>>
 		<</if>>
 		<<if $leaders[$j].energy > 95>>

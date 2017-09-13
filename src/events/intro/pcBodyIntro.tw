@@ -64,7 +64,13 @@ I'm
 
 <br><br>
 
-Name your character: <<textbox "$PC.name" $PC.name "PC Body Intro">>
+Name your character: <<textbox "$PC.name" $PC.name "PC Body Intro">> (surname)
+<<if $PC.surname>>
+	<<textbox "$PC.surname" $PC.surname "PC Body Intro">>
+	<<link "Go by a single name">><<set $PC.slaveSurname = 0>><<goto "PC Body Intro">><</link>>
+<<else>>
+	<<textbox "$PC.surname" "" "PC Body Intro">>
+<</if>>
 <br>&nbsp;&nbsp;&nbsp;&nbsp;
 //As with all text boxes in FC, press the enter key to commit your changes.//
 <br>

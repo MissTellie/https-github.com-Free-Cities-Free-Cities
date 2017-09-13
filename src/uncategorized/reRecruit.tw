@@ -333,7 +333,7 @@ After a short while, your assistant whispers in your earpiece, <<if $assistant =
 <<set $activeSlave.lips += 10>>
 <<set $activeSlave.lipsImplant = 10>>
 <<set $activeSlave.face = Math.clamp($activeSlave.face+20,-100,100)>>
-<<set $activeSlave.faceImplant = 1>>
+<<set $activeSlave.faceImplant = 15>>
 <<set $activeSlave.earPiercing = random(0,1)>>
 <<set $activeSlave.navelPiercing = random(0,1)>>
 <<set $activeSlave.nosePiercing = random(0,1)>>
@@ -396,7 +396,7 @@ Given the damage to an expensive classic car and the meager balance of her bank 
 <<set $activeSlave.trust = random(-25,-5)>>
 <<set $activeSlave.health = random(20,40)>>
 <<set $activeSlave.face = random(20,60)>>
-<<set $activeSlave.faceImplant = 1>>
+<<set $activeSlave.faceImplant = 15>>
 <<set $activeSlave.vaginalSkill = 0>>
 <<set $activeSlave.analSkill = random(0,40)>>
 <<set $activeSlave.oralSkill = random(0,40)>>
@@ -472,14 +472,14 @@ The situation does yield a few business opportunities too, as not all of the guy
 <<set $activeSlave.trust = random(-25,-5)>>
 <<set $activeSlave.health = random(10,30)>>
 <<set $activeSlave.face = random(20,60)>>
-<<set $activeSlave.faceImplant = 1>>
+<<set $activeSlave.faceImplant = 15>>
 <<set $activeSlave.vaginalSkill = 0>>
 <<set $activeSlave.analSkill = 0>>
 <<set $activeSlave.oralSkill = random(15,40)>>
 <<set $activeSlave.whoreSkill = 0>>
 <<set $activeSlave.age = random(18,21)>>
-<<set $activeSlave.boobs = 150>>
 <<set $activeSlave.boobsImplant = random(3,6)*100>>
+<<set $activeSlave.boobs = $activeSlave.boobsImplant+150>>
 <<set $activeSlave.vagina = 0>>
 <<set $activeSlave.vaginalSkill = 0>>
 <<set $activeSlave.ovaries = 0>>
@@ -510,7 +510,7 @@ It isn't just all natural females either, as a few men also jumped on the bandwa
 <<set $activeSlave.trust = random(-25,-5)>>
 <<set $activeSlave.health = random(10,30)>>
 <<set $activeSlave.face = random(20,60)>>
-<<set $activeSlave.faceImplant = 1>>
+<<set $activeSlave.faceImplant = 15>>
 <<set $activeSlave.vaginalSkill = 0>>
 <<set $activeSlave.analSkill = 0>>
 <<set $activeSlave.oralSkill = 35>>
@@ -548,7 +548,7 @@ It isn't just all natural females either, as a few men also jumped on the bandwa
 <<set $activeSlave.trust = random(-20,-5)>>
 <<set $activeSlave.health = random(0,20)>>
 <<set $activeSlave.face = Math.clamp($activeSlave.face+20,-100,100)>>
-<<set $activeSlave.faceImplant = 1>>
+<<set $activeSlave.faceImplant = 15>>
 <<set $activeSlave.analSkill = 0>>
 <<set $activeSlave.oralSkill = 0>>
 <<set $activeSlave.whoreSkill = 0>>
@@ -825,7 +825,7 @@ The young woman is best described as being 'angelic', in a stereotypical Western
 <<set $activeSlave.devotion = random(-15,10)>>
 <<set $activeSlave.trust = random(-20,10)>>
 <<set $activeSlave.health = random(30,50)>>
-<<set $activeSlave.shoulders = random(1, 2)>>
+<<set $activeSlave.shoulders = random(1,2)>>
 <<set $activeSlave.face = random(20,60)>>
 <<set $activeSlave.vaginalSkill = 0>>
 <<set $activeSlave.analSkill = random(0,15)>>
@@ -1106,7 +1106,7 @@ As you're working on some boring administrative matters, a courier comes to your
 <br><br>
 From the looks of all the brochures and extra information included, the association's president is well-versed in how the Free Cities are run... leading him to promote his group directly to you. And not only that - in an effort to curry favor, he included a slave's records, including an offer to buy the obedient breeding bull (a dickgirl) from his own stable for an almost ridiculously low price.
 <br><br>
-//Checking her stats and the videos included, you see the dickgirl is healthy and well cared for, fitting for a prized breeder of countless milk cows. She's fathered countless offspring already and will yield quite a bit of cum if her cock is milked. With the registration and all, it'll still just take ¤2500 to buy her and add her to your own slave lineup.//
+//Checking her stats and the videos included, you see the dickgirl is healthy and well cared for, fitting for a prized breeder of countless milk cows. She's sired countless offspring already and will yield quite a bit of cum if her cock is milked. With the registration and all, it'll still just take ¤2500 to buy her and add her to your own slave lineup.//
 
 <<case "farm virgin cow">>
 
@@ -1193,6 +1193,9 @@ Knowing what's coming, the teachers in the facility do train their pupils accord
 <<set $activeSlave.trust = random(-25,0)>>
 <<set $activeSlave.health = random(10,40)>>
 <<set $activeSlave.face = random(20,60)>>
+<<if $activeSlave.faceShape == "masculine">>
+	<<set $activeSlave.faceShape = "cute">>
+<</if>>
 <<set $activeSlave.vaginalSkill = 0>>
 <<set $activeSlave.analSkill = 15>>
 <<set $activeSlave.oralSkill = 35>>
@@ -1258,8 +1261,9 @@ Knowing what's coming, the teachers in the facility do train their pupils accord
 <<set $activeSlave.fetish = "humiliation">>
 <<set $activeSlave.behavioralFlaw = "arrogant">>
 <<set $activeSlave.nationality = "American">>
-<<set $activeSlave.birthName = setup.whiteAmericanSlaveNames.random(), $activeSlave.birthSurname = setup.whiteAmericanSlaveSurnames.random()>>
 <<set $activeSlave.race = "white">>
+<<NationalityToName $activeSlave>>
+<<NationalityToAccent $activeSlave>>
 <<set $activeSlave.skin = "tanned">>
 <<set $activeSlave.voice = 3>>
 <<set $activeSlave.boobShape = "perky">>
@@ -1294,6 +1298,7 @@ At any rate, she's a fine capture. And unsurprisingly, they want to get rid of h
 <<set $activeSlave.health = random(-80,-60)>>
 <<set $activeSlave.intelligence = -1>>
 <<set $activeSlave.intelligenceImplant = 0>>
+<<set $activeSlave.career = setup.uneducatedCareers.random()>>
 
 A call comes in from an old world household. The caller appears on your screen, a worn down matronly woman flanked by her two daughters. The middle-aged mother addresses you in a formal yet halting manner, as if rehearsing an unfamiliar speech. "I don't know how closely you watch the old world from where you are, but finding steady work without an education is becoming increasingly difficult".
 <br><br>

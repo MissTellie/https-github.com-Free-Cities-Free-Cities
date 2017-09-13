@@ -2,7 +2,54 @@
 
 //
 <<set $target = "">>
-<<if ($activeSlave.relation !== 0) && (random(1,100) > 80)>>
+<<if $familyTesting == 1 && totalRelatives($activeSlave) > 0 && random(1,100) > 80>>
+	<<set $relations = 0>>
+	<<set $relations = []>>
+	<<if $activeSlave.sisters > 0>>
+		<<for _j = 0; _j < $slaves.length; _j++>>
+			<<if areSisters($activeSlave, $slaves[_j]) > 0>>
+				<<set $relations.push($slaves[_j])>>
+			<</if>>
+		<</for>>
+	<</if>>
+	<<if $activeSlave.daughters > 0>>
+		<<for _j = 0; _j < $slaves.length; _j++>>
+			<<if $slaves[_j].mother == $activeSlave.ID || $slaves[_j].father == $activeSlave.ID>>
+				<<set $relations.push($slaves[_j])>>
+			<</if>>
+		<</for>>
+	<</if>>
+	<<if $activeSlave.mother > 0>>
+		<<set _j = $slaves.find(function(s) { return s.ID == $activeSlave.mother; })>>
+		<<if _j != -1>>
+			<<set $relations.push($slaves[_j])>>
+		<</if>>
+	<</if>>
+	<<if $activeSlave.father > 0>>
+		<<set _j = $slaves.find(function(s) { return s.ID == $activeSlave.father; })>>
+		<<if _j != -1>>
+				<<set $relations.push($slaves[_j])>>
+		<</if>>
+	<</if>>
+	<<set $relation = $relations.random()>>
+	<<if $relation.mother == $activeSlave.ID || $relation.father == $activeSlave.ID>>
+		<<set $relationType = "daughter">>
+	<<elseif $activeSlave.mother == $relation.ID>>
+		<<set $relationType = "mother">>
+	<<elseif $activeSlave.father == $relation.ID>>
+		<<set $relationType = "father">>
+	<<else>>
+		<<switch areSisters($activeSlave, $relation)>>
+		<<case 1>>
+			<<set $relationType = "twin">>
+		<<case 2>>
+			<<set $relationType = "sister">>
+		<<case 3>>
+			<<set $relationType = "half-sister">>
+		<</switch>>
+	<</if>>
+	<<set _seed = 110, $partner = "relation">>
+<<elseif $familyTesting == 0 && ($activeSlave.relation !== 0) && (random(1,100) > 80)>>
 	<<set _seed = 110, $partner = "relation">>
 <<elseif ($activeSlave.relationship > 0) && (random(1,100) > 70)>>
 	<<set _seed = 120, $partner = "relationship">>
@@ -213,8 +260,6 @@
 /%
 	<<case "guard you">>
 		is standing discreetly behind your left shoulder, watching for threats. She has a straight ceramic sword strapped to her back and a machine pistol at her hip.
-	<<case "be the Collectrix">>
-		is working in the collection facility, looking after your stock.
 %/
 	<<default>> /* WALKPASTS START HERE */
 
@@ -331,11 +376,11 @@
 
 	Meanwhile,
 	<<if $activeSlave.rivalry >= 3>>
-		_partnerSlave.slaveName, who she hates,
+		_partnerSlave.slaveName, whom she hates,
 	<<elseif $activeSlave.rivalry >= 2>>
 		her rival _partnerSlave.slaveName
 	<<else>>
-		_partnerSlave.slaveName, who she dislikes,
+		_partnerSlave.slaveName, whom she dislikes,
 	<</if>>
 
 	<<switch _partnerSlave.assignment>>
@@ -503,7 +548,6 @@
 		<<goto "Main">>
 	<</if>>
 
-	<<SexualRelease $activeSlave>>
 	$activeSlave.slaveName and _partnerSlave.slaveName are
 	<<set _seed = random(1,3)>>
 	<<if _seed == 1>> /* SEXY TIMES */
@@ -600,7 +644,7 @@
 			with $activeSlave.slaveName hungrily sucking her _activeSlaveRel's limp cock. She has a finger massaging poor impotent _partnerSlave.slaveName's perineum in the hope of stimulating her so she can cum for her.
 			<<set _partnerSlave.penetrativeCount++, $penetrativeTotal++>>
 		<<else>>
-			and $activeSlave.slaveName is sating her oral fixation for the moment by eagerly polishing _activeSlaveRel's pearl.
+			and $activeSlave.slaveName is sating her oral fixation for the moment by eagerly polishing her _activeSlaveRel's pearl.
 			<<set _partnerSlave.oralCount++, $oralTotal++>>
 		<</if>>
 		<<set $activeSlave.oralCount++, $oralTotal++>>
@@ -675,7 +719,7 @@
 			<<set $activeSlave.oralCount++, _partnerSlave.oralCount++, $oralTotal += 2>>
 		<</if>>
 	<</switch>>
-	<<elseif ($release == 1)>>
+	<<elseif !$activeSlave.need>>
 		just spooning in bed. Since $activeSlave.slaveName gets fucked at work, _partnerSlave.slaveName understands that what she really wants from her is emotional intimacy. They're cuddling quietly, offering each other silent comfort and companionship.
 	<<elseif ($activeSlave.dick > 1) && canPenetrate($activeSlave) && (_partnerSlave.vagina > 0) && canDoVaginal(_partnerSlave) && (_partnerSlave.amp != 1) && ($activeSlave.amp != 1)>>
 		<<if $activeSlave.livingRules == "luxurious">>in bed in the nice little room they share,<<else>>out in the open on $activeSlave.slaveName's bedroll in the slave dormitory,<</if>> making love in the missionary position. _partnerSlave.slaveName has her legs wrapped around $activeSlave.slaveName's waist and her arms hugging her around the chest, and is looking deep into her eyes as she enjoys the wonderful feeling of her _activeSlaveRel's cock in her womanhood.
@@ -803,12 +847,16 @@
 <<elseif ($partner == "relationship") || ($partner == "relation")>>
 	<<set _partnerSlave = null>>
 	<<if ($partner == "relation")>>
-		<<for _i = 0; _i < $slaves.length; _i++>>
-			<<if $slaves[_i].ID == $activeSlave.relationTarget>>
-				<<set _partnerSlave = $slaves[_i]>>
-				<<break>>
-			<</if>>
-		<</for>>
+		<<if $familyTesting == 1>>
+			<<set _partnerSlave = $relation>>
+		<<else>>
+			<<for _i = 0; _i < $slaves.length; _i++>>
+				<<if $slaves[_i].ID == $activeSlave.relationTarget>>
+					<<set _partnerSlave = $slaves[_i]>>
+					<<break>>
+				<</if>>
+			<</for>>
+		<</if>>
 	<<else>>
 		<<for _i = 0; _i < $slaves.length; _i++>>
 			<<if $slaves[_i].ID == $activeSlave.relationshipTarget>>
@@ -832,7 +880,7 @@
 		<<goto "Main">>
 	<</if>>
 
-	Her <<if ($partner == "relation")>>_partnerSlave.relation<<else>>_activeSlaveRel<</if>> _partnerSlave.slaveName
+	Her <<if ($partner == "relation")>><<if $familyTesting == 1>>$relationType<<else>>_partnerSlave.relation<</if>><<else>>_activeSlaveRel<</if>> _partnerSlave.slaveName
 	<<switch _partnerSlave.assignment>>
 	<<case "stay confined">>
 		is confined, but you have a fine view of her <<if $seeRace == 1>>_partnerSlave.race body <</if>>on the feed from her cell.
@@ -1059,6 +1107,7 @@
 		Her blouse lewdly displays her <<if $activeSlave.boobs < 300>>$activeSlave.nipples nipples<<else>>breasts<</if>>.
 	<<case "a kimono">>
 	<<case "a hijab and abaya">>
+	<<case "a huipil">>
 	<<case "battledress">>
 		<<if $activeSlave.boobs < 300>>
 			As she moves, you can occasionally spot her lack of undergarments.
@@ -1597,7 +1646,8 @@
 	<</switch>>
 	<<set $target = "FAnus">>
 <<elseif (_seed > 0)>>
-	<<LipsDescription>>
+	<<faceDescription>>
+	<<mouthDescription>>
 	<<switch $activeSlave.collar>>
 	<<case "a Fuckdoll suit">>
 		Its suit is expressly designed to encourage use of its face hole.
@@ -1607,6 +1657,8 @@
 		Her tight steel collar makes her swallow and lick her lips periodically, making it look like she's offering oral even though she's just trying to relieve the discomfort.
 	<<case "dildo gag">>
 		Her ring gag would make her ready for oral service, as soon as the formidable dildo it secures down her throat is removed.
+	<<case "massive dildo gag">>
+		Your eyes are drawn to the distinct bulge in her throat caused by the enormous dildo in it, though her mouth would only be suitable for the largest of cocks right now.
 	<<case "shock punishment">>
 		Her shock collar rests threateningly at her throat, ready to compel her to do anything you wish.
 	<<case "neck corset">>
@@ -1643,7 +1695,10 @@
 	<<if (_seed <= 80) && (_seed > 40) && ($activeSlave.vaginalAccessory == "chastity belt")>>
 		//If you wish to have vanilla intercourse with her you must order her to remove her chastity belt.//
 	<<elseif _seed > 100>>
+		<<if $familyTesting == 1 && _seed == 110>>
+		<<else>>
 		<span id="walkpast"><<link "Summon them both">><<replace "#walk">><<include $target>><</replace>><</link>></span>
+		<</if>>
 	<<elseif $activeSlave.assignment == "stay confined">>
 		<span id="walkpast"><<link "Have her brought out of her cell">><<replace "#walk">><<include $target>><</replace>><</link>></span>
 	<<elseif ($activeSlave.assignment == "work in the dairy") && ($dairyRestraintsSetting > 1)>>

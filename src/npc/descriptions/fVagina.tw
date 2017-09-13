@@ -1,5 +1,15 @@
 :: FVagina [nobr]
 
+/* 000-250-006 */
+<<if $seeImages == 1>>
+<<if $imageChoice == 1>>
+    <div class="imageRef lrgVector"><<SlaveArt $activeSlave 2 0>></div>
+<<else>>
+    <div class="imageRef lrgRender"><<SlaveArt $activeSlave 2 0>></div>
+<</if>>
+<</if>>
+/* 000-250-006 */
+
 <<SlaveTitle $activeSlave>>
 <<set $activeSlave.currentSummary = 0>>
 
@@ -109,12 +119,19 @@ You decide to fuck her
 	Since she's a quadruple amputee, she's yours to use as a human sex toy. You set her
 	<<if ($PC.dick != 0)>>
 		atop your cock and slide her up and down, managing her with your arms.
-		<<if $activeSlave.dickAccessory == "chastity">>
-			Her dick chastity keeps her useless bitchclit out of the way.
-		<<elseif ($activeSlave.vagina == -1) && ($activeSlave.hormones > 0) && ($activeSlave.balls != 0)>>
-			As you use her as a helpless cock jacket, her flaccid dick flops around, ignored.
-		<<elseif ($activeSlave.vagina == -1)>>
-			As you use her as a helpless cock jacket, your pounding keeps her prick stiff.
+		<<if $activeSlave.dick > 0>>
+			<<if $activeSlave.dickAccessory == "chastity" || $activeSlave.dickAccessory == "combined chastity">>
+				Her dick chastity keeps her useless bitchclit out of the way.
+			<<elseif !canAchieveErection($activeSlave)>>
+				As you use her as a helpless cock jacket, her 
+				<<if $activeSlave.dick < 7>>
+					flaccid dick flops around, ignored.
+				<<else>>
+					massive dick flops against you, no longer able to get hard.
+				<</if>>
+			<<else>>
+				As you use her as a helpless cock jacket, your pounding keeps her prick stiff.
+			<</if>>
 		<</if>>
 		You finish inside her and leave your toy for one of your other slaves to clean and maintain.
 	<<else>>
@@ -137,12 +154,12 @@ You decide to fuck her
 	<</if>>
 	you can feel her heart beating hard. As the sex reaches its climax, she begs you to cum inside her unworthy body.
 	<<if ($activeSlave.dick != 0) && canAchieveErection($activeSlave)>>
-		<<if $activeSlave.dickAccessory == "chastity">>
+		<<if $activeSlave.dickAccessory == "chastity" || ($activeSlave.dickAccessory == "combined chastity")>>
 			She does her submissive best to stay completely soft within her dick chastity.
 		<<else>>
 			As a submissive she spares no attention for her own orgasm, so her rock hard erection swings untended.
 		<</if>>
-	<<elseif ($activeSlave.dickAccessory == "chastity")>>
+	<<elseif ($activeSlave.dickAccessory == "chastity") || ($activeSlave.dickAccessory == "combined chastity")>>
 		Her cock is forgotten inside its chastity cage as you take what you want from her.
 	<<elseif ($activeSlave.dick != 0)>>
 		As a submissive she spares no attention for her own orgasm, so her flaccid cock swings untended.
@@ -158,12 +175,12 @@ You decide to fuck her
 		bend the disobedient slave over your desk and take  her hard from behind. Her breasts <<if ($activeSlave.dick != 0)>>and cock <</if>>slide back and forth across the desk. You give her buttocks some nice hard swats as you pound her. She grunts and moans but knows better than to try to get away.
 		<<if ($activeSlave.dick != 0) && canAchieveErection($activeSlave)>>
 			Despite her unwillingness to be raped, the stimulation
-			<<if $activeSlave.dickAccessory == "chastity">>
+			<<if $activeSlave.dickAccessory == "chastity" || ($activeSlave.dickAccessory == "combined chastity")>>
 				starts to give her an erection, which her dick chastity makes horribly uncomfortable. She bucks with the pain, her hole spasming delightfully.
 			<<else>>
 				gives her an erection. She's mortified that she would get hard while being raped.
 			<</if>>
-		<<elseif ($activeSlave.dickAccessory == "chastity")>>
+		<<elseif ($activeSlave.dickAccessory == "chastity") || ($activeSlave.dickAccessory == "combined chastity")>>
 			Her dick chastity keeps her bitch cock hidden away while you use her whore hole.
 		<<elseif ($activeSlave.dick != 0)>>
 			Her flaccid dick is ground into the back of the couch as you rape her.
@@ -180,12 +197,12 @@ You decide to fuck her
 	<<if ($PC.dick != 0)>>
 		She obeys, lying on the couch next to your desk with her legs spread. You kneel on the ground and enter her, a hand on each of her legs to give you a good grip. <<if _fSpeed > 75>>The pounding is hard and fast<<elseif _fSpeed > 50>>You pound her firmly and vigorously<<elseif _fSpeed > 25>>You fuck her steadily and controlled<<else>>You fuck her slowly and tenderly<</if>>, and she gasps and <<if _fSpeed > 50>>whines<<else>>moans<</if>>. You reach a hand down to maul her breasts.
 		<<if ($activeSlave.dick != 0) && canAchieveErection($activeSlave)>>
-			<<if ($activeSlave.dickAccessory == "chastity")>>
+			<<if ($activeSlave.dickAccessory == "chastity") || ($activeSlave.dickAccessory == "combined chastity")>>
 				She enjoys herself, even though her dick chastity keeps her soft by making the beginnings of erection very uncomfortable.
 			<<else>>
 				She bites her lip and moans as she climaxes. You fill her squeezing fuckhole with your cum. She already dribbled her own weak load all over her stomach.
 			<</if>>
-		<<elseif ($activeSlave.dickAccessory == "chastity")>>
+		<<elseif ($activeSlave.dickAccessory == "chastity") || ($activeSlave.dickAccessory == "combined chastity")>>
 			She bites her lip and moans as she climaxes. You fill her squeezing fuckhole with your cum. Precum has been dribbling out of her dick chastity for some time, apparently the best her soft bitchclit can manage.
 		<<elseif ($activeSlave.dick != 0)>>
 			She bites her lip and moans as she climaxes. You fill her squeezing fuckhole with your cum. She already blew her own load all over her stomach despite her inability to get hard.
@@ -213,13 +230,13 @@ You decide to fuck her
 			She begins to tire as you keep pounding;
 		<</if>>
 		you can feel her heart beating hard. As the sex reaches its climax, her kisses grow urgent and passionate.
-		<<if ($activeSlave.dick != 0) && ($activeSlave.hormones < 1) && ($activeSlave.balls != 0)>>
-			<<if $activeSlave.dickAccessory == "chastity">>
+		<<if ($activeSlave.dick != 0) && canAchieveErection($activeSlave)>>
+			<<if $activeSlave.dickAccessory == "chastity" || ($activeSlave.dickAccessory == "combined chastity")>>
 				She enjoys herself, even though her dick chastity keeps her soft by making the beginnings of erection very uncomfortable.
 			<<else>>
 				When you orgasm together, her erect cock squirts cum up towards her tits while your cock fills her with cum.
 			<</if>>
-		<<elseif ($activeSlave.dickAccessory == "chastity")>>
+		<<elseif ($activeSlave.dickAccessory == "chastity") || ($activeSlave.dickAccessory == "combined chastity")>>
 			She bites her lip and moans as she climaxes. You fill her squeezing fuckhole with your cum. Precum has been dribbling out of her dick chastity for some time, apparently the best her soft bitchclit can manage.
 		<<elseif ($activeSlave.dick != 0)>>
 			When you orgasm together, her limp, neglected cock dribbles weakly while your cock fills her with cum.
@@ -235,7 +252,7 @@ You decide to fuck her
 		You pat the tops of your thighs, and she skips over smiling and gives you a quick kiss. Without breaking the lip lock, she sits down, wrapping her legs around you. Your hands reach around her and seize her buttocks, drawing her in even closer so that the warmth between her legs is pressed hard against your pussy, and you can play with her asshole. She grinds enthusiastically against you, moaning into your mouth with pleasure.
 	<</if>>
 <</if>>
-<<if ($activeSlave.vagina >= 0) && ($activeSlave.vaginalAccessory != "chastity belt")>>
+<<if canDoVaginal($activeSlave)>>
 	<<VaginalVCheck>>
 <<else>>
 	<<AnalVCheck>>
@@ -253,7 +270,7 @@ You decide to fuck her
 <<elseif (random(1,100) > (110 - $activeSlave.devotion))>>
 	<<if ($activeSlave.fetish == "none") && ($activeSlave.energy <= 95) && ($activeSlave.sexualFlaw != "hates penetration")>>
 		Enjoying sex with you seems to have @@.lightcoral;encouraged her biological clock.@@
-		<<set $activeSlave.fetish = "pregnancy", $activeSlave.fetishKnown = 1>>
+		<<set $activeSlave.fetish = "pregnancy", $activeSlave.fetishKnown = 1, $activeSlave.fetishStrength = 10>>
 	<</if>>
 <</if>>
 

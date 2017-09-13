@@ -63,7 +63,7 @@ Worthy of consideration is that although the $mercenariesTitle will enslave the 
 	<<set $activeSlave.butt += 1>>
 	<<set $activeSlave.buttImplant += 1>>
 	<<set $activeSlave.face = 55>>
-	<<set $activeSlave.faceImplant += 1>>
+	<<set $activeSlave.faceImplant += 20>>
 	<<set $activeSlave.anus = 1>>
 	<<set $activeSlave.vagina = 1>>
 	<<set $activeSlave.analCount += 1>>
@@ -96,7 +96,7 @@ Worthy of consideration is that although the $mercenariesTitle will enslave the 
 	<<set $activeSlave.age = random(18,22)>>
 	<<set $activeSlave.career = "a student">>
 	<<set $activeSlave.face = random(-20,0)>>
-	<<set $activeSlave.anus to 0>>
+	<<set $activeSlave.anus = 0>>
 	<<set $activeSlave.vagina = 1>>
 	<<set $activeSlave.vaginalSkill = 0>>
 	<<set $activeSlave.analSkill = 0>>
@@ -129,7 +129,7 @@ Worthy of consideration is that although the $mercenariesTitle will enslave the 
 	<<set $activeSlave.career = "a military officer">>
 	<<set $activeSlave.prestige = 1>>
 	<<set $activeSlave.face = Math.clamp($activeSlave.face+20,-100,100)>>
-	<<set $activeSlave.faceImplant = 1>>
+	<<set $activeSlave.faceImplant += 20>>
 	<<set $activeSlave.analSkill = 0>>
 	<<set $activeSlave.oralSkill = 0>>
 	<<set $activeSlave.whoreSkill = 0>>
@@ -143,6 +143,7 @@ Worthy of consideration is that although the $mercenariesTitle will enslave the 
 	<<set $activeSlave.preg = 0>>
 	<<set $activeSlave.dick = random(3,5)>>
 	<<set $activeSlave.balls = random(2,4)>>
+	<<set $activeSlave.scrotum = $activeSlave.balls>>
 	<<set $activeSlave.anus = 0>>
 	<<set $activeSlave.weight = 0>>
 	<<set $activeSlave.muscles = 50>>
@@ -178,21 +179,21 @@ Worthy of consideration is that although the $mercenariesTitle will enslave the 
 	is a hospital located in an impoverished Old World City. Despite its crime ridden surroundings, the hospital possesses a sterling reputation as a result of its distinguished staff of veteran doctors and nurses. Chief among these medical professionals is a female doctor, an accomplished pioneer in her field.
 <<elseif $origin == "nun">>
 	<<include "Generate XX Slave">>
-	<<set $activeSlave.career to "a nun">>
-	<<set $activeSlave.anus to 0>>
-	<<set $activeSlave.vagina to 0>>
-	<<set $activeSlave.weight to random(-20,-100)>>
-	<<set $activeSlave.attrXX to random(10,50)>>
-	<<set $activeSlave.attrXY to random(10,50)>>
-	<<set $activeSlave.energy to random(5,20)>>
+	<<set $activeSlave.career = "a nun">>
+	<<set $activeSlave.anus = 0>>
+	<<set $activeSlave.vagina = 0>>
+	<<set $activeSlave.weight = random(-20,-100)>>
+	<<set $activeSlave.attrXX = random(10,50)>>
+	<<set $activeSlave.attrXY = random(10,50)>>
+	<<set $activeSlave.energy = random(5,20)>>
 	<<set $activeSlave.vaginalSkill = 0>>
 	<<set $activeSlave.oralSkill = 15>>
 	<<set $activeSlave.analSkill = 0>>
 	<<set $activeSlave.whoreSkill = 0>>
 	<<set $activeSlave.entertainSkill = 0>>
-	<<set $activeSlave.age to random(18,$retirementAge-1)>>
-	<<set $activeSlave.behavioralFlaw to "devout">>
-	<<set $activeSlave.sexualFlaw to "repressed">>
+	<<set $activeSlave.age = random(18,$retirementAge-1)>>
+	<<set $activeSlave.behavioralFlaw = "devout">>
+	<<set $activeSlave.sexualFlaw = "repressed">>
 	is a reclusive religious community in a mountain range between two current conflict zones. The members of the community have withdrawn from the collapsing social order of the world and established a commune in their mountain retreat, filling their days with peaceful reflection and prayer. Though the nuns have no true leader, one among them has emerged as the most pious of the sisters.
 <<elseif $origin == "journalist">>
 	<<include "Generate XX Slave">>
@@ -200,15 +201,15 @@ Worthy of consideration is that although the $mercenariesTitle will enslave the 
 	<<set $activeSlave.career = "a journalist">>
 	<<set $activeSlave.prestige = 1>>
 	<<set $activeSlave.face = random(-20,0)>>
-	<<set $activeSlave.anus to 0>>
+	<<set $activeSlave.anus = 0>>
 	<<set $activeSlave.vagina = 1>>
 	<<set $activeSlave.vaginalSkill = 0>>
 	<<set $activeSlave.analSkill = 0>>
 	<<set $activeSlave.oralSkill = 0>>
 	<<set $activeSlave.whoreSkill = 0>>
 	<<set $activeSlave.entertainSkill = 35>>
-	<<set $activeSlave.behavioralFlaw to "liberated">>
-	<<set $activeSlave.sexualFlaw to "idealistic">>
+	<<set $activeSlave.behavioralFlaw = "liberated">>
+	<<set $activeSlave.sexualFlaw = "idealistic">>
 	is the offices of an esteemed Old World newspaper firm. The paper is known for its investigative journalism, particularly as one of the few firms willing to delve into the brave new world of the Free Cities. The rising star of the paper is undoubtedly a young journalist who has been an outspoken critic of slaveholding and other Free Cities traditions.
 <<elseif $origin == "local news anchor">>
 	<<include "Generate XX Slave">>
@@ -217,7 +218,7 @@ Worthy of consideration is that although the $mercenariesTitle will enslave the 
 	<<set $activeSlave.butt += 1>>
 	<<set $activeSlave.buttImplant += 1>>
 	<<set $activeSlave.face = 55>>
-	<<set $activeSlave.faceImplant += 1>>
+	<<set $activeSlave.faceImplant += 20>>
 	<<set $activeSlave.anus = 1>>
 	<<set $activeSlave.vagina = 1>>
 	<<set $activeSlave.analCount += 1>>
@@ -237,8 +238,8 @@ Worthy of consideration is that although the $mercenariesTitle will enslave the 
 	<<set $activeSlave.age = random(18,20)>>
 	<<set $activeSlave.career = "a classical dancer">>
 	<<set $activeSlave.prestige = 1>>
-	<<set $activeSlave.face = random(-20,0)>>
-	<<set $activeSlave.anus to 0>>
+	<<set $activeSlave.face = random(-20,40)>>
+	<<set $activeSlave.anus = 0>>
 	<<set $activeSlave.vagina = 1>>
 	<<set $activeSlave.vaginalSkill = 0>>
 	<<set $activeSlave.analSkill = 0>>
@@ -246,6 +247,7 @@ Worthy of consideration is that although the $mercenariesTitle will enslave the 
 	<<set $activeSlave.whoreSkill = 0>>
 	<<set $activeSlave.entertainSkill = 50>>
 	<<set $activeSlave.teeth = "normal">>
+	<<set $activeSlave.weight = random(-100,-10)>>
 	is the performing arts theater at the heart of an aristocratic Old World city. The theater itself would usually not be considered a choice target, except that tonight its stage is graced by a renowned dance troupe. The jewel of the troupe's cast is a young girl, barely past her majority, whose performance has been said to bring tears to the eyes of audiences the world over.
 <<elseif $origin == "law enforcement officer">>
 	<<include "Generate XX Slave">>
@@ -267,7 +269,7 @@ Worthy of consideration is that although the $mercenariesTitle will enslave the 
 	<<set $activeSlave.career = "a classical musician">>
 	<<set $activeSlave.prestige = 1>>
 	<<set $activeSlave.face = random(-20,0)>>
-	<<set $activeSlave.anus to 0>>
+	<<set $activeSlave.anus = 0>>
 	<<set $activeSlave.vagina = 1>>
 	<<set $activeSlave.vaginalSkill = 0>>
 	<<set $activeSlave.analSkill = 0>>
@@ -295,10 +297,9 @@ Worthy of consideration is that although the $mercenariesTitle will enslave the 
 	<<include "Generate XX Slave">>
 	<<set $activeSlave.age = random(37,$retirementAge-1)>>
 	<<set $activeSlave.career = "a shut-in">>
-	<<set $activeSlave.anus to 0>>
-	<<set $activeSlave.vagina to 0>>
+	<<set $activeSlave.anus = 0>>
 	<<set $activeSlave.face = random(15,100)>>
-	<<set $activeSlave.vagina = 1>>
+	<<set $activeSlave.vagina = 0>>
 	<<set $activeSlave.oralSkill = 35>>
 	<<set $activeSlave.analSkill = 15>>
 	<<set $activeSlave.whoreSkill = 0>>
@@ -392,13 +393,13 @@ Worthy of consideration is that although the $mercenariesTitle will enslave the 
 	<<set $targetEscape -= 2>>
 <<elseif $activeSlave.height < 150>>
 	They're short enough that their height makes them difficult to spot.
-	<<set $targetEscape -= 1>>
+	<<set $targetEscape += 1>>
 <<else>>
 	They're of an average height.
 <</if>>
 <<if $activeSlave.boobs >= 2000>>
 	They have absurdly large breasts.
-	<<set $targetEscape -= 1>>
+	<<set $targetEscape -= 3>>
 <<elseif $activeSlave.boobs >= 800>>
 	They have fairly large breasts.
 	<<set $targetEscape -= 1>>
@@ -406,6 +407,7 @@ Worthy of consideration is that although the $mercenariesTitle will enslave the 
 	They have medium sized breasts.
 <<else>>
 	They're fairly flat chested.
+	<<set $targetEscape += 1>>
 <</if>>
 <<if $activeSlave.butt >= 6>>
 	They have an immense posterior.
@@ -416,6 +418,7 @@ Worthy of consideration is that although the $mercenariesTitle will enslave the 
 	They've got a big butt.
 <<else>>
 	They've got a flat ass.
+	<<set $targetEscape += 1>>
 <</if>>
 <<if $activeSlave.dick >= 5>>
 	Their cock is large enough to slow them down.

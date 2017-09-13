@@ -1,6 +1,675 @@
 :: RE relative recruiter [nobr]
 
 <<set $nextButton = "Continue", $nextLink = "RIE Eligibility Check", $returnTo = "RIE Eligibility Check">>
+<<Enunciate $eventSlave>>
+
+<<if $familyTesting == 1>>
+
+/* 000-250-006 */
+<<if $seeImages == 1>>
+<<if $imageChoice == 1>>
+    <div class="imageRef lrgVector"><<SlaveArt $activeSlave 2 0>></div>
+<<else>>
+    <div class="imageRef lrgRender"><<SlaveArt $activeSlave 2 0>></div>
+<</if>>
+<</if>>
+/* 000-250-006 */
+
+<<if ndef $newRelativeRecruitID>>
+	<<set $newRelativeRecruitID = 1100000>>
+<</if>>
+
+<<set $eventSlave = $slaves.find(function(s) { return s.ID == $recruiterSlave.ID; })>>
+<<set $activeSlave = clone($slavesOriginal.find(function(o) { return o && o.ID == $eventSlave.ID; }))>>
+
+<<set _recruitedType = []>>
+<<if $eventSlave.mother == 0 && $activeSlave.age < 24 && $seeDicks != 100>>
+	<<set _recruitedType.push("mother")>>
+	<<set _recruitedType.push("mother")>>
+	<<set _recruitedType.push("mother")>>
+<</if>>
+<<if $eventSlave.father == 0 && $activeSlave.age < 24 && $seeDicks != 0>>
+	<<set _recruitedType.push("father")>>
+<</if>>
+<<if ($eventSlave.daughters < 3) && $activeSlave.age > 32 && isFertile($activeSlave)>>
+	<<if $seeDicks != 100>>
+		<<set _recruitedType.push("daughter")>>
+		<<set _recruitedType.push("daughter")>>
+	<</if>>
+	<<if $seeDicks != 0>>
+		<<set _recruitedType.push("son")>>
+	<</if>>
+	<<set _tempMF = "mother">>
+<</if>>
+<<if ($eventSlave.daughters < 3) && $activeSlave.age > 32 && $activeSlave.balls > 0>>
+	<<if $seeDicks != 100>>
+		<<set _recruitedType.push("daughter")>>
+		<<set _recruitedType.push("daughter")>>
+	<</if>>
+	<<if $seeDicks != 0>>
+		<<set _recruitedType.push("son")>>
+	<</if>>
+	<<set _tempMF = "father">>
+<</if>>
+<<if ($eventSlave.sisters < 3)>>
+	<<if $activeSlave.age < 41>>
+		<<if $seeDicks != 100>>
+			<<set _recruitedType.push("older sister")>>
+			<<set _recruitedType.push("older sister")>>
+		<</if>>
+		<<if $seeDicks != 0>>
+			<<set _recruitedType.push("older brother")>>
+			<<set _recruitedType.push("older brother")>>
+		<</if>>
+	<</if>>
+	<<if $activeSlave.age > 21>>
+		<<if $seeDicks != 100>>
+			<<set _recruitedType.push("younger sister")>>
+			<<set _recruitedType.push("younger sister")>>
+		<</if>>
+		<<if $seeDicks != 0>>
+			<<set _recruitedType.push("younger brother")>>
+			<<set _recruitedType.push("younger brother")>>
+		<</if>>
+	<</if>>
+	<<set _recruitedType.push("twin")>>
+<</if>>
+<<if _recruitedType.length == 0>>
+	<<set $eventSlave.canRecruit = 0>>
+	$eventSlave.slaveName requests an interview with you. However, she ends up withdrawing her request. It would seem whatever she wanted to tell you is no longer relevant.
+
+<<else>> /* this else covers the remainder of the extended family mode variant (search for vanilla to find closing tag) */
+
+	<<set _relationType = _recruitedType.random()>>
+
+	<<if _relationType != "twin">>
+		<<set $activeSlave.weight = 0>>
+		<<set $activeSlave.muscles = 0>>
+		<<set $activeSlave.corsetPiercing = 0>>
+		<<set $activeSlave.boobsImplant = 0>>
+		<<set $activeSlave.boobsImplantType = 0>>
+		<<set $activeSlave.nipplesPiercing = 0>>
+		<<set $activeSlave.areolae = 0>>
+		<<set $activeSlave.areolaePiercing = 0>>
+		<<set $activeSlave.lactation = 0>>
+		<<set $activeSlave.hipsImplant = 0>>
+		<<set $activeSlave.buttImplant = 0>>
+		<<set $activeSlave.buttImplantType = 0>>
+		<<set $activeSlave.lipsImplants = 0>>
+		<<set $activeSlave.lipsPiercing = 0>>
+		<<set $activeSlave.tonguePiercing = 0>>
+		<<set $activeSlave.vaginaPiercing = 0>>
+		<<set $activeSlave.cSec = 0>>
+		<<set $activeSlave.clitPiercing = 0>>
+		<<set $activeSlave.dick = 0>>
+		<<set $activeSlave.anus = 0>>
+		<<set $activeSlave.dickPiercing = 0>>
+		<<set $activeSlave.balls = 0>>
+		<<set $activeSlave.scrotum = 0>>
+		<<set $activeSlave.ovaries = 0>>
+		<<set $activeSlave.makeup = 0>>
+		<<set $activeSlave.nails = 0>>
+		<<set $activeSlave.earPiercing = 0>>
+		<<set $activeSlave.nosePiercing = 0>>
+		<<set $activeSlave.eyebrowPiercing = 0>>
+		<<set $activeSlave.stampTat = 0>>
+		<<set $activeSlave.energy = 0>>
+		<<set $activeSlave.prostate = 0>>
+		<<RandomizeAttraction>>
+	<</if>>
+	<<set $activeSlave.preg = 0>>
+	<<set $activeSlave.pregType = 0>>
+
+	$eventSlave.slaveName requests an interview with you. She's a devoted slave, and you grant it, and are happy you did when you see the troubled expression on her face. She explains<<if !canTalk($eventSlave)>> with desperate gestures<</if>> that
+	<<switch _relationType>>
+	<<case "daughter">>
+		she had a daughter, who was sent to the slave orphanages. She's heard a rumor through other slaves that her daughter will go up for sale soon.
+	<<case "son">>
+		she had a son, who was sent to the slave orphanages to become a slavegirl. She's heard a rumor through other slaves that her dickgirl daughter will go up for sale soon.
+	<<case "mother">>
+		her mother might be getting sold soon. She has been a slave for some time. She's heard a rumor through other slaves that her mother will go up for sale soon.
+	<<case "father">>
+		her sire might be getting sold soon. She has been a slave for some time. She's heard a rumor through other slaves that her sire will go up for sale soon.
+	<<case "older sister">>
+		her older sister is being sold. She was likely to be enslaved the last $eventSlave.slaveName knew of her, and now she's heard a rumor through other slaves that her big sister is going to be sold to a new owner.
+	<<case "older brother">>
+		her older brother has been enslaved and turned into a dickgirl. She's heard a rumor through other slaves that her new big sister is going to be sold to a new owner.
+	<<case "younger sister">>
+		her younger sister is being sold. She was likely to be enslaved the last $eventSlave.slaveName knew of her, and now she's heard a rumor through other slaves that her little sister is going to be sold to a new owner.
+	<<case "younger brother">>
+		her younger brother has been enslaved and turned into a dickgirl. She's heard a rumor through other slaves that her new little sister is going to be sold to a new owner.
+	<<default>>
+		she has a twin sister, who was still free the last $eventSlave.slaveName knew of her. She's heard a rumor through other slaves that her twin has finally been enslaved, and will soon go up for sale.
+	<</switch>>
+
+<<if !canTalk($eventSlave)>>She urgently gestures for permission to write. It's unusual, but she seems quite serious, so you grant it. She writes,<</if>>
+"You've been <<s>>o good to me, <<Master>>. I'm <<s>>ure <<s>>he look<<s>> like I did when you bought me. Plea<<s>>e, <<Master>>, will you buy her like you bought me? I'm afraid <<s>>he'll go to a cruel Ma<<s>>ter." She bites her lip. "And, <<Master>>, I'm <<s>>ure <<s>>he'd learn to love
+<<if $eventSlave.fetish == "cumslut">>
+	the ta<<s>>te of your cum
+<<elseif $eventSlave.fetish == "submissive">>
+	<<s>>ubmi<<ss>>ion
+<<elseif $eventSlave.fetish == "humiliation">>
+	being treated like a dirty <<s>>lut
+<<elseif $eventSlave.fetish == "buttslut">>
+	the feeling of your cock in her butt
+<<elseif $eventSlave.fetish == "sadist">>
+	hurting your other <<s>>lave<<s>>
+<<elseif $eventSlave.fetish == "masochist">>
+	being beaten
+<<elseif $eventSlave.fetish == "dom">>
+	fucking your other <<s>>lave<<s>>
+<<elseif $eventSlave.energy > 95>>
+	being a good nympho slut
+<<elseif $eventSlave.addict > 2>>
+	being a druggie whore
+<<elseif $eventSlave.anus > 2>>
+	getting her butt <<s>>tretched out
+<<elseif $eventSlave.boobsImplant > 20>>
+	getting turned into a bimbo <<s>>lut
+<<else>>
+	the feeling of your cock in her
+<</if>>
+a<<s>> much a<<s>> I do.
+<<if $eventSlave.fetish == "cumslut">>
+	We could blow you at the <<s>>ame time, <<Master>>! And <<s>>hare cum!"
+<<elseif $eventSlave.fetish == "submissive">>
+	You could u<<s>>e u<<s>> together, <<Master>>!"
+<<elseif $eventSlave.fetish == "humiliation">>
+	You could make u<<s>> fuck each other in public, <<Master>>!"
+<<elseif $eventSlave.fetish == "buttslut">>
+	You could fuck our butt<<s>> right next to each other, <<Master>>!"
+<<elseif $eventSlave.fetish == "sadist">>
+	I'm <<s>>ure <<s>>he'd love to help me, <<Master>>!"
+<<elseif $eventSlave.fetish == "masochist">>
+	You could whip u<<s>> both, <<Master>>!"
+<<elseif $eventSlave.fetish == "dom">>
+	I'm <<s>>ure <<s>>he'd love to help me u<<s>>e other <<s>>lave<<s>>, <<Master>>!"
+<<elseif $eventSlave.energy > 95>>
+	I'm <<s>>ure <<s>>he'd love to have three<<s>>ome<<s>>, <<Master>>!"
+<<else>>
+	You could fuck u<<s>> together, <<Master>>!"
+<</if>>
+She waits anxiously for your decision.
+
+/*<<set _relativeSeed = random(1,100)>> To be used if additional variants are added. Since there currently is one each, checking a seed for a 100% chance is pointless. */
+
+<<switch _relationType>>
+
+<<case "mother">>
+	<<set $activeSlave.origin = "She was recruited into your service by her daughter.">>
+	<<set $activeSlave.genes = "XX">>
+	<<set $activeSlave.anus = 1>>
+	<<set $activeSlave.vagina = 3>>
+	<<set $activeSlave.ovaries = 1>>
+	<<set $activeSlave.preg = random(5,29)>>
+	<<set $activeSlave.pregType = 1>>
+	<<set $activeSlave.weight = random(30,100)>>
+	<<set $activeSlave.muscles = random(0,15)>>
+	<<set $activeSlave.oralSkill = 15>>
+	<<set $activeSlave.vaginalSkill = 30>>
+	<<set $activeSlave.analSkill = 15>>
+	<<set $activeSlave.entertainSkill = 10>>
+	<<set $activeSlave.whoreSkill = 10>>
+	<<set $activeSlave.boobs = (random(12,20)*100)>>
+	<<set $activeSlave.butt = random(4,6)>>
+	<<set $activeSlave.boobShape = "saggy">>
+	<<set $activeSlave.lactation = 1>>
+	<<set $activeSlave.markings = "birthmark">>
+	<<set $activeSlave.hLength = random(50,100)>>
+	<<set $activeSlave.hStyle = either("bun", "neat", "up", "luxurious")>>
+	<<set $activeSlave.voice = 2>>
+	<<set $activeSlave.energy = 65>>
+	<<set $activeSlave.age = ($eventSlave.age+random(15,20))>>
+
+<<case "father">>
+	<<set $activeSlave.origin = "She was recruited into your service by her daughter.">>
+	<<set $activeSlave.genes = "XY">>
+	<<set $activeSlave.anus = 2>>
+	<<set $activeSlave.vagina = -1>>
+	<<set $activeSlave.weight = random(70,180)>>
+	<<set $activeSlave.oralSkill = 35>>
+	<<set $activeSlave.analSkill = 75>>
+	<<set $activeSlave.hLength = random(10,20)>>
+	<<set $activeSlave.hStyle = either("buzzcut", "trimmed", "neat", "long")>>
+	<<set $activeSlave.voice = 1>>
+	<<set $activeSlave.energy = 0>>
+	<<set $activeSlave.penis = 2>>
+	<<set $activeSlave.prostate = 1>>
+	<<set $activeSlave.vagina = -1>>
+	<<set $activeSlave.boobs = (random(5,6)*100)>>
+	<<set $activeSlave.butt = random(4,6)>>
+	<<set $activeSlave.age = ($eventSlave.age+random(15,20))>>
+
+<<case "daughter">>
+	<<set $activeSlave.origin = "She was recruited into your service by her parent.">>
+	<<set $activeSlave.genes = "XX">>
+	<<set $activeSlave.vagina = 1>>
+	<<set $activeSlave.preg = -1>>
+	<<set $activeSlave.boobs = (random(8,10)*100)>>
+	<<set $activeSlave.boobsImplant = 600>>
+	<<set $activeSlave.oralSkill += random(0,20)>>
+	<<set $activeSlave.vaginalSkill += random(0,20)>>
+	<<set $activeSlave.analSkill += random(0,20)>>
+	<<set $activeSlave.entertainSkill += random(0,20)>>
+	<<set $activeSlave.whoreSkill += random(0,20)>>
+	<<set $activeSlave.nipplesPiercing = 1>>
+	<<set $activeSlave.lipsPiercing = 1>>
+	<<set $activeSlave.tonguePiercing = 1>>
+	<<set $activeSlave.vaginaPiercing = 1>>
+	<<set $activeSlave.earPiercing = 1>>
+	<<set $activeSlave.ovaries = 1>>
+	<<set $activeSlave.makeup = 1>>
+	<<set $activeSlave.nails = 4>>
+	<<set $activeSlave.hStyle = either("tails", "neat", "up", "luxurious")>>
+	<<set $activeSlave.stampTat = "advertisements">>
+	<<set $activeSlave.age = random(19,21)>>
+	
+<<case "son">>
+	<<set $activeSlave.origin = "She was recruited into your service by her parent.">>
+	<<set $activeSlave.genes = "XY">>
+	<<set $activeSlave.vagina = 1>>
+	<<set $activeSlave.prostate = 1>>
+	<<set $activeSlave.boobs = (random(6,8)*100)>>
+	<<set $activeSlave.boobsImplant = 600>>
+	<<set $activeSlave.oralSkill += random(0,20)>>
+	<<set $activeSlave.analSkill += random(0,20)>>
+	<<set $activeSlave.entertainSkill += random(0,20)>>
+	<<set $activeSlave.whoreSkill += random(0,20)>>
+	<<set $activeSlave.lips = random(60,90)>>
+	<<set $activeSlave.lipsImplants = 40>>
+	<<set $activeSlave.lipsPiercing = 1>>
+	<<set $activeSlave.tonguePiercing = 1>>
+	<<set $activeSlave.vaginaPiercing = 1>>
+	<<set $activeSlave.earPiercing = 1>>
+	<<set $activeSlave.makeup = 1>>
+	<<set $activeSlave.nails = 4>>
+	<<set $activeSlave.hStyle = "tails">>
+	<<set $activeSlave.stampTat = "advertisements">>
+	<<set $activeSlave.age = random(19,21)>>
+	
+<<case "older sister">>
+	<<set $activeSlave.origin = "She was recruited into your service by her little sis.">>
+	<<set $activeSlave.genes = "XX">>
+	<<set $activeSlave.vagina = 2>>
+	<<set $activeSlave.boobs += 200>>
+	<<set $activeSlave.butt += 1>>
+	<<set $activeSlave.makeup = 1>>
+	<<set $activeSlave.age = $eventSlave.age+2>>
+	<<set $activeSlave.preg = -1>>
+	<<set $activeSlave.ovaries = 1>>
+	<<set $activeSlave.oralSkill += random(0,20)>>
+	<<set $activeSlave.vaginalSkill += random(0,20)>>
+	<<set $activeSlave.analSkill += random(0,20)>>
+	<<set $activeSlave.entertainSkill += random(0,20)>>
+	<<set $activeSlave.whoreSkill += random(0,20)>>
+	
+<<case "younger sister">>
+	<<set $activeSlave.origin = "She was recruited into your service by her big sis.">>
+	<<set $activeSlave.genes = "XX">>
+	<<set $activeSlave.boobs = (random(1,4)*100)>>
+	<<set $activeSlave.butt = random(1,2)>>
+	<<set $activeSlave.hips = random(-2,0)>>
+	<<set $activeSlave.shoulders = random(-2,0)>>
+	<<set $activeSlave.age = $eventSlave.age-2>>
+	<<set $activeSlave.entertainSkill += random(0,20)>>
+	<<set $activeSlave.preg = -1>>
+	<<set $activeSlave.ovaries = 1>>
+	<<set $activeSlave.anus = 0>>
+	<<set $activeSlave.vagina = 1>>
+	
+<<case "older brother">>
+	<<set $activeSlave.origin = "She was recruited into your service by her little sis.">>
+	<<set $activeSlave.genes = "XY">>
+	<<set $activeSlave.dick = 5>>
+	<<set $activeSlave.boobs = 0>>
+	<<set $activeSlave.balls = 4>>
+	<<set $activeSlave.prostate = 1>>
+	<<set $activeSlave.age = $eventSlave.age+2>>
+	<<set $activeSlave.entertainSkill += random(0,20)>>
+	<<set $activeSlave.whoreSkill += random(0,20)>>
+	<<set $activeSlave.anus = 0>>
+	<<set $activeSlave.vagina = -1>>
+	<<set $activeSlave.energy = 70>>
+	<<set $activeSlave.dickPiercing = 1>>
+	<<set $activeSlave.tonguePiercing = 1>>
+	<<set $activeSlave.face = random(15,95)>>
+	<<set $activeSlave.faceShape = "masculine">>
+	
+<<case "younger brother">>
+	<<set $activeSlave.origin = "She was recruited into your service by her big sis.">>
+	<<set $activeSlave.genes = "XY">>
+	<<set $activeSlave.boobs = (random(20,40)*100)>>
+	<<set $activeSlave.boobsImplant = $activeSlave.boobs - 100>>
+	<<set $activeSlave.boobsImplantType = 1>>
+	<<set $activeSlave.butt = random(7,8)>>
+	<<set $activeSlave.buttImplant = $activeSlave.butt-1>>
+	<<set $activeSlave.buttImplantType = 1>>
+	<<set $activeSlave.lips = random(70,90)>>
+	<<set $activeSlave.lipsImplant = $activeSlave.lips-10>>
+	<<set $activeSlave.nipplesPiercing = 2>>
+	<<set $activeSlave.dick = 1>>
+	<<set $activeSlave.balls = 1>>
+	<<set $activeSlave.prostate = 1>>
+	<<set $activeSlave.foreskin = 10>>
+	<<set $activeSlave.scrotum = 10>>
+	<<set $activeSlave.vagina = -1>>
+	<<set $activeSlave.anus = 3>>
+	<<set $activeSlave.makeup = 3>>
+	<<set $activeSlave.nails = 5>>
+	<<set $activeSlave.analSkill = 70>>
+	<<set $activeSlave.oralSkill = 70>>
+	<<set $activeSlave.whoreSkill = 100>>
+	<<set $activeSlave.energy = 100>>
+	<<set $activeSlave.age = age-2>>
+	<<set $activeSlave.entertainSkill += random(0,20)>>
+	
+<<case "twin">>
+	<<set $activeSlave.origin = "She was recruited into your service by her twin sister.">>
+	<<set $activeSlave.birthWeek = $eventSlave.birthWeek>>
+	
+<</switch>>
+
+<<set $activeSlave.devotion = random(25,45)>>
+<<set $activeSlave.trust = random(-15,15)>>
+<<set $activeSlave.ageImplant = 0>>
+<<set $activeSlave.amp = 0>>
+<<set $activeSlave.heels = 0>>
+<<if $activeSlave.career != "a Futanari Sister">><<set $activeSlave.career = "a slave">><</if>>
+<<set $activeSlave.relationship = 0>>
+<<set $activeSlave.relationshipTarget = 0>>
+<<set $activeSlave.births = 0>>
+<<set $activeSlave.oralCount = 0>>
+<<set $activeSlave.vaginalCount = 0>>
+<<set $activeSlave.analCount = 0>>
+<<set $activeSlave.mammaryCount = 0>>
+<<set $activeSlave.penetrativeCount = 0>>
+<<set $activeSlave.pitKills = 0>>
+<<set $activeSlave.drugs = "no drugs">>
+<<set $activeSlave.shoes = "none">>
+<<set $activeSlave.clothes = "no clothing">>
+<<set $activeSlave.hormones = 0>>
+<<set $activeSlave.waist = 0>>
+<<set $activeSlave.prestige = 0>>
+<<set $activeSlave.pornFame = 0>>
+<<set $activeSlave.pornFameSpending = 0>>
+<<set $activeSlave.prestigeDesc = "">>
+<<set $activeSlave.rivalry = 0>>
+<<set $activeSlave.rivalryTarget = 0>>
+<<set $activeSlave.subTarget = 0>>
+<<set $activeSlave.sentence = 0>>
+<<set $activeSlave.toyHole = "all her holes">>
+<<set $activeSlave.indenture = -1>>
+<<set $activeSlave.indentureRestrictions = 0>>
+<<set $activeSlave.health = random(20,40)>>
+<<set $activeSlave.minorInjury = "">>
+<<set $activeSlave.eyewear = "none">>
+<<set $activeSlave.voiceImplant = 0>>
+<<set $activeSlave.shouldersImplant = 0>>
+<<set $activeSlave.boobsTat = 0>>
+<<set $activeSlave.milk = 0>>
+<<set $activeSlave.cum = 0>>
+<<set $activeSlave.faceImplant = 0>>
+<<set $activeSlave.lipsTat = 0>>
+<<set $activeSlave.vaginaTat = 0>>
+<<set $activeSlave.dickTat = 0>>
+<<set $activeSlave.labor = 0>>
+<<set $activeSlave.anusPiercing = 0>>
+<<set $activeSlave.anusTat = 0>>
+<<set $activeSlave.bellyAccessory = "none">>
+<<set $activeSlave.brand = 0>>
+<<set $activeSlave.brandLocation = "">>
+<<set $activeSlave.shouldersTat = 0>>
+<<set $activeSlave.armsTat = 0>>
+<<set $activeSlave.legsTat = 0>>
+<<set $activeSlave.backTat = 0>>
+<<set $activeSlave.combatSkill = 0>>
+<<set $activeSlave.aphrodisiacs = 0>>
+<<set $activeSlave.curatives = 0>>
+<<set $activeSlave.addict = 0>>
+<<set $activeSlave.chem = 0>>
+<<set $activeSlave.customTat = "">>
+<<set $activeSlave.customLabel = "">>
+<<set $activeSlave.customTitle = "">>
+<<set $activeSlave.customTitleLisp = "">>
+<<set $activeSlave.assignment = "rest">>
+<<set $activeSlave.assignmentVisible = 1>>
+<<set $activeSlave.choosesOwnAssignment = 0>>
+<<set $activeSlave.fetishStrength = random(0,90)>>
+<<set $activeSlave.fetish = either("none", "none", "none", "none", "none", "none", "submissive", "cumslut", "humiliation", "buttslut", "boobs","pregnancy")>>
+<<set $activeSlave.sexualFlaw = either("none", "none", "none", "none", "hates oral", "hates anal", "hates penetration")>>
+<<set $activeSlave.behavioralFlaw = either("none", "none", "none", "arrogant", "bitchy", "odd", "anorexic", "hates men", "hates women", "hates women")>>
+<<set $activeSlave.weekAcquired = $week>>
+<<set $activeSlave.rudeTitle = 0>>
+<<set $activeSlave.buttplugAttachment = "none">>
+	
+<<slaveCost $activeSlave>>
+
+<<if $activeSlave.slaveSurname>><<set _familyName = $activeSlave.slaveSurname>><</if>>
+<<set _familyBirthSurname = $activeSlave.birthSurname>>
+<<NationalityToName $activeSlave>>
+<<if _familyName>><<set $activeSlave.slaveSurname = _familyName>><</if>>
+<<set $activeSlave.birthSurname = _familyBirthSurname>>
+
+<<set $activeSlave.ID = $newRelativeRecruitID++>>
+
+<br><br>
+You look up the _relationType. She costs ¤$slaveCost, a bargain, but you won't be able to inspect her beyond her likely resemblance to her
+<<switch _relationType>>
+<<case "daughter">>
+	mother. Her listing states that she was used as a prostitute by her previous owner.
+<<case "son">>
+	mother. Her listing states that she was used as a shemale prostitute by her previous owner.
+<<case "mother">>
+	daughter. Her listing states that she was used as a bed slave by her milf-loving owner.
+<<case "father">>
+	daughter. Her listing states that she was gelded and used as a house servant.
+<<case "older sister">>
+	little sister. Her listing states that she was kept as a personal sex toy by her owner.
+<<case "older brother">>
+	little sister. Her listing states that she was kept as a personal sex toy by her owner.
+<<case "younger brother">>
+	big sister. Her listing states that she was kept as a personal toy by her bimbo loving owner.
+<<case "younger sister">>
+	big sister. Her listing states that she was kept as a bedslave by an owner that loves flat chests.
+<<default>>
+	twin sister.
+<</switch>>
+
+<br><br>
+<span id="result">
+<<link "Buy her">>
+	<<set $cash -= $slaveCost>>
+	<<switch _relationType>>
+	<<case "daughter">>
+		<<if _tempMF == "father">>
+			<<set $activeSlave.father = $eventSlave.ID>>
+		<<else>>
+			<<set $activeSlave.mother = $eventSlave.ID>>
+		<</if>>
+	<<case "son">>
+		<<if _tempMF == "father">>
+			<<set $activeSlave.father = $eventSlave.ID>>
+		<<else>>
+			<<set $activeSlave.mother = $eventSlave.ID>>
+		<</if>>
+	<<case "mother">>
+		<<for $j = 0; $j < $slaves.length; $j++>>
+			<<if sameDad($eventSlave, $slaves[$j]) && $slaves[$j].mother == 0>>
+				<<set $slaves[$j].mother = $activeSlave.ID>>
+			<</if>>
+		<</for>>
+		<<set $eventSlave.mother = $activeSlave.ID>>
+	<<case "father">>
+		<<for $j = 0; $j < $slaves.length; $j++>>
+			<<if sameMom($eventSlave, $slaves[$j]) && $slaves[$j].father == 0>>
+				<<set $slaves[$j].father = $activeSlave.ID>>
+			<</if>>
+		<</for>>
+		<<set $eventSlave.father = $activeSlave.ID>>
+	<<case "older sister">>
+		<<if $eventSlave.father == 0 && $eventSlave.mother == 0>>
+			<<set $eventSlave.mother = $missingParentID>>
+			<<set $activeSlave.mother = $missingParentID>>
+			<<set $missingParentID-->>
+			<<set $eventSlave.father = $missingParentID>>
+			<<set $activeSlave.father = $missingParentID>>
+			<<set $missingParentID-->>
+		<<elseif $eventSlave.mother != 0 && $eventSlave.father != 0>>
+			<<set $activeSlave.mother = $eventSlave.mother>>
+			<<set $activeSlave.father = $eventSlave.father>>
+		<<elseif $eventSlave.mother != 0>>
+			<<set $activeSlave.mother = $eventSlave.mother>>
+			<<set $activeSlave.father = $missingParentID>>
+			<<for $j = 0; $j < $slaves.length; $j++>>
+			<<if sameMom($activeSlave, $slaves[$j]) && $slaves[$j].father == 0>>
+				<<set $slaves[$j].father = $missingParentID>>
+			<</if>>
+			<</for>>
+			<<set $missingParentID-->>
+		<<elseif $eventSlave.father != 0>>
+			<<set $activeSlave.father = $eventSlave.father>>
+			<<set $activeSlave.mother = $missingParentID>>
+			<<for $j = 0; $j < $slaves.length; $j++>>
+			<<if sameDad($activeSlave, $slaves[$j]) && $slaves[$j].mother == 0>>
+				<<set $slaves[$j].mother = $missingParentID>>
+			<</if>>
+			<</for>>
+			<<set $missingParentID-->>
+		<</if>>
+	<<case "older brother">>
+		<<if $eventSlave.father == 0 && $eventSlave.mother == 0>>
+			<<set $eventSlave.mother = $missingParentID>>
+			<<set $activeSlave.mother = $missingParentID>>
+			<<set $missingParentID-->>
+			<<set $eventSlave.father = $missingParentID>>
+			<<set $activeSlave.father = $missingParentID>>
+			<<set $missingParentID-->>
+		<<elseif $eventSlave.mother != 0 && $eventSlave.father != 0>>
+			<<set $activeSlave.mother = $eventSlave.mother>>
+			<<set $activeSlave.father = $eventSlave.father>>
+		<<elseif $eventSlave.mother != 0>>
+			<<set $activeSlave.mother = $eventSlave.mother>>
+			<<set $activeSlave.father = $missingParentID>>
+			<<for $j = 0; $j < $slaves.length; $j++>>
+			<<if sameMom($activeSlave, $slaves[$j]) && $slaves[$j].father == 0>>
+				<<set $slaves[$j].father = $missingParentID>>
+			<</if>>
+			<</for>>
+			<<set $missingParentID-->>
+		<<elseif $eventSlave.father != 0>>
+			<<set $activeSlave.father = $eventSlave.father>>
+			<<set $activeSlave.mother = $missingParentID>>
+			<<for $j = 0; $j < $slaves.length; $j++>>
+			<<if sameDad($activeSlave, $slaves[$j]) && $slaves[$j].mother == 0>>
+				<<set $slaves[$j].mother = $missingParentID>>
+			<</if>>
+			<</for>>
+			<<set $missingParentID-->>
+		<</if>>
+	<<case "younger brother">>
+		<<if $eventSlave.father == 0 && $eventSlave.mother == 0>>
+			<<set $eventSlave.mother = $missingParentID>>
+			<<set $activeSlave.mother = $missingParentID>>
+			<<set $missingParentID-->>
+			<<set $eventSlave.father = $missingParentID>>
+			<<set $activeSlave.father = $missingParentID>>
+			<<set $missingParentID-->>
+		<<elseif $eventSlave.mother != 0 && $eventSlave.father != 0>>
+			<<set $activeSlave.mother = $eventSlave.mother>>
+			<<set $activeSlave.father = $eventSlave.father>>
+		<<elseif $eventSlave.mother != 0>>
+			<<set $activeSlave.mother = $eventSlave.mother>>
+			<<set $activeSlave.father = $missingParentID>>
+			<<for $j = 0; $j < $slaves.length; $j++>>
+			<<if sameMom($activeSlave, $slaves[$j]) && $slaves[$j].father == 0>>
+				<<set $slaves[$j].father = $missingParentID>>
+			<</if>>
+			<</for>>
+			<<set $missingParentID-->>
+		<<elseif $eventSlave.father != 0>>
+			<<set $activeSlave.father = $eventSlave.father>>
+			<<set $activeSlave.mother = $missingParentID>>
+			<<for $j = 0; $j < $slaves.length; $j++>>
+			<<if sameDad($activeSlave, $slaves[$j]) && $slaves[$j].mother == 0>>
+				<<set $slaves[$j].mother = $missingParentID>>
+			<</if>>
+			<</for>>
+			<<set $missingParentID-->>
+		<</if>>
+	<<case "younger sister">>
+		<<if $eventSlave.father == 0 && $eventSlave.mother == 0>>
+			<<set $eventSlave.mother = $missingParentID>>
+			<<set $activeSlave.mother = $missingParentID>>
+			<<set $missingParentID-->>
+			<<set $eventSlave.father = $missingParentID>>
+			<<set $activeSlave.father = $missingParentID>>
+			<<set $missingParentID-->>
+		<<elseif $eventSlave.mother != 0 && $eventSlave.father != 0>>
+			<<set $activeSlave.mother = $eventSlave.mother>>
+			<<set $activeSlave.father = $eventSlave.father>>
+		<<elseif $eventSlave.mother != 0>>
+			<<set $activeSlave.mother = $eventSlave.mother>>
+			<<set $activeSlave.father = $missingParentID>>
+			<<for $j = 0; $j < $slaves.length; $j++>>
+			<<if sameMom($activeSlave, $slaves[$j]) && $slaves[$j].father == 0>>
+				<<set $slaves[$j].father = $missingParentID>>
+			<</if>>
+			<</for>>
+			<<set $missingParentID-->>
+		<<elseif $eventSlave.father != 0>>
+			<<set $activeSlave.father = $eventSlave.father>>
+			<<set $activeSlave.mother = $missingParentID>>
+			<<for $j = 0; $j < $slaves.length; $j++>>
+			<<if sameDad($activeSlave, $slaves[$j]) && $slaves[$j].mother == 0>>
+				<<set $slaves[$j].mother = $missingParentID>>
+			<</if>>
+			<</for>>
+			<<set $missingParentID-->>
+		<</if>>
+	<<default>>
+		<<if $eventSlave.father == 0 && $eventSlave.mother == 0>>
+			<<set $eventSlave.mother = $missingParentID>>
+			<<set $activeSlave.mother = $missingParentID>>
+			<<set $missingParentID-->>
+			<<set $eventSlave.father = $missingParentID>>
+			<<set $activeSlave.father = $missingParentID>>
+			<<set $missingParentID-->>
+		<<elseif $eventSlave.mother != 0 && $eventSlave.father != 0>>
+			<<set $activeSlave.mother = $eventSlave.mother>>
+			<<set $activeSlave.father = $eventSlave.father>>
+		<<elseif $eventSlave.mother != 0>>
+			<<set $activeSlave.mother = $eventSlave.mother>>
+			<<set $activeSlave.father = $missingParentID>>
+			<<for $j = 0; $j < $slaves.length; $j++>>
+			<<if sameMom($activeSlave, $slaves[$j]) && $slaves[$j].father == 0>>
+				<<set $slaves[$j].father = $missingParentID>>
+			<</if>>
+			<</for>>
+			<<set $missingParentID-->>
+		<<elseif $eventSlave.father != 0>>
+			<<set $activeSlave.father = $eventSlave.father>>
+			<<set $activeSlave.mother = $missingParentID>>
+			<<for $j = 0; $j < $slaves.length; $j++>>
+			<<if sameDad($activeSlave, $slaves[$j]) && $slaves[$j].mother == 0>>
+				<<set $slaves[$j].mother = $missingParentID>>
+			<</if>>
+			<</for>>
+			<<set $missingParentID-->>
+		<</if>>
+	<</switch>>
+	<<SlaveTitle $eventSlave>>
+	<<replace "#result">>
+	You complete the legalities and biometric scanning quickly and without fuss. $activeSlave.slaveName arrives shortly. The two slaves remember each other only dimly - they parted a long time ago - but they embrace. The devoted $desc explains the situation and encourages her _relationType to be a good slave to you. $activeSlave.slaveName looks a little fearful but clearly realizes that she's lucky to be here.
+	<<include "New Slave Intro">>
+	<</replace>>
+<</link>>
+</span>
+
+
+<</if>> /* _recruitedType.length */
+
+
+<<else>> /* vanilla */
 
 <<set $i = $slaves.findIndex(function(o) { return o.ID == $recruiterSlave.ID; })>>
 <<set $j = $slavesOriginal.findIndex(function(o) { return o.ID == $slaves[$i].ID; })>>
@@ -24,7 +693,7 @@ $eventSlave.slaveName requests an interview with you. She's a devoted slave, and
 <<case "mother">>
 	she had a daughter, who was sent to the slave orphanages. Today will be the daughter's 18th birthday, which means she'll go up for sale.
 <<case "daughter">>
-	her mother has been enslaved. She was free the last $eventSlave.slaveName knew of her, but now she's heard a rumor through other slaves that her mother will go up for sale soon.
+	her mother has been enslaved. She was free the last $eventSlave.slaveName knew of her. She's heard a rumor through other slaves that her mother will go up for sale soon.
 <<case "older sister">>
 	her older sister is being sold. She was likely to be enslaved the last $eventSlave.slaveName knew of her, and now she's heard a rumor through other slaves that her big sister is going to be sold to a new owner.
 <<case "young sister">>
@@ -158,7 +827,7 @@ She waits anxiously for your decision.
 <<case "young sister">>
 	<<set $activeSlave.origin = "She was recruited into your service by her younger sister.">>
 	<<if $activeSlave.ovaries == 1>>
-		<<set $activeSlave.boobs = Math.trunc($activeSlave.boobs-200,0,25000)>>
+		<<set $activeSlave.boobs = Math.trunc($activeSlave.boobs-200,0,50000)>>
 		<<set $activeSlave.butt = Math.trunc($activeSlave.butt-1,0,10)>>
 	<</if>>
 	<<set $activeSlave.age = $activeSlave.age-2>>
@@ -241,3 +910,6 @@ You look up the $activeSlave.relation. She costs ¤$slaveCost, a bargain, but yo
 	<</replace>>
 <</link>>
 </span>
+
+<</if>> /* close extended family mode */
+

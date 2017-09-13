@@ -432,6 +432,62 @@ You let the winner _winner.slaveName, shaking as she comes off the adrenaline, d
 	<<set _winner.fetish = "mindbroken">>
 	<<set _winner.fetishKnown = 1>>
 	<</if>>
+<<elseif _winner.mother == _loser.ID>>
+	<<if (_winner.devotion > 95)>>
+	She is so worshipful of you that she sees the death of her mothern at her own hand as an @@.hotpink;honorable@@ end to their doomed family.
+	<<set _winner.devotion += 4>>
+	<<else>>
+	She shows little reaction to the death of her mother at her own hand. In the coming days, it becomes clear that this is because she is @@.red;no longer capable@@ of reacting to anything on an emotional level. Ever again.
+	<<set _winner.fetish = "mindbroken">>
+	<<set _winner.fetishKnown = 1>>
+	<</if>>
+<<elseif _winner.father == _loser.ID>>
+	<<if (_winner.devotion > 95)>>
+	She is so worshipful of you that she sees the death of her sire at her own hand as an @@.hotpink;honorable@@ end to their doomed family.
+	<<set _winner.devotion += 4>>
+	<<else>>
+	She shows little reaction to the death of her sire at her own hand. In the coming days, it becomes clear that this is because she is @@.red;no longer capable@@ of reacting to anything on an emotional level. Ever again.
+	<<set _winner.fetish = "mindbroken">>
+	<<set _winner.fetishKnown = 1>>
+	<</if>>
+<<elseif _loser.mother == _winner.ID || _loser.father == _winner.ID>>
+	<<if (_winner.devotion > 95)>>
+	She is so worshipful of you that she sees the death of her daughter at her own hand as an @@.hotpink;honorable@@ end to their doomed family.
+	<<set _winner.devotion += 4>>
+	<<else>>
+	She shows little reaction to the death of her daughter at her own hand. In the coming days, it becomes clear that this is because she is @@.red;no longer capable@@ of reacting to anything on an emotional level. Ever again.
+	<<set _winner.fetish = "mindbroken">>
+	<<set _winner.fetishKnown = 1>>
+	<</if>>
+<<elseif _winner.sisters > 0>>
+	<<switch areSisters(_winner, _loser)>>
+	<<case 1>>
+		<<if (_winner.devotion > 95)>>
+		She is so worshipful of you that she sees the death of her twin at her own hand as an @@.hotpink;honorable@@ end to their doomed family.
+		<<set _winner.devotion += 4>>
+		<<else>>
+		She shows little reaction to the death of her twin at her own hand. In the coming days, it becomes clear that this is because she is @@.red;no longer capable@@ of reacting to anything on an emotional level. Ever again.
+		<<set _winner.fetish = "mindbroken">>
+		<<set _winner.fetishKnown = 1>>
+		<</if>>
+	<<case 2>>
+		<<if (_winner.devotion > 95)>>
+		She is so worshipful of you that she sees the death of her sister at her own hand as an @@.hotpink;honorable@@ end to their doomed family.
+		<<set _winner.devotion += 4>>
+		<<else>>
+		She shows little reaction to the death of her sister at her own hand. In the coming days, it becomes clear that this is because she is @@.red;no longer capable@@ of reacting to anything on an emotional level. Ever again.
+		<<set _winner.fetish = "mindbroken">>
+		<<set _winner.fetishKnown = 1>>
+		<</if>>
+	<<case 3>>
+		<<if (_winner.devotion > 95)>>
+		She is so worshipful of you that she sees the death of her half-sister at her own hand as an @@.hotpink;honorable@@ end to their doomed family.
+		<<set _winner.devotion += 4>>
+		<<else>>
+		She is @@.mediumorchid;utterly devastated@@ at being forced to take the life of her half-sister.
+		<<set _winner.devotion -= 50>>
+		<</if>>
+	<</switch>>
 <<elseif (_winner.relation != 0) && (_loser.ID == _winner.relationTarget)>>
 	<<if (_winner.devotion > 95)>>
 	She is so worshipful of you that she sees the death of her _loser.relation at her own hand as an @@.hotpink;honorable@@ end to their doomed family.

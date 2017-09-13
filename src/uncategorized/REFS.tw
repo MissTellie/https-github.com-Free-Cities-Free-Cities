@@ -266,6 +266,7 @@ On this particular outing you happen to cross paths with a comely female citizen
 			<<set $activeSlave.lipsImplant = 10>>
 			<<AddSlave $activeSlave>> /* skip New Slave Intro */
 			<<set $cash -= 10000>>
+			<<set $nextLink = "AS Dump", $returnTo = "RIE Eligibility Check">>
 			<</replace>>
 		<</link>> // Purchasing her outstanding debts will cost ¤10000. //
 		</span>
@@ -307,7 +308,7 @@ On this particular outing you happen to cross paths with a comely female citizen
 <span id="result">
 <<link "Let them pass">>
 	<<replace "#result">>
-	You step aside gracefully and bow your head, while signifying to the girl that you intend to allow her to pass you. She seems taken aback by your geniality, especially given the gulf in social standing between the two of you, and has to be chaperoned from your presence by her father. Nonetheless, she is struck by her chance encounter with you and cannot stop recounting the story to all her friends, soon @@.green;the anecdote has seized the imaginations of $arcologies[0].name's youthful, femalze citizens@@. 
+	You step aside gracefully and bow your head, while signifying to the girl that you intend to allow her to pass you. She seems taken aback by your geniality, especially given the gulf in social standing between the two of you, and has to be chaperoned from your presence by her father. Nonetheless, she is struck by her chance encounter with you and cannot stop recounting the story to all her friends, soon @@.green;the anecdote has seized the imaginations of $arcologies[0].name's youthful, female citizens@@. 
 	<<set $rep += 100>>
 	<</replace>>
 <</link>>
@@ -332,13 +333,15 @@ On this particular outing you happen to cross paths with a comely female citizen
 			After she regains her bearings from your sexual encounter, the girl slips on her simple clothes and attempts to slink away from your private suite unobtrusively. She makes it out the door before being confronted by a glowing array of wallscreen monitors, each displaying a visual representation of your purchase of her father's considerable debt and subsequent enslavement of her on the basis of that debt. Tears begin to stream down her cheeks as she sinks to her knees, her hopes of a long life without enslavement now dashed.
 			<br><br>
 			<<set $cash -= 10000>>
-			<<include "Generate New Slave">>
+			<<include "Generate XX Slave">>
 			<<set $activeSlave.origin = "She was enslaved by you when you purchased her debt.">>
 			<<set $activeSlave.devotion = random(-55,0)>>
 			<<set $activeSlave.trust = random(-45,0)>>
 			<<set $activeSlave.age = random(18,22)>>
 			/* Girlish */
+			<<if $activeSlave.boobs > 450>>
 			<<set $activeSlave.boobs = random(300,450)>>
+			<</if>>
 			<<set $activeSlave.hips = random(-2,-1)>>
 			<<set $activeSlave.butt = random(0,2)>>
 			<<set $activeSlave.weight = Math.min($activeSlave.weight, 10)>>

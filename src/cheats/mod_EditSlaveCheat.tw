@@ -23,13 +23,24 @@
 
 <br>
 
-''Slave Blood Relations (twin, sister, mother, daughter):''
-<<textbox "$activeSlave.relation" $activeSlave.relation>>
+<<if $familyTesting == 1>>
+	''Enter the IDs for this slaves parents(-2 through 0:random and untracked by system, all others are applicable):''
+	<br>
+	''mother ID''
+	<<textbox "$activeSlave.mother" $activeSlave.mother>>
+	<br>
+	''father ID''
+	<<textbox "$activeSlave.father" $activeSlave.father>>
+<<else>>
+	''Slave Blood Relations (twin, sister, mother, daughter):''
+	<<textbox "$activeSlave.relation" $activeSlave.relation>>
 
-<br>
+	<br>
 
-''Blood Relations Target ID:''
-<<textbox "$activeSlave.relationTarget" $activeSlave.relationTarget>>
+	''Blood Relations Target ID:''
+	<<textbox "$activeSlave.relationTarget" $activeSlave.relationTarget>>
+<</if>>
+
 <br>
 ''Relationship (-3:married to you, -2:relationship, -1:emotional slut, 0:none, 1:like, 2:friend, 3:sex friend, 4:lover, 5:married): $activeSlave.relationship |''
 <<textbox "$activeSlave.relationship" $activeSlave.relationship>>
@@ -135,7 +146,7 @@
 ''Birth week:''
 <<textbox "$activeSlave.birthWeek" $activeSlave.birthWeek>>
 &nbsp;&nbsp;&nbsp;&nbsp;
-''Age Implant (0 or 5):''
+''Age Implant (0 or 1):''
 <<textbox "$activeSlave.ageImplant" $activeSlave.ageImplant>>
 <br>
 ''Health (-99 to 100, -100 is death):''
@@ -257,12 +268,14 @@ Custom eye color: <<textbox "$activeSlave.eyeColor" $activeSlave.eyeColor>>
 
 <br>
 
-''Face Implant (0 to 2): $activeSlave.faceImplant |''
+''Facial Artificiality (0 to 100): $activeSlave.faceImplant |''
 <<textbox "$activeSlave.faceImplant" $activeSlave.faceImplant>>
 <br>
 <<radiobutton "$activeSlave.faceImplant" 0>> None
-<<radiobutton "$activeSlave.faceImplant" 1>> Some Work
-<<radiobutton "$activeSlave.faceImplant" 2>> Totally Reworked
+<<radiobutton "$activeSlave.faceImplant" 15>> Subtle Improvements
+<<radiobutton "$activeSlave.faceImplant" 35>> Noticeable Work
+<<radiobutton "$activeSlave.faceImplant" 65>> Heavily Reworked
+<<radiobutton "$activeSlave.faceImplant" 100>> Uncanny Valley
 
 <br>
 
@@ -478,8 +491,8 @@ Plush.
 ''Genes (XX:female, XY:male):'' $activeSlave.genes
 <<textbox "$activeSlave.genes" $activeSlave.genes>>
 <br>
-<<radiobutton "$activeSlave.amp" "XX">> Female
-<<radiobutton "$activeSlave.amp" "XY">> Male
+<<radiobutton "$activeSlave.genes" "XX">> Female
+<<radiobutton "$activeSlave.genes" "XY">> Male
 
 <br><br>
 
@@ -734,7 +747,7 @@ None.
 <<radiobutton "$activeSlave.pregType" 5>> Quintuplets
 
 <br>
-''Father (0: none, -1: you, -2: unknown, slave ID):''
+''Sire (0: none, -1: you, -2: unknown, slave ID):''
 <<textbox "$activeSlave.pregSource" $activeSlave.pregSource>>
 
 <br><br>
@@ -773,7 +786,7 @@ Monstrous.
 <<radiobutton "$activeSlave.dick" 7>> More Huge
 <<radiobutton "$activeSlave.dick" 8>> Enormous
 <<radiobutton "$activeSlave.dick" 9>> Monstrous
-<<radiobutton "$activeSlave.dick" 10>> Big McLargeHuge? I don't know. How many sizes are there?!?!?!
+<<radiobutton "$activeSlave.dick" 10>> Big McLargeHuge
 
 <br>
 ''Foreskin (0 to 5):''
@@ -817,8 +830,12 @@ Titanic.
 <<radiobutton "$activeSlave.balls" 2>> Small
 <<radiobutton "$activeSlave.balls" 3>> Normal
 <<radiobutton "$activeSlave.balls" 4>> Large
-<<radiobutton "$activeSlave.balls" 5>> Huge
-<<radiobutton "$activeSlave.balls" 6>> Titanic
+<<radiobutton "$activeSlave.balls" 5>> Massive
+<<radiobutton "$activeSlave.balls" 6>> Huge
+<<radiobutton "$activeSlave.balls" 7>> More Huge
+<<radiobutton "$activeSlave.balls" 8>> Enormous
+<<radiobutton "$activeSlave.balls" 9>> Monstrous
+<<radiobutton "$activeSlave.balls" 10>> Big McLargeHuge
 
 <br>
 
@@ -1187,8 +1204,8 @@ Paraphilias:
 <<radiobutton "$activeSlave.sexualQuirk" "unflinching">> Unflinching
 <<radiobutton "$activeSlave.sexualQuirk" "size queen">> Size Queen
 <<if $activeSlave.sexualQuirk != "none">>
-	<<if ($activeSlave.sexualFlaw != "cum addict") && ($activeSlave.sexualFlaw != "anal addict") && ($activeSlave.sexualFlaw != "attention whore") && ($activeSlave.sexualFlaw != "breast growth") && ($activeSlave.sexualFlaw != "abusive") && ($activeSlave.sexualFlaw != "malicious") &&  ($activeSlave.sexualFlaw != "self hating") && ($activeSlave.sexualFlaw != "neglectful") &&  ($activeSlave.sexualFlaw != "breeder")>>
-		<<set $activeSlave.sexualFlaw = "none">>	
+	<<if ($activeSlave.sexualFlaw != "cum addict") && ($activeSlave.sexualFlaw != "anal addict") && ($activeSlave.sexualFlaw != "attention whore") && ($activeSlave.sexualFlaw != "breast growth") && ($activeSlave.sexualFlaw != "abusive") && ($activeSlave.sexualFlaw != "malicious") && ($activeSlave.sexualFlaw != "self hating") && ($activeSlave.sexualFlaw != "neglectful") && ($activeSlave.sexualFlaw != "breeder")>>
+		<<set $activeSlave.sexualFlaw = "none">>
 	<</if>>
 <</if>>
 

@@ -20,7 +20,7 @@
 			<<elseif (_SlaveI.assignment == "serve the public") || (_SlaveI.assignment == "serve in the club")>>
 				and her life is an endless stream of lovers, she unconsciously loses any sense of emotional attachment outside the intimacy of sex. @@.lightgreen;She's become an emotional slut!@@
 				<<set _SlaveI.relationship = -1>>
-			<<elseif (_SlaveI.energy > 95) && ((_SlaveI.analCount + _SlaveI.vaginalCount + _SlaveI.oralCount + _SlaveI.mammaryCount + _SlaveI.penetrativeCount) > ($week - $activeSlave.weekAcquired) * random(20, 30))>>
+			<<elseif (_SlaveI.energy > 95) && ((_SlaveI.analCount + _SlaveI.vaginalCount + _SlaveI.oralCount + _SlaveI.mammaryCount + _SlaveI.penetrativeCount) > ($week - _SlaveI.weekAcquired) * random(20, 30))>>
 				is a total sex addict, and has a spectacularly promiscuous sexual history, she begins to think of sex as her only meaningful emotional connection with people. @@.lightgreen;She's become an emotional slut!@@
 				<<set _SlaveI.relationship = -1>>
 			<<else>>
@@ -166,6 +166,17 @@
 						<</if>>
 					<</if>>
 					<</if>>
+				<<elseif mutualChildren(_SlaveI, _SlaveJ, $slaves) > 0>>
+					<<if (_SlaveI.releaseRules != "restrictive")>>
+						<<if _SlaveJ.relationshipRules == "permissive">>
+							_SlaveI.slaveName and _SlaveJ.slaveName have <<if mutualChildren(_SlaveI, _SlaveJ, $slaves) == 0>>a child<<else>>children<</if>> living in your penthouse, so it's not surprising that their offspring brings them together. They have @@.lightgreen;become friends@@ for their child's sake.
+							<<set _SlaveJ.relationship = 1, _SlaveJ.relationshipTarget = _SlaveI.ID, _SlaveI.relationship = 1, _SlaveI.relationshipTarget = _SlaveJ.ID>>
+							<<break>>
+						<<else>>
+							_SlaveI.slaveName tries to renew her relationship with _SlaveJ.slaveName and is @@.gold;punished@@ for breaking the rules against such things; she @@.mediumorchid;resents@@ being prevented from reuniting with her.
+							<<set _SlaveI.devotion -= 2, _SlaveI.trust -= 2>>
+						<</if>>
+					<</if>>
 				<<elseif _SlaveJ.fetish == _SlaveI.fetish>>
 					<<if (_SlaveI.fetish != "none") && (_SlaveI.releaseRules != "restrictive")>>
 						<<if _SlaveJ.relationshipRules == "permissive">>
@@ -222,7 +233,7 @@
 		<<elseif _SlaveI.relationship < 0>>
 			/% Relationship with the PC %/
 			<<if _SlaveI.relationship == -1>>
-				<<if (_SlaveI.assignment == "serve the public") || (_SlaveI.assignment == "serve in the club") || (_SlaveI.assignment == "whore") || (_SlaveI.assignment == "work in the brothel")>>
+				<<if ["whore", "serve the public", "work in the brothel", "serve in the club", "be the DJ"].includes(_SlaveI.assignment)>>
 					Her endless stream of lovers maintains and satisfies her emotional reliance on sex.
 				<<elseif (_SlaveI.assignment == "serve in the master suite") && ($masterSuiteUpgradeLuxury == 2)>>
 					Forming a part of the pile of copulating bodies in $masterSuiteName satisfies her voracious sexual appetite.				
@@ -333,8 +344,14 @@
 						<<set _SlaveI.relationship = -2>>
 					<</if>>
 					<<set _SlaveJ.relationship = 0, _SlaveJ.relationshipTarget = 0, _SlaveI.relationshipTarget = 0>>
+				<<elseif $familyTesting == 1 && ( _SlaveI.mother == _SlaveJ.ID || _SlaveI.father == _SlaveJ.ID || _SlaveJ.mother == _SlaveI.ID || _SlaveJ.father == _SlaveI.ID || areSisters(_SlaveI, _SlaveJ) > 0) && (random(1,100) > 80)>>
+					They build on their family relationship and become @@.lightgreen;best friends.@@
+					<<set _SlaveI.relationship++, _SlaveJ.relationship = _SlaveI.relationship>>
 				<<elseif (_SlaveI.relation != 0) && (_SlaveI.relationTarget == _SlaveI.relationshipTarget) && (random(1, 100) > 80)>>
 					They build on their family relationship and become @@.lightgreen;best friends.@@
+					<<set _SlaveI.relationship++, _SlaveJ.relationship = _SlaveI.relationship>>
+				<<elseif mutualChildren(_SlaveI, _SlaveJ, $slaves) > 0 && (random(1, 100) < (50+(10*mutualChildren(_SlaveI, _SlaveJ, $slaves))))>>
+					Hoping to benefit of their mutual children, they draw closer together becoming @@.lightgreen;best friends.@@
 					<<set _SlaveI.relationship++, _SlaveJ.relationship = _SlaveI.relationship>>
 				<<elseif (_SlaveI.energy > 95) && (random(1, 100) > 70)>>
 					_SlaveI.slaveName obviously lusts after her friend, and does everything she can to @@.lightgreen;draw her closer.@@
@@ -372,11 +389,23 @@
 						<<set _SlaveI.relationship = -2>>
 					<</if>>
 					<<set _SlaveJ.relationship = 0, _SlaveJ.relationshipTarget = 0, _SlaveI.relationshipTarget = 0>>
+				<<elseif mutualChildren(_SlaveI, _SlaveJ, $slaves) > 0 && (random(1, 100) < (50+(10*mutualChildren(_SlaveI, _SlaveJ, $slaves))+$seed))>>
+					Having already had kids together, their relationship turns sexual once again and they become @@.lightgreen;friends with benefits.@@
+					<<set _SlaveI.relationship++, _SlaveJ.relationship = _SlaveI.relationship>>
+				<<elseif $familyTesting == 1 && (_SlaveI.energy > 95) && (_SlaveI.mother == _SlaveJ.ID || _SlaveI.father == _SlaveJ.ID || _SlaveJ.mother == _SlaveI.ID || _SlaveJ.father == _SlaveI.ID || areSisters(_SlaveI, _SlaveJ) > 0) && (random(1,100) > (90-$seed))>>
+					Driven by nymphomania to attempt to have sex with everyone, _SlaveJ.slaveName successfully seduces _SlaveJ.slaveName and they become @@.lightgreen;friends with benefits.@@
+					<<set _SlaveI.relationship++, _SlaveJ.relationship = _SlaveI.relationship>>
 				<<elseif (_SlaveI.energy > 95) && (_SlaveI.relation != 0) && (_SlaveI.relationTarget == _SlaveI.relationshipTarget) && (random(1, 100) > (90 - $seed))>>
 					Driven by nymphomania to attempt to have sex with everyone, _SlaveI.slaveName successfully seduces _SlaveJ.slaveName and they become @@.lightgreen;friends with benefits.@@
 					<<set _SlaveI.relationship++, _SlaveJ.relationship = _SlaveI.relationship>>
+				<<elseif $familyTesting == 1 && (_SlaveI.sexualQuirk == "perverted") && (_SlaveI.mother == _SlaveJ.ID || _SlaveI.father == _SlaveJ.ID || _SlaveJ.mother == _SlaveI.ID || _SlaveJ.father == _SlaveI.ID || areSisters(_SlaveI, _SlaveJ) > 0) && (random(1,100) > (80-$seed))>>
+					Revelling in the taboo nature of her attraction to _SlaveJ.slaveName, _SlaveI.slaveName successfully seduces her and they become @@.lightgreen;friends with benefits.@@
+					<<set _SlaveI.relationship++, _SlaveJ.relationship = _SlaveI.relationship>>
 				<<elseif (_SlaveI.sexualQuirk == "perverted") && (_SlaveI.relation != 0) && (_SlaveI.relationTarget == _SlaveI.relationshipTarget) && (random(1, 100) > (80 - $seed))>>
 					Reveling in the taboo nature of her attraction to _SlaveJ.slaveName, _SlaveI.slaveName successfully seduces her and they become @@.lightgreen;friends with benefits.@@
+					<<set _SlaveI.relationship++, _SlaveJ.relationship = _SlaveI.relationship>>
+				<<elseif $familyTesting == 1 && (_SlaveI.behavioralQuirk == "sinful") && (_SlaveI.mother == _SlaveJ.ID || _SlaveI.father == _SlaveJ.ID || _SlaveJ.mother == _SlaveI.ID || _SlaveJ.father == _SlaveI.ID || areSisters(_SlaveI, _SlaveJ) > 0) && (random(1,100) > (80-$seed))>>
+					Aroused by the chance to commit the sin of incest, _SlaveI.slaveName successfully seduces _SlaveJ.slaveName and they become @@.lightgreen;friends with benefits.@@
 					<<set _SlaveI.relationship++, _SlaveJ.relationship = _SlaveI.relationship>>
 				<<elseif (_SlaveI.behavioralQuirk == "sinful") && (_SlaveI.relation != 0) && (_SlaveI.relationTarget == _SlaveI.relationshipTarget) && (random(1, 100) > (80 - $seed))>>
 					Aroused by the chance to commit the sin of incest, _SlaveI.slaveName successfully seduces _SlaveJ.slaveName and they become @@.lightgreen;friends with benefits.@@
@@ -392,6 +421,11 @@
 				<<elseif random(1, 100) > (100 - $seed) - (0.2 * _SlaveI.attrXY)>>
 					<<if (_SlaveJ.balls > 0) || (_SlaveJ.faceShape == "masculine")>>
 						_SlaveI.slaveName successfully seduces _SlaveJ.slaveName and they become @@.lightgreen;friends with benefits.@@
+						<<set _SlaveI.relationship++, _SlaveJ.relationship = _SlaveI.relationship>>
+					<</if>>
+				<<elseif $familyTesting == 1 && (_SlaveI.mother == _SlaveJ.ID || _SlaveI.father == _SlaveJ.ID || _SlaveJ.mother == _SlaveI.ID || _SlaveJ.father == _SlaveI.ID || areSisters(_SlaveI, _SlaveJ) > 0)>>
+					<<if random(1,100) > (95-$seed)>>
+						Eventually, they happen to be together and horny, and find themselves fucking without thinking. They have become incestuous @@.lightgreen;friends with benefits.@@
 						<<set _SlaveI.relationship++, _SlaveJ.relationship = _SlaveI.relationship>>
 					<</if>>
 				<<elseif (_SlaveI.relation != 0) && (_SlaveI.relationTarget == _SlaveI.relationshipTarget)>>
@@ -416,14 +450,33 @@
 					Her romantic bent drives her to do her best to advance her relationship to an emotional level.
 					<<set _seed = 10>>
 				<</if>>
-				<<if (_SlaveI.energy > 95) && (_SlaveI.relation != 0) && (_SlaveI.relationTarget == _SlaveI.relationshipTarget) && (random(1, 100) > (90 - $seed))>>
+				<<if $familyTesting == 1 && _SlaveI.energy > 95 && (_SlaveI.mother == _SlaveJ.ID || _SlaveI.father == _SlaveJ.ID || _SlaveJ.mother == _SlaveI.ID || _SlaveJ.father == _SlaveI.ID || areSisters(_SlaveI, _SlaveJ) > 0) && (random(1,100) > (90-$seed))>>
 					She's such a desperate nympho that constant incest is nothing to her. She develops real feelings for _SlaveJ.slaveName as a romantic partner. Their relationship becomes @@.lightgreen;romantically emotional@@ as well as physical and familial.
+					<<set _SlaveI.relationship++, _SlaveJ.relationship = _SlaveI.relationship>>
+				<<elseif (_SlaveI.energy > 95) && (_SlaveI.relation != 0) && (_SlaveI.relationTarget == _SlaveI.relationshipTarget) && (random(1, 100) > (90 - $seed))>>
+					She's such a desperate nympho that constant incest is nothing to her. She develops real feelings for _SlaveJ.slaveName as a romantic partner. Their relationship becomes @@.lightgreen;romantically emotional@@ as well as physical and familial.
+					<<set _SlaveI.relationship++, _SlaveJ.relationship = _SlaveI.relationship>>
+				<<elseif $familyTesting == 1 && (_SlaveI.sexualQuirk == "perverted") && (_SlaveI.mother == _SlaveJ.ID || _SlaveI.father == _SlaveJ.ID || _SlaveJ.mother == _SlaveI.ID || _SlaveJ.father == _SlaveI.ID || areSisters(_SlaveI, _SlaveJ) > 0) && (random(1,100) > (80-$seed))>>
+					Revelling in the taboo nature of her sexual relationship with _SlaveJ.slaveName, she not only enjoys _SlaveJ.slaveName's body, but looks after her pleasure, too. Their relationship becomes @@.lightgreen;romantically emotional@@ as well as physical and familial.
 					<<set _SlaveI.relationship++, _SlaveJ.relationship = _SlaveI.relationship>>
 				<<elseif (_SlaveI.sexualQuirk == "perverted") && (_SlaveI.relation != 0) && (_SlaveI.relationTarget == _SlaveI.relationshipTarget) && (random(1, 100) > (80 - $seed))>>
 					Reveling in the taboo nature of her sexual relationship with _SlaveJ.slaveName, she not only enjoys _SlaveJ.slaveName's body, but looks after her pleasure, too. Their relationship becomes @@.lightgreen;romantically emotional@@ as well as physical and familial.
 					<<set _SlaveI.relationship++, _SlaveJ.relationship = _SlaveI.relationship>>
+				<<elseif $familyTesting == 1 && (_SlaveI.behavioralQuirk == "sinful") && (_SlaveI.mother == _SlaveJ.ID || _SlaveI.father == _SlaveJ.ID || _SlaveJ.mother == _SlaveI.ID || _SlaveJ.father == _SlaveI.ID || areSisters(_SlaveI, _SlaveJ) > 0) && (random(1,100) > (80-$seed))>>
+					She gets deep, perverse satisfaction by constant commission of the sin of incest, which is extreme enough to appease even her appetite for transgression. Her incestuous relationship becomes @@.lightgreen;romantically emotional@@ as well as physical and familial.
+					<<set _SlaveI.relationship++, _SlaveJ.relationship = _SlaveI.relationship>>
 				<<elseif (_SlaveI.behavioralQuirk == "sinful") && (_SlaveI.relation != 0) && (_SlaveI.relationTarget == _SlaveI.relationshipTarget) && (random(1, 100) > (80 - $seed))>>
 					She gets deep, perverse satisfaction by constant commission of the sin of incest, which is extreme enough to appease even her appetite for transgression. Her incestuous relationship becomes @@.lightgreen;romantically emotional@@ as well as physical and familial.
+					<<set _SlaveI.relationship++, _SlaveJ.relationship = _SlaveI.relationship>>
+				<<elseif mutualChildren(_SlaveI, _SlaveJ, $slaves) > 0 && (random(1, 100) < (50+(10*mutualChildren(_SlaveI, _SlaveJ, $slaves))+$seed))>>
+					Between their children and common sexual flings, they begin seeing each other as a traditional couple. Their relationship becomes @@.lightgreen;strongly emotional@@ as well as physical.
+					<<if _SlaveI.pregSource == _SlaveJ.ID && _SlaveJ.pregSource == _SlaveI.ID>>
+						Not very surprising, since they both have the others child growing in their womb.
+					<<elseif _SlaveI.pregSource == _SlaveJ.ID>>
+						Not very surprising, since _SlaveI.slaveName is carrying another of _SlaveJ.slaveName's children.
+					<<elseif _SlaveJ.pregSource == _SlaveI.ID>>
+						Not very surprising, since _SlaveJ.slaveName is carrying another of _SlaveI.slaveName's children.
+					<</if>>
 					<<set _SlaveI.relationship++, _SlaveJ.relationship = _SlaveI.relationship>>
 				<<elseif (_SlaveI.energy > 95) && (random(1, 100) > (80 - $seed))>>
 					She not only enjoys _SlaveJ.slaveName's body, but looks after her pleasure, too. Without meaning it to, their relationship becomes @@.lightgreen;strongly emotional@@ as well as physical.
@@ -489,63 +542,162 @@
 	<</if>>
 	/% FWB, lovers, slave wives %/
 	<<if _SlaveI.relationship > 2>>
-		<<if _SlaveI.relation != 0 && (_SlaveI.relationTarget == _SlaveI.relationshipTarget)>>
-			_SlaveI.slaveName is
-			<<if _SlaveI.origin == "She offered herself to you for enslavement hoping you would preserve her incestuous relationship with her sibling.">>
-				@@.hotpink;grateful@@ and @@.mediumaquamarine;trusting@@ towards you for protecting her in her long-standing incestuous relationship.
-				<<set _SlaveI.devotion += 2, _SlaveI.trust += 2>>
-			<<elseif _SlaveI.sexualQuirk == "perverted">>
-				such a pervert that she @@.hotpink;enjoys@@ carrying on an incestuous relationship with her own <<print relationTargetWord(_SlaveI)>>.
-				<<set _SlaveI.devotion++>>
-			<<elseif _SlaveI.devotion > 95>>
-				so inured to the perversities of slavery that she @@.hotpink;enjoys@@ carrying on an incestuous relationship with her own <<print relationTargetWord(_SlaveI)>>.
-				<<set _SlaveI.devotion++>>
-			<<elseif _SlaveI.behavioralQuirk == "sinful">>
-				torn between sinful delight and deep disgust that she's carrying on an incestuous relationship with her own <<print relationTargetWord(_SlaveI)>>.
-			<<elseif _SlaveI.devotion > 75>>
-				so devoted to you that she accepts carrying on an incestuous relationship with her own <<print relationTargetWord(_SlaveI)>>.
-			<<elseif _SlaveI.devotion > 50>>
-				somewhat @@.mediumorchid;disturbed@@ that she's carrying on an incestuous relationship with her own <<print relationTargetWord(_SlaveI)>>.
-				<<set _SlaveI.devotion -= 2>>
-			<<elseif _SlaveI.devotion > 20>>
-				@@.mediumorchid;disturbed@@ and @@.gold;scared@@ that she's carrying on an incestuous relationship with her own <<print relationTargetWord(_SlaveI)>>.
-				<<set _SlaveI.devotion -= 2, _SlaveI.trust -= 2>>
-			<<else>>
-				@@.mediumorchid;revolted@@ and @@.gold;scared@@ that she's carrying on an incestuous relationship with her own <<print relationTargetWord(_SlaveI)>>.
-				<<set _SlaveI.devotion -= 4, _SlaveI.trust -= 4>>
+		<<if $familyTesting == 1>>
+			<<if totalRelatives(_SlaveI) > 0>>
+				<<set $relation = 0>>
+				<<set $relationType = 0>>
+				<<set _sr = $slaves.find(function(s) { return s.ID == _SlaveI.relationshipTarget; })>>
+				<<if def _sr>>
+					<<if (_SlaveI.mother == _sr.ID || _SlaveI.father == _sr.ID || _sr.mother == _SlaveI.ID || _sr.father == _SlaveI.ID || areSisters(_SlaveI, _sr) > 0)>>
+						<<if _sr.mother == _SlaveI.ID || _sr.father == _SlaveI.ID>>
+							<<set $relationType = "daughter">>
+						<<elseif _SlaveI.mother == _sr.ID>>
+							<<set $relationType = "mother">>
+						<<elseif _SlaveI.father == _sr.ID>>
+							<<set $relationType = "father">>
+						<<else>>
+							<<switch areSisters(_SlaveI, _sr)>>
+							<<case 1>>
+								<<set $relationType = "twin">>
+							<<case 2>>
+								<<set $relationType = "sister">>
+							<<case 3>>
+								<<set $relationType = "half-sister">>
+							<</switch>>
+						<</if>>
+						<<set $relation = _sr>>
+					<</if>>
+				<</if>>
+				<<if $relation != 0>>
+					_SlaveI.slaveName
+					<<if _SlaveI.origin == "She offered herself to you for enslavement hoping you would preserve her incestuous relationship with her sibling." || _SlaveI.origin == "She offered to become your slave to protect her incestuous relationship.">>
+						is @@.hotpink;grateful@@ and @@.mediumaquamarine;trusting@@ towards you for protecting her in her long-standing incestuous relationship.
+						<<set _SlaveI.devotion += 2>>
+						<<set _SlaveI.trust += 2>>
+					<<elseif _SlaveI.sexualQuirk == "perverted">>
+						is such a pervert that she @@.hotpink;enjoys@@ carrying on an incestuous relationship with her own $relationType.
+						<<set _SlaveI.devotion += 1>>
+					<<elseif _SlaveI.devotion > 95>>
+						is so inured to the perversities of slavery that she @@.hotpink;enjoys@@ carrying on an incestuous relationship with her own $relationType.
+						<<set _SlaveI.devotion += 1>>
+					<<elseif _SlaveI.behavioralQuirk == "sinful">>
+						is torn between sinful delight and deep disgust that she's carrying on an incestuous relationship with her own $relationType.
+					<<elseif _SlaveI.devotion > 75>>
+						is so devoted to you that she accepts carrying on an incestuous relationship with her own $relationType.
+					<<elseif _SlaveI.devotion > 50>>
+						is somewhat @@.mediumorchid;disturbed@@ that she's carrying on an incestuous relationship with her own $relationType.
+						<<set _SlaveI.devotion -= 2>>
+					<<elseif _SlaveI.devotion > 20>>
+						is @@.mediumorchid;disturbed@@ and @@.gold;scared@@ that she's carrying on an incestuous relationship with her own $relationType.
+						<<set _SlaveI.devotion -= 2>>
+						<<set _SlaveI.trust -= 2>>
+					<<else>>
+						is @@.mediumorchid;revolted@@ and @@.gold;scared@@ that she's carrying on an incestuous relationship with her own $relationType.
+						<<set _SlaveI.devotion -= 4>>
+						<<set _SlaveI.trust -= 4>>
+					<</if>>
+					<<if _SlaveI.preg > 0>>
+						<<if _SlaveI.pregSource == $relation.ID>>
+							<<if _SlaveI.origin == "She offered herself to you for enslavement hoping you would preserve her incestuous relationship with her sibling.">>
+								She's @@.hotpink;overjoyed@@ to be carrying her sister's child.
+								<<set _SlaveI.devotion += 2>>
+							<<elseif  _SlaveI.origin == "She offered to become your slave to protect her incestuous relationship.">>
+								She's @@.hotpink;overjoyed@@ to be carrying her <<print $relationType>>'s child.
+								<<set _SlaveI.devotion += 2>>
+							<<elseif _SlaveI.sexualQuirk == "perverted">>
+								She's even @@.hotpink;aroused@@ by the constant awareness that her $relationType is the parent of the daughter she's carrying.
+								<<set _SlaveI.devotion += 1>>
+							<<elseif _SlaveI.behavioralQuirk == "sinful">>
+								Her feelings about carrying her <<print $relationType>>'s child are @@.hotpink;secretly less mixed,@@ though.
+								<<set _SlaveI.devotion += 1>>
+							<<elseif _SlaveI.devotion > 95>>
+								She occasionally remembers that she's carrying her <<print $relationType>>'s child, but does her best to accept it by not thinking about it.
+							<<elseif _SlaveI.devotion > 50>>
+								She's @@.mediumorchid;disgusted@@ that the baby she's carrying is her <<print $relationType>>'s, though she tries her best not to think about it.
+								<<set _SlaveI.devotion -= 1>>
+							<<elseif _SlaveI.devotion > 20>>
+								She's so @@.mediumorchid;disgusted@@ that the baby she's carrying is her <<print $relationType>>'s that she often wakes up crying about it.
+								<<set _SlaveI.devotion -= 2>>
+							<<else>>
+								She's @@.mediumorchid;passionately hateful@@ of you for making her carry an incestuous pregnancy.
+								<<set _SlaveI.devotion -= 4>>
+							<</if>>
+						<</if>>
+					<</if>>
+					<<if $arcologies[0].FSEgyptianRevivalist != "unset">>
+						Society @@.green;strongly approves@@ of their incestuous relationship, which advances the Egyptian revivalist ideal of slave incest.
+						<<set $repGain += 2*$FSSingleSlaveRep*($arcologies[0].FSEgyptianRevivalist/$FSLockinLevel)>>
+						<<set $arcologies[0].FSEgyptianRevivalist += 0.1*$FSSingleSlaveRep>>
+						<<if _SlaveI.preg > 0>>
+							<<if _SlaveI.pregSource == $relation.ID>>
+								@@.green;The effect is greatly enhanced@@ by _SlaveI.slaveName's pureblooded pregnancy.
+								<<set $repGain += $FSSingleSlaveRep*($arcologies[0].FSEgyptianRevivalist/$FSLockinLevel), $arcologies[0].FSEgyptianRevivalist += 0.05*$FSSingleSlaveRep*$pornFameBonus>>
+							<</if>>
+						<</if>>
+					<</if>>
+				<</if>>
+				<<set $relation = 0>>
+				<<set $relationType = 0>>
 			<</if>>
-			<<if (_SlaveI.preg > 0) && (_SlaveI.pregSource == _SlaveI.relationTarget)>>
+		<<else>>
+			<<if _SlaveI.relation != 0 && (_SlaveI.relationTarget == _SlaveI.relationshipTarget)>>
+				_SlaveI.slaveName is
 				<<if _SlaveI.origin == "She offered herself to you for enslavement hoping you would preserve her incestuous relationship with her sibling.">>
-					She's @@.hotpink;overjoyed@@ to be carrying her sister's child.
-					<<set _SlaveI.devotion += 2>>
+					@@.hotpink;grateful@@ and @@.mediumaquamarine;trusting@@ towards you for protecting her in her long-standing incestuous relationship.
+					<<set _SlaveI.devotion += 2, _SlaveI.trust += 2>>
 				<<elseif _SlaveI.sexualQuirk == "perverted">>
-					She's even @@.hotpink;aroused@@ by the constant awareness that her <<print relationTargetWord(_SlaveI)>> is the parent of the daughter she's carrying.
-					<<set _SlaveI.devotion++>>
-				<<elseif _SlaveI.behavioralQuirk == "sinful">>
-					Her feelings about carrying her <<print relationTargetWord(_SlaveI)>>'s child are @@.hotpink;secretly less mixed,@@ though.
+					such a pervert that she @@.hotpink;enjoys@@ carrying on an incestuous relationship with her own <<print relationTargetWord(_SlaveI)>>.
 					<<set _SlaveI.devotion++>>
 				<<elseif _SlaveI.devotion > 95>>
-					She occasionally remembers that she's carrying her <<print relationTargetWord(_SlaveI)>>'s child, but does her best to accept it by not thinking about it.
+					so inured to the perversities of slavery that she @@.hotpink;enjoys@@ carrying on an incestuous relationship with her own <<print relationTargetWord(_SlaveI)>>.
+					<<set _SlaveI.devotion++>>
+				<<elseif _SlaveI.behavioralQuirk == "sinful">>
+					torn between sinful delight and deep disgust that she's carrying on an incestuous relationship with her own <<print relationTargetWord(_SlaveI)>>.
+				<<elseif _SlaveI.devotion > 75>>
+					so devoted to you that she accepts carrying on an incestuous relationship with her own <<print relationTargetWord(_SlaveI)>>.
 				<<elseif _SlaveI.devotion > 50>>
-					She's @@.mediumorchid;disgusted@@ that the baby she's carrying is her <<print relationTargetWord(_SlaveI)>>'s, though she tries her best not to think about it.
-					<<set _SlaveI.devotion-->>
-				<<elseif _SlaveI.devotion > 20>>
-					She's so @@.mediumorchid;disgusted@@ that the baby she's carrying is her <<print relationTargetWord(_SlaveI)>>'s that she often wakes up crying about it.
+					somewhat @@.mediumorchid;disturbed@@ that she's carrying on an incestuous relationship with her own <<print relationTargetWord(_SlaveI)>>.
 					<<set _SlaveI.devotion -= 2>>
+				<<elseif _SlaveI.devotion > 20>>
+					@@.mediumorchid;disturbed@@ and @@.gold;scared@@ that she's carrying on an incestuous relationship with her own <<print relationTargetWord(_SlaveI)>>.
+					<<set _SlaveI.devotion -= 2, _SlaveI.trust -= 2>>
 				<<else>>
-					She's @@.mediumorchid;passionately hateful@@ of you for making her carry an incestuous pregnancy.
-					<<set _SlaveI.devotion -= 4>>
+					@@.mediumorchid;revolted@@ and @@.gold;scared@@ that she's carrying on an incestuous relationship with her own <<print relationTargetWord(_SlaveI)>>.
+					<<set _SlaveI.devotion -= 4, _SlaveI.trust -= 4>>
 				<</if>>
-			<</if>>
-			<<if $arcologies[0].FSEgyptianRevivalist != "unset">>
-				<<if ($rep < 20000)>>Society @@.green;strongly approves@@ of their incestuous relationship, which advances the Egyptian revivalist ideal of slave incest.<</if>>
-				<<set $repGain += 2 * $FSSingleSlaveRep * ($arcologies[0].FSEgyptianRevivalist / $FSLockinLevel), $arcologies[0].FSEgyptianRevivalist += 0.1 * $FSSingleSlaveRep>>
 				<<if (_SlaveI.preg > 0) && (_SlaveI.pregSource == _SlaveI.relationTarget)>>
-					@@.green;The effect is greatly enhanced@@ by _SlaveI.slaveName's pureblooded pregnancy.
-					<<set $repGain += $FSSingleSlaveRep * ($arcologies[0].FSEgyptianRevivalist / $FSLockinLevel), $arcologies[0].FSEgyptianRevivalist += 0.05 * $FSSingleSlaveRep * $pornFameBonus>>
+					<<if _SlaveI.origin == "She offered herself to you for enslavement hoping you would preserve her incestuous relationship with her sibling.">>
+						She's @@.hotpink;overjoyed@@ to be carrying her sister's child.
+						<<set _SlaveI.devotion += 2>>
+					<<elseif _SlaveI.sexualQuirk == "perverted">>
+						She's even @@.hotpink;aroused@@ by the constant awareness that her <<print relationTargetWord(_SlaveI)>> is the parent of the daughter she's carrying.
+						<<set _SlaveI.devotion++>>
+					<<elseif _SlaveI.behavioralQuirk == "sinful">>
+						Her feelings about carrying her <<print relationTargetWord(_SlaveI)>>'s child are @@.hotpink;secretly less mixed,@@ though.
+						<<set _SlaveI.devotion++>>
+					<<elseif _SlaveI.devotion > 95>>
+						She occasionally remembers that she's carrying her <<print relationTargetWord(_SlaveI)>>'s child, but does her best to accept it by not thinking about it.
+					<<elseif _SlaveI.devotion > 50>>
+						She's @@.mediumorchid;disgusted@@ that the baby she's carrying is her <<print relationTargetWord(_SlaveI)>>'s, though she tries her best not to think about it.
+						<<set _SlaveI.devotion-->>
+					<<elseif _SlaveI.devotion > 20>>
+						She's so @@.mediumorchid;disgusted@@ that the baby she's carrying is her <<print relationTargetWord(_SlaveI)>>'s that she often wakes up crying about it.
+						<<set _SlaveI.devotion -= 2>>
+					<<else>>
+						She's @@.mediumorchid;passionately hateful@@ of you for making her carry an incestuous pregnancy.
+						<<set _SlaveI.devotion -= 4>>
+					<</if>>
+				<</if>>
+				<<if $arcologies[0].FSEgyptianRevivalist != "unset">>
+					<<if ($rep < 20000)>>Society @@.green;strongly approves@@ of their incestuous relationship, which advances the Egyptian revivalist ideal of slave incest.<</if>>
+					<<set $repGain += 2 * $FSSingleSlaveRep * ($arcologies[0].FSEgyptianRevivalist / $FSLockinLevel), $arcologies[0].FSEgyptianRevivalist += 0.1 * $FSSingleSlaveRep>>
+					<<if (_SlaveI.preg > 0) && (_SlaveI.pregSource == _SlaveI.relationTarget)>>
+						@@.green;The effect is greatly enhanced@@ by _SlaveI.slaveName's pureblooded pregnancy.
+						<<set $repGain += $FSSingleSlaveRep * ($arcologies[0].FSEgyptianRevivalist / $FSLockinLevel), $arcologies[0].FSEgyptianRevivalist += 0.05 * $FSSingleSlaveRep * $pornFameBonus>>
+					<</if>>
 				<</if>>
 			<</if>>
-		<</if>>
+		<</if>> /* closes extended family mode */
 
 		<<if _SlaveI.releaseRules != "restrictive">>
 			<<if (_SlaveI.sexualQuirk == "size queen") && (canPenetrate(_SlaveJ))>>
@@ -652,11 +804,128 @@
 				<<elseif (_SlaveJ.trust > _SlaveI.trust)>>
 					a better slave than she is, and they are such obedient slaves that the senior girl serves as a mentor to the junior, @@.mediumaquamarine;improving her trust.@@
 					<<set _SlaveI.trust += 11>>
+				<<else>>
+					a more devoted slave than she is; since they are such obedient slaves, the senior girl serves as a mentor to the junior, @@.mediumaquamarine;teaching her to better serve you.@@
+					<<set _SlaveI.devotion += 2>>
 				<</if>>
 			<</if>>
 		<</if>>
 	<</if>>	/% CLOSES RELATIONSHIP CHECK FOR LONG TERM RELATIONSHIP EFFECTS %/
 	/% FAMILY FEELINGS %/
+
+	<<if $familyTesting == 1>>
+
+	<<if totalRelatives(_SlaveI) > 0 && _SlaveI.trust <= 95>>
+	<<for _j = 0; _j < $slaves.length; _j++>>
+		<<if _SlaveI.trust < -20>>
+			<<if $slaves[_j].mother == _SlaveI.ID || $slaves[_j].father == _SlaveI.ID>>
+				<<if _SlaveI.rivalry != $slaves[_j].ID>>
+				_SlaveI.slaveName is @@.gold;agonizingly aware@@ that her child $slaves[_j].slaveName is also your slave and might suffer if either of them angers you, and @@.hotpink;does her best@@ to protect her.
+				<<set _SlaveI.trust -= 2, _SlaveI.devotion += 6>>
+				<</if>>
+			<</if>>
+			<<if _SlaveI.mother == $slaves[_j].ID || _SlaveI.father == $slaves[_j].ID || areSisters(_SlaveI, $slaves[_j]) > 0>>
+				<<if _SlaveI.rivalry != $slaves[_j].ID>>
+				<<if _SlaveI.mother == $slaves[_j].ID>>
+					_SlaveI.slaveName is @@.gold;painfully conscious@@ that her mother $slaves[_j].slaveName is also your slave and might suffer if either of them displeases you, and @@.hotpink;tries to obey@@ as best she can.
+					<<set _SlaveI.trust -= 1, _SlaveI.devotion += 3>>
+				<<elseif _SlaveI.father == $slaves[_j].ID>>
+					_SlaveI.slaveName is @@.gold;painfully conscious@@ that her sire $slaves[_j].slaveName is also your slave and might suffer if either of them displeases you, and @@.hotpink;tries to obey@@ as best she can.
+					<<set _SlaveI.trust -= 1, _SlaveI.devotion += 3>>
+				<<else>>
+					<<switch areSisters(_SlaveI, $slaves[_j])>>
+					<<case 1>>
+						_SlaveI.slaveName is @@.gold;painfully conscious@@ that her twin sister $slaves[_j].slaveName is also your slave and might suffer if either of them displeases you, and @@.hotpink;tries to obey@@ as best she can.
+						<<set _SlaveI.trust -= 1, _SlaveI.devotion += 3>>
+					<<case 2>>
+						_SlaveI.slaveName is @@.gold;painfully conscious@@ that her sister $slaves[_j].slaveName is also your slave and might suffer if either of them displeases you, and @@.hotpink;tries to obey@@ as best she can.
+						<<set _SlaveI.trust -= 1, _SlaveI.devotion += 3>>
+					<<case 3>>
+						_SlaveI.slaveName is @@.gold;painfully conscious@@ that her half-sister $slaves[_j].slaveName is also your slave and might suffer if either of them displeases you, and @@.hotpink;tries to obey@@ as best she can.
+						<<set _SlaveI.trust -= 1, _SlaveI.devotion += 3>>
+					<</switch>>
+				<</if>>
+				<</if>>
+			<</if>>
+		<<else>>
+			<<if totalRelatives(_SlaveI) > 0>>
+				<<if _SlaveI.mother == $slaves[_j].ID>>
+					_SlaveI.slaveName knows that her mother $slaves[_j].slaveName
+					<<if $slaves[_j].devotion > 50>>
+						loves being your sex slave, and is @@.hotpink;happy@@ for her.
+						<<set _SlaveI.devotion += 4>>
+					<<elseif ($slaves[_j].devotion > 20) || ($slaves[_j].trust < -20)>>
+						is an obedient sex slave, and hopes she'll avoid punishment.
+					<<else>>
+						hates being a sex slave, and is @@.gold;afraid@@ for her.
+						<<set _SlaveI.trust -= 1>>
+					<</if>>
+				<<elseif _SlaveI.father == $slaves[_j].ID>>
+					_SlaveI.slaveName knows that her sire $slaves[_j].slaveName
+					<<if $slaves[_j].devotion > 50>>
+						loves being your sex slave, and is @@.hotpink;happy@@ for her.
+						<<set _SlaveI.devotion += 4>>
+					<<elseif ($slaves[_j].devotion > 20) || ($slaves[_j].trust < -20)>>
+						is an obedient sex slave, and hopes she'll avoid punishment.
+					<<else>>
+						hates being a sex slave, and is @@.gold;afraid@@ for her.
+						<<set _SlaveI.trust -= 1>>
+					<</if>>
+				<<elseif $slaves[_j].mother == _SlaveI.ID || $slaves[_j].father == _SlaveI.ID>>
+					_SlaveI.slaveName knows that her daughter $slaves[_j].slaveName
+					<<if $slaves[_j].devotion > 50>>
+						loves being your sex slave, and is @@.hotpink;happy@@ for her.
+						<<set _SlaveI.devotion += 4>>
+					<<elseif ($slaves[_j].devotion > 20) || ($slaves[_j].trust < -20)>>
+						is an obedient sex slave, and hopes she'll avoid punishment.
+					<<else>>
+						hates being a sex slave, and is @@.gold;afraid@@ for her.
+						<<set _SlaveI.trust -= 1>>
+					<</if>>
+				<<else>>
+					<<switch areSisters(_SlaveI, $slaves[_j])>>
+					<<case 1>>
+						_SlaveI.slaveName knows that her twin sister $slaves[_j].slaveName
+						<<if $slaves[_j].devotion > 50>>
+							loves being your sex slave, and is @@.hotpink;happy@@ for her.
+							<<set _SlaveI.devotion += 4>>
+						<<elseif ($slaves[_j].devotion > 20) || ($slaves[_j].trust < -20)>>
+							is an obedient sex slave, and hopes she'll avoid punishment.
+						<<else>>
+							hates being a sex slave, and is @@.gold;afraid@@ for her.
+							<<set _SlaveI.trust -= 1>>
+						<</if>>
+					<<case 2>>
+						_SlaveI.slaveName knows that her sister $slaves[_j].slaveName
+						<<if $slaves[_j].devotion > 50>>
+							loves being your sex slave, and is @@.hotpink;happy@@ for her.
+							<<set _SlaveI.devotion += 4>>
+						<<elseif ($slaves[_j].devotion > 20) || ($slaves[_j].trust < -20)>>
+							is an obedient sex slave, and hopes she'll avoid punishment.
+						<<else>>
+							hates being a sex slave, and is @@.gold;afraid@@ for her.
+							<<set _SlaveI.trust -= 1>>
+						<</if>>
+					<<case 3>>
+						_SlaveI.slaveName knows that her half-sister $slaves[_j].slaveName
+						<<if $slaves[_j].devotion > 50>>
+							loves being your sex slave, and is @@.hotpink;happy@@ for her.
+							<<set _SlaveI.devotion += 4>>
+						<<elseif ($slaves[_j].devotion > 20) || ($slaves[_j].trust < -20)>>
+							is an obedient sex slave, and hopes she'll avoid punishment.
+						<<else>>
+							hates being a sex slave, and is @@.gold;afraid@@ for her.
+							<<set _SlaveI.trust -= 1>>
+						<</if>>
+					<</switch>>
+				<</if>>
+			<</if>>
+		<</if>>
+	<</for>>
+	<</if>>
+
+	<<else>>
+
 	<<if _K != -1 && _SlaveI.trust <= 95>>
 		_SlaveI.slaveName
 		<<if _SlaveI.trust < -20>>
@@ -680,6 +949,9 @@
 			<</if>>
 		<</if>>
 	<</if>>
+
+	<</if>> /* closes family mod */
+
 	<<set $slaves[$i] = _SlaveI>>
 	<<if _SlaveJ != null>>
 		<<set $slaves[_J] = _SlaveJ>>

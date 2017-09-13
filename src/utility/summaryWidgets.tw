@@ -58,88 +58,6 @@ will
 	<<if $args[0].choosesOwnAssignment == 1>>choose her own job<<else>>$args[0].assignment<<if $args[0].sentence > 0>> ($args[0].sentence weeks)<</if>><</if>>.
 <</if>>
 
-<<if ($displayAssignments == 1) && (_Pass == "Main") && ($args[0].ID != $HeadGirl.ID) && ($args[0].ID != $Recruiter.ID) && ($args[0].ID != $Bodyguard.ID)>>
-	<span style="float:right;">
-	//Improve:// 
-	<<if $args[0].assignment != "rest">>
-		<<print "[[Rest|Rest Workaround][$i = "+_ssi+"]]">>
-	<<else>>
-		Rest
-	<</if>>
-	
-	<<if $args[0].fuckdoll == 0>>
-		<<if ($args[0].assignment != "stay confined")>>
-			| <<print "[[Confinement|Confinement Workaround][$i = "+_ssi+"]]">>
-		<<else>>
-			| Confinement
-		<</if>>
-	<</if>>
-	
-	<<if $args[0].fuckdoll == 0>>
-		<<if ($args[0].assignment != "take classes")>>
-			<<if ($args[0].intelligenceImplant != 1) && (($args[0].devotion >= -20) || (($args[0].trust < -20) && ($args[0].devotion >= -50)) || ($args[0].trust < -50)) && ($args[0].fetish != "mindbroken")>>
-				| <<print "[[Classes|Classes Workaround][$i = "+_ssi+"]]">>
-			<</if>>
-		<<else>>
-			| Classes
-		<</if>>
-	<</if>>
-	
-	&nbsp;&nbsp;&nbsp;&nbsp;
-	//Work:// 
-	
-	<<if $args[0].assignment != "please you">>
-		<<print "[[Fucktoy|Fucktoy Workaround][$i = "+_ssi+"]]">>
-	<<else>>
-		Fucktoy
-	<</if>>
-	
-	<<if $args[0].fuckdoll == 0>>
-		<<if ($args[0].assignment != "whore")>>
-			| <<print "[[Whore|Whore Workaround][$i = "+_ssi+"]]">>
-		<<else>>
-			| Whore
-		<</if>>
-	<</if>>
-				
-	<<if $args[0].fuckdoll == 0>>
-		<<if ($args[0].assignment != "serve the public")>>
-			| <<print "[[Public Servant|Public Servant Workaround][$i = "+_ssi+"]]">>
-		<<else>>
-			| Public Servant
-		<</if>>
-	<</if>>
-	
-	<<if $args[0].fuckdoll == 0>>
-		<<if ($args[0].assignment != "be a servant")>>
-			<<if (($args[0].devotion >= -20) || (($args[0].trust < -20) && ($args[0].devotion >= -50)) || ($args[0].trust < -50)) && canWalk($args[0]) && canSee($args[0])>>
-				| <<print "[[House Servant|Servant Workaround][$i = "+_ssi+"]]">>
-			<</if>>
-		<<else>>
-			| House Servant
-		<</if>>
-	<</if>>
-		
-	<<if $args[0].fuckdoll == 0>>
-		<<if ($args[0].lactation > 0) || ($args[0].balls > 0)>>
-			<<if ($args[0].assignment != "get milked")>>
-				| <<print "[[Milked|Milking Workaround][$i = "+_ssi+"]]">>
-			<<else>>
-				| Milked
-			<</if>>
-		<</if>>
-	<</if>>	
-
-	<<if $args[0].indentureRestrictions <= 0>>
-		<<if $args[0].assignment != "work a glory hole">>
-			| <<print "[[Gloryhole|Hole Workaround][$i = "+_ssi+"]]">>
-		<<else>>
-			| Hole
-		<</if>>
-	<</if>>
-	</span>
-<</if>>
-
 /**/
 <<if $args[0].currentSummary != 1>>
 	<<GenerateSlaveSummary $args[0]>>
@@ -164,7 +82,6 @@ will
    WIP to speed up SlaveSummary.tw and the places that call it.
 %/
 <<widget "GenerateSlaveSummary">>
-<<set _slaveName = $args[0].slaveName>>
 <<set _break = "<br>&nbsp;">>
 <<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>
 	<<set _break += "&nbsp;&nbsp;&nbsp;&nbsp;">>
@@ -370,7 +287,7 @@ will
 	<<else>>
 		<<set $args[0].summary += "'' ">>
 	<</if>>
-	
+
 <<elseif $abbreviateDiet == 2>>
 	<<set _color = 0>>
 	<<if $args[0].weight < -95>>
@@ -408,7 +325,7 @@ will
 	<<else>>
 		<<set $args[0].summary += " ">>
 	<</if>>
-	
+
 <</if>>
 
 <<if $abbreviateDiet == 1>>
@@ -497,16 +414,24 @@ will
 	<<switch $args[0].drugs>>
 	<<case "breast injections">>
 		<<set $args[0].summary += "''Dr:Boobs+'' ">>
+	<<case "intensive breast injections">>
+		<<set $args[0].summary += "''Dr:Boobs++'' ">>
 	<<case "butt injections">>
 		<<set $args[0].summary += "''Dr:Butt+'' ">>
+	<<case "intensive butt injections">>
+		<<set $args[0].summary += "''Dr:Butt++'' ">>
 	<<case "lip injections">>
 		<<set $args[0].summary += "''Dr:Lip+'' ">>
 	<<case "fertility drugs">>
 		<<set $args[0].summary += "''Dr:Fert+'' ">>
 	<<case "penis enhancement">>
 		<<set $args[0].summary += "''Dr:Dick+'' ">>
+	<<case "intensive penis enhancement">>
+		<<set $args[0].summary += "''Dr:Dick++'' ">>
 	<<case "testicle enhancement">>
 		<<set $args[0].summary += "''Dr:Balls+'' ">>
+	<<case "intensive testicle enhancement">>
+		<<set $args[0].summary += "''Dr:Balls++'' ">>
 	<<case "psychosuppressants">>
 		<<set $args[0].summary += "''Dr:Psych'' ">>
 	<<case "steroids">>
@@ -738,7 +663,7 @@ will
 	<<case "Moroccan">>
 		<<set $args[0].summary += "Mor">>
 	<<case "Nigerian">>
-		<<set $args[0].summary += "Ng">>
+		<<set $args[0].summary += "Nga">>
 	<<case "Kenyan">>
 		<<set $args[0].summary += "Ken">>
 	<<case "Zimbabwean">>
@@ -867,6 +792,90 @@ will
 		<<set $args[0].summary += "Aus">>
 	<<case "a New Zealander">>
 		<<set $args[0].summary += "NZ">>
+	<<case "Sammarinese">>
+		<<set $args[0].summary += "SM">>
+	<<case "Marshallese">>
+		<<set $args[0].summary += "MI">>
+	<<case "Syrian">>
+		<<set $args[0].summary += "Syr">>
+	<<case "Bermudian">>
+		<<set $args[0].summary += "Ber">>
+	<<case "Uruguayan">>
+		<<set $args[0].summary += "Uru">>
+	<<case "Monégasque">>
+		<<set $args[0].summary += "Mnc">>
+	<<case "Montenegrin">>
+		<<set $args[0].summary += "Mng">>
+	<<case "Cambodian">>
+		<<set $args[0].summary += "Kam">>
+	<<case "Cameroonian">>
+		<<set $args[0].summary += "Cam">>
+	<<case "Gabonese">>
+		<<set $args[0].summary += "Gab">>
+	<<case "Djiboutian">>
+		<<set $args[0].summary += "Dji">>
+	<<case "Greenlandic">>
+		<<set $args[0].summary += "Grn">>
+	<<case "Tuvaluan">>
+		<<set $args[0].summary += "Tuv">>
+	<<case "Zambian">>
+		<<set $args[0].summary += "Zam">>
+	<<case "Albanian">>
+		<<set $args[0].summary += "Alb">>
+	<<case "Bruneian">>
+		<<set $args[0].summary += "Bru">>
+	<<case "Singaporean">>
+		<<set $args[0].summary += "Sng">>
+	<<case "Laotian">>
+		<<set $args[0].summary += "Lao">>
+	<<case "Mongolian">>
+		<<set $args[0].summary += "Mon">>
+	<<case "Taiwanese">>
+		<<set $args[0].summary += "Tai">>
+	<<case "Belizean">>
+		<<set $args[0].summary += "Blz">>
+	<<case "Grenadian">>
+		<<set $args[0].summary += "Gda">>
+	<<case "I-Kiribati">>
+		<<set $args[0].summary += "Kir">>
+	<<case "Malagasy">>
+		<<set $args[0].summary += "Mad">>
+	<<case "Maldivian">>
+		<<set $args[0].summary += "Mdv">>
+	<<case "Bosnian">>
+		<<set $args[0].summary += "BH">>
+	<<case "Croatian">>
+		<<set $args[0].summary += "Cro">>
+	<<case "Kosovan">>
+		<<set $args[0].summary += "Kos">>
+	<<case "Macedonian">>
+		<<set $args[0].summary += "Mac">>
+	<<case "Honduran">>
+		<<set $args[0].summary += "Hon">>
+	<<case "Maltese">>
+		<<set $args[0].summary += "Mlt">>
+	<<case "Nauruan">>
+		<<set $args[0].summary += "Nau">>
+	<<case "Micronesian">>
+		<<set $args[0].summary += "FSM">>
+	<<case "Costa Rican">>
+		<<set $args[0].summary += "CR">>
+	<<case "Salvadoran">>
+		<<set $args[0].summary += "ES">>
+	<<case "Nicaraguan">>
+		<<set $args[0].summary += "Nic">>
+	<<case "Panamanian">>
+		<<set $args[0].summary += "Pan">>
+	<<case "Nigerien">>
+		<<set $args[0].summary += "Ng">>
+	<<case "Andorran">>
+		<<set $args[0].summary += "And">>
+	<<case "Bulgarian">>
+		<<set $args[0].summary += "Bul">>
+	<<case "Luxembourgian">>
+		<<set $args[0].summary += "Lux">>
+	<<case "Moldovan">>
+		<<set $args[0].summary += "Mol">>
 	<<case "Ancient Egyptian Revivalist">>
 		<<set $args[0].summary += "Egy Rev">>
 	<<case "Ancient Chinese Revivalist">>
@@ -920,7 +929,7 @@ will
 		<<if $args[0].balls == 0>>
 			<<set $args[0].summary += "Geld ">>
 		<</if>>
-		<<if ($args[0].dick > 8) && ($args[0].balls > 5)>>
+		<<if ($args[0].dick > 8) && ($args[0].balls > 8)>>
 			<<set $args[0].summary += "Junk+++ ">>
 		<<elseif ($args[0].dick > 5) && ($args[0].balls > 5)>>
 			<<set $args[0].summary += "Junk++ ">>
@@ -936,6 +945,8 @@ will
 			<<set $args[0].summary += "Dick+ ">>
 		<<elseif $args[0].dick > 3>>
 			<<set $args[0].summary += "Dick ">>
+		<<elseif $args[0].balls > 8>>
+			<<set $args[0].summary += "Balls+++ ">>
 		<<elseif $args[0].balls > 5>>
 			<<set $args[0].summary += "Balls++ ">>
 		<<elseif $args[0].balls > 4>>
@@ -972,7 +983,7 @@ will
 		<<if $args[0].balls == 0>>
 			<<set $args[0].summary += "Gelded.">>
 		<</if>>
-		<<if ($args[0].dick > 8) && ($args[0].balls > 5)>>
+		<<if ($args[0].dick > 8) && ($args[0].balls > 8)>>
 			<<set $args[0].summary += "Hyper dick & balls.">>
 		<<elseif ($args[0].dick > 5) && ($args[0].balls > 5)>>
 			<<set $args[0].summary += "Monster dick & balls.">>
@@ -988,6 +999,8 @@ will
 			<<set $args[0].summary += "Huge dick.">>
 		<<elseif $args[0].dick > 3>>
 			<<set $args[0].summary += "Big dick.">>
+		<<elseif $args[0].balls > 8>>
+			<<set $args[0].summary += "Hyper balls.">>
 		<<elseif $args[0].balls > 5>>
 			<<set $args[0].summary += "Monstrous balls.">>
 		<<elseif $args[0].balls > 4>>
@@ -1005,7 +1018,7 @@ will
 	<<if $args[0].anus == 0>>
 		<<set $args[0].summary += "@@ @@.lime;Anal virgin.@@ @@.pink;">>
 	<</if>>
-	
+
 	<<if ($args[0].vagina > 3) && ($args[0].anus > 3)>>
 		<<set $args[0].summary += "Blown out holes.">>
 	<<elseif ($args[0].vagina > 2) && ($args[0].anus > 2)>>
@@ -1019,7 +1032,7 @@ will
 	<<elseif $args[0].anus > 2>>
 		<<set $args[0].summary += "Gaping anus.">>
 	<</if>>
-	
+
 <</if>>
 /**/
 <<if $abbreviatePhysicals == 1>>
@@ -1164,7 +1177,7 @@ will
 	<</if>>
 <</if>>
 
-<<if ($args[0].boobs > 10000) && ($args[0].butt > 9)>>
+<<if ($args[0].boobs > 12000) && ($args[0].butt > 9)>>
 	<<set $args[0].summary += "T&A+++ ">>
 <<elseif ($args[0].boobs > 4000) && ($args[0].butt > 8)>>
 	<<set $args[0].summary += "T&A++ ">>
@@ -1174,7 +1187,7 @@ will
 	<<set $args[0].summary += "T&A ">>
 <<elseif ($args[0].boobs < 500) && ($args[0].butt < 3) && ($args[0].weight <= 10) && ($args[0].muscles <= 30)>>
 	<<set $args[0].summary += "Girlish ">>
-<<elseif $args[0].boobs > 10000>>
+<<elseif $args[0].boobs > 12000>>
 	<<set $args[0].summary += "Boobs+++ ">>
 <<elseif $args[0].boobs > 4000>>
 	<<set $args[0].summary += "Boobs++ ">>
@@ -1409,7 +1422,7 @@ will
 	<</if>>
 <</if>>
 
-<<if ($args[0].boobs > 10000) && ($args[0].butt > 9)>>
+<<if ($args[0].boobs > 12000) && ($args[0].butt > 9)>>
 	<<set $args[0].summary += "Hyper T&A. ">>
 <<elseif ($args[0].boobs > 4000) && ($args[0].butt > 8)>>
 	<<set $args[0].summary += "Enormous T&A. ">>
@@ -1419,7 +1432,7 @@ will
 	<<set $args[0].summary += "Big T&A. ">>
 <<elseif ($args[0].boobs < 500) && ($args[0].butt < 3) && ($args[0].weight <= 10) && ($args[0].muscles <= 30)>>
 	<<set $args[0].summary += "Girlish figure. ">>
-<<elseif $args[0].boobs > 10000>>
+<<elseif $args[0].boobs > 12000>>
 	<<set $args[0].summary += "Immobilizing tits. ">>
 <<elseif $args[0].boobs > 4000>>
 	<<set $args[0].summary += "Monstrous tits. ">>
@@ -1499,7 +1512,7 @@ will
 
 <<if ($args[0].boobsImplant != 0) || ($args[0].buttImplant != 0) || ($args[0].lipsImplant != 0)>>
 	<<set $args[0].summary += "Implants. ">>
-<<elseif ($args[0].faceImplant >= 2) || ($args[0].waist < -95)>>
+<<elseif $args[0].faceImplant >= 30 || $args[0].waist < -95>>
 	<<set $args[0].summary += "Surgery enhanced. ">>
 <<else>>
 	<<set $args[0].summary += "All natural. ">>
@@ -1745,166 +1758,121 @@ will
 <</if>>
 
 <<if $abbreviateMental == 1>>
-	<<if $args[0].fetish != "mindbroken">>
-	<<if $args[0].fetishKnown == 1>>
-	<<set $args[0].summary += "@@.lightcoral;">>
-	<<switch $args[0].fetish>>
-	<<case "submissive">>
-	<<if $args[0].fetishStrength > 95>>
-		<<set $args[0].summary += "Sub++">>
-	<<elseif $args[0].fetishStrength > 60>>
-		<<set $args[0].summary += "Sub+">>
-	<<else>>
-		<<set $args[0].summary += "Sub">>
-	<</if>>
-	<<case "cumslut">>
-	<<if $args[0].fetishStrength > 95>>
-		<<set $args[0].summary += "Oral++">>
-	<<elseif $args[0].fetishStrength > 60>>
-		<<set $args[0].summary += "Oral+">>
-	<<else>>
-		<<set $args[0].summary += "Oral">>
-	<</if>>
-	<<case "humiliation">>
-	<<if $args[0].fetishStrength > 95>>
-		<<set $args[0].summary += "Humil++">>
-	<<elseif $args[0].fetishStrength > 60>>
-		<<set $args[0].summary += "Humil+">>
-	<<else>>
-		<<set $args[0].summary += "Humil">>
-	<</if>>
-	<<case "buttslut">>
-	<<if $args[0].fetishStrength > 95>>
-		<<set $args[0].summary += "Anal++">>
-	<<elseif $args[0].fetishStrength > 60>>
-		<<set $args[0].summary += "Anal+">>
-	<<else>>
-		<<set $args[0].summary += "Anal">>
-	<</if>>
-	<<case "boobs">>
-	<<if $args[0].fetishStrength > 95>>
-		<<set $args[0].summary += "Boobs++">>
-	<<elseif $args[0].fetishStrength > 60>>
-		<<set $args[0].summary += "Boobs+">>
-	<<else>>
-		<<set $args[0].summary += "Boobs">>
-	<</if>>
-	<<case "sadist">>
-	<<if $args[0].fetishStrength > 95>>
-		<<set $args[0].summary += "Sadist++">>
-	<<elseif $args[0].fetishStrength > 60>>
-		<<set $args[0].summary += "Sadist+">>
-	<<else>>
-		<<set $args[0].summary += "Sadist">>
-	<</if>>
-	<<case "masochist">>
-	<<if $args[0].fetishStrength > 95>>
-		<<set $args[0].summary += "Pain++">>
-	<<elseif $args[0].fetishStrength > 60>>
-		<<set $args[0].summary += "Pain+">>
-	<<else>>
-		<<set $args[0].summary += "Pain">>
-	<</if>>
-	<<case "dom">>
-	<<if $args[0].fetishStrength > 95>>
-		<<set $args[0].summary += "Dom++">>
-	<<elseif $args[0].fetishStrength > 60>>
-		<<set $args[0].summary += "Dom+">>
-	<<else>>
-		<<set $args[0].summary += "Dom">>
-	<</if>>
-	<<case "pregnancy">>
-	<<if $args[0].fetishStrength > 95>>
-		<<set $args[0].summary += "Preg++">>
-	<<elseif $args[0].fetishStrength > 60>>
-		<<set $args[0].summary += "Preg+">>
-	<<else>>
-		<<set $args[0].summary += "Preg">>
-	<</if>>
-	<<default>>
-		<<set $args[0].summary += "Vanilla">>
-	<</switch>>
-	
-	<<if $summaryStats>>
-		<<set $args[0].summary += "["+$args[0].fetishStrength+"] ">>
-	<</if>>
-	<<set $args[0].summary += "@@ ">>
-	<</if>>
-	
-	<<if $args[0].attrKnown == 1>>
-	<<set _stats = $summaryStats>>
-	<<if $args[0].attrXY <= 5>>
-		<<set $args[0].summary += "@@.red;XY---">>
-	<<elseif $args[0].attrXY <= 15>>
-		<<set $args[0].summary += "@@.red;XY--">>
-	<<elseif $args[0].attrXY <= 35>>
-		<<set $args[0].summary += "@@.red;XY-">>
-	<<elseif $args[0].attrXY <= 65>>
-		<<set $args[0].summary += "@@.white;XY">>
-	<<elseif $args[0].attrXY <= 85>>
-		<<set $args[0].summary += "@@.green;XY+">>
-	<<elseif $args[0].attrXY <= 95>>
-		<<set $args[0].summary += "@@.green;XY++">>
-	<<elseif $args[0].attrXX > 95>>
-		<<set _stats = 0>>
-		<<if $args[0].energy <= 95>>
-			<<set $args[0].summary += "@@.green;Omni!">>
-		<<else>>
-			<<set $args[0].summary += "@@.green;Omni+Nympho!!">>
+	<<if ($args[0].fetishKnown && $args[0].fetish != "mindbroken")>>
+		<<set $args[0].summary += "@@.lightcoral;">>
+		<<switch $args[0].fetish>>
+		<<case "submissive">>
+			<<set $args[0].summary += "Sub">>
+		<<case "cumslut">>
+			<<set $args[0].summary += "Oral">>
+		<<case "humiliation">>
+			<<set $args[0].summary += "Humil">>
+		<<case "buttslut">>
+			<<set $args[0].summary += "Anal">>
+		<<case "boobs">>
+			<<set $args[0].summary += "Boobs">>
+		<<case "sadist">>
+			<<set $args[0].summary += "Sadist">>
+		<<case "masochist">>
+			<<set $args[0].summary += "Pain">>
+		<<case "dom">>
+			<<set $args[0].summary += "Dom">>
+		<<case "pregnancy">>
+			<<set $args[0].summary += "Preg">>
+		<<default>>
+			<<set $args[0].summary += "Vanilla">>
+		<</switch>>
+		<<if ($args[0].fetishStrength > 95)>>
+			<<set $args[0].summary += "++">>
+		<<elseif ($args[0].fetishStrength > 60)>>
+			<<set $args[0].summary += "+">>
 		<</if>>
-	<<else>>
-		<<set $args[0].summary += "@@.green;XY+++">>
-	<</if>>
-	<<if _stats == 1>>
-		<<set $args[0].summary += "["+$args[0].attrXY+"]@@ ">>
-	<<else>>
-		<<set $args[0].summary += "@@ ">>
-	<</if>>
-	
-	<<if $args[0].attrXX <= 5>>
-		<<set $args[0].summary += "@@.red;XX---">>
-	<<elseif $args[0].attrXX <= 15>>
-		<<set $args[0].summary += "@@.red;XX--">>
-	<<elseif $args[0].attrXX <= 35>>
-		<<set $args[0].summary += "@@.red;XX-">>
-	<<elseif $args[0].attrXX <= 65>>
-		<<set $args[0].summary += "@@.white;XX">>
-	<<elseif $args[0].attrXX <= 85>>
-		<<set $args[0].summary += "@@.green;XX+">>
-	<<elseif $args[0].attrXX <= 95>>
-		<<set $args[0].summary += "@@.green;XX++">>
-	<<elseif $args[0].attrXY <= 95>>
-		<<set $args[0].summary += "@@.green;XX+++">>
-	<</if>>
-	<<if $summaryStats>>
-		<<set $args[0].summary += "["+$args[0].attrXX+"]@@ ">>
-	<<else>>
-		<<set $args[0].summary += "@@ ">>
-	<</if>>
-	<<set _stats = $summaryStats>>
-	<<if $args[0].energy > 95>>
-		<<set _stats = 0>>
-		<<if ($args[0].attrXY <= 95) || ($args[0].attrXX <= 95)>>
-			<<set $args[0].summary += "@@.green;Nympho!">>
+
+		<<if $summaryStats>>
+			<<set $args[0].summary += "["+$args[0].fetishStrength+"]">>
 		<</if>>
-	<<elseif $args[0].energy > 80>>
-		<<set $args[0].summary += "@@.green;SD++">>
-	<<elseif $args[0].energy > 60>>
-		<<set $args[0].summary += "@@.green;SD+">>
-	<<elseif $args[0].energy > 40>>
-		<<set $args[0].summary += "@@.yellow;SD ">>
-	<<elseif $args[0].energy > 20>>
-		<<set $args[0].summary += "@@.red;SD-">>
-	<<else>>
-		<<set $args[0].summary += "@@.red;SD--">>
-	<</if>>
-	<<if _stats == 1>>
-		<<set $args[0].summary += "["+$args[0].attrXY+"]@@ ">>
-	<<else>>
 		<<set $args[0].summary += "@@ ">>
 	<</if>>
+
+	<<if $args[0].attrKnown>>
+		<<set _omnisexual = ($args[0].attrXY > 95 && $args[0].attrXX > 95)>>
+		<<set _nymphomaniac = ($args[0].energy > 95)>>
+		<<if _omnisexual>>
+			<<if _nymphomaniac>>
+				<<set $args[0].summary += "@@.green;Omni+Nympho!!@@ ">>
+			<<else>>
+				<<set $args[0].summary += "@@.green;Omni!@@ ">>
+			<</if>>
+		<</if>>
+
+		<<if $args[0].attrXY <= 5>>
+			<<set $args[0].summary += "@@.red;XY---">>
+		<<elseif $args[0].attrXY <= 15>>
+			<<set $args[0].summary += "@@.red;XY--">>
+		<<elseif $args[0].attrXY <= 35>>
+			<<set $args[0].summary += "@@.red;XY-">>
+		<<elseif $args[0].attrXY <= 65>>
+			<<set $args[0].summary += "@@.white;XY">>
+		<<elseif $args[0].attrXY <= 85>>
+			<<set $args[0].summary += "@@.green;XY+">>
+		<<elseif $args[0].attrXY <= 95>>
+			<<set $args[0].summary += "@@.green;XY++">>
+		<<elseif !_omnisexual>>
+			<<set $args[0].summary += "@@.green;XY+++">>
+		<</if>>
+
+		<<if !_omnisexual>>
+			<<if $summaryStats>>
+				<<set $args[0].summary += "["+$args[0].attrXY+"]">>
+			<</if>>
+			<<set $args[0].summary += "@@ ">>
+		<</if>>
+
+		<<if $args[0].attrXX <= 5>>
+			<<set $args[0].summary += "@@.red;XX---">>
+		<<elseif $args[0].attrXX <= 15>>
+			<<set $args[0].summary += "@@.red;XX--">>
+		<<elseif $args[0].attrXX <= 35>>
+			<<set $args[0].summary += "@@.red;XX-">>
+		<<elseif $args[0].attrXX <= 65>>
+			<<set $args[0].summary += "@@.white;XX">>
+		<<elseif $args[0].attrXX <= 85>>
+			<<set $args[0].summary += "@@.green;XX+">>
+		<<elseif $args[0].attrXX <= 95>>
+			<<set $args[0].summary += "@@.green;XX++">>
+		<<elseif !_omnisexual>>
+			<<set $args[0].summary += "@@.green;XX+++">>
+		<</if>>
+
+		<<if !_omnisexual>>
+			<<if $summaryStats>>
+				<<set $args[0].summary += "["+$args[0].attrXX+"]">>
+			<</if>>
+			<<set $args[0].summary += "@@ ">>
+		<</if>>
+
+		<<if $args[0].energy <= 20>>
+			<<set $args[0].summary += "@@.red;SD--">>
+		<<elseif $args[0].energy <= 40>>
+			<<set $args[0].summary += "@@.red;SD-">>
+		<<elseif $args[0].energy <= 60>>
+			<<set $args[0].summary += "@@.yellow;SD ">>
+		<<elseif $args[0].energy <= 80>>
+			<<set $args[0].summary += "@@.green;SD+">>
+		<<elseif $args[0].energy <= 95>>
+			<<set $args[0].summary += "@@.green;SD++">>
+		<<elseif !_omnisexual>>
+			<<set $args[0].summary += "@@.green;Nympho!@@ ">>
+		<</if>>
+
+		<<if !_nymphomaniac>>
+			<<if $summaryStats>>
+				<<set $args[0].summary += "["+$args[0].energy+"]">>
+			<</if>>
+			<<set $args[0].summary += "@@ ">>
+		<</if>>
 	<</if>>
-	<</if>>
+
 	<<if $args[0].clitPiercing == 3>>
 	<<if $args[0].fetishKnown == 1>>
 	<<if $args[0].clitSetting == "off">>
@@ -1966,7 +1934,7 @@ will
 		<<set $args[0].summary += "SP:none ">>
 	<</switch>>
 	<</if>>
-	
+
 	<<if $args[0].attrKnown == 1>>
 		<<if $args[0].clitSetting == "women">>
 			<<if $args[0].attrXX < 95>><<set $args[0].summary += "SP:women ">><</if>>
@@ -2099,10 +2067,9 @@ will
 		<<set $args[0].sexualQuirk = "none">>
 	<</switch>>
 	<<set $args[0].summary += "@@ ">>
-	
+
 <<elseif $abbreviateMental == 2>>
-	<<if $args[0].fetish != "mindbroken">>
-	<<if $args[0].fetishKnown == 1>>
+	<<if ($args[0].fetishKnown && $args[0].fetish != "mindbroken")>>
 		<<set $args[0].summary += "@@.lightcoral;">>
 		<<switch $args[0].fetish>>
 		<<case "submissive">>
@@ -2180,17 +2147,25 @@ will
 		<<default>>
 			<<set $args[0].summary += "Sexually vanilla">>
 		<</switch>>
-		
+
 		<<if $summaryStats>>
-			<<set $args[0].summary += " ["+$args[0].fetishStrength+"].@@ ">>
-		<<else>>
-			<<set $args[0].summary += ".@@ ">>
+			<<set $args[0].summary += " ["+$args[0].fetishStrength+"]">>
 		<</if>>
+		<<set $args[0].summary += ".@@ ">>
 
 	<</if>>
-	<</if>>
+
 	<<if $args[0].attrKnown == 1>>
-		<<set _stats = $summaryStats, _comma = 1>>
+		<<set _omnisexual = ($args[0].attrXY > 95 && $args[0].attrXX > 95)>>
+		<<set _nymphomaniac = ($args[0].energy > 95)>>
+		<<if _omnisexual>>
+			<<if _nymphomaniac>>
+				<<set $args[0].summary += "@@.green;Omnisexual nymphomaniac!@@ ">>
+			<<else>>
+				<<set $args[0].summary += "@@.green;Omnisexual!@@ ">>
+			<</if>>
+		<</if>>
+
 		<<if $args[0].attrXY <= 5>>
 			<<set $args[0].summary += "@@.red;Disgusted by men">>
 		<<elseif $args[0].attrXY <= 15>>
@@ -2203,26 +2178,17 @@ will
 			<<set $args[0].summary += "@@.green;Attracted to men">>
 		<<elseif $args[0].attrXY <= 95>>
 			<<set $args[0].summary += "@@.green;Aroused by men">>
-		<<elseif $args[0].attrXX > 95>>
-			<<if $args[0].energy <= 95>>
-				<<set _stats = 0, _comma = 0>>
-				<<set $args[0].summary += "@@.green;Omnisexual!">>
-			<<else>>
-				<<set _stats = 0, _comma = 0>>
-				<<set $args[0].summary += "@@.green;Omnisexual nymphomaniac!">>
-			<</if>>
-		<<else>>
+		<<elseif !_omnisexual>>
 			<<set $args[0].summary += "@@.green;Passionate about men">>
 		<</if>>
-		<<if _stats>>
-			<<set $args[0].summary += " ["+$args[0].attrXY+"]">>
-		<</if>>
-		<<if _comma>>
+
+		<<if !_omnisexual>>
+			<<if $summaryStats>>
+				<<set $args[0].summary += " ["+$args[0].attrXY+"]">>
+			<</if>>
 			<<set $args[0].summary += ",@@ ">>
-		<<else>>
-			<<set $args[0].summary += "@@ ">>
 		<</if>>
-		<<set _stats = $summaryStats, _comma = 1>>
+
 		<<if $args[0].attrXX <= 5>>
 			<<set $args[0].summary += "@@.red;disgusted by women">>
 		<<elseif $args[0].attrXX <= 15>>
@@ -2235,41 +2201,39 @@ will
 			<<set $args[0].summary += "@@.green;attracted to women">>
 		<<elseif $args[0].attrXX <= 95>>
 			<<set $args[0].summary += "@@.green;aroused by women">>
-		<<elseif $args[0].attrXY <= 95>>
+		<<elseif !_omnisexual>>
 			<<set $args[0].summary += "@@.green;passionate about women">>
 		<</if>>
-		<<if _stats>>
-			<<set $args[0].summary += " ["+$args[0].attrXX+"].@@ ">>
-		<<else>>
-			<<set $args[0].summary += ".@@ ">>
-		<</if>>
-		
-		<<if $args[0].energy > 95>>
-			<<if ($args[0].attrXY <= 95) || ($args[0].attrXX <= 95)>>
-				<<set _stats = 0, _comma = 0>>
-				<<set $args[0].summary += "@@.green;Nymphomaniac!">>
+
+		<<if !_omnisexual>>
+			<<if $summaryStats>>
+				<<set $args[0].summary += " ["+$args[0].attrXX+"]">>
 			<</if>>
-		<<elseif $args[0].energy > 80>>
-			<<set $args[0].summary += "@@.green;Powerful sex drive">>
-		<<elseif $args[0].energy > 60>>
-			<<set $args[0].summary += "@@.green;Good sex drive">>
-		<<elseif $args[0].energy > 40>>
-			<<set $args[0].summary += "@@.yellow;Average sex drive">>
-		<<elseif $args[0].energy > 20>>
-			<<set $args[0].summary += "@@.red;Poor sex drive">>
-		<<else>>
-			<<set $args[0].summary += "@@.red;No sex drive">>
-		<</if>>
-		<<if _stats>>
-			<<set $args[0].summary += " ["+$args[0].energy+"]">>
-		<</if>>
-		<<if _comma>>
 			<<set $args[0].summary += ".@@ ">>
-		<<else>>
-			<<set $args[0].summary += "@@ ">>
+		<</if>>
+
+		<<if $args[0].energy <= 20>>
+			<<set $args[0].summary += "@@.red;No sex drive">>
+		<<elseif $args[0].energy <= 40>>
+			<<set $args[0].summary += "@@.red;Poor sex drive">>
+		<<elseif $args[0].energy <= 60>>
+			<<set $args[0].summary += "@@.yellow;Average sex drive">>
+		<<elseif $args[0].energy <= 80>>
+			<<set $args[0].summary += "@@.green;Good sex drive">>
+		<<elseif $args[0].energy <= 95>>
+			<<set $args[0].summary += "@@.green;Powerful sex drive">>
+		<<elseif !_omnisexual>>
+			<<set $args[0].summary += "@@.green;Nymphomaniac!@@ ">>
+		<</if>>
+
+		<<if !_nymphomaniac>>
+			<<if $summaryStats>>
+				<<set $args[0].summary += " ["+$args[0].energy+"]">>
+			<</if>>
+			<<set $args[0].summary += ".@@ ">>
 		<</if>>
 	<</if>>
-	
+
 	<<if $args[0].clitPiercing == 3>>
 		<<if $args[0].fetishKnown == 1>>
 			<<if $args[0].clitSetting == "off">>
@@ -2463,7 +2427,171 @@ will
 	<<set $args[0].summary += _break>>
 <</if>>
 <<if $abbreviateMental == 1>>
+
 <<set $args[0].summary += "@@.lightgreen;">>
+<<if $familyTesting == 1>>
+
+	<<if $args[0].mother > 0>>
+		<<set _ssj = $slaves.findIndex(function(s) { return s.ID == $args[0].mother; })>>
+		<<if _ssj != -1>>
+			<<set $args[0].summary += ""+$slaves[_ssj].slaveName>>
+			<<if $slaves[_ssj].slaveSurname>> 
+				<<set $args[0].summary += " "+$slaves[_ssj].slaveSurname>>
+			<</if>>
+			<<set $args[0].summary += "'s daughter">>
+			<<if $args[0].relationshipTarget == $slaves[_ssj].ID>>
+				<<if $args[0].relationship == 1>><<set $args[0].summary += " & friend">>
+				<<elseif $args[0].relationship == 2>><<set $args[0].summary += " & BFF">>
+				<<elseif $args[0].relationship == 3>><<set $args[0].summary += " & FWB">>
+				<<elseif $args[0].relationship == 4>><<set $args[0].summary += " & lover">>
+				<<else>><<set $args[0].summary += " & wife">>
+				<</if>>
+				<<set _relationshipHandled = 1>>
+			<<else>>
+				<<set $args[0].summary += "&nbsp;&nbsp;&nbsp;&nbsp;">>
+			<</if>>
+		<</if>>
+	<<elseif $args[0].mother == -1>>
+		<<set $args[0].summary += "Your daughter">>
+		<<if $args[0].relationship == -3>>
+			<<set $args[0].summary += " & wife">>
+			<<set _relationshipHandled = 1>>
+		<<elseif $args[0].relationship == -2>>
+			<<set $args[0].summary += " & lover">>
+			<<set _relationshipHandled = 1>>
+		<</if>>
+	<</if>>
+	<<if $args[0].father > 0 && $args[0].father != $args[0].mother>>
+		<<set _ssj = $slaves.findIndex(function(s) { return s.ID == $args[0].father; })>>
+		<<if _ssj != -1>>
+			<<set $args[0].summary += ""+$slaves[_ssj].slaveName>>
+			<<if $slaves[_ssj].slaveSurname>> 
+				<<set $args[0].summary += " "+$slaves[_ssj].slaveSurname>>
+			<</if>>
+			<<set $args[0].summary += "'s daughter">>
+			<<if $args[0].relationshipTarget == $slaves[_ssj].ID>>
+				<<if $args[0].relationship == 1>><<set $args[0].summary += " & friend">>
+				<<elseif $args[0].relationship == 2>><<set $args[0].summary += " & BFF">>
+				<<elseif $args[0].relationship == 3>><<set $args[0].summary += " & FWB">>
+				<<elseif $args[0].relationship == 4>><<set $args[0].summary += " & lover">>
+				<<else>><<set $args[0].summary += " & wife">>
+				<</if>>
+				<<set _relationshipHandled = 1>>
+			<<else>>
+				<<set $args[0].summary += "&nbsp;&nbsp;&nbsp;&nbsp;">>
+			<</if>>
+		<</if>>
+	<<elseif $args[0].father == -1>>
+		<<set $args[0].summary += "Your daughter">>
+		<<if $args[0].relationship == -3>>
+			<<set $args[0].summary += " & wife">>
+			<<set _relationshipHandled = 1>>
+		<<elseif $args[0].relationship == -2>>
+			<<set $args[0].summary += " & lover">>
+			<<set _relationshipHandled = 1>>
+		<</if>>
+	<</if>>
+	<<if $args[0].daughters == 1>>
+		<<set _ssj = $slaves.findIndex(function(s) { return s.mother == $args[0].ID; })>>
+		<<if _ssj != -1>>
+			<<set $args[0].summary += ""+$slaves[_ssj].slaveName>>
+			<<if $slaves[_ssj].slaveSurname>> 
+				<<set $args[0].summary += " "+$slaves[_ssj].slaveSurname>>
+			<</if>>
+			<<set $args[0].summary += "'s mother">>
+			<<if $args[0].relationshipTarget == $slaves[_ssj].ID>>
+				<<if $args[0].relationship == 1>><<set $args[0].summary += " & friend">>
+				<<elseif $args[0].relationship == 2>><<set $args[0].summary += " & BFF">>
+				<<elseif $args[0].relationship == 3>><<set $args[0].summary += " & FWB">>
+				<<elseif $args[0].relationship == 4>><<set $args[0].summary += " & lover">>
+				<<else>><<set $args[0].summary += " & wife">>
+				<</if>>
+				<<set _relationshipHandled = 1>>
+			<<else>>
+				<<set $args[0].summary += "&nbsp;&nbsp;&nbsp;&nbsp;">>
+			<</if>>
+		<</if>>
+		<<set _ssj = $slaves.findIndex(function(s) { return s.father == $args[0].ID; })>>
+		<<if _ssj != -1>>
+			<<set $args[0].summary += ""+$slaves[_ssj].slaveName>>
+			<<if $slaves[_ssj].slaveSurname>> 
+				<<set $args[0].summary += " "+$slaves[_ssj].slaveSurname>>
+			<</if>>
+			<<set $args[0].summary += "'s father">>
+			<<if $args[0].relationshipTarget == $slaves[_ssj].ID && _relationshipHandled != 1>>
+				<<if $args[0].relationship == 1>><<set $args[0].summary += " & friend">>
+				<<elseif $args[0].relationship == 2>><<set $args[0].summary += " & BFF">>
+				<<elseif $args[0].relationship == 3>><<set $args[0].summary += " & FWB">>
+				<<elseif $args[0].relationship == 4>><<set $args[0].summary += " & lover">>
+				<<else>><<set $args[0].summary += " & wife">>
+				<</if>>
+				<<set _relationshipHandled = 1>>
+			<<else>>
+				<<set $args[0].summary += "&nbsp;&nbsp;&nbsp;&nbsp;">>
+			<</if>>
+		<</if>>
+	<<elseif $args[0].daughters > 1>>
+		<<set $args[0].summary += "multiple daughters">>
+	<</if>>
+	<<if $args[0].sisters == 1>>
+		<<set _ssj = $slaves.findIndex(function(s) { return areSisters(s, $args[0]) > 0; })>>
+		<<if _ssj != -1>>
+			<<set $args[0].summary += ""+$slaves[_ssj].slaveName>>
+			<<if $slaves[_ssj].slaveSurname>> 
+				<<set $args[0].summary += " "+$slaves[_ssj].slaveSurname>>
+			<</if>>
+			<<set $args[0].summary += "'s sister">>
+			<<if $args[0].relationshipTarget == $slaves[_ssj].ID>>
+				<<if $args[0].relationship == 1>><<set $args[0].summary += " & friend">>
+				<<elseif $args[0].relationship == 2>><<set $args[0].summary += " & BFF">>
+				<<elseif $args[0].relationship == 3>><<set $args[0].summary += " & FWB">>
+				<<elseif $args[0].relationship == 4>><<set $args[0].summary += " & lover">>
+				<<else>><<set $args[0].summary += " & wife">>
+				<</if>>
+				<<set _relationshipHandled = 1>>
+			<<else>>
+				<<set $args[0].summary += "&nbsp;&nbsp;&nbsp;&nbsp;">>
+			<</if>>
+		<</if>>
+	<<elseif $args[0].sisters > 1>>
+		<<set $args[0].summary += "Multiple sisters">>
+	<</if>>
+	<<if _relationshipHandled != 1>>
+	<<if $args[0].relationship>>
+		<<set $args[0].summary += "&nbsp;&nbsp;&nbsp;&nbsp;">>
+		<<if $args[0].relationship > 0>>
+			<<set _ssj = $slaves.findIndex(function(s) { return s.ID == $args[0].relationshipTarget; })>>
+			<<if _ssj != -1>>
+				<<set $args[0].summary += $slaves[_ssj].slaveName>>
+				<<if $slaves[_ssj].slaveSurname>>
+					<<set $args[0].summary += " "+$slaves[_ssj].slaveSurname>>
+				<</if>>
+				<<set $args[0].summary += "'s">>
+				<<switch $args[0].relationship>>
+				<<case 1>>
+					<<set $args[0].summary += " friend">>
+				<<case 2>>
+					<<set $args[0].summary += " BFF">>
+				<<case 3>>
+					<<set $args[0].summary += " FWB">>
+				<<case 4>>
+					<<set $args[0].summary += " lover">>
+				<<case 5>>
+					<<set $args[0].summary += " wife">>
+				<</switch>>
+			<</if>>
+		<<elseif $args[0].relationship == -3>>
+			<<set $args[0].summary += "Your wife">>
+		<<elseif $args[0].relationship == -2>>
+			<<set $args[0].summary += "E Bonded">>
+		<<elseif $args[0].relationship == -1>>
+			<<set $args[0].summary += "E Slut">>
+		<</if>>
+	<</if>>
+	<</if>>
+	<<set $args[0].summary += "&nbsp;&nbsp;&nbsp;&nbsp;">>
+
+<<else>>
 
 <<if $args[0].relation != 0>>
 <<for _ssj = 0; _ssj < _SL; _ssj++>>
@@ -2484,7 +2612,6 @@ will
 <<if $args[0].relationship > 0>>
 <<for _ssj = 0; _ssj < _SL; _ssj++>>
 	<<if $args[0].relationshipTarget == $slaves[_ssj].ID>>
-
 		<<if $args[0].relationshipTarget != $args[0].relationTarget>>
 			<<set $args[0].summary += $slaves[_ssj].slaveName>>
 			<<if $slaves[_ssj].slaveSurname>>
@@ -2518,6 +2645,8 @@ will
 <<elseif $args[0].relationship == -1>>
 	<<set $args[0].summary += "E Slut&nbsp;&nbsp;&nbsp;&nbsp;">>
 <</if>>
+
+<</if>> /*closes extended family mode */
 <<set $args[0].summary += "@@ ">>
 
 <<if $args[0].rivalry != 0>>
@@ -2548,6 +2677,207 @@ will
 <</if>>
 
 <<elseif $abbreviateMental == 2>>
+
+<<if $familyTesting == 1>>
+	<<if $args[0].mother > 0>>
+		<<set _ssj = $slaves.findIndex(function(s) { return s.ID == $args[0].mother; })>>
+		<<if _ssj != -1>>
+			<<set $args[0].summary += $slaves[_ssj].slaveName>>
+			<<if $slaves[_ssj].slaveSurname>>
+				<<set $args[0].summary += " "+$slaves[_ssj].slaveSurname>>
+			<</if>>
+			<<set $args[0].summary += "'s @@.lightgreen;daughter@@ ">>
+			<<if $args[0].relationshipTarget == $slaves[_ssj].ID>>
+				<<switch $args[0].relationship>>
+				<<case 1>>
+					<<set $args[0].summary += "and @@.lightgreen;friend.@@ ">>
+				<<case 2>>
+					<<set $args[0].summary += "and @@.lightgreen;best friend.@@ ">>
+				<<case 3>>
+					<<set $args[0].summary += "and @@.lightgreen;FWB.@@ ">>
+				<<case 4>>
+					<<set $args[0].summary += "and @@.lightgreen;lover.@@ ">>
+				<<case 5>>
+					<<set $args[0].summary += "and @@.lightgreen;slave wife.@@ ">>
+				<</switch>>
+				<<set _relationshipHandled = 1>>
+			<<else>>
+				<<set $args[0].summary += "&nbsp;&nbsp;&nbsp;&nbsp;">>
+			<</if>>
+		<</if>>
+	<<elseif $args[0].mother == -1>>
+		<<set $args[0].summary += "Your @@.lightgreen;daughter@@ ">>
+		<<if $args[0].relationship == -3>>
+			<<set $args[0].summary += "and @@.lightgreen;wife.@@ ">>
+			<<set _relationshipHandled = 1>>
+		<<elseif $args[0].relationship == -2>>
+			<<set $args[0].summary += "and @@.lightgreen;lover.@@ ">>
+			<<set _relationshipHandled = 1>>
+		<</if>>
+	<</if>>
+	<<if $args[0].father > 0 && $args[0].father != $args[0].mother>>
+		<<set _ssj = $slaves.findIndex(function(s) { return s.ID == $args[0].father; })>>
+		<<if _ssj != -1>>
+			<<set $args[0].summary += $slaves[_ssj].slaveName>>
+			<<if $slaves[_ssj].slaveSurname>>
+				<<set $args[0].summary += " "+$slaves[_ssj].slaveSurname>>
+			<</if>>
+			<<set $args[0].summary += "'s @@.lightgreen;daughter@@ ">>
+			<<if $args[0].relationshipTarget == $slaves[_ssj].ID>>
+				<<switch $args[0].relationship>>
+				<<case 1>>
+					<<set $args[0].summary += "and @@.lightgreen;friend.@@ ">>
+				<<case 2>>
+					<<set $args[0].summary += "and @@.lightgreen;best friend.@@ ">>
+				<<case 3>>
+					<<set $args[0].summary += "and @@.lightgreen;FWB.@@ ">>
+				<<case 4>>
+					<<set $args[0].summary += "and @@.lightgreen;lover.@@ ">>
+				<<case 5>>
+					<<set $args[0].summary += "and @@.lightgreen;slave wife.@@ ">>
+				<</switch>>
+				<<set _relationshipHandled = 1>>
+			<<else>>
+				<<set $args[0].summary += "&nbsp;&nbsp;&nbsp;&nbsp;">>
+			<</if>>
+		<</if>>
+	<<elseif $args[0].father == -1>>
+		<<set $args[0].summary += "Your @@.lightgreen;daughter@@ ">>
+		<<if $args[0].relationship == -3>>
+			<<set $args[0].summary += "and @@.lightgreen;wife.@@ ">>
+			<<set _relationshipHandled = 1>>
+		<<elseif $args[0].relationship == -2>>
+			<<set $args[0].summary += "and @@.lightgreen;lover.@@ ">>
+			<<set _relationshipHandled = 1>>
+		<</if>>
+	<</if>>
+	<<if $args[0].daughters == 1>>
+		<<set _ssj = $slaves.findIndex(function(s) { return s.mother == $args[0].ID; })>>
+		<<if _ssj != -1>>
+			<<set $args[0].summary += $slaves[_ssj].slaveName>>
+			<<if $slaves[_ssj].slaveSurname>>
+				<<set $args[0].summary += " "+$slaves[_ssj].slaveSurname>>
+			<</if>>
+			<<set $args[0].summary += "'s @@.lightgreen;mother@@ ">>
+			<<if $args[0].relationshipTarget == $slaves[_ssj].ID>>
+				<<switch $args[0].relationship>>
+				<<case 1>>
+					<<set $args[0].summary += "and @@.lightgreen;friend.@@ ">>
+				<<case 2>>
+					<<set $args[0].summary += "and @@.lightgreen;best friend.@@ ">>
+				<<case 3>>
+					<<set $args[0].summary += "and @@.lightgreen;FWB.@@ ">>
+				<<case 4>>
+					<<set $args[0].summary += "and @@.lightgreen;lover.@@ ">>
+				<<case 5>>
+					<<set $args[0].summary += "and @@.lightgreen;slave wife.@@ ">>
+				<</switch>>
+				<<set _relationshipHandled = 1>>
+			<<else>>
+				<<set $args[0].summary += "&nbsp;&nbsp;&nbsp;&nbsp;">>
+			<</if>>
+		<</if>>
+		<<set _ssj = $slaves.findIndex(function(s) { return s.father == $args[0].ID; })>>
+		<<if _ssj != -1>>
+			<<set $args[0].summary += $slaves[_ssj].slaveName>>
+			<<if $slaves[_ssj].slaveSurname>>
+				<<set $args[0].summary += " "+$slaves[_ssj].slaveSurname>>
+			<</if>>
+			<<set $args[0].summary += "'s @@.lightgreen;father@@ ">>
+			<<if $args[0].relationshipTarget == $slaves[_ssj].ID>>
+				<<switch $args[0].relationship>>
+				<<case 1>>
+					<<set $args[0].summary += "and @@.lightgreen;friend.@@ ">>
+				<<case 2>>
+					<<set $args[0].summary += "and @@.lightgreen;best friend.@@ ">>
+				<<case 3>>
+					<<set $args[0].summary += "and @@.lightgreen;FWB.@@ ">>
+				<<case 4>>
+					<<set $args[0].summary += "and @@.lightgreen;lover.@@ ">>
+				<<case 5>>
+					<<set $args[0].summary += "and @@.lightgreen;slave wife.@@ ">>
+				<</switch>>
+				<<set _relationshipHandled = 1>>
+			<<else>>
+				<<set $args[0].summary += "&nbsp;&nbsp;&nbsp;&nbsp;">>
+			<</if>>
+		<</if>>
+	<<elseif $args[0].daughters > 1>>
+		<<if $args[0].daughters > 10>>
+			<<set $args[0].summary += "@@.lightgreen;Has tons of daughters.@@ ">>
+		<<elseif $args[0].daughters > 5>>
+			<<set $args[0].summary += "@@.lightgreen;Has many daughters.@@ ">>
+		<<else>>
+			<<set $args[0].summary += "@@.lightgreen;Has several daughters.@@ ">>
+		<</if>>
+	<</if>>
+	<<if $args[0].sisters == 1>>
+		<<set _ssj = $slaves.findIndex(function(s) { return areSisters(s, $args[0]) > 0; })>>
+		<<if _ssj != -1>>
+			<<set $args[0].summary += $slaves[_ssj].slaveName>>
+			<<if $slaves[_ssj].slaveSurname>>
+				<<set $args[0].summary += " "+$slaves[_ssj].slaveSurname>>
+			<</if>>
+			<<set $args[0].summary += "'s @@.lightgreen;sister@@ ">>
+			<<if $args[0].relationshipTarget == $slaves[_ssj].ID>>
+				<<switch $args[0].relationship>>
+				<<case 1>>
+					<<set $args[0].summary += "and @@.lightgreen;friend.@@ ">>
+				<<case 2>>
+					<<set $args[0].summary += "and @@.lightgreen;best friend.@@ ">>
+				<<case 3>>
+					<<set $args[0].summary += "and @@.lightgreen;FWB.@@ ">>
+				<<case 4>>
+					<<set $args[0].summary += "and @@.lightgreen;lover.@@ ">>
+				<<case 5>>
+					<<set $args[0].summary += "and @@.lightgreen;slave wife.@@ ">>
+				<</switch>>
+				<<set _relationshipHandled = 1>>
+			<<else>>
+				<<set $args[0].summary += "&nbsp;&nbsp;&nbsp;&nbsp;">>
+			<</if>>
+		<</if>>
+	<<elseif $args[0].sisters > 1>>
+		<<if $args[0].sisters > 10>>
+			<<set $args[0].summary += "@@.lightgreen;One of many sisters.@@ ">>
+		<<elseif $args[0].sisters > 5>>
+			<<set $args[0].summary += "@@.lightgreen;Has many sisters.@@ ">>
+		<<else>>
+			<<set $args[0].summary += "@@.lightgreen;Has several sisters.@@ ">>
+		<</if>>
+	<</if>>
+	<<if $args[0].relationship > 0 && _relationshipHandled != 1>>
+		<<set _ssj = $slaves.findIndex(function(s) { return s.ID == $args[0].relationTarget; })>>
+		<<if _ssj != -1>>
+			<<set $args[0].summary += $slaves[_ssj].slaveName>>
+			<<if $slaves[_ssj].slaveSurname>>
+				<<set $args[0].summary += " "+$slaves[_ssj].slaveSurname>>
+			<</if>>
+			<<set $args[0].summary += "'s ">>
+			<<switch $args[0].relationship>>
+			<<case 1>>
+				<<set $args[0].summary += "@@.lightgreen;friend.@@ ">>
+			<<case 2>>
+				<<set $args[0].summary += "@@.lightgreen;best friend.@@ ">>
+			<<case 3>>
+				<<set $args[0].summary += "@@.lightgreen;FWB.@@ ">>
+			<<case 4>>
+				<<set $args[0].summary += "@@.lightgreen;lover.@@ ">>
+			<<case 5>>
+				<<set $args[0].summary += "@@.lightgreen;slave wife.@@ ">>
+			<</switch>>
+		<</if>>
+	<<elseif $args[0].relationship == -3>>
+		<<set $args[0].summary += "@@.lightgreen;Your wife.@@">>
+	<<elseif $args[0].relationship == -2>>
+		<<set $args[0].summary += "@@.lightgreen;Emotionally bonded to you.@@">>
+	<<elseif $args[0].relationship == -1>>
+		<<set $args[0].summary += "@@.lightgreen;Emotional slut.@@">>
+	<</if>>
+	<<set $args[0].summary += "&nbsp;&nbsp;&nbsp;&nbsp;">>
+	
+<<else>>
+
 <<if $args[0].relation != 0>>
 <<for _ssj = 0; _ssj < _SL; _ssj++>>
 	<<if $args[0].relationTarget == $slaves[_ssj].ID>>
@@ -2606,6 +2936,8 @@ will
 <<elseif $args[0].relationship == -1>>
 	<<set $args[0].summary += "@@.lightgreen;Emotional slut.@@&nbsp;&nbsp;&nbsp;&nbsp;">>
 <</if>>
+
+<</if>> /* closes extended family mode */
 
 <<if $args[0].rivalry != 0>>
 <<for _ssj = 0; _ssj < _SL; _ssj++>>
@@ -2822,12 +3154,16 @@ will
 	<<set $args[0].summary += "Large buttplug. ">>
 <<case "huge plug">>
 	<<set $args[0].summary += "Huge buttplug. ">>
-<<case "tailed plug">>
-	<<set $args[0].summary += "Tailed buttplug. ">>
-<<case "large tailed plug">>
-	<<set $args[0].summary += "Large tailed buttplug. ">>
-<<case "huge tailed plug">>
-	<<set $args[0].summary += "Huge tailed buttplug. ">>
+<<case "long plug">>
+	<<set $args[0].summary += "Long buttplug. ">>
+<<case "long, large plug">>
+	<<set $args[0].summary += "Large, long buttplug. ">>
+<<case "long, huge plug">>
+	<<set $args[0].summary += "Enormous buttplug. ">>
+<</switch>>
+<<switch $args[0].buttplugAttachment>>
+<<case "tail">>
+	<<set $args[0].summary += "Attached tail. ">>
 <</switch>>
 <</if>>
 <</if>>

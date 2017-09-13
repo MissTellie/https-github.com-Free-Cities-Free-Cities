@@ -50,7 +50,7 @@
 
 <br><br>__Take slave to another room:__
 [[Wardrobe|Wardrobe Use][$degradation = 0]]
-| [[Auto salon|Salon][$degradation = 0,$primaryHairColor = "",$secondaryHairColor = "",$artificialEyeColor = "",$artificialEyeShape = "",$tattooChoice = "",$piercingLocation = "",$piercingLevel = ""]]
+| [[Auto salon|Salon][$degradation = 0,$primaryHairColor = "",$secondaryHairColor = "",$artificialEyeColor = "",$artificialEyeShape = "",$tattooChoice = "",$piercingLevel = ""]]
 | [[Body mod studio|Body Modification][$degradation = 0]]
 | [[Remote surgery|Remote Surgery][$degradation = 0]]
 <<if $cyberMod == 1>>| [[Configure cybernetics|cyberConfig][$temp = 0]]<</if>>
@@ -117,25 +117,98 @@
 	<</if>>
 	</span>
 	| <<link "Abuse her">><<replace "#miniscene">><<include "FAbuse">><</replace>><</link>>
-	<<if ($activeSlave.relation != 0)>>
+	<<if $familyTesting == 1>>
 		<<for $i = 0; $i < _SL; $i++>>
-		<<if $slaves[$i].ID == $activeSlave.relationTarget>>
-			<<set $assayedSlave = $slaves[$i]>>
-			<<AssayedSlaveAvailable>>
-		<</if>>
-		<</for>>
-		<<if $assayedSlaveAvailable == 1>>
-			<<if ($activeSlave.relation == "mother")>>
-			| <<link "Fuck her with her daughter">><<replace "#miniscene">><<set $partner = "relation">><<include "FRelation">><br>&nbsp;&nbsp;&nbsp;&nbsp;<</replace>><</link>>
-			<<elseif ($activeSlave.relation == "daughter")>>
-			| <<link "Fuck her with her mother">><<replace "#miniscene">><<set $partner = "relation">><<include "FRelation">><br>&nbsp;&nbsp;&nbsp;&nbsp;<</replace>><</link>>
-			<<elseif ($activeSlave.relation == "sister")>>
-			| <<link "Fuck her with her sister">><<replace "#miniscene">><<set $partner = "relation">><<include "FRelation">><br>&nbsp;&nbsp;&nbsp;&nbsp;<</replace>><</link>>
-			<<elseif ($activeSlave.relation == "twin")>>
-			| <<link "Fuck her with her twin">><<replace "#miniscene">><<set $partner = "relation">><<include "FRelation">><br>&nbsp;&nbsp;&nbsp;&nbsp;<</replace>><</link>>
+			<<if $activeSlave.mother == $slaves[$i].ID>>
+				<<if isSlaveAvailable($slaves[$i])>>
+					| <<link "Fuck her with her mother">><<replace "#miniscene">><<set $partner = "mother">><<include "FRelation">><br>&nbsp;&nbsp;&nbsp;&nbsp;<</replace>><</link>>
+				<<else>>
+					//Her mother, $slaves[$i].slaveName, is unavailable//
+				<</if>>
 			<</if>>
-		<<else>>
-			//$assayedSlave.slaveName is unavailable//
+			/*
+			<<if $activeSlave.father == $slaves[$i].ID>>
+				<<if isSlaveAvailable($slaves[$i])>>
+					| <<link "Fuck her with her father">><<replace "#miniscene">><<set $partner = "father">><<include "FRelation">><br>&nbsp;&nbsp;&nbsp;&nbsp;<</replace>><</link>>
+				<<else>>
+					//Her sire, $slaves[$i].slaveName, is unavailable//
+				<</if>>
+			<</if>>
+			*/
+		<</for>>
+		<<if $activeSlave.daughters > 0>>
+			<<set $relation = 0>>
+			<<for $i = 0; $i < _SL; $i++>>
+				<<if ($activeSlave.ID == $slaves[$i].father || $activeSlave.ID == $slaves[$i].mother) && !isSlaveAvailable($slaves[$i])>>
+					<<set $relation++>>	
+				<</if>>
+			<</for>>
+			<<if $relation == $activeSlave.daughters>>
+				<<if $activeSlave.daughters == 1>>
+					//Her daughter is unavailable//
+				<<else>>
+					//Her daughters are unavailable//
+				<</if>>
+			<<else>>
+				<<if $activeSlave.daughters == 1>>
+					| <<link "Fuck her with her daughter">><<replace "#miniscene">><<set $partner = "daughter">><<include "FRelation">><br>&nbsp;&nbsp;&nbsp;&nbsp;<</replace>><</link>>
+				<<else>>
+					| <<link "Fuck her with one of her daughters">><<replace "#miniscene">><<set $partner = "daughter">><<include "FRelation">><br>&nbsp;&nbsp;&nbsp;&nbsp;<</replace>><</link>>
+				<</if>>
+			<</if>>
+		<</if>>
+		/*
+		<<if $activeSlave.daughters > 1>>
+			| <<link "Fuck her with her daughters">><<replace "#miniscene">><<set $partner to "daughters">><<include "FRelation">><br>&nbsp;&nbsp;&nbsp;&nbsp;<</replace>><</link>>
+		<</if>>
+		*/
+		<<if $activeSlave.sisters > 0>>
+			<<set $relation = 0>>
+			<<for $i = 0; $i < _SL; $i++>>
+				<<if areSisters($activeSlave, $slaves[$i]) > 0 && isSlaveAvailable($slaves[$i]) == false>>
+					<<set $relation++>>
+				<</if>>
+			<</for>>
+			<<if $relation == $activeSlave.sisters>>
+				<<if $activeSlave.sisters == 1>>
+					//Her sister is unavailable//
+				<<else>>
+					//Her sisters are unavailable//
+				<</if>>
+			<<else>>
+				<<if $activeSlave.sisters == 1>>
+					| <<link "Fuck her with her sister">><<replace "#miniscene">><<set $partner = "sister">><<include "FRelation">><br>&nbsp;&nbsp;&nbsp;&nbsp;<</replace>><</link>>
+				<<else>>
+					| <<link "Fuck her with one of her sisters">><<replace "#miniscene">><<set $partner = "sister">><<include "FRelation">><br>&nbsp;&nbsp;&nbsp;&nbsp;<</replace>><</link>>
+				<</if>>	
+			<</if>>
+		<</if>>
+		/*
+		<<if $activeSlave.sisters > 1>>
+			| <<link "Fuck her with her sisters">><<replace "#miniscene">><<set $partner = "sisters">><<include "FRelation">><br>&nbsp;&nbsp;&nbsp;&nbsp;<</replace>><</link>>
+		<</if>>
+		*/
+	<<else>>
+		<<if ($activeSlave.relation != 0)>>
+			<<for $i = 0; $i < _SL; $i++>>
+				<<if $slaves[$i].ID == $activeSlave.relationTarget>>
+					<<set $assayedSlave = $slaves[$i]>>
+					<<AssayedSlaveAvailable>>
+				<</if>>
+			<</for>>
+			<<if $assayedSlaveAvailable == 1>>
+				<<if ($activeSlave.relation is "mother")>>
+					| <<link "Fuck her with her daughter">><<replace "#miniscene">><<set $partner = "relation">><<include "FRelation">><br>&nbsp;&nbsp;&nbsp;&nbsp;<</replace>><</link>>
+				<<elseif ($activeSlave.relation is "daughter")>>
+					| <<link "Fuck her with her mother">><<replace "#miniscene">><<set $partner = "relation">><<include "FRelation">><br>&nbsp;&nbsp;&nbsp;&nbsp;<</replace>><</link>>
+				<<elseif ($activeSlave.relation is "sister")>>
+					| <<link "Fuck her with her sister">><<replace "#miniscene">><<set $partner = "relation">><<include "FRelation">><br>&nbsp;&nbsp;&nbsp;&nbsp;<</replace>><</link>>
+				<<elseif ($activeSlave.relation is "twin")>>
+					| <<link "Fuck her with her twin">><<replace "#miniscene">><<set $partner = "relation">><<include "FRelation">><br>&nbsp;&nbsp;&nbsp;&nbsp;<</replace>><</link>>
+				<</if>>
+			<<else>>
+				//$assayedSlave.slaveName is unavailable//
+			<</if>>
 		<</if>>
 	<</if>>
 	<<if ($activeSlave.relationship > 0)>>
@@ -429,6 +502,26 @@
 <br>Drugs: <span id="drugs"><strong>$activeSlave.drugs</strong></span>.
 <<link "None">><<set $activeSlave.drugs = "no drugs">><<replace "#drugs">><strong>$activeSlave.drugs</strong><</replace>><</link>>
 <<if $activeSlave.indentureRestrictions < 2>>
+<<if $activeSlave.drugs == "intensive breast injections" || $activeSlave.drugs == "intensive butt injections" || $activeSlave.drugs == "intensive penis enhancement" || $activeSlave.drugs == "intensive testicle enhancement">>
+	| <<link "Moderate">>
+		<<switch $activeSlave.drugs>>
+		<<case "intensive breast injections">>
+			<<set $activeSlave.drugs = "breast injections">>
+		<<case "intensive butt injections">>
+			<<set $activeSlave.drugs = "butt injections">>
+		<<case "intensive penis enhancement">>
+			<<set $activeSlave.drugs = "penis enhancement">>
+		<<case "intensive testicle enhancement">>
+			<<set $activeSlave.drugs = "testicle enhancement">>
+		<</switch>>
+		<<replace "#drugs">><strong>$activeSlave.drugs</strong><</replace>>
+	<</link>>
+<<elseif $activeSlave.drugs == "breast injections" || $activeSlave.drugs == "butt injections" || $activeSlave.drugs == "penis enhancement" || $activeSlave.drugs == "testicle enhancement">>
+	| <<link "Intensify">>
+		<<set $activeSlave.drugs = "intensive " + $activeSlave.drugs>>
+		<<replace "#drugs">><strong>$activeSlave.drugs</strong><</replace>>
+	<</link>>
+<</if>>
 <<if ($activeSlave.intelligence > -2)>>
 	| <<link "Psychosuppressants">><<set $activeSlave.drugs = "psychosuppressants">><<replace "#drugs">><strong>$activeSlave.drugs</strong><</replace>><</link>>
 <<else>>
@@ -464,7 +557,7 @@
 	<</if>>
 <</if>>
 <<if ($activeSlave.balls > 0)>>
-<<if ($activeSlave.balls < 6)>>
+<<if ($activeSlave.balls < 10)>>
 	| <<link "Balls +">><<set $activeSlave.drugs = "testicle enhancement">><<replace "#drugs">><strong>$activeSlave.drugs</strong><</replace>><</link>>
 <<else>>
 	| Balls +
@@ -584,13 +677,13 @@ Hormones: <strong><span id="hormones">
 	<br>Typical punishment: ''<span id="standardPunishment">$activeSlave.standardPunishment</span>.''
 	<<link "Confinement">><<set $activeSlave.standardPunishment = "confinement">><<replace "#standardPunishment">>$activeSlave.standardPunishment<</replace>><</link>> |
 	<<link "Whipping">><<set $activeSlave.standardPunishment = "whipping">><<replace "#standardPunishment">>$activeSlave.standardPunishment<</replace>><</link>> |
-	<<link "Chastity">><<set $activeSlave.standardPunishment = "chastity">><<replace "#standardPunishment">>$activeSlave.standardPunishment<</replace>><</link>><<if $activeSlave.standardPunishment !== "situational">> |<</if>>
+	<<link "Chastity">><<set $activeSlave.standardPunishment = "chastity">><<replace "#standardPunishment">>$activeSlave.standardPunishment<</replace>><</link>> |
 	<<link "Situational">><<set $activeSlave.standardPunishment = "situational">><<replace "#standardPunishment">>$activeSlave.standardPunishment<</replace>><</link>>
 	&nbsp;&nbsp;&nbsp;&nbsp;
 	Typical reward: ''<span id="standardReward">$activeSlave.standardReward</span>.''
 	<<link "Relaxation">><<set $activeSlave.standardReward = "relaxation">><<replace "#standardReward">>$activeSlave.standardReward<</replace>><</link>> |
 	<<link "Drugs">><<set $activeSlave.standardReward = "drugs">><<replace "#standardReward">>$activeSlave.standardReward<</replace>><</link>> |
-	<<link "Orgasm">><<set $activeSlave.standardReward = "orgasm">><<replace "#standardReward">>$activeSlave.standardReward<</replace>><</link>><<if $activeSlave.standardReward !== "situational">> |<</if>>
+	<<link "Orgasm">><<set $activeSlave.standardReward = "orgasm">><<replace "#standardReward">>$activeSlave.standardReward<</replace>><</link>> |
 	<<link "Situational">><<set $activeSlave.standardReward = "situational">><<replace "#standardReward">>$activeSlave.standardReward<</replace>><</link>>
 	<br>Non-assignment orgasm rules: ''<span id="releaseRules">$activeSlave.releaseRules</span>.''
 	<<link "Permit masturbation and interslave sex">><<set $activeSlave.releaseRules = "permissive">><<replace "#releaseRules">>$activeSlave.releaseRules<</replace>><</link>> |

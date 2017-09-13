@@ -129,7 +129,7 @@ Its<<if $weatherCladding > 0>> dull<<elseif $arcologyUpgrade.apron == 1>> shinin
 	<</if>>
 <</if>>
 
-<<if ($arcologies[0].FSSupremacistDecoration >= 40) || ($arcologies[0].FSSubjugationistDecoration >= 40) || ($arcologies[0].FSGenderRadicalistDecoration >= 40) || ($arcologies[0].FSGenderFundamentalistDecoration >= 40) || ($arcologies[0].FSPaternalistDecoration >= 40) || ($arcologies[0].FSDegradationistDecoration >= 40) || ($arcologies[0].FSBodyPuristDecoration >= 40) || ($arcologies[0].FSTransformationFetishistDecoration >= 40) || ($arcologies[0].FSYouthPreferentialistDecoration == 40) || ($arcologies[0].FSMaturityPreferentialistDecoration == 40) || ($arcologies[0].FSSlimnessEnthusiastDecoration >= 40) || ($arcologies[0].FSAssetExpansionistDecoration >= 40) || ($arcologies[0].FSPastoralistDecoration >= 40) || ($arcologies[0].FSPhysicalIdealistDecoration >= 40) || ($arcologies[0].FSChattelReligionistDecoration >= 40) || ($arcologies[0].FSRomanRevivalistDecoration >= 40) || ($arcologies[0].FSAztecRevivalistDecoration >= 40) || ($arcologies[0].FSEgyptianRevivalistDecoration >= 40) || ($arcologies[0].FSEdoRevivalistDecoration == 40) || ($arcologies[0].FSArabianRevivalistDecoration == 40) || ($arcologies[0].FSChineseRevivalistDecoration == 40)>>
+<<if ($arcologies[0].FSSupremacistDecoration >= 40) || ($arcologies[0].FSSubjugationistDecoration >= 40) || ($arcologies[0].FSGenderRadicalistDecoration >= 40) || ($arcologies[0].FSGenderFundamentalistDecoration >= 40) || ($arcologies[0].FSPaternalistDecoration >= 40) || ($arcologies[0].FSDegradationistDecoration >= 40) || ($arcologies[0].FSBodyPuristDecoration >= 40) || ($arcologies[0].FSTransformationFetishistDecoration >= 40) || ($arcologies[0].FSYouthPreferentialistDecoration >= 40) || ($arcologies[0].FSMaturityPreferentialistDecoration >= 40) || ($arcologies[0].FSSlimnessEnthusiastDecoration >= 40) || ($arcologies[0].FSAssetExpansionistDecoration >= 40) || ($arcologies[0].FSPastoralistDecoration >= 40) || ($arcologies[0].FSPhysicalIdealistDecoration >= 40) || ($arcologies[0].FSChattelReligionistDecoration >= 40) || ($arcologies[0].FSRomanRevivalistDecoration >= 40) || ($arcologies[0].FSAztecRevivalistDecoration >= 40) || ($arcologies[0].FSEgyptianRevivalistDecoration >= 40) || ($arcologies[0].FSEdoRevivalistDecoration >= 40) || ($arcologies[0].FSArabianRevivalistDecoration >= 40) || ($arcologies[0].FSChineseRevivalistDecoration == 40)>>
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
 	The entryway features the first of $arcologies[0].name's many banks of public screens.
 	<<if $arcologies[0].FSSupremacistDecoration >= 40>>
@@ -358,7 +358,7 @@ Its<<if $weatherCladding > 0>> dull<<elseif $arcologyUpgrade.apron == 1>> shinin
 	<<if $arcologyUpgrade.drones == 1>>The central plaza is a large atrium; a security drone occasionally flies across the open space.<</if>>
 <</if>>
 
-<<if ($arcologies[0].FSSupremacistDecoration >= 80) || ($arcologies[0].FSSubjugationistDecoration >= 80) || ($arcologies[0].FSGenderRadicalistDecoration >= 80) || ($arcologies[0].FSGenderFundamentalistDecoration >= 80) || ($arcologies[0].FSPaternalistDecoration >= 80) || ($arcologies[0].FSDegradationistDecoration >= 80) || ($arcologies[0].FSBodyPuristDecoration >= 80) || ($arcologies[0].FSTransformationFetishistDecoration >= 80) || ($arcologies[0].FSYouthPreferentialistDecoration == 80) || ($arcologies[0].FSMaturityPreferentialistDecoration == 80) || ($arcologies[0].FSSlimnessEnthusiastDecoration >= 80) || ($arcologies[0].FSAssetExpansionistDecoration >= 80) || ($arcologies[0].FSPastoralistDecoration >= 80) || ($arcologies[0].FSPhysicalIdealistDecoration >= 80) || ($arcologies[0].FSChattelReligionistDecoration >= 80) || ($arcologies[0].FSRomanRevivalistDecoration >= 80) || ($arcologies[0].FSAztecRevivalistDecoration >= 80) || ($arcologies[0].FSEgyptianRevivalistDecoration >= 80) || ($arcologies[0].FSEdoRevivalistDecoration == 80) || ($arcologies[0].FSArabianRevivalistDecoration == 80) || ($arcologies[0].FSChineseRevivalistDecoration == 80)>>
+<<if ($arcologies[0].FSSupremacistDecoration >= 80) || ($arcologies[0].FSSubjugationistDecoration >= 80) || ($arcologies[0].FSGenderRadicalistDecoration >= 80) || ($arcologies[0].FSGenderFundamentalistDecoration >= 80) || ($arcologies[0].FSPaternalistDecoration >= 80) || ($arcologies[0].FSDegradationistDecoration >= 80) || ($arcologies[0].FSBodyPuristDecoration >= 80) || ($arcologies[0].FSTransformationFetishistDecoration >= 80) || ($arcologies[0].FSYouthPreferentialistDecoration >= 80) || ($arcologies[0].FSMaturityPreferentialistDecoration >= 80) || ($arcologies[0].FSSlimnessEnthusiastDecoration >= 80) || ($arcologies[0].FSAssetExpansionistDecoration >= 80) || ($arcologies[0].FSPastoralistDecoration >= 80) || ($arcologies[0].FSPhysicalIdealistDecoration >= 80) || ($arcologies[0].FSChattelReligionistDecoration >= 80) || ($arcologies[0].FSRomanRevivalistDecoration >= 80) || ($arcologies[0].FSAztecRevivalistDecoration >= 80) || ($arcologies[0].FSEgyptianRevivalistDecoration >= 80) || ($arcologies[0].FSEdoRevivalistDecoration >= 80) || ($arcologies[0].FSArabianRevivalistDecoration >= 80) || ($arcologies[0].FSChineseRevivalistDecoration >= 80)>>
 	There are numerous slaves stationed down on the plaza to greet visitors.
 	<<if $arcologies[0].FSPaternalistDecoration >= 80>>
 	They're intelligent and articulate.
@@ -521,6 +521,40 @@ Its lingua franca is $language.
 	<</if>>
 <</for>>
 
+<br>
+
 <</replace>>
 <</link>>
 </span>
+
+<<if $plot>>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+<<if (def $peacekeepers) and ($peacekeepers != 0) >>
+	<<if $peacekeepers.strength >= 50>>
+		General $peacekeepers.generalName now governs an area near the Free City as a warlord, using the men and women of his former peacekeeping forces to rule.
+		<<if $peacekeepers.attitude >= 100>>
+			The area is a de facto client state of your arcology.
+		<<else>>
+			He considers himself indebted to you, and delivers periodic tributes of menial slaves.
+		<</if>>
+	<<else>>
+		There's a peacekeeping force led by General $peacekeepers.generalName in the troubled area near the Free City.
+		<<set $peacekeepers.undermining = Number($peacekeepers.undermining) || 0>>
+		<<if $peacekeepers.undermining>>
+			<<if $peacekeepers.undermining > 10000>><<set _warn = 1>><</if>>
+			<<set $peacekeepers.undermining = Math.clamp(Math.ceil($peacekeepers.undermining/1000)*1000, 0, 10000)>>
+			You are spending ¤<<textbox "_newUndermining" $peacekeepers.undermining>> each week to promote misinformation in the old world that undermines the peacekeepers.
+			[[Save changes|Manage Arcology][$peacekeepers.undermining = Number(_newUndermining) || 0]]
+			<<if _warn>><br>//Spending more than ¤10000 weekly would be counterproductive//<</if>>
+		<<else>>
+			You are not undermining the peacekeepers. [[Start a misinformation campaign|Manage Arcology][$peacekeepers.undermining = 1000]]
+		<</if>>
+	<</if>>
+<<elseif $invasionVictory>>
+	The area previously occupied by the little old world country whose collapse led to a failed invasion of the Free City is a lawless wilderness.
+<<elseif $week > 29>>
+	A small old world country near the arcology is in the process of collapse<<if $nationHate>>, and your opportunistic behavior towards it has caused hatred there<</if>>.		
+<<else>>
+	There is nothing notable about the decaying old world countries <<if $terrain == "oceanic">>on the shoreline nearest<<else>>near<</if>> the arcology.
+<</if>>
+<</if>>

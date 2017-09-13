@@ -4,10 +4,19 @@
 
 <<set $surgeryType = 0, $showEncyclopedia = 1, $encyclopedia = "The Remote Surgery">>
 
-//$activeSlave.slaveName is lying strapped down on the table in your <<if $surgeryUpgrade == 1>>heavily upgraded and customized remote surgery.<<else>>remote surgery.<</if>> The surgical equipment reads <<if $activeSlave.health < -20>>@@.red;SLAVE UNHEALTHY, SURGERY NOT RECOMMENDED.@@<<elseif $activeSlave.health <= 20>>@@.yellow;SLAVE HEALTHY, SURGERY SAFE.@@<<else>>@@.green;SLAVE HEALTHY, SURGERY ENCOURAGED.@@<</if>><<if $PC.medicine >= 100>> The remote surgery mechanisms that allow a surgeon to be brought in by telepresence are inactive, and the autosurgery is ready for your control inputs. Surgery on your slaves is a challenge and a pleasure you wouldn't dream of sharing.<</if>>//
+//$activeSlave.slaveName is lying strapped down on the table in your 
+<<if $surgeryUpgrade == 1>>heavily upgraded and customized remote surgery.
+<<else>>remote surgery.
+<</if>> 
+<<ageAndHealthDescription>>
+The surgical equipment reads 
+<<if $activeSlave.health < -20>>@@.red;SLAVE UNHEALTHY, SURGERY NOT RECOMMENDED.@@
+<<elseif $activeSlave.health <= 20>>@@.yellow;SLAVE HEALTHY, SURGERY SAFE.@@
+<<else>>@@.green;SLAVE HEALTHY, SURGERY ENCOURAGED.@@
+<</if>>
+<<if $PC.medicine >= 100>> The remote surgery mechanisms that allow a surgeon to be brought in by telepresence are inactive, and the autosurgery is ready for your control inputs. Surgery on your slaves is a challenge and a pleasure you wouldn't dream of sharing.<</if>>//
 <br><br>
 
-<span id="artToggle">
 /* 000-250-006 */
 <<if $seeImages == 1>>
 <<if $imageChoice == 1>>
@@ -17,86 +26,71 @@
 <</if>>
 <</if>>
 /* 000-250-006 */
-</span>
 
 <<if $activeSlave.indentureRestrictions >= 1>>
 	@@.yellow;This slave is subject to a restrictive indenture which forbids many invasive surgeries.@@
 	<br><br>
 <</if>>
 
-//<<LipsDescription>>//
+''FACE''<br>
+//<<faceDescription>>//
+
 <br>&nbsp;&nbsp;&nbsp;&nbsp;
-
-$possessiveCap $activeSlave.faceShape face is
-<<if $activeSlave.face < -95>>
-	very ugly.
-<<elseif $activeSlave.face < -40>>
-	ugly.
-<<elseif $activeSlave.face < -10>>
-	unattractive.
-<<elseif ($activeSlave.face <= 10)>>
-	quite average.
-<<elseif ($activeSlave.face <= 40)>>
-	attractive.
-<<elseif ($activeSlave.face <= 95)>>
-	beautiful.
-<<elseif ($activeSlave.face > 95)>>
-	very beautiful.
-<</if>>
-
-<<if $activeSlave.faceImplant == 0>>
-	It is entirely natural.
-<<elseif $activeSlave.faceImplant == 1>>
-	It has seen some work.
-<<elseif $activeSlave.faceImplant > 1>>
-	It has been totally reworked.
-<</if>>
-
 <<if $activeSlave.indentureRestrictions >= 2>>
 	//$possessiveCap indenture forbids elective surgery//
-<<elseif (($activeSlave.faceImplant < 2) || ($surgeryUpgrade == 1)) && ($activeSlave.face <= 95)>>
-	Facial surgery can either rework it and improve its attractiveness, or simply make it more attractive.
+<<elseif $activeSlave.faceImplant > 95>>
+	//$possessiveCap's face cannot sustain further cosmetic surgery//
+<<else>>
+	<<set _artificiality = 25-5*Math.trunc($PC.medicine/100)-5*$surgeryUpgrade>>
+	//Facial surgery can either rework it and improve its attractiveness, or simply make it more attractive. No facial surgery is perfect and each surgery will make it look less natural.
+	<<if $PC.medicine >= 100 && $surgeryUpgrade>>
+		Your surgical skills and the advanced surgical suite will minimize this effect as much as possible.
+	<<elseif $PC.medicine >= 100>>
+		Your surgical skills will reduce this effect.
+	<<elseif $surgeryUpgrade>>
+		The advanced surgical suite will reduce this effect.
+	<</if>>
+	<<if $activeSlave.faceImplant+_artificiality > 95>>
+		@@.yellow;Further facial surgery will create a severe uncanny valley effect.@@
+	<<elseif $activeSlave.faceImplant+_artificiality > 60 && $activeSlave.faceImplant <= 60>>
+		@@.yellow;Further facial surgery will be extremely obvious.@@
+	<<elseif $activeSlave.faceImplant+_artificiality > 30 && $activeSlave.faceImplant <= 30>>
+		@@.yellow;Further facial surgery will eliminate a natural appearance.@@
+	<<elseif $activeSlave.faceImplant+_artificiality > 10 && $activeSlave.faceImplant <= 10>>
+		@@.yellow;Further facial surgery will disturb a perfectly natural appearance.@@
+	<<else>>
+		A single facial surgery is not projected to significantly impact artificiality.
+	<</if>>//
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	<<if $activeSlave.faceShape != "normal">>
-	[[Make conventionally feminine|Surgery Degradation][$activeSlave.faceShape = "normal",$activeSlave.faceImplant += 1,$cash -= $surgeryCost,$activeSlave.health -= 10,$surgeryType = "face"]] |
+	[[Make conventionally feminine|Surgery Degradation][$activeSlave.faceShape = "normal",$activeSlave.faceImplant = Math.clamp($activeSlave.faceImplant+_artificiality,0,100),$cash -= $surgeryCost,$activeSlave.health -= 10,$surgeryType = "face"]] |
 	<</if>>
 	<<if $activeSlave.faceShape == "masculine">>
-	[[Soften to androgynous|Surgery Degradation][$activeSlave.faceShape = "androgynous",$activeSlave.faceImplant += 1,$cash -= $surgeryCost,$activeSlave.health -= 10,$surgeryType = "face"]] |
+	[[Soften to androgynous|Surgery Degradation][$activeSlave.faceShape = "androgynous",$activeSlave.faceImplant = Math.clamp($activeSlave.faceImplant+_artificiality,0,100),$cash -= $surgeryCost,$activeSlave.health -= 10,$surgeryType = "face"]] |
 	<<else>>
 	<<if $activeSlave.faceShape != "cute">>
-		[[Cute|Surgery Degradation][$activeSlave.faceShape = "cute",$activeSlave.faceImplant += 1,$cash -= $surgeryCost,$activeSlave.health -= 10,$surgeryType = "face"]] |
+		[[Cute|Surgery Degradation][$activeSlave.faceShape = "cute",$activeSlave.faceImplant = Math.clamp($activeSlave.faceImplant+_artificiality,0,100),$cash -= $surgeryCost,$activeSlave.health -= 10,$surgeryType = "face"]] |
 	<</if>>
 	<<if $activeSlave.faceShape != "exotic">>
-		[[Exotic|Surgery Degradation][$activeSlave.faceShape = "exotic",$activeSlave.faceImplant += 1,$cash -= $surgeryCost,$activeSlave.health -= 10,$surgeryType = "face"]] |
+		[[Exotic|Surgery Degradation][$activeSlave.faceShape = "exotic",$activeSlave.faceImplant = Math.clamp($activeSlave.faceImplant+_artificiality,0,100),$cash -= $surgeryCost,$activeSlave.health -= 10,$surgeryType = "face"]] |
 	<</if>>
 	<<if $activeSlave.faceShape != "sensual">>
-		[[Sensual|Surgery Degradation][$activeSlave.faceShape = "sensual",$activeSlave.faceImplant += 1,$cash -= $surgeryCost,$activeSlave.health -= 10,$surgeryType = "face"]] |
+		[[Sensual|Surgery Degradation][$activeSlave.faceShape = "sensual",$activeSlave.faceImplant = Math.clamp($activeSlave.faceImplant+_artificiality,0,100),$cash -= $surgeryCost,$activeSlave.health -= 10,$surgeryType = "face"]] |
 	<</if>>
 	<<if $activeSlave.faceShape != "androgynous">>
-		[[Androgynous|Surgery Degradation][$activeSlave.faceShape = "androgynous",$activeSlave.faceImplant += 1,$cash -= $surgeryCost,$activeSlave.health -= 10,$surgeryType = "face"]] |
+		[[Androgynous|Surgery Degradation][$activeSlave.faceShape = "androgynous",$activeSlave.faceImplant = Math.clamp($activeSlave.faceImplant+_artificiality,0,100),$cash -= $surgeryCost,$activeSlave.health -= 10,$surgeryType = "face"]] |
 	<<else>>
-		[[Masculine|Surgery Degradation][$activeSlave.faceShape = "masculine",$activeSlave.faceImplant += 1,$cash -= $surgeryCost,$activeSlave.health -= 10,$surgeryType = "face"]] |
+		[[Masculine|Surgery Degradation][$activeSlave.faceShape = "masculine",$activeSlave.faceImplant = Math.clamp($activeSlave.faceImplant+_artificiality,0,100),$cash -= $surgeryCost,$activeSlave.health -= 10,$surgeryType = "face"]] |
 	<</if>>
 	<</if>>
-	 [[Just improve attractiveness|Surgery Degradation][$activeSlave.faceImplant += 1,$cash -= $surgeryCost,$activeSlave.health -= 10,$surgeryType = "face"]]
-<</if>>
-<<if $activeSlave.faceImplant == 1>>
-	//Further facial surgery will unavoidably give $possessive a somewhat artificial appearance//
-<<elseif $activeSlave.faceImplant > 1>>
-	//The advanced surgery permits you to continue reworking $possessive face//
-<</if>>
-
-<br>&nbsp;&nbsp;&nbsp;&nbsp;
-<<if ($activeSlave.age >= 25) && ($activeSlave.ageImplant == 0)>>
-	$pronounCap's old enough that a face lift and other minor cosmetic procedures could make $possessive look younger.
-<<elseif ($activeSlave.age >= 25)>>
-	$pronounCap's had a face lift and other minor cosmetic procedures to make $possessive look younger.
-<</if>>
-
-<<if $activeSlave.indentureRestrictions >= 2>>
-	//$possessiveCap indenture forbids elective surgery//
-<<elseif ($activeSlave.ageImplant != 1) && ($activeSlave.age >= 25)>>
-	[[Age lift|Surgery Degradation][$activeSlave.ageImplant = 1,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "age"]]
+	[[Just improve attractiveness|Surgery Degradation][$activeSlave.faceImplant = Math.clamp($activeSlave.faceImplant+_artificiality,0,100),$cash -= $surgeryCost,$activeSlave.health -= 10,$surgeryType = "face"]]
+	<<if $activeSlave.age >= 25>>
+		<<if $activeSlave.ageImplant == 0>>
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;
+			//$pronounCap's old enough at $activeSlave.age that a face lift and other minor cosmetic procedures could make $possessive look younger.//
+			[[Age lift|Surgery Degradation][$activeSlave.ageImplant = 1,$activeSlave.faceImplant = Math.clamp($activeSlave.faceImplant+_artificiality,0,100),$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "age"]]
+		<</if>>
+	<</if>>
 <</if>>
 
 <<if $activeSlave.origEye == "implant">>
@@ -138,6 +132,7 @@ $possessiveCap $activeSlave.faceShape face is
 	<</if>>
 <</if>>
 
+<br><br>//<<mouthDescription>> ''Bold'' surgeries will set her back in this skill.//
 <br>&nbsp;&nbsp;&nbsp;&nbsp;
 $pronounCap has
 <<if $activeSlave.lips <= 10>>
@@ -165,19 +160,19 @@ $pronounCap has
 	//$possessiveCap indenture forbids elective surgery//
 <<elseif ($activeSlave.lips <= 75) || (($activeSlave.lips <= 95) && ($seeExtreme == 1))>>
 	<<if $activeSlave.lipsImplant > 0>>
-		[[Replace with the next size up|Surgery Degradation][$activeSlave.lipsImplant += 20,$activeSlave.lips += 20,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "lips"]] //This will reduce $possessive oral skills//
+		''[[Replace with the next size up|Surgery Degradation][$activeSlave.lipsImplant += 20,$activeSlave.lips += 20,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "lips"]]''
 	<<else>>
-		[[Lip implants|Surgery Degradation][$activeSlave.lipsImplant = 20,$activeSlave.lips += 20,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "lips"]] //This will reduce $possessive oral skills//
+		''[[Lip implants|Surgery Degradation][$activeSlave.lipsImplant = 20,$activeSlave.lips += 20,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "lips"]]''
 	<</if>>
 <</if>>
 <<if $activeSlave.lipsImplant != 0>>
 	<<if $activeSlave.indentureRestrictions < 2>>
-	 | [[Remove lip implants|Surgery Degradation][$activeSlave.lips = ($activeSlave.lips-$activeSlave.lipsImplant),$activeSlave.lipsImplant = 0,$cash -= $surgeryCost, $surgeryType = "lips"]]
+	 ''| [[Remove lip implants|Surgery Degradation][$activeSlave.lips = ($activeSlave.lips-$activeSlave.lipsImplant),$activeSlave.lipsImplant = 0,$cash -= $surgeryCost, $surgeryType = "lips"]]''
 	<</if>>
 <</if>>
 <<if ($activeSlave.lips >= 10) && ($activeSlave.lipsImplant == 0)>>
 	<<if $activeSlave.indentureRestrictions < 2>>
-	 | [[Reduce lips|Surgery Degradation][$activeSlave.lips -= 10,$cash -= $surgeryCost, $surgeryType = "lips"]]
+	 ''| [[Reduce lips|Surgery Degradation][$activeSlave.lips -= 10,$cash -= $surgeryCost, $surgeryType = "lips"]]''
 	<</if>>
 <</if>>
 
@@ -186,40 +181,54 @@ $pronounCap has
 <<case "crooked">>
 	$pronounCap has crooked teeth.
 	[[Apply braces|Surgery Degradation][$activeSlave.teeth = "straightening braces",$cash -= $surgeryCost,$surgeryType = "braces"]]
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	<<if ($seeExtreme == 1) && ($activeSlave.indentureRestrictions < 1)>>
-	| [[Replace them with removable prosthetics|Surgery Degradation][$activeSlave.teeth = "removable",$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "teeth"]] | [[Replace them with sharp teeth|Surgery Degradation][$activeSlave.teeth = "pointy",$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "sharp"]]
+	[[Replace them with removable prosthetics|Surgery Degradation][$activeSlave.teeth = "removable",$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "teeth"]]
+	| [[Replace them with sharp teeth|Surgery Degradation][$activeSlave.teeth = "pointy",$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "sharp"]]
 	<</if>>
 <<case "straightening braces">>
 	$possessiveCap crooked teeth are in braces.
 	[[Remove braces|Remote Surgery][$activeSlave.teeth = "crooked"]]
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	<<if ($seeExtreme == 1) && ($activeSlave.indentureRestrictions < 1)>>
-	| [[Replace them with removable prosthetics|Surgery Degradation][$activeSlave.teeth = "removable",$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "teeth"]] | [[Replace them with sharp teeth|Surgery Degradation][$activeSlave.teeth = "pointy",$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "sharp"]]
+	[[Replace them with removable prosthetics|Surgery Degradation][$activeSlave.teeth = "removable",$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "teeth"]]
+	| [[Replace them with sharp teeth|Surgery Degradation][$activeSlave.teeth = "pointy",$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "sharp"]]
 	<</if>>
 <<case "cosmetic braces">>
 	$pronounCap has braces on $possessive straight teeth.
 	[[Remove braces|Remote Surgery][$activeSlave.teeth = "normal"]]
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	<<if ($seeExtreme == 1) && ($activeSlave.indentureRestrictions < 1)>>
-	| [[Replace them with removable prosthetics|Surgery Degradation][$activeSlave.teeth = "removable",$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "teeth"]] | [[Replace them with sharp teeth|Surgery Degradation][$activeSlave.teeth = "pointy",$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "sharp"]]
+	[[Replace them with removable prosthetics|Surgery Degradation][$activeSlave.teeth = "removable",$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "teeth"]]
+	| [[Replace them with sharp teeth|Surgery Degradation][$activeSlave.teeth = "pointy",$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "sharp"]]
 	<</if>>
 <<case "removable">>
 	$pronounCap has prosthetic teeth that can be removed for extreme oral sex.
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	<<if ($seeExtreme == 1) && ($activeSlave.indentureRestrictions < 1)>>
-	[[Replace them with sharp teeth|Surgery Degradation][$activeSlave.teeth = "pointy",$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "sharp"]] | [[Normal dental implants|Surgery Degradation][$activeSlave.teeth = 0,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "oral"]]
+	[[Replace them with sharp teeth|Surgery Degradation][$activeSlave.teeth = "pointy",$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "sharp"]]
+	| [[Normal dental implants|Surgery Degradation][$activeSlave.teeth = 0,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "oral"]]
 	<</if>>
 <<case "pointy">>
 	$possessiveCap teeth have been replaced with sturdy, realistic implants that mimic the dentition of a predator.
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	<<if ($seeExtreme == 1) && ($activeSlave.indentureRestrictions < 1)>>
-	[[Replace them with removable prosthetics|Surgery Degradation][$activeSlave.teeth = "removable",$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "teeth"]]  | [[Normal dental implants|Surgery Degradation][$activeSlave.teeth = 0,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "oral"]]
+	[[Replace them with removable prosthetics|Surgery Degradation][$activeSlave.teeth = "removable",$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "teeth"]]
+	| [[Normal dental implants|Surgery Degradation][$activeSlave.teeth = 0,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "oral"]]
 	<</if>>
 <<default>>
 	$pronounCap has normal, healthy teeth.
-	[[Unnecessary braces|Surgery Degradation][$activeSlave.teeth = "cosmetic braces",$cash -= $surgeryCost,$surgeryType = "braces"]]
+	[[Apply purely cosmetic braces|Surgery Degradation][$activeSlave.teeth = "cosmetic braces",$cash -= $surgeryCost,$surgeryType = "braces"]]
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	<<if ($seeExtreme == 1) && ($activeSlave.indentureRestrictions < 1)>>
-	| [[Replace them with removable prosthetics|Surgery Degradation][$activeSlave.teeth = "removable",$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "teeth"]] | [[Replace them with sharp teeth|Surgery Degradation][$activeSlave.teeth = "pointy",$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "sharp"]]
+	[[Replace them with removable prosthetics|Surgery Degradation][$activeSlave.teeth = "removable",$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "teeth"]]
+	| [[Replace them with sharp teeth|Surgery Degradation][$activeSlave.teeth = "pointy",$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "sharp"]]
 	<</if>>
 <</switch>>
 
 <br>&nbsp;&nbsp;&nbsp;&nbsp;
+<<accentDescription>>
+
 <<if $activeSlave.voice == 0>>
 	$pronounCap has been made a surgical mute.
 <<elseif $activeSlave.voice == 1>>
@@ -232,6 +241,8 @@ $pronounCap has
 <<if $activeSlave.voiceImplant != 0>>
 	$pronounCap has had surgery on $possessive voicebox to raise $possessive voice.
 <</if>>
+
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <<if ($activeSlave.voice != 0) && ($activeSlave.voiceImplant == 0) && ($activeSlave.voice < 3)>>
 	<<if $activeSlave.indentureRestrictions < 1>>
 	[[Perform surgery to raise voice|Surgery Degradation][$activeSlave.voice += 1, $activeSlave.voiceImplant += 1, $cash -= $surgeryCost,  $activeSlave.health -= 10, $surgeryType = "voice"]]
@@ -248,8 +259,8 @@ $pronounCap has
 
 
 <br><br>
-
-//<<BoobsDescription>>//
+''BOOBS''<br>
+//<<BoobsDescription>><<boobModDescription>>//
 <br>&nbsp;&nbsp;&nbsp;&nbsp;
 <<if $activeSlave.boobs > 10000>>
 	//$possessiveCap breasts are as large as $pronoun can physically support//
@@ -259,6 +270,10 @@ $pronounCap has
 	[[String implants|Surgery Degradation][$activeSlave.boobsImplant = 400, $activeSlave.boobsImplantType = 1,$activeSlave.boobs += 400,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "boobs"]] |
 	[[Standard implants|Surgery Degradation][$activeSlave.boobsImplant = 400,$activeSlave.boobs += 400,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "boobs"]] |
 	[[Small implants|Surgery Degradation][$activeSlave.boobsImplant = 200,$activeSlave.boobs += 200,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "boobs"]]
+<<elseif $activeSlave.boobsImplant > 10000 && $activeSlave.boobsImplantType != 1>>
+	[[Add inert filler|Surgery Degradation][$activeSlave.boobsImplant += 400,$activeSlave.boobs += 1000,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "boobs"]]
+<<elseif $activeSlave.boobsImplant > 2000 && $activeSlave.boobsImplantType != 1>>
+	[[Add inert filler|Surgery Degradation][$activeSlave.boobsImplant += 400,$activeSlave.boobs += 400,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "boobs"]]
 <<elseif $activeSlave.boobsImplant > 600 && $activeSlave.boobsImplantType != 1>>
 	[[Add inert filler|Surgery Degradation][$activeSlave.boobsImplant += 200,$activeSlave.boobs += 200,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "boobs"]]
 <<elseif $activeSlave.boobsImplant > 400 && $activeSlave.boobsImplantType != 1>>
@@ -303,27 +318,21 @@ $pronounCap has
 <</if>>
 
 <<if ($activeSlave.boobsImplant == 0) && ($activeSlave.boobs > 250)>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	<<switch $activeSlave.boobShape>>
-	<<case "perky">>
-		They're perky, with nipples that point slightly upwards.
-	<<case "downward-facing">>
-		They're not attractively shaped; $possessive nipples pointing downward.
-	<<case "torpedo-shaped">>
-		They're torpedo-shaped, projecting some way from $possessive chest.
-	<<case "wide-set">>
-		They're wide-set, with nipples pointing away from $possessive sternum.
-	<<case "saggy">>
-		They're not attractively shaped, with $possessive nipples pointing down.
-	<<default>>
-		They're nicely rounded and rest naturally.
-	<</switch>>
+	<br>
+	
+	//<<boobsShapeDescription>>//
+	
 	<<if $activeSlave.indentureRestrictions >= 2>>
 		$possessiveCap indenture does not allow breast restructuring.
 	<<else>>
-		<<if ($activeSlave.boobShape == "saggy") && ($activeSlave.boobShape == "perky")>>
-			[[Breast lift|Surgery Degradation][$activeSlave.boobShape = "normal", $activeSlave.health -= 20,$cash -= $surgeryCost, $surgeryType = "breastLift"]]<<if $activeSlave.preg > 20 || ($activeSlave.boobs >= 5000 && $activeSlave.boobs < 8000)>>//$possessiveCap current state will may result in $possessive breasts becoming saggy again//<</if>>
+		<<if ($activeSlave.boobShape == "saggy") || ($activeSlave.boobShape == "downward-facing")>>
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;
+			<<if $activeSlave.preg > 20 || ($activeSlave.boobs >= 5000 && $activeSlave.boobs < 8000)>>
+				She is far too large not to sag again, but for now you can try a:
+			<</if>>
+			[[Breast lift|Surgery Degradation][$activeSlave.boobShape = "normal", $activeSlave.health -= 20,$cash -= $surgeryCost, $surgeryType = "breastLift"]]
 		<<else>>
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;
 			<<if ($activeSlave.boobShape == "normal")>>
 				[[Reshape them to be perkier|Surgery Degradation][$activeSlave.boobShape = "perky",$cash -= $surgeryCost,$activeSlave.health -= 10,$surgeryType = "breastReconstruction"]]
 				| [[Make them torpedo-shaped|Surgery Degradation][$activeSlave.boobShape = "torpedo-shaped",$cash -= $surgeryCost,$activeSlave.health -= 10,$surgeryType = "breastReconstruction"]]
@@ -334,81 +343,146 @@ $pronounCap has
 	<</if>>
 <</if>>
 
-
 <<if $activeSlave.areolae > 1>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
 	<<if ($activeSlave.areolae > 1) && ($activeSlave.areolae < 4)>>
+		<br>//<<areolaeDescription>>//
 		<<if $activeSlave.indentureRestrictions < 2>>
-			$possessiveCap big areolae could be reshaped into a pattern.  Graft skin to make $possessive areolae:
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;
+			With grafting, they are large enough to reshape into a pattern:
 			[[Heart-shaped|Surgery Degradation][$activeSlave.areolae = 4,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "areolae"]]
 			 | [[Star-shaped|Surgery Degradation][$activeSlave.areolae = 5,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "areolae"]]
 		<</if>>
 	<</if>>
 	<<if $activeSlave.indentureRestrictions < 2>>
-		[[Reduce areolae to typical size|Surgery Degradation][$activeSlave.areolae = 1,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "areolae"]]
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;
+		Reduce areolae to:
+		[[Typical size|Surgery Degradation][$activeSlave.areolae = 1,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "areolae"]]
 		<<if $activeSlave.areolae > 0>>
 			<<if $activeSlave.indentureRestrictions < 2>>
-				[[Reduce areolae to a tiny size|Surgery Degradation][$activeSlave.areolae = 0,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "areolae"]]
+				| [[Tiny size|Surgery Degradation][$activeSlave.areolae = 0,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "areolae"]]
 			<</if>>
 		<</if>>
 	<</if>>
 <</if>>
 
-<br>&nbsp;&nbsp;&nbsp;&nbsp;
-<<if $activeSlave.lactation == 0>>
-	$pronounCap is not lactating.
-<<elseif $activeSlave.lactation == 2>>
-	$pronounCap is implanted with slow-release pro-lactation drugs.
-<<else>>
-	$pronounCap is lactating naturally.
-<</if>>
+<br>//<<nipplesDescription>>//
 <<if $activeSlave.lactation < 2>>
 	<<if $activeSlave.indentureRestrictions < 2>>
-	[[Implant slow-release pro-lactation drugs|Surgery Degradation][$activeSlave.lactation = 2,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "lactation"]] //This may increase $possessive natural breast size//
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	Risk increasing breast size with slow-release pro-lactation drugs: [[Implant|Surgery Degradation][$activeSlave.lactation = 2,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "lactation"]]
 	<</if>>
 <</if>>
 <<if $activeSlave.lactation > 1>>
-	 | [[Remove lactation implant|Surgery Degradation][$activeSlave.lactation = 0,$cash -= $surgeryCost, $surgeryType = "endlac"]]
+	[[Remove lactation implant|Surgery Degradation][$activeSlave.lactation = 0,$cash -= $surgeryCost, $surgeryType = "endlac"]]
 <</if>>
+
 
 <br><br>
+''GENITALIA''<br>
 
-//<<ButtDescription>>//
+//<<crotchDescription>>//
+
+/* MAJOR ADD/REMOVE */
 <br>&nbsp;&nbsp;&nbsp;&nbsp;
-<<if $activeSlave.butt > 7>>
-	$possessiveCap butt is as large as $pronoun can physically support
-<<elseif $activeSlave.indentureRestrictions >= 2>>
-	$possessiveCap indenture forbids elective surgery
-<<elseif $activeSlave.buttImplant == 0>>
-	[[Implants|Surgery Degradation][$activeSlave.buttImplant = 1,$activeSlave.butt += 1,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "butt"]]
-	| [[String implants|Surgery Degradation][$activeSlave.buttImplant = 1,$activeSlave.butt += 1,$activeSlave.buttImplantType = 1,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "butt"]]
-<<elseif $activeSlave.buttImplant == 1 && $activeSlave.buttImplantType != 1>>
-	[[Bigger implants|Surgery Degradation][$activeSlave.buttImplant = 2,$activeSlave.butt += 1,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "butt"]]
-<<elseif $activeSlave.buttImplant == 2 && $activeSlave.buttImplantType != 1>>
-	[[Fillable implants|Surgery Degradation][$activeSlave.buttImplant = 3,$activeSlave.butt += 1,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "butt"]]
-<<elseif $activeSlave.buttImplant > 2 && $activeSlave.buttImplantType != 1>>
-	[[Add inert filler|Surgery Degradation][$activeSlave.buttImplant += 1,$activeSlave.butt += 1,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "butt"]]
-<</if>>
-<<if $activeSlave.buttImplant != 0>>
-	<<if $activeSlave.indentureRestrictions < 2>>
-	<<if $activeSlave.buttImplantType == 1 && $activeSlave.buttImplant > 1>>
-	 | [[Drain implants|Surgery Degradation][$activeSlave.butt = ($activeSlave.butt-1),$activeSlave.buttImplant = ($activeSlave.buttImplant-1),$cash -= $surgeryCost, $surgeryType = "buttLoss"]]
+
+<<if $activeSlave.indentureRestrictions < 1>>
+	<<if ($activeSlave.vagina == -1)>>
+		<<if ($activeSlave.dick != 0)>>
+			[[Convert genitalia to female|Surgery Degradation][$activeSlave.dick = 0,$activeSlave.dickAccessory = "none",$activeSlave.scrotum = 0,$activeSlave.balls = 0,$activeSlave.vagina = 0,$activeSlave.preg = -2,$activeSlave.vaginalSkill = 0,$cash -= $surgeryCost, $activeSlave.health -= 40, $surgeryType = "mtf"]]
+		<<elseif ($activeSlave.dick == 0) && ($surgeryUpgrade == 1)>>	
+			[[Create a vagina|Surgery Degradation][$activeSlave.vagina = 0,$activeSlave.vaginalSkill = 0,$cash -= $surgeryCost, $activeSlave.health -= 40, $surgeryType = "mtf"]]
+		<</if>>
 	<</if>>
-	 | [[Remove implants|Surgery Degradation][$activeSlave.butt = ($activeSlave.butt-$activeSlave.buttImplant),$activeSlave.buttImplant = 0,$activeSlave.buttImplantType = 0,$cash -= $surgeryCost, $surgeryType = "buttLoss"]]
+	
+	<<if ($activeSlave.dick > 0) && ($seeExtreme == 1)>>
+		 | [[Remove penis|Surgery Degradation][$activeSlave.dick = 0,$activeSlave.dickAccessory = "none",$activeSlave.foreskin = 0,$activeSlave.vaginalSkill = 0,$cash -= $surgeryCost, $activeSlave.health -= 20, $surgeryType = "chop"]]
 	<</if>>
-<</if>>
-<<if ($activeSlave.butt > 1) && ($activeSlave.buttImplant == 0)>>
-	<<if $activeSlave.indentureRestrictions < 2>>
-	 | [[Reduce ass|Surgery Degradation][$activeSlave.butt -= 1,$cash -= $surgeryCost, $surgeryType = "buttLoss"]]
+	
+	<<if ($activeSlave.vagina > -1) && ($seeExtreme == 1)>>
+		| [[Remove pussy|Surgery Degradation][$activeSlave.vagina = -1,$activeSlave.ovaries = 0,$activeSlave.preg = -2,$activeSlave.pregSource = 0,$activeSlave.vaginalSkill = 0,$cash -= $surgeryCost,$activeSlave.health -= 20,$surgeryType = "vaginaRemoval"]] <<if $activeSlave.ovaries == 1>>//This will remove $possessive ovaries as well//<</if>>
 	<</if>>
 <</if>>
 
-<<if ($activeSlave.vagina > -1) || ($activeSlave.dick > 0)>>
-	<br><br>
-	//<<VaginaDescription>>//
+
+/* HERM */
+<<if ($activeSlave.dick != 0) && ($activeSlave.vagina == -1) && ($surgeryUpgrade == 1)>>
+	<<if $activeSlave.indentureRestrictions < 1>>
+		| [[Create surgical hermaphrodite|Surgery Degradation][$activeSlave.vagina = 0,$activeSlave.vaginalSkill = 0,$cash -= $surgeryCost, $activeSlave.health -= 40, $surgeryType = "herm"]]
+	<</if>>
+<</if>>
+
+<<if ($activeSlave.dick != 0) || ($activeSlave.balls > 0)>>
+<br><br>//<<dickDescription>>//
+
+<<if ($activeSlave.foreskin > 0)>>
+<<if $seeCircumcision == 1>>
+<<if $activeSlave.indentureRestrictions < 2>>
+<<if $activeSlave.dick != 0>>
+	[[Remove foreskin|Surgery Degradation][$activeSlave.foreskin = 0,$cash -= $surgeryCost, $activeSlave.health -= 10, $surgeryType = "circumcision"]]
+<</if>>
+<</if>>
+<</if>>
+<</if>>
+<</if>>
+
+/* BALLS */
+<<if ($activeSlave.balls > 0)>>
+	<<if ($activeSlave.balls == 1)>>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;
+		$possessiveCap testicles are vestigial, but $pronoun has balls. Technically. They are 
+	<<elseif ($activeSlave.balls > 1)>>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;
+		$pronounCap has testicles 
+	<</if>>
+	<<if ($activeSlave.scrotum > 0)>>
+		located in $possessive scrotum.
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<<if $activeSlave.indentureRestrictions < 1>>
+		[[Move them inside abdomen and remove scrotum|Surgery Degradation][$activeSlave.scrotum = 0,$cash -= $surgeryCost, $activeSlave.health -= 20, $surgeryType = "relocate"]]
+		<</if>>
+		//This will have a negative impact on cum production//
+			<<else>>
+		<<if ($activeSlave.genes == "XY")>>
+			relocated inside $possessive abdomen, and $possessive scrotum has been removed.
+		<<else>>
+			implanted inside $possessive abdomen.
+		<</if>>
+	<</if>>	
+	<<if ($seeExtreme == 1)>>
+		<<if ($activeSlave.scrotum > 0)>>
+			| 
+		<</if>>
+		[[Geld|Surgery Degradation][$activeSlave.balls = 0,$activeSlave.scrotum = 0,$cash -= $surgeryCost, $activeSlave.health -= 40, $surgeryType = "geld"]]
+	<</if>>	
 <</if>>
 
 
+/* PROSTATE */
+<<if $activeSlave.prostate>>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	$pronounCap has a <<if $activeSlave.prostate > 1>>hyperactive<<else>>normal<</if>> prostate.
+	<<if $activeSlave.prostate < 2>>
+		<<if $activeSlave.indentureRestrictions < 2>>
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			[[Implant slow-release productivity drugs|Surgery Degradation][$activeSlave.prostate=2,$cash-=$surgeryCost,$activeSlave.health-=10,$surgeryType="precum"]] //This may cause some leaking//
+		<</if>>
+	<<elseif $activeSlave.prostate > 1>>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		 [[Remove drug implant|Surgery Degradation][$activeSlave.prostate=1,$cash-=$surgeryCost,$surgeryType="endprecum"]]
+	<</if>>
+	<<if ($seeExtreme == 1)>>
+		<<if $activeSlave.indentureRestrictions < 1>>
+			 | [[Remove prostate|Surgery Degradation][$activeSlave.prostate = 0,$cash -= $surgeryCost, $activeSlave.health -= 40, $surgeryType = "prostate"]]
+		<</if>>
+	<</if>>
+<</if>>
+
+<<if ($activeSlave.vagina > -1)>>
+	<br><br>//<<vaginaDescription>>
+	''Bold'' surgeries will set her back in this skill.//
+<</if>>
+
+/* VAGINA */
 <<if $activeSlave.vagina > -1>>
 <br>&nbsp;&nbsp;&nbsp;&nbsp;
 <<if $activeSlave.labia == 0>>
@@ -454,7 +528,19 @@ $pronounCap has
 		 [[Increase clit|Surgery Degradation][$activeSlave.clit += 1,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "clitoral enlargement"]]
 		<</if>>
 	<</if>>
+	
+	<<if ($activeSlave.foreskin > 0)>>
+	<<if $seeCircumcision == 1>>
+	<<if $activeSlave.indentureRestrictions < 2>>
+	<<if ($activeSlave.vagina >= 0)>>
+		 | [[Remove clitoral hood|Surgery Degradation][$activeSlave.foreskin = 0,$cash -= $surgeryCost, $activeSlave.health -= 10, $surgeryType = "circumcision"]]
+	<</if>>
+	<</if>>
+	<</if>>
+	<</if>>
 <</if>>
+
+/* WOMB */
 <</if>>
 <<if ($activeSlave.preg > -2) && ($activeSlave.preg < 1) && ($activeSlave.vagina > -1) && ($activeSlave.ovaries != 0)>>
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -471,6 +557,7 @@ $pronounCap has
 	[[Restore fertility|Surgery Degradation][$activeSlave.preg = 0,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "fert"]]
 <</if>>
 
+/* OVARIES */
 <<if ($activeSlave.ovaries == 1) && ($activeSlave.preg < 1)>>
 	<<if $activeSlave.indentureRestrictions < 1>>
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -479,158 +566,94 @@ $pronounCap has
 	<</if>>
 <</if>>
 
+/* LABIA */
 <<if ($activeSlave.vagina > 3)>>
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
 	$possessiveCap vagina could benefit from surgical repair.
-	[[Repair pussy|Surgery Degradation][$activeSlave.vagina = 3,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "vagina"]] //This will reduce $possessive vaginal skills//
+	''[[Repair pussy|Surgery Degradation][$activeSlave.vagina = 3,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "vagina"]]''
 <<elseif ($surgeryUpgrade == 1) && ($activeSlave.indentureRestrictions < 2)>>
 	<<if ($activeSlave.vagina > 1)>>
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
 	$possessiveCap vaginal muscles could benefit from microsurgical rejuvenation.
-	[[Tighten pussy|Surgery Degradation][$activeSlave.vagina = 1,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "vagina"]] //This will reduce $possessive vaginal skills//
+	''[[Tighten pussy|Surgery Degradation][$activeSlave.vagina = 1,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "vagina"]]''
 	<<elseif ($activeSlave.vagina > 0)>>
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
 	$possessiveCap pussy is as tight as a virgin's, and $possessive hymen could be restored.
-	[[Restore virginity|Surgery Degradation][$activeSlave.vagina = 0,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "vagina"]] //This will reduce $possessive vaginal skills//
+	''[[Restore virginity|Surgery Degradation][$activeSlave.vagina = 0,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "vagina"]]''
 	<</if>>
 <</if>>
 
-<<if ($activeSlave.vagina > -1) && ($activeSlave.dick > 0)>>
-	<<if $activeSlave.indentureRestrictions < 1>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	Since $pronoun has both a penis and a vagina, it's possible to remove $possessive pussy and leave $possessive sexually functional.
-	[[Remove pussy|Surgery Degradation][$activeSlave.vagina = -1,$activeSlave.ovaries = 0,$activeSlave.preg = -2,$activeSlave.pregSource = 0,$activeSlave.vaginalSkill = 0,$cash -= $surgeryCost,$activeSlave.health -= 20,$surgeryType = "vaginaRemoval"]] <<if $activeSlave.ovaries == 1>>//This will remove $possessive ovaries as well//<</if>>
-	<</if>>
-<</if>>
-
-<<if ($activeSlave.dick == 0) && ($activeSlave.vagina == -1)>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	$pronounCap is a null, possessing neither penis nor vagina.
-<<elseif ($seeCircumcision == 1) && ($activeSlave.indentureRestrictions < 2)>>
-	<<if ($activeSlave.dick != 0) && ($activeSlave.vagina == -1) && ($activeSlave.foreskin == 0)>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	$pronounCap has a circumcised penis.
-	<<elseif ($activeSlave.dick != 0) && ($activeSlave.vagina == -1) && ($activeSlave.foreskin >= 1)>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	$pronounCap has an uncircumcised penis.
-	<<elseif ($activeSlave.dick != 0) && ($activeSlave.ovaries != 0) && ($activeSlave.foreskin == 0)>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	$pronounCap has a circumcised penis and a vagina.
-	<<elseif ($activeSlave.dick != 0) && ($activeSlave.ovaries != 0) && ($activeSlave.foreskin >= 1)>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	$pronounCap has an uncircumcised penis and a vagina.
-	<<elseif ($activeSlave.dick != 0) && ($activeSlave.vagina != -1) && ($activeSlave.foreskin == 0)>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	$pronounCap has a circumcised penis and an artificial vagina.
-	<<elseif ($activeSlave.dick != 0) && ($activeSlave.vagina != -1) && ($activeSlave.foreskin >= 1)>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	$pronounCap has an uncircumcised penis and an artificial vagina.
-	<</if>>
-<<else>>
-	<<if ($activeSlave.dick != 0) && ($activeSlave.vagina == -1)>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	$pronounCap has a penis.
-	<<elseif ($activeSlave.dick != 0) && ($activeSlave.ovaries != 0)>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp
-	$pronounCap has a penis and a vagina.
-	<<elseif ($activeSlave.dick != 0) && ($activeSlave.vagina != -1)>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	$pronounCap has a penis and an artificial vagina.
-	<</if>>
-<</if>>
-
-<<if $activeSlave.indentureRestrictions < 1>>
-	<<if ($activeSlave.vagina == -1) && ($activeSlave.dick != 0)>>
-		[[Convert genitalia to female|Surgery Degradation][$activeSlave.dick = 0,$activeSlave.dickAccessory = "none",$activeSlave.scrotum = 0,$activeSlave.balls = 0,$activeSlave.vagina = 0,$activeSlave.preg = -2,$activeSlave.vaginalSkill = 0,$cash -= $surgeryCost, $activeSlave.health -= 40, $surgeryType = "mtf"]]
-	<</if>>
-	<<if ($activeSlave.vagina == -1) && ($activeSlave.dick == 0) && ($surgeryUpgrade == 1)>>	
-		[[Create a vagina|Surgery Degradation][$activeSlave.vagina = 0,$activeSlave.vaginalSkill = 0,$cash -= $surgeryCost, $activeSlave.health -= 40, $surgeryType = "mtf"]]
-	<</if>>
-	<<if ($activeSlave.dick > 0) && ($seeExtreme == 1)>>
-		 | [[Remove penis|Surgery Degradation][$activeSlave.dick = 0,$activeSlave.dickAccessory = "none",$activeSlave.foreskin = 0,$activeSlave.vaginalSkill = 0,$cash -= $surgeryCost, $activeSlave.health -= 20, $surgeryType = "chop"]]
-	<</if>>
-	<<if ($activeSlave.foreskin > 0)>>
-		<<if $seeCircumcision == 1>>
-			<<if $activeSlave.indentureRestrictions < 2>>
-			<<if $activeSlave.dick != 0>>
-				 | [[Remove foreskin|Surgery Degradation][$activeSlave.foreskin = 0,$cash -= $surgeryCost, $activeSlave.health -= 10, $surgeryType = "circumcision"]]
-			<<elseif ($activeSlave.vagina >= 0)>>
-				 | [[Remove clitoral hood|Surgery Degradation][$activeSlave.foreskin = 0,$cash -= $surgeryCost, $activeSlave.health -= 10, $surgeryType = "circumcision"]]
-			<</if>>
-			<</if>>
-		<</if>>
-	<</if>>
-<</if>>
-
-<<if ($activeSlave.dick != 0) && ($activeSlave.vagina == -1) && ($surgeryUpgrade == 1)>>
-	<<if $activeSlave.indentureRestrictions < 1>>
-		| [[Create surgical hermaphrodite|Surgery Degradation][$activeSlave.vagina = 0,$activeSlave.vaginalSkill = 0,$cash -= $surgeryCost, $activeSlave.health -= 40, $surgeryType = "herm"]]
-	<</if>>
-<</if>>
-
-<<if ($activeSlave.balls > 0)>>
-	<<if ($activeSlave.balls == 1)>>
-		<br>&nbsp;&nbsp;&nbsp;&nbsp;
-		$possessiveCap testicles are vestigial, but $pronoun has balls. Technically. They are 
-	<<elseif ($activeSlave.balls > 1)>>
-		<br>&nbsp;&nbsp;&nbsp;&nbsp;
-		$pronounCap has testicles 
-	<</if>>
-	<<if ($activeSlave.scrotum > 0)>>
-		located in $possessive scrotum.
-		<br>&nbsp;&nbsp;&nbsp;&nbsp;
-		<<if $activeSlave.indentureRestrictions < 1>>
-		[[Move them inside abdomen and remove scrotum|Surgery Degradation][$activeSlave.scrotum = 0,$cash -= $surgeryCost, $activeSlave.health -= 20, $surgeryType = "relocate"]]
-		<</if>>
-		//This will have a negative impact on cum production//
-			<<else>>
-		<<if ($activeSlave.genes == "XY")>>
-			relocated inside $possessive abdomen, and $possessive scrotum has been removed.
-		<<else>>
-			implanted inside $possessive abdomen.
-		<</if>>
-	<</if>>	
-	<<if ($seeExtreme == 1)>>
-		<<if ($activeSlave.scrotum > 0)>>
-			| 
-		<</if>>
-		[[Geld|Surgery Degradation][$activeSlave.balls = 0,$activeSlave.scrotum = 0,$cash -= $surgeryCost, $activeSlave.health -= 40, $surgeryType = "geld"]]
-	<</if>>	
-<</if>>
-
-<<if $activeSlave.prostate>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-	$pronounCap has a <<if $activeSlave.prostate > 1>>hyperactive<<else>>normal<</if>> prostate.
-	<<if $activeSlave.prostate < 2>>
-		<<if $activeSlave.indentureRestrictions < 2>>
-			[[Implant slow-release productivity drugs|Surgery Degradation][$activeSlave.prostate=2,$cash-=$surgeryCost,$activeSlave.health-=10,$surgeryType="precum"]] //This may cause some leaking//
-		<</if>>
-	<</if>>
-	<<if $activeSlave.prostate > 1>>
-		 [[Remove drug implant|Surgery Degradation][$activeSlave.prostate=1,$cash-=$surgeryCost,$surgeryType="endprecum"]]
-	<</if>>
-		<<if ($seeExtreme == 1)>>
-		<<if $activeSlave.indentureRestrictions < 1>>
-			 | [[Remove prostate|Surgery Degradation][$activeSlave.prostate = 0,$cash -= $surgeryCost, $activeSlave.health -= 40, $surgeryType = "prostate"]]
-		<</if>>
-	<</if>>
-<</if>>
-
-
+/* ASSHOLE */
 <<if ($activeSlave.anus > 3)>>
-	<br><br>//<<AnusDescription>>//
-	[[Repair asshole|Surgery Degradation][$activeSlave.anus = 3,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "anus"]] //This will reduce $possessive anal skills//
+	<br><br>//<<AnusDescription>> ''Bold'' surgeries will set her back in this skill.//
+	''[[Repair asshole|Surgery Degradation][$activeSlave.anus = 3,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "anus"]]''
 <<elseif ($surgeryUpgrade == 1) && ($activeSlave.indentureRestrictions < 2)>>
-	<br><br>//<<AnusDescription>>//
+	<br><br>//<<AnusDescription>> ''Bold'' surgeries will set her back in this skill.//
 	<<if ($activeSlave.anus > 1)>>
-		[[Tighten asshole|Surgery Degradation][$activeSlave.anus = 1,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "anus"]] //This will reduce $possessive anal skills//
+		''[[Tighten asshole|Surgery Degradation][$activeSlave.anus = 1,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "anus"]]''
 	<<elseif ($activeSlave.anus > 0)>>
-		[[Restore anal virginity|Surgery Degradation][$activeSlave.anus = 0,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "anus"]] //This will reduce $possessive anal skills//
+		''[[Restore anal virginity|Surgery Degradation][$activeSlave.anus = 0,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "anus"]]''
 	<</if>>
 <</if>>
 
 <br><br>
+''THICKNESS''<br>  
 
+<<waistDescription>>
+
+<<if $activeSlave.waist >= -75>>
+	<<if $activeSlave.indentureRestrictions < 2>>
+	[[Liposuction|Surgery Degradation][$activeSlave.waist -= 20,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "lipo"]]
+	<</if>>
+<</if>>
+
+<<if ($activeSlave.waist >= -95) && ($activeSlave.waist < -75) && ($seeExtreme == 1)>>
+	<<if $activeSlave.indentureRestrictions < 1>>
+	[[Remove ribs to severely narrow her waist|Surgery Degradation][$activeSlave.waist = -100,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "ribs"]]
+	<</if>>
+<</if>>
+
+<<if ($activeSlave.cSec == 1)>>
+	<br>$pronounCap has an unsightly c-section scar.
+	[[Remove Caesarean scar|Surgery Degradation][$activeSlave.cSec = 0,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "bellyscar"]]
+	<br>
+<</if>>
+
+<br>
+
+//<<ButtDescription>>//
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+<<if $activeSlave.butt > 7>>
+	$possessiveCap butt is as large as $pronoun can physically support
+<<elseif $activeSlave.indentureRestrictions >= 2>>
+	$possessiveCap indenture forbids elective surgery
+<<elseif $activeSlave.buttImplant == 0>>
+	[[Implants|Surgery Degradation][$activeSlave.buttImplant = 1,$activeSlave.butt += 1,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "butt"]]
+	| [[String implants|Surgery Degradation][$activeSlave.buttImplant = 1,$activeSlave.butt += 1,$activeSlave.buttImplantType = 1,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "butt"]]
+<<elseif $activeSlave.buttImplant == 1 && $activeSlave.buttImplantType != 1>>
+	[[Bigger implants|Surgery Degradation][$activeSlave.buttImplant = 2,$activeSlave.butt += 1,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "butt"]]
+<<elseif $activeSlave.buttImplant == 2 && $activeSlave.buttImplantType != 1>>
+	[[Fillable implants|Surgery Degradation][$activeSlave.buttImplant = 3,$activeSlave.butt += 1,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "butt"]]
+<<elseif $activeSlave.buttImplant > 2 && $activeSlave.buttImplantType != 1>>
+	[[Add inert filler|Surgery Degradation][$activeSlave.buttImplant += 1,$activeSlave.butt += 1,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "butt"]]
+<</if>>
+<<if $activeSlave.buttImplant != 0>>
+	<<if $activeSlave.indentureRestrictions < 2>>
+	<<if $activeSlave.buttImplantType == 1 && $activeSlave.buttImplant > 1>>
+	 | [[Drain implants|Surgery Degradation][$activeSlave.butt = ($activeSlave.butt-1),$activeSlave.buttImplant = ($activeSlave.buttImplant-1),$cash -= $surgeryCost, $surgeryType = "buttLoss"]]
+	<</if>>
+	 | [[Remove implants|Surgery Degradation][$activeSlave.butt = ($activeSlave.butt-$activeSlave.buttImplant),$activeSlave.buttImplant = 0,$activeSlave.buttImplantType = 0,$cash -= $surgeryCost, $surgeryType = "buttLoss"]]
+	<</if>>
+<</if>>
+<<if ($activeSlave.butt > 1) && ($activeSlave.buttImplant == 0)>>
+	<<if $activeSlave.indentureRestrictions < 2>>
+	 | [[Reduce ass|Surgery Degradation][$activeSlave.butt -= 1,$cash -= $surgeryCost, $surgeryType = "buttLoss"]]
+	<</if>>
+<</if>>
+
+
+<br><br>
+''EDGES''<br>
 <<HairDescription>>
 <<if $activeSlave.pubicHStyle != "bald">> 
 	The rest of her body hair still grows nautrally.
@@ -647,24 +670,6 @@ $pronounCap has
 	[[Remove pubic hair|Surgery Degradation][$activeSlave.pubicHStyle = "bald",$cash -= $surgeryCost,$surgeryType = "body hair removal"]]
 <</if>>
 <br>
-<<BellyDescription>>
-<<if $activeSlave.waist >= -75>>
-	<<if $activeSlave.indentureRestrictions < 2>>
-	[[Liposuction|Surgery Degradation][$activeSlave.waist -= 20,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "lipo"]]
-	<</if>>
-<</if>>
-<<if ($activeSlave.waist >= -95) && ($activeSlave.waist < -75) && ($seeExtreme == 1)>>
-	<<if $activeSlave.indentureRestrictions < 1>>
-	[[Remove ribs to severely narrow her waist|Surgery Degradation][$activeSlave.waist = -100,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "ribs"]]
-	<</if>>
-<</if>>
-
-<<if ($activeSlave.cSec == 1)>>
-	<br>$pronounCap has an unsightly c-section scar.
-	[[Remove Caesarean scar|Surgery Degradation][$activeSlave.cSec = 0,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "bellyscar"]]
-	<br>
-<</if>>
-<br>
 <<set $toSearch = $activeSlave.race>>
 <<if $toSearch.indexOf("surgically") == -1>>
 	<<if $activeSlave.indentureRestrictions < 1>>
@@ -675,162 +680,147 @@ $pronounCap has
 	[[Asian|Surgery Degradation][$activeSlave.race = "surgically altered to look asian",$activeSlave.skin = either("pale", "dark", "light"),$activeSlave.hColor = either("black"),$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "race"]] |
 	[[Middle Eastern|Surgery Degradation][$activeSlave.race = "surgically altered to look middle eastern",$activeSlave.skin = either("pale", "dark", "light"),$activeSlave.hColor = "black",$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "race"]] |
 	[[Indo-aryan|Surgery Degradation][$activeSlave.race = "surgically altered to look indo-aryan",$activeSlave.skin = either("dark", "light"),$activeSlave.hColor = "black",$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "race"]]
+	[[Pacific Islander|Surgery Degradation][$activeSlave.race = "surgically altered to look pacific islander",$activeSlave.skin = either("dark", "light brown", "brown"),$activeSlave.hColor = either("black"),$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "race"]] |
+	[[Malay|Surgery Degradation][$activeSlave.race = "surgically altered to look malay",$activeSlave.skin = either("dark", "light"),$activeSlave.hColor = "black",$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "race"]] |
+	[[Amerindian|Surgery Degradation][$activeSlave.race = "surgically altered to look amerindian",$activeSlave.skin = either("light brown", "brown", "light"),$activeSlave.hColor = "black",$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "race"]] |
+	[[Southern European|Surgery Degradation][$activeSlave.race = "surgically altered to look southern european",$activeSlave.skin = either("fair", "olive", "tanned", "pale"),$activeSlave.hColor = "black",$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "race"]] |
+	[[Semitic|Surgery Degradation][$activeSlave.race = "surgically altered to look semitic",$activeSlave.skin = either("pale", "olive" "tanned", "fair"),$activeSlave.hColor = "black", "brown",$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "race"]]
 	<</if>>
 <<else>>
 	$pronounCap is $activeSlave.race.
 <</if>>
 
 <br><br>
-Work on her structurally:
+''BONES''<br>
+//<<shouldersDescription>>//
 <br>&nbsp;&nbsp;&nbsp;&nbsp;
-<<if $activeSlave.indentureRestrictions < 1>>
-	<<if ($activeSlave.shouldersImplant == 0)>>
-		$pronounCap has a natural shoulder structure.
-	<<elseif ($activeSlave.shouldersImplant > 0)>>
-		$possessiveCap shoulders been restructured to broaden them.
-	<<elseif ($activeSlave.shouldersImplant < 0)>>
-		$possessiveCap shoulders been restructured to narrow them.
-	<</if>>
-	<<if $activeSlave.shouldersImplant == 0>>
-	<<if $activeSlave.shoulders < 3>>
-	<<if $activeSlave.shoulders > -3>>
-		<<if $activeSlave.indentureRestrictions < 1>>
-		[[Restructure shoulders more broadly|Surgery Degradation][$activeSlave.shouldersImplant = 1,$activeSlave.shoulders += 1,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "shoulders"]] | [[Restructure shoulders more narrowly|Surgery Degradation][$activeSlave.shouldersImplant = -1,$activeSlave.shoulders -= 1,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "shoulders"]]
-		<</if>>
-	<<elseif ($activeSlave.shoulders < 2) && ($activeSlave.shoulders > -2) && ($surgeryUpgrade == 1)>>
-		<<if $activeSlave.indentureRestrictions < 1>>
-		[[Advanced shoulder broadening surgery|Surgery Degradation][$activeSlave.shouldersImplant = 1,$activeSlave.shoulders += 1,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "shoulders"]] | [[Advanced shoulder narrowing surgery|Surgery Degradation][$activeSlave.shouldersImplant = -1,$activeSlave.shoulders -= 1,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "shoulders"]]
-		<</if>>
-	<<elseif ($activeSlave.shoulders < 2) && ($surgeryUpgrade == 1)>>
-		<<if $activeSlave.indentureRestrictions < 1>>
-		[[Advanced shoulder broadening surgery|Surgery Degradation][$activeSlave.shouldersImplant = 1,$activeSlave.shoulders += 1,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "shoulders"]]
-		<</if>>
-	<<elseif ($activeSlave.shoulders > -2) && ($surgeryUpgrade == 1)>>
-		<<if $activeSlave.indentureRestrictions < 1>>
-		[[Advanced shoulder narrowing surgery|Surgery Degradation][$activeSlave.shouldersImplant = -1,$activeSlave.shoulders -= 1,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "shoulders"]]
-		<</if>>
-	<</if>>
-	<</if>>
-	<</if>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
-<</if>>
-
-<<if $activeSlave.indentureRestrictions < 1>>
-	<<if ($activeSlave.hipsImplant == 0)>>
-		$pronounCap has normal hips.
-	<<elseif ($activeSlave.hipsImplant > 0)>>
-		$possessiveCap pelvis has been broadened.
-	<<elseif ($activeSlave.hipsImplant < 0)>>
-		$possessiveCap pelvis has been narrowed.
-	<</if>>
-	<<if ($activeSlave.hipsImplant == 0)>>
-	<<if $activeSlave.hips < 3>>
-	<<if $activeSlave.hips > -3>>
-		[[Broaden pelvis|Surgery Degradation][$activeSlave.hipsImplant = 1,$activeSlave.hips += 1,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "hips"]] | [[Narrow pelvis|Surgery Degradation][$activeSlave.hipsImplant = -1,$activeSlave.hips -= 1,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "hips"]]
-	<<elseif ($activeSlave.hips < 2) && ($activeSlave.hips > -2) && ($surgeryUpgrade == 1)>>
-		[[Advanced pelvis broadening|Surgery Degradation][$activeSlave.hipsImplant = 1,$activeSlave.hips += 1,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "hips"]] | [[Advanced pelvis narrowing|Surgery Degradation][$activeSlave.hipsImplant = -1,$activeSlave.hips -= 1,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "hips"]]
-	<<elseif ($activeSlave.hips < 2) && ($surgeryUpgrade == 1)>>
-		[[Advanced pelvis broadening|Surgery Degradation][$activeSlave.hipsImplant = 1,$activeSlave.hips += 1,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "hips"]]
-	<<elseif ($activeSlave.hips > -2) && ($surgeryUpgrade == 1)>>
-		[[Advanced pelvis narrowing|Surgery Degradation][$activeSlave.hipsImplant = -1,$activeSlave.hips -= 1,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "hips"]]
-	<</if>>
-	<</if>>
-	<</if>>
-	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+<<if $activeSlave.indentureRestrictions < 1>> /* Begin Indenture check. */
+<<if ($activeSlave.shouldersImplant == 0)>>
+	$pronounCap has a natural shoulder structure.
+<<elseif ($activeSlave.shouldersImplant > 0)>>
+	$possessiveCap shoulders been restructured to broaden them.
+<<elseif ($activeSlave.shouldersImplant < 0)>>
+	$possessiveCap shoulders been restructured to narrow them.
 <</if>>
 
 
+<<if ($activeSlave.shouldersImplant == 0) && ($activeSlave.shoulders < 3) && ($activeSlave.shoulders > -3)>>
+	[[Restructure shoulders more broadly|Surgery Degradation][$activeSlave.shouldersImplant = 1,$activeSlave.shoulders += 1,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "shoulders"]]
+	| [[Restructure shoulders more narrowly|Surgery Degradation][$activeSlave.shouldersImplant = -1,$activeSlave.shoulders -= 1,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "shoulders"]]
+<<elseif ($activeSlave.shoulders < 2) && ($activeSlave.shoulders > -2) && ($surgeryUpgrade == 1)>>
+	[[Advanced shoulder broadening surgery|Surgery Degradation][$activeSlave.shouldersImplant = 1,$activeSlave.shoulders += 1,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "shoulders"]]
+	| [[Advanced shoulder narrowing surgery|Surgery Degradation][$activeSlave.shouldersImplant = -1,$activeSlave.shoulders -= 1,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "shoulders"]]
+<<elseif ($activeSlave.shoulders < 2) && ($surgeryUpgrade == 1)>>
+	[[Advanced shoulder broadening surgery|Surgery Degradation][$activeSlave.shouldersImplant = 1,$activeSlave.shoulders += 1,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "shoulders"]]
+<<elseif ($activeSlave.shoulders > -2) && ($surgeryUpgrade == 1)>>
+	[[Advanced shoulder narrowing surgery|Surgery Degradation][$activeSlave.shouldersImplant = -1,$activeSlave.shoulders -= 1,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "shoulders"]]
+<</if>>
+
+<br>
+//<<hipsDescription>>//
+
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+<<if ($activeSlave.hipsImplant == 0)>>
+	$pronounCap has normal hips.
+<<elseif ($activeSlave.hipsImplant > 0)>>
+	$possessiveCap pelvis has been broadened.
+<<elseif ($activeSlave.hipsImplant < 0)>>
+	$possessiveCap pelvis has been narrowed.
+<</if>>
+
+<<if ($activeSlave.hipsImplant == 0) && ($activeSlave.hips < 3) && ($activeSlave.hips > -3)>>
+	[[Broaden pelvis|Surgery Degradation][$activeSlave.hipsImplant = 1,$activeSlave.hips += 1,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "hips"]]
+	| [[Narrow pelvis|Surgery Degradation][$activeSlave.hipsImplant = -1,$activeSlave.hips -= 1,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "hips"]]
+<<elseif ($activeSlave.hips < 2) && ($activeSlave.hips > -2) && ($surgeryUpgrade == 1)>>
+	[[Advanced pelvis broadening|Surgery Degradation][$activeSlave.hipsImplant = 1,$activeSlave.hips += 1,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "hips"]]
+	| [[Advanced pelvis narrowing|Surgery Degradation][$activeSlave.hipsImplant = -1,$activeSlave.hips -= 1,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "hips"]]
+<<elseif ($activeSlave.hips < 2) && ($surgeryUpgrade == 1)>>
+	[[Advanced pelvis broadening|Surgery Degradation][$activeSlave.hipsImplant = 1,$activeSlave.hips += 1,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "hips"]]
+<<elseif ($activeSlave.hips > -2) && ($surgeryUpgrade == 1)>>
+	[[Advanced pelvis narrowing|Surgery Degradation][$activeSlave.hipsImplant = -1,$activeSlave.hips -= 1,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "hips"]]
+<</if>>
+
+<br>
 <<if ($activeSlave.amp == 0)>>
-<<if ($activeSlave.heightImplant == 0)>>
-	$pronounCap has normal femurs and humeri.
-<<elseif ($activeSlave.heightImplant > 0)>>
-	$possessiveCap femurs, humeri, and other major bones have been lengthened.
-<<elseif ($activeSlave.heightImplant < 0)>>
-	$possessiveCap femurs, humeri, and other major bones have been shortened.
-<</if>>
-<<if ($activeSlave.heightImplant == 0)>>
-	<<if $activeSlave.indentureRestrictions < 1>>
-	[[Lengthen major bones|Surgery Degradation][$activeSlave.heightImplant = 1,$activeSlave.height += 10,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "height"]] | [[Shorten major bones|Surgery Degradation][$activeSlave.heightImplant = -1,$activeSlave.height -= 10,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "height"]]
+	<<if ($activeSlave.heightImplant == 0)>>
+		$pronounCap has normal femurs and humeri.
+	<<else>>
+		//<<heightImplantDescription>>//
 	<</if>>
-<<elseif ($activeSlave.height < 185) && ($activeSlave.height >= 150) && ($surgeryUpgrade == 1)>>
-	<<if $activeSlave.indentureRestrictions < 1>>
-	[[Advanced height gain surgery|Surgery Degradation][$activeSlave.heightImplant = 1,$activeSlave.height += 10,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "height"]] | [[Advanced height reduction surgery|Surgery Degradation][$activeSlave.heightImplant = -1,$activeSlave.height -= 10,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "height"]]
-	<</if>>
-<<elseif ($activeSlave.height < 185) && ($surgeryUpgrade == 1)>>
-	<<if $activeSlave.indentureRestrictions < 1>>
-	[[Advanced height gain surgery|Surgery Degradation][$activeSlave.heightImplant = 1,$activeSlave.height += 10,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "height"]]
-	<</if>>
-<<elseif ($activeSlave.height >= 150) && ($surgeryUpgrade == 1)>>
-	<<if $activeSlave.indentureRestrictions < 1>>
-	[[Advanced height reduction surgery|Surgery Degradation][$activeSlave.heightImplant = -1,$activeSlave.height -= 10,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "height"]]
+
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	<<if ($activeSlave.heightImplant == 0)>>	
+		[[Lengthen major bones|Surgery Degradation][$activeSlave.heightImplant = 1,$activeSlave.height += 10,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "height"]]
+		| [[Shorten major bones|Surgery Degradation][$activeSlave.heightImplant = -1,$activeSlave.height -= 10,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "height"]]	
+	<<elseif ($activeSlave.height < 185) && ($activeSlave.height >= 150) && ($surgeryUpgrade == 1)>>
+		[[Advanced height gain surgery|Surgery Degradation][$activeSlave.heightImplant = 1,$activeSlave.height += 10,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "height"]]
+		| [[Advanced height reduction surgery|Surgery Degradation][$activeSlave.heightImplant = -1,$activeSlave.height -= 10,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "height"]]
+	<<elseif ($activeSlave.height < 185) && ($surgeryUpgrade == 1)>>
+		[[Advanced height gain surgery|Surgery Degradation][$activeSlave.heightImplant = 1,$activeSlave.height += 10,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "height"]]
+	<<elseif ($activeSlave.height >= 150) && ($surgeryUpgrade == 1)>>
+		[[Advanced height reduction surgery|Surgery Degradation][$activeSlave.heightImplant = -1,$activeSlave.height -= 10,$cash -= $surgeryCost, $activeSlave.health -= 40,$surgeryType = "height"]]
 	<</if>>
 <</if>>
-<br>&nbsp;&nbsp;&nbsp;&nbsp;
+
+<br>
 <<if ($activeSlave.heels == 0) && ($activeSlave.amp == 0)>>
-	$pronounCap has healthy calves.
+	$pronounCap has healthy calves, allowing her to walk without high heels.
 <<elseif ($activeSlave.heels == 1) && ($activeSlave.amp == 0)>>
-	$possessiveCap calves have been altered so that $pronoun cannot walk in anything but very high heels.
+	//<<heelDescription>>//
 <</if>>
-<<if ($activeSlave.heels == 0) && ($seeExtreme == 1)>>
-	<<if $activeSlave.indentureRestrictions < 1>>
-	[[Shorten tendons|Surgery Degradation][$activeSlave.heels = 1,$activeSlave.shoes = "heels",$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "heels"]] //Prevents $possessive from walking in anything but very high heels//
+
+<<if ($activeSlave.heels == 0)>>
+	<<if ($activeSlave.indentureRestrictions < 1) && ($seeExtreme == 1)>>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;
+		[[Shorten tendons|Surgery Degradation][$activeSlave.heels = 1,$activeSlave.shoes = "heels",$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "heels"]]
 	<</if>>
-<</if>>
-<<if ($activeSlave.heels == 1)>>
+<<elseif ($activeSlave.heels == 1)>>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
 	[[Replace tendons|Surgery Degradation][$activeSlave.heels = 0,$activeSlave.shoes = "none",$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "heelsRestoration"]]
 <</if>>
-<br>&nbsp;&nbsp;&nbsp;&nbsp;
-<</if>>
+
+<br>
+<</if>>  /* End Indenture check. */
 
 
 <<if ($activeSlave.amp == 0)>>
   $pronounCap has healthy limbs.
 <<else>>
-  $pronounCap is a quadruple amputee
-  <<if $activeSlave.PLimb == 1 && $activeSlave.amp == 1>>
-	and has been implanted with basic PLimb interface.
-  <<elseif $activeSlave.PLimb == 2 && $activeSlave.amp == 1>>
-	and has been implanted with advanced PLimb interface.
-  <<elseif $activeSlave.amp == -1>>
-	and has been equipped with modern prosthetics.
-  <<elseif $activeSlave.amp == -2>>
-	and has been equipped with advanced, sex-focused prosthetics.
-  <<elseif $activeSlave.amp == -3>>
-	and has been equipped with advanced, beauty-focused prosthetics.
-  <<elseif $activeSlave.amp == -4>>
-	and has been equipped with advanced, combat-focused prosthetics.
-  <<elseif $activeSlave.amp == -5>>
-	and has been equipped with highly advanced cybernetic prosthetics.
-  <<else>>
-	and has not been equipped with prosthetics.
-  <</if>>
+	<<amputeeDescription>>
 <</if>>
 
 <<if $cyberMod != 1>>
 	<<if $activeSlave.amp == 0>>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;
+		Greatly restrict her by:
 		<<if ($activeSlave.indentureRestrictions < 1) && ($seeExtreme == 1)>>
-			[[Remove arms and legs|Surgery Degradation][$activeSlave.amp = 1,$activeSlave.heels = 0,$activeSlave.heightImplant = 0,$activeSlave.legsTat = 0,$activeSlave.armsTat = 0,$cash -= $surgeryCost, $activeSlave.health -= 40,$activeSlave.nails = 0,$surgeryType = "amp"]] //This will greatly restrict $possessive//
+			[[Removing arms and legs|Surgery Degradation][$activeSlave.amp = 1,$activeSlave.heels = 0,$activeSlave.heightImplant = 0,$activeSlave.legsTat = 0,$activeSlave.armsTat = 0,$cash -= $surgeryCost, $activeSlave.health -= 40,$activeSlave.nails = 0,$surgeryType = "amp"]]
 		<</if>>
 	<<elseif $activeSlave.amp != 1>>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;
 		<<if ($activeSlave.indentureRestrictions < 1) && ($seeExtreme == 1)>>
-			[[Detach artificial limbs|Surgery Degradation][$activeSlave.amp = 1,$activeSlave.heels = 0,$activeSlave.heightImplant = 0,$cash -= $surgeryCost, $activeSlave.health -= 40,$activeSlave.nails = 0,$surgeryType = "removeLimbs"]] //This will greatly restrict $possessive//
+			[[Detaching artificial limbs|Surgery Degradation][$activeSlave.amp = 1,$activeSlave.heels = 0,$activeSlave.heightImplant = 0,$cash -= $surgeryCost, $activeSlave.health -= 40,$activeSlave.nails = 0,$surgeryType = "removeLimbs"]]
 		<</if>>
 	<</if>>
 <<else>>
 	<<if $activeSlave.amp == 0>>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;
+		Greatly restrict her by:
 		<<if ($activeSlave.indentureRestrictions < 1) && ($seeExtreme == 1) && (($stockpile.basicPLimbInterface + $stockpile.advPLimbInterface) == 0)>>
-			[[Remove arms and legs|Surgery Degradation][$activeSlave.amp = 1,$activeSlave.heels = 0,$activeSlave.heightImplant = 0,$activeSlave.legsTat = 0,$activeSlave.armsTat = 0,$cash -= $surgeryCost, $activeSlave.health -= 40,$activeSlave.nails = 0,$surgeryType = "amp"]] //This will greatly restrict $possessive//
+			[[Removing arms and legs|Surgery Degradation][$activeSlave.amp = 1,$activeSlave.heels = 0,$activeSlave.heightImplant = 0,$activeSlave.legsTat = 0,$activeSlave.armsTat = 0,$cash -= $surgeryCost, $activeSlave.health -= 40,$activeSlave.nails = 0,$surgeryType = "amp"]]
 		<<elseif ($activeSlave.indentureRestrictions < 1) && ($seeExtreme == 1)>>
-			[[Remove arms and legs|Surgery Degradation][$activeSlave.amp = 1,$activeSlave.heels = 0,$activeSlave.heightImplant = 0,$activeSlave.legsTat = 0,$activeSlave.armsTat = 0,$cash -= $surgeryCost, $activeSlave.health -= 40,$activeSlave.nails = 0,$surgeryType = "amp1"]] //This will greatly restrict $possessive//
+			[[Removing arms and legs|Surgery Degradation][$activeSlave.amp = 1,$activeSlave.heels = 0,$activeSlave.heightImplant = 0,$activeSlave.legsTat = 0,$activeSlave.armsTat = 0,$cash -= $surgeryCost, $activeSlave.health -= 40,$activeSlave.nails = 0,$surgeryType = "amp1"]]
 		<</if>>
 	<<elseif ($activeSlave.amp == 1) && ($activeSlave.PLimb == 0)>>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;
 		<<if ($stockpile.basicPLimbInterface > 0)>> |
 			[[Install basic prosthetic interface|Surgery Degradation][$activeSlave.PLimb = 1,$stockpile.basicPLimbInterface -= 1,$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "PLimb interface1"]]
 		<</if>>
 		<<if $stockpile.advPLimbInterface > 0>> |
 			[[Install advanced prosthetic interface|Surgery Degradation][$activeSlave.PLimb = 2,$stockpile.advPLimbInterface -= 1,$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "PLimb interface2"]]
 		<</if>>
-	<<elseif $activeSlave.amp == 1 && $activeSlave.PLimb == 1 && $stockpile.advPLimbInterface > 0>> |
+	<<elseif $activeSlave.amp == 1 && $activeSlave.PLimb == 1 && $stockpile.advPLimbInterface > 0>>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;
 		[[Upgrade = advanced prosthetic interface|Surgery Degradation][$activeSlave.PLimb = 2,$stockpile.advPLimbInterface -= 1,$cash -= $surgeryCost, $activeSlave.health -= 5,$surgeryType = "PLimb interface3"]]
 	<</if>>
 <</if>>
@@ -840,6 +830,7 @@ Work on her structurally:
 <<if $activeSlave.indentureRestrictions < 2>>
 
 <br><br>
+''CRAFTING''<br>
 <<set $activeOrgan = 0>>
 <<for $i = 0; $i < $organs.length; $i++>>
 	<<if $activeSlave.ID == $organs[$i].ID>>
@@ -1376,49 +1367,29 @@ The prosthesis facility has constructed $possessive prosthetic limbs.
 <</if>> /* CLOSES PROSTHESIS FACTORY */
 <</if>> /* CyberMod Toggle */
 
-<br>
+<br><br>
+
 <<if $seeExtreme == 1>>
+''EXTREME''<br>
 <<if $activeSlave.fuckdoll == 0>>
-	<br>$pronounCap is a normal sex slave, not a living sex toy.
+	$pronounCap is a normal sex slave, not a living sex toy.
 	<<if $activeSlave.indentureRestrictions < 1>>
-		[[Encase in a Fuckdoll suit|Surgery Degradation][$activeSlave.subTarget=0, $activeSlave.sentence=0, $activeSlave.training=0, $activeSlave.toyHole="all her holes", $activeSlave.pubicHStyle="waxed", $activeSlave.livingRules="spare", $activeSlave.speechRules="restrictive", $activeSlave.releaseRules="restrictive", $activeSlave.relationshipRules="restrictive", $activeSlave.fuckdoll=1, $activeSlave.choosesOwnClothes=0, $activeSlave.clothes="a Fuckdoll suit", $activeSlave.collar="none", $activeSlave.shoes="heels", $activeSlave.vaginalAccessory="none", $activeSlave.dickAccessory="none", $activeSlave.buttplug="none", $activeSlave.attrKnown=1, $activeSlave.fetishKnown=1, $surgeryType = "fuckdoll"]] //This is permanent and will greatly restrict $possessive//
+		[[Encase in a Fuckdoll suit|Surgery Degradation][$activeSlave.subTarget=0, $activeSlave.sentence=0, $activeSlave.training=0, $activeSlave.toyHole="all her holes", $activeSlave.pubicHStyle="waxed", $activeSlave.livingRules="spare", $activeSlave.speechRules="restrictive", $activeSlave.releaseRules="restrictive", $activeSlave.relationshipRules="restrictive", $activeSlave.fuckdoll=1, $activeSlave.choosesOwnClothes=0, $activeSlave.clothes="a Fuckdoll suit", $activeSlave.collar="none", $activeSlave.shoes="heels", $activeSlave.vaginalAccessory="none", $activeSlave.dickAccessory="none", $activeSlave.buttplug="none", $activeSlave.attrKnown=1, $activeSlave.fetishKnown=1, $surgeryType = "fuckdoll"]]
+		//This is permanent and will greatly restrict $possessive//
 	<</if>>
 <<else>>
-	<br>$pronounCap is encased in a Fuckdoll suit. [[Extract it|Surgery Degradation][$activeSlave.fuckdoll=0, $activeSlave.clothes="no clothing", $activeSlave.shoes="none", $surgeryType = "fuckdollExtraction"]]
-<</if>>
+	$pronounCap is encased in a Fuckdoll suit. [[Extract it|Surgery Degradation][$activeSlave.fuckdoll=0, $activeSlave.clothes="no clothing", $activeSlave.shoes="none", $surgeryType = "fuckdollExtraction"]]
 <</if>>
 
-
-<<if ($seeExtreme == 1)>>
-	<<if $activeSlave.fetish != "mindbroken">>
-		<br>$pronounCap is mentally competent.
-	<<elseif $activeSlave.fetish == "mindbroken">>
-		<br>$possessiveCap mind is gone; $pronoun has either been chemically lobotomized, or has lost $possessive mind due to extreme abuse.
-	<</if>>
-	<<if $activeSlave.indentureRestrictions < 1>>
+<<if $activeSlave.fetish != "mindbroken">>
+	<br>$pronounCap is mentally competent.
+<<elseif $activeSlave.fetish == "mindbroken">>
+	<br>$possessiveCap mind is gone; $pronoun has either been chemically lobotomized, or has lost $possessive mind due to extreme abuse.
+<</if>>
+<<if $activeSlave.indentureRestrictions < 1>>
 	<<if $activeSlave.fetish != "mindbroken">>
 		[[Chemically lobotomize|Surgery Degradation][$activeSlave.fetish = "mindbroken",$activeSlave.fetishKnown = 1,$cash -= $surgeryCost, $activeSlave.health -= 20,$surgeryType = "mindbreak"]]
 		//Warning: this is permanent and irreversible. It will destroy $possessive will and $possessive ability to remember anything but the simplest skills.//
 	<</if>>
-	<</if>>
 <</if>>
-
-<<if $seeImages == 1>>
-	<br>Toggle art just for now?
-	<<link "On">>
-	<<replace "#artToggle">>
-		/* 000-250-006 */
-		<<if $seeImages == 1>>
-		<<if $imageChoice == 1>>
-			<div class="imageRef lrgVector"><<SlaveArt $activeSlave 2 0>></div>
-		<<else>>
-			<div class="imageRef lrgRender"><<SlaveArt $activeSlave 2 0>></div>
-		<</if>>
-		<</if>>
-		/* 000-250-006 */
-	<</replace>>
-	<</link>>
-	| <<link "Off">>
-	<<replace "#artToggle">><</replace>>
-	<</link>>
 <</if>>

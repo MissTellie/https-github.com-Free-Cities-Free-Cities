@@ -37,7 +37,7 @@
 <</if>>
 <<if $slaves[$i].assignment == "be the DJ">>
 	<<if $clubSlaves+$slavesGettingHelp > 0>>
-	<<set $beauty = Math.trunc($beauty*((5-$clubSlaves-$slavesGettingHelp)/5))>>
+		<<set $beauty = Math.trunc($beauty*((5-$clubSlaves-$slavesGettingHelp)/5))>>
 	<</if>>
 <</if>>
 
@@ -112,7 +112,7 @@ the public.
 		<<if ($slaves[$i].buttImplant == 0)>>
 		<<if ($slaves[$i].waist >= -95)>>
 		<<if ($slaves[$i].lipsImplant == 0)>>
-		<<if ($slaves[$i].faceImplant < 2)>>
+		<<if $slaves[$i].faceImplant <= 30>>
 			<<set $beautyMultiplier += 0.05>>
 			Many citizens come to $clubName looking to get with a natural girl like her.
 		<</if>>
@@ -168,7 +168,7 @@ the public.
 			The DJ is such a gorgeous diva that she's swept along by her charisma, and does her best to be a worthy part of her entourage.
 			<</if>>
 		<</if>>
-		<<if ($slaves[$i].sexualFlaw != "none") && (random(1,100) > 90)>>
+		<<if !["none", "neglectful", "cum addict", "anal addict", "attention whore", "breast growth", "abusive", "malicious", "self hating", "breeder"].includes($slaves[$i].sexualFlaw) && (random(1,100) > 90)>>
 			$DJ.slaveName manages to @@.green;break@@ $slaves[$i].slaveName of her sexual flaws.
 			<<set $slaves[$i].sexualFlaw = "none">>
 		<<elseif ($slaves[$i].behavioralFlaw != "none") && (random(1,100) > 90)>>
@@ -417,18 +417,48 @@ Her appearance attracted $beauty members of the public (<<print Math.trunc($beau
 	She's a better slut because public service is her main sexual outlet.
 <</if>>
 
-<<if $slaves[$i].relation != 0>>
-	<<for $j = 0; $j < $slaves.length; $j++>>
-	<<if $slaves[$j].ID == $slaves[$i].relationTarget>>
-		<<if $slaves[$j].assignment == $slaves[$i].assignment>>
-		Since her $slaves[$j].relation $slaves[$j].slaveName is a public slut too, she earns extra attention.
-		<<if $arcologies[0].FSEgyptianRevivalist > 20>>
-			Citizens are very excited about being able to participate in incestuous sex like the ancient Egyptians.
+<<if $familyTesting == 1>>
+	<<if totalRelatives($slaves[$i]) > 0>>
+		<<set _children = $slaves.filter(function(s) { return ($slaves[$i].ID == s.father || $slaves[$i].ID == s.mother || s.ID == $slaves[$i].father || s.ID == $slaves[$i].mother || areSisters($slaves[$i], s) > 0) && s.assignment == "serve the public"; })>>
+		<<if _children.length > 2>>
+			Since her relatives,
+			<<for _sstp = 0; _sstp < _children.length; _sstp++>>
+				<<if _sstp < _children.length-1>>
+					_children[_sstp].slaveName,
+				<<else>>
+					and _children[_sstp].slaveName,
+				<</if>>
+			<</for>>
+			are public sluts too, she earns extra attention.
+			<<if $arcologies[0].FSEgyptianRevivalist > 20>>
+				Citizens are very excited about being able to participate in incestuous sex like the ancient Egyptians.
+			<</if>>
+		<<elseif _children.length > 1>>
+			Since her relatives, _children[0].slaveName and _children[1].slaveName, are public sluts too, she earns extra attention.
+			<<if $arcologies[0].FSEgyptianRevivalist > 20>>
+				Citizens are very excited about being able to participate in incestuous sex like the ancient Egyptians.
+			<</if>>
+		<<elseif _children.length > 0>>
+			Since her relative, _children[0].slaveName, is a public slut too, she earns extra attention.
+			<<if $arcologies[0].FSEgyptianRevivalist > 20>>
+				Citizens are very excited about being able to participate in incestuous sex like the ancient Egyptians.
+			<</if>>
 		<</if>>
-		<</if>>
-		<<break>>
 	<</if>>
-	<</for>>
+<<else>>
+	<<if $slaves[$i].relation != 0>>
+		<<for $j = 0; $j < $slaves.length; $j++>>
+		<<if $slaves[$j].ID == $slaves[$i].relationTarget>>
+			<<if $slaves[$j].assignment == $slaves[$i].assignment>>
+			Since her $slaves[$j].relation $slaves[$j].slaveName is a public slut too, she earns extra attention.
+			<<if $arcologies[0].FSEgyptianRevivalist > 20>>
+				Citizens are very excited about being able to participate in incestuous sex like the ancient Egyptians.
+			<</if>>
+			<</if>>
+			<<break>>
+		<</if>>
+		<</for>>
+	<</if>>
 <</if>>
 <<if $slaves[$i].relationship > 0>>
 	<<for $j = 0; $j < $slaves.length; $j++>>
@@ -668,7 +698,9 @@ Her appearance attracted $beauty members of the public (<<print Math.trunc($beau
 <<case "humiliation">>
 	She receives extra attention for her eagerness to be humiliated by citizens.
 <<case "buttslut">>
-	She receives extra attention for her obvious enjoyment of buttsex.
+	<<if canDoAnal($slaves[$i])>>
+		She receives extra attention for her obvious enjoyment of buttsex.
+	<</if>>
 <<case "dom">>
 	She receives some extra attention for her enthusiasm dominating other slaves in group sex.
 <<case "masochist">>
@@ -676,8 +708,8 @@ Her appearance attracted $beauty members of the public (<<print Math.trunc($beau
 <<case "sadist">>
 	She receives some extra attention for her willingness to abuse other slaves.
 <<case "pregnancy">>
-	<<if ($slaves[$i].vagina > 0) && ($slaves[$i].vaginalAccessory != "chastity belt")>>
-	As an impregnation fetishist she's very enthusiastic about vaginal sex.
+	<<if canDoVaginal($slaves[$i])>>
+		As an impregnation fetishist she's very enthusiastic about vaginal sex.
 	<</if>>
 <<case "mindbroken">>
 	She receives less attention because she just lies there, mind broken.
@@ -687,7 +719,8 @@ Her appearance attracted $beauty members of the public (<<print Math.trunc($beau
 
 <<if ($slaves[$i].attrKnown == 1)>>
 <<if ($slaves[$i].energy > 95)>>
-	As a nymphomaniac she enjoys sex with everyone and is a crowd favorite.
+	As a nymphomaniac she gets sexual release from every sex act and is a crowd favorite.
+	<<set $slaves[$i].need -= $beauty>>
 <<elseif ($slaves[$i].energy > 80)>>
 	With her powerful sex drive she rarely has to fake an orgasm.
 <<elseif ($slaves[$i].energy > 60)>>
@@ -911,90 +944,72 @@ Her appearance attracted $beauty members of the public (<<print Math.trunc($beau
 <</if>>
 <</if>>
 
-/* SEX ACT COUNTS */
+/* SEX ACT COUNTS AND SEXUAL SATISFACTION */
 
-<<set $oralUseWeight = 5>>
-<<set $oralUseWeight += ($slaves[$i].oralSkill/30)+$slaves[$i].lips>>
-<<if $OralEncouragement == 1>>
-	<<set $oralUseWeight += 0.2*$oralUseWeight>>
-<</if>>
-<<if $OralDiscouragement == 1>>
-	<<set $oralUseWeight -= 0.2*$oralUseWeight>>
-<</if>>
-
-<<set $analUseWeight = 5>>
-<<set $analUseWeight += ($slaves[$i].analSkill/30)-$slaves[$i].anus>>
-<<if $AnalEncouragement == 1>>
-	<<set $analUseWeight += 0.2*$analUseWeight>>
-<</if>>
-<<if $AnalDiscouragement == 1>>
-	<<set $analUseWeight -= 0.2*$analUseWeight>>
-<</if>>
-
-<<set $vaginalUseWeight = 0>>
-<<if ($slaves[$i].vagina != -1)>>
-<<if ($slaves[$i].vaginalAccessory != "chastity belt")>>
-	<<set $vaginalUseWeight += 5+($slaves[$i].vaginalSkill/30)-$slaves[$i].vagina>>
-<</if>>
-<</if>>
-<<if $VaginalEncouragement == 1>>
-	<<set $vaginalUseWeight += 0.2*$vaginalUseWeight>>
-<</if>>
-<<if $VaginalDiscouragement == 1>>
-	<<set $vaginalUseWeight -= 0.2*$vaginalUseWeight>>
-<</if>>
-
-<<set $mammaryUseWeight = 1>>
-<<if ($slaves[$i].boobs > 3000)>>
-	<<set $mammaryUseWeight += 3>>
-<<elseif ($slaves[$i].boobs > 800)>>
-	<<set $mammaryUseWeight += $slaves[$i].boobs/1000>>
-<</if>>
-
-<<set $penetrativeUseWeight = 1>>
-<<if ($slaves[$i].clit > 1)>>
-	<<set $penetrativeUseWeight += ($slaves[$i].vaginalSkill/30)+$slaves[$i].clit>>
-<</if>>
-<<if ($slaves[$i].dick > 0)>>
-<<if ($slaves[$i].balls > 0) || canAchieveErection($slaves[$i])>>
-<<if ($slaves[$i].hormones <= 0)>>
+<<set _oralUse = $oralUseWeight+($slaves[$i].oralSkill/30)+$slaves[$i].lips>>
+<<set _analUse = 0>>
+<<if canDoAnal($slaves[$i])>><<set _analUse =  $analUseWeight+($slaves[$i].analSkill/30)-$slaves[$i].anus>><</if>>
+<<set _vaginalUse = 0>>
+<<if canDoVaginal($slaves[$i])>><<set _analUse =  $vaginalUseWeight+($slaves[$i].vaginalSkill/30)-$slaves[$i].vagina>><</if>>
+<<set _mammaryUse = $mammaryUseWeight>>
+<<if $slaves[$i].boobs > 10000>><<set $mammaryUseWeight += 5>><<elseif $slaves[$i].boobs > 2000>><<set $mammaryUseWeight += $slaves[$i].boobs/2000>><</if>>
+<<set _penetrativeUse = $penetrativeUseWeight>>
+<<if $slaves[$i].clit > 1>><<set $penetrativeUseWeight += ($slaves[$i].vaginalSkill/30)+$slaves[$i].clit>><</if>>
+<<if $slaves[$i].dick>>
+<<if canAchieveErection($slaves[$i])>>
 <<if ($slaves[$i].dickAccessory != "chastity belt")>>
 	<<set $penetrativeUseWeight += ($slaves[$i].dick+$slaves[$i].balls)/4>>
 <</if>>
 <</if>>
 <</if>>
-<</if>>
 
-<<set $seed = $oralUseWeight+$analUseWeight+$vaginalUseWeight+$mammaryUseWeight+$penetrativeUseWeight>>
-<<set $oralUseWeight = $oralUseWeight/$seed>>
-<<set $analUseWeight = $analUseWeight/$seed>>
-<<set $vaginalUseWeight = $vaginalUseWeight/$seed>>
-<<set $mammaryUseWeight = $mammaryUseWeight/$seed>>
-<<set $penetrativeUseWeight = $penetrativeUseWeight/$seed>>
+<<set _demand = _oralUse+_analUse+_vaginalUse+_mammaryUse+_penetrativeUse>>
+<<set _oralUse = Math.trunc((_oralUse/_demand)*$beauty)>>
+<<set _analUse = Math.trunc((_analUse/_demand)*$beauty)>>
+<<set _vaginalUse = Math.trunc((_vaginalUse/_demand)*$beauty)>>
+<<set _mammaryUse = Math.trunc((_mammaryUse/_demand)*$beauty)>>
+<<set _penetrativeUse = Math.trunc((_penetrativeUse/_demand)*$beauty)>>
 
-<<if ndef $slaves[$i].publicCount>>
-	<<set $slaves[$i].publicCount = 0>>
-<</if>>
+<<set $slaves[$i].oralCount += _oralUse, $slaves[$i].publicCount += _oralUse, $oralTotal += _oralUse>>
+<<set $slaves[$i].analCount += _analUse, $slaves[$i].publicCount += _analUse, $analTotal += _analUse>>
+<<set $slaves[$i].vaginalCount += _vaginalUse, $slaves[$i].publicCount += _vaginalUse, $vaginalTotal += _vaginalUse>>
+<<set $slaves[$i].mammaryCount += _mammaryUse, $slaves[$i].publicCount += _mammaryUse, $mammaryTotal += _mammaryUse>>
+<<set $slaves[$i].penetrativeCount += _penetrativeUse, $slaves[$i].publicCount += _penetrativeUse, $penetrativeTotal += _penetrativeUse>>
 
-<<set $slaves[$i].oralCount += Math.trunc($beauty*$oralUseWeight)>>
-<<set $slaves[$i].publicCount += Math.trunc($beauty*$oralUseWeight)>>
-<<set $oralTotal += Math.trunc($beauty*$oralUseWeight)>>
-<<if canDoAnal($slaves[$i])>>
-	<<set $slaves[$i].analCount += Math.trunc($beauty*$analUseWeight)>>
-	<<set $slaves[$i].publicCount += Math.trunc($beauty*$analUseWeight)>>
-	<<set $analTotal += Math.trunc($beauty*$analUseWeight)>>
+<<if $slaves[$i].need>>
+<<if $slaves[$i].fetishKnown>>
+<<switch $slaves[$i].fetish>>
+<<case "submissive" "masochist">>
+	<<if _analUse+_vaginalUse > 0>>
+		She enjoys being fucked, and got sexual satisfaction from the <<print _analUse+_vaginalUse>> dicks stuck inside her this week.
+		<<set $slaves[$i].need -= _analUse+_vaginalUse>>
+	<</if>>
+<<case "dom" "sadist">>
+	<<if _penetrativeUse > 0>>
+		She enjoys being on top, and got special sexual satisfaction from the _penetrativeUse times she got to fuck someone this week.
+		<<set $slaves[$i].need -= 2*_penetrativeUse>>
+	<</if>>
+<<case "cumslut">>
+	<<if _oralUse > 0>>
+		She enjoys sucking, and got sexual satisfaction from the _oralUse blowjobs she gave this week.
+		<<set $slaves[$i].need -= _oralUse>>
+	<</if>>
+<<case "buttslut">>
+	<<if _analUse > 0>>
+		She enjoys getting buttfucked, and got sexual satisfaction from the _analUse times she was sodomized this week.
+		<<set $slaves[$i].need -= _analUse>>
+	<</if>>
+<<case "pregnancy">>
+	<<if _vaginalUse > 0>>
+		She enjoys having her pussy fucked, and got sexual satisfaction from the _vaginalUse times she got dick this week.
+		<<set $slaves[$i].need -= _vaginalUse>>
+	<</if>>
+<<case "humiliation">>
+	She enjoys the humiliation of being a public slut, and got a bit of sexual satisfaction from every sex act she performed this week.
+	<<set $slaves[$i].need -= $beauty>>
+<</switch>>
 <</if>>
-<<if canDoVaginal($slaves[$i])>>
-	<<set $slaves[$i].vaginalCount += Math.trunc($beauty*$vaginalUseWeight)>>
-	<<set $slaves[$i].publicCount += Math.trunc($beauty*$vaginalUseWeight)>>
-	<<set $vaginalTotal += Math.trunc($beauty*$vaginalUseWeight)>>
 <</if>>
-<<set $slaves[$i].mammaryCount += Math.trunc($beauty*$mammaryUseWeight)>>
-<<set $slaves[$i].publicCount += Math.trunc($beauty*$mammaryUseWeight)>>
-<<set $mammaryTotal += Math.trunc($beauty*$mammaryUseWeight)>>
-<<set $slaves[$i].penetrativeCount += Math.trunc($beauty*$penetrativeUseWeight)>>
-<<set $slaves[$i].publicCount += Math.trunc($beauty*$penetrativeUseWeight)>>
-<<set $penetrativeTotal += Math.trunc($beauty*$penetrativeUseWeight)>>
 
 /* VIGNETTES */
 

@@ -15,8 +15,16 @@ The household liquidator is offering a set of siblings for sale. As usual, you w
 <<set $activeSlave.oldDevotion = $activeSlave.devotion>>
 <<set $activeSlave.oldTrust = $activeSlave.trust>>
 <<set $activeSlave.health = random(-50,20)>>
-<<set $activeSlave.relation = "sister">>
-<<set $activeSlave.relationTarget = $activeSlave.ID + 1000>>
+<<if $familyTesting == 1>>
+	<<set $activeSlave.mother = $missingParentID>>
+	<<set $missingParentID-->>
+	<<set $activeSlave.father = $missingParentID>>
+	<<set $missingParentID-->>
+	<<set $activeSlave.canRecruit = 0>>
+<<else>>
+	<<set $activeSlave.relation = "sister">>
+	<<set $activeSlave.relationTarget = $activeSlave.ID + 1000>>
+<</if>>
 
 <<slaveCost $activeSlave>>
 
@@ -50,8 +58,12 @@ The household liquidator is offering a mother and her daughter for sale. As usua
 <<set $activeSlave.butt += 1>>
 <<if $activeSlave.vagina > -1>><<set $activeSlave.vagina += 1>><</if>>
 <<set $activeSlave.age = random(35,42)>>
-<<set $activeSlave.relation = "mother">>
-<<set $activeSlave.relationTarget = $activeSlave.ID + 1000>>
+<<if $familyTesting == 1>>
+	<<set $activeSlave.canRecruit = 0>>
+<<else>>
+	<<set $activeSlave.relation = "mother">>
+	<<set $activeSlave.relationTarget = $activeSlave.ID + 1000>>
+<</if>>
 
 <<slaveCost $activeSlave>>
 <<if $slavesSeen > $slaveMarketLimit>><<set $slaveCost += Math.trunc($slaveCost*(($slavesSeen-$slaveMarketLimit)*0.1))>><</if>>
@@ -85,8 +97,16 @@ The household liquidator is offering something special: twins. The markup is hug
 <<set $activeSlave.oldDevotion = $activeSlave.devotion>>
 <<set $activeSlave.oldTrust = $activeSlave.trust>>
 <<set $activeSlave.health = random(-50,20)>>
-<<set $activeSlave.relation = "twin">>
-<<set $activeSlave.relationTarget = $activeSlave.ID + 1000>>
+<<if $familyTesting == 1>>
+	<<set $activeSlave.mother = $missingParentID>>
+	<<set $missingParentID-->>
+	<<set $activeSlave.father = $missingParentID>>
+	<<set $missingParentID-->>
+	<<set $activeSlave.canRecruit = 0>>
+<<else>>
+	<<set $activeSlave.relation = "twin">>
+	<<set $activeSlave.relationTarget = $activeSlave.ID + 1000>>
+<</if>>
 <<slaveCost $activeSlave>>
 
 The price is ¤<<print $slaveCost*4>>.<<if $slavesSeen > $slaveMarketLimit>> You have cast such a wide net for slaves this week that it is becoming more expensive to find more for sale. Your reputation helps determine your reach within the slave market.<</if>>

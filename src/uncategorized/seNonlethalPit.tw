@@ -319,7 +319,7 @@ You review the rules - the combatants are wearing light gloves, and the fight wi
 	<</if>>
 <<elseif (_loser.eyebrowPiercing > 0)>>
 	The fight starts slowly, with the girls trading jabs. Just as the spectators are getting bored, _loser.slaveName takes a glancing blow to the eyebrow. Her piercing catches on _winner.slaveName's glove and tears out. _loser.slaveName goes after her tormentor in fury, streaming blood, the piercing forgotten on the mat. Any tendency _winner.slaveName might have had to feel badly about this is extinguished by the assault, and soon _winner.slaveName is even willing to follow up on the success by targeting pierced body parts. The fight ends with poor _loser.slaveName writhing in pain on the mat, @@.red;leaking blood@@ from several terribly shredded areas.
-	<<set _loser.health -= 10>>
+	<<set _loser.health -= 10, _loser.eyebrowPiercing = 0>>
 	<<if $pitAudience == "paid">>
 		The audience is reasonably impressed by the gory spectacle, and your @@.yellowgreen;cut of the betting@@ is reasonable.
 		<<set $cash += 1000>>
@@ -385,34 +385,38 @@ You throw the victor's strap-on down to _winner.slaveName.
 	She respects _loser.slaveName's anal virginity, and hauls the loser to her knees for a facefuck.
 	<<set _loser.oralCount += 1>>
 	<<set $oralTotal += 1>>
-<<elseif (_loser.vagina < 0)>>
-	She shoves _loser.slaveName's face into the mat, spreads her buttocks, and spits on her asshole before penetrating it roughly.
-	<<set _loser.analCount += 1>>
-	<<set $analTotal += 1>>
 <<elseif (_loser.vagina == 0) && (_loser.anus == 0)>>
 	She respects _loser.slaveName's virgin holes, and hauls the loser to her knees for a facefuck.
 	<<set _loser.oralCount += 1>>
 	<<set $oralTotal += 1>>
-<<elseif (_loser.vagina == 0)>>
+<<elseif (_loser.vagina <= 0) && canDoAnal(_loser)>>
 	She shoves _loser.slaveName's face into the mat, spreads her buttocks, and spits on her asshole before penetrating it roughly.
 	<<set _loser.analCount += 1>>
 	<<set $analTotal += 1>>
-<<else>>
+<<elseif canDoVaginal(_loser)>>
 	She pushes _loser.slaveName's back down onto the mat, forces her legs apart, and penetrates the loser's cunt.
 	<<set _loser.vaginalCount += 1>>
 	<<set $vaginalTotal += 1>>
-	<<if (_winner.dick > 0) && (_winner.balls > 0) && (_winner.hormones < 1)>>
-		<<if isFertile(_loser)>>
+	<<if canAchieveErection(_winner) && canImpreg(_loser, _winner)>>
 		<<if canTalk(_loser) == false>>_loser.slaveName tries to gesture a protest before _winner.slaveName fills her fertile pussy with cum, but _winner.slaveName grabs her hands and pins them to keep her from complaining.<<else>>_loser.slaveName starts to scream a protest to stop _winner.slaveName raping her pregnant, but _winner.slaveName grinds her face into the mat to shut her up.<</if>>
 		<<if random(1,100) > 50>>
 			<<set (_loser.preg = 1)>>
 			<<set (_loser.pregSource = _winner.ID)>>
 		<</if>>
-		<</if>>
 	<</if>>
+<<else>>
+	She considers her options briefly, then hauls the loser to her knees for a facefuck.
+	<<set _loser.oralCount += 1>>
+	<<set $oralTotal += 1>>
 <</if>>
 
-<<if (_winner.energy > 95)>>
+<<if (_loser.sexualFlaw == "malicious")>>
+	winner.slaveName lives to torment and violate slave girls. She uses _loser.slaveName for her @@.hotpink;pleasure@@, slapping her viciously, pinching her until she draws blood, and showing off for the spectators. The audience @@.green;greatly enjoys@@ the depraved spectacle.
+	<<set _loser.devotion += 2>>
+<<elseif (_loser.sexualFlaw == "abusive")>>
+	winner.slaveName lives to abuse and violate slave girls. She uses _loser.slaveName for her @@.hotpink;pleasure@@, raping her mercilessly, striking her until she turns a deep reddish-purple, and showing off for the spectators. The audience @@.green;greatly enjoys@@ the depraved spectacle.
+	<<set _loser.devotion += 2>>
+<<elseif (_winner.energy > 95)>>
 	_winner.slaveName doesn't have to feign willingness to rape a slave girl. She uses _loser.slaveName for her @@.hotpink;pleasure@@, groping her, kissing her unwilling mouth, and showing off for the spectators. The audience @@.green;greatly enjoys@@ the depraved spectacle.
 	<<set _winner.devotion += 1>>
 	<<set $rep += 50>>
@@ -432,21 +436,69 @@ You throw the victor's strap-on down to _winner.slaveName.
 	<<set _winner.devotion -= 2>>
 <</if>>
 <<if (_winner.rivalry > 0) && (_loser.ID == _winner.rivalryTarget)>>
-	She @@.hotpink;relishes@@ the chance to abuse _loser.slaveName, who she dislikes.
+	She @@.hotpink;relishes@@ the chance to abuse _loser.slaveName, whom she dislikes.
 	<<set _winner.devotion += 5>>
 <<elseif (_winner.relationship >= 0) && (_loser.ID == _winner.relationshipTarget) && (_winner.devotion >= 20)>>
 	She accepts having to abuse _loser.slaveName, and plans to make it up to her later.
 <<elseif (_winner.relationship >= 0) && (_loser.ID == _winner.relationshipTarget)>>
 	She @@.mediumorchid;hates@@ having to abuse _loser.slaveName.
 	<<set _winner.devotion -= 10>>
-<<elseif (_winner.relation != 0) && (_loser.ID == _winner.relationTarget) && (_winner.devotion >= 4)>>
+<<elseif _winner.mother == _loser.ID>>
+	<<if _winner.devotion >= 20>>
+		She accepts having to abuse her mother, _loser.slaveName, and plans to make it up to her later.
+	<<else>>
+		She @@.mediumorchid;hates@@ having to abuse her mother, _loser.slaveName.
+		<<set _winner.devotion -= 10>>
+	<</if>>
+<<elseif _winner.father == _loser.ID>>
+	<<if _winner.devotion >= 20>>
+		She accepts having to abuse her sire, _loser.slaveName, and plans to make it up to her later.
+	<<else>>
+		She @@.mediumorchid;hates@@ having to abuse her sire, _loser.slaveName.
+		<<set _winner.devotion -= 10>>
+	<</if>>
+<<elseif _loser.mother == _winner.ID || _loser.father == _winner.ID>>
+	<<if _winner.devotion >= 20>>
+		She accepts having to abuse her daughter, _loser.slaveName, and plans to make it up to her later.
+	<<else>>
+		She @@.mediumorchid;hates@@ having to abuse her daughter, _loser.slaveName.
+		<<set _winner.devotion -= 10>>
+	<</if>>
+<<elseif _winner.sisters > 0>>
+	<<switch areSisters(_winner, _loser)>>
+	<<case 1>>
+		<<if _winner.devotion >= 20>>
+			She accepts having to abuse her twin sister, _loser.slaveName, and plans to make it up to her later.
+		<<else>>
+			She @@.mediumorchid;hates@@ having to abuse her twin sister, _loser.slaveName.
+			<<set _winner.devotion -= 10>>
+		<</if>>
+	<<case 2>>
+		<<if _winner.devotion >= 20>>
+			She accepts having to abuse her sister, _loser.slaveName, and plans to make it up to her later.
+		<<else>>
+			She @@.mediumorchid;hates@@ having to abuse her sister, _loser.slaveName.
+			<<set _winner.devotion -= 10>>
+		<</if>>
+	<<case 3>>
+		<<if _winner.devotion >= 20>>
+			She accepts having to abuse her half-sister, _loser.slaveName, and plans to make it up to her later.
+		<<else>>
+			She @@.mediumorchid;hates@@ having to abuse her half-sister, _loser.slaveName.
+			<<set _winner.devotion -= 10>>
+		<</if>>
+	<</switch>>
+<<elseif (_winner.relation != 0) && (_loser.ID is _winner.relationTarget) && (_winner.devotion >= 20)>>
 	She accepts having to abuse _loser.slaveName, and plans to make it up to her later.
 <<elseif (_winner.relation != 0) && (_loser.ID is _winner.relationTarget)>>
 	She @@.mediumorchid;hates@@ having to abuse _loser.slaveName.
 	<<set _winner.devotion -= 10>>
 <</if>>
 
-<<if (_loser.fetish == "masochist") && (_loser.fetishKnown == 1) && (_loser.fetishStrength > 60)>>
+<<if (_loser.sexualFlaw == "self hating")>>
+	_loser.slaveName feels she @@.hotpink;deserved this.@@
+	<<set _loser.devotion += 5>>
+<<elseif (_loser.fetish == "masochist") && (_loser.fetishKnown == 1) && (_loser.fetishStrength > 60)>>
 	_loser.slaveName @@.hotpink;gets off@@ on being beaten and molested.
 	<<set _loser.devotion += 5>>
 <<elseif (_loser.fetish == "humiliation") && (_loser.fetishKnown == 1) && (_loser.fetishStrength > 60)>>
@@ -458,7 +510,7 @@ You throw the victor's strap-on down to _winner.slaveName.
 	<<set _loser.trust -= 10>>
 <</if>>
 <<if (_loser.rivalry > 0) && (_winner.ID == _loser.rivalryTarget)>>
-	She is @@.mediumorchid;embarrassed@@ by losing to and being raped by _winner.slaveName, who she dislikes, and @@.gold;fears@@ that it will happen again.
+	She is @@.mediumorchid;embarrassed@@ by losing to and being raped by _winner.slaveName, whom she dislikes, and @@.gold;fears@@ that it will happen again.
 	<<set _loser.devotion -= 10>>
 	<<set _loser.trust -= 10>>
 <<elseif (_loser.relationship >= 0) && (_winner.ID == _loser.relationshipTarget) && (_loser.devotion >= 4)>>
@@ -467,7 +519,64 @@ You throw the victor's strap-on down to _winner.slaveName.
 	She @@.mediumorchid;hates@@ having to accept rape from _winner.slaveName, and @@.gold;fears@@ that it will happen again.
 	<<set _loser.trust -= 10>>
 	<<set _loser.devotion -= 10>>
-<<elseif (_loser.relation != 0) && (_winner.ID == _loser.relationTarget) && (_loser.devotion >= 4)>>
+<<elseif _loser.mother == _winner.ID>>
+	<<if _loser.devotion >= 20>>
+		She accepts her mother, _winner.slaveName, having to rape her, but she @@.gold;fears@@ that it will happen again.
+		<<set _loser.trust -= 10>>
+	<<else>>
+		She @@.mediumorchid;hates@@ having to accept rape from her own mother, _winner.slaveName, and @@.gold;fears@@ that it will happen again.
+		<<set _loser.devotion -= 10>>
+		<<set _loser.trust -= 10>>
+	<</if>>
+<<elseif _loser.father == _winner.ID>>
+	<<if _loser.devotion >= 20>>
+		She accepts her sire, _winner.slaveName, having to rape her, but she @@.gold;fears@@ that it will happen again.
+		<<set _loser.trust -= 10>>
+	<<else>>
+		She @@.mediumorchid;hates@@ having to accept rape from her own sire, _winner.slaveName, and @@.gold;fears@@ that it will happen again.
+		<<set _loser.devotion -= 10>>
+		<<set _loser.trust -= 10>>
+	<</if>>
+<<elseif _winner.mother == _loser.ID || _winner.father == _loser.ID>>
+	<<if _loser.devotion >= 20>>
+		She accepts her daughter, _winner.slaveName, having to rape her, but she @@.gold;fears@@ that it will happen again.
+		<<set _loser.trust -= 10>>
+	<<else>>
+		She @@.mediumorchid;hates@@ having to accept rape from her own daughter, _winner.slaveName, and @@.gold;fears@@ that it will happen again.
+		<<set _loser.devotion -= 10>>
+		<<set _loser.trust -= 10>>
+	<</if>>
+<<elseif _loser.sisters > 0>>
+	<<switch areSisters(_winner, _loser)>>
+	<<case 1>>
+		<<if _loser.devotion >= 20>>
+			She accepts her twin sister, _winner.slaveName, having to rape her, but she @@.gold;fears@@ that it will happen again.
+			<<set _loser.trust -= 10>>
+		<<else>>
+			She @@.mediumorchid;hates@@ having to accept rape from her own twin, _winner.slaveName, and @@.gold;fears@@ that it will happen again.
+			<<set _loser.devotion -= 10>>
+			<<set _loser.trust -= 10>>
+		<</if>>
+	<<case 2>>
+		<<if _loser.devotion >= 20>>
+			She accepts her sister, _winner.slaveName, having to rape her, but she @@.gold;fears@@ that it will happen again.
+			<<set _loser.trust -= 10>>
+		<<else>>
+			She @@.mediumorchid;hates@@ having to accept rape from her own sister, _winner.slaveName, and @@.gold;fears@@ that it will happen again.
+			<<set _loser.devotion -= 10>>
+			<<set _loser.trust -= 10>>
+		<</if>>
+	<<case 3>>
+		<<if _loser.devotion >= 20>>
+			She accepts her half-sister, _winner.slaveName, having to rape her, but she @@.gold;fears@@ that it will happen again.
+			<<set _loser.trust -= 10>>
+		<<else>>
+			She @@.mediumorchid;hates@@ having to accept rape from her own half-sister, _winner.slaveName, and @@.gold;fears@@ that it will happen again.
+			<<set _loser.devotion -= 10>>
+			<<set _loser.trust -= 10>>
+		<</if>>
+	<</switch>>
+<<elseif (_loser.relation != 0) && (_winner.ID is _loser.relationTarget) && (_loser.devotion >= 20)>>
 	She accepts _winner.slaveName having to rape her, but she @@.gold;fears@@ that it will happen again.
 	<<set _loser.trust -= 10>>
 <<elseif (_loser.relation != 0) && (_winner.ID == _loser.relationTarget)>>
@@ -476,12 +585,14 @@ You throw the victor's strap-on down to _winner.slaveName.
 	<<set _loser.trust -= 10>>
 <</if>>
 
+<<if (_loser.fetish != "masochist") && (_loser.fetish != "humiliation") && (_loser.sexualFlaw != "self-hating")>>
 <<if (_loser.relationship != 0)>>
 <<if (_loser.relationship <= 4)>>
 <<if (_loser.relationshipTarget == _winner.ID)>>
 	Fighting and rape have @@.lightsalmon;damaged@@ the relationship between the slaves.
 	<<set _loser.relationship -= 1>>
 	<<set _winner.relationship -= 1>>
+<</if>>
 <</if>>
 <</if>>
 <</if>>

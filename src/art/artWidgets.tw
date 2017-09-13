@@ -1,0 +1,179 @@
+:: art widgets [nobr widget]
+
+/%
+Call as <<AssistantArt>>
+Displays assistant images. Currently passage-based.
+$args[0]: Image size/center.
+	3: Large, right. Example: description.
+	2: Medium, right. Example: random events.
+%/
+<<widget "AssistantArt">>
+
+<<if $imageChoice == 0>> /* RENDERED IMAGES BY SHOKUSHU */
+
+<<switch $assistantAppearance>>
+<<case "monstergirl">>
+	<<set _fileName = "'resources/renders/assistant monstergirl.png' ">>
+<<case "shemale">>
+	<<set _fileName = "'resources/renders/assistant shemale.png' ">>
+<<case "amazon">>
+	<<set _fileName = "'resources/renders/assistant amazon.png' ">>
+<<case "businesswoman">>
+	<<set _fileName = "'resources/renders/assistant businesswoman.png' ">>
+<<case "goddess">>
+	<<set _fileName = "'resources/renders/assistant goddess.png' ">>
+<<case "schoolgirl">>
+	<<set _fileName = "'resources/renders/assistant schoolgirl.png' ">>
+<<default>>
+	<<set _fileName = "'resources/renders/assistant default.png' ">>
+<</switch>>
+<<if $args[1] == 3>>
+	<<print "<img src=" + _fileName + "style='float:right; border:3px hidden'/>">>
+<<else>>
+	<<print "<img src=" + _fileName + "style='float:right; border:3px hidden' width='300' height='300'/>">>
+<</if>>
+
+<</if>> /* CLOSES IMAGE CHOICE */
+
+<</widget>>
+
+/%
+Call as <<SlaveArt>>
+Displays slave images. Currently passage-based.
+$args[0]: Slave.
+$args[1]: Image size/center.
+	3: Large, right. Example: long slave description.
+	2: Medium, right. Example: random events.
+	1: Small, left. Example: lists.
+	0: Tiny, left. Example: facilities
+$args[2]: icon UI Display for vector art, 1 for on.
+%/
+<<widget "SlaveArt">>
+
+<<if $args[0].customImage>>
+
+<<set _fileName = "'resources/" + $args[0].customImage + ".png' ">>
+
+<<if $args[1] == 3>>
+	<<print "<img src=" + _fileName + "style='float:right; border:3px hidden'/>">>
+<<elseif $args[1] == 2>>
+	<<print "<img src=" + _fileName + "style='float:right; border:3px hidden' width='300' height='300'/>">>
+<<elseif $args[1] == 1>>
+	<<print "<img src=" + _fileName + "style='float:left; border:3px hidden' width='150' height='150'/>">>
+<<else>>
+	<<print "<img src=" + _fileName + "style='float:left; border:3px hidden' width='120' height='120'/>">>
+<</if>>
+
+<<elseif $imageChoice == 1>> /* VECTOR ART BY NOX */
+
+<<if ndef $seeVectorArtHighlights>>
+	<<set $seeVectorArtHighlights = 1>>
+<</if>>
+<<set _artSlave to $args[0] >>
+<<silently>>
+/* prepare HTML colour codes for slave display */
+/* note: latex clothing is mostly emulated by rubber colour for skin (and shoes) */
+/* TODO: consistently use american "color" instead of "colour" for all identifiers */
+<<include Art_Vector_Set_Colour_Outfit_>> 
+<<include Art_Vector_Set_Colour_Skin_>> 
+<<include Art_Vector_Set_Colour_Hair_>>
+<<include Art_Vector_Set_Colour_Shoe_>>
+<</silently>>
+<<include Art_Vector_Generate_Stylesheet_>>
+/* 
+each passage adds one layer of vector art
+vector art added later is drawn over previously added art
+(what is listed on the bottom in the code appears on the top of the image)
+*/
+<<include Art_Vector_Arm_>>
+<<include Art_Vector_Hair_Back_>>
+<<include Art_Vector_Butt_>>
+<<include Art_Vector_Leg_>>
+<<include Art_Vector_Feet_>> /* includes shoes */
+<<include Art_Vector_Torso_>>
+<<include Art_Vector_Pussy_>>
+<<include Art_Vector_Pubic_Hair_>>
+<<include Art_Vector_Pussy_Piercings_>>
+<<include Art_Vector_Chastity_Belt_>>
+<<include Art_Vector_Torso_Outfit_>> /* note: clothing covers chastity belts */
+<<include Art_Vector_Belly_>> /* includes navel piercing and belly-related clothing options */
+<<include Art_Vector_Balls_>>
+<<include Art_Vector_Penis_>> /* for dicks behind boobs */
+<<include Art_Vector_Boob_>> /* includes areolae and piercings */
+<<include Art_Vector_Penis_>> /* for dicks in front of boobs */
+<<include Art_Vector_Boob_Addons_>> /* piercings always appear in front of boobs AND dick */
+<<include Art_Vector_Clavicle>>
+<<include Art_Vector_Collar_>>
+<<include Art_Vector_Head_>> /* includes glasses */
+<<include Art_Vector_Hair_Fore_>>
+
+<<else>> /* RENDERED IMAGES BY SHOKUSHU */
+
+<<if $args[0].vagina > -1>>
+	<<if $args[0].dick > 0>>
+		<<if $args[0].balls > 0>>
+			<<set _fileName = "futanari">>
+		<<else>>
+			<<set _fileName = "herm">>
+		<</if>>
+	<<else>>
+		<<set _fileName = "female">>
+	<</if>>
+<<else>>
+	<<if $args[0].balls > 0>>
+		<<set _fileName = "shemale">>
+	<<else>>
+		<<set _fileName = "gelding">>
+	<</if>>
+<</if>>
+<<if $args[0].preg > 10>>
+	<<set _fileName = "preg " + _fileName>>
+<</if>>
+<<if $args[0].boobs < 400>>
+	<<set _fileName = _fileName + " small">>
+<<elseif $args[0].boobs < 800>>
+	<<set _fileName = _fileName + " big">>
+<<elseif $args[0].boobs < 6000>>
+	<<set _fileName = _fileName + " huge">>
+<<else>>
+	<<set _fileName = _fileName + " hyper">>
+<</if>>
+<<if $args[0].muscles > 30>>
+	<<set _fileName = _fileName + " muscle">>
+<<else>>
+	<<set _fileName = _fileName + " soft">>
+<</if>>
+<<if $args[0].fuckdoll > 0>>
+	<<set _fileName = _fileName + " rebellious">>
+<<elseif $args[0].devotion <= 20>>
+	<<if $args[0].trust < -20>>
+		<<set _fileName = _fileName + " reluctant">>
+	<<else>>
+		<<set _fileName = _fileName + " rebellious">>
+	<</if>>
+<<elseif $args[0].fetish == "mindbroken">>
+	<<set _fileName = _fileName + " reluctant">>
+<<elseif $args[0].devotion <= 50 || $args[0].fetishKnown != 1 || ($seeMainFetishes == 0 && $args[1] < 2)>>
+	<<set _fileName = _fileName + " obedient">>
+<<else>>
+	<<if $args[0].fetish == "none">>
+		<<set _fileName = _fileName + " obedient">>
+	<<else>>
+		<<set _fileName = _fileName + " " + $args[0].fetish>>
+	<</if>>
+<</if>>
+
+<<set _fileName = "'resources/renders/" + _fileName + ".png' ">>
+<<if $args[1] == 3>>
+	<<print "<img src=" + _fileName + "style='float:right; border:3px hidden'/>">>
+<<elseif $args[1] == 2>>
+	<<print "<img src=" + _fileName + "style='float:right; border:3px hidden' width='300' height='300'/>">>
+<<elseif $args[1] == 1>>
+	<<print "<img src=" + _fileName + "style='float:left; border:3px hidden' width='150' height='150'/>">>
+<<else>>
+	<<print "<img src=" + _fileName + "style='float:left; border:3px hidden' width='120' height='120'/>">>
+<</if>>
+
+<</if>> /* CLOSES IMAGE CHOICE */
+
+<</widget>>

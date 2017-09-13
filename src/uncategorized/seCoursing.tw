@@ -73,7 +73,7 @@ The rules have been explained to the hares: they're to be freed if they can reac
 	<<set $activeSlave.butt += 1>>
 	<<set $activeSlave.buttImplant += 1>>
 	<<set $activeSlave.face = 55>>
-	<<set $activeSlave.faceImplant += 1>>
+	<<set $activeSlave.faceImplant += 20>>
 	<<set $activeSlave.anus = 1>>
 	<<set $activeSlave.vagina = 1>>
 		<<set $activeSlave.analCount += 1>>
@@ -122,7 +122,7 @@ The rules have been explained to the hares: they're to be freed if they can reac
 	<<set $activeSlave.attrXY = 0>>
 	<<set $activeSlave.attrXX = 70>>
 	<<set $activeSlave.fetish = "none">>
-	<<set $activeSlave.muscles = either(20, 50)>>
+	<<set $activeSlave.muscles = random(20,50)>>
 	<<set $activeSlave.age = random(18,25)>>
 	<<set $activeSlave.career = setup.youngCareers.random()>>
 	is a strong young $activeSlave.race girl with who retains her cock and balls, and looks determined. Perhaps she's a @@.pink;resistant dickgirl@@ who's been difficult to turn into a good girl.<<if !canSee($Lurcher)>> To accommodate your blind lurcher, a bell is fastened around her cock.<</if>>
@@ -146,7 +146,7 @@ The rules have been explained to the hares: they're to be freed if they can reac
 	<<set $activeSlave.butt += 1>>
 	<<set $activeSlave.buttImplant += 1>>
 	<<set $activeSlave.face = Math.clamp($activeSlave.face+20,-100,100)>>
-	<<set $activeSlave.faceImplant += 1>>
+	<<set $activeSlave.faceImplant += 20>>
 	<<set $activeSlave.anus = 3>>
 		<<set $activeSlave.analCount += 1>>
 		<<set $analTotal += 1>>
@@ -563,6 +563,9 @@ You place your hand on the leash's quick release and whisper your direction into
 		To rape a struggling victim, and taste her tears of defeat.
 	<</if>>
 	<<set $Lurcher.devotion += 5>>
+	<<elseif $Lurcher.fetish == "pregnancy" && _origin == "heavily pregnant">>
+	You lurcher is @@.hotpink;thrilled@@ to have had the privilege of chasing down and raping a pregnant woman.
+	<<set $Lurcher.devotion += 5>>
 	<</if>>
 	<</if>>
 	<</if>>
@@ -872,6 +875,9 @@ You place your hand on the leash's quick release and whisper your direction into
 		To rape a struggling victim, and taste her tears of defeat.
 	<</if>>
 	<<set $Lurcher.devotion += 5>>
+	<<elseif $Lurcher.fetish == "pregnancy" && _origin == "heavily pregnant">>
+	You lurcher is @@.hotpink;thrilled@@ to have had the privilege of chasing down and raping a pregnant woman.
+	<<set $Lurcher.devotion += 5>>
 	<</if>>
 	<</if>>
 	<</if>>
@@ -1180,6 +1186,9 @@ You place your hand on the leash's quick release and whisper your direction into
 	<<else>>
 		To rape a struggling victim, and taste her tears of defeat.
 	<</if>>
+	<<set $Lurcher.devotion += 5>>
+	<<elseif $Lurcher.fetish == "pregnancy" && _origin == "heavily pregnant">>
+	You lurcher is @@.hotpink;thrilled@@ to have had the privilege of chasing down and raping a pregnant woman.
 	<<set $Lurcher.devotion += 5>>
 	<</if>>
 	<</if>>

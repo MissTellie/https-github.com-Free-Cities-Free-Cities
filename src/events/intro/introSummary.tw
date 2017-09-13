@@ -151,6 +151,15 @@ of the slave girls will have dicks.
 
 <br>
 
+<<if $familyTesting == 1>>
+	Slaves ''can'' have extended families instead of just a single relative. //May cause lag.//
+	[[Disable extended families|Intro Summary][$familyTesting = 0]]
+<<else>>
+	Slaves ''cannot'' have extended families, just a single relative. //Vanilla Mode.//
+	[[Enable extended families|Intro Summary][$familyTesting = 1]]
+<</if>>
+<br>
+
 <<if $plot == 1>>
 	Game mode: ''two-handed''. Includes non-erotic events concerning the changing world.
 	[[Disable non-erotic events|Intro Summary][$plot = 0]]
@@ -312,6 +321,13 @@ Image display
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
 	<<if $imageChoice == 1>>
 		''Vector art by NoX'' is selected. [[Switch to rendered imagepack|Intro Summary][$imageChoice = 0]]
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;
+		Highlights on shiny clothing
+		<<if $seeVectorArtHighlights == 1>>
+			@@.cyan;ENABLED@@. [[Disable|Options][$seeVectorArtHighlights = 0]]
+		<<else>>
+			@@.red;DISABLED@@. [[Enable|Options][$seeVectorArtHighlights = 1]]
+		<</if>>
 	<<else>>
 		''Rendered imagepack by Shokushu'' is selected. [[Switch to vector art|Intro Summary][$imageChoice = 1]]
 		<br>&nbsp;&nbsp;&nbsp;&nbsp;

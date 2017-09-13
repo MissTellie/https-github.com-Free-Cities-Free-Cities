@@ -1,6 +1,6 @@
 :: Corporation Developments [nobr]
 
-<<if $useTabs == 0>>__The Corporation__<</if>>
+__The Corporation__
 <br>
 
 <<set _roll = random(1,100)>>
@@ -788,7 +788,7 @@ Drug asset prices are
 		<</replace>>
 	<</if>>
 <</link>>
-| <<link "Sell">><<set $drugAssets -= 500>>
+| <<link "Sell">>
 	<<if $drugAssets >= 1000>>
 		<<set $drugAssets -= 500>>
 		<<set $corpCash += 500*$drugAssetPrice>>

@@ -27,7 +27,7 @@ brings up the relevant feeds. There's a naked body crumpled pathetically against
 	<<case "free range">>
 		"The ni<<c>>e free range dairy you <<s>>old me to failed, and a horrible factory farm bought everyone. It's horrible." The
 	<<case "pastoralist arcology">>
-		"After they finished showing me off, they just hooked me up to a milking machine and forgot about me." You sold her to a Physical Idealist arcology as a prize heifer; it's nothing short of incredible that she managed to get back here. She must have sold and traded herself without hesitation. The
+		"After they finished showing me off, they just hooked me up to a milking machine and forgot about me." You sold her to a Pastoralist arcology as a prize heifer; it's nothing short of incredible that she managed to get back here. She must have sold and traded herself without hesitation. The
 	<<case "D hucow">>
 		"My new owner got bored of me as a human cow, and he wa<<s>> in debt, <<s>>o he re<<s>>old me to a dairy. A horrible dairy." The
 	<<case "cow trainer">>
@@ -43,7 +43,7 @@ brings up the relevant feeds. There's a naked body crumpled pathetically against
 	<<set $activeSlave.lactation = 2, $activeSlave.lactationAdaptation = 100>>
 	<<set $activeSlave.boobs = Math.clamp($activeSlave.boobs+2000+50*random(-20,20),0,10000)>>
 	<<set $activeSlave.boobShape = "saggy">>
-	<<if $activeSlave.ovaries>><<set $activeSlave.preg = random(5,_week-1), $activeSlave.pregtype = random(2,4), activeSlave.vagina = 4>><</if>>
+	<<if $activeSlave.ovaries>><<set $activeSlave.preg = random(5,_week-1), $activeSlave.pregtype = random(2,4), $activeSlave.vagina = 4>><</if>>
 	<<if $activeSlave.balls>>
 		<<set $activeSlave.balls = Math.clamp($activeSlave.balls+random(1,2),0,10)>>
 		<<if $activeSlave.dick>><<set $activeSlave.dick = Math.clamp($activeSlave.dick+random(1,2),0,10)>><</if>>
@@ -57,7 +57,7 @@ brings up the relevant feeds. There's a naked body crumpled pathetically against
 		She tearfully describes life at a volume breeder like the one you sold her to.
 	<</switch>>
 	"They ran an IV line into me and then put me in a cage with a male <<s>>lave who raped me for a week. Then they <<s>>witched me into a <<s>>maller cage and forgot about me. I can feel my belly <<s>>welling. It'<<s>> horrible."
-	<<set $activeSlave.preg = _week-1, $activeSlave.pregtype = 5, activeSlave.vagina = 4>>
+	<<set $activeSlave.preg = _week-1, $activeSlave.pregtype = 5, $activeSlave.vagina = 4>>
 <<case "pain fetishist">>
 	"They whip me. A-actually," she sniffles, "I'm glad when they whip me b-becau<<s>>e e-everything el<<s>>e they d-do is w-wor<<s>>e. The only break I get i-i<<s>> when I'm hurt bad and th-they have to f-fix me." After all, you did sell her into a life as a pain slave.
 	<<set $activeSlave.behavioralFlaw = "odd", $activeSlave.sexualFlaw = "apathetic">>
@@ -127,7 +127,7 @@ brings up the relevant feeds. There's a naked body crumpled pathetically against
 	<<set $activeSlave.muscles = 100, $activeSlave.weight = random(-85,-75)>>
 	<<set $activeSlave.behavioralFlaw = "anorexic">>
 <<case "chattel religionist arcology">>
-	"It wa<<s>> horrible." You sold her to a Chattel Religionist arcology; it's nothing short of incredible that she managed to get back here. She must have sold and traded herself without hesitation. "There were, um, cult<<s>> there, along with the Faith.  They were going to devote me to <<s>>omething called She Who Thir<<s>>t<<s>>. Nobody ever hear<<s>> of girl<<s>> after that."
+	"It wa<<s>> horrible." You sold her to a Chattel Religionist arcology; it's nothing short of incredible that she managed to get back here. She must have sold and traded herself without hesitation. "There were, um, cult<<s>> there, along with the Faith.  They were going to devote me to <<s>>omething called <<S>>he Who Thir<<s>>t<<s>>. Nobody ever hear<<s>> of girl<<s>> after that."
 	<<set $activeSlave.behavioralFlaw = "odd", $activeSlave.sexualFlaw = "crude", $activeSlave.behavioralQuirk = "devout">>
 <<case "roman revivalist arcology">>
 	"It wa<<s>> horrible." You sold her to a Roman Revivalist arcology; it's nothing short of incredible that she managed to get back here. She must have sold and traded herself without hesitation. "I had to kill a girl," she adds in a small voice. "In the arena." Then, even more quietly: "I had to kill, um, girl<<s>>. I, I can't. Couldn't. Not again."
@@ -270,6 +270,17 @@ It isn't obvious how she managed to escape, though no doubt you could review the
 <<if $cash >= $contractCost>>
 <br><<link "Obfuscate her appearance and re-enslave her">>
 	<<set $cash -= $contractCost>>
+	<<if $familyTesting == 1>>
+		<<for _reb = 0; _reb < $slaves.length; _reb++>>
+			<<if (def $boomerangMother) && $boomerangMother.includes($slaves[_reb].ID)>>
+				<<set $slaves[_reb].mother = $activeSlave.ID>>
+			<</if>>
+			<<if (def $boomerangfather) && $boomerangfather.includes($slaves[_reb].ID)>>
+				<<set $slaves[_reb].father = $activeSlave.ID>>
+			<</if>>
+		<</for>>
+		<<set $boomerangMother = 0, $boomerangfather = 0>>
+	<</if>>
 	<<replace "#result">>
 		The penthouse opens, and $activeSlave.slaveName stumbles inside, sobbing her thanks. She's immediately conducted to the autosurgery for some quick cosmetic surgery, while you and $assistantName do the necessary work to falsify the arcology records and conceal her origins. Even so, it would probably be wise to keep her off public assignments for a while. In no time at all, she's standing in front of your desk like any other new slave. She waits obediently, knowing that it's in her best interests not to mention anything out of the ordinary.
 	<<include "New Slave Intro">>

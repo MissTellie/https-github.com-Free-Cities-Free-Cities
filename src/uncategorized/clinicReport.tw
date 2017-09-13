@@ -1,19 +1,7 @@
 :: Clinic Report [nobr]
 
-<<set _DL = $CliniciIDs.length, $clinicSlaves = _DL, _SL = $slaves.length, _healthBonus = 0, _idleBonus = 0, _FLsFetish = 0, _restedSlaves = 0>>
-
-<<for _dI = 0; _dI < _DL; _dI++>>
-	<<set $i = $CliniciIDs[_dI].Index, _ID = $CliniciIDs[_dI].ID>>
-	<<if $i >= _SL || _ID != $slaves[$i].ID>>
-		/% IDs don't match-up so let's find her %/
-		<<set $i = $slaves.findIndex(function(s) { return s.ID == _ID; }), $CliniciIDs[_dI].Index = $i>>
-	<</if>>
-	<<if $i == -1 || $slaves[$i].assignment != "get treatment in the clinic">>
-		<<set $CliniciIDs.deleteAt(_dI), _dI--, _DL--, $clinicSlaves-->>
-		<<continue>>
-	<</if>>
-<</for>>
 <<SlaveSort $CliniciIDs>>
+<<set _DL = $CliniciIDs.length, $clinicSlaves = _DL, _healthBonus = 0, _idleBonus = 0, _FLsFetish = 0, _restedSlaves = 0>>
 
 <<if $clinicDecoration != "standard">>
 	<<set _devBonus = 1>>
@@ -81,7 +69,7 @@
 		<<set _healthBonus++>>
 	<</if>>
 	<<for _dI = 0; _dI < _DL; _dI++>>
-		<<set $i = $CliniciIDs[_dI].Index>>
+		<<set $i = $slaveIndices[$CliniciIDs[_dI]]>>
 		<<if $Nurse.rivalryTarget == $slaves[$i].ID>>
 			She purposefully neglects the needs of her <<if $Nurse.rivalry == 1>>growing rival<<elseif $Nurse.rivalry == 2>>rival<<elseif $Nurse.rivalry == 3>>bitter rival<</if>>, $slaves[$i].slaveName, hindering her recovery and deepening their dislike for each other.
 			<<set $slaves[$i].devotion--, $slaves[$i].trust--, $slaves[$i].health -= 3>>
@@ -91,7 +79,27 @@
 		<<elseif $Nurse.relationshipTarget == $slaves[$i].ID>>
 			She dedicates most of her attention to her <<if $Nurse.relationship == 1>>friend<<elseif $Nurse.relationship == 2>>best friend<<elseif $Nurse.relationship == 3>>friend with benefits<<elseif $Nurse.relationship == 4>>lover<<elseif $Nurse.relationship == 5>>slave wife<</if>>, $slaves[$i].slaveName, making sure she has everything she needs and more.  This lavish attention detracts from her overall effectiveness.
 			<<set _idleBonus -= 3, $slaves[$i].devotion++, $slaves[$i].trust++, $slaves[$i].health += 3>>
-		<<elseif $Nurse.relationTarget == $slaves[$i].ID>>
+		<<elseif $familyTesting == 1 && totalRelatives($slaves[$i]) > 0>>
+			<<if $slaves[$i].mother == $Nurse.ID || $slaves[$i].father == $Nurse.ID>>
+				She makes sure to spend extra time caring for her daughter, $slaves[$i].slaveName.
+				<<set $slaves[$i].trust++, $slaves[$i].health++>>
+			<<elseif $slaves[$i].ID == $Nurse.mother>>
+				She makes sure to spend extra time caring for her mother, $slaves[$i].slaveName.
+				<<set $slaves[$i].trust++, $slaves[$i].health++>>
+			<<elseif $slaves[$i].ID == $Nurse.father>>
+				She makes sure to spend extra time caring for her sire, $slaves[$i].slaveName.
+				<<set $slaves[$i].trust++, $slaves[$i].health++>>
+			<<elseif areSisters($slaves[$i], $Nurse) == 1>>
+				She makes sure to spend extra time caring for her twin sister, $slaves[$i].slaveName.
+				<<set $slaves[$i].trust++, $slaves[$i].health++>>
+			<<elseif areSisters($slaves[$i], $Nurse) == 2>>
+				She makes sure to spend extra time caring for her sister, $slaves[$i].slaveName.
+				<<set $slaves[$i].trust++, $slaves[$i].health++>>
+			<<elseif areSisters($slaves[$i], $Nurse) == 3>>
+				She makes sure to spend extra time caring for her half-sister, $slaves[$i].slaveName.
+				<<set $slaves[$i].trust++, $slaves[$i].health++>>
+			<</if>>
+		<<elseif $Nurse.relationTarget == $slaves[$i].ID && $familyTesting == 0>>
 			She makes sure to spend extra time caring for her $slaves[$i].relation, $slaves[$i].slaveName.
 			<<set $slaves[$i].trust++, $slaves[$i].health++>>
 		<</if>>
@@ -174,7 +182,7 @@
 <</if>>
 
 <<for _dI = 0; _dI < _DL; _dI++>>
-	<<set $i = $CliniciIDs[_dI].Index>>
+	<<set $i = $slaveIndices[$CliniciIDs[_dI]]>>
 	<<if $slaves[$i].devotion < 45>>
 		<<set $slaves[$i].devotion += 4>>
 	<</if>>

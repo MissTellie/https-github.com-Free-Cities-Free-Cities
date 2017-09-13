@@ -103,13 +103,8 @@ $servantsQuartersNameCaps
 	<<link "''Send a slave to work out of $servantsQuartersName''">>
 		<<set $leaveServantsQuarters = 0>>
 		<<replace #servantsQuartersComingGoing>>
-			<<if $leaveServantsQuarters == 0>>
-				<<set $Flag to 0>>
-				<<include "Slave Summary">>
-			<<else>>
-				<<set $Flag = 1>>
-				<<include "Slave Summary">>
-			<</if>>
+			<<set $Flag = 0>>
+			<<include "Slave Summary">>
 		<</replace>>
 	<</link>>
 <</if>>
@@ -118,13 +113,8 @@ $servantsQuartersNameCaps
 	| <<link "''Bring a slave out of $servantsQuartersName''">>
 		<<set $leaveServantsQuarters = 1>>
 		<<replace #servantsQuartersComingGoing>>
-			<<if $leaveServantsQuarters == 0>>
-				<<set $Flag to 0>>
-				<<include "Slave Summary">>
-			<<else>>
-				<<set $Flag = 1>>
-				<<include "Slave Summary">>
-			<</if>>
+			<<set $Flag = 1>>
+			<<include "Slave Summary">>
 		<</replace>>
 	<</link>>
 <<else>>
@@ -133,7 +123,7 @@ $servantsQuartersNameCaps
 
 <span id="servantsQuartersComingGoing">
 <<if $leaveServantsQuarters == 0>>
-	<<set $Flag to 0>>
+	<<set $Flag = 0>>
 	<<include "Slave Summary">>
 <<else>>
 	<<set $Flag = 1>>
