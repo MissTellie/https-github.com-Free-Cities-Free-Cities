@@ -2523,7 +2523,7 @@ Your brand design is ''$brandDesign.''
 <<replace #boobs>>
 	<<if ($currentRule.surgery.boobs == "no default setting")>>
 		''no default setting.''
-	<<elseif ($currentRule.surgery.boobs == 24000)>>
+	<<elseif ($currentRule.surgery.boobs == 48000)>>
 		implanted until ''maximized.''
 	<<elseif ($currentRule.surgery.boobs == 9000)>>
 		implanted to maximally ''functional,'' where more would immobilize the slave.
@@ -2587,9 +2587,9 @@ Your brand design is ''$brandDesign.''
 	<<else>>
 		Functional |
 	<</if>>
-	<<if ($currentRule.surgery.boobs != 24000)>>
+	<<if ($currentRule.surgery.boobs != 48000)>>
 		<<link "Maximize">>
-		<<set $currentRule.surgery.boobs = 24000>>
+		<<set $currentRule.surgery.boobs = 48000>>
 		<<RASurgeryChangeBoobs>>
 		<</link>>
 	<<else>>
@@ -3251,7 +3251,7 @@ Your brand design is ''$brandDesign.''
 		<<set $args[0].drugs = "no drugs">>
 		<br>$args[0].slaveName's body has met all relevant growth targets, so her pharmaceutical regime has been ended.
 		<<break>>
-	<</if>>	
+	<</if>>
 <<else>>
 	<<if _combinedRule.growth.boobs != "no default setting">>
 		<<if $args[0].boobs < _combinedRule.growth.boobs>>
