@@ -171,7 +171,7 @@ She comes to you for an inspection
 			high, girly voice.
 		<</if>>
 	<</if>>
-	
+
 	<<if canTalk($activeSlave)>>
 		<<accentDescription>>
 	<</if>>
@@ -1014,13 +1014,7 @@ when a dick is pushed inside <<if $activeSlave.vagina >= -1>>either of its lower
 
 <<if $activeSlave.fuckdoll == 0>>
 <<if $showBodyMods == 1>>
-	<<if ($activeSlave.brandLocation == "neck")
-	|| ($activeSlave.brandLocation == "left cheek")
-	|| ($activeSlave.brandLocation == "right cheek")
-	|| ($activeSlave.brandLocation == "cheeks")
-	|| ($activeSlave.brandLocation == "left ears")
-	|| ($activeSlave.brandLocation == "right ears")
-	|| ($activeSlave.brandLocation == "ears")>>
+	<<if ($activeSlave.brandLocation == "neck")	|| ($activeSlave.brandLocation == "left cheek")	|| ($activeSlave.brandLocation == "right cheek")	|| ($activeSlave.brandLocation == "cheeks")	|| ($activeSlave.brandLocation == "left ears")	|| ($activeSlave.brandLocation == "right ears")	|| ($activeSlave.brandLocation == "ears")>>
 	  <<brandDescription>>
 	<</if>>
 <</if>>
@@ -1334,32 +1328,7 @@ $pronounCap is
 <<if $activeSlave.fuckdoll == 0>>
 <<if $showBodyMods == 1>>
 	/* Check it's not a facial brand: */
-	<<if ($activeSlave.brandLocation == "back")
-	|| ($activeSlave.brandLocation == "chest")
-	|| ($activeSlave.brandLocation == "right shoulder")
-	|| ($activeSlave.brandLocation == "left shoulder")
-	|| ($activeSlave.brandLocation == "shoulders")
-	|| ($activeSlave.brandLocation == "right upper arm")
-	|| ($activeSlave.brandLocation == "left upper arm")
-	|| ($activeSlave.brandLocation == "upper arms")
-	|| ($activeSlave.brandLocation == "right lower arm")
-	|| ($activeSlave.brandLocation == "left lower arm")
-	|| ($activeSlave.brandLocation == "lower arms")
-	|| ($activeSlave.brandLocation == "right wrist")
-	|| ($activeSlave.brandLocation == "left wrist")
-	|| ($activeSlave.brandLocation == "wrists")
-	|| ($activeSlave.brandLocation == "right hand")
-	|| ($activeSlave.brandLocation == "left hand")
-	|| ($activeSlave.brandLocation == "hands")
-	|| ($activeSlave.brandLocation == "left ankle")
-	|| ($activeSlave.brandLocation == "right ankle")
-	|| ($activeSlave.brandLocation == "ankles")
-	|| ($activeSlave.brandLocation == "right calf")
-	|| ($activeSlave.brandLocation == "left calf")
-	|| ($activeSlave.brandLocation == "calves")
-	|| ($activeSlave.brandLocation == "right foot")
-	|| ($activeSlave.brandLocation == "left foot")
-	|| ($activeSlave.brandLocation == "feet")>>
+	<<if ($activeSlave.brandLocation == "back")	|| ($activeSlave.brandLocation == "chest")	|| ($activeSlave.brandLocation == "right shoulder")	|| ($activeSlave.brandLocation == "left shoulder")	|| ($activeSlave.brandLocation == "shoulders")	|| ($activeSlave.brandLocation == "right upper arm")	|| ($activeSlave.brandLocation == "left upper arm")	|| ($activeSlave.brandLocation == "upper arms")	|| ($activeSlave.brandLocation == "right lower arm")	|| ($activeSlave.brandLocation == "left lower arm") || ($activeSlave.brandLocation == "lower arms")	|| ($activeSlave.brandLocation == "right wrist")	|| ($activeSlave.brandLocation == "left wrist")	|| ($activeSlave.brandLocation == "wrists")	|| ($activeSlave.brandLocation == "right hand")	|| ($activeSlave.brandLocation == "left hand")	|| ($activeSlave.brandLocation == "hands")	|| ($activeSlave.brandLocation == "left ankle")	|| ($activeSlave.brandLocation == "right ankle")	|| ($activeSlave.brandLocation == "ankles")	|| ($activeSlave.brandLocation == "right calf")	|| ($activeSlave.brandLocation == "left calf")	|| ($activeSlave.brandLocation == "calves")	|| ($activeSlave.brandLocation == "right foot")	|| ($activeSlave.brandLocation == "left foot")	|| ($activeSlave.brandLocation == "feet")>>
 	  <<brandDescription>>
 	<</if>>
 <</if>>
@@ -1576,4 +1545,3 @@ $pronounCap is
 <</if>>
 
 <<set $saleDescription = 0, $applyLaw = 0>> /* clear sale and law flags, if set */
-
