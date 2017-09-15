@@ -2,7 +2,6 @@
 
 <<set $showEncyclopedia = 0, $nextButton = "Back to Main", $nextLink = "Main">>
 
-
 ''SAVES''
 <br>
 This save was created using FC version $ver build $releaseID.
@@ -16,7 +15,7 @@ End of week autosaving is currently @@.red;DISABLED@@. [[Enable|Options][$autosa
 End of week autosaving is currently @@.cyan;ENABLED@@. [[Disable|Options][$autosave = 0]]
 <</if>>
 
-<<if ($releaseID >= 1000) || $ver.includes("0.9") or $ver.includes("0.8") or $ver.includes("0.7") or $ver.includes("0.6")>>
+<<if ($releaseID >= 1000) || $ver.startsWith("0.9") or $ver.startsWith("0.8") or $ver.startsWith("0.7") or $ver.startsWith("0.6")>>
 	<br><br>
 	''NEW GAME PLUS''
 	<br>
@@ -137,6 +136,15 @@ Main menu leadership controls displayed
 	[[Below|Options][$positionMainLinks = -1]]
 <</if>>
 
+<br>
+
+Tips from the Encyclopedia are
+<<if ($showTipsFromEncy == 0)>>
+	@@.red;DISABLED@@. [[Enable|Options][$showTipsFromEncy = 1]]
+<<else>>
+	@@.cyan;ENABLED@@. [[Disable|Options][$showTipsFromEncy = 0]]
+<</if>>
+
 <br><br>
 ''REPORTS''
 <br>
@@ -188,7 +196,7 @@ Master Suite report details such as slave changes are
 
 <br>
 
-Economic Tabs on weekly reports are
+Main Page Summary tabs are
 <<if $useTabs == 0>>
 @@.red;DISABLED@@. [[Enable|Options][$useTabs = 1]]
 <<else>>
@@ -223,6 +231,7 @@ Assignment performance vignettes on the end week report are
 <<else>>
 	@@.cyan;ENABLED@@. [[Disable|Options][$showVignettes = 0]]
 <</if>>
+
 
 <br><br>
 ''CONTENT''

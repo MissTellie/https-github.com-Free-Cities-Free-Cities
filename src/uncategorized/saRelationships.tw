@@ -169,11 +169,11 @@
 				<<elseif mutualChildren(_SlaveI, _SlaveJ, $slaves) > 0>>
 					<<if (_SlaveI.releaseRules != "restrictive")>>
 						<<if _SlaveJ.relationshipRules == "permissive">>
-							_SlaveI.slaveName and _SlaveJ.slaveName have <<if mutualChildren(_SlaveI, _SlaveJ, $slaves) == 0>>a child<<else>>children<</if>> living in your penthouse, so it's not surprising that their offsrping brings them together. They have @@.lightgreen;become friends@@ for their child's sake.
+							_SlaveI.slaveName and _SlaveJ.slaveName have <<if mutualChildren(_SlaveI, _SlaveJ, $slaves) == 0>>a child<<else>>children<</if>> living in your penthouse, so it's not surprising that their offspring brings them together. They have @@.lightgreen;become friends@@ for their child's sake.
 							<<set _SlaveJ.relationship = 1, _SlaveJ.relationshipTarget = _SlaveI.ID, _SlaveI.relationship = 1, _SlaveI.relationshipTarget = _SlaveJ.ID>>
 							<<break>>
 						<<else>>
-							_SlaveI.slaveName tries to strike up a sexual relationship with _SlaveJ.slaveName and is @@.gold;punished@@ for breaking the rules against such things; she @@.mediumorchid;resents@@ being prevented from pursuing her.
+							_SlaveI.slaveName tries to renew her relationship with _SlaveJ.slaveName and is @@.gold;punished@@ for breaking the rules against such things; she @@.mediumorchid;resents@@ being prevented from reuniting with her.
 							<<set _SlaveI.devotion -= 2, _SlaveI.trust -= 2>>
 						<</if>>
 					<</if>>
@@ -233,7 +233,7 @@
 		<<elseif _SlaveI.relationship < 0>>
 			/% Relationship with the PC %/
 			<<if _SlaveI.relationship == -1>>
-				<<if (_SlaveI.assignment == "serve the public") || (_SlaveI.assignment == "serve in the club") || (_SlaveI.assignment == "whore") || (_SlaveI.assignment == "work in the brothel")>>
+				<<if ["whore", "serve the public", "work in the brothel", "serve in the club", "be the DJ"].includes(_SlaveI.assignment)>>
 					Her endless stream of lovers maintains and satisfies her emotional reliance on sex.
 				<<elseif (_SlaveI.assignment == "serve in the master suite") && ($masterSuiteUpgradeLuxury == 2)>>
 					Forming a part of the pile of copulating bodies in $masterSuiteName satisfies her voracious sexual appetite.				
@@ -598,8 +598,11 @@
 					<</if>>
 					<<if _SlaveI.preg > 0>>
 						<<if _SlaveI.pregSource == $relation.ID>>
-							<<if _SlaveI.origin == "She offered herself to you for enslavement hoping you would preserve her incestuous relationship with her sibling." || _SlaveI.origin == "She offered to become your slave to protect her incestuous relationship.">>
+							<<if _SlaveI.origin == "She offered herself to you for enslavement hoping you would preserve her incestuous relationship with her sibling.">>
 								She's @@.hotpink;overjoyed@@ to be carrying her sister's child.
+								<<set _SlaveI.devotion += 2>>
+							<<elseif  _SlaveI.origin == "She offered to become your slave to protect her incestuous relationship.">>
+								She's @@.hotpink;overjoyed@@ to be carrying her <<print $relationType>>'s child.
 								<<set _SlaveI.devotion += 2>>
 							<<elseif _SlaveI.sexualQuirk == "perverted">>
 								She's even @@.hotpink;aroused@@ by the constant awareness that her $relationType is the parent of the daughter she's carrying.
@@ -812,9 +815,8 @@
 
 	<<if $familyTesting == 1>>
 
-	<<if totalRelatives(_SlaveI) > 0>>
-	<<if _SlaveI.trust <= 95>>
-	<<for _j to 0; _j < $slaves.length; _j++>>
+	<<if totalRelatives(_SlaveI) > 0 && _SlaveI.trust <= 95>>
+	<<for _j = 0; _j < $slaves.length; _j++>>
 		<<if _SlaveI.trust < -20>>
 			<<if $slaves[_j].mother == _SlaveI.ID || $slaves[_j].father == _SlaveI.ID>>
 				<<if _SlaveI.rivalry != $slaves[_j].ID>>
@@ -920,7 +922,6 @@
 			<</if>>
 		<</if>>
 	<</for>>
-	<</if>>
 	<</if>>
 
 	<<else>>

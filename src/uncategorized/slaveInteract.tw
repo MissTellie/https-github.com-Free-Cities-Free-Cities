@@ -502,12 +502,32 @@
 <br>Drugs: <span id="drugs"><strong>$activeSlave.drugs</strong></span>.
 <<link "None">><<set $activeSlave.drugs = "no drugs">><<replace "#drugs">><strong>$activeSlave.drugs</strong><</replace>><</link>>
 <<if $activeSlave.indentureRestrictions < 2>>
+<<if $activeSlave.drugs == "intensive breast injections" || $activeSlave.drugs == "intensive butt injections" || $activeSlave.drugs == "intensive penis enhancement" || $activeSlave.drugs == "intensive testicle enhancement">>
+	| <<link "Moderate">>
+		<<switch $activeSlave.drugs>>
+		<<case "intensive breast injections">>
+			<<set $activeSlave.drugs = "breast injections">>
+		<<case "intensive butt injections">>
+			<<set $activeSlave.drugs = "butt injections">>
+		<<case "intensive penis enhancement">>
+			<<set $activeSlave.drugs = "penis enhancement">>
+		<<case "intensive testicle enhancement">>
+			<<set $activeSlave.drugs = "testicle enhancement">>
+		<</switch>>
+		<<replace "#drugs">><strong>$activeSlave.drugs</strong><</replace>>
+	<</link>>
+<<elseif $activeSlave.drugs == "breast injections" || $activeSlave.drugs == "butt injections" || $activeSlave.drugs == "penis enhancement" || $activeSlave.drugs == "testicle enhancement">>
+	| <<link "Intensify">>
+		<<set $activeSlave.drugs = "intensive " + $activeSlave.drugs>>
+		<<replace "#drugs">><strong>$activeSlave.drugs</strong><</replace>>
+	<</link>>
+<</if>>
 <<if ($activeSlave.intelligence > -2)>>
 	| <<link "Psychosuppressants">><<set $activeSlave.drugs = "psychosuppressants">><<replace "#drugs">><strong>$activeSlave.drugs</strong><</replace>><</link>>
 <<else>>
 	| Psychosuppressants
 <</if>>
-<<if ($activeSlave.boobs < 24000)>>
+<<if ($activeSlave.boobs < 48000)>>
 	| <<link "Breasts">><<set $activeSlave.drugs = "breast injections">><<replace "#drugs">><strong>$activeSlave.drugs</strong><</replace>><</link>>
 <<else>>
 	| Breasts
@@ -537,7 +557,7 @@
 	<</if>>
 <</if>>
 <<if ($activeSlave.balls > 0)>>
-<<if ($activeSlave.balls < 6)>>
+<<if ($activeSlave.balls < 10)>>
 	| <<link "Balls +">><<set $activeSlave.drugs = "testicle enhancement">><<replace "#drugs">><strong>$activeSlave.drugs</strong><</replace>><</link>>
 <<else>>
 	| Balls +

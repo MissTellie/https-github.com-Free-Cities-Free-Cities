@@ -19,11 +19,7 @@
 	<<set $newRelativeRecruitID = 1100000>>
 <</if>>
 
-<<set $eventSlave = $slaves.find(function(s) { return s.canRecruit == 1 && s.fuckdoll == 0 && s.devotion > 50 && canWalk(s) && (random(1,100) > (totalRelatives(s)*20)); })>>
-<<if (ndef $eventSlave)>> /* due to randomization, we might have to stop here */
-	<<goto "RIE Eligibility Check">>
-<<else>>
-
+<<set $eventSlave = $slaves.find(function(s) { return s.ID == $recruiterSlave.ID; })>>
 <<set $activeSlave = clone($slavesOriginal.find(function(o) { return o && o.ID == $eventSlave.ID; }))>>
 
 <<set _recruitedType = []>>
@@ -671,7 +667,6 @@ You look up the _relationType. She costs ¤$slaveCost, a bargain, but you won't 
 
 
 <</if>> /* _recruitedType.length */
-<</if>> /* eventSlave is valid */
 
 
 <<else>> /* vanilla */
@@ -832,7 +827,7 @@ She waits anxiously for your decision.
 <<case "young sister">>
 	<<set $activeSlave.origin = "She was recruited into your service by her younger sister.">>
 	<<if $activeSlave.ovaries == 1>>
-		<<set $activeSlave.boobs = Math.trunc($activeSlave.boobs-200,0,25000)>>
+		<<set $activeSlave.boobs = Math.trunc($activeSlave.boobs-200,0,50000)>>
 		<<set $activeSlave.butt = Math.trunc($activeSlave.butt-1,0,10)>>
 	<</if>>
 	<<set $activeSlave.age = $activeSlave.age-2>>

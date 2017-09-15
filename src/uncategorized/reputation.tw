@@ -1,6 +1,6 @@
 :: Reputation [nobr]
 
-<<if $useTabs == 0>>__Reputation__<</if>>
+__Reputation__
 <br>
 
 <<PCTitle>>
@@ -214,7 +214,7 @@ On formal occasions, you are announced as $PCTitle.
 	<<if $language != "Nahuatl">>
 		Continuing to use $language as the lingua franca of $arcologies[0].name rather than the revived Nahuatl @@.red;disappoints@@ society and causes doubt about your revivalist project.
 		<<FSChange "AztecRevivalist" -3>>
-	<</if>>		
+	<</if>>
 <<elseif $arcologies[0].FSEgyptianRevivalist != "unset">>
 	<<if $racialVarieties.length > 4>>
 		Society @@.green;strongly approves@@ of how you own a cornucopia of different races, which advances the ancient Egyptian ideal of cosmopolitan sex slavery.
@@ -308,7 +308,7 @@ On formal occasions, you are announced as $PCTitle.
 		<<FSChange "Paternalist" $citizenOrphanageTotal>>
 		<<if $privateOrphanageTotal > 0>>
 			Raising $privateOrphanageTotal of your slaves' children privately is considered even more @@.green;impressive.@@
-			<<FSChange "Paternalist" $privateOrphanageTotal*2>>
+			<<FSChange "Paternalist" $privateOrphanageTotal>>
 		<</if>>
 	<<elseif $arcologies[0].FSDegradationist != "unset">>
 		The public @@.red;disapproves@@ of the way you're providing for $citizenOrphanageTotal of your slaves' children to be raised as citizens.
@@ -318,7 +318,7 @@ On formal occasions, you are announced as $PCTitle.
 <<elseif $privateOrphanageTotal > 0>>
 	<<if $arcologies[0].FSPaternalist != "unset">>
 		Raising $privateOrphanageTotal of your slaves' children privately is considered extremely @@.green;impressive.@@
-		<<FSChange "Paternalist" $privateOrphanageTotal*2>>
+		<<FSChange "Paternalist" $privateOrphanageTotal>>
 	<<elseif $arcologies[0].FSDegradationist != "unset">>
 		Fortunately your raising slaves' children privately is not publicly known.
 	<</if>>

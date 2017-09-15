@@ -88,7 +88,7 @@
 <</if>>
 
 <<if $boobAccessibility != 1>>
-	<<if ($slaves[$i].boobs > 7500)>>
+	<<if ($slaves[$i].boobs > 20000)>>
 	<<if ($slaves[$i].assignment != "work in the dairy" || $dairyRestraintsSetting < 2) && ($slaves[$i].assignment != "be confined in the arcade")>>
 	<<set $costs += 50>>
 	<</if>>
@@ -179,7 +179,11 @@
 <</if>>
 
 <<if ($slaves[$i].drugs != "no drugs")>>
-	<<set $costs += ($drugsCost*2)>>
+	<<if $slaves[$i].drugs == "intensive breast injections" || $slaves[$i].drugs == "intensive butt injections" || $slaves[$i].drugs == "intensive penis enhancement" || $slaves[$i].drugs == "intensive testicle enhancement">>
+		<<set $costs += $drugsCost*5>>
+	<<else>>
+		<<set $costs += $drugsCost*2>>
+	<</if>>
 <</if>>
 <<if $slaves[$i].curatives == 1 && $slaves[$i].assignmentVisible != 1>>
 <<elseif $slaves[$i].curatives > 0>>

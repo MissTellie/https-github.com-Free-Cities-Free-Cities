@@ -929,63 +929,95 @@
 			<<if ($slaves[$i].fetishKnown == 1)>>
 			<<if ($slaves[$i].fetish == "submissive")>>
 				Recently, she's been fantasizing about submitting to big strong men. Her revulsion at the idea of sex with a man @@.green;mellows.@@
-				<<set $slaves[$i].attrXY += 5>>
+				<<set $slaves[$i].attrXY += 3>>
 			<<elseif ($slaves[$i].fetish == "buttslut")>>
 				Recently, she's been reconsidering her reluctance to be sodomized a man. Her revulsion at the idea of sex with a man @@.green;mellows.@@
-				<<set $slaves[$i].attrXY += 5>>
+				<<set $slaves[$i].attrXY += 3>>
 			<<elseif ($slaves[$i].fetish == "pregnancy")>>
 				Recently, she's been fantasizing about getting knocked up. Her revulsion at the idea of sex with a man @@.green;mellows.@@
-				<<set $slaves[$i].attrXY += 5>>
+				<<set $slaves[$i].attrXY += 3>>
 			<</if>>
 			<</if>>
 			<<if ($slaves[$i].sexualQuirk == "adores men")>>
 				She enjoys spending time with men, and starts to @@.green;reconsider her unwillingness to be fucked by men.@@
-				<<set $slaves[$i].attrXY += 5>>
+				<<set $slaves[$i].attrXY += 3>>
 			<</if>>
 			<<if ($slaves[$i].dick > 0)>>
 			<<if ($slaves[$i].energy >= 40)>>
 			<<if ($slaves[$i].analCount > 0)>>
 				Every time she cums with a dick up her ass, her @@.green;resistance to sex with men is worn away.@@
-				<<set $slaves[$i].attrXY += 5>>
+				<<set $slaves[$i].attrXY += 3>>
 			<</if>>
 			<</if>>
 			<</if>>
 			<<if ($slaves[$i].devotion > random(1,100))>>
 				The atmosphere in your arcology is so ubiquitously sexual that she @@.green;reconsiders her unwillingness to have sex with men.@@
-				<<set $slaves[$i].attrXY += 5>>
+				<<set $slaves[$i].attrXY += 3>>
 			<</if>>
 		<<else>>
 			Her weak libido limits natural development of her sexuality.
+		<</if>>
+		<<if $activeSlave.devotion >= -20>>
+		<<if $activeSlave.genes == "XY">>
+			<<set _roll = random(1,5)>>
+			<<switch _roll>>
+			<<case 1>>
+				<<if $slaves[$i].nosePiercing>>
+					She's fascinated by her <<if $slaves[$i].nosePiercing > 1>>slutty nose piercings, and unconsciously thinks of herself as @@.green;prettier and more suited to take dick.@@<<else>>nice little nasal piercing, and feels like @@.green;more of a girly girl.@@<</if>>
+					<<set $slaves[$i].attrXY += 1>>
+				<</if>>
+			<<case 2>>
+				<<if $slaves[$i].eyebrowPiercing>>
+					Her <<if $slaves[$i].eyebrowPiercing > 1>>degrading eyebrow piercings make her feel @@.green;a little less disinclined to accept being on the bottom.@@<<else>>cute eyebrow piercing makes her feel @@.green;a little girlier.@@<</if>>
+					<set $slaves[$i].attrXY += 1>>
+				<</if>>
+			<<case 3>>
+				<<if $slaves[$i].lipsPiercing>>
+					She kind of likes her <<if $slaves[$i].lipsPiercing > 1>>whorish lip ring, and seems @@.green;less disturbed by the idea of her mouth as a fuckhole.@@<<else>>pretty little lip piercing, and feels like @@.green;she has a nice mouth.@@<</if>>
+					<set $slaves[$i].attrXY += 1>>
+				<</if>>
+			<<case 4>>
+				<<if $slaves[$i].navelPiercing>>
+					She sometimes stares at her <<if $slaves[$i].navelPiercing > 1>>navel chain, turning this way and that to make it move, unconsciously @@.green;getting used to her fuckable body.@@<<else>>little feminine navel piercing, and seems to think @@.green;her lower half is kind of pretty.@@<</if>>
+					<set $slaves[$i].attrXY += 1>>
+				<</if>>
+			<<case 5>>
+				<<if $slaves[$i].earPiercing>>
+					Every morning, she's greeted by her girly reflection in the mirror, <<if $slaves[$i].earPiercing > 1>>whose slutty ear piercings make her @@.green;feel more fuckable.@@<<else>>complete with pretty pierced ears @@.green;like a good slave girl.@@<</if>>
+					<set $slaves[$i].attrXY += 1>>
+				<</if>>
+			<</switch>>
+		<</if>>
 		<</if>>
 	<<elseif ($slaves[$i].attrXY <= 65)>>
 		<<if ($slaves[$i].energy >= 40)>>
 			<<if ($slaves[$i].fetishKnown == 1)>>
 			<<if ($slaves[$i].fetish == "submissive")>>
 				She's found herself enjoying watching big strong men use other slaves recently. She's now @@.green;more attracted to men.@@
-				<<set $slaves[$i].attrXY += 5>>
+				<<set $slaves[$i].attrXY += 3>>
 			<<elseif ($slaves[$i].fetish == "buttslut")>>
 				She's started fantasizing about cocks being shoved up her butt even when there are no cocks being shoved up her butt. She's now @@.green;more attracted to men.@@
-				<<set $slaves[$i].attrXY += 5>>
+				<<set $slaves[$i].attrXY += 3>>
 			<<elseif ($slaves[$i].fetish == "pregnancy")>>
 				Her fantasies about pregnancy have become quite vivid; she loves hot cum jetting into her. She's now @@.green;more attracted to men.@@
-				<<set $slaves[$i].attrXY += 5>>
+				<<set $slaves[$i].attrXY += 3>>
 			<</if>>
 			<</if>>
 			<<if ($slaves[$i].behavioralQuirk == "adores men")>>
 				She enjoys spending time with men, and is now @@.green;more attracted to men.@@
-				<<set $slaves[$i].attrXY += 5>>
+				<<set $slaves[$i].attrXY += 3>>
 			<</if>>
 			<<if ($slaves[$i].dick > 0)>>
 			<<if ($slaves[$i].energy >= 60)>>
 			<<if ($slaves[$i].analCount > 0)>>
 				Every time she cums to the feeling of a cock thrusting deep inside her, her @@.green;indifference to men is reduced.@@
-				<<set $slaves[$i].attrXY += 5>>
+				<<set $slaves[$i].attrXY += 3>>
 			<</if>>
 			<</if>>
 			<</if>>
 			<<if ($slaves[$i].devotion > random(1,200))>>
 				The atmosphere in your arcology is so ubiquitously sexual that she has become @@.green;more attracted to men.@@
-				<<set $slaves[$i].attrXY += 5>>
+				<<set $slaves[$i].attrXY += 3>>
 			<</if>>
 		<<else>>
 			Her poor sex drive limits natural development of her sexuality.
@@ -995,26 +1027,26 @@
 			<<if ($slaves[$i].fetishKnown == 1)>>
 			<<if ($slaves[$i].fetish == "submissive")>>
 				She can no longer see a man without fantasizing about how it would feel if he held her down. She's now @@.green;more aroused by men.@@
-				<<set $slaves[$i].attrXY += 5>>
+				<<set $slaves[$i].attrXY += 3>>
 			<<elseif ($slaves[$i].fetish == "buttslut")>>
 				She can't see a man without doing her best to get his hard cock inside her. She's now @@.green;more aroused by men.@@
-				<<set $slaves[$i].attrXY += 5>>
+				<<set $slaves[$i].attrXY += 3>>
 			<<elseif ($slaves[$i].fetish == "pregnancy")>>
 				She can't see a man without doing her best to get his hot seed into her body. She's now @@.green;more aroused by men.@@
-				<<set $slaves[$i].attrXY += 5>>
+				<<set $slaves[$i].attrXY += 3>>
 			<</if>>
 			<</if>>
 			<<if ($slaves[$i].dick > 0)>>
 			<<if ($slaves[$i].energy >= 80)>>
 			<<if ($slaves[$i].analCount > 0)>>
 				She often starts to climax as a cock begins to push inside her, @@.green;deepening her appetite for men.@@
-				<<set $slaves[$i].attrXY += 5>>
+				<<set $slaves[$i].attrXY += 3>>
 			<</if>>
 			<</if>>
 			<</if>>
 			<<if ($slaves[$i].behavioralQuirk == "adores men")>>
 				She enjoys spending time with men so much that any interaction becomes flirtation; she's now @@.green;more aroused by men.@@
-				<<set $slaves[$i].attrXY += 5>>
+				<<set $slaves[$i].attrXY += 3>>
 			<</if>>
 		<<else>>
 			Her average libido limits further natural development of her sexuality.
@@ -1030,30 +1062,30 @@
 			<<if ($slaves[$i].fetishKnown == 1)>>
 			<<if ($slaves[$i].fetish == "dom")>>
 				Recently, she's been fantasizing about how it would feel to force herself on some of the cute women all around her. Her revulsion at the idea of sex with a woman @@.green;mellows.@@
-				<<set $slaves[$i].attrXX += 5>>
+				<<set $slaves[$i].attrXX += 3>>
 			<<elseif ($slaves[$i].fetish == "sadist")>>
 				Recently, she's been fantasizing about how it would feel to abuse a weak female slave. Her revulsion at the idea of sex with a woman @@.green;mellows.@@
-				<<set $slaves[$i].attrXX += 5>>
+				<<set $slaves[$i].attrXX += 3>>
 			<<elseif ($slaves[$i].fetish == "boobs")>>
 				Recently, she's been fantasizing about other girls' tits. Her revulsion at the idea of sex with a woman @@.green;mellows.@@
-				<<set $slaves[$i].attrXX += 5>>
+				<<set $slaves[$i].attrXX += 3>>
 			<</if>>
 			<</if>>
 			<<if ($slaves[$i].behavioralQuirk == "adores women")>>
 				She enjoys spending time with women, and starts to @@.green;reconsider her unwillingness to have sex with a woman.@@
-				<<set $slaves[$i].attrXX += 5>>
+				<<set $slaves[$i].attrXX += 3>>
 			<</if>>
 			<<if $slaves[$i].canAchieveErection>>
 			<<if ($slaves[$i].energy >= 40)>>
 			<<if ($slaves[$i].penetrativeCount > 0)>>
 				Getting to fuck another girl is rare and special, and she @@.green;starts to value getting to have sex with women.@@
-				<<set $slaves[$i].attrXY += 5>>
+				<<set $slaves[$i].attrXY += 3>>
 			<</if>>
 			<</if>>
 			<</if>>
 			<<if ($slaves[$i].devotion > random(1,100))>>
 				The atmosphere in your arcology is so ubiquitously sexual that she @@.green;reconsiders her unwillingness to have sex with women.@@
-				<<set $slaves[$i].attrXX += 5>>
+				<<set $slaves[$i].attrXX += 3>>
 			<</if>>
 		<<else>>
 			<<if ($slaves[$i].attrXX > 35)>>Her weak libido limits natural development of her sexuality.<</if>>
@@ -1063,30 +1095,30 @@
 			<<if ($slaves[$i].fetishKnown == 1)>>
 			<<if ($slaves[$i].fetish == "dom")>>
 				She's found herself enjoying the sight of female slaves being forced to fuck recently. She's now @@.green;more attracted to women.@@
-				<<set $slaves[$i].attrXX += 5>>
+				<<set $slaves[$i].attrXX += 3>>
 			<<elseif ($slaves[$i].fetish == "sadist")>>
 				She's started fantasizing about how a girl might feel, struggling to get away from her. She's now @@.green;more attracted to women.@@
-				<<set $slaves[$i].attrXX += 5>>
+				<<set $slaves[$i].attrXX += 3>>
 			<<elseif ($slaves[$i].fetish == "boobs")>>
 				Her fantasies about boobs have become quite vivid. She's now @@.green;more attracted to women.@@
-				<<set $slaves[$i].attrXX += 5>>
+				<<set $slaves[$i].attrXX += 3>>
 			<</if>>
 			<</if>>
 			<<if ($slaves[$i].behavioralQuirk == "adores women")>>
 				She enjoys spending time with women, and is now @@.green;more attracted to women.@@
-				<<set $slaves[$i].attrXX += 5>>
+				<<set $slaves[$i].attrXX += 3>>
 			<</if>>
 			<<if $slaves[$i].canAchieveErection>>
 			<<if ($slaves[$i].energy >= 60)>>
 			<<if ($slaves[$i].penetrativeCount > 0)>>
 				@@.green;Her indifference to women@@ is worn down on the special occasions that she's allowed to stick her dick in one.
-				<<set $slaves[$i].attrXY += 5>>
+				<<set $slaves[$i].attrXY += 3>>
 			<</if>>
 			<</if>>
 			<</if>>
 			<<if ($slaves[$i].devotion > random(1,200))>>
 				The atmosphere in your arcology is so ubiquitously sexual that she has become @@.green;more attracted to women.@@
-				<<set $slaves[$i].attrXX += 5>>
+				<<set $slaves[$i].attrXX += 3>>
 			<</if>>
 		<<else>>
 			<<if ($slaves[$i].attrXX > 65)>>Her poor sex drive limits natural development of her sexuality.<</if>>
@@ -1096,24 +1128,24 @@
 			<<if ($slaves[$i].fetishKnown == 1)>>
 			<<if ($slaves[$i].fetish == "dom")>>
 				She can't see a woman without plotting to dominate her. She's now @@.green;more aroused by women.@@
-				<<set $slaves[$i].attrXX += 5>>
+				<<set $slaves[$i].attrXX += 3>>
 			<<elseif ($slaves[$i].fetish == "sadist")>>
 				She can't see a woman without doing her best to find a way the rules will allow her to abuse the poor girl. She's now @@.green;more aroused by women.@@
-				<<set $slaves[$i].attrXX += 5>>
+				<<set $slaves[$i].attrXX += 3>>
 			<<elseif ($slaves[$i].fetish == "boobs")>>
 				She can't see a woman without doing her best to get her hands on her breasts. She's now @@.green;more aroused by women.@@
-				<<set $slaves[$i].attrXX += 5>>
+				<<set $slaves[$i].attrXX += 3>>
 			<</if>>
 			<</if>>
 			<<if ($slaves[$i].behavioralQuirk == "adores women")>>
 				She enjoys spending time with women so much that any interaction becomes flirtation; she's now @@.green;more aroused by women.@@
-				<<set $slaves[$i].attrXX += 5>>
+				<<set $slaves[$i].attrXX += 3>>
 			<</if>>
 			<<if $slaves[$i].canAchieveErection>>
 			<<if ($slaves[$i].energy >= 80)>>
 			<<if ($slaves[$i].penetrativeCount > 0)>>
 				She cherishes the special occasions on which she gets to cum inside a girl, @@.green;building her appetite for women.@@
-				<<set $slaves[$i].attrXY += 5>>
+				<<set $slaves[$i].attrXY += 3>>
 			<</if>>
 			<</if>>
 			<</if>>
@@ -1130,15 +1162,15 @@
 		<<if ($slaves[$i].attrXX < 100)>>
 			<<if ($slaves[$i].attrXY < 100)>>
 				Her nymphomania has a slow but inexorable impact on her sexuality, @@.green;increasing her attraction to everyone.@@
-				<<set $slaves[$i].attrXY += 5>>
-				<<set $slaves[$i].attrXX += 5>>
+				<<set $slaves[$i].attrXY += 3>>
+				<<set $slaves[$i].attrXX += 3>>
 			<<else>>
 				Her nymphomania has a slow but inexorable impact on her sexuality, @@.green;increasing her lust for pussy,@@ since she's already crazy about guys.
-				<<set $slaves[$i].attrXX += 5>>
+				<<set $slaves[$i].attrXX += 3>>
 			<</if>>
 		<<elseif ($slaves[$i].attrXY < 100)>>
 			Her nymphomania has a slow but inexorable impact on her sexuality, @@.green;increasing her need for cock,@@ since she's already crazy about the ladies.
-			<<set $slaves[$i].attrXY += 5>>
+			<<set $slaves[$i].attrXY += 3>>
 		<</if>>
 	<</if>>
 <</if>>
@@ -1623,29 +1655,38 @@
 <<if $slaves[$i].fetishStrength+$slaves[$i].devotion+$slaves[$i].trust > random(1,500)>>
 <<if ($slaves[$i].sexualQuirk == "none")>>
 	<<if ($slaves[$i].sexualFlaw == "hates anal")>>
-	<<if ($slaves[$i].fetish == "buttslut")>>
-		Her sexual fascination with things entering her asshole @@.green;softens her hatred of anal into an appetite for anal pain.@@
-		<<set $slaves[$i].sexualQuirk = "painal queen", $slaves[$i].sexualFlaw = "none">>
-	<<elseif ($slaves[$i].energy > 95)>>
-		As a nymphomaniac she appreciates kinky sex, so she @@.green;softens her hatred of anal into an appetite for anal pain.@@
-		<<set $slaves[$i].sexualQuirk = "painal queen", $slaves[$i].sexualFlaw = "none">>
-	<</if>>
+		<<if $slaves[$i].anusPiercing>>
+			The constant stimulation her guiche piercings give her most inimate areas helps her with her anal hangups, @@.green;softening her hatred of anal into an appetite for anal pain.@@ She still struggles if she's fucked in the ass, but she gets off on it anyway.
+			<<set $slaves[$i].sexualQuirk = "painal queen", $slaves[$i].sexualFlaw = "none">>
+		<<elseif ($slaves[$i].fetish == "buttslut")>>
+			Her sexual fascination with things entering her asshole @@.green;softens her hatred of anal into an appetite for anal pain.@@ She still struggles if she's fucked in the ass, but she gets off on it anyway.
+			<<set $slaves[$i].sexualQuirk = "painal queen", $slaves[$i].sexualFlaw = "none">>
+		<<elseif ($slaves[$i].energy > 95)>>
+			As a nymphomaniac she appreciates kinky sex, so she @@.green;softens her hatred of anal into an appetite for anal pain.@@ She still struggles if she's fucked in the ass, but she gets off on it anyway.
+			<<set $slaves[$i].sexualQuirk = "painal queen", $slaves[$i].sexualFlaw = "none">>
+		<</if>>
 	<<elseif ($slaves[$i].sexualFlaw == "hates oral")>>
-	<<if ($slaves[$i].fetish == "cumslut")>>
-		She can't get her beloved cum without choking down dick, so she @@.green;softens her hatred of oral into a willingness to be roughly throatfucked.@@
-		<<set $slaves[$i].sexualQuirk = "gagfuck queen", $slaves[$i].sexualFlaw = "none">>
-	<<elseif ($slaves[$i].energy > 95)>>
-		She needs sex so much she often has to encourage her partners orally, so she @@.green;softens her hatred of oral into a willingness to be roughly throatfucked.@@
-		<<set $slaves[$i].sexualQuirk = "gagfuck queen", $slaves[$i].sexualFlaw = "none">>
-	<</if>>
+		<<if $slaves[$i].tonguePiercing>>
+			She can't stop sucking on her tongue piercings, and she gets over her oral hangups, @@.green;softening her hatred of oral into a willingness to be roughly throatfucked.@@ She still gags, but it's a good gagging, now.
+			<<set $slaves[$i].sexualQuirk = "gagfuck queen", $slaves[$i].sexualFlaw = "none">>
+		<<elseif ($slaves[$i].fetish == "cumslut")>>
+			She can't get her beloved cum without choking down dick, so she @@.green;softens her hatred of oral into a willingness to be roughly throatfucked.@@ She still gags, but it's a good gagging, now.
+			<<set $slaves[$i].sexualQuirk = "gagfuck queen", $slaves[$i].sexualFlaw = "none">>
+		<<elseif ($slaves[$i].energy > 95)>>
+			She needs sex so much she often has to encourage her partners orally, so she @@.green;softens her hatred of oral into a willingness to be roughly throatfucked.@@ She still gags, but it's a good gagging, now.
+			<<set $slaves[$i].sexualQuirk = "gagfuck queen", $slaves[$i].sexualFlaw = "none">>
+		<</if>>
 	<<elseif ($slaves[$i].sexualFlaw == "hates penetration")>>
-	<<if ($slaves[$i].fetish == "buttslut")>>
-		Her sexual fascination with anal penetration @@.green;softens her hatred of penetration into an appetite for abusive sex.@@
-		<<set $slaves[$i].sexualQuirk = "strugglefuck queen", $slaves[$i].sexualFlaw = "none">>
-	<<elseif ($slaves[$i].energy > 95)>>
-		As a nymphomaniac she appreciates kinky sex, so she @@.green;softens her hatred of penetration into an appetite for abusive intercourse.@@
-		<<set $slaves[$i].sexualQuirk = "strugglefuck queen", $slaves[$i].sexualFlaw = "none">>
-	<</if>>
+		<<if $slaves[$i].vaginaPiercing>>
+			Her pussy piercings get her used to the idea that it's a fuckhole, not her precious womanhood, @@.green;softening her hatred of penetration into an appetite for abusive sex.@@ She still cries, but she climaxes as she cries.
+			<<set $slaves[$i].sexualQuirk = "strugglefuck queen", $slaves[$i].sexualFlaw = "none">>
+		<<elseif ($slaves[$i].fetish == "buttslut")>>
+			Her sexual fascination with anal penetration @@.green;softens her hatred of penetration into an appetite for abusive sex.@@ She still cries, but she climaxes as she cries.
+			<<set $slaves[$i].sexualQuirk = "strugglefuck queen", $slaves[$i].sexualFlaw = "none">>
+		<<elseif ($slaves[$i].energy > 95)>>
+			As a nymphomaniac she appreciates kinky sex, so she @@.green;softens her hatred of penetration into an appetite for abusive intercourse.@@ She still cries, but she climaxes as she cries.
+			<<set $slaves[$i].sexualQuirk = "strugglefuck queen", $slaves[$i].sexualFlaw = "none">>
+		<</if>>
 	<<elseif ($slaves[$i].sexualFlaw == "apathetic")>>
 	<<if ($slaves[$i].fetish == "submissive")>>
 		Her subconscious drive to submit @@.green;softens her sexual apathy into constant care for her partners' wants.@@
@@ -1700,29 +1741,38 @@
 	<</if>>
 <<else>>
 	<<if ($slaves[$i].sexualFlaw == "hates anal")>>
-	<<if ($slaves[$i].fetish == "buttslut")>>
-		Her sexual fascination with things entering her asshole overcomes her professed hatred of anal, so @@.green;her previous hesitations about buttsex vanish.@@
-		<<set $slaves[$i].sexualFlaw = "none">>
-	<<elseif ($slaves[$i].energy > 95)>>
-		As a nymphomaniac she doesn't really care which hole she's getting fucked in, so @@.green;her previous hesitations about buttsex vanish.@@
-		<<set $slaves[$i].sexualFlaw = "none">>
-	<</if>>
+		<<if $slaves[$i].anusPiercing>>
+			The constant stimulation her guiche piercings give her most inimate areas helps her with her anal hangups, so @@.green;her previous hesitations about buttsex vanish.@@
+			<<set $slaves[$i].sexualFlaw = "none">>
+		<<elseif ($slaves[$i].fetish == "buttslut")>>
+			Her sexual fascination with things entering her asshole overcomes her professed hatred of anal, so @@.green;her previous hesitations about buttsex vanish.@@
+			<<set $slaves[$i].sexualFlaw = "none">>
+		<<elseif ($slaves[$i].energy > 95)>>
+			As a nymphomaniac she doesn't really care which hole she's getting fucked in, so @@.green;her previous hesitations about buttsex vanish.@@
+			<<set $slaves[$i].sexualFlaw = "none">>
+		<</if>>
 	<<elseif ($slaves[$i].sexualFlaw == "hates oral")>>
-	<<if ($slaves[$i].fetish == "cumslut")>>
-		She can't get her beloved cum without sucking, so @@.green;she forcibly overcomes her strong gag reflex.@@
-		<<set $slaves[$i].sexualFlaw = "none">>
-	<<elseif ($slaves[$i].energy > 95)>>
-		She needs sex so much she often has to encourage her partners orally, so @@.green;she forcibly overcomes her strong gag reflex.@@
-		<<set $slaves[$i].sexualFlaw = "none">>
-	<</if>>
+		<<if $slaves[$i].tonguePiercing>>
+			She can't stop sucking on her tongue piercings, so @@.green;she gets over her oral hangups.@@
+			<<set $slaves[$i].sexualFlaw = "none">>
+		<<elseif ($slaves[$i].fetish == "cumslut")>>
+			She can't get her beloved cum without sucking, so @@.green;she forcibly overcomes her strong gag reflex.@@
+			<<set $slaves[$i].sexualFlaw = "none">>
+		<<elseif ($slaves[$i].energy > 95)>>
+			She needs sex so much she often has to encourage her partners orally, so @@.green;she forcibly overcomes her strong gag reflex.@@
+			<<set $slaves[$i].sexualFlaw = "none">>
+		<</if>>
 	<<elseif ($slaves[$i].sexualFlaw == "hates penetration")>>
-	<<if ($slaves[$i].fetish == "buttslut")>>
-		She's fascinated with the perversity of being anally penetrated, so @@.green;her previous hesitations about getting fucked vanish.@@
-		<<set $slaves[$i].sexualFlaw = "none">>
-	<<elseif ($slaves[$i].energy > 95)>>
-		She needs sex like she needs air, so @@.green;her previous hesitations about getting fucked vanish.@@
-		<<set $slaves[$i].sexualFlaw = "none">>
-	<</if>>
+		<<if $slaves[$i].vaginaPiercing>>
+			Her pussy piercings get her used to the idea that it's a fuckhole, not her precious womanhood, so @@.green;her previous hesitations about getting fucked vanish.@@
+			<<set $slaves[$i].sexualFlaw = "none">>
+		<<elseif ($slaves[$i].fetish == "buttslut")>>
+			She's fascinated with the perversity of being anally penetrated, so @@.green;her previous hesitations about getting fucked vanish.@@
+			<<set $slaves[$i].sexualFlaw = "none">>
+		<<elseif ($slaves[$i].energy > 95)>>
+			She needs sex like she needs air, so @@.green;her previous hesitations about getting fucked vanish.@@
+			<<set $slaves[$i].sexualFlaw = "none">>
+		<</if>>
 	<<elseif ($slaves[$i].sexualFlaw == "apathetic")>>
 	<<if ($slaves[$i].fetish == "dom")>>
 		She likes being on top so much @@.green;she can no longer bear being lazy in bed.@@
@@ -1893,6 +1943,9 @@
 		Her paraphilia is satisfied by her work as a cow; she can feel her udders swelling with milk.
 	<<elseif $slaves[$i].health < 0>>
 		Her paraphilia is ameliorated by her poor health; she knows she can't take expansion right now.
+	<<elseif $slaves[$i].drugs == "intensive breast injections">>
+		Her paraphilia makes her feel @@.mediumaquamarine;fulfilled to be a sex slave@@ if it means breast expansion like this.
+		<<set $slaves[$i].trust += 2>>
 	<<elseif $slaves[$i].drugs == "breast injections">>
 		Her paraphilia makes breast injections very satisfying for her.
 	<<else>>
@@ -2417,9 +2470,9 @@
 <</if>>
 <</if>>
 
-<<if ($slaves[$i].drugs == "testicle enhancement")>>
-<<if ($slaves[$i].balls > 0)>>
 <<if ($slaves[$i].releaseRules == "permissive")>>
+<<if ($slaves[$i].balls > 0)>>
+<<if $slaves[$i].drugs == "testicle enhancement" || $slaves[$i].drugs == "intensive testicle enhancement">>
 	<<if ($slaves[$i].fetishStrength <= 95)>>
 	<<if $fetishChangeChance > random(0,100)>>
 		<<if $slaves[$i].fetish != "cumslut">>
@@ -2532,7 +2585,7 @@
 	<</if>>
 <<case "boobs">>
 	<<if $slaves[$i].sexualFlaw != "breast growth">>
-		<<if $slaves[$i].drugs == "breast injections">>
+		<<if $slaves[$i].drugs == "breast injections" || $slaves[$i].drugs == "intensive breast injections">>
 			She loves her tits, and feeling them respond to drug injections starts to hold more fascination for her than mere sex. @@.yellow;Her sexual identity is now dominated by her swelling boobs.@@
 			<<set $slaves[$i].sexualFlaw = "breast growth">>
 			<<set $slaves[$i].fetishStrength = 100>>
@@ -2805,39 +2858,38 @@
 
 <<if ($slaves[$i].boobsImplantType == 1)>>
 	$possessiveCap string implants absorb fluid @@.lime;slowly swelling $possessive breasts@@.
-	<<set $slaves[$i].boobsImplant += 50, $slaves[$i].boobs += 50>>
-	<<set $seed to random(1,10)>>
-	<<if ($slaves[$i].boobs > 25000)>>
-	Since they are as large as $possessive body can handle, some serum is drained from them.
-	<<set $slaves[$i].boobs -= 100, $slaves[$i].boobsImplant -= 100>>
-	<</if>>
-	<<if ($slaves[$i].boobsImplant > 9000) && ($seed >= 2)>>
-	As they grow they @@.red;greatly irritate@@ the tissue of $possessive breasts.
-	<<set $slaves[$i].health -= 20>>
-	<<elseif ($slaves[$i].boobsImplant > 8000) && ($seed >= 3)>>
-	As they grow they @@.red;irritate@@ the tissue of $possessive breasts.
-	<<set $slaves[$i].health -= 10>>
-	<<elseif ($slaves[$i].boobsImplant > 7000) && ($seed >= 4)>>
-	As they grow they @@.red;irritate@@ the tissue of $possessive breasts.
-	<<set $slaves[$i].health -= 10>>
-	<<elseif ($slaves[$i].boobsImplant > 6000) && ($seed >= 5)>>
-	As they grow they @@.red;irritate@@ the tissue of $possessive breasts.
-	<<set $slaves[$i].health -= 10>>
-	<<elseif ($slaves[$i].boobsImplant > 5000) && ($seed >= 6)>>
-	As they grow they @@.red;irritate@@ the tissue of $possessive breasts.
-	<<set $slaves[$i].health -= 10>>
-	<<elseif ($slaves[$i].boobsImplant > 4000) && ($seed >= 7)>>
-	As they grow they @@.red;irritate@@ the tissue of $possessive breasts.
-	<<set $slaves[$i].health -= 10>>
-	<<elseif ($slaves[$i].boobsImplant > 3000) && ($seed >= 8)>>
-	As they grow they @@.red;irritate@@ the tissue of $possessive breasts.
-	<<set $slaves[$i].health -= 10>>
-	<<elseif ($slaves[$i].boobsImplant > 2000) && ($seed >= 9)>>
-	As they grow they @@.red;irritate@@ the tissue of $possessive breasts.
-	<<set $slaves[$i].health -= 10>>
-	<<elseif ($slaves[$i].boobsImplant > 1000) && ($seed > 9)>>
-	As they grow they @@.red;irritate@@ the tissue of $possessive breasts.
-	<<set $slaves[$i].health -= 10>>
+	<<set $slaves[$i].boobsImplant += 100, $slaves[$i].boobs += 100>>
+	<<set _effect = random(1,10)>>
+	<<if ($slaves[$i].boobs > 50000)>>
+		Since they are as large as $possessive body can handle, some serum is drained from them.
+		<<set $slaves[$i].boobs -= 100, $slaves[$i].boobsImplant -= 100>>
+	<<elseif ($slaves[$i].boobsImplant > 9000) && (_effect >= 2)>>
+		As they grow they @@.red;greatly irritate@@ the tissue of $possessive breasts.
+		<<set $slaves[$i].health -= 20>>
+	<<elseif ($slaves[$i].boobsImplant > 8000) && (_effect >= 3)>>
+		As they grow they @@.red;irritate@@ the tissue of $possessive breasts.
+		<<set $slaves[$i].health -= 10>>
+	<<elseif ($slaves[$i].boobsImplant > 7000) && (_effect >= 4)>>
+		As they grow they @@.red;irritate@@ the tissue of $possessive breasts.
+		<<set $slaves[$i].health -= 10>>
+	<<elseif ($slaves[$i].boobsImplant > 6000) && (_effect >= 5)>>
+		As they grow they @@.red;irritate@@ the tissue of $possessive breasts.
+		<<set $slaves[$i].health -= 10>>
+	<<elseif ($slaves[$i].boobsImplant > 5000) && (_effect >= 6)>>
+		As they grow they @@.red;irritate@@ the tissue of $possessive breasts.
+		<<set $slaves[$i].health -= 10>>
+	<<elseif ($slaves[$i].boobsImplant > 4000) && (_effect >= 7)>>
+		As they grow they @@.red;irritate@@ the tissue of $possessive breasts.
+		<<set $slaves[$i].health -= 10>>
+	<<elseif ($slaves[$i].boobsImplant > 3000) && (_effect >= 8)>>
+		As they grow they @@.red;irritate@@ the tissue of $possessive breasts.
+		<<set $slaves[$i].health -= 10>>
+	<<elseif ($slaves[$i].boobsImplant > 2000) && (_effect >= 9)>>
+		As they grow they @@.red;irritate@@ the tissue of $possessive breasts.
+		<<set $slaves[$i].health -= 10>>
+	<<elseif ($slaves[$i].boobsImplant > 1000) && (_effect > 9)>>
+		As they grow they @@.red;irritate@@ the tissue of $possessive breasts.
+		<<set $slaves[$i].health -= 10>>
 	<</if>>
 <</if>>
 
@@ -2871,30 +2923,31 @@
 	Since it as large as $possessive body can handle, some serum is drained from them.
 	<<set $slaves[$i].butt -= 1, $slaves[$i].buttImplant -= 1>>
 	<</if>>
-	<<set $seed to random(1,8)>>
-	<<if ($slaves[$i].buttImplant > 7) && ($seed >= 2)>>
-	As they grow they @@.red;greatly irritate@@ the tissue of $possessive cheeks.
-	<<set $slaves[$i].health -= 20>>
-	<<elseif ($slaves[$i].buttImplant > 6) && ($seed >= 2)>>
-	As they grow they @@.red;greatly irritate@@ the tissue of $possessive cheeks.
-	<<set $slaves[$i].health -= 20>>
-	<<elseif ($slaves[$i].buttImplant > 5) && ($seed >= 3)>>
-	As they grow they @@.red;irritate@@ the tissue of $possessive cheeks.
-	<<set $slaves[$i].health -= 10>>
-	<<elseif ($slaves[$i].buttImplant > 4) && ($seed >= 4)>>
-	As they grow they @@.red;irritate@@ the tissue of $possessive cheeks.
-	<<set $slaves[$i].health -= 10>>
-	<<elseif ($slaves[$i].buttImplant > 3) && ($seed >= 5)>>
-	As they grow they @@.red;irritate@@ the tissue of $possessive cheeks.
-	<<set $slaves[$i].health -= 10>>
-	<<elseif ($slaves[$i].buttImplant > 2) && ($seed >= 6)>>
-	As they grow they @@.red;irritate@@ the tissue of $possessive cheeks.
-	<<set $slaves[$i].health -= 10>>
-	<<elseif ($slaves[$i].buttImplant > 1) && ($seed >= 7)>>
-	As they grow they @@.red;irritate@@ the tissue of $possessive cheeks.
-	<<set $slaves[$i].health -= 10>>
-	<<elseif ($slaves[$i].buttImplant > 0) && ($seed > 7)>>
-	As they grow they @@.red;irritate@@ the tissue of $possessive cheeks.
+	<<set _effect to random(1,8)>>
+	<<if ($slaves[$i].buttImplant > 7) && (_effect >= 2)>>
+		As they grow they @@.red;greatly irritate@@ the tissue of $possessive cheeks.
+		<<set $slaves[$i].health -= 20>>
+	<<elseif ($slaves[$i].buttImplant > 6) && (_effect >= 2)>>
+		As they grow they @@.red;greatly irritate@@ the tissue of $possessive cheeks.
+		<<set $slaves[$i].health -= 20>>
+	<<elseif ($slaves[$i].buttImplant > 5) && (_effect >= 3)>>
+		As they grow they @@.red;irritate@@ the tissue of $possessive cheeks.
+		<<set $slaves[$i].health -= 10>>
+	<<elseif ($slaves[$i].buttImplant > 4) && (_effect >= 4)>>
+		As they grow they @@.red;irritate@@ the tissue of $possessive cheeks.
+		<<set $slaves[$i].health -= 10>>
+	<<elseif ($slaves[$i].buttImplant > 3) && (_effect >= 5)>>
+		As they grow they @@.red;irritate@@ the tissue of $possessive cheeks.
+		<<set $slaves[$i].health -= 10>>
+	<<elseif ($slaves[$i].buttImplant > 2) && (_effect >= 6)>>
+		As they grow they @@.red;irritate@@ the tissue of $possessive cheeks.
+		<<set $slaves[$i].health -= 10>>
+	<<elseif ($slaves[$i].buttImplant > 1) && (_effect >= 7)>>
+		As they grow they @@.red;irritate@@ the tissue of $possessive cheeks.
+		<<set $slaves[$i].health -= 10>>
+	<<elseif ($slaves[$i].buttImplant > 0) && (_effect > 7)>>
+		As they grow they @@.red;irritate@@ the tissue of $possessive cheeks.
+		<<set $slaves[$i].health -= 10>>
 	<</if>>
 <</if>>
 
@@ -2997,10 +3050,10 @@
 			<<set $slaves[$i].trust += 1>>
 		<<case "MaleAttracted">>
 			Dependence on the hormone-based aphrodisiacs makes $object become @@.green;more attracted to men.@@
-			<<set $slaves[$i].attrXY += 5>>
+			<<set $slaves[$i].attrXY += 3>>
 		<<case "FemaleAttracted">>
 			Dependence on the hormone-based aphrodisiacs makes $object become @@.green;more attracted to women.@@
-			<<set $slaves[$i].attrXX += 5>>
+			<<set $slaves[$i].attrXX += 3>>
 		<<default>>
 			ERROR: bad aphro addict effect: _Effects
 		<</switch>>
@@ -3432,15 +3485,15 @@
 		<<if ($slaves[$i].trust < -20)>>
 		<<if ($slaves[$i].devotion <= 50)>>
 		<<if (random(1,100) > 100+$slaves[$i].trust)>>
-			<<set $seed to random(1,4)>>
+			<<set _effect to random(1,4)>>
 			Being so afraid so constantly drives her to find solace in
-			<<if $seed == 1>>
+			<<if _effect == 1>>
 			self-denial. @@.red;She has developed anorexia.@@
 			<<set $slaves[$i].behavioralFlaw = "anorexic">>
-			<<elseif $seed is 2>>
+			<<elseif _effect is 2>>
 			stress eating. @@.red;She's now a nervous glutton.@@
 			<<set $slaves[$i].behavioralFlaw = "gluttonous">>
-			<<elseif $seed is 3>>
+			<<elseif _effect is 3>>
 			the scraps of prayer and superstition she can remember from her life before she was a slave. @@.red;She's now religious.@@
 			<<set $slaves[$i].behavioralFlaw = "devout">>
 			<<else>>
@@ -3454,21 +3507,21 @@
 		<<if ($slaves[$i].sexualFlaw == "none")>>
 		<<if ($slaves[$i].devotion < -20)>>
 		<<if (random(1,500) > 500+$slaves[$i].devotion)>>
-			<<set $seed to random(1,6)>>
+			<<set _effect to random(1,6)>>
 			Being so angry at her life as a sex slave has
-			<<if $seed == 1>>
+			<<if _effect == 1>>
 			driven her into @@.red;sexual apathy.@@
 			<<set $slaves[$i].sexualFlaw = "apathetic">>
-			<<elseif $seed is 2>>
+			<<elseif _effect is 2>>
 			convinced her that the conservative parts of her upbringing were right: sex is evil. @@.red;She's now repressed.@@
 			<<set $slaves[$i].sexualFlaw = "repressed">>
-			<<elseif $seed is 3>>
+			<<elseif _effect is 3>>
 			given her a dread of being nude. @@.red;She's now shamefast.@@
 			<<set $slaves[$i].sexualFlaw = "shamefast">>
-			<<elseif $seed is 4>>
+			<<elseif _effect is 4>>
 			deprived her of any motivation to keep sex appealing or even clean. @@.red;She's now crude.@@
 			<<set $slaves[$i].sexualFlaw = "crude">>
-			<<elseif $seed is 5>>
+			<<elseif _effect is 5>>
 			driven her to find refuge in high standards. @@.red;She's now judgemental.@@
 			<<set $slaves[$i].sexualFlaw = "judgemental">>
 			<<else>>
@@ -3808,7 +3861,7 @@
 	<<if ($rep < 20000)>>Society @@.green;approves@@ of $possessive enormous penis; $possessive cock furthers the fashion for dangling dicks on slaves.<</if>>
 		<<FSChangePorn "AssetExpansionist" 1>>
 	<</if>>
-	<<if ($slaves[$i].balls > 4)>>
+	<<if ($slaves[$i].balls > 6)>>
 		<<if ($rep < 20000)>>Society @@.green;approves@@ of $possessive swinging balls; $possessive nuts further the fashion for tremendous testicles on slaves.<</if>>
 		<<FSChangePorn "AssetExpansionist" 1>>
 	<</if>>
@@ -4112,37 +4165,36 @@
 <</if>>
 <<if $slaves[$i].balls > 0>>
 <<if $slaves[$i].scrotum > 0>>
-	<<if $slaves[$i].scrotum - $slaves[$i].balls < -1>>
-	$possessiveCap nuts have grown so large that they are much too big for $possessive ballsack, giving $possessive constant discomfort. $possessiveCap @@.red;appetite for sex is reduced@@ by how much $possessive junk hurts.
-	<<set $slaves[$i].energy -= 2>>
-	<<if random(0,2) == 0>>
-		$possessiveCap scrotum @@.lime;stretches out naturally@@ as $possessive balls force it to accept their size, giving $possessive relief at last.
-		<<set $slaves[$i].scrotum += 1>>
-	<</if>>
-	<<elseif $slaves[$i].scrotum - $slaves[$i].balls is -1>>
-	<<if random(0,4) == 0>>
-		$possessiveCap scrotum @@.lime;stretches out naturally@@ as it adapts to $possessive newly enhanced balls.
-		<<set $slaves[$i].scrotum += 1>>
-	<</if>>
-	<<elseif $slaves[$i].balls > 5>>
-	<<if ($slaves[$i].scrotum < 7)>>
-		<<if random(0,4) == 0>>
-		$possessiveCap huge, heavy balls tug $possessive scrotum downward, and it @@.lime;stretches out naturally@@ under their weight.
-		<<set $slaves[$i].scrotum += 1>>
-		<</if>>
-	<</if>>
-	<<elseif $slaves[$i].scrotum - $slaves[$i].balls > 1>>
-	<<if ($slaves[$i].hormones > 0)>>
+	<<set _extraScrotum = $slaves[$i].scrotum - $slaves[$i].balls>>
+	<<if _extraScrotum < -1>>
+		$possessiveCap nuts are much too big for $possessive ballsack, giving $possessive constant discomfort. $possessiveCap @@.red;appetite for sex is reduced@@ by how much $possessive junk hurts.
+		<<set $slaves[$i].energy -= 2>>
 		<<if random(0,2) == 0>>
-		@@.orange;$possessiveCap ballsack atrophies,@@ which is not surprising, since she's on female hormones and $possessive girly balls have gotten so small.
-		<<set $slaves[$i].scrotum -= 1>>
+			$possessiveCap scrotum @@.lime;stretches out naturally@@ as $possessive balls force it to accept their size.
+			<<set $slaves[$i].scrotum += 1>>
 		<</if>>
-	<</if>>
+	<<elseif  _extraScrotum < 0 && $slaves[$i].balls > 5>>
+		<<if random(0,4) == 0>>
+			$possessiveCap heavy balls tug $possessive scrotum downward, and it @@.lime;stretches out naturally@@ under their weight.
+			<<set $slaves[$i].scrotum += 1>>
+		<</if>>
+	<<elseif  _extraScrotum == -1>>
+		<<if random(0,5) == 0>>
+			$possessiveCap scrotum @@.lime;stretches out naturally@@ as it adapts to $possessive newly expanded balls.
+			<<set $slaves[$i].scrotum += 1>>
+		<</if>>
+	<<elseif _extraScrotum > 1>>
+		<<if $slaves[$i].hormones > 0>>
+			<<if random(0,2) == 0>>
+				@@.orange;$possessiveCap ballsack atrophies,@@ which is not surprising, since she's on female hormones and $possessive girly balls have gotten so small.
+				<<set $slaves[$i].scrotum -= 1>>
+			<</if>>
+		<</if>>
 	<</if>>
 <<else>>
 	<<if $slaves[$i].balls > 2>>
-	$possessiveCap balls have been relocated to $possessive abdomen, and while they still work there, it's not where they're designed to be. Routine scans show that @@.orange;they've atrophied,@@ <<if $slaves[$i].balls > 3>>and will probably continue to do so until they stabilise at a below-average size<<else>>but are not likely to get any smaller<</if>>.
-	<<set $slaves[$i].balls -= 1>>
+		$possessiveCap balls have been relocated to $possessive abdomen, and while they still work there, it's not where they're designed to be. Routine scans show that @@.orange;they've atrophied,@@ <<if $slaves[$i].balls > 3>>and will probably continue to do so until they stabilise at a below-average size<<else>>but are not likely to get any smaller<</if>>.
+		<<set $slaves[$i].balls -= 1>>
 	<</if>>
 <</if>>
 <</if>>
@@ -4261,6 +4313,13 @@
 <</if>>
 <</if>>
 
+<<if $slaves[$i].need>>
+<<if $slaves[$i].need > $slaves[$i].energy/2>>
+	$pronounCap is not allowed to get off as frequently as her healthy sex drive demands, and the constant frustration @@.red;wears away at her libido.@@
+	<<set $slaves[$i].energy -= 1+Math.trunc($slaves[$i].need/20)>>
+<</if>>
+<</if>>
+
 <<if $slaves[$i].health > 90>>
 	<<if $slaves[$i].energy <= 70>>
 		$possessiveCap outstanding health produces a @@.green;slow improvement in libido.@@
@@ -4336,15 +4395,15 @@
 			<</if>>
 		<</if>>
 	<</if>>
-	<<if ($slaves[$i].boobs > 10000+($slaves[$i].muscles*100))>>
+	<<if ($slaves[$i].boobs > 30000+($slaves[$i].muscles*100))>>
 		<<if ($slaves[$i].assignment != "work in the dairy") || ($dairyRestraintsSetting < 2)>>
-		<<if ($slaves[$i].drugs != "breast injections")>>
-		<<if ($slaves[$i].boobs > 10000+($slaves[$i].muscles*100))>>
+		<<if $slaves[$i].drugs != "breast injections" && $slaves[$i].drugs != "intensive breast injections">>
+		<<if ($slaves[$i].boobs > 30000+($slaves[$i].muscles*100))>>
 			Her breasts are larger than her body can possibly sustain without industrial intervention, and they @@.orange;naturally lose mass.@@
-			<<set $slaves[$i].boobs = Math.clamp($slaves[$i].boobs-25, 10000+($slaves[$i].muscles*100), 25000)>>
+			<<set $slaves[$i].boobs = Math.clamp($slaves[$i].boobs-25, 30000+($slaves[$i].muscles*100), 50000)>>
 		<<else>>
 			Her breasts are far, far beyond what her body can sustain without industrial intervention, and they @@.orange;naturally lose mass.@@
-			<<set $slaves[$i].boobs = Math.clamp($slaves[$i].boobs-50, 10000+($slaves[$i].muscles*100), 25000)>>
+			<<set $slaves[$i].boobs = Math.clamp($slaves[$i].boobs-50, 30000+($slaves[$i].muscles*100), 50000)>>
 		<</if>>
 		<</if>>
 		<</if>>
@@ -4380,7 +4439,7 @@
 
 <<if $slaves[$i].fuckdoll == 0>>
 <<if $slaves[$i].fetish != "mindbroken">>
-<<if ($slaves[$i].boobs > 7500)>>
+<<if ($slaves[$i].boobs > 20000)>>
 	<<if $boobAccessibility == 1>>
 	<<if ($slaves[$i].devotion > 20)>>
 		She's @@.mediumaquamarine;thankful@@ to you for providing living spaces adapted to life with gigantic boobs.
@@ -4434,9 +4493,9 @@
 <<if ($curativeSideEffects != 0)>>
 <<if ($slaves[$i].chem > 10)>>
 <<if random(1,200) < $slaves[$i].chem + $slaves[$i].age - $slaves[$i].health - (5*$slaves[$i].curatives)>>
-	<<set $seed to random(1,10)>>
+	<<set _effect to random(1,10)>>
 	<<set $slaves[$i].health -= 10>>
-	<<switch $seed>>
+	<<switch _effect>>
 	<<case 1>>
 		A routine medical scan detects a small, benign growth in one of $possessive breasts. The autosurgery removes it with only @@.red;minor health consequences,@@
 	<<case 2>>
@@ -4517,7 +4576,7 @@
 
 <<if $studio == 1>>
 <<if $slaves[$i].pornFameSpending > 0>>
-	<<set $seed to $slaves[$i].pornFame>>
+	<<set _oldFame to $slaves[$i].pornFame>>
 	<<if ($slaves[$i].pornFame < 35) && ($slaves[$i].prestige > 1)>>
 	Interest in porn of $object is very high, since $pronoun's already quite prestigious.
 	<<set $slaves[$i].pornFame += 1>>
@@ -4526,7 +4585,7 @@
 	<<set $slaves[$i].pornFame += 1>>
 	<</if>>
 	<<set $slaves[$i].pornFame += ($slaves[$i].pornFameSpending/1000)>>
-	<<if ($slaves[$i].prestige < 3) && ($slaves[$i].pornFame >= 100) && ($seed < 100)>>
+	<<if ($slaves[$i].prestige < 3) && ($slaves[$i].pornFame >= 100) && (_oldFame < 100)>>
 		<<set $slaves[$i].prestige to 3>>
 		@@.green;$pronounCap has become world famous for $possessive career in slave pornography!@@ Millions are now intimately familiar with
 		<<if $slaves[$i].fuckdoll > 0>>
@@ -4580,7 +4639,7 @@
 		<</if>>
 		<<set $trinkets.push($desc)>>
 		so it is now extremely prestigious to own $object.
-	<<elseif ($slaves[$i].prestige < 2) && ($slaves[$i].pornFame >= 35) && ($seed < 35)>>
+	<<elseif ($slaves[$i].prestige < 2) && ($slaves[$i].pornFame >= 35) && (_oldFame < 35)>>
 	<<set $slaves[$i].prestige to 2>>
 	@@.green;$pronounCap has become famous for $possessive recurring role in slave pornography!@@ Her many fans relish
 	<<if $slaves[$i].fuckdoll > 0>>
@@ -4621,7 +4680,7 @@
 		the sight of her being fucked,
 	<</if>>
 	so it is now very prestigious to own $object.
-	<<elseif ($slaves[$i].prestige < 1) && ($slaves[$i].pornFame >= 10) && ($seed < 10)>>
+	<<elseif ($slaves[$i].prestige < 1) && ($slaves[$i].pornFame >= 10) && (_oldFame < 10)>>
 	<<set $slaves[$i].prestige = 1>>
 	@@.green;$pronounCap has become well known from slave pornography!@@ Thousands have enjoyed
 	<<if $slaves[$i].fuckdoll > 0>>

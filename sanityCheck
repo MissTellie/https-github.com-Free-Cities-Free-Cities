@@ -43,7 +43,7 @@ $GREP -e "<<[ a-zA-Z]\+[^()<>]*([^()]*([^()]*)[^()<>]*>>"  -- "src/*" | myprint 
 $GREP -e "<<.*[(][^<>)]*[(][^<>)]*)\?[^<>)]*>>" -- "src/*" | myprint "MissingClosingBracket3"
 # Check for missing >>.  e.g.:   <<if $foo
 $GREP "<<[^<>]*[^,\"\[{"$'\r]\r'"\?$" -- 'src/*' | myprint "MissingClosingAngleBrackets"
-# Check for too many >>>.  e.g.: <</if>>> 
+# Check for too many >>>.  e.g.: <</if>>>
 $GREP "<<[^<>]*[<>]\?[^<>]*>>>" -- "src/*.tw" | myprint "TooManyAngleBrackets"
 # Check for wrong capitalization on 'activeslave' and other common typos
 $GREP -e "\$act" --and --not -e "\$\(activeSlave\|activeArcology\|activeStandard\|activeOrgan\|activeLimbs\)" -- "src/*" | myprint "WrongCapitilization"
@@ -58,11 +58,11 @@ $GREP "<</[a-zA-Z]*[^a-zA-Z<>]\+[a-zA-Z]*>>" -- 'src/*' | myprint "DoubleSlash"
 # Check, e.g.  <<else $foo==4
 $GREP "<<else >\?[^>]" -- 'src/*' | myprint "ShouldBeElseIf"
 # Check, e.g., =to
-$GREP -e "=to" --and --not -e '=toString' -- 'src/*' | myprint "EqualAndTo"
+$GREP -P "=to(?!String)"  -- 'src/*' | myprint "EqualAndTo"
 # Check doing  $slaves.foo instead of $slaves[i].foo
 $GREP -e "[$]slaves[.]"  --and --not -e '[$]slaves[.]\(length\|random\|map\|filter\|deleteAt\|push\|find\|forEach\)' -- 'src/*' | myprint "MissingSlavesIndex"
 # Try to check for accidentally mixing slaves[] and activeSlave.  This can have a lot of false matches, but has caught a lot of bugs so it's worth the pain
-$GREP -e "activeSlave[.]" --and -e "slaves\[..\?\][.]" --and --not -e '[.]ID' --and --not -e 'slaves\[..\?\][.]\(slaveName\|slaveSurname\|actualAge\|relation\|assignment\|age\|devotion\|trust\|vagina\)' -- 'src/*' | myprint "MaybeAccidentalMixingOfSlavesAndActiveSlave"
+$GREP -e "activeSlave[.]" --and -e "slaves\[..\?\][.]" --and --not -e '[.]ID' --and --not -e 'slaves\[..\?\][.]\(slaveName\|slaveSurname\|actualAge\|relation\|assignment\|age\|devotion\|trust\|vagina\|mother\|father\)' -- 'src/*' | myprint "MaybeAccidentalMixingOfSlavesAndActiveSlave"
 # Check, e.g.  <<set foo == 4>>
 $GREP "<<set[^{>=]*==" -- 'src/*' | myprint "DoubleEqualsInSet"
 # Check for, e.g   <<if slaves[foo]>>
@@ -74,7 +74,7 @@ $GREP -e "<<[a-zA-Z]* = *" -- src/*.tw | myprint "BadCommand"
 # Check for duplicate words, e.g. with with
 $GREP -e  " \(\b[a-zA-Z][a-zA-Z]\+\) \1\b " --and --not -e " her her " --and --not -e " you you " --and --not -e " that that " --and --not -e " in in " --and --not -e " is is " -- 'src/*' | myprint "Duplicate words"
 # Check for obsolete SugarCube macros
-$GREP -E "<<display|<<click|\.contains" -- src/*.tw | myprint "ObsoleteMacro" 
+$GREP -E "<<display|<<click|\.contains" -- src/*.tw | myprint "ObsoleteMacro"
 # Check for double articles
 $GREP -E "\Wa an\W" -- src/*.tw | myprint "DoubleArticle"
 # Check for incorrect articles
@@ -84,15 +84,12 @@ $GREP -i -E "\Wan (b|c|d|f|g|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z)\w." -- src/*.tw | gr
 $GREP -i "\w$\w" -- src/*.tw | myprint "VarSignMidWord"
 
 # Check that we do not have any variables that we use only once.   e.g.     $onlyUsedOnce
-# Ignore  *Nationalities
+# Ignore  *Careers, *Names, *Nationalities, *Surnames
 (
 cd src/
-cat $(find . -name "*.tw" ) | tr -c '$a-zA-Z' '\n'  | sed -n '/^[$]/p' | grep -v "Nationalities" | sort | uniq -u | sed 's/^[$]/-e[$]/' | sed 's/$/\\\\W/' | xargs -r  git grep -n --color | myprint "OnlyUsedOnce"
+cat $(find . -name "*.tw" ) | tr -c '$a-zA-Z' '\n' | sed -n '/^[$]/p' | grep -vE "(Nationalities|Surnames|Names|Careers)" | sort | uniq -u | sed 's/^[$]/-e[$]/' | sed 's/$/\\\\W/' | xargs -r git grep -n --color | myprint "OnlyUsedOnce"
 cat $(find . -name "*.tw" ) | tr -c '.$a-zA-Z[]_' '\n' | sed -n -e 's/^[$]\(activeSlave\|\(slaves\|tanks\)\[[^]]*\]*\)[.]\([a-zA-Z]*\).*$/[.]\3/p' | sort | uniq -u |sed 's/^\(.*\)$/-e\1\\\\\b/'  | xargs -r git grep -n --color | myprint "SlaveAttributeUsedOnce"
-
 )
-
 
 # Check that all the tags are properly opened and closed
 git ls-files "src/*.tw" | xargs -d '\n' ./devTools/check.py
-

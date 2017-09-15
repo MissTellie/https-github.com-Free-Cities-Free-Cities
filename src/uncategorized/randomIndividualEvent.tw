@@ -571,7 +571,7 @@
 <</if>>
 
 <<if ($boobAccessibility != 1)>>
-<<if ($eventSlave.boobs > 3000)>>
+<<if ($eventSlave.boobs > 10000)>>
 <<if ($eventSlave.devotion >= -20)>>
 <<if ($slaves.length > 2)>>
 	<<set $RESSevent.push("huge tits")>>
@@ -777,7 +777,7 @@
 <</if>>
 <</if>>
 
-<<if $eventSlave.drugs == "breast injections">>
+<<if $eventSlave.drugs == "intensive breast injections">>
 <<if $eventSlave.boobs <= 8000>>
 <<if $eventSlave.boobs > 2000>>
 <<if $eventSlave.devotion <= 50>>
@@ -1019,6 +1019,12 @@
 <</if>>
 <</if>>
 
+<<if ($eventSlave.trust > 20)>>
+<<if ($eventSlave.devotion > 50)>>
+	<<set $RESSTRevent.push("objectifying visit")>>
+<</if>>
+<</if>>
+
 <<if ($eventSlave.devotion > 20)>>
 <<if ($eventSlave.trust > -10)>>
 <<if ($eventSlave.ID != $HeadGirl.ID)>>
@@ -1117,6 +1123,14 @@
 <</if>>
 <</if>>
 
+<<if ($eventSlave.boobs > 800)>>
+<<if ($eventSlave.boobsImplant > 1)>>
+<<if ($eventSlave.devotion > 20)>>
+	<<set $RESSTRevent.push("implant inspection")>>
+<</if>>
+<</if>>
+<</if>>
+
 <<if ($eventSlave.devotion < -20)>>
 <<if ($eventSlave.trust >= -20)>>
 <<if ($eventSlave.clothes == "uncomfortable straps")>>
@@ -1188,8 +1202,7 @@
 <</if>>
 
 <<if ($eventSlave.releaseRules == "restrictive")>>
-  <<SexualRelease $eventSlave>>
-<<if ($release != 1)>>
+<<if $eventSlave.need>>
   <<if ($eventSlave.devotion <= 95)>>
   <<if ($eventSlave.trust >= -20)>>
   <<if ($eventSlave.dickAccessory != "chastity" && $eventSlave.dickAccessory != "combined chastity") || ($eventSlave.dick == 0)>>
@@ -1724,8 +1737,8 @@
 <</if>>
 <</if>>
 
-<<if ($eventSlave.balls > 4)>>
-<<if ($eventSlave.dick > 4)>>
+<<if ($eventSlave.balls > 6)>>
+<<if ($eventSlave.dick > 6)>>
 <<if ($eventSlave.assignment == "work in the dairy") || ($eventSlave.assignment == "get milked")>>
 	<<set $events.push("RE legendary balls")>>
 <</if>>
