@@ -50,4 +50,4 @@ For questions regarding the game itself, contributing, or other project-related 
 
 [Spaghetti Code](https://github.com/ObstacleCorpse) - Repository Maintainer.  
 For questions regarding the compiler, or contributor related help with Git, please contact Spaghetti Code at **spaghetticode [at] cock.li** or the /dgg/ discord.  
-Hours of availability: 0600U - 2100U.
+Hours of availability: 1200T/U - 0400T/U.
