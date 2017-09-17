@@ -89,9 +89,9 @@ You decide to fuck her
 <<if (_fPosition <= 20)>>
 	in the missionary position. You tell her to lie down on the couch next to your desk.
 <<elseif (_fPosition <= 40)>>
-	doggy-style. You tell her to get on the couch beside your desk on her hands and knees.
-<<elseif (_fPosition <= 60)>>
 	in the cowgirl position. You lie on the couch beside your desk and tell her to straddle you, facing towards you.
+<<elseif (_fPosition <= 60)>>
+	doggy-style. You tell her to get on the couch beside your desk on her hands and knees.
 <<elseif (_fPosition <= 80)>>
 	in the reverse cowgirl position. You lie on the couch beside your desk and tell her to straddle you facing away from you.
 <<else>>
@@ -141,15 +141,15 @@ You decide to fuck her
 	You tell her to get situated on the couch, face down. This position pins her down by the massive weight of her tits, pushing her face in amongst the cushions. Her tits serve as an anchor, allowing you to take her doggy style without any real contribution from her. The position muffles her reaction entirely, other than the rhythmic jiggling of the breastflesh that sticks out to either side of her torso.
 <<elseif ($activeSlave.fetish == "submissive") && ($activeSlave.fetishStrength > 60) && ($activeSlave.fetishKnown == 1) && ($PC.dick != 0)>>
 	She comes over, smiling a little submissive smile, and spreads herself for you. You take her on the couch next to your desk after she gets into position.
-	<<if (_fPosition <= 20)>>
+	<<if (_fPosition <= 20)>> /* missionary */
 		She hugs her torso to you and her breasts press against your chest;
-	<<elseif (_fPosition <= 40)>>
-		She arches her back as you continue to pound her;
-	<<elseif (_fPosition <= 60)>>
+	<<elseif (_fPosition <= 40)>> /* cowgirl */
 		She puts her hands on your chest and leans forward as you continue to thrust upwards;
-	<<elseif (_fPosition <= 80)>>
+	<<elseif (_fPosition <= 60)>> /* doggy-style */
+		She arches her back as you continue to pound her;
+	<<elseif (_fPosition <= 80)>> /* reverse cowgirl */
 		She puts her hands on your chest starts to lean back as you continue to thrust upwards;
-	<<else>>
+	<<else>> /* wheelbarrow */
 		She begins to tire as you keep pounding;
 	<</if>>
 	you can feel her heart beating hard. As the sex reaches its climax, she begs you to cum inside her unworthy body.
@@ -218,18 +218,19 @@ You decide to fuck her
 <<else>>
 	<<if ($PC.dick != 0)>>
 		She skips over smiling and gives you a quick kiss. You take her on the couch next to your desk after she gets into position.
-		<<if (_fPosition <= 20)>>
+		<<if (_fPosition <= 20)>> /* missionary */
 			She hugs her torso to you and her breasts press against your chest;
-		<<elseif (_fPosition <= 40)>>
-			She arches her back as you continue to pound her;
-		<<elseif (_fPosition <= 60)>>
+		<<elseif (_fPosition <= 40)>> /* cowgirl */
 			She puts her hands on your chest and leans forward as you continue to thrust upwards;
-		<<elseif (_fPosition <= 80)>>
+		<<elseif (_fPosition <= 60)>> /* doggy-style */
+			She arches her back as you continue to pound her;
+		<<elseif (_fPosition <= 80)>> /* reverse cowgirl */
 			She puts her hands on your chest starts to lean back as you continue to thrust upwards;
-		<<else>>
+		<<else>> /* wheelbarrow */
 			She begins to tire as you keep pounding;
 		<</if>>
-		you can feel her heart beating hard. As the sex reaches its climax, her kisses grow urgent and passionate.
+		you can feel her heart beating hard.
+		<<if (_fPosition <= 40)>> As the sex reaches its climax, her kisses grow urgent and passionate. <</if>>
 		<<if ($activeSlave.dick != 0) && canAchieveErection($activeSlave)>>
 			<<if $activeSlave.dickAccessory == "chastity" || ($activeSlave.dickAccessory == "combined chastity")>>
 				She enjoys herself, even though her dick chastity keeps her soft by making the beginnings of erection very uncomfortable.
