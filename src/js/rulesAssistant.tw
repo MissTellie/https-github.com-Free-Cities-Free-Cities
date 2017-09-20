@@ -247,8 +247,13 @@ window.evalExpr = function(expr, env) {
         return true;
     case "false":
         return false;
-    case "(number)": case "(string)":
+    case "(number)":
         return expr.value;
+    // Literal strings are stored as "value" with the literal quotes inside
+    // the string. This is useful for printing, but we need to strip them
+    // when we are evaluating them.
+    case "(string)":
+	return expr.value.replace(/^["']/, "").replace(/['"]$/, "");
 
     case "(name)":
         return env[expr.name];
