@@ -1545,13 +1545,13 @@
 		<<elseif ($slaves[$i].behavioralFlaw == "hates men")>>
 		<<if ($slaves[$i].fetish == "pregnancy")>>
 			She dislikes men, but fetishizes pregnancy; she comes around, and decides that @@.green;she needs a man to knock her up.@@
-			<<SoftenBehavioralFlaw $slaves[$i]>>
+			<<set $slaves[$i].behavioralQuirk = "adores men", $slaves[$i].behavioralFlaw = "none">>
 		<<elseif ($slaves[$i].fetish == "boobs")>>
 			She dislikes men and adores boobs, which @@.green;softens her hatred of men into a love of women.@@
 			<<SoftenBehavioralFlaw $slaves[$i]>>
 		<<elseif ($slaves[$i].attrXY > 85)>>
 			She dislikes the company of men but likes their cocks; she learns to @@.green;enjoy the male presence that comes with taking the dick.@@
-			<<SoftenBehavioralFlaw $slaves[$i]>>
+			<<set $slaves[$i].behavioralQuirk = "adores men", $slaves[$i].behavioralFlaw = "none">>
 		<<elseif ($slaves[$i].energy > 95)>>
 			She dislikes men and has constant needs; women are the obvious answer, which @@.green;softens her hatred of men into a love of feminine company.@@
 			<<SoftenBehavioralFlaw $slaves[$i]>>
@@ -1559,13 +1559,13 @@
 		<<elseif ($slaves[$i].behavioralFlaw == "hates women")>>
 		<<if ($slaves[$i].fetish == "pregnancy")>>
 			She dislikes women, but fetishizes pregnancy; she comes around, and decides that @@.green;she loves pregnant girls.@@
-			<<SoftenBehavioralFlaw $slaves[$i]>>
+			<<set $slaves[$i].behavioralQuirk = "adores women", $slaves[$i].behavioralFlaw = "none">>
 		<<elseif ($slaves[$i].fetish == "cumslut")>>
 			She dislikes women and has a real oral fixation; eating dick is the obvious answer, which @@.green;softens her hatred of women into a love of men.@@
 			<<SoftenBehavioralFlaw $slaves[$i]>>
 		<<elseif ($slaves[$i].attrXX > 85)>>
 			She dislikes the company of women but likes fucking them; she learns to @@.green;enjoy the feminine presence that comes with getting some pussy.@@
-			<<SoftenBehavioralFlaw $slaves[$i]>>
+			<<set $slaves[$i].behavioralQuirk = "adores women", $slaves[$i].behavioralFlaw = "none">>
 		<<elseif ($slaves[$i].energy > 95)>>
 			She dislikes women and has constant needs; men are the obvious answer, which @@.green;softens her hatred of women into a love of maleness.@@
 			<<SoftenBehavioralFlaw $slaves[$i]>>
