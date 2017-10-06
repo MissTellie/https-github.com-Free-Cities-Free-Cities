@@ -114,7 +114,7 @@
 	<</if>>
 	<</if>>
 	<<if $slaves[$i].nipples != "huge">>
-	<<if random(1,200) > _growth>>
+	<<if random(1,200) < _growth>>
 	<<if ($slaves[$i].nipples == "tiny")>>
 		The hormones also @@.lime;cause nipple growth.@@
 		<<set $slaves[$i].nipples = "cute">>
@@ -213,7 +213,7 @@
 	<<set _growth = 60+($injectionUpgrade*20)>>
 	<<if _intensive>><<set _growth += 20>><</if>>
 	<<if ($slaves[$i].dick > 0)>>
-		<<if (random(1,100) > _growth-($slaves[$i].dick*5))>>
+		<<if (random(1,100) < _growth-($slaves[$i].dick*5))>>
 			@@.lime;$possessiveCap cock grows painfully,@@ becoming both longer and girthier.
 			<<set $slaves[$i].dick++>>
 		<<else>>
@@ -231,7 +231,7 @@
 		<</if>>
 		<</if>>
 	<<else>>
-		<<if (random(1,100) > _growth-($slaves[$i].clit*10))>>
+		<<if (random(1,100) < _growth-($slaves[$i].clit*10))>>
 			@@.lime;$possessiveCap clit grows painfully,@@ becoming both longer and girthier.
 			<<set $slaves[$i].clit++>>
 		<<else>>
@@ -242,7 +242,7 @@
 <<case "testicle enhancement" "intensive testicle enhancement">>
 	<<set _growth = 60+($injectionUpgrade*20)>>
 	<<if _intensive>><<set _growth += 20>><</if>>
-	<<if (random(1,100) > _growth-($slaves[$i].balls*5))>>
+	<<if (random(1,100) < _growth-($slaves[$i].balls*5))>>
 		@@.lime;$possessiveCap balls swell painfully.@@
 		<<set $slaves[$i].balls++>>
 	<<else>>
