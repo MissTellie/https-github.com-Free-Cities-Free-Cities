@@ -387,127 +387,6 @@ possible societal customizations.
 <<if _warn>><br>//Spending more than ¤10000 weekly would be counterproductive//<</if>>
 
 <br>
-<span id="mass">
-
-<<if $arcologies[0].FSChattelReligionist != "unset">>
-	<br>
-	<<link "Give all your slaves devotional names">>
-	<<for _i = 0; _i < $slaves.length; _i++>>
-		<<set $slaves[_i].slaveName = setup.chattelReligionistSlaveNames.random()>>
-	<</for>>
-	<<replace "#mass">>
-		<br>Slaves renamed.<br>
-	<</replace>>
-	<</link>>
-	<br>
-<</if>>
-<<if $arcologies[0].FSPastoralist != "unset">>
-	<br>
-	<<link "Give all your lactating slaves cow names">>
-	<<for _i = 0; _i < $slaves.length; _i++>>
-		<<if $slaves[_i].lactation > 0>>
-			<<set $slaves[_i].slaveName = setup.cowSlaveNames.random()>>
-		<</if>>
-	<</for>>
-	<<replace "#mass">>
-		<br>Slaves renamed.<br>
-	<</replace>>
-	<</link>>
-	<br>
-<</if>>
-<<if $arcologies[0].FSRomanRevivalist != "unset">>
-	<br>
-	<<link "Rename all your slaves according to Roman custom">>
-	<<for _i = 0; _i < $slaves.length; _i++>>
-		<<set $slaves[_i].slaveName = setup.romanSlaveNames.random(), $slaves[_i].slaveSurname = setup.romanSlaveSurnames.random()>>
-	<</for>>
-	<<replace "#mass">>
-		<br>Slaves renamed.<br>
-	<</replace>>
-	<</link>>
-	<br>
-<<elseif $arcologies[0].FSAztecRevivalist != "unset">>
-	<br>
-	<<link "Rename all your slaves according to ancient Aztec custom">>
-	<<for _i = 0; _i < $slaves.length; _i++>>
-		<<set $slaves[_i].slaveName = setup.aztecSlaveNames.random(), $slaves[_i].slaveSurname = 0>>
-	<</for>>
-	<<replace "#mass">>
-		<br>Slaves renamed.<br>
-	<</replace>>
-	<</link>>
-	<br>
-<<elseif $arcologies[0].FSEgyptianRevivalist != "unset">>
-	<br>
-	<<link "Rename all your slaves according to ancient Egyptian custom">>
-	<<for _i = 0; _i < $slaves.length; _i++>>
-		<<set $slaves[_i].slaveName = setup.ancientEgyptianSlaveNames.random(), $slaves[_i].slaveSurname = 0>>
-	<</for>>
-	<<replace "#mass">>
-		<br>Slaves renamed.<br>
-	<</replace>>
-	<</link>>
-	<br>
-<<elseif $arcologies[0].FSEdoRevivalist != "unset">>
-	<br>
-	<<link "Rename all your slaves according to feudal Japanese custom">>
-	<<for _i = 0; _i < $slaves.length; _i++>>
-		<<set $slaves[_i].slaveName = setup.edoSlaveNames.random(), $slaves[_i].slaveSurname = setup.edoSlaveSurnames.random()>>
-	<</for>>
-	<<replace "#mass">>
-		<br>Slaves renamed.<br>
-	<</replace>>
-	<</link>>
-	<br>
-<</if>>
-<<if $arcologies[0].FSDegradationist != "unset">>
-	<br>
-	<<link "Rename all your slaves according to Degradationist custom">>
-	<<for $i = 0; $i < $slaves.length; $i++>>
-		<<DegradingName $slaves[$i]>>
-	<</for>>
-	<<replace "#mass">>
-		<br>Slaves renamed.<br>
-	<</replace>>
-	<</link>>
-	<br>
-<</if>>
-<<if $arcologies[0].FSPaternalist != "unset">>
-	<br>
-	<<link "Rename your obedient slaves according to Paternalist custom">>
-	<<for $i = 0; $i < $slaves.length; $i++>>
-		<<if ($slaves[$i].devotion > 20) || (($slaves[$i].devotion >= -20) && ($slaves[$i].trust < -20))>>
-		<<set $toSearch = $slaves[$i].slaveName>>
-		<<if ($toSearch.indexOf("Miss") == -1)>>
-		<<if ($toSearch.indexOf("Ms.") == -1)>>
-		<<if ($toSearch.indexOf("Mrs.") == -1)>>
-		<<if ($slaves[$i].relationship > 4)>>
-		/*
-			<<for $j = 0; $j < $slaves.length; $j++>>
-			<<if ($slaves[$i].relationshipTarget == $slaves[$j].ID)>>
-				<<set $slaves[$i].slaveName = ("Mrs. " + $slaves[$i].slaveName + " " + $slaves[$j].slaveName)>>
-			<</if>>
-			<</for>>
-		*/
-				<<set $slaves[$i].slaveName = ("Mrs. " + $slaves[$i].slaveName)>>
-		<<elseif ($slaves[$i].age > 24)>>
-			<<set $slaves[$i].slaveName = ("Ms. " + $slaves[$i].slaveName)>>
-		<<else>>
-			<<set $slaves[$i].slaveName = ("Miss " + $slaves[$i].slaveName)>>
-		<</if>>
-		<</if>>
-		<</if>>
-		<</if>>
-		<</if>>
-	<</for>>
-	<<replace "#mass">>
-		<br>Obedient slaves renamed.<br>
-	<</replace>>
-	<</link>>
-	<br>
-<</if>>
-
-</span>
 
 <<if $arcologies[0].FSSupremacist != "unset">>
 	<br>''You are pursuing'' $arcologies[0].FSSupremacistRace superiority. //<<link [[Abandon|Future Society]]>><<set $arcologies[0].FSSupremacist = "unset", $arcologies[0].FSSupremacistDecoration = 20, $arcologies[0].FSSupremacistLawME = 0, $arcologies[0].FSSupremacistSMR = 0, $FSCredits += 1>><<ClearFacilityDecorations>><</link>>//<br>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -629,7 +508,7 @@ possible societal customizations.
 
 <br><br>
 
-''Sometimes a strong leader must chose one road and sacrifice another.  The following choices are paired, and only one from each pair can be chosen:''
+''Sometimes a strong leader must chose one road and sacrifice another.  The following choices are paired, and only one from each pair can be chosen at a time:''
 
 <<if $seeDicks != 0>>
 <<if $arcologies[0].FSGenderFundamentalist == "unset">>
@@ -681,6 +560,8 @@ possible societal customizations.
 	<</if>>
 <</if>>
 <</if>>
+<<else>>
+	//The alternative to "Gender traditionalism" is not available with your settings.//
 <</if>>
 
 <<if $arcologies[0].FSGenderRadicalist == "unset">>
@@ -732,6 +613,8 @@ possible societal customizations.
 	<</if>>
 <</if>>
 <</if>>
+
+<br>
 
 <<if $arcologies[0].FSDegradationist == "unset">>
 <<if $arcologies[0].FSPaternalist != "unset">>
@@ -833,6 +716,8 @@ possible societal customizations.
 <</if>>
 <</if>>
 
+<br>
+
 <<if $arcologies[0].FSTransformationFetishist == "unset">>
 <<if $arcologies[0].FSBodyPurist != "unset">>
 	<br>''You are pursuing'' societal disapproval of implant surgery.
@@ -932,6 +817,8 @@ possible societal customizations.
 	<</if>>
 <</if>>
 <</if>>
+
+<br>
 
 <<if $arcologies[0].FSMaturityPreferentialist == "unset">>
 <<if $arcologies[0].FSYouthPreferentialist != "unset">>
@@ -1033,6 +920,8 @@ possible societal customizations.
 <</if>>
 <</if>>
 
+<br>
+
 <<if $arcologies[0].FSAssetExpansionist == "unset">>
 <<if $arcologies[0].FSSlimnessEnthusiast != "unset">>
 	<br>''You are supporting'' enthusiasm for slaves with girlish figures.
@@ -1132,6 +1021,8 @@ possible societal customizations.
 	<</if>>
 <</if>>
 <</if>>
+
+<br>
 
 <<if $arcologies[0].FSPhysicalIdealist == "unset">>
 <<if $arcologies[0].FSPastoralist != "unset">>
@@ -1233,6 +1124,8 @@ possible societal customizations.
 <</if>>
 <</if>>
 
+<br>
+
 <<if $arcologies[0].FSNull == "unset">>
 <<if $arcologies[0].FSChattelReligionist != "unset">>
 	<br>''You are pursuing'' a new strain of religion that emphasizes the slaveholding portions of religious history.
@@ -1306,8 +1199,7 @@ possible societal customizations.
 
 <br><br>
 
-''You can also encourage your arcology to revive one of the classical cultures:''
-
+''You can also encourage your arcology to revive one of the classical slaving cultures:''
 
 <<if ($arcologies[0].FSAztecRevivalist == "unset") && ($arcologies[0].FSEgyptianRevivalist == "unset") && ($arcologies[0].FSEdoRevivalist == "unset") && ($arcologies[0].FSArabianRevivalist == "unset") && ($arcologies[0].FSChineseRevivalist == "unset")>>
 <<if $arcologies[0].FSRomanRevivalist != "unset">>
@@ -1605,7 +1497,120 @@ possible societal customizations.
 
 <br><br>
 
-''As your vision of society advances and your arcology grows, you can decorate new areas to complement your vision:''
+''Apply your vision more concretely.  As your plan for society advances and your arcology grows, you can even transform new areas to match.''
+
+<span id="mass">
+
+<<if $arcologies[0].FSPaternalist != "unset">>
+	<br>
+	<<link "Rename your obedient slaves according to Paternalist custom">>
+	<<for $i = 0; $i < $slaves.length; $i++>>
+		<<if ($slaves[$i].devotion > 20) || (($slaves[$i].devotion >= -20) && ($slaves[$i].trust < -20))>>
+		<<set $toSearch = $slaves[$i].slaveName>>
+		<<if ($toSearch.indexOf("Miss") == -1)>>
+		<<if ($toSearch.indexOf("Ms.") == -1)>>
+		<<if ($toSearch.indexOf("Mrs.") == -1)>>
+		<<if ($slaves[$i].relationship > 4)>>
+		/*
+			<<for $j = 0; $j < $slaves.length; $j++>>
+			<<if ($slaves[$i].relationshipTarget == $slaves[$j].ID)>>
+				<<set $slaves[$i].slaveName = ("Mrs. " + $slaves[$i].slaveName + " " + $slaves[$j].slaveName)>>
+			<</if>>
+			<</for>>
+		*/
+				<<set $slaves[$i].slaveName = ("Mrs. " + $slaves[$i].slaveName)>>
+		<<elseif ($slaves[$i].age > 24)>>
+			<<set $slaves[$i].slaveName = ("Ms. " + $slaves[$i].slaveName)>>
+		<<else>>
+			<<set $slaves[$i].slaveName = ("Miss " + $slaves[$i].slaveName)>>
+		<</if>>
+		<</if>>
+		<</if>>
+		<</if>>
+		<</if>>
+	<</for>>
+	<<replace "#mass">>
+		<br>Obedient slaves renamed.<br>
+	<</replace>>
+	<</link>>
+	<br>
+<</if>>
+<<if $arcologies[0].FSDegradationist != "unset">>
+	<br>
+	<<link "Rename all your slaves according to Degradationist custom">>
+	<<for $i = 0; $i < $slaves.length; $i++>>
+		<<DegradingName $slaves[$i]>>
+	<</for>>
+	<<replace "#mass">>
+		<br>Slaves renamed.<br>
+	<</replace>>
+	<</link>>
+	<br>
+<</if>>
+<<if $arcologies[0].FSPastoralist != "unset">>
+	<br>
+	<<link "Give all your lactating slaves cow names">>
+	<<for _i = 0; _i < $slaves.length; _i++>>
+		<<if $slaves[_i].lactation > 0>>
+			<<set $slaves[_i].slaveName = setup.cowSlaveNames.random()>>
+		<</if>>
+	<</for>>
+	<<replace "#mass">>
+		<br>Slaves renamed.<br>
+	<</replace>>
+	<</link>>
+	<br>
+<</if>>
+<<if $arcologies[0].FSRomanRevivalist != "unset">>
+	<br>
+	<<link "Rename all your slaves according to Roman custom">>
+	<<for _i = 0; _i < $slaves.length; _i++>>
+		<<set $slaves[_i].slaveName = setup.romanSlaveNames.random(), $slaves[_i].slaveSurname = setup.romanSlaveSurnames.random()>>
+	<</for>>
+	<<replace "#mass">>
+		<br>Slaves renamed.<br>
+	<</replace>>
+	<</link>>
+	<br>
+<<elseif $arcologies[0].FSAztecRevivalist != "unset">>
+	<br>
+	<<link "Rename all your slaves according to ancient Aztec custom">>
+	<<for _i = 0; _i < $slaves.length; _i++>>
+		<<set $slaves[_i].slaveName = setup.aztecSlaveNames.random(), $slaves[_i].slaveSurname = 0>>
+	<</for>>
+	<<replace "#mass">>
+		<br>Slaves renamed.<br>
+	<</replace>>
+	<</link>>
+	<br>
+<<elseif $arcologies[0].FSEgyptianRevivalist != "unset">>
+	<br>
+	<<link "Rename all your slaves according to ancient Egyptian custom">>
+	<<for _i = 0; _i < $slaves.length; _i++>>
+		<<set $slaves[_i].slaveName = setup.ancientEgyptianSlaveNames.random(), $slaves[_i].slaveSurname = 0>>
+	<</for>>
+	<<replace "#mass">>
+		<br>Slaves renamed.<br>
+	<</replace>>
+	<</link>>
+	<br>
+<<elseif $arcologies[0].FSEdoRevivalist != "unset">>
+	<br>
+	<<link "Rename all your slaves according to feudal Japanese custom">>
+	<<for _i = 0; _i < $slaves.length; _i++>>
+		<<set $slaves[_i].slaveName = setup.edoSlaveNames.random(), $slaves[_i].slaveSurname = setup.edoSlaveSurnames.random()>>
+	<</for>>
+	<<replace "#mass">>
+		<br>Slaves renamed.<br>
+	<</replace>>
+	<</link>>
+	<br>
+<</if>>
+
+/* No names yet for Arabian or Chinese. */
+
+</span>
+
 
 /* FACILITY REDECORATION */
 <<if $brothel > 0>>
