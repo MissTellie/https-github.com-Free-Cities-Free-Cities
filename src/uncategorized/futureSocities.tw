@@ -627,6 +627,10 @@ possible societal customizations.
 	<</if>>
 <</if>>
 
+<br><br>
+
+''Sometimes a strong leader must chose one road and sacrifice another.  The following choices are paired, and only one from each pair can be chosen:''
+
 <<if $seeDicks != 0>>
 <<if $arcologies[0].FSGenderFundamentalist == "unset">>
 <<if $arcologies[0].FSGenderRadicalist != "unset">>
@@ -1279,6 +1283,32 @@ possible societal customizations.
 <</if>>
 <</if>>
 
+<<if $arcologies[0].FSChattelReligionist == "unset">>
+<<if $arcologies[0].FSNull != "unset">>
+	<br>''You are permitting <<if $arcologies[0].FSNull <= 25>>basic<<elseif $arcologies[0].FSNull <= 50>>considerable<<elseif $arcologies[0].FSNull <= 75>>advanced<<else>>absolute<</if>>'' cultural freedom in your arcology.
+	<<if $arcologies[0].FSNull <= 25>>
+		//[[Abandon|Future Society][$arcologies[0].FSNull = "unset", $arcologies[0].FSNullDecoration = 20, $arcologies[0].FSNullLaw = 0, $FSCredits += 1]]//
+	<<else>>
+		//[[Withdraw|Future Society][$arcologies[0].FSNull -= 25, $FSCredits += 1]]//
+	<</if>>
+	<<if $FSCredits > 0>>
+	<<if $arcologies[0].FSNull < $FSLockinLevel>>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;[[Advance|Future Society][$arcologies[0].FSNull += 25, $FSCredits -= 1]]: further commitment to allow your arcology's citizens cultural freedom.
+	<</if>>
+	<</if>>
+<<else>>
+	<<if $FSCredits > 0>>
+		<br>[[Multiculturalism|Future Society][$arcologies[0].FSNull = 25, $FSCredits -= 1]]: a commitment to allow your arcology's citizens cultural freedom.
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;//This option is an alternative to societal advancement, and will not advance naturally.//
+	<</if>>
+<</if>>
+<</if>>
+
+<br><br>
+
+''You can also encourage your arcology to revive one of the classical cultures:''
+
+
 <<if ($arcologies[0].FSAztecRevivalist == "unset") && ($arcologies[0].FSEgyptianRevivalist == "unset") && ($arcologies[0].FSEdoRevivalist == "unset") && ($arcologies[0].FSArabianRevivalist == "unset") && ($arcologies[0].FSChineseRevivalist == "unset")>>
 <<if $arcologies[0].FSRomanRevivalist != "unset">>
 	<br>''You are pursuing'' a vision of a new Rome.
@@ -1573,28 +1603,9 @@ possible societal customizations.
 <</if>>
 <</if>>
 
-<<if $arcologies[0].FSChattelReligionist == "unset">>
-<<if $arcologies[0].FSNull != "unset">>
-	<br>''You are permitting <<if $arcologies[0].FSNull <= 25>>basic<<elseif $arcologies[0].FSNull <= 50>>considerable<<elseif $arcologies[0].FSNull <= 75>>advanced<<else>>absolute<</if>>'' cultural freedom in your arcology.
-	<<if $arcologies[0].FSNull <= 25>>
-		//[[Abandon|Future Society][$arcologies[0].FSNull = "unset", $arcologies[0].FSNullDecoration = 20, $arcologies[0].FSNullLaw = 0, $FSCredits += 1]]//
-	<<else>>
-		//[[Withdraw|Future Society][$arcologies[0].FSNull -= 25, $FSCredits += 1]]//
-	<</if>>
-	<<if $FSCredits > 0>>
-	<<if $arcologies[0].FSNull < $FSLockinLevel>>
-		<br>&nbsp;&nbsp;&nbsp;&nbsp;[[Advance|Future Society][$arcologies[0].FSNull += 25, $FSCredits -= 1]]: further commitment to allow your arcology's citizens cultural freedom.
-	<</if>>
-	<</if>>
-<<else>>
-	<<if $FSCredits > 0>>
-		<br>[[Multiculturalism|Future Society][$arcologies[0].FSNull = 25, $FSCredits -= 1]]: a commitment to allow your arcology's citizens cultural freedom.
-		<br>&nbsp;&nbsp;&nbsp;&nbsp;//This option is an alternative to societal advancement, and will not advance naturally.//
-	<</if>>
-<</if>>
-<</if>>
+<br><br>
 
-<br>
+''As your vision of society advances and your arcology grows, you can decorate new areas to complement your vision:''
 
 /* FACILITY REDECORATION */
 <<if $brothel > 0>>
