@@ -7,6 +7,45 @@
 //The autosurgery can accept the following guidelines. If results outside these guidelines are desired, deactivating the autosurgery and planning surgical interventions manually is recommended.//
 
 <br><br>
+Vision correction:
+<span id = "eyes">
+	<<if ($currentRule.surgery.eyes == "no default setting")>>
+		''no default setting.''
+	<<elseif ($currentRule.surgery.eyes == 1)>>
+		''fixed.''
+	<<else>>
+		''blurred.''
+	<</if>>
+
+	<br>
+
+	<<if ($currentRule.surgery.eyes !== "no default setting")>>
+		<<link "No default setting">>
+			<<set $currentRule.surgery.eyes = "no default setting">>
+			<<RASurgeryChangeEyes>>
+		<</link>> |
+	<<else>>
+		No default setting |
+	<</if>>
+	<<if ($currentRule.surgery.eyes !== 1)>>
+		<<link "Corrected">>
+			<<set $currentRule.surgery.eyes = 1>>
+			<<RASurgeryChangeEyes>>
+		<</link>> |
+	<<else>>
+		Corrected |
+	<</if>>
+	<<if ($currentRule.surgery.eyes !== -1)>>
+		<<link "Blurred">>
+			<<set $currentRule.surgery.eyes = -1>>
+			<<RASurgeryChangeEyes>>
+		<</link>>
+	<<else>>
+		Blurred
+	<</if>>
+</span>
+
+<br><br>
 
 Lactation drug implants:
 <span id = "lactation">
