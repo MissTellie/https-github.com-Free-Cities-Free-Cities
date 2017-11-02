@@ -814,9 +814,11 @@
 
 <</widget>>
 
+
 <<widget "SlaveTitle">>
 
-<<if ($args[0].dick == 0) && ($args[0].vagina == -1)>> /* NULLS */
+/* NULLS */
+<<if ($args[0].dick == 0) && ($args[0].vagina == -1)>>
 	<<set $desc = "null">>
 		<<if ($args[0].lactation > 0) && ($args[0].boobs > 2000)>>
 			<<set $desc = $desc + " cow">>
@@ -836,8 +838,9 @@
 			<<else>>
 				<<set $desc = $desc + "girl">>
 			<</if>>
-			
-<<elseif ($args[0].dick == 0) && ($args[0].vagina != -1)>> /* FEMALES */
+
+/* FEMALES */
+<<elseif ($args[0].dick == 0) && ($args[0].vagina != -1)>>
 	<<if $args[0].age > 35>>
 		<<set $desc = "MILF">>
 	<<elseif $args[0].age >= 25>>
@@ -856,11 +859,16 @@
 		<<elseif $args[0].butt > 6>>
 			<<set $desc = "ass" + $desc>>
 		<</if>>
-		
+
+/* FUTANARI */	
 <<elseif ($args[0].dick != 0) && ($args[0].vagina != -1)>>
-		<<if $args[0].balls > 0>> /* FUTANARI: cock & balls & vagina */
+
+		/* FUTANARI: cock & balls & vagina */
+		<<if $args[0].balls > 0>> 
 			<<set $desc = "futanari ">>
-		<<else>> /* FUTANARI: cock & vagina */
+			
+		/* FUTANARI: cock & vagina */
+		<<else>> 
 			<<set $desc = "futa ">>
 		<</if>>
 			<<if ($args[0].lactation > 0) && ($args[0].boobs > 2000)>>
@@ -884,10 +892,12 @@
 					<<if $args[0].dick > 5 && $args[0].balls > 5 && $args[0].boobs > 5000>>
 						<<set $desc = "hyper " + $desc>>
 					<</if>>
-					
+
+/* DICK AND BALLS ONLY */
 <<elseif ($args[0].dick != 0) && ($args[0].vagina == -1) && ($args[0].balls > 0) >>
 
-	<<if ($args[0].shoulders > 1) || ($args[0].muscles >= 30)>>	/* BITCHES: masculine shoulders or muscles */
+	/* BITCHES: masculine shoulders or muscles */
+	<<if ($args[0].shoulders > 1) || ($args[0].muscles >= 30)>>
 		<<set $desc = "bitch">>
 			<<if ($args[0].muscles > 30) && ($args[0].height < 185)>>
 					<<set $desc = "muscle" + $desc>>
@@ -902,7 +912,8 @@
 					<<set $desc = "young " + $desc>>
 				<</if>>	
 				
-	<<elseif ($args[0].boobs > 300) && ($args[0].butt > 2)>> /* SHEMALES: cock & balls, T&A above minimum */
+	/* SHEMALES: cock & balls, T&A above minimum */
+	<<elseif ($args[0].boobs > 300) && ($args[0].butt > 2)>>
 		<<if $args[0].age > 35>>
 			<<set $desc = "sheMILF">>
 		<<elseif $args[0].age >= 25>>
@@ -921,16 +932,19 @@
 			<<elseif $args[0].butt > 6>>
 				<<set $desc = "bottomheavy " + $desc>>
 			<</if>>
-
-	<<else>>		/* SISSIES and TRAPS:cock & balls, T&A below minimum */
+			
+	/* SISSIES and TRAPS:cock & balls, T&A below minimum */
+	<<else>>
 		<<if ($args[0].shoulders < 1) || ($args[0].muscles <= 30)>>	
-			<<if ($args[0].faceShape == "masculine") || ($args[0].faceShape == "androgynous")>> /* SISSIES: feminine shoulders or muscles, masculine faces */
+			/* SISSIES: feminine shoulders or muscles, masculine faces */
+			<<if ($args[0].faceShape == "masculine") || ($args[0].faceShape == "androgynous")>> 
 				<<if $args[0].age > 35>>
 					<<set $desc = "sissyMILF">>
 				<<else>>
 					<<set $desc = "sissy">>
 				<</if>>
-			<<else>> /* TRAPS: feminine shoulders or muscles, feminine faces */
+			/* TRAPS: feminine shoulders or muscles, feminine faces */
+			<<else>>
 				<<if $args[0].age > 35>>
 					<<set $desc = "trapMILF">>
 				<<elseif $args[0].age >= 25>>
@@ -946,8 +960,9 @@
 				<</if>>
 		<</if>>
 	<</if>>
-	
-<<elseif ($args[0].dick != 0) && ($args[0].vagina == -1) && ($args[0].balls == 0)>>		/* CASTRATI */			
+
+/* CASTRATI */	
+<<elseif ($args[0].dick != 0) && ($args[0].vagina == -1) && ($args[0].balls == 0)>>		
 	<<set $desc = "dick">>
 		<<if $args[0].age > 35>>
 			<<set $desc = $desc + "MILF">>
@@ -967,6 +982,8 @@
 			<<elseif $args[0].butt > 6>>
 				<<set $desc = "ass " + $desc>>
 			<</if>>
+
+/* ERROR CHECK */
 <<else>>
 	<<set $desc = "TITLE ERROR">>
 <</if>>
