@@ -909,7 +909,7 @@
 		<</if>>
 <</if>>
 
-<<if ($args[0].boobs < 300) || ($args[0].butt < 2)>>
+<<if ($args[0].boobs <= 300) || ($args[0].butt <= 2)>>		/* SISSIES and TRAPS:cock & balls, T&A below minimum */
 	<<if ($args[0].dick != 0) && ($args[0].vagina == -1) && ($args[0].balls > 0)>>
 		<<if ($args[0].shoulders < 1) || ($args[0].muscles <= 30)>>	
 			<<if ($args[0].faceShape == "masculine") || ($args[0].faceShape == "androgynous")>> /* SISSIES: feminine shoulders or muscles, masculine faces */
@@ -936,7 +936,7 @@
 	<</if>>
 <</if>>
 
-<<if ($args[0].boobs < 300) || ($args[0].butt < 2)>>
+<<if ($args[0].boobs <= 300) || ($args[0].butt <= 2)>>
 	<<if ($args[0].dick != 0) && ($args[0].vagina == -1) && ($args[0].balls > 0)>>
 		<<if ($args[0].shoulders > 1) || ($args[0].muscles >= 30)>>	/* BITCHES: masculine shoulders or muscles */
 			<<set $desc = "bitch">>
@@ -956,7 +956,7 @@
 	<</if>>
 <</if>>	
 						
-<<if ($args[0].dick != 0) && ($args[0].vagina == -1) && ($args[0].balls == 0)>>					
+<<if ($args[0].dick != 0) && ($args[0].vagina == -1) && ($args[0].balls == 0)>>		/* CASTRATI */			
 	<<set $desc = "dick">>
 		<<if $args[0].age > 35>>
 			<<set $desc = $desc + "MILF">>
