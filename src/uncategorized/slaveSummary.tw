@@ -488,7 +488,7 @@
 <<case "Concubine Select">>
 	<<if (_Slave.fuckdoll == 0) && (_Slave.devotion > 50) && canWalk(_Slave) && canSee(_Slave)>>
 		<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if ($seeImages == 1) && ($seeSummaryImages == 1)>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>>
-		[[_slaveName|Concubine Workaround][$i = _ssi]]
+		[[_slaveName|Slave Interact][$activeSlave = $slaves[_ssi]]]
 	<<else>>
 		<<continue>>
 	<</if>>
@@ -781,6 +781,10 @@
 		[[Change or remove Concubine|Concubine Select]]
 		<<break>>
 	<</if>>
+<<case "Concubine Select">>
+<br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>
+	[[Choose as your concubine|Concubine Workaround][$i = _ssi]]
+
 <<case "Cellblock">>
 	<br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>
 	<<if $Flag == 0>>
