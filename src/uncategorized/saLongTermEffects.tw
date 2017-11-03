@@ -3360,7 +3360,7 @@
 			You frequently avail yourself to her fertile pussy. It's no surprise when @@.lime;she ends up pregnant with your child@@.
 			<<set $slaves[$i].preg = 1, $slaves[$i].pregSource = -1>>
 
-		<<else>> /% look for a random father among master suite slaves %/
+		<<elseif $slaves[$i].vagina > 0>> /% look for a random father among master suite slaves %/
 			<<for _m = 0; _m < $MastSiIDs.length; _m++>>
 				<<if canImpreg($slaves[$i], $MastSiIDs[_m])>>
 					/* catch for self-impregnation */
@@ -3375,6 +3375,7 @@
 					<<break>>
 				<</if>>
 			<</for>>
+			<<set $activeSlave = $slaves[$i]>><<VaginalVCheck 10>><<set $slaves[$i] = $activeSlave>>
 		<</if>>
 		
 	<<case "please you">>
