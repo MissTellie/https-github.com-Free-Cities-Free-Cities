@@ -171,15 +171,22 @@
 	<</if>>
 <<case "Head Girl Suite">>
 	<<if _Slave.fuckdoll > 0>><<continue>><</if>>
-	<<if $Flag == 0>>
+	<<if $Flag == 1>>
 		<<if (_Slave.assignment != "be your Head Girl") && (_Slave.indentureRestrictions <= 0)>>
 			<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if ($seeImages == 1) && ($seeSummaryImages == 1)>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>>
 			[[_slaveName|Slave Interact][$activeSlave = $slaves[_ssi]]]
 		<<else>>
 			<<continue>>
 		<</if>>
-	<<else>>
+	<<elseif $Flag == 2>>
 		<<if _Slave.assignment != "live with your Head Girl">>
+			<<continue>>
+		<<else>>
+			<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if ($seeImages == 1) && ($seeSummaryImages == 1)>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>>
+			[[_slaveName|Slave Interact][$activeSlave = $slaves[_ssi]]]
+		<</if>>
+	<<elseif $Flag == 0>>
+		<<if _Slave.assignment != "be your Head Girl">>
 			<<continue>>
 		<<else>>
 			<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if ($seeImages == 1) && ($seeSummaryImages == 1)>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>>
@@ -660,9 +667,9 @@
 	[[Choose this slave as your head girl|HG Workaround][$i = _ssi]]
 <<case "Head Girl Suite">>
 	<br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>
-	<<if $Flag == 0>>
+	<<if $Flag == 1>>
 		[[Send her to live with your Head Girl|Assign][$i = _ssi]]
-	<<else>>
+	<<elseif $Flag == 2>>
 		[[Bring her out of the Head Girl's suite|Retrieve][$i = _ssi]]
 		<<break>>
 	<</if>>

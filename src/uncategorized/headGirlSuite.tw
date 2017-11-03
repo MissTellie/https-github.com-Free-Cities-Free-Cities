@@ -47,15 +47,22 @@
 	<</if>>
 <</if>>
 
+
+<<if $HGSuiteSlaves > 0>>
+	<br><br><span id="manageHG"><strong><<link "Manage Head Girl">><<goto "HG Select">><</link>></strong></span> @@.cyan;[H]@@
+	<<set $Flag = 0>>
+	<<include "Slave Summary">>
+<</if>>
+
 <<if $HGSuiteSlaves > 0>>
 	<br><br>''Bring the Head Girl's girl out of $HGSuiteName:''
-	<<set $Flag = 1>>
+	<<set $Flag = 2>>
 	<<include "Slave Summary">>
 <</if>>
 
 <<if ($slaves.length > $HGSuiteSlaves) && ($HGSuiteSlaves < 1)>>
 	<br><br>''Assign a slave to the Head Girl:''
-	<<set $Flag = 0>>
+	<<set $Flag = 1>>
 	<<include "Slave Summary">>
 <</if>>
 <<unset $Flag>>
