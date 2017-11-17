@@ -45,9 +45,7 @@
 	<<elseif $slaveAssignmentTab == "be a subordinate slave">>
 		<<if (_Slave.assignment != "be a subordinate slave")>><<continue>><</if>>
 	<<elseif $slaveAssignmentTab == "all">>
-		<<if (_Slave.assignment == "be your Head Girl")
-		|| (_Slave.assignment == "recruit girls")
-		|| (_Slave.assignment == "guard you")>><<continue>><</if>>
+		<<if (_Slave.assignment == "be your Head Girl")	|| (_Slave.assignment == "recruit girls")	|| (_Slave.assignment == "guard you")>><<continue>><</if>>
 	<</if>>
 	<<if _Slave.assignmentVisible != 1>><<continue>><</if>>
 	<<if (_Slave.choosesOwnClothes == 1) && (_Slave.clothes == "choosing her own clothes")>>
