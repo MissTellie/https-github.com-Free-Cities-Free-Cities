@@ -188,7 +188,7 @@
 		| <<print "[[Abuse her|FAbuse][$activeSlave = $slaves["+_BG+"], $nextButton = _j, $nextLink = _k, $returnTo = _l]]">>
 	<</if>>
 
-	<<set $activeSlave = Array.random($slaves)>>
+	<<set $activeSlave = $slaves.random()>>
 	<<if $activeSlave &&  ($activeSlave.assignment != "please you") && ($activeSlave.assignment != "guard you")>>
 		<br><<include "Walk Past">>
 	<</if>>
