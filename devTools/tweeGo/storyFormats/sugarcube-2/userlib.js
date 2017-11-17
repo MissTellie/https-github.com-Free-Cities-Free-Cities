@@ -441,6 +441,10 @@ window.lastSurgeryRuleFor = function(slave, rules, what) {
 	return null;
 };
 
+window.lastEyesSurgeryRule = function(slave, rules) {
+	return lastSurgeryRuleFor(slave, rules, "eyes");
+}
+
 window.lastLactationSurgeryRule = function(slave, rules) {
 	return lastSurgeryRuleFor(slave, rules, "lactation");
 }
