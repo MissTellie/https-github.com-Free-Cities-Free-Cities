@@ -1232,15 +1232,16 @@ when a dick is pushed inside <<if $activeSlave.vagina >= -1>>either of its lower
 	Currently, $pronoun has an @@.pink;''attractiveness score'' of __''$beauty''__@@ and a @@.lightcoral;''sexual score'' of __''$FResult''__.@@
 <</if>>
 
-<br>&nbsp;&nbsp;&nbsp;&nbsp;
+<<skinDescription>>
+
+<<if $saleDescription == 1>>
+
+	<<accentDescription>>
+
+<</if>>
 
 <<if $activeSlave.amp != 0>>
 	<<amputeeDescription>>
-<</if>>
-
-<<ClothingDescription>>
-<<if $showBodyMods == 1>>
-	<<clothingCorsetDescription>>
 <</if>>
 
 <<if ($showClothing == 1) && ($saleDescription == 0)>>
@@ -1271,7 +1272,7 @@ and
 <<else>>@@.red;<<print either("emaciated", "dangerously skinny")>>.@@
 <</if>>
 
-<<waistDescription>>
+<<shouldersDescription>>
 
 <<if $arcologies[0].FSGenderFundamentalistLawBeauty + $arcologies[0].FSGenderRadicalistLawBeauty > 0>>
 <<if $activeSlave.weight > 30>>
@@ -1317,12 +1318,6 @@ $pronounCap is
 	$activeSlave.pitKills slaves have died by $possessive hand in pit fights.
 <</if>>
 
-<<if $activeSlave.corsetPiercing > 0>>
-	<<CorsetPiercingDescription>>
-<</if>>
-
-<<pregnancyDescription>>
-
 <<heelDescription>>
 
 <<if $activeSlave.fuckdoll == 0>>
@@ -1332,14 +1327,6 @@ $pronounCap is
 	  <<brandDescription>>
 	<</if>>
 <</if>>
-<</if>>
-
-<<skinDescription>>
-
-<<if $saleDescription == 1>>
-
-	<<accentDescription>>
-
 <</if>>
 
 <<if $activeSlave.fuckdoll == 0>>
@@ -1374,7 +1361,61 @@ $pronounCap is
 <</if>>
 <</if>>
 
+<<if $activeSlave.fuckdoll == 0>>
+<<if $activeSlave.minorInjury != 0>>
+<<if $activeSlave.minorInjury != "sore ass">>
+	She is sporting a @@.red;$activeSlave.minorInjury@@, covered by makeup.
+<</if>>
+<</if>>
+<</if>>
+
+/* CLOTHING AND ACCESORIES: */
+
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+
 <<if ($showClothing == 1) && ($saleDescription == 0)>>
+
+<<ClothingDescription>>
+<<if $showBodyMods == 1>>
+	<<clothingCorsetDescription>>
+	<<if $activeSlave.corsetPiercing > 0>>
+		<<CorsetPiercingDescription>>
+	<</if>>
+<</if>>
+
+<<if $activeSlave.fuckdoll == 0>>
+	<<collarDescription>>
+	<<if ($activeSlave.relationship > 4)>>
+		<<if ($activeSlave.amp != 1)>>
+		$pronounCap has a simple gold band on the little finger of $possessive left hand.
+		<<else>>
+		$pronounCap has a simple gold band on a length of chain around $possessive neck.
+		<</if>>
+	<<elseif ($activeSlave.relationship == -3)>>
+		<<if ($activeSlave.amp != 1)>>
+		$pronounCap has a simple steel band on the little finger of $possessive left hand.
+		<<else>>
+		$pronounCap has a simple steel band on a length of cord around $possessive neck.
+		<</if>>
+	<</if>>
+<</if>>
+
+<</if>>
+
+<<if $activeSlave.fuckdoll == 0>>
+<<nailsDescription>>
+<<if $showBodyMods == 1>>
+	<<backTatDescription>>
+	<<shouldersTatDescription>>
+	<<armsTatDescription>>
+<</if>>
+<</if>>
+
+
+/* HEAD AND FACE: */
+
+<<if ($showClothing == 1) && ($saleDescription == 0)>>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
 
 <<upperFaceDescription>>
 
@@ -1420,43 +1461,8 @@ $pronounCap is
 <<faceDescription>>
 <<mouthDescription>>
 
-<<if ($showClothing == 1) && ($saleDescription == 0)>>
 
-<<if $activeSlave.fuckdoll == 0>>
-	<<collarDescription>>
-	<<if ($activeSlave.relationship > 4)>>
-		<<if ($activeSlave.amp != 1)>>
-		$pronounCap has a simple gold band on the little finger of $possessive left hand.
-		<<else>>
-		$pronounCap has a simple gold band on a length of chain around $possessive neck.
-		<</if>>
-	<<elseif ($activeSlave.relationship == -3)>>
-		<<if ($activeSlave.amp != 1)>>
-		$pronounCap has a simple steel band on the little finger of $possessive left hand.
-		<<else>>
-		$pronounCap has a simple steel band on a length of cord around $possessive neck.
-		<</if>>
-	<</if>>
-<</if>>
-
-<</if>>
-
-<<if $activeSlave.fuckdoll == 0>>
-<<nailsDescription>>
-<<if $showBodyMods == 1>>
-	<<backTatDescription>>
-	<<shouldersTatDescription>>
-	<<armsTatDescription>>
-<</if>>
-<</if>>
-
-<<if $activeSlave.fuckdoll == 0>>
-<<if $activeSlave.minorInjury != 0>>
-<<if $activeSlave.minorInjury != "sore ass">>
-	She is sporting a @@.red;$activeSlave.minorInjury@@, covered by makeup.
-<</if>>
-<</if>>
-<</if>>
+/* BREASTS: */
 
 <br>&nbsp;&nbsp;&nbsp;&nbsp;
 
@@ -1464,14 +1470,28 @@ $pronounCap is
 <<BoobsDescription>>
 <<boobsShapeDescription>>
 <<boobsExtraDescription>>
-<<shouldersDescription>>
-<<nipplesDescription>>
+<<if $showBodyMods == 1>>
+	<<boobsTatDescription>>
+<</if>>
+<<boobBrandDescription>>
 <<areolaeDescription>>
-<<boobModDescription>>
+<<nipplesDescription>>
+<<if $showBodyMods == 1>>
+	<<nipplesPiercingDescription>>
+<</if>>
+
+
+/* BELLY: */
+
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
 
 <<BellyDescription>>
 
-<<ButtDescription>>
+<<waistDescription>>
+<<pregnancyDescription>>
+
+
+/* CROTCH: */
 
 <br>&nbsp;&nbsp;&nbsp;&nbsp;
 
@@ -1479,9 +1499,18 @@ $pronounCap is
 <<dickDescription>>
 <<vaginaDescription>>
 
+
+/* BUTT: */
+
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+<<ButtDescription>>
 <<AnusDescription>>
 
+
+/* DRUGS: */
+
 <<if $activeSlave.fuckdoll == 0>>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
 	<<switch $activeSlave.drugs>>
 	<<case "intensive breast injections">>
 		She massages her tits uncomfortably. The A-HGH must be having an effect, painfully stretching her breasts as the mammary and adipose tissue underneath grows explosively.

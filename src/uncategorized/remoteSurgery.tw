@@ -150,7 +150,7 @@ $pronounCap has
 <</if>>
 <<if $activeSlave.lipsImplant == 0>>
 <<elseif $activeSlave.lipsImplant <= 10>>
-	$pronounCap has normal lip implants.
+	$pronounCap has moderate lip implants.
 <<elseif $activeSlave.lipsImplant <= 20>>
 	$pronounCap has large lip implants.
 <<else>>
@@ -217,7 +217,7 @@ $pronounCap has
 	| [[Normal dental implants|Surgery Degradation][$activeSlave.teeth = 0,$cash -= $surgeryCost, $activeSlave.health -= 10,$surgeryType = "oral"]]
 	<</if>>
 <<default>>
-	$pronounCap has normal, healthy teeth.
+	$pronounCap has natural, healthy teeth.
 	[[Apply purely cosmetic braces|Surgery Degradation][$activeSlave.teeth = "cosmetic braces",$cash -= $surgeryCost,$surgeryType = "braces"]]
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	<<if ($seeExtreme == 1) && ($activeSlave.indentureRestrictions < 1)>>
@@ -260,7 +260,7 @@ $pronounCap has
 
 <br><br>
 ''BOOBS''<br>
-//<<BoobsDescription>><<boobModDescription>>//
+//<<BoobsDescription>><<boobsTatDescription>><<boobBrandDescription>>//
 <br>&nbsp;&nbsp;&nbsp;&nbsp;
 <<if $activeSlave.boobs > 10000>>
 	//$possessiveCap breasts are as large as $pronoun can physically support//
@@ -344,8 +344,8 @@ $pronounCap has
 <</if>>
 
 <<if $activeSlave.areolae > 1>>
+	<br>//<<areolaeDescription>>//
 	<<if ($activeSlave.areolae > 1) && ($activeSlave.areolae < 4)>>
-		<br>//<<areolaeDescription>>//
 		<<if $activeSlave.indentureRestrictions < 2>>
 			<br>&nbsp;&nbsp;&nbsp;&nbsp;
 			With grafting, they are large enough to reshape into a pattern:
@@ -365,7 +365,7 @@ $pronounCap has
 	<</if>>
 <</if>>
 
-<br>//<<nipplesDescription>>//
+<br>//<<nipplesDescription>><<nipplesPiercingDescription>>//
 <<if $activeSlave.lactation < 2>>
 	<<if $activeSlave.indentureRestrictions < 2>>
 	<br>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -721,7 +721,7 @@ $pronounCap has
 
 <br>&nbsp;&nbsp;&nbsp;&nbsp;
 <<if ($activeSlave.hipsImplant == 0)>>
-	$pronounCap has normal hips.
+	$pronounCap has natural hips.
 <<elseif ($activeSlave.hipsImplant > 0)>>
 	$possessiveCap pelvis has been broadened.
 <<elseif ($activeSlave.hipsImplant < 0)>>
@@ -743,7 +743,7 @@ $pronounCap has
 <br>
 <<if ($activeSlave.amp == 0)>>
 	<<if ($activeSlave.heightImplant == 0)>>
-		$pronounCap has normal femurs and humeri.
+		$pronounCap has natural femurs and humeri.
 	<<else>>
 		//<<heightImplantDescription>>//
 	<</if>>
