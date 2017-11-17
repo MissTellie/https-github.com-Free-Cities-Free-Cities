@@ -3298,13 +3298,13 @@ Your brand design is ''$brandDesign.''
 		<<if $args[0].dick>>
 		<<if $args[0].dick < _combinedRule.growth.dick>>
 			<<if _combinedRule.growth.intensity && $args[0].health > 0>>
-				<<if $args[0].drugs != "intensive penis injections">>
-					<<set $args[0].drugs = "intensive penis injections">>
+				<<if $args[0].drugs != "intensive penis enhancement">>
+					<<set $args[0].drugs = "intensive penis enhancement">>
 					<br>$args[0].slaveName has been put on $args[0].drugs, since she's healthy enough to tolerate them.
 				<</if>>
 			<<else>>
-				<<if $args[0].drugs != "penis injections">>
-					<<set $args[0].drugs = "penis injections">>
+				<<if $args[0].drugs != "penis enhancement">>
+					<<set $args[0].drugs = "penis enhancement">>
 					<br>$args[0].slaveName has been put on $args[0].drugs.
 				<</if>>
 			<</if>>
@@ -3316,13 +3316,13 @@ Your brand design is ''$brandDesign.''
 		<<if $args[0].balls>>
 		<<if $args[0].balls < _combinedRule.growth.balls>>
 			<<if _combinedRule.growth.intensity && $args[0].health > 0>>
-				<<if $args[0].drugs != "intensive testicle injections">>
-					<<set $args[0].drugs = "intensive testicle injections">>
+				<<if $args[0].drugs != "intensive testicle enhancement">>
+					<<set $args[0].drugs = "intensive testicle enhancement">>
 					<br>$args[0].slaveName has been put on $args[0].drugs, since she's healthy enough to tolerate them.
 				<</if>>
 			<<else>>
-				<<if $args[0].drugs != "testicle injections">>
-					<<set $args[0].drugs = "testicle injections">>
+				<<if $args[0].drugs != "testicle enhancement">>
+					<<set $args[0].drugs = "testicle enhancement">>
 					<br>$args[0].slaveName has been put on $args[0].drugs.
 				<</if>>
 			<</if>>
@@ -3499,7 +3499,7 @@ Your brand design is ''$brandDesign.''
 		<<if ($args[0].assignment != "be confined in the arcade")>>
 		<<if ($args[0].assignment != "get milked") || (($args[0].fetish != "boobs") || ($args[0].energy <= 95))>>
 		<<if ($args[0].assignment != "work in the dairy") || (($args[0].fetish != "boobs") || ($args[0].energy <= 95))>>
-		<<if ($args[0].assignment != "get milked") || $args[0].balls = 0>>
+		<<if ($args[0].assignment != "get milked") || $args[0].balls == 0>>
 		<<if ($args[0].assignment != "work in the dairy") || $args[0].balls == 0>>
 		<<if ($args[0].assignment != "be your Head Girl")>>
 			<<set _release = 1>>
