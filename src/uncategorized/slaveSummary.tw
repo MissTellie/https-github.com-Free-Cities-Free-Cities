@@ -138,46 +138,53 @@
 <<case "Personal Attention Select">>
 	<<if (_Slave.assignmentVisible != 1) || (_Slave.fuckdoll > 0)>><<continue>><</if>>
 	<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if ($seeImages == 1) && ($seeSummaryImages == 1)>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>>
-	[[_slaveName|Personal Attention Select][$activeSlave = $slaves[_ssi], $personalAttention = $slaves[_ssi].ID, $personalAttentionChanged = 1]]
+	[[_slaveName|Slave Interact][$activeSlave = $slaves[_ssi]]]
 <<case "Agent Select">>
 	<<if (_Slave.fuckdoll == 0) && (_Slave.assignment != "be your agent") && (_Slave.devotion >= 20) && (_Slave.intelligence > 0) && (_Slave.intelligenceImplant > 0) && canWalk(_Slave) && canSee(_Slave) && canTalk(_Slave)>>
 		<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if ($seeImages == 1) && ($seeSummaryImages == 1)>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>>
-		[[_slaveName|Agent Workaround][$i = _ssi]]
+		[[_slaveName|Slave Interact][$activeSlave = $slaves[_ssi]]]
 	<<else>>
 		<<continue>>
 	<</if>>
 <<case "BG Select">>
 	<<if (_Slave.fuckdoll == 0) && (_Slave.devotion > 50) && (_Slave.assignment != "guard you") && canWalk(_Slave) && canSee(_Slave)>>
 		<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if ($seeImages == 1) && ($seeSummaryImages == 1)>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>>
-		[[_slaveName|Bodyguard Workaround][$i = _ssi]]
+		[[_slaveName|Slave Interact][$activeSlave = $slaves[_ssi]]]
 	<<else>>
 		<<continue>>
 	<</if>>
 <<case "Recruiter Select">>
 	<<if (_Slave.fuckdoll == 0) && (_Slave.devotion > 50) && (_Slave.assignment != "recruit girls") && canWalk(_Slave) && canSee(_Slave) && canTalk(_Slave)>>
 		<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if ($seeImages == 1) && ($seeSummaryImages == 1)>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>>
-		[[_slaveName|Recruiter Workaround][$i = _ssi]]
+		[[_slaveName|Slave Interact][$activeSlave = $slaves[_ssi]]]
 	<<else>>
 		<<continue>>
 	<</if>>
 <<case "HG Select">>
 	<<if (_Slave.fuckdoll == 0) && (_Slave.devotion > 50) && (_Slave.assignment != "be your Head Girl") && canWalk(_Slave) && canSee(_Slave) && canTalk(_Slave)>>
 		<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if ($seeImages == 1) && ($seeSummaryImages == 1)>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>>
-		[[_slaveName|HG Workaround][$i = _ssi]]
+		[[_slaveName|Slave Interact][$activeSlave = $slaves[_ssi]]]
 	<<else>>
 		<<continue>>
 	<</if>>
 <<case "Head Girl Suite">>
 	<<if _Slave.fuckdoll > 0>><<continue>><</if>>
-	<<if $Flag == 0>>
+	<<if $Flag == 1>>
 		<<if (_Slave.assignment != "be your Head Girl") && (_Slave.indentureRestrictions <= 0)>>
 			<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if ($seeImages == 1) && ($seeSummaryImages == 1)>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>>
 			[[_slaveName|Slave Interact][$activeSlave = $slaves[_ssi]]]
 		<<else>>
 			<<continue>>
 		<</if>>
-	<<else>>
+	<<elseif $Flag == 2>>
 		<<if _Slave.assignment != "live with your Head Girl">>
+			<<continue>>
+		<<else>>
+			<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if ($seeImages == 1) && ($seeSummaryImages == 1)>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>>
+			[[_slaveName|Slave Interact][$activeSlave = $slaves[_ssi]]]
+		<</if>>
+	<<elseif $Flag == 0>>
+		<<if _Slave.assignment != "be your Head Girl">>
 			<<continue>>
 		<<else>>
 			<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if ($seeImages == 1) && ($seeSummaryImages == 1)>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>>
@@ -187,7 +194,7 @@
 <<case "Subordinate Targeting">>
 	<<if (_Slave.devotion >= -20) && (_Slave.fuckdoll == 0) && ($activeSlave.ID != _Slave.ID)>>
 		<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if ($seeImages == 1) && ($seeSummaryImages == 1)>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>>
-		[[_slaveName|Subordinate Targeting][$activeSlave.subTarget = $slaves[_ssi].ID]]
+		[[_slaveName|Slave Interact][$activeSlave = $slaves[_ssi]]]
 	<<else>>
 		<<continue>>
 	<</if>>
@@ -225,7 +232,7 @@
 <<case "Attendant Select">>
 	<<if (_Slave.fuckdoll == 0) && (_Slave.devotion > 50) && canWalk(_Slave)>>
 		<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if ($seeImages == 1) && ($seeSummaryImages == 1)>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>>
-		[[_slaveName|Attendant Workaround][$i = _ssi]]
+		[[_slaveName|Slave Interact][$activeSlave = $slaves[_ssi]]]
 	<<else>>
 		<<continue>>
 	<</if>>
@@ -258,7 +265,7 @@
 <<case "Madam Select">>
 	<<if (_Slave.fuckdoll == 0) && (_Slave.devotion > 50) && (_Slave.intelligence > -2) && canWalk(_Slave) && canSee(_Slave)>>
 		<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if ($seeImages == 1) && ($seeSummaryImages == 1)>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>>
-		[[_slaveName|Madam Workaround][$i = _ssi]]
+		[[_slaveName|Slave Interact][$activeSlave = $slaves[_ssi]]]
 	<<else>>
 		<<continue>>
 	<</if>>
@@ -291,7 +298,7 @@
 <<case "DJ Select">>
 	<<if (_Slave.fuckdoll == 0) && (_Slave.devotion > 50) && (_Slave.intelligence > -2) && canWalk(_Slave)>>
 		<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if ($seeImages == 1) && ($seeSummaryImages == 1)>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>>
-		[[_slaveName|DJ Workaround][$i = _ssi]]
+		[[_slaveName|Slave Interact][$activeSlave = $slaves[_ssi]]]
 	<<else>>
 		<<continue>>
 	<</if>>
@@ -324,7 +331,7 @@
 <<case "Nurse Select">>
 	<<if (_Slave.fuckdoll == 0) && (_Slave.devotion > 50) && canWalk(_Slave) && canSee(_Slave)>>
 		<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if ($seeImages == 1) && ($seeSummaryImages == 1)>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>>
-		[[_slaveName|Nurse Workaround][$i = _ssi]]
+		[[_slaveName|Slave Interact][$activeSlave = $slaves[_ssi]]]
 	<<else>>
 		<<continue>>
 	<</if>>
@@ -362,7 +369,7 @@
 <<case "Schoolteacher Select">>
 	<<if (_Slave.fuckdoll == 0) && (_Slave.devotion > 50) && canTalk(_Slave) && canWalk(_Slave) && canSee(_Slave)>>
 		<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if ($seeImages == 1) && ($seeSummaryImages == 1)>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>>
-		[[_slaveName|Schoolteacher Workaround][$i = _ssi]]
+		[[_slaveName|Slave Interact][$activeSlave = $slaves[_ssi]]]
 	<<else>>
 		<<continue>>
 	<</if>>
@@ -421,7 +428,7 @@
 <<case "Milkmaid Select">>
 	<<if (_Slave.fuckdoll == 0) && (_Slave.devotion > 20) && canWalk(_Slave) && canSee(_Slave)>>
 		<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if ($seeImages == 1) && ($seeSummaryImages == 1)>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>>
-		[[_slaveName|Milkmaid Workaround][$i = _ssi]]
+		[[_slaveName|Slave Interact][$activeSlave = $slaves[_ssi]]]
 	<<else>>
 		<<continue>>
 	<</if>>
@@ -454,7 +461,7 @@
 <<case "Stewardess Select">>
 	<<if (_Slave.fuckdoll == 0) && (_Slave.devotion > 50) && (_Slave.intelligence > -2) && canWalk(_Slave) && canSee(_Slave)>>
 		<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if ($seeImages == 1) && ($seeSummaryImages == 1)>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>>
-		[[_slaveName|Stewardess Workaround][$i = _ssi]]
+		[[_slaveName|Slave Interact][$activeSlave = $slaves[_ssi]]]
 	<<else>>
 		<<continue>>
 	<</if>>
@@ -486,7 +493,7 @@
 <<case "Concubine Select">>
 	<<if (_Slave.fuckdoll == 0) && (_Slave.devotion > 50) && canWalk(_Slave) && canSee(_Slave)>>
 		<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if ($seeImages == 1) && ($seeSummaryImages == 1)>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>>
-		[[_slaveName|Concubine Workaround][$i = _ssi]]
+		[[_slaveName|Slave Interact][$activeSlave = $slaves[_ssi]]]
 	<<else>>
 		<<continue>>
 	<</if>>
@@ -517,7 +524,7 @@
 <<case "Wardeness Select">>
 	<<if (_Slave.fuckdoll == 0) && (_Slave.devotion > 50) && canWalk(_Slave) & canSee(_Slave)>>
 		<br style="clear:both" /><<if $lineSeparations == 0>><br><<else>><hr style="margin:0"><</if>><<if ($seeImages == 1) && ($seeSummaryImages == 1)>><div class="imageRef smlImg"><<SlaveArt _Slave 1>></div><</if>>
-		[[_slaveName|Wardeness Workaround][$i = _ssi]]
+		[[_slaveName|Slave Interact][$activeSlave = $slaves[_ssi]]]
 	<<else>>
 		<<continue>>
 	<</if>>
@@ -643,24 +650,34 @@
 
 
 <<switch _Pass>>
+<<case "Personal Attention Select">>
+	<br>[[Select this slave for personal attention|Personal Attention Select][$activeSlave = $slaves[_ssi], $personalAttention = $slaves[_ssi].ID, $personalAttentionChanged = 1]]
+<<case "Agent Select">>
+	<br>[[Choose this slave as your agent|Agent Workaround][$i = _ssi]]	
+<<case "Recruiter Select">>
+	<br>[[Choose this slave as your recruiter|Recruiter Workaround][$i = _ssi]]
 <<case "Main">>
 	<<continue>>
 <<case "HG Select">>
-	<<if setup.HGCareers.includes(_Slave.career)>>
-		<br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>@@.lime;Has applicable career experience.@@
+	<br><<if setup.HGCareers.includes(_Slave.career)>>
+		<<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>@@.lime;Has applicable career experience.@@
 	<</if>>
+	[[Choose this slave as your head girl|HG Workaround][$i = _ssi]]
 <<case "Head Girl Suite">>
 	<br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>
-	<<if $Flag == 0>>
+	<<if $Flag == 1>>
 		[[Send her to live with your Head Girl|Assign][$i = _ssi]]
-	<<else>>
+	<<elseif $Flag == 2>>
 		[[Bring her out of the Head Girl's suite|Retrieve][$i = _ssi]]
 		<<break>>
 	<</if>>
 <<case "BG Select">>
-	<<if setup.bodyguardCareers.includes(_Slave.career)>>
-		<br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>@@.lime;Has applicable career experience.@@
+	<br><<if setup.bodyguardCareers.includes(_Slave.career)>>
+		<<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>@@.lime;Has applicable career experience.@@
 	<</if>>
+	[[Choose this slave as your bodyguard|Bodyguard Workaround][$i = _ssi]]
+<<case "Subordinate Targeting">>
+	<br>[[Choose this slave for targeting|Subordinate Targeting][$activeSlave.subTarget = $slaves[_ssi].ID]]
 <<case "Spa">>
 	<br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>
 	<<if $Flag == 0>>
@@ -672,9 +689,10 @@
 		<<break>>
 	<</if>>
 <<case "Attendant Select">>
-	<<if setup.attendantCareers.includes(_Slave.career)>>
-		<br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>@@.lime;Has applicable career experience.@@
+	<br><<if setup.attendantCareers.includes(_Slave.career)>>
+		<<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>@@.lime;Has applicable career experience.@@
 	<</if>>
+	[[Choose this slave as your attendant|Attendant Workaround][$i = _ssi]]
 <<case "Brothel">>
 	<br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>
 	<<if $Flag == 0>>
@@ -686,9 +704,10 @@
 		<<break>>
 	<</if>>
 <<case "Madam Select">>
-	<<if setup.madamCareers.includes(_Slave.career)>>
-		<br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>@@.lime;Has applicable career experience.@@
+	<br><<if setup.madamCareers.includes(_Slave.career)>>
+		<<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>@@.lime;Has applicable career experience.@@
 	<</if>>
+	[[Choose this slave as your madam|Madam Workaround][$i = _ssi]]
 <<case "Club">>
 	<br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>
 	<<if $Flag == 0>>
@@ -699,6 +718,8 @@
 		[[Change or remove DJ|DJ Select]]
 		<<break>>
 	<</if>>
+<<case "DJ Select">>
+	<br>[[Choose this slave as your DJ|DJ Workaround][$i = _ssi]]
 <<case "Arcade">>
 	<br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>
 	<<if $Flag == 0>>
@@ -707,8 +728,8 @@
 		[[Release her from the Arcade|Retrieve][$i = _ssi]]
 	<</if>>
 <<case "DJ Select">>
-	<<if setup.DJCareers.includes(_Slave.career)>>
-		<br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>@@.lime;Has applicable career experience.@@
+	<br><<if setup.DJCareers.includes(_Slave.career)>>
+		<<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>@@.lime;Has applicable career experience.@@
 	<</if>>
 <<case "Clinic">>
 	<br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>
@@ -724,9 +745,10 @@
 		<<break>>
 	<</if>>
 <<case "Nurse Select">>
-	<<if setup.nurseCareers.includes(_Slave.career)>>
-		<br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>@@.lime;Has applicable career experience.@@
+	<br><<if setup.nurseCareers.includes(_Slave.career)>>
+		<<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>@@.lime;Has applicable career experience.@@
 	<</if>>
+	[[Choose this slave as your nurse|Nurse Workaround][$i = _ssi]]
 <<case "Schoolroom">>
 	<br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>
 	<<if $Flag == 0>>
@@ -738,9 +760,10 @@
 		<<break>>
 	<</if>>
 <<case "Schoolteacher Select">>
-	<<if setup.schoolteacherCareers.includes(_Slave.career)>>
-		<br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>@@.lime;Has applicable career experience.@@
+	<br><<if setup.schoolteacherCareers.includes(_Slave.career)>>
+		<<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>@@.lime;Has applicable career experience.@@
 	<</if>>
+	[[Choose this slave as your schoolteacher|Schoolteacher Workaround][$i = _ssi]]
 <<case "Dairy">>
 	<br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>
 	<<if $Flag == 0>>
@@ -752,9 +775,10 @@
 		<<break>>
 	<</if>>
 <<case "Milkmaid Select">>
-	<<if setup.milkmaidCareers.includes(_Slave.career)>>
-		<br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>@@.lime;Has applicable career experience.@@
+	<br><<if setup.milkmaidCareers.includes(_Slave.career)>>
+		<<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>@@.lime;Has applicable career experience.@@
 	<</if>>
+	[[Choose this slave as your milkmaid|Milkmaid Workaround][$i = _ssi]]
 <<case "Servants' Quarters">>
 	<br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>
 	<<if $Flag == 0>>
@@ -766,11 +790,12 @@
 		<<break>>
 	<</if>>
 <<case "Stewardess Select">>
-	<<if setup.stewardessCareers.includes(_Slave.career)>>
-		<br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>@@.lime;Has applicable career experience.@@
+	<br><<if setup.stewardessCareers.includes(_Slave.career)>>
+		<<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>@@.lime;Has applicable career experience.@@
 	<</if>>
+	[[Choose this slave as your stewardess|Stewardess Workaround][$i = _ssi]]
 <<case "Master Suite">>
-<br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>
+	<br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>
 	<<if $Flag == 0>>
 		[[Add her to the Suite|Assign][$i = _ssi]]
 	<<elseif $Flag == 1>>
@@ -779,6 +804,9 @@
 		[[Change or remove Concubine|Concubine Select]]
 		<<break>>
 	<</if>>
+<<case "Concubine Select">>
+	<br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>
+	[[Choose as your concubine|Concubine Workaround][$i = _ssi]]
 <<case "Cellblock">>
 	<br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>
 	<<if $Flag == 0>>
@@ -790,8 +818,16 @@
 		<<break>>
 	<</if>>
 <<case "Wardeness Select">>
-	<<if setup.wardenessCareers.includes(_Slave.career)>>
-		<br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>@@.lime;Has applicable career experience.@@
+	<br><<if setup.wardenessCareers.includes(_Slave.career)>>
+		<<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>@@.lime;Has applicable career experience.@@
+	<</if>>
+	[[Choose as your wardeness|Wardeness Workaround][$i = _ssi]]
+<<case "Coursing Association">>
+	<br>
+	<<if $Flag == 0>>
+		[[Assign as a lurcher|Assign][$i = _ssi]]
+	<<else>>
+		[[Fire her|Retrieve][$i = _ssi]]
 	<</if>>
 <<case "New Game Plus">>
 	<br><<if $seeImages != 1 || $seeSummaryImages != 1 || $imageChoice == 1>>&nbsp;&nbsp;&nbsp;&nbsp;<</if>>
